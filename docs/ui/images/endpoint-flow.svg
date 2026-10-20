@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img">
+<title>Endpoint graph showing inline function flow, async work, foreach, and joining branches</title>
+<style>text{font-family:system-ui,sans-serif;fill:#263244;font-size:15px}.small{font-size:12px;fill:#596579}.label{font-size:13px;fill:#596579}.title{font-size:18px;font-weight:600}.code{font-family:monospace;font-size:13px}</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7b8796"/></marker></defs>
+<rect width="1000" height="1000" fill="#ffffff"/>
+<text x="30" y="35" class="title" text-anchor="start">Endpoint flow</text>
+<text x="30" y="59" class="small" text-anchor="start">Function bodies expand at the call site; control flow remains visible.</text>
+<rect x="325" y="80" width="270" height="44" rx="8" fill="#fff" stroke="#dce2e9"/>
+<text x="460.0" y="107.0" class="" text-anchor="middle">Read order</text>
+<path d="M 460 124 V 151" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="245" y="155" width="430" height="235" rx="8" fill="#edf8f0" stroke="#dce2e9"/>
+<text x="265" y="181" class="" text-anchor="start">⌄ validateAccess(user, operation)</text>
+<text x="265" y="203" class="small" text-anchor="start">Shared function · changed</text>
+<polygon points="460,215 575,244 460,273 345,244" fill="#fff" stroke="#cad7cc"/>
+<text x="460" y="248" class="code" text-anchor="middle">hasPermission(...)</text>
+<path d="M 345 244 H 310 V 291" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M 575 244 H 610 V 291" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="316" y="278" class="small" text-anchor="start">true</text>
+<text x="577" y="278" class="small" text-anchor="start">false</text>
+<rect x="265" y="295" width="145" height="34" rx="8" fill="#fff" stroke="#dce2e9"/>
+<text x="337.5" y="317.0" class="" text-anchor="middle">allowed = true</text>
+<rect x="510" y="295" width="145" height="34" rx="8" fill="#fff" stroke="#dce2e9"/>
+<text x="582.5" y="317.0" class="" text-anchor="middle">allowed = false</text>
+<path d="M 337 329 V 345 H 460 V 355" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M 582 329 V 345 H 460" fill="none" stroke="#7b8796" stroke-width="1.5"/>
+<text x="460" y="377" class="code" text-anchor="middle">return allowed</text>
+<path d="M 460 390 V 415" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="325" y="420" width="270" height="44" rx="8" fill="#fff" stroke="#dce2e9"/>
+<text x="460.0" y="447.0" class="" text-anchor="middle">start checkStock(order.items)</text>
+<path d="M 460 464 V 494" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M 595 442 H 835 V 494" fill="none" stroke="#7b8796" stroke-width="1.5" stroke-dasharray="4 5" marker-end="url(#arrow)"/>
+<rect x="715" y="495" width="240" height="176" rx="8" fill="#eaf5f6" stroke="#dce2e9"/>
+<text x="735" y="520" class="" text-anchor="start">⌄ checkStock(items)</text>
+<rect x="740" y="540" width="190" height="38" rx="8" fill="#fff" stroke="#dce2e9"/>
+<text x="835.0" y="564.0" class="" text-anchor="middle">Query inventory</text>
+<path d="M 835 578 V 599" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="740" y="603" width="190" height="38" rx="8" fill="#fff" stroke="#dce2e9"/>
+<text x="835.0" y="627.0" class="" text-anchor="middle">Return availability</text>
+<rect x="325" y="499" width="270" height="44" rx="8" fill="#fdf3e5" stroke="#dce2e9"/>
+<text x="460.0" y="526.0" class="" text-anchor="middle">▸ Build FulfilmentRequest</text>
+<path d="M 460 543 V 568" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="300" y="572" width="320" height="154" rx="8" fill="#f2edfa" stroke="#dce2e9"/>
+<text x="315" y="599" class="code" text-anchor="start">foreach var item in order.items</text>
+<rect x="330" y="618" width="260" height="37" rx="8" fill="#edf3fc" stroke="#dce2e9"/>
+<text x="460.0" y="641.5" class="" text-anchor="middle">▸ buildShipment(item)</text>
+<path d="M 460 655 V 676" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="460" y="703" class="" text-anchor="middle">Append shipment</text>
+<path d="M 460 726 V 751" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="325" y="755" width="270" height="44" rx="8" fill="#fff" stroke="#dce2e9"/>
+<text x="460.0" y="782.0" class="" text-anchor="middle">wait stockCheck</text>
+<path d="M 835 671 V 777 H 595" fill="none" stroke="#7b8796" stroke-width="1.5" stroke-dasharray="4 5" marker-end="url(#arrow)"/>
+<text x="846" y="719" class="small" text-anchor="start">stockCheck</text>
+<path d="M 460 799 V 820" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<polygon points="460,823 565,850 460,877 355,850" fill="#f5f6f8" stroke="#dce2e9"/>
+<text x="460" y="854" class="code" text-anchor="middle">stock.available</text>
+<path d="M 355 850 H 235 V 889" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M 565 850 H 685 V 889" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="248" y="872" class="small" text-anchor="start">true</text>
+<text x="646" y="872" class="small" text-anchor="start">false</text>
+<rect x="135" y="893" width="200" height="35" rx="8" fill="#fff" stroke="#dce2e9"/>
+<text x="235.0" y="915.5" class="" text-anchor="middle">status = &quot;ready&quot;</text>
+<rect x="585" y="893" width="200" height="35" rx="8" fill="#fff" stroke="#dce2e9"/>
+<text x="685.0" y="915.5" class="" text-anchor="middle">status = &quot;backorder&quot;</text>
+<path d="M 235 928 V 945 H 460 V 960" fill="none" stroke="#7b8796" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M 685 928 V 945 H 460" fill="none" stroke="#7b8796" stroke-width="1.5"/>
+<text x="460" y="984" class="" text-anchor="middle">Save order → return response</text>
+</svg>

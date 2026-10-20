@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="760" viewBox="0 0 1100 760" role="img"><title>Expanded endpoint: full-workspace graph with draggable floating chat</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7b8796"/></marker><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r=".7" fill="#dce2e9"/></pattern></defs>
+<rect x="0" y="0" width="1100" height="760" rx="0" fill="#fff" stroke="#dce2e9"/>
+<rect x="12" y="12" width="1076" height="736" rx="7" fill="#fff" stroke="#dce2e9"/>
+<rect x="12" y="12" width="1076" height="50" rx="7" fill="#f7f8fa" stroke="#dce2e9"/>
+<text x="30" y="44" font-family="system-ui,sans-serif" font-size="18" font-weight="600" fill="#263244" text-anchor="start">bal-bot</text>
+<text x="180" y="43" font-family="system-ui,sans-serif" font-size="14" font-weight="400" fill="#263244" text-anchor="start">Commerce / Order service</text>
+<rect x="976" y="25" width="25" height="25" rx="4" fill="#eaf0f8" stroke="#dce2e9"/>
+<rect x="1012" y="25" width="25" height="25" rx="4" fill="#eaf0f8" stroke="#dce2e9"/>
+<rect x="1048" y="25" width="25" height="25" rx="4" fill="#eaf0f8" stroke="#dce2e9"/>
+<path d="M983 32H993V43M983 32V43" stroke="#7b8796" stroke-width="1.5" fill="none"/>
+<rect x="980" y="30" width="5" height="5" rx="1" fill="#fff" stroke="#dce2e9"/>
+<rect x="990" y="41" width="5" height="5" rx="1" fill="#fff" stroke="#dce2e9"/>
+<text x="1024" y="43" font-family="system-ui,sans-serif" font-size="16" font-weight="400" fill="#263244" text-anchor="middle">±</text>
+<text x="1060" y="43" font-family="system-ui,sans-serif" font-size="16" font-weight="400" fill="#263244" text-anchor="middle">↙</text>
+<rect x="13" y="63" width="1074" height="684" rx="0" fill="url(#grid)" stroke="none"/>
+<rect x="520" y="91" width="340" height="40" rx="7" fill="#fff" stroke="#dce2e9"/>
+<text x="690.0" y="116" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#263244" text-anchor="middle">Read order</text>
+<path d="M690.0 131V151" stroke="#7b8796" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="520" y="156" width="340" height="40" rx="7" fill="#edf8f0" stroke="#dce2e9"/>
+<text x="690.0" y="181" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#263244" text-anchor="middle">▸ validateAccess(...)</text>
+<path d="M690.0 196V216" stroke="#7b8796" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<polygon points="690.0,220 860,249 690.0,278 520,249" fill="#f4f6f9" stroke="#dce2e9"/>
+<text x="690.0" y="253" font-family="system-ui,sans-serif" font-size="12" font-weight="400" fill="#263244" text-anchor="middle">order.isExpress</text>
+<path d="M520 249V299H601.5V314" stroke="#7b8796" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M860 249V299H778.5V314" stroke="#7b8796" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<text x="525" y="291" font-family="system-ui,sans-serif" font-size="11" font-weight="400" fill="#596579" text-anchor="start">true</text>
+<text x="855" y="291" font-family="system-ui,sans-serif" font-size="11" font-weight="400" fill="#596579" text-anchor="end">false</text>
+<rect x="520" y="319" width="163.0" height="40" rx="7" fill="#fff" stroke="#dce2e9"/>
+<text x="601.5" y="344" font-family="system-ui,sans-serif" font-size="11" font-weight="400" fill="#263244" text-anchor="middle">Express fee</text>
+<rect x="697.0" y="319" width="163.0" height="40" rx="7" fill="#fff" stroke="#dce2e9"/>
+<text x="778.5" y="344" font-family="system-ui,sans-serif" font-size="11" font-weight="400" fill="#263244" text-anchor="middle">Standard fee</text>
+<path d="M601.5 359V379H690.0V399" stroke="#7b8796" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M778.5 359V379H690.0" stroke="#7b8796" stroke-width="1.5" fill="none"/>
+<rect x="520" y="404" width="340" height="40" rx="7" fill="#fdf3e5" stroke="#dce2e9"/>
+<text x="690.0" y="429" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#263244" text-anchor="middle">▸ Build request</text>
+<path d="M690.0 444V464" stroke="#7b8796" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="520" y="469" width="340" height="126" rx="7" fill="#f2edfa" stroke="#dce2e9"/>
+<text x="690.0" y="490" font-family="system-ui,sans-serif" font-size="11" font-weight="400" fill="#263244" text-anchor="middle">foreach item in order.items</text>
+<rect x="528" y="506" width="324" height="40" rx="7" fill="#edf3fc" stroke="#dce2e9"/>
+<text x="690.0" y="531" font-family="system-ui,sans-serif" font-size="11" font-weight="400" fill="#263244" text-anchor="middle">▸ buildShipment(item)</text>
+<path d="M690.0 546V562" stroke="#7b8796" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<text x="690.0" y="583" font-family="system-ui,sans-serif" font-size="12" font-weight="400" fill="#263244" text-anchor="middle">Append shipment</text>
+<path d="M690.0 595V615" stroke="#7b8796" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="520" y="620" width="340" height="40" rx="7" fill="#edf3fc" stroke="#dce2e9"/>
+<text x="690.0" y="645" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#263244" text-anchor="middle">▸ saveOrder(request)</text>
+<path d="M690.0 660V680" stroke="#7b8796" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="520" y="685" width="340" height="40" rx="7" fill="#fff" stroke="#dce2e9"/>
+<text x="690.0" y="710" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#263244" text-anchor="middle">Return 202</text>
+<rect x="47" y="179" width="386" height="402" rx="10" fill="#0000000a" stroke="none"/>
+<rect x="43" y="173" width="386" height="402" rx="10" fill="#fff" stroke="#dce2e9"/>
+<rect x="43" y="173" width="386" height="43" rx="10" fill="#f4f6f9" stroke="#dce2e9"/>
+<text x="60" y="201" font-family="system-ui,sans-serif" font-size="18" font-weight="400" fill="#596579" text-anchor="start">⠿</text>
+<text x="85" y="200" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="#263244" text-anchor="start">Chat</text>
+<path d="M390 187V203M382 195H398" stroke="#7b8796" stroke-width="1.5" fill="none"/>
+<text x="64" y="248" font-family="system-ui,sans-serif" font-size="12" font-weight="400" fill="#596579" text-anchor="start">You</text>
+<text x="64" y="275" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#263244" text-anchor="start">Use the shared permission check.</text>
+<text x="64" y="324" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="#263244" text-anchor="start">bal-bot</text>
+<text x="64" y="353" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#263244" text-anchor="start">Updated validateAccess.</text>
+<text x="64" y="379" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#263244" text-anchor="start">The shipping flow is unchanged.</text>
+<rect x="61" y="466" width="350" height="88" rx="7" fill="#fff" stroke="#dce2e9"/>
+<text x="77" y="495" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#596579" text-anchor="start">Describe the next change…</text>
+<text x="49" y="610" font-family="system-ui,sans-serif" font-size="12" font-weight="400" fill="#596579" text-anchor="start">Drag the chat header to reposition the window.</text>
+<rect x="949" y="686" width="117" height="37" rx="7" fill="#fff" stroke="#dce2e9"/>
+<text x="963" y="710" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#263244" text-anchor="start">−   100%   +</text>
+</svg>
