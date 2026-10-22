@@ -9,7 +9,7 @@ export default defineConfig({
     { name: 'production', use: { baseURL: 'http://127.0.0.1:5182' } },
   ],
   webServer: [
-    { command: 'node scripts/compiler_browser_server.mjs', url: 'http://127.0.0.1:5181/apps/editor/tests/browser/harness.html', timeout: 120000 },
-    { command: 'node scripts/compiler_browser_server.mjs --production', url: 'http://127.0.0.1:5182/apps/editor/tests/browser/harness.html', timeout: 120000 },
+    { reuseExistingServer: !process.env.CI, command: 'node scripts/compiler_browser_server.mjs', url: 'http://127.0.0.1:5181/apps/editor/tests/browser/harness.html', timeout: 120000 },
+    { reuseExistingServer: !process.env.CI, command: 'node scripts/compiler_browser_server.mjs --production', url: 'http://127.0.0.1:5182/apps/editor/tests/browser/harness.html', timeout: 120000 },
   ],
 });

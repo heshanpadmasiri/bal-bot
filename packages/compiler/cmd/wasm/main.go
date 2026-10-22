@@ -9,7 +9,7 @@ import (
 	"syscall/js"
 )
 
-func checkJSON(request string) (response string) {
+func requestJSON(request string) (response string) {
 	failure := func(err any) string {
 		data, _ := json.Marshal(map[string]any{"kind": "failure", "message": fmt.Sprint(err)})
 		return string(data)
@@ -20,16 +20,26 @@ func checkJSON(request string) (response string) {
 		}
 	}()
 	var input struct {
-		Files compiler.Files `json:"files"`
+		Operation string         `json:"operation"`
+		Files     compiler.Files `json:"files"`
 	}
 	if err := json.Unmarshal([]byte(request), &input); err != nil {
 		return failure(err)
 	}
-	result, err := compiler.Check(input.Files)
+	var result any
+	var err error
+	switch input.Operation {
+	case "check":
+		result, err = compiler.Check(input.Files)
+	case "analyze":
+		result, err = compiler.Analyze(input.Files)
+	default:
+		return failure("Invalid compiler operation")
+	}
 	if err != nil {
 		return failure(err)
 	}
-	data, err := json.Marshal(map[string]any{"kind": "result", "result": result})
+	data, err := json.Marshal(map[string]any{"kind": "result", "operation": input.Operation, "result": result})
 	if err != nil {
 		return failure(err)
 	}
@@ -40,10 +50,10 @@ func main() {
 		if len(args) != 1 || args[0].Type() != js.TypeString {
 			return `{"kind":"failure","message":"Invalid bridge request"}`
 		}
-		return checkJSON(args[0].String())
+		return requestJSON(args[0].String())
 	})
 	defer callback.Release()
-	js.Global().Set("balBotCheck", callback)
+	js.Global().Set("balBotCompilerRequest", callback)
 	js.Global().Call("balBotReady")
 	select {}
 }

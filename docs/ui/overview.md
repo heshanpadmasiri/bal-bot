@@ -2,6 +2,12 @@
 
 bal-bot is a web development environment for Ballerina services. Developers describe changes in chat and inspect the resulting code or flow.
 
+## First-iteration scope
+
+The source-flow implementation follows the layouts below with these exclusions: no manual zoom, diff/checkpoints/green changes, dedicated mapping expansion, async relationships, configurable discovery, or execution runtime. Flow scales down to fit the panel width with side margins; tall diagrams scroll vertically. Full-workspace expansion provides a larger view. Configurables are unsupported by the pinned Nutcracker version; runnable fixtures use supported features. Unsupported visualization effects keep exact source and an explicit limitation, with uncertain continuation edges omitted. Main functions appear as Automation when there are no services.
+
+The remaining overview and images describe the longer-term UI where they include those deferred features.
+
 ## Workspace
 
 ![Workspace layout](images/workspace.svg)

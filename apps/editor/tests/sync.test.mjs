@@ -1,3 +1,4 @@
+import { analyze, testAgentScope } from '../../../packages/browser-workspace/tests/fixtures.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, readFile, writeFile, readdir, rm, symlink } from 'node:fs/promises';
@@ -47,7 +48,7 @@ async function fixture(t) {
     return ws;
   }
   function browser(store = storage(), connector = connect) {
-    const workspace = new BrowserWorkspace(store, { projectId: project.id, projectName: project.name, streamFn() { throw new Error('Unexpected model request'); } });
+    const workspace = new BrowserWorkspace(store, { projectId: project.id, projectName: project.name, compiler: {analyze}, streamFn() { throw new Error('Unexpected model request'); } });
     const controller = createWorkspaceSync({ workspace, connect: connector, retryMs: 20, timeoutMs: 1000 });
     clients.push(controller);
     controller.start();

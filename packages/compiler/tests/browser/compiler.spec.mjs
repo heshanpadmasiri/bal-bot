@@ -40,7 +40,7 @@ test('cancellation during bridge compilation terminates its worker', async ({ pa
     const response = await route.fetch();
     const instrumentation = `
       let check;
-      Object.defineProperty(globalThis, 'balBotCheck', {
+      Object.defineProperty(globalThis, 'balBotCompilerRequest', {
         get() { return check; },
         set(fn) { check = request => { postMessage({ compilerStarted: true }); return fn(request); }; }
       });`;
@@ -73,7 +73,7 @@ for (const failure of ['missing wasm', 'invalid wasm', 'runtime exit', 'missing 
         ? 'globalThis.Go = class { importObject = {}; async run() { throw Error("runtime crashed"); } };'
         : failure === 'missing bridge'
           ? 'globalThis.Go = class { importObject = {}; async run() { globalThis.balBotReady(); await new Promise(() => {}); } };'
-          : 'globalThis.Go = class { importObject = {}; async run() { globalThis.balBotCheck = () => "{}"; globalThis.balBotReady(); await new Promise(() => {}); } };';
+          : 'globalThis.Go = class { importObject = {}; async run() { globalThis.balBotCompilerRequest = () => "{}"; globalThis.balBotReady(); await new Promise(() => {}); } };';
       await page.route('**/compiler/wasm_exec.js', route => route.fulfill({ contentType: 'text/javascript', body }));
       // Tiny valid WASM avoids requiring the fake runtime's import object.
       await page.route('**/compiler/ballerina-compiler.wasm', route => route.fulfill({ body: Buffer.from([0,97,115,109,1,0,0,0]) }));

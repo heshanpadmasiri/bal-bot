@@ -1,3 +1,4 @@
+import { analyze, testAgentScope } from './fixtures.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { BrowserWorkspace, STORAGE_KEY } from '../src/workspace.ts';
@@ -72,7 +73,7 @@ test('subscribers see changes and can unsubscribe', () => {
 });
 
 test('service discovery retains the anchor and its agent over shared workspace files', async () => {
-  const workspace = new BrowserWorkspace(storage(), { streamFn() { throw new Error('No model request expected'); } });
+  const workspace = new BrowserWorkspace(storage(), { compiler: {analyze}, streamFn() { throw new Error('No model request expected'); } });
   const [service] = await workspace.getServices();
   assert.equal((await workspace.getServices())[0], service);
   assert.equal(service.kind, 'http');
@@ -84,5 +85,5 @@ test('service discovery retains the anchor and its agent over shared workspace f
   await agent.state.tools.find(tool => tool.name === 'write_file').execute('test', { path: 'shared.bal', content: '// shared' });
   assert.equal(workspace.read('shared.bal'), '// shared');
   await assert.rejects(service.getDiff(), /not implemented/);
-  await assert.rejects(service.getFlowUI(), /not implemented/);
+  assert.deepEqual((await service.getFlowUI()).selection, {kind:'definitions',scopeId:service.id});
 });

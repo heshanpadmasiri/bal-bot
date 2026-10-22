@@ -4,28 +4,34 @@ export type { Agent, AgentMessage } from '@earendil-works/pi-agent-core';
 export type { Files, SyncState, SyncStatus } from './sync-protocol.ts';
 import type { Files, SyncState } from './sync-protocol.ts';
 
-export const ServiceKind = { HTTP: 'http' } as const;
-export type ServiceKind = typeof ServiceKind[keyof typeof ServiceKind];
-export const EndpointKind = {} as const;
-export type EndpointKind = never;
+export type ServiceKind = string | null;
+export type EndpointKind = 'resource' | 'remote';
 
 declare const opaque: unique symbol;
 export type Diff = { readonly [opaque]: 'Diff' };
-export type FlowUI = { readonly [opaque]: 'FlowUI' };
+export type * from './flow.ts';
+import type { FlowUI, Id, AnalysisState } from './flow.ts';
 
 export interface Anchor {
+  readonly id: Id;
+  readonly title: string;
   getAgent(): Promise<Agent>;
   getDiff(): Promise<Diff>;
-  getFlowUI(): Promise<FlowUI>;
+  getFlowUI(signal?: AbortSignal): Promise<FlowUI>;
 }
 export interface Service extends Anchor {
+  readonly scopeKind: 'service';
   readonly kind: ServiceKind;
   getEndpoints(): readonly Endpoint[];
 }
 export interface Endpoint extends Anchor {
+  readonly serviceId: Id;
   readonly kind: EndpointKind;
   readonly title: string;
 }
+
+export interface Automation extends Anchor { readonly scopeKind: 'automation'; }
+export type WorkspaceScope = Service | Automation;
 
 // File operations already used by the source editor and workspace tools.
 export interface Workspace {
@@ -34,6 +40,9 @@ export interface Workspace {
   syncSnapshot(): SyncState;
   subscribeSync(listener: () => void): () => void;
   getServices(): Promise<readonly Service[]>;
+  getScopes(): Promise<readonly WorkspaceScope[]>;
+  analysisSnapshot(): AnalysisState;
+  subscribeAnalysis(listener: () => void): () => void;
   getDiagnostics(signal?: AbortSignal): Promise<DiagnosticsResult>;
   snapshot(): Files;
   subscribe(listener: () => void): () => void;
@@ -56,3 +65,5 @@ export interface Diagnostic {
 }
 export interface CompilationResult { readonly diagnostics: readonly Diagnostic[]; }
 export interface DiagnosticsResult extends CompilationResult { readonly stale: boolean; }
+
+export { sourceText } from './source.ts';

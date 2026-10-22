@@ -1,4 +1,5 @@
-<!doctype html><html><head><title>Compiler integration</title></head><body><script type="module">
+<!doctype html><html><head><title>Compiler integration</title></head><body><div id="editor-root"></div><script type="module">
+import './mount.tsx';
 import { createCompiler } from '/packages/compiler/src/index.ts';
 import { BrowserWorkspace, initialFiles } from '/packages/browser-workspace/src/workspace.ts';
 window.compiler = createCompiler();

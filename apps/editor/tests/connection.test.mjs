@@ -1,3 +1,4 @@
+import { analyze, testAgentScope } from '../../../packages/browser-workspace/tests/fixtures.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createModels } from '@earendil-works/pi-ai';
@@ -38,7 +39,7 @@ test('browser PI executes streamed file tools and sends results back through the
     return response([{ type: 'done', reason: output.stopReason, message: output }]);
   };
   const workspace = new BrowserWorkspace({ getItem: () => null, setItem() {} });
-  const agent = createWorkspaceAgent(workspace, model, streamServer);
+  const agent = createWorkspaceAgent(workspace, model, streamServer, testAgentScope);
   await agent.prompt('Create generated.bal');
   assert.equal(workspace.read('generated.bal'), '// hello from PI');
   assert.equal(requests.length, 2);
@@ -73,7 +74,7 @@ test('stopping a browser agent aborts the proxied request and settles the turn',
     options.signal.addEventListener('abort', () => reject(options.signal.reason), { once: true });
   });
   const workspace = new BrowserWorkspace({ getItem: () => null, setItem() {} });
-  const agent = createWorkspaceAgent(workspace, model, streamServer);
+  const agent = createWorkspaceAgent(workspace, model, streamServer, testAgentScope);
   const pending = agent.prompt('Wait');
   await started;
   agent.abort();
@@ -109,7 +110,7 @@ test('agent repairs source after diagnostics and rechecks the retained workspace
   };
   const workspace = new BrowserWorkspace({ getItem: () => null, setItem() {} }, {
     streamFn: streamServer,
-    compiler: { async check(files) { return { diagnostics: files['main.bal'].includes('bad') ? [{ severity: 'error', message: 'type error', file: 'main.bal' }] : [] }; } },
+    compiler: { analyze, async check(files) { return { diagnostics: files['main.bal'].includes('bad') ? [{ severity: 'error', message: 'type error', file: 'main.bal' }] : [] }; } },
   });
   const [service] = await workspace.getServices();
   const agent = await service.getAgent();

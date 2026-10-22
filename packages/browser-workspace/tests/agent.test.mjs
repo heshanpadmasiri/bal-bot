@@ -1,3 +1,4 @@
+import { analyze, testAgentScope } from './fixtures.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { workspaceTools, createWorkspaceAgent } from '../src/index.ts';
@@ -27,7 +28,7 @@ test('PI uses only workspace tools without browser credentials', () => {
   const workspace = new BrowserWorkspace({ getItem: () => null, setItem: () => {} });
   const models = createModels();
   models.setProvider(openaiProvider());
-  const agent = createWorkspaceAgent(workspace, models.getModels('openai')[0], () => { throw new Error('No request expected'); });
+  const agent = createWorkspaceAgent(workspace, models.getModels('openai')[0], () => { throw new Error('No request expected'); }, testAgentScope);
   assert.equal(agent.getApiKey, undefined);
   assert.deepEqual(agent.state.tools.map(t => t.name), ['get_diagnostics', 'list_files', 'read_file', 'write_file', 'edit_file', 'delete_file']);
   assert.match(agent.state.systemPrompt, /No shell or execution runtime/);

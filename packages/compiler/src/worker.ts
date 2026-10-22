@@ -1,13 +1,13 @@
-import { validateRequest, validateResponse, type CheckRequest, type CheckResponse, type CompilerBridge } from './protocol.ts';
+import { validateRequest, validateResponse, type CompilerRequest, type CompilerResponse, type CompilerBridge } from './protocol.ts';
 
 // Module workers cannot use importScripts. Load the generated classic Go runtime
 // as a module; it installs Go on globalThis and has no module exports.
 const scope = globalThis as unknown as {
   Go: new () => { importObject: WebAssembly.Imports; run(instance: WebAssembly.Instance): Promise<void>; exit(code: number): void };
-  balBotCheck?: (request: string) => string;
+  balBotCompilerRequest?: (request: string) => string;
   balBotReady?: () => void;
   onmessage: ((event: MessageEvent<unknown>) => void) | null;
-  postMessage(response: CheckResponse): void;
+  postMessage(response: CompilerResponse): void;
 };
 let runtimeFailure: Error | undefined;
 let rejectRuntime: (error: Error) => void;
@@ -37,18 +37,18 @@ async function loadCompiler(): Promise<CompilerBridge> {
   });
   try { await Promise.race([bridgeReady, runtimeStopped, readinessTimeout]); }
   finally { clearTimeout(timeout); delete scope.balBotReady; }
-  if (typeof scope.balBotCheck !== 'function') throw new Error('Compiler bridge did not initialize.');
-  return { check(request) {
+  if (typeof scope.balBotCompilerRequest !== 'function') throw new Error('Compiler bridge did not initialize.');
+  return { request(json) {
     if (runtimeFailure) throw runtimeFailure;
-    const result = scope.balBotCheck!(request);
+    const result = scope.balBotCompilerRequest!(json);
     if (runtimeFailure) throw runtimeFailure;
     return result;
   } };
 }
-async function handleCheck(request: CheckRequest): Promise<CheckResponse> {
+async function handleRequest(request: CompilerRequest): Promise<CompilerResponse> {
   try {
     const bridge = await loadCompiler();
-    const result = validateResponse(JSON.parse(bridge.check(JSON.stringify(request))));
+    const result = validateResponse(JSON.parse(bridge.request(JSON.stringify(request))));
     // Flush Go's completion promise before reporting successful diagnostics.
     await Promise.race([Promise.resolve(), runtimeStopped]);
     if (runtimeFailure) throw runtimeFailure;
@@ -57,6 +57,6 @@ async function handleCheck(request: CheckRequest): Promise<CheckResponse> {
 }
 scope.onmessage = async event => {
   scope.onmessage = null;
-  try { scope.postMessage(await handleCheck(validateRequest(event.data))); }
+  try { scope.postMessage(await handleRequest(validateRequest(event.data))); }
   catch (error) { scope.postMessage({ kind: 'failure', message: String(error) }); }
 };

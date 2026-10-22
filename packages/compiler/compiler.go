@@ -59,50 +59,13 @@ func Check(files Files) (result Result, err error) {
 			err = fmt.Errorf("compiler panic: %v", p)
 		}
 	}()
-	sources, err := sourceFS(files)
-	if err != nil {
-		return Result{}, err
+	sources, validated, err := projectInput(files)
+	result = validated
+	if err != nil || len(result.Diagnostics) > 0 {
+		return result, err
 	}
 	input := func(file, message string) Diagnostic {
 		return Diagnostic{Severity: Error, Code: "PROJECT_INPUT", File: file, Message: message}
-	}
-	result.Diagnostics = []Diagnostic{}
-	// Reject unsupported sources before loading: upstream test compilation is incomplete.
-	for name := range files {
-		parts := strings.Split(name, "/")
-		test := parts[0] == "tests" || (len(parts) >= 4 && parts[0] == "modules" && parts[2] == "tests")
-		resource := parts[0] == "resources" || (len(parts) >= 4 && parts[0] == "modules" && parts[2] == "resources")
-		if strings.HasSuffix(name, ".bal") {
-			if test {
-				result.Diagnostics = append(result.Diagnostics, input(name, "Compilation of Ballerina test sources is unsupported."))
-			} else if len(parts) != 1 && !(len(parts) == 3 && parts[0] == "modules") && !resource {
-				result.Diagnostics = append(result.Diagnostics, input(name, "Unsupported project source layout; expected root sources or modules/<module>/*.bal."))
-			}
-		}
-		if name == "Bala.toml" {
-			result.Diagnostics = append(result.Diagnostics, input(name, "Bala project layouts are unsupported; expected one root source package."))
-		}
-		if path.Base(name) == "Ballerina.toml" && name != "Ballerina.toml" {
-			result.Diagnostics = append(result.Diagnostics, input(name, "Nested Ballerina packages are unsupported."))
-		}
-	}
-	if len(result.Diagnostics) > 0 {
-		sortDiagnostics(result.Diagnostics)
-		return result, nil
-	}
-	manifest, ok := files["Ballerina.toml"]
-	if !ok {
-		result.Diagnostics = append(result.Diagnostics, input("Ballerina.toml", "Missing Ballerina.toml for the root package."))
-		return result, nil
-	}
-	toml, parseErr := tomlparser.ReadString(manifest)
-	if parseErr != nil {
-		result.Diagnostics = append(result.Diagnostics, input("Ballerina.toml", parseErr.Error()))
-		return result, nil
-	}
-	if _, workspace := toml.GetTable("workspace"); workspace {
-		result.Diagnostics = append(result.Diagnostics, input("Ballerina.toml", "Workspace project layouts are unsupported; expected one root package."))
-		return result, nil
 	}
 	// Use only embedded libraries: no user caches, downloaded packages, or native
 	// implementations are needed to check the project frontend.
@@ -293,4 +256,55 @@ func position(source string, byteOffset int) (Position, error) {
 		}
 	}
 	return p, nil
+}
+
+func projectInput(files Files) (fs.FS, Result, error) {
+	var result Result
+	sources, err := sourceFS(files)
+	if err != nil {
+		return nil, Result{}, err
+	}
+	input := func(file, message string) Diagnostic {
+		return Diagnostic{Severity: Error, Code: "PROJECT_INPUT", File: file, Message: message}
+	}
+	result.Diagnostics = []Diagnostic{}
+	// Reject unsupported sources before loading: upstream test compilation is incomplete.
+	for name := range files {
+		parts := strings.Split(name, "/")
+		test := parts[0] == "tests" || (len(parts) >= 4 && parts[0] == "modules" && parts[2] == "tests")
+		resource := parts[0] == "resources" || (len(parts) >= 4 && parts[0] == "modules" && parts[2] == "resources")
+		if strings.HasSuffix(name, ".bal") {
+			if test {
+				result.Diagnostics = append(result.Diagnostics, input(name, "Compilation of Ballerina test sources is unsupported."))
+			} else if len(parts) != 1 && !(len(parts) == 3 && parts[0] == "modules") && !resource {
+				result.Diagnostics = append(result.Diagnostics, input(name, "Unsupported project source layout; expected root sources or modules/<module>/*.bal."))
+			}
+		}
+		if name == "Bala.toml" {
+			result.Diagnostics = append(result.Diagnostics, input(name, "Bala project layouts are unsupported; expected one root source package."))
+		}
+		if path.Base(name) == "Ballerina.toml" && name != "Ballerina.toml" {
+			result.Diagnostics = append(result.Diagnostics, input(name, "Nested Ballerina packages are unsupported."))
+		}
+	}
+	if len(result.Diagnostics) > 0 {
+		sortDiagnostics(result.Diagnostics)
+		return sources, result, nil
+	}
+	manifest, ok := files["Ballerina.toml"]
+	if !ok {
+		result.Diagnostics = append(result.Diagnostics, input("Ballerina.toml", "Missing Ballerina.toml for the root package."))
+		return sources, result, nil
+	}
+	toml, parseErr := tomlparser.ReadString(manifest)
+	if parseErr != nil {
+		result.Diagnostics = append(result.Diagnostics, input("Ballerina.toml", parseErr.Error()))
+		return sources, result, nil
+	}
+	if _, workspace := toml.GetTable("workspace"); workspace {
+		result.Diagnostics = append(result.Diagnostics, input("Ballerina.toml", "Workspace project layouts are unsupported; expected one root package."))
+		return sources, result, nil
+	}
+
+	return sources, result, nil
 }
