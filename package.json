@@ -1,0 +1,33 @@
+{
+  "name": "bal-bot",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "node server/index.mjs",
+    "build": "tsc && vite build",
+    "preview": "node server/index.mjs --production",
+    "test": "node --test tests/*.test.mjs",
+    "start": "node server/index.mjs --production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@earendil-works/pi-agent-core": "^1.4.0",
+    "@earendil-works/pi-ai": "^1.4.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sirv": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  },
+  "private": true
+}

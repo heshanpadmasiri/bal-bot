@@ -7,7 +7,7 @@ bal-bot is a web development environment for Ballerina services. Developers desc
 ![Workspace layout](images/workspace.svg)
 
 - **Left, 20%:** projects → services → endpoints. The selected item identifies the working scope; do not repeat the endpoint name elsewhere.
-- **Center, 60%:** chat. Selecting a service allows work across the whole service. Selecting an endpoint narrows the context without replacing the conversation.
+- **Center, 60%:** chat. Each service and endpoint has its own agent and conversation. Selecting an item switches to its conversation; returning to it restores that conversation. The selected service or endpoint guides the agent's focus, while all agents can edit any file in the workspace.
 - **Right, 20%:** flow or code diff. Small, right-aligned icons in the top bar switch views and expand/collapse the panel.
 
 Expanded inspection fills the workspace below the top bar, taking over both the navigation and chat areas. Chat becomes a floating window that the developer can drag around the canvas. Collapsing inspection restores the 20/60/20 layout, preserving the conversation, selected scope, and expanded flow nodes.
