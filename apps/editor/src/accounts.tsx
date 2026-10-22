@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { api, type LoginState, type ProviderAccount } from './connection';
 
+const providers = [{ id: 'openai', name: 'OpenAI', description: 'ChatGPT' }, { id: 'anthropic', name: 'Anthropic', description: 'Claude' }];
+
 interface Props {
   accounts: ProviderAccount[];
   provider: string;
@@ -16,6 +18,25 @@ export function Accounts({ accounts, provider, busy, chooseProvider, refresh, lo
   const [answer, setAnswer] = useState('');
   const [working, setWorking] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const picker = useRef<HTMLDivElement>(null);
+  const pickerButton = useRef<HTMLButtonElement>(null);
+  const selectedProvider = providers.find(option => option.id === provider)!;
+  useEffect(() => {
+    if (!pickerOpen) return;
+    function dismiss(event: PointerEvent) {
+      if (!picker.current?.contains(event.target as Node)) setPickerOpen(false);
+    }
+    function escape(event: KeyboardEvent) {
+      if (event.key === 'Escape') { setPickerOpen(false); pickerButton.current?.focus(); }
+    }
+    document.addEventListener('pointerdown', dismiss);
+    document.addEventListener('keydown', escape);
+    return () => {
+      document.removeEventListener('pointerdown', dismiss);
+      document.removeEventListener('keydown', escape);
+    };
+  }, [pickerOpen]);
   const lastLoginRequest = useRef(loginRequest);
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const current = accounts.find(a => a.id === provider);
@@ -64,12 +85,20 @@ export function Accounts({ accounts, provider, busy, chooseProvider, refresh, lo
   const progress = login?.events.findLast(e => e.type === 'progress');
   const safeUrl = authUrl?.url && /^https:\/\/(auth\.openai\.com|claude\.ai)\//.test(authUrl.url) ? authUrl.url : undefined;
   return <div className="provider-controls">
-    <label className="provider-picker"><span className="sr-only">Provider</span><select aria-label="Provider" value={current?.connected || pending || working ? provider : ''} disabled={busy || pending || working || !accounts.length} onChange={e => {
-      const id = e.target.value;
-      chooseProvider(id); setLogin(null); setError('');
-      if (!accounts.find(a => a.id === id)?.connected) startLogin(id);
-      else setShowLogin(false);
-    }}><option value="" disabled>Select provider</option><option value="openai">OpenAI / ChatGPT</option><option value="anthropic">Claude / Anthropic</option></select></label>
+    <div className="provider-picker" ref={picker} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setPickerOpen(false); }}>
+      <button ref={pickerButton} className="provider-trigger" aria-label={`Provider: ${selectedProvider.name}`} aria-expanded={pickerOpen} aria-controls="provider-options" disabled={busy || pending || working || !accounts.length} onClick={() => setPickerOpen(!pickerOpen)}>
+        <img src={`/${provider}.svg`} alt="" width="20" height="20" /><span>{selectedProvider.name}</span><svg className="provider-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
+      </button>
+      {pickerOpen && <div id="provider-options" className="provider-options" role="group" aria-label="Select provider">
+        {providers.map(option => <button key={option.id} className="provider-option" aria-pressed={provider === option.id} onClick={() => {
+          setPickerOpen(false); pickerButton.current?.focus();
+          if (option.id === provider) return;
+          chooseProvider(option.id); setLogin(null); setError('');
+          if (!accounts.find(a => a.id === option.id)?.connected) startLogin(option.id);
+          else setShowLogin(false);
+        }}><img src={`/${option.id}.svg`} alt="" width="22" height="22" /><span>{option.name}<small>{option.description}</small></span>{provider === option.id && <span className="provider-check" aria-hidden="true">✓</span>}</button>)}
+      </div>}
+    </div>
     {current?.connected && <>
       <button className="sign-out" disabled={busy || working || pending} onClick={() => void action(async () => { await api('logout', 'POST', { provider }); await refresh(); setLogin(null); })}>Sign out</button>
     </>}

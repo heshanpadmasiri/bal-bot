@@ -17,6 +17,7 @@ export function Editor({ workspace }: { workspace: Workspace }) {
   const files = useSyncExternalStore(listener => workspace.subscribe(listener), () => workspace.snapshot());
   const [services, setServices] = useState<readonly Service[]>([]);
   const [anchor, setAnchor] = useState<Anchor | null>(null);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   const [accounts, setAccounts] = useState<ProviderAccount[]>([]);
   const [provider, setProvider] = useState('openai');
@@ -95,10 +96,11 @@ export function Editor({ workspace }: { workspace: Workspace }) {
   }
 
   return <div className="app">
-    <header><div className="brand"><img className="ballerina-logo" src="/ballerina.ico" alt="Ballerina logo" width="36" height="36" />bal-bot<span className="version">LOCAL WORKSPACE</span></div><Accounts accounts={accounts} provider={provider} busy={busy} chooseProvider={id => { setProvider(id); setModel(''); }} refresh={refreshAccounts} loginRequest={loginRequest} /></header>
+    <header><div className="brand"><img className="ballerina-logo" src="/ballerina.ico" alt="Ballerina logo" width="36" height="36" />bal-bot</div><Accounts accounts={accounts} provider={provider} busy={busy} chooseProvider={id => { setProvider(id); setModel(''); }} refresh={refreshAccounts} loginRequest={loginRequest} /></header>
     <div className="workspace">
-      <aside>
-        <div className="section-title">WORKSPACE <span className="dot" title="Stored in this browser" /></div>
+      <aside id="workspace-sidebar" className={sidebarCollapsed ? 'collapsed' : ''}>
+        <div className="sidebar-heading">{!sidebarCollapsed && <span className="section-title">WORKSPACE</span>}<button className="sidebar-toggle" aria-label={sidebarCollapsed ? 'Expand workspace sidebar' : 'Collapse workspace sidebar'} title={sidebarCollapsed ? 'Expand workspace sidebar' : 'Collapse workspace sidebar'} aria-expanded={!sidebarCollapsed} aria-controls="workspace-sidebar-content" onClick={() => setSidebarCollapsed(!sidebarCollapsed)}><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="3.5" width="15" height="13" rx="2" /><path d="M7.5 3.5v13" /><path d={sidebarCollapsed ? 'm11 7 3 3-3 3' : 'm14 7-3 3 3 3'} /></svg></button></div>
+        <div id="workspace-sidebar-content" className="sidebar-content" hidden={sidebarCollapsed}>
         <div className="project"><svg className="project-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 6 3 3 3-3" /></svg><span>http_service</span></div>
         {services.map((service, index) => <React.Fragment key={index}>
           <button className={`service ${selected === null && anchor === service ? 'selected' : ''}`} onClick={() => { setAnchor(service); setSelected(null); setEditing(false); }}><span className="service-icon">↗</span> {service.kind.toUpperCase()} service <span className="badge">{service.kind.toUpperCase()}</span></button>
@@ -108,9 +110,10 @@ export function Editor({ workspace }: { workspace: Workspace }) {
         {creating && <form className="new-file" onSubmit={event => { event.preventDefault(); attempt(() => { if (Object.hasOwn(files, newPath)) throw new Error('File already exists'); workspace.write(newPath, ''); openFile(newPath); setNewPath(''); setCreating(false); }); }}><input aria-label="New file path" placeholder="folder/file.bal" value={newPath} onChange={e => setNewPath(e.target.value)} autoFocus /><button>Add</button></form>}
         <FileTree paths={workspace.list()} selected={selected} open={openFile} />
         <div className="aside-bottom"><span className="dot" /> Browser workspace<p>Files saved on this browser.<br />Conversations last for this tab.</p></div>
+        </div>
       </aside>
       <main>
-        <div className="main-bar"><div><span className="muted">http_service / </span>{activeFile ?? 'HTTP service'}</div><div className="view-tabs"><button className={selected === null ? 'active' : ''} onClick={() => { setSelected(null); setEditing(false); }}>Chat</button>{activeFile && <button className="active">{activeFile.split('/').at(-1)}</button>}</div></div>
+        <div className="main-bar"><div className="main-location"><div className="breadcrumb"><span className="muted">http_service / </span>{activeFile ?? 'HTTP service'}</div></div>{activeFile && <button className="back-to-chat" onClick={() => { setSelected(null); setEditing(false); }}>← Back to chat</button>}</div>
         {error && <div className="error" role="alert">{error}<button aria-label="Dismiss error" onClick={() => setError('')}>×</button></div>}
         {activeFile ? <section className="file-view">
           <div className="file-toolbar"><span>{activeFile} <small>{files[activeFile].split('\n').length} lines</small></span><div>{editing ? <><button onClick={() => { setEditing(false); }}>Cancel</button><button className="primary" onClick={() => attempt(() => { workspace.write(activeFile, draft); setEditing(false); })}>Save</button></> : <button onClick={() => { setDraft(files[activeFile]); setEditing(true); }}>Edit file</button>}<button onClick={() => setDeletePending(!deletePending)}>Delete</button></div></div>
