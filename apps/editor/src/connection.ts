@@ -45,6 +45,14 @@ export async function api(path: string, method = 'GET', value?: unknown, signal?
   return response;
 }
 
+export async function connectWorkspace(): Promise<WebSocket> {
+  const { ticket } = await (await api('sync-ticket', 'POST')).json();
+  const url = new URL('/api/workspace-sync', window.location.href);
+  url.protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+  url.searchParams.set('ticket', ticket);
+  return new WebSocket(url);
+}
+
 export const streamServer: StreamFn = (model, context, options) => {
   const stream = createAssistantMessageEventStream();
   void (async () => {

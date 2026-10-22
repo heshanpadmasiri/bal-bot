@@ -35,9 +35,19 @@ export interface Endpoint extends Anchor {
   readonly title: string;
 }
 
+export interface SyncState {
+  readonly status: 'connecting' | 'syncing' | 'synced' | 'disconnected' | 'error';
+  readonly writable: boolean;
+  readonly pendingCount: number;
+  readonly error?: string;
+}
+
 // File operations already used by the source editor and workspace tools.
 export interface Workspace {
   readonly loadError?: string;
+  readonly projectName?: string;
+  syncSnapshot(): SyncState;
+  subscribeSync(listener: () => void): () => void;
   getServices(): Promise<readonly Service[]>;
   snapshot(): Files;
   subscribe(listener: () => void): () => void;
@@ -79,7 +89,7 @@ Conversation persistence across closing and reopening a workspace is a workspace
 
 - Additional service kinds and endpoint kinds.
 - Diff and flow UI payload shapes.
-- Concrete workspace implementations, including filesystem and runtime access, agent construction, and persistence.
+- Runtime access and additional concrete workspace implementations.
 
 ## References
 
@@ -89,8 +99,18 @@ Conversation persistence across closing and reopening a workspace is a workspace
 ## Repository layout
 
 - `packages/workspace`: shared contracts, including the existing source editor's file operations. No browser storage, transport, or agent construction.
-- `packages/browser-workspace`: localStorage files, the single HTTP service anchor, and PI agent/tool construction. Its model stream transport is injected at construction.
-- `apps/editor`: runnable React editor and local OAuth/streaming server. `src/main.tsx` constructs the concrete workspace; `src/editor.tsx` consumes only the shared workspace contracts.
+- `packages/browser-workspace`: project-scoped localStorage files and pending mutations, background WebSocket synchronization, the single HTTP service anchor, and PI agent/tool construction. Its model stream transport is injected at construction.
+- `apps/editor`: runnable React editor and local OAuth/streaming server and directory synchronization. `src/main.tsx` constructs the concrete workspace; `src/editor.tsx` consumes only the shared workspace contracts.
 - `vendor/nutcracker`: unmodified upstream source snapshot. Provenance is recorded in `vendor/nutcracker.json`; it is not compiled or bundled into the editor.
 
 The contract exposes the PI `Agent` already used by the application, rather than adding a new agent interface or introducing the Node-oriented `AgentSession`. The service retains its agent across calls. Automatic discovery, diff, and flow remain deferred; their accessors reject explicitly until implemented.
+
+## Directory synchronization
+
+The server requires a project-directory argument. It creates starter files only when that directory is missing or empty. It recursively reads regular `.md`, `.bal`, and `.toml` files as UTF-8, skipping symbolic links. The agent continues to use browser file tools, and unsupported file extensions are rejected there.
+
+`packages/workspace/src/sync-protocol.ts` holds the shared messages, file validation, and initial project. `apps/editor/server/project.mjs` owns disk access, a serialized change queue, server revisions, durable operation receipts, and a 500 ms asynchronous scan. `server/sync.mjs` broadcasts changes through an authenticated WebSocket alongside Vite's development connection. Connections use short-lived, single-use tickets issued through the existing session-authenticated API and checked against the request origin.
+
+`packages/browser-workspace/src/sync.ts` reconciles server snapshots with a persisted browser outbox and transmits one operation at a time. Files and the outbox persist together before tools or the editor observe a successful mutation. Remote updates do not create new local operations. Server revisions detect missed updates; each server startup gets a new epoch. Last processed changes win; operation receipts make acknowledgment retries idempotent across restart.
+
+The editor observes `SyncState` separately from files. A disconnected or failed sync makes mutations and new chat turns unavailable, while file reads remain available. All retained workspace agents are aborted when writing becomes unavailable. On reconnect, pending operations finish before editing becomes available, without automatically resuming an agent. Draft text remains local until an explicit Save.

@@ -6,11 +6,11 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "npm run dev --workspace @bal-bot/editor",
+    "dev": "npm run dev --workspace @bal-bot/editor --",
     "build": "npm run build --workspace @bal-bot/editor",
-    "preview": "npm run start --workspace @bal-bot/editor",
+    "preview": "npm run start --workspace @bal-bot/editor --",
     "test": "node --test packages/browser-workspace/tests/*.test.mjs apps/editor/tests/*.test.mjs",
-    "start": "npm run start --workspace @bal-bot/editor"
+    "start": "npm run start --workspace @bal-bot/editor --"
   },
   "keywords": [],
   "author": "",
