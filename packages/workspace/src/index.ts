@@ -1,7 +1,8 @@
 import type { Agent } from '@earendil-works/pi-agent-core';
 
 export type { Agent, AgentMessage } from '@earendil-works/pi-agent-core';
-export type Files = Readonly<Record<string, string>>;
+export type { Files, SyncState, SyncStatus } from './sync-protocol.ts';
+import type { Files, SyncState } from './sync-protocol.ts';
 
 export const ServiceKind = { HTTP: 'http' } as const;
 export type ServiceKind = typeof ServiceKind[keyof typeof ServiceKind];
@@ -29,6 +30,9 @@ export interface Endpoint extends Anchor {
 // File operations already used by the source editor and workspace tools.
 export interface Workspace {
   readonly loadError?: string;
+  readonly projectName?: string;
+  syncSnapshot(): SyncState;
+  subscribeSync(listener: () => void): () => void;
   getServices(): Promise<readonly Service[]>;
   getDiagnostics(signal?: AbortSignal): Promise<DiagnosticsResult>;
   snapshot(): Files;

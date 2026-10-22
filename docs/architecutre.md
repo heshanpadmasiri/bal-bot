@@ -47,9 +47,19 @@ export interface Endpoint extends Anchor {
   readonly title: string;
 }
 
+export interface SyncState {
+  readonly status: 'connecting' | 'syncing' | 'synced' | 'disconnected' | 'error';
+  readonly writable: boolean;
+  readonly pendingCount: number;
+  readonly error?: string;
+}
+
 // File operations already used by the source editor and workspace tools.
 export interface Workspace {
   readonly loadError?: string;
+  readonly projectName?: string;
+  syncSnapshot(): SyncState;
+  subscribeSync(listener: () => void): () => void;
   getServices(): Promise<readonly Service[]>;
   getDiagnostics(signal?: AbortSignal): Promise<DiagnosticsResult>;
   snapshot(): Files;
@@ -92,7 +102,7 @@ Conversation persistence across closing and reopening a workspace is a workspace
 
 - Additional service kinds and endpoint kinds.
 - Diff and flow UI payload shapes.
-- Concrete workspace implementations, including filesystem and runtime access, agent construction, and persistence.
+- Runtime access and additional concrete workspace implementations.
 
 ## References
 
@@ -102,8 +112,8 @@ Conversation persistence across closing and reopening a workspace is a workspace
 ## Repository layout
 
 - `packages/workspace`: shared contracts, including the existing source editor's file operations. No browser storage, transport, or agent construction.
-- `packages/browser-workspace`: localStorage files, the single HTTP service anchor, and PI agent/tool construction. Its model stream transport is injected at construction.
-- `apps/editor`: runnable React editor and local OAuth/streaming server. `src/main.tsx` constructs the concrete workspace; `src/editor.tsx` consumes only the shared workspace contracts.
+- `packages/browser-workspace`: project-scoped localStorage files and pending mutations, background WebSocket synchronization, the single HTTP service anchor, and PI agent/tool construction. Its model stream transport is injected at construction.
+- `apps/editor`: runnable React editor and local OAuth/streaming server and directory synchronization. `src/main.tsx` constructs the concrete workspace; `src/editor.tsx` consumes only the shared workspace contracts.
 - `packages/compiler`: standalone Go module and browser compiler package. It consumes remote Nutcracker modules pinned to commit `f7c4c58d4691085b57f0c2634c8bb597f3ccaaea`, with checksums and remote replacements aligning the nested modules. No local source replacements or vendored compiler sources are used.
 
 The contract exposes the PI `Agent` already used by the application, rather than adding a new agent interface or introducing the Node-oriented `AgentSession`. The service retains its agent across calls. Automatic discovery, diff, and flow remain deferred; their accessors reject explicitly until implemented.
@@ -119,3 +129,13 @@ Root `.bal` files and `modules/<module>/*.bal` are supported. Ballerina test sou
 Diagnostics preserve upstream categories (`internal`, `hint`, `info`, `warning`, `error`, `fatal`), optional codes, messages, and file identities. Workspace files use full relative paths; dependency documents keep package-qualified identities. Valid UTF-8 byte offsets are converted against the compiled document into one-based lines and Unicode code-point columns, with exclusive ends and CRLF as one line break. Synthetic manifest locations have no fabricated ranges. Diagnostics are sorted deterministically and empty results serialize as `[]`. The tool exposes both JSON text and structured details in the existing conversation; no additional compilation UI or automatic checks are introduced.
 
 Builds require Go 1.27.1 or newer and Python 3. Editor `predev` and `prebuild` run `scripts/build_compiler.py` with `GOWORK=off`, `GOOS=js`, and `GOARCH=wasm`, generating ignored assets under `apps/editor/public/compiler/`. Vite builds the worker URL and copies the public assets for production. `npm start` serves these previously built assets. Run `npm run test:compiler`, `npm test`, and `npm run test:browser` for wrapper, workspace, and real-browser verification; install Chromium with `npx playwright install chromium` first. `scripts/verify_compiler_dependencies.py` repeats the isolated empty-module-cache build without access to repository-local compiler sources.
+
+## Directory synchronization
+
+The server requires a project-directory argument. It creates starter files only when that directory is missing or empty. It recursively reads regular `.md`, `.bal`, and `.toml` files as UTF-8, skipping symbolic links. The agent continues to use browser file tools, and unsupported file extensions are rejected there.
+
+`packages/workspace/src/sync-protocol.ts` holds the shared messages, file validation, and initial project. `apps/editor/server/project.mjs` owns disk access, a serialized change queue, server revisions, durable operation receipts, and a 500 ms asynchronous scan. `server/sync.mjs` broadcasts changes through an authenticated WebSocket alongside Vite's development connection. Connections use short-lived, single-use tickets issued through the existing session-authenticated API and checked against the request origin.
+
+`packages/browser-workspace/src/sync.ts` reconciles server snapshots with a persisted browser outbox and transmits one operation at a time. Files and the outbox persist together before tools or the editor observe a successful mutation. Remote updates do not create new local operations. Server revisions detect missed updates; each server startup gets a new epoch. Last processed changes win; operation receipts make acknowledgment retries idempotent across restart.
+
+The editor observes `SyncState` separately from files. A disconnected or failed sync makes mutations and new chat turns unavailable, while file reads remain available. All retained workspace agents are aborted when writing becomes unavailable. On reconnect, pending operations finish before editing becomes available, without automatically resuming an agent. Draft text remains local until an explicit Save.

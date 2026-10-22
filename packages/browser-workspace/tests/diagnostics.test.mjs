@@ -45,3 +45,20 @@ test('file-tool repair sequence checks changed saved source', async () => {
   await call('edit_file', { path: 'main.bal', oldText: '"bad"', newText: '1' });
   assert.deepEqual((await call('get_diagnostics')).details, { diagnostics: [], stale: false });
 });
+
+test('synchronized project diagnostics use browser files and become stale after a disk update', async () => {
+  let complete, captured;
+  const workspace = new BrowserWorkspace({ getItem: () => null, setItem() {} }, {
+    projectId: 'synced-project',
+    streamFn: () => { throw Error('unused'); },
+    compiler: { check(files) { captured = files; return new Promise(resolve => { complete = resolve; }); } },
+  });
+  workspace.applyServerSnapshot({ 'main.bal': 'int x = 1;' });
+  const pending = workspace.getDiagnostics();
+  assert.equal(captured['main.bal'], 'int x = 1;');
+  workspace.applyServerChange({ kind: 'write', path: 'main.bal', content: 'int x = 2;' });
+  complete({ diagnostics: [] });
+  assert.deepEqual(await pending, { diagnostics: [], stale: true });
+  assert.equal(workspace.read('main.bal'), 'int x = 2;');
+  assert.equal(workspace.pendingOperations().length, 0);
+});

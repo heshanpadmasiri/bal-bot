@@ -6,11 +6,11 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "npm run dev --workspace @bal-bot/editor",
+    "dev": "npm run dev --workspace @bal-bot/editor --",
     "build": "npm run build --workspace @bal-bot/editor",
-    "preview": "npm run start --workspace @bal-bot/editor",
+    "preview": "npm run start --workspace @bal-bot/editor --",
     "test": "node --test packages/browser-workspace/tests/*.test.mjs packages/compiler/tests/*.test.mjs apps/editor/tests/*.test.mjs",
-    "start": "npm run start --workspace @bal-bot/editor",
+    "start": "npm run start --workspace @bal-bot/editor --",
     "test:compiler": "cd packages/compiler && GOWORK=off go test ./...",
     "test:browser": "python3 scripts/build_compiler.py && playwright test"
   },
