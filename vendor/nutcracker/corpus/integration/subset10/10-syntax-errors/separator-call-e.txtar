@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SYNTAX_ERROR]: invalid token
-  --> separator-call-e.bal:21:10
-   |
-21 |     f(1 $, 2); // @error
-   |          ^

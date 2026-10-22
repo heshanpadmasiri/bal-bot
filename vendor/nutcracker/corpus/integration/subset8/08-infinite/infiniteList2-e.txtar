@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: type definition L2 is empty
-  --> infiniteList2-e.bal:17:1
-   |
-17 | type L2 [int, L2]; // @error
-   | ^^^^^^^^^^^^^^^^^^

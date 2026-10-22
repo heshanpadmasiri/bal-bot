@@ -1,7 +1,0 @@
--- stdout --
-{"nickname":"Fido","pet_type":"Dog","age":4}
-[1,2]
-["a","b"]
-true
-200
--- stderr --

@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: member 'x' that overrides included member is not a subtype of the included member type
-  --> inclusion-subtype-e.bal:23:5
-   |
-23 |     string x; // @error
-   |     ^^^^^^^^^

@@ -1,4 +1,0 @@
--- stdout --
-<root attr="val"><child/></root>
-<updated/>
--- stderr --

@@ -1,3 +1,0 @@
--- stdout --
-error("hello")
--- stderr --

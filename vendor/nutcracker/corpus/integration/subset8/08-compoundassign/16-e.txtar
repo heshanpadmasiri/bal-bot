@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SYNTAX_ERROR]: invalid token
-  --> 16-e.bal:19:12
-   |
-19 |     int x += 1; // @error
-   |            ^

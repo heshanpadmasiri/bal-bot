@@ -1,7 +1,0 @@
--- stdout --
-true
-[1,2,3]
-1.5
-42
-hello
--- stderr --

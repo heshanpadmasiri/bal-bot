@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: incompatible type reference 'C': a referenced class cannot have private fields or methods
-  --> main.bal:21:6
-   |
-21 |     *foo:C; // @error
-   |      ^^^^^

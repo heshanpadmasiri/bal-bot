@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: expect int type for ~
-  --> complement1-e.bal:21:16
-   |
-21 |     io:println(~true); // @error
-   |                ^^^^^

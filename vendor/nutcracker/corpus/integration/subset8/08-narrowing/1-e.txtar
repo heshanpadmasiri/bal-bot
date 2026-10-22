@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: incompatible type: expected int, got any
-  --> 1-e.bal:28:16
-   |
-28 |         return n; // @error
-   |                ^

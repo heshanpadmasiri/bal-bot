@@ -1,3 +1,0 @@
--- stdout --
-<a:tag xmlns:a="https://example.com/u">x</a:tag>
--- stderr --

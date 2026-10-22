@@ -1,4 +1,0 @@
--- stdout --
--- stderr --
-error: init panic
-        at init(init-panics-p.bal:18)

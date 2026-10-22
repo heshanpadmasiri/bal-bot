@@ -1,4 +1,0 @@
-[package]
-org = "testorg"
-name = "multifile_defaults"
-version = "0.1.0"

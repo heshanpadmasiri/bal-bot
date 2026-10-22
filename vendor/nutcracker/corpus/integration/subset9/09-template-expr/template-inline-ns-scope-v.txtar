@@ -1,3 +1,0 @@
--- stdout --
-<p:a xmlns:p="https://example.com/outer"/><b xmlns:p="https://example.com/inner"><p:c/></b>
--- stderr --

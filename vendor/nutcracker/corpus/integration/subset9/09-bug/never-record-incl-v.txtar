@@ -1,4 +1,0 @@
--- stdout --
-Alice
-{"age":"30","city":"New York","country":"USA"}
--- stderr --

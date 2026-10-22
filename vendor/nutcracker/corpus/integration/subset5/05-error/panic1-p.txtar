@@ -1,4 +1,0 @@
--- stdout --
--- stderr --
-error: whoops
-        at main(panic1-p.bal:19)

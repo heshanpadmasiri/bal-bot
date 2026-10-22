@@ -1,3 +1,0 @@
--- stdout --
-{"bar":{"baz":42}}
--- stderr --

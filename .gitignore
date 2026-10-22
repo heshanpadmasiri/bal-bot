@@ -2,3 +2,7 @@ node_modules/
 dist/
 *.tsbuildinfo
 .bal-bot/
+apps/editor/public/compiler/
+.compiler-browser-test/
+test-results/
+playwright-report/

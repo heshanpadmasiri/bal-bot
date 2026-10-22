@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: access of mutable variable
-  --> anon-isolated-infer-arg-e.bal:21:25
-   |
-21 |     int x = apply(() => g); // @error
-   |                         ^

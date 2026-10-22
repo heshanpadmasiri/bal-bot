@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: annotation access is only allowed on typedesc values
-  --> 15-e.bal:25:15
-   |
-25 |     Info? _ = value.@info; // @error
-   |               ^^^^^^^^^^^

@@ -1,7 +1,0 @@
--- stdout --
-<e a="it's"/>
-<e a="say &quot;hi&quot; &amp; 'bye' &lt;now>" b="say &quot;hi&quot; &amp; 'bye' &lt;now>"/>
-true
-true
-true
--- stderr --

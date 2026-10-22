@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: access of mutable variable
-  --> isolated-fn-3-e.bal:23:13
-   |
-23 |     int a = val; // @error
-   |             ^^^

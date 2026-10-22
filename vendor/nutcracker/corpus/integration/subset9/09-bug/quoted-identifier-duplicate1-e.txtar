@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: Variable already defined: foo
-  --> quoted-identifier-duplicate1-e.bal:20:5
-   |
-20 |     int 'foo = 10; // @error
-   |     ^^^^^^^^^^^^^^

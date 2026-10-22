@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: incompatible type: expected any, got never
-  --> array3-e.bal:21:17
-   |
-21 |         any _ = v1[0]; // @error
-   |                 ^^^^^

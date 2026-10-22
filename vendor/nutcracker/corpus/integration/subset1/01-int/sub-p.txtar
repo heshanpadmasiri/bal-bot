@@ -1,5 +1,0 @@
--- stdout --
--- stderr --
-error: arithmetic overflow
-        at sub(sub-p.bal:25)
-           main(sub-p.bal:21)

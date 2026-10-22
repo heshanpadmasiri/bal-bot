@@ -1,7 +1,0 @@
--- stdout --
-listener-> attached
-module-> root
-trigger-> foo
-listener start
-graceful stop
--- stderr --

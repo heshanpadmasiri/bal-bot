@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: missing required parameter 'x'
-  --> default-missing-arg-e.bal:22:9
-   |
-22 |     _ = foo(); // @error
-   |         ^^^^^

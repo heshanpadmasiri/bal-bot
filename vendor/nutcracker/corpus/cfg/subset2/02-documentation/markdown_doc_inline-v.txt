@@ -1,8 +1,0 @@
-(DummyObject
-  (func1
-    (bb0 () ())
-  )
-  (func2
-    (bb0 () ())
-  )
-)

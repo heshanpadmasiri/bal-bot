@@ -1,4 +1,0 @@
-[package]
-org     = "ballerina"
-name    = "time"
-version = "0.0.1"

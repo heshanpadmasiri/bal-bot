@@ -1,5 +1,0 @@
--- stdout --
-non-empty str
-empty str
-int
--- stderr --

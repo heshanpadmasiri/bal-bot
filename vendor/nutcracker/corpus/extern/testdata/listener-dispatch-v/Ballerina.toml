@@ -1,4 +1,0 @@
-[package]
-org = "testorg"
-name = "externlistener"
-version = "0.1.0"

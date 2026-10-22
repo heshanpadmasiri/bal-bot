@@ -1,5 +1,0 @@
--- stdout --
-{"val":5}
-40
-{"val":40}
--- stderr --

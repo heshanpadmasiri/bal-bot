@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: wait action requires a future expression
-  --> wait3-e.bal:23:44
-   |
-23 |     int|error result = wait numberFuture | value; // @error
-   |                                            ^^^^^

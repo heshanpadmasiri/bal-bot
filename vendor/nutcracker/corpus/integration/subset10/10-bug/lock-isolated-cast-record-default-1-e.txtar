@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: access of mutable variable
-  --> lock-isolated-cast-record-default-1-e.bal:24:56
-   |
-24 |     record {| int value; |} r = <record {| int value = seed; |}> a; // @error
-   |                                                        ^^^^

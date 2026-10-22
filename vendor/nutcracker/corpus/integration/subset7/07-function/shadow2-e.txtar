@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: Variable already defined: b
-  --> shadow2-e.bal:22:9
-   |
-22 |         int b = x + 1; // @error
-   |         ^^^^^^^^^^^^^^

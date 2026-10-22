@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: unreachable code
-  --> opt2-e.bal:24:5
-   |
-24 |     io:println("opt and nil are not the same"); // @error
-   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

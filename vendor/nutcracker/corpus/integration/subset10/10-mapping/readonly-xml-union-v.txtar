@@ -1,9 +1,0 @@
--- stdout --
-<a/>
-true
-<a/><!--c-->
-true
-<a>text</a>
-true
-false
--- stderr --

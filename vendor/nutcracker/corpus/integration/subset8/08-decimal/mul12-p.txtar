@@ -1,4 +1,0 @@
--- stdout --
--- stderr --
-error: arithmetic underflow
-        at main(mul12-p.bal:22)

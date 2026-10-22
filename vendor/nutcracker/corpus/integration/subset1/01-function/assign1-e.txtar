@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: incompatible type: expected int, got boolean
-  --> assign1-e.bal:22:9
-   |
-22 |     x = b; // @error
-   |         ^

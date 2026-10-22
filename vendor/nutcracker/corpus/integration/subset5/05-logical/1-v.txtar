@@ -1,8 +1,0 @@
--- stdout --
-a
-true
-false
-c
-false
-true
--- stderr --

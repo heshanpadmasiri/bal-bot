@@ -1,3 +1,0 @@
--- stdout --
-<a><b xmlns:p="https:foo/u2"><p:c/></b></a>
--- stderr --

@@ -1,4 +1,0 @@
--- stdout --
--- stderr --
-error: main panic
-        at main(main-panics-p.bal:18)

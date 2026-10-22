@@ -1,5 +1,0 @@
-[package]
-org = "testorg"
-name = "noreadmeproject"
-version = "0.1.0"
-icon = "icon.png"

@@ -1,7 +1,0 @@
--- stdout --
-Read timed out
-Read timed out
-hello
--- stderr --
-error: boom
-error: handler failed

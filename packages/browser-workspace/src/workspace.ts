@@ -1,9 +1,11 @@
+import type { Compiler } from '@bal-bot/compiler';
+import type { DiagnosticsResult } from '@bal-bot/workspace';
 import { ServiceKind, type Workspace, type Service, type Endpoint, type Diff, type FlowUI, type Files } from '@bal-bot/workspace';
 import type { Agent, StreamFn } from '@earendil-works/pi-agent-core';
 import { createWorkspaceAgent } from './agent.ts';
 export type { Files } from '@bal-bot/workspace';
 
-export interface BrowserWorkspaceOptions { streamFn: StreamFn; }
+export interface BrowserWorkspaceOptions { streamFn: StreamFn; compiler?: Compiler; }
 export interface Storage {
   getItem(key: string): string | null;
   setItem(key: string, value: string): void;
@@ -28,10 +30,12 @@ export class BrowserWorkspace implements Workspace {
   private listeners = new Set<() => void>();
   readonly loadError?: string;
   private storage: Storage;
+  private readonly compiler?: Compiler;
 
   constructor(storage: Storage, options?: BrowserWorkspaceOptions) {
     this.services = [new BrowserService(this, options)];
     this.storage = storage;
+    this.compiler = options?.compiler;
     this.files = { ...initialFiles };
     try {
       const saved = storage.getItem(STORAGE_KEY);
@@ -50,6 +54,14 @@ export class BrowserWorkspace implements Workspace {
   }
 
   async getServices(): Promise<readonly Service[]> { return this.services; }
+
+  async getDiagnostics(signal?: AbortSignal): Promise<DiagnosticsResult> {
+    signal?.throwIfAborted();
+    if (!this.compiler) throw new Error('A compiler is required to request workspace diagnostics.');
+    const files = this.snapshot();
+    const result = await this.compiler.check(files, signal);
+    return { diagnostics: result.diagnostics, stale: this.snapshot() !== files };
+  }
 
   snapshot = (): Files => this.files;
   subscribe = (listener: () => void): (() => void) => {

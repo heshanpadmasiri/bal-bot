@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: intersection type is empty (equivalent to never)
-  --> never6-e.bal:18:5
-   |
-18 |     int & string x; // @error
-   |     ^^^^^^^^^^^^

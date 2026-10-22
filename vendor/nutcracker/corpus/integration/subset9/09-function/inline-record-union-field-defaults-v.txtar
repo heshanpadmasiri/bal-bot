@@ -1,3 +1,0 @@
--- stdout --
-{"nilAsOptionalField":true,"absentAsNilableType":false}
--- stderr --

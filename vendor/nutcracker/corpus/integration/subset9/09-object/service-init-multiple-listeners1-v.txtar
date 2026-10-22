@@ -1,5 +1,0 @@
--- stdout --
-service init
-attach one
-attach two
--- stderr --

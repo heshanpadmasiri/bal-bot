@@ -1,4 +1,0 @@
-[package]
-org = "testorg"
-name = "modulelevelvar"
-version = "0.1.0"

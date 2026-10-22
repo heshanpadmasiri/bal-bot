@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: duplicate arguments for x
-  --> named-arg-5-e.bal:26:27
-   |
-26 |     io:println(foo(x = 5, x = 6)); // @error
-   |                           ^^^^^

@@ -1,3 +1,0 @@
--- stdout --
-error("greater than five")
--- stderr --

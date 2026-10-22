@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: expect int type for ~
-  --> not2-e.bal:21:16
-   |
-21 |     io:println(~b); // @error
-   |                ^^

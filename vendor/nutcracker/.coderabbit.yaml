@@ -1,9 +1,0 @@
-reviews:
-  auto_review:
-    base_branches:
-      - ".*"
-  path_filters:
-    - "!bir/testdata/**/*.txt"
-    - "!bir/testdata/**/*.bir"
-    - "!bir/testdata/**/*.json"
-    - "!corpus/**/*.txt"

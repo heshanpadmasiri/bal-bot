@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: Unknown type: NoSuchType
-  --> inclusion-unknown-transitive-class-e.bal:18:6
-   |
-18 |     *NoSuchType; // @error
-   |      ^^^^^^^^^^
