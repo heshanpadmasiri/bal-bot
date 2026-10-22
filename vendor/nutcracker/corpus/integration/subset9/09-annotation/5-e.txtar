@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: Unknown annotation: missing
-  --> 5-e.bal:17:1
-   |
-17 | @missing // @error
-   | ^^^^^^^^

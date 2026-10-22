@@ -1,8 +1,0 @@
--- stdout --
-hello from native Go
-42
-42
-Hello, Ballerina!
-84
-168
--- stderr --

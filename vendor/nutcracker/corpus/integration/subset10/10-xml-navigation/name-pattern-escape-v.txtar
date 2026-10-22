@@ -1,8 +1,0 @@
--- stdout --
-<a-b>hyphen</a-b>
-<a-b>hyphen</a-b>
-<u005C>weird</u005C>
-
-
-<u005C>weird</u005C>
--- stderr --

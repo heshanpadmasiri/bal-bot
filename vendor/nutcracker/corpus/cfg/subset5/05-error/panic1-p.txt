@@ -1,7 +1,0 @@
-(main
-  (bb0 () ()
-    (panic
-      (error-constructor-expr (
-        (literal whoops))))
-  )
-)

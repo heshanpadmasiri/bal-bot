@@ -1,4 +1,0 @@
--- stdout --
-{"bar":10}
-{"foo":null,"baz":"gg"}
--- stderr --

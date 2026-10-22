@@ -1,4 +1,0 @@
-[package]
-org = "ballerina"
-name = "lang.runtime"
-version = "0.0.1"

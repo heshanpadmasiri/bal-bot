@@ -1,3 +1,0 @@
--- stdout --
--- stderr --
-error: Listener.attach: a service is already attached to base path /dup

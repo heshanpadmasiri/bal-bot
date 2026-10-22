@@ -1,6 +1,0 @@
--- stdout --
-watch
-foo
-bar
-root
--- stderr --

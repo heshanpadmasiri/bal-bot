@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: incompatible type: expected int, got "str"
-  --> construct1-e.bal:23:9
-   |
-23 |         "str", // @error
-   |         ^^^^^

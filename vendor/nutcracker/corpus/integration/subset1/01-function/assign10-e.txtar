@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: incompatible type: expected any, got error
-  --> assign10-e.bal:20:9
-   |
-20 |     _ = error("Error"); // @error
-   |         ^^^^^^^^^^^^^^

@@ -82,3 +82,42 @@ test('stopping a browser agent aborts the proxied request and settles the turn',
   assert.equal(agent.state.isStreaming, false);
   assert.equal(agent.state.messages.at(-1).stopReason, 'aborted');
 });
+
+test('agent repairs source after diagnostics and rechecks the retained workspace', async t => {
+  const originalFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = originalFetch; });
+  const calls = [
+    ['write_file', { path: 'main.bal', content: 'int x = "bad";' }],
+    ['get_diagnostics', {}],
+    ['edit_file', { path: 'main.bal', oldText: '"bad"', newText: '1' }],
+    ['get_diagnostics', {}],
+  ];
+  let step = 0;
+  globalThis.fetch = async (url, options) => {
+    if (url === '/api/session') return Response.json({ token: 'local-session' });
+    const input = JSON.parse(options.body);
+    if (step === 2) {
+      const diagnostic = input.context.messages.find(m => m.role === 'toolResult' && m.toolName === 'get_diagnostics');
+      assert.equal(JSON.parse(diagnostic.content[0].text).diagnostics[0].severity, 'error');
+      assert.equal(diagnostic.isError, false);
+    }
+    const call = calls[step++];
+    const output = call
+      ? { ...message([{ type: 'toolCall', id: `tool-${step}`, name: call[0], arguments: call[1] }]), stopReason: 'toolUse' }
+      : message([{ type: 'text', text: 'Checked the repaired source.' }]);
+    return response([{ type: 'done', reason: output.stopReason, message: output }]);
+  };
+  const workspace = new BrowserWorkspace({ getItem: () => null, setItem() {} }, {
+    streamFn: streamServer,
+    compiler: { async check(files) { return { diagnostics: files['main.bal'].includes('bad') ? [{ severity: 'error', message: 'type error', file: 'main.bal' }] : [] }; } },
+  });
+  const [service] = await workspace.getServices();
+  const agent = await service.getAgent();
+  agent.state.model = model;
+  await agent.prompt('Repair and check main.bal');
+  assert.equal(workspace.read('main.bal'), 'int x = 1;');
+  const checks = agent.state.messages.filter(m => m.role === 'toolResult' && m.toolName === 'get_diagnostics');
+  assert.equal(checks.length, 2);
+  assert.deepEqual(JSON.parse(checks[1].content[0].text), { diagnostics: [], stale: false });
+  assert.equal(await service.getAgent(), agent);
+});

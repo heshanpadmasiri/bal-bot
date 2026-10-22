@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: Unknown symbol: b
-  --> 3-e.bal:20:20
-   |
-20 |         return a + b; // @error
-   |                    ^

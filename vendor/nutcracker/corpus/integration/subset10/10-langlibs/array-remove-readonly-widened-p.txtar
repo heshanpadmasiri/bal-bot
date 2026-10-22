@@ -1,4 +1,0 @@
--- stdout --
--- stderr --
-error: inherent type violation: cannot mutate readonly value
-        at main(array-remove-readonly-widened-p.bal:23)

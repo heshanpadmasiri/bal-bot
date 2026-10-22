@@ -1,6 +1,0 @@
--- stdout --
-true
-Byte channel is already closed.
-true
-true
--- stderr --

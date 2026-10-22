@@ -1,4 +1,0 @@
--- stdout --
-error("help")
-error("bad")
--- stderr --

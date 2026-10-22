@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: incompatible type: expected string, got int
-  --> from1-e.bal:19:42
-   |
-19 |     string[] _ = from var x in xs select x; // @error
-   |                                          ^

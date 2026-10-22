@@ -1,8 +1,0 @@
-[package]
-org = "mockorg"
-name = "foo.bar"
-version = "1.0.0"
-
-[[modules]]
-name   = "foo.bar"
-export = true

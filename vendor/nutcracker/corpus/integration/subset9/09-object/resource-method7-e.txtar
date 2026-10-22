@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: resource path parameter type must be a subtype of anydata
-  --> resource-method7-e.bal:18:32
-   |
-18 |     resource function get test/[any x]() { // @error
-   |                                ^^^^^^^

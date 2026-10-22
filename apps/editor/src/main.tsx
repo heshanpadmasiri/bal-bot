@@ -1,3 +1,4 @@
+import { createCompiler } from '@bal-bot/compiler';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Editor } from './editor';
@@ -8,6 +9,6 @@ import './style.css';
 const workspace = new BrowserWorkspace({
   getItem: key => window.localStorage.getItem(key),
   setItem: (key, value) => window.localStorage.setItem(key, value),
-}, { streamFn: streamServer });
+}, { streamFn: streamServer, compiler: createCompiler() });
 
 createRoot(document.getElementById('root')!).render(<React.StrictMode><Editor workspace={workspace} /></React.StrictMode>);

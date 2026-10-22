@@ -1,3 +1,0 @@
--- stdout --
-'9223372036854775807' value cannot be converted to 'boolean|string'
--- stderr --

@@ -1,6 +1,0 @@
--- stdout --
--- stderr --
-invalid version 'not-a-valid-semver'
-project loading contains errors
--- exitcode --
-1

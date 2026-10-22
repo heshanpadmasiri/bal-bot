@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: incompatible arguments for function call
-  --> union17-e.bal:25:13
-   |
-25 |     any x = f(1); // @error
-   |             ^^^^

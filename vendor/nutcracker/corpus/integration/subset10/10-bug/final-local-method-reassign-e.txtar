@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: cannot assign a value to potentially initialized final 'x'
-  --> final-local-method-reassign-e.bal:22:9
-   |
-22 |         x = 2; // @error x is possibly assigned already
-   |         ^

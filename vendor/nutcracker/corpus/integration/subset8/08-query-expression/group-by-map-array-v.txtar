@@ -1,3 +1,0 @@
--- stdout --
-{"odd":[1,3],"even":[2,4]}
--- stderr --

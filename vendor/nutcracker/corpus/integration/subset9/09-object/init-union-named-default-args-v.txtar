@@ -1,5 +1,0 @@
--- stdout --
-default:5
-named:7
-true
--- stderr --

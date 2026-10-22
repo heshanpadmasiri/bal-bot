@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: variable 'y' is not initialized
-  --> partial-init-e.bal:20:5
-   |
-20 | int y; // @error
-   |     ^

@@ -1,4 +1,0 @@
--- stdout --
-5
-error("value must be non-negative")
--- stderr --

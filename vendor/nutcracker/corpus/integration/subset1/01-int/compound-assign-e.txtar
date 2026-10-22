@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: both operands must belong to same basic type
-  --> compound-assign-e.bal:20:5
-   |
-20 |     a += "abc"; // @error
-   |     ^^^^^^^^^^^

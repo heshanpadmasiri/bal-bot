@@ -1,5 +1,0 @@
--- stdout --
--- stderr --
-error: arithmetic overflow
-        at neg(neg-p.bal:26)
-           main(neg-p.bal:22)

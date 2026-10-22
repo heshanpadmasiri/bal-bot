@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "node server/index.mjs",
     "build": "tsc -p tsconfig.json && vite build",
-    "start": "node server/index.mjs --production"
+    "start": "node server/index.mjs --production",
+    "predev": "python3 ../../scripts/build_compiler.py",
+    "prebuild": "python3 ../../scripts/build_compiler.py"
   },
   "dependencies": {
     "@bal-bot/workspace": "*",
@@ -15,7 +17,8 @@
     "@earendil-works/pi-ai": "^1.4.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "sirv": "^3.0.2"
+    "sirv": "^3.0.2",
+    "@bal-bot/compiler": "*"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

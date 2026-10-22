@@ -1,4 +1,0 @@
-[package]
-org     = "mockorg"
-name    = "greetpkg"
-version = "1.0.0"

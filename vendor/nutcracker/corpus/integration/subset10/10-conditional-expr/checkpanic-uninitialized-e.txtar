@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: variable may not be initialized
-  --> checkpanic-uninitialized-e.bal:19:35
-   |
-19 |     return condition ? checkpanic value : 1; // @error
-   |                                   ^^^^^

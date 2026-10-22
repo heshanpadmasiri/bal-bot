@@ -1,4 +1,0 @@
-[package]
-org = "testorg"
-name = "crossmoduleinclrecordparamerr"
-version = "0.1.0"

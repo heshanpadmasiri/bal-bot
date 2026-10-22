@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: access of mutable variable
-  --> lock-wildcard-assign-3-e.bal:30:18
-   |
-30 |         _ = c->f(mm); // @error access of mutable variable
-   |                  ^^

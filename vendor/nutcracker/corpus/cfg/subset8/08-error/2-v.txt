@@ -1,8 +1,0 @@
-(main
-  (bb0 () ()
-    (expression-stmt
-      (invocation io println (
-        (error-constructor-expr (
-          (literal whoops))))))
-  )
-)

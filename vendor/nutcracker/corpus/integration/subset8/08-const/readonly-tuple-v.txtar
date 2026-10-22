@@ -1,7 +1,0 @@
--- stdout --
-true
-true
-[1,"two"]
-true
-true
--- stderr --

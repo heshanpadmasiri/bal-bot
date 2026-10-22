@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: invalid variable type string
-  --> foreach8-e.bal:26:13
-   |
-26 |     foreach string val in p { // @error
-   |             ^^^^^^^^^^

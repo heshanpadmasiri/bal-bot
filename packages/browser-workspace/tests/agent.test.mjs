@@ -29,6 +29,6 @@ test('PI uses only workspace tools without browser credentials', () => {
   models.setProvider(openaiProvider());
   const agent = createWorkspaceAgent(workspace, models.getModels('openai')[0], () => { throw new Error('No request expected'); });
   assert.equal(agent.getApiKey, undefined);
-  assert.deepEqual(agent.state.tools.map(t => t.name), ['list_files', 'read_file', 'write_file', 'edit_file', 'delete_file']);
-  assert.match(agent.state.systemPrompt, /No shell, compiler or runtime/);
+  assert.deepEqual(agent.state.tools.map(t => t.name), ['get_diagnostics', 'list_files', 'read_file', 'write_file', 'edit_file', 'delete_file']);
+  assert.match(agent.state.systemPrompt, /No shell or execution runtime/);
 });

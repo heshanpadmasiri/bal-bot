@@ -1,5 +1,0 @@
--- stdout --
-attached: var
-attached: inline
-attached: call
--- stderr --

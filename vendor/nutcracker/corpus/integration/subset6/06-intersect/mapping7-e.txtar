@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: incompatible type: expected string, got 5
-  --> mapping7-e.bal:28:30
-   |
-28 |     R1&R2 r = { l1: 1, "l2": 5 }; // @error
-   |                              ^

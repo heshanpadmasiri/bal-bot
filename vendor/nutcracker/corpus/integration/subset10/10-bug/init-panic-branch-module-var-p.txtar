@@ -1,4 +1,0 @@
--- stdout --
--- stderr --
-error: cannot initialize
-        at init(init-panic-branch-module-var-p.bal:25)

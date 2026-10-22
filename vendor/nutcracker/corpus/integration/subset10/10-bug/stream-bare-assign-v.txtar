@@ -1,8 +1,0 @@
--- stdout --
-true
-false
-true
-true
-{"value":1}
-
--- stderr --

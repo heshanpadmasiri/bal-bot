@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: incompatible types for ==
-  --> 2-e.bal:19:8
-   |
-19 |     if !true == true { // @error
-   |        ^^^^^^^^^^^^^

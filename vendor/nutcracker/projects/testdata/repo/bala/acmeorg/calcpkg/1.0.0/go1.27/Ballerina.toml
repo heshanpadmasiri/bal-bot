@@ -1,4 +1,0 @@
-[package]
-org     = "acmeorg"
-name    = "calcpkg"
-version = "1.0.0"

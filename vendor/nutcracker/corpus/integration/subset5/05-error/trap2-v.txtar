@@ -1,3 +1,0 @@
--- stdout --
-error("divide by zero")
--- stderr --

@@ -30,6 +30,7 @@ export interface Endpoint extends Anchor {
 export interface Workspace {
   readonly loadError?: string;
   getServices(): Promise<readonly Service[]>;
+  getDiagnostics(signal?: AbortSignal): Promise<DiagnosticsResult>;
   snapshot(): Files;
   subscribe(listener: () => void): () => void;
   list(): string[];
@@ -38,3 +39,16 @@ export interface Workspace {
   edit(path: string, oldText: string, newText: string): void;
   remove(path: string): void;
 }
+
+export type DiagnosticSeverity = 'internal' | 'hint' | 'info' | 'warning' | 'error' | 'fatal';
+export interface Position { readonly line: number; readonly column: number; }
+export interface SourceRange { readonly start: Position; readonly end: Position; }
+export interface Diagnostic {
+  readonly severity: DiagnosticSeverity;
+  readonly code?: string;
+  readonly message: string;
+  readonly file?: string;
+  readonly range?: SourceRange;
+}
+export interface CompilationResult { readonly diagnostics: readonly Diagnostic[]; }
+export interface DiagnosticsResult extends CompilationResult { readonly stale: boolean; }

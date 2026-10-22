@@ -1,7 +1,0 @@
--- stdout --
-runtime-service
-runtime-count
-constant-header
-rest-marker
-error("not enough arguments")
--- stderr --

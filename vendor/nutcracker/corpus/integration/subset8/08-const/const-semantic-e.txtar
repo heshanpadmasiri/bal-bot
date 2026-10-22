@@ -1,7 +1,0 @@
--- stdout --
--- stderr --
-error[SEMANTIC_ERROR]: incompatible type: expected int, got "helloworld"
-  --> const-semantic-e.bal:17:22
-   |
-17 | public const int B = "hello" + "world"; // @error 
-   |                      ^^^^^^^^^^^^^^^^^

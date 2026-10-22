@@ -1,5 +1,0 @@
--- stdout --
-hello gzipped world
-hello deflated world
-true
--- stderr --

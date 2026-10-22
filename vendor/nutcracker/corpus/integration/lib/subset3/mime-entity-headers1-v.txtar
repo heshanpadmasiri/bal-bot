@@ -1,9 +1,0 @@
--- stdout --
-application/json
-true
-false
-2
-2
-false
-false
--- stderr --

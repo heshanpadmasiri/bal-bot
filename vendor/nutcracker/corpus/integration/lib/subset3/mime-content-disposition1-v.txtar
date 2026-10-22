@@ -1,7 +1,0 @@
--- stdout --
-form-data
-file
-test.txt
-attachment;filename="report.pdf"
-attachment;filename="my report.pdf"
--- stderr --

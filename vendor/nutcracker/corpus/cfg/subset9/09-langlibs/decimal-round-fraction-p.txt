@@ -1,9 +1,0 @@
-(main
-  (bb0 () ()
-    (assignment
-      (wildcard-binding-pattern)
-      (invocation lang.decimal round (
-        (literal 1.23)
-        (literal 2147483649))))
-  )
-)
