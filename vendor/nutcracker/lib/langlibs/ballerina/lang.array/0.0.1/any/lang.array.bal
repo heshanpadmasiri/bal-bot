@@ -1,0 +1,59 @@
+// Copyright (c) 2026, WSO2 LLC. (http://www.wso2.com).
+//
+// WSO2 LLC. licenses this file to you under the Apache License,
+// Version 2.0 (the "License"); you may not use this file except
+// in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
+# Returns the number of members of an array.
+#
+# + arr - the array
+# + return - number of members in `arr`
+public isolated function length((any|error)[] arr) returns int = external;
+
+# Returns the index of the first occurrence of a value in an array.
+#
+# The signature is declared here so that the compiler can take the parameter
+# names and the default value of `startIndex` from source. Calls are still
+# monomorphized: `@opaque` marks the declaration as the source form of an
+# opaque function, whose types are decided per call site in the compiler.
+#
+# @opaque
+#
+# + arr - the array
+# + val - the value to search for
+# + startIndex - the index to start searching from
+# + return - index of the first occurrence of `val` in `arr`, or `()` if there is none
+public isolated function indexOf(anydata[] arr, anydata val, int startIndex = 0) returns int? = external;
+
+# Returns the lowercase hexadecimal encoding of an array of bytes.
+#
+# + arr - the array to be encoded
+# + return - the lowercase hexadecimal-encoded string
+public isolated function toBase16(byte[] arr) returns string = external;
+
+# Returns the base64 encoding of an array of bytes.
+#
+# + arr - the array to be encoded
+# + return - the base64-encoded string
+public isolated function toBase64(byte[] arr) returns string = external;
+# Returns a byte array decoded from a base64 string.
+#
+# + str - the base64 encoded string
+# + return - the decoded byte array or an error
+public isolated function fromBase64(string str) returns byte[]|error = external;
+
+# Returns a byte array decoded from a base16 (hex) string.
+#
+# + str - the hexadecimal encoded string
+# + return - the decoded byte array or an error
+public isolated function fromBase16(string str) returns byte[]|error = external;

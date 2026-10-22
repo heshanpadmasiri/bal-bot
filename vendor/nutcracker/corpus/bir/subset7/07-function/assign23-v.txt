@@ -1,0 +1,164 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = fp $anon/.:foo
+    f = %1;
+    %3 = ConstantLoad a
+    %4 = f(%3) -> bb1;
+  }
+  bb1 {
+    %5 = %4;
+    %6 = println(%5) -> bb2;
+  }
+  bb2 {
+    %7 = ConstantLoad b
+    %8 = f(%7) -> bb3;
+  }
+  bb3 {
+    %9 = %8;
+    %10 = println(%9) -> bb4;
+  }
+  bb4 {
+    %11 = fp $anon/.:bar
+    g = %11;
+    %13 = ConstantLoad a
+    %14 = ConstantLoad b
+    %15 = g(f,%13,%14) -> bb5;
+  }
+  bb5 {
+    %16 = println(%15) -> bb6;
+  }
+  bb6 {
+    %17 = fp $anon/.:bar
+    g1 = %17;
+    %19 = ConstantLoad a
+    %20 = ConstantLoad b
+    %21 = g1(f,%19,%20) -> bb7;
+  }
+  bb7 {
+    %22 = println(%21) -> bb8;
+  }
+  bb8 {
+    %23 = ConstantLoad a
+    %24 = ConstantLoad b
+    %25 = ConstantLoad b
+    %26 = g1(f,%23,%24,%25) -> bb9;
+  }
+  bb9 {
+    %27 = println(%26) -> bb10;
+  }
+  bb10 {
+    %28 = ConstantLoad a
+    %29 = g1(f,%28) -> bb11;
+  }
+  bb11 {
+    %30 = println(%29) -> bb12;
+  }
+  bb12 {
+    return;
+  }
+}
+foo("a"|"b"|"c") -> boolean{
+  bb0 {
+    %3 = ConstantLoad a
+    %2 = == value %3;
+    %2 ? bb1 : bb2;
+  }
+  bb1 {
+    PushScopeFrame 1
+    %0 = ConstantLoad true
+    (1, %0) = %0;
+    PopScopeFrame
+    return;
+  }
+  bb2 {
+    %5 = ConstantLoad b
+    %4 = == value %5;
+    %4 ? bb3 : bb4;
+  }
+  bb3 {
+    PushScopeFrame 1
+    %0 = ConstantLoad false
+    (1, %0) = %0;
+    PopScopeFrame
+    return;
+  }
+  bb4 {
+    PushScopeFrame 3
+    %0 = ConstantLoad unexpected
+    %1 = println(%0) -> bb5;
+  }
+  bb5 {
+    %2 = ConstantLoad true
+    (1, %0) = %2;
+    PopScopeFrame
+    return;
+  }
+  bb6 {
+    GOTO bb7;
+  }
+  bb7 {
+    return;
+  }
+}
+bar(function("a"|"b") returns boolean,["a"|"b"|"c"...]...) -> [boolean...]{
+  bb0 {
+    %3 = ConstantLoad 0
+    %4 = newArray [boolean...][%3]{}
+    result = %4;
+    %6 = ConstantLoad 0
+    $desugar$0 = %6;
+    %8 = length(vals) -> bb1;
+  }
+  bb1 {
+    $desugar$1 = %8;
+    GOTO bb2;
+  }
+  bb2 {
+    %11 = $desugar$0;
+    %12 = $desugar$1;
+    %10 = < %11 %12;
+    %10 ? bb3 : bb4;
+  }
+  bb3 {
+    PushScopeFrame 8
+    i = (1, $desugar$0);
+    %1 = (1, vals)[i];
+    val = %1;
+    %3 = val is "c"
+    %3 ? bb5 : bb6;
+  }
+  bb4 {
+    %0 = result;
+    return;
+  }
+  bb5 {
+    PushScopeFrame 4
+    %1 = (2, $desugar$0);
+    %2 = ConstantLoad 1
+    %3 = %2;
+    %0 = + %1 %3;
+    (2, $desugar$0) = %0;
+    PopScopeFrame
+    PopScopeFrame
+    GOTO bb2;
+  }
+  bb6 {
+    PushScopeFrame 3
+    %0 = (2, func)((1, val)) -> bb7;
+  }
+  bb7 {
+    %1 = %0;
+    %2 = push((2, result),%1) -> bb8;
+  }
+  bb8 {
+    PopScopeFrame
+    %5 = (1, $desugar$0);
+    %6 = ConstantLoad 1
+    %7 = %6;
+    %4 = + %5 %7;
+    (1, $desugar$0) = %4;
+    PopScopeFrame
+    GOTO bb2;
+  }
+}

@@ -1,0 +1,12 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad 1
+    n = %1;
+    v = n;
+    %4 = println(v) -> bb1;
+  }
+  bb1 {
+    return;
+  }
+}

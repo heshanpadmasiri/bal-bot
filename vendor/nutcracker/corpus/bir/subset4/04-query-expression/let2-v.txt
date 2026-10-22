@@ -1,0 +1,80 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad 1
+    %2 = ConstantLoad 2
+    %3 = ConstantLoad 3
+    %4 = ConstantLoad 3
+    %5 = newArray [int...][%4]{%1, %2, %3}
+    xs = %5;
+    $desugar$0 = xs;
+    %8 = length($desugar$0) -> bb1;
+  }
+  bb1 {
+    $desugar$1 = %8;
+    %10 = ConstantLoad 0
+    %11 = newArray list[%10]{}
+    $desugar$2 = %11;
+    %14 = ConstantLoad 0
+    $desugar$3 = %14;
+    GOTO bb2;
+  }
+  bb2 {
+    %19 = $desugar$3;
+    %20 = $desugar$1;
+    %18 = < %19 %20;
+    %18 ? bb3 : bb4;
+  }
+  bb3 {
+    PushScopeFrame 19
+    %0 = (1, $desugar$0)[(1, $desugar$3)];
+    (1, x) = %0;
+    %2 = (1, x);
+    %3 = ConstantLoad 2
+    %4 = %3;
+    %1 = * %2 %4;
+    (1, a) = %1;
+    %6 = (1, a);
+    %7 = ConstantLoad 3
+    %8 = %7;
+    %5 = + %6 %8;
+    (1, b) = %5;
+    %10 = (1, b);
+    %11 = ConstantLoad 2
+    %12 = %11;
+    %9 = * %10 %12;
+    %13 = %9;
+    %14 = push((1, $desugar$2),%13) -> bb5;
+  }
+  bb4 {
+    out = $desugar$2;
+    %23 = ConstantLoad 0
+    %22 = out[%23];
+    %24 = %22;
+    %25 = println(%24) -> bb6;
+  }
+  bb5 {
+    %16 = (1, $desugar$3);
+    %17 = ConstantLoad 1
+    %18 = %17;
+    %15 = + %16 %18;
+    (1, $desugar$3) = %15;
+    PopScopeFrame
+    GOTO bb2;
+  }
+  bb6 {
+    %27 = ConstantLoad 1
+    %26 = out[%27];
+    %28 = %26;
+    %29 = println(%28) -> bb7;
+  }
+  bb7 {
+    %31 = ConstantLoad 2
+    %30 = out[%31];
+    %32 = %30;
+    %33 = println(%32) -> bb8;
+  }
+  bb8 {
+    return;
+  }
+}

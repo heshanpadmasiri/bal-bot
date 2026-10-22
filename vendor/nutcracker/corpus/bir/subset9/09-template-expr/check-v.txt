@@ -1,0 +1,63 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad ok
+    %2 = build(%1) -> bb1;
+  }
+  bb1 {
+    %3 = println(%2) -> bb2;
+  }
+  bb2 {
+    %4 = ConstantLoad bad
+    %5 = build(%4) -> bb3;
+  }
+  bb3 {
+    %6 = println(%5) -> bb4;
+  }
+  bb4 {
+    return;
+  }
+}
+build(string) -> string|error{
+  bb0 {
+    %3 = validate(s) -> bb1;
+  }
+  bb1 {
+    %4 = %3 is error
+    %4 ? bb2 : bb3;
+  }
+  bb2 {
+    %0 = %3;
+    return;
+  }
+  bb3 {
+    %2 = %3;
+    GOTO bb4;
+  }
+  bb4 {
+    %5 = evalTemplate[string]("hello ", %2, "")
+    %0 = %5;
+    return;
+  }
+}
+validate(string) -> string|error{
+  bb0 {
+    %3 = ConstantLoad bad
+    %2 = == s %3;
+    %2 ? bb1 : bb2;
+  }
+  bb1 {
+    PushScopeFrame 2
+    %0 = ConstantLoad bad input
+    %1 = newError error(%0)
+    (1, %0) = %1;
+    PopScopeFrame
+    return;
+  }
+  bb2 {
+    PushScopeFrame 0
+    (1, %0) = (1, s);
+    PopScopeFrame
+    return;
+  }
+}

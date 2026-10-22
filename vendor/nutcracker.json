@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/ballerina-nutcracker/ballerina.git",
+  "branch": "main",
+  "commit": "f7c4c58d4691085b57f0c2634c8bb597f3ccaaea",
+  "snapshotDate": "2026-10-22",
+  "method": "git archive of the upstream commit; source files unmodified",
+  "update": "Clone upstream main, record its commit, and replace vendor/nutcracker with the contents of git archive for that commit. Preserve upstream license and notices."
+}

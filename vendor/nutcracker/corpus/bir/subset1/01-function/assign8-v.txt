@@ -1,0 +1,47 @@
+module $anon.. v 0.0.0;
+foo([int...],int) -> [int...]{
+  bb0 {
+    %4 = i;
+    %5 = ConstantLoad 10
+    %6 = %5;
+    %3 = + %4 %6;
+    arr[i] = %3;
+    %0 = arr;
+    return;
+  }
+}
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad 0
+    %2 = newArray [int...][%1]{}
+    arr = %2;
+    %4 = ConstantLoad 0
+    %5 = %4;
+    %6 = foo(arr,%5) -> bb1;
+  }
+  bb1 {
+    %7 = %6;
+    %8 = ConstantLoad 1
+    %9 = %8;
+    %10 = foo(arr,%9) -> bb2;
+  }
+  bb2 {
+    %11 = %10;
+    %12 = ConstantLoad 2
+    %13 = %12;
+    %14 = foo(arr,%13) -> bb3;
+  }
+  bb3 {
+    %15 = %14;
+    %16 = println(arr) -> bb4;
+  }
+  bb4 {
+    %17 = ConstantLoad test str
+    str = %17;
+    %19 = str;
+    %20 = println(str) -> bb5;
+  }
+  bb5 {
+    return;
+  }
+}

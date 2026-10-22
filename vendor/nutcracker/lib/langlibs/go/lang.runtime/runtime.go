@@ -1,0 +1,80 @@
+// Copyright (c) 2026, WSO2 LLC. (http://www.wso2.com).
+//
+// WSO2 LLC. licenses this file to you under the Apache License,
+// Version 2.0 (the "License"); you may not use this file except
+// in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
+package langruntime
+
+import (
+	"math"
+	"time"
+
+	"github.com/ballerina-nutcracker/ballerina/decimal"
+	"github.com/ballerina-nutcracker/ballerina/runtime"
+	"github.com/ballerina-nutcracker/ballerina/runtime/extern"
+	"github.com/ballerina-nutcracker/ballerina/values"
+)
+
+const (
+	orgName    = "ballerina"
+	moduleName = "lang.runtime"
+)
+
+func runtimeSleep(ctx *extern.Context, args []values.BalValue) (values.BalValue, error) {
+	seconds := args[0].(*decimal.Decimal)
+	dur := secondsToSleepDuration(seconds.Float64())
+	deadline := sleepDeadline(ctx.Env.Platform.Time.MonotonicNow(), dur)
+	// Hand the thread back on every pass, the same way the wait actions poll
+	// (see waitAllFutures). Blocking on a timer between yields would hold this
+	// strand's turn for the whole timer, stalling every other strand sharing
+	// the thread.
+	for ctx.Env.Platform.Time.MonotonicNow() < deadline {
+		<-ctx.Yield()
+	}
+	return nil, nil
+}
+
+func initRuntimeModule(rt *runtime.Runtime) {
+	runtime.RegisterExternFunction(rt, orgName, moduleName, "sleep", runtimeSleep)
+}
+
+// secondsToSleepDuration converts a duration given in seconds to a
+// time.Duration, clamping non-finite and out-of-int64-range results
+// (reachable from decimal's much wider value range) to the max
+// representable duration instead of relying on the platform-specific
+// float-to-int64 overflow behavior. Non-positive durations pass through as
+// a no-op, same as time.Sleep's own documented behavior.
+func secondsToSleepDuration(seconds float64) time.Duration {
+	nanos := seconds * float64(time.Second)
+	if nanos <= 0 {
+		return 0
+	}
+	if nanos >= math.MaxInt64 {
+		return math.MaxInt64
+	}
+	return time.Duration(nanos)
+}
+
+// sleepDeadline returns now+dur, saturating at the max duration instead of
+// wrapping negative, which would end the sleep immediately.
+func sleepDeadline(now, dur time.Duration) time.Duration {
+	if dur > 0 && now > math.MaxInt64-dur {
+		return math.MaxInt64
+	}
+	return now + dur
+}
+
+func init() {
+	runtime.RegisterModuleInitializer(initRuntimeModule)
+}

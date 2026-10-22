@@ -1,0 +1,188 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %2 = ConstantLoad 3
+    %3 = unknown %2;
+    %4 = %3;
+    %5 = ConstantLoad 5
+    %6 = unknown %5;
+    %7 = %6;
+    %1 = + %4 %7;
+    %8 = %1;
+    %9 = println(%8) -> bb1;
+  }
+  bb1 {
+    %12 = ConstantLoad 3
+    %13 = unknown %12;
+    %14 = %13;
+    %15 = ConstantLoad 5
+    %16 = unknown %15;
+    %17 = %16;
+    %11 = + %14 %17;
+    %18 = %11;
+    %19 = ConstantLoad 11
+    %20 = unknown %19;
+    %21 = %20;
+    %10 = + %18 %21;
+    %22 = %10;
+    %23 = println(%22) -> bb2;
+  }
+  bb2 {
+    %27 = ConstantLoad 3
+    %28 = unknown %27;
+    %29 = %28;
+    %30 = ConstantLoad 5
+    %31 = unknown %30;
+    %32 = %31;
+    %26 = + %29 %32;
+    %33 = %26;
+    %34 = ConstantLoad 5
+    %35 = unknown %34;
+    %36 = %35;
+    %25 = + %33 %36;
+    %37 = %25;
+    %38 = ConstantLoad 9
+    %39 = unknown %38;
+    %40 = %39;
+    %24 = + %37 %40;
+    %41 = %24;
+    %42 = println(%41) -> bb3;
+  }
+  bb3 {
+    %47 = ConstantLoad 3
+    %48 = unknown %47;
+    %49 = %48;
+    %50 = ConstantLoad 5
+    %51 = unknown %50;
+    %52 = %51;
+    %46 = + %49 %52;
+    %53 = %46;
+    %54 = ConstantLoad 5
+    %55 = unknown %54;
+    %56 = %55;
+    %45 = + %53 %56;
+    %57 = %45;
+    %58 = ConstantLoad 9
+    %59 = unknown %58;
+    %60 = %59;
+    %44 = + %57 %60;
+    %61 = %44;
+    %62 = ConstantLoad 12
+    %63 = unknown %62;
+    %64 = %63;
+    %43 = + %61 %64;
+    %65 = %43;
+    %66 = println(%65) -> bb4;
+  }
+  bb4 {
+    %72 = ConstantLoad 3
+    %73 = unknown %72;
+    %74 = %73;
+    %75 = ConstantLoad 5
+    %76 = unknown %75;
+    %77 = %76;
+    %71 = + %74 %77;
+    %78 = %71;
+    %79 = ConstantLoad 5
+    %80 = unknown %79;
+    %81 = %80;
+    %70 = + %78 %81;
+    %82 = %70;
+    %83 = ConstantLoad 9
+    %84 = unknown %83;
+    %85 = %84;
+    %69 = + %82 %85;
+    %86 = %69;
+    %87 = ConstantLoad 4
+    %88 = unknown %87;
+    %89 = %88;
+    %68 = + %86 %89;
+    %90 = %68;
+    %91 = ConstantLoad 7
+    %92 = unknown %91;
+    %93 = %92;
+    %67 = + %90 %93;
+    %94 = %67;
+    %95 = println(%94) -> bb5;
+  }
+  bb5 {
+    %102 = ConstantLoad 3
+    %103 = unknown %102;
+    %104 = %103;
+    %105 = ConstantLoad 5
+    %106 = unknown %105;
+    %107 = %106;
+    %101 = + %104 %107;
+    %108 = %101;
+    %109 = ConstantLoad 5
+    %110 = unknown %109;
+    %111 = %110;
+    %100 = + %108 %111;
+    %112 = %100;
+    %113 = ConstantLoad 9
+    %114 = unknown %113;
+    %115 = %114;
+    %99 = + %112 %115;
+    %116 = %99;
+    %117 = ConstantLoad 4
+    %118 = unknown %117;
+    %119 = %118;
+    %98 = + %116 %119;
+    %120 = %98;
+    %121 = ConstantLoad 7
+    %122 = unknown %121;
+    %123 = %122;
+    %97 = + %120 %123;
+    %124 = %97;
+    %125 = ConstantLoad 5
+    %126 = unknown %125;
+    %127 = %126;
+    %96 = + %124 %127;
+    %128 = %96;
+    %129 = println(%128) -> bb6;
+  }
+  bb6 {
+    %137 = ConstantLoad 3
+    %138 = unknown %137;
+    %139 = %138;
+    %140 = ConstantLoad 5
+    %141 = unknown %140;
+    %142 = %141;
+    %136 = + %139 %142;
+    %143 = %136;
+    %144 = ConstantLoad 5
+    %145 = unknown %144;
+    %146 = %145;
+    %135 = + %143 %146;
+    %147 = %135;
+    %148 = ConstantLoad 9
+    %149 = unknown %148;
+    %150 = %149;
+    %134 = + %147 %150;
+    %151 = %134;
+    %152 = ConstantLoad 4
+    %153 = unknown %152;
+    %154 = %153;
+    %133 = + %151 %154;
+    %155 = %133;
+    %156 = ConstantLoad 7
+    %157 = unknown %156;
+    %158 = %157;
+    %132 = + %155 %158;
+    %159 = %132;
+    %160 = ConstantLoad 23
+    %161 = unknown %160;
+    %162 = %161;
+    %131 = + %159 %162;
+    %163 = %131;
+    %164 = ConstantLoad 50
+    %165 = unknown %164;
+    %166 = %165;
+    %130 = + %163 %166;
+    %167 = %130;
+    %168 = println(%167) -> bb7;
+  }
+  bb7 {
+    return;
+  }
+}

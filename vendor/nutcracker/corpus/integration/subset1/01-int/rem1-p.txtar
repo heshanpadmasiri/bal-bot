@@ -1,0 +1,5 @@
+-- stdout --
+-- stderr --
+error: divide by zero
+        at rem(rem1-p.bal:26)
+           main(rem1-p.bal:22)

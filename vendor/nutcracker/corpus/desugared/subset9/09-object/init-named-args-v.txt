@@ -1,0 +1,93 @@
+(package
+  (import-package ballerina io (as io))
+  (class-definition public Listener
+    (variable path (type
+      (value-type string)))
+    (variable recursive (type
+      (value-type boolean)))
+    (function init (
+      (variable path (type
+        (value-type string)))
+      (variable recursive (type
+        (value-type boolean)) (expr
+        (literal false)))) (
+      (union-type
+        (error-type)
+        (value-type null)))
+      (block-function-body
+        (assignment
+          (index-based-access
+            (simple-var-ref self)
+            (literal path))
+          (simple-var-ref path))
+        (assignment
+          (index-based-access
+            (simple-var-ref self)
+            (literal recursive))
+          (simple-var-ref recursive))))
+    (function describe () (
+      (value-type string))
+      (block-function-body
+        (return
+          (string-template-literal
+            (template-string "")
+            (index-based-access
+              (simple-var-ref self)
+              (literal path))
+            (template-string ":")
+            (index-based-access
+              (simple-var-ref self)
+              (literal recursive))
+            (template-string ""))))))
+  (function main () (
+    (union-type
+      (error-type)
+      (value-type null)))
+    (block-function-body
+      (var-def
+        (variable named (type
+          (user-defined-type Listener)) (expr
+          (checked-expr
+            (new (
+              (literal /tmp)
+              (literal true)))))))
+      (expression-stmt
+        (invocation io println (
+          (invocation describe expr:
+            (simple-var-ref named) ()))))
+      (var-def
+        (variable mixed (type
+          (user-defined-type Listener)) (expr
+          (checked-expr
+            (new (
+              (literal /var)
+              (literal true)))))))
+      (expression-stmt
+        (invocation io println (
+          (invocation describe expr:
+            (simple-var-ref mixed) ()))))
+      (var-def
+        (variable defaulted (type
+          (user-defined-type Listener)) (expr
+          (checked-expr
+            (expression-thunk
+            (var-def
+              (variable $desugar$0 (expr
+                (literal /etc))))
+            (var-def
+              (variable $desugar$1 (expr
+                (invocation $default$0 (
+                  (simple-var-ref $desugar$0))))))
+            (new (
+              (simple-var-ref $desugar$0)
+              (simple-var-ref $desugar$1))))))))
+      (expression-stmt
+        (invocation io println (
+          (invocation describe expr:
+            (simple-var-ref defaulted) ()))))))
+  (function $default$0 (
+    (variable path (type
+      (value-type )))) ()
+    (block-function-body
+      (return
+        (literal false)))))

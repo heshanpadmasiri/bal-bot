@@ -1,0 +1,54 @@
+(compilation-unit
+(package-id $anon . 0.0.0)
+  (import-package ballerina io (as io))
+  (const BASE () (
+    (literal 10)))
+  (const A () (
+    (list-constructor-expr
+      (literal 1)
+      (literal 2)
+      (literal 3))))
+  (const B () (
+    (list-constructor-expr
+      (literal hello)
+      (literal world))))
+  (const C () (
+    (list-constructor-expr
+      (literal 1)
+      (literal two)
+      (literal 3))))
+  (const D () (
+    (list-constructor-expr
+      (list-constructor-expr
+        (literal 1)
+        (literal 2))
+      (list-constructor-expr
+        (literal 3)
+        (literal 4)))))
+  (const E () (
+    (list-constructor-expr
+      (simple-var-ref BASE)
+      (list-constructor-expr
+        (binary-expr +
+          (simple-var-ref BASE)
+          (literal 1))
+        (unary-expr -
+          (literal 3))))))
+  (function main () (
+    (value-type null))
+    (block-function-body
+      (expression-stmt
+        (invocation io println (
+          (simple-var-ref A))))
+      (expression-stmt
+        (invocation io println (
+          (simple-var-ref B))))
+      (expression-stmt
+        (invocation io println (
+          (simple-var-ref C))))
+      (expression-stmt
+        (invocation io println (
+          (simple-var-ref D))))
+      (expression-stmt
+        (invocation io println (
+          (simple-var-ref E)))))))

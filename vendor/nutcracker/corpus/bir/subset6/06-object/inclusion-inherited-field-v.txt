@@ -1,0 +1,71 @@
+module $anon.. v 0.0.0;
+class Bar {
+  z int
+
+  getX() -> int{
+    bb0 {
+      %3 = ConstantLoad x
+      %2 = self[%3];
+      %0 = %2;
+      return;
+    }
+  }
+
+  init() -> nil{
+    bb0 {
+      %2 = ConstantLoad 0
+      %3 = ConstantLoad z
+      self[%3] = %2;
+      %4 = ConstantLoad 42
+      %5 = ConstantLoad x
+      self[%5] = %4;
+      %6 = ConstantLoad hello
+      %7 = ConstantLoad y
+      self[%7] = %6;
+      %8 = ConstantLoad 1
+      %9 = ConstantLoad z
+      self[%9] = %8;
+      return;
+    }
+  }
+}
+main() -> nil{
+  bb0 {
+    %1 = newObject $anon/.:Bar
+    %2 = %1.init() -> bb1;
+  }
+  bb1 {
+    %4 = %2 is nil
+    %4 ? bb2 : bb3;
+  }
+  bb2 {
+    %3 = %1;
+    GOTO bb4;
+  }
+  bb3 {
+    %3 = %2;
+    GOTO bb4;
+  }
+  bb4 {
+    b = %3;
+    %6 = b.getX() -> bb5;
+  }
+  bb5 {
+    %7 = %6;
+    %8 = println(%7) -> bb6;
+  }
+  bb6 {
+    %10 = ConstantLoad y
+    %9 = b[%10];
+    %11 = println(%9) -> bb7;
+  }
+  bb7 {
+    %13 = ConstantLoad z
+    %12 = b[%13];
+    %14 = %12;
+    %15 = println(%14) -> bb8;
+  }
+  bb8 {
+    return;
+  }
+}

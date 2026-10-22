@@ -1,0 +1,71 @@
+(package
+  (import-package ballerina io (as io))
+  (function main () (
+    (value-type null))
+    (block-function-body
+      (expression-stmt
+        (invocation io println (
+          (invocation eq (
+            (numeric-literal NaN)
+            (numeric-literal NaN))))))
+      (expression-stmt
+        (invocation io println (
+          (invocation eq (
+            (numeric-literal +Inf)
+            (numeric-literal -Inf))))))
+      (expression-stmt
+        (invocation io println (
+          (invocation eq (
+            (numeric-literal -0)
+            (numeric-literal 0))))))
+      (expression-stmt
+        (invocation io println (
+          (invocation eq (
+            (numeric-literal NaN)
+            (numeric-literal +Inf))))))
+      (expression-stmt
+        (invocation io println (
+          (invocation eq (
+            (numeric-literal NaN)
+            (numeric-literal -Inf))))))
+      (expression-stmt
+        (invocation io println (
+          (numeric-literal 0))))
+      (expression-stmt
+        (invocation io println (
+          (literal true))))
+      (expression-stmt
+        (invocation io println (
+          (literal false))))
+      (expression-stmt
+        (invocation io println (
+          (numeric-literal 0))))))
+  (function eq (
+    (variable f1 (type
+      (value-type float)))
+    (variable f2 (type
+      (value-type float)))) (
+    (value-type any))
+    (block-function-body
+      (var-def
+        (variable eq (type
+          (value-type boolean)) (expr
+          (binary-expr ==
+            (simple-var-ref f1)
+            (simple-var-ref f2)))))
+      (var-def
+        (variable neEq (type
+          (value-type boolean)) (expr
+          (binary-expr !=
+            (simple-var-ref f1)
+            (simple-var-ref f2)))))
+      (if
+        (binary-expr ==
+          (simple-var-ref eq)
+          (simple-var-ref neEq))
+        (block-stmt
+          (return
+            (literal <nil>))) ())
+      (block-stmt
+        (return
+          (simple-var-ref eq))))))

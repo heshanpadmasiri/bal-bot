@@ -1,0 +1,109 @@
+module $anon.. v 0.0.0;
+calls  int;
+nextLimit() -> int{
+  bb0 {
+    %2 = ConstantLoad 1
+    %3 = %2;
+    %1 = + calls %3;
+    calls = %1;
+    %4 = ConstantLoad 2
+    %0 = %4;
+    return;
+  }
+}
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad 1
+    %2 = ConstantLoad 2
+    %3 = ConstantLoad 3
+    %4 = ConstantLoad 3
+    %5 = newArray [int...][%4]{%1, %2, %3}
+    xs = %5;
+    $desugar$0 = xs;
+    %8 = length($desugar$0) -> bb1;
+  }
+  bb1 {
+    $desugar$1 = %8;
+    %10 = ConstantLoad 0
+    %11 = newArray list[%10]{}
+    $desugar$2 = %11;
+    %14 = ConstantLoad 0
+    $desugar$3 = %14;
+    %16 = nextLimit() -> bb2;
+  }
+  bb2 {
+    $desugar$4 = %16;
+    %19 = $desugar$4;
+    %20 = ConstantLoad 0
+    %21 = %20;
+    %18 = < %19 %21;
+    %18 ? bb3 : bb4;
+  }
+  bb3 {
+    PushScopeFrame 2
+    %0 = ConstantLoad limit cannot be negative
+    %1 = newError error(%0)
+    (1, %22) = %1;
+    PopScopeFrame
+    panic %22;
+  }
+  bb4 {
+    %23 = ConstantLoad 0
+    $desugar$5 = %23;
+    GOTO bb5;
+  }
+  bb5 {
+    %26 = $desugar$3;
+    %27 = $desugar$1;
+    %25 = < %26 %27;
+    %25 ? bb6 : bb7;
+  }
+  bb6 {
+    PushScopeFrame 14
+    %0 = (1, $desugar$0)[(1, $desugar$3)];
+    (1, x) = %0;
+    %2 = (1, $desugar$5);
+    %3 = (1, $desugar$4);
+    %1 = >= %2 %3;
+    %1 ? bb8 : bb9;
+  }
+  bb7 {
+    ys = $desugar$2;
+    %29 = println(ys) -> bb11;
+  }
+  bb8 {
+    PushScopeFrame 4
+    %1 = (2, $desugar$3);
+    %2 = ConstantLoad 1
+    %3 = %2;
+    %0 = + %1 %3;
+    (2, $desugar$3) = %0;
+    PopScopeFrame
+    PopScopeFrame
+    GOTO bb5;
+  }
+  bb9 {
+    %5 = (1, $desugar$5);
+    %6 = ConstantLoad 1
+    %7 = %6;
+    %4 = + %5 %7;
+    (1, $desugar$5) = %4;
+    %8 = (1, x);
+    %9 = push((1, $desugar$2),%8) -> bb10;
+  }
+  bb10 {
+    %11 = (1, $desugar$3);
+    %12 = ConstantLoad 1
+    %13 = %12;
+    %10 = + %11 %13;
+    (1, $desugar$3) = %10;
+    PopScopeFrame
+    GOTO bb5;
+  }
+  bb11 {
+    %30 = println(calls) -> bb12;
+  }
+  bb12 {
+    return;
+  }
+}

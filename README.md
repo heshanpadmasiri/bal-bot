@@ -2,7 +2,7 @@
 
 A browser workspace for editing Ballerina HTTP services with PI.
 
-The model dropdown shows a curated set: GPT-6.1 Sol (default), GPT-6 Astra, and GPT-6 Luna for OpenAI; Claude Sonnet 5.5 (default), Opus 5.5, and Haiku 5.5 for Anthropic. The list lives in `server/model-selection.mjs` and was checked against the official provider catalogs on October 22, 2026.
+The model dropdown shows a curated set: GPT-6.1 Sol (default), GPT-6 Astra, and GPT-6 Luna for OpenAI; Claude Sonnet 5.5 (default), Opus 5.5, and Haiku 5.5 for Anthropic. The list lives in `apps/editor/server/model-selection.mjs` and was checked against the official provider catalogs on October 22, 2026.
 
 ```sh
 npm install
@@ -28,3 +28,14 @@ npm start
 `npm run dev` serves the website through Vite middleware. `npm start` serves the production build through the same API server. Use `PORT` to change the default 5173 port.
 
 Tests cover filesystem operations, credential persistence and refresh, login prompts and cancellation, API access checks, streaming, browser tool execution, and aborts. Provider interactions are mocked in automated tests. Completing a real OAuth login and live model call requires your account.
+
+## Code layout
+
+This repository uses npm workspaces:
+
+- `packages/workspace` (`@bal-bot/workspace`): workspace, service, endpoint, and anchor interfaces.
+- `packages/browser-workspace` (`@bal-bot/browser-workspace`): browser filesystem, HTTP service anchor, and agent tools.
+- `apps/editor` (`@bal-bot/editor`): React editor and local API server. The entry point injects the concrete workspace into the editor.
+- `vendor/nutcracker`: source snapshot of Nutcracker upstream `main`, recorded in `vendor/nutcracker.json`. Runtime integration is deferred.
+
+Run the commands above from the repository root. The production build lives in `apps/editor/dist`; the existing `.bal-bot` credential directory and browser storage key are preserved.

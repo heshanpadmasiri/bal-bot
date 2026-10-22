@@ -1,0 +1,122 @@
+module $anon.. v 0.0.0;
+foo(int) -> int{
+  bb0 {
+    %3 = x;
+    %4 = ConstantLoad 0
+    %5 = %4;
+    %2 = == %3 %5;
+    %2 ? bb1 : bb2;
+  }
+  bb1 {
+    PushScopeFrame 2
+    %0 = ConstantLoad zero!
+    %1 = newError error(%0)
+    (1, %6) = %1;
+    PopScopeFrame
+    panic %6;
+  }
+  bb2 {
+    PushScopeFrame 4
+    %1 = (1, x);
+    %2 = ConstantLoad 2
+    %3 = %2;
+    %0 = * %1 %3;
+    (1, %0) = %0;
+    PopScopeFrame
+    return;
+  }
+}
+boom() -> int{
+  bb0 {
+    %1 = ConstantLoad deep
+    %2 = newError error(%1)
+    panic %2;
+  }
+}
+bar(int|error,int|error) -> int|error{
+  bb0 {
+    %3 = x is error
+    %3 ? bb1 : bb2;
+  }
+  bb1 {
+    PushScopeFrame 0
+    (1, %0) = (1, x);
+    PopScopeFrame
+    return;
+  }
+  bb2 {
+    PushScopeFrame 1
+    %0 = (1, y) is error
+    %0 ? bb3 : bb4;
+  }
+  bb3 {
+    PushScopeFrame 0
+    (2, %0) = (2, y);
+    PopScopeFrame
+    PopScopeFrame
+    return;
+  }
+  bb4 {
+    PushScopeFrame 1
+    %0 = + (2, x) (2, y);
+    (2, %0) = %0;
+    PopScopeFrame
+    PopScopeFrame
+    return;
+  }
+}
+main() -> nil{
+  bb0 {
+    GOTO bb1;
+  }
+  bb1 {
+    GOTO bb2;
+  }
+  bb2 {
+    %3 = ConstantLoad 0
+    %4 = %3;
+    %5 = foo(%4) -> bb3;
+  }
+  bb3 {
+    %2 = %5;
+    GOTO bb4;
+  }
+  bb4 {
+    GOTO bb5;
+  }
+  bb5 {
+    GOTO bb6;
+  }
+  bb6 {
+    %8 = boom() -> bb7;
+  }
+  bb7 {
+    %7 = %8;
+    GOTO bb8;
+  }
+  bb8 {
+    %6 = %7;
+    GOTO bb9;
+  }
+  bb9 {
+    %9 = bar(%2,%6) -> bb10;
+  }
+  bb10 {
+    %1 = %9;
+    GOTO bb11;
+  }
+  bb11 {
+    result = %1;
+    %11 = println(result) -> bb12;
+  }
+  bb12 {
+    return;
+  }
+  
+  error-table {
+    [bb2, bb3] -> bb4, %2
+    [bb6, bb7] -> bb8, %7
+    [bb5, bb8] -> bb9, %6
+    [bb1, bb10] -> bb11, %1
+  }
+}

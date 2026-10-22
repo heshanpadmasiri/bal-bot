@@ -1,0 +1,13 @@
+-- stdout --
+-- stderr --
+error[SEMANTIC_ERROR]: dependently-typed function return type dependent and defined parts must be disjoint
+  --> dependent-fn-3-e.bal:19:1
+   |
+19 | function inferred(int val, typedesc retTy = <>) returns retTy|int = external; // @error
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[SEMANTIC_ERROR]: inferred typedesc default '<>' requires the return type to depend on this parameter
+  --> dependent-fn-3-e.bal:17:39
+   |
+17 | function nonDependentDefault(int val, typedesc retTy = <>) returns int = external; // @error
+   |                                       ^^^^^^^^^^^^^^^^^^^

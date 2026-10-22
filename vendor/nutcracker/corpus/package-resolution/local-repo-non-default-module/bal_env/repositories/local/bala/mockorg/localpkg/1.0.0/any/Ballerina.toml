@@ -1,0 +1,8 @@
+[package]
+org = "mockorg"
+name = "localpkg"
+version = "1.0.0"
+
+[[package.modules]]
+name   = "localpkg.utils"
+export = true

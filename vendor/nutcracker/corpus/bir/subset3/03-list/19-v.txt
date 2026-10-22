@@ -1,0 +1,28 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad 1
+    %2 = ConstantLoad 2
+    %3 = ConstantLoad 3
+    %4 = ConstantLoad 4
+    %5 = ConstantLoad 4
+    %6 = newArray [any...][%5]{%1, %2, %3, %4}
+    v = %6;
+    %8 = ConstantLoad 5
+    %9 = %8;
+    %10 = push(v,%9) -> bb1;
+  }
+  bb1 {
+    %11 = println(v) -> bb2;
+  }
+  bb2 {
+    %12 = length(v) -> bb3;
+  }
+  bb3 {
+    %13 = %12;
+    %14 = println(%13) -> bb4;
+  }
+  bb4 {
+    return;
+  }
+}

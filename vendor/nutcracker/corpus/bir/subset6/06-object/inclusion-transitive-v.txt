@@ -1,0 +1,62 @@
+module $anon.. v 0.0.0;
+class C {
+  z int
+
+  init() -> nil{
+    bb0 {
+      %2 = ConstantLoad 0
+      %3 = ConstantLoad z
+      self[%3] = %2;
+      %4 = ConstantLoad 1
+      %5 = ConstantLoad x
+      self[%5] = %4;
+      %6 = ConstantLoad 2
+      %7 = ConstantLoad y
+      self[%7] = %6;
+      %8 = ConstantLoad 3
+      %9 = ConstantLoad z
+      self[%9] = %8;
+      return;
+    }
+  }
+}
+main() -> nil{
+  bb0 {
+    %1 = newObject $anon/.:C
+    %2 = %1.init() -> bb1;
+  }
+  bb1 {
+    %4 = %2 is nil
+    %4 ? bb2 : bb3;
+  }
+  bb2 {
+    %3 = %1;
+    GOTO bb4;
+  }
+  bb3 {
+    %3 = %2;
+    GOTO bb4;
+  }
+  bb4 {
+    c = %3;
+    %7 = ConstantLoad x
+    %6 = c[%7];
+    %8 = %6;
+    %9 = println(%8) -> bb5;
+  }
+  bb5 {
+    %11 = ConstantLoad y
+    %10 = c[%11];
+    %12 = %10;
+    %13 = println(%12) -> bb6;
+  }
+  bb6 {
+    %15 = ConstantLoad z
+    %14 = c[%15];
+    %16 = %14;
+    %17 = println(%16) -> bb7;
+  }
+  bb7 {
+    return;
+  }
+}

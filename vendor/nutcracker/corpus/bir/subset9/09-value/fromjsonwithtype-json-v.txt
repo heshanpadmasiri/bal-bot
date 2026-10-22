@@ -1,0 +1,188 @@
+module $anon.. v 0.0.0;
+main() -> nil|error{
+  bb0 {
+    %1 = ConstantLoad hello
+    strJson = %1;
+    %4 = ConstantLoad typedesc
+    %5 = fromJsonWithType(strJson,%4) -> bb1;
+  }
+  bb1 {
+    %6 = %5 is error
+    %6 ? bb2 : bb3;
+  }
+  bb2 {
+    %0 = %5;
+    return;
+  }
+  bb3 {
+    %3 = %5;
+    GOTO bb4;
+  }
+  bb4 {
+    strOut = %3;
+    %8 = println(strOut) -> bb5;
+  }
+  bb5 {
+    %9 = ConstantLoad 42
+    intJson = %9;
+    %12 = ConstantLoad typedesc
+    %13 = fromJsonWithType(intJson,%12) -> bb6;
+  }
+  bb6 {
+    %14 = %13 is error
+    %14 ? bb7 : bb8;
+  }
+  bb7 {
+    %0 = %13;
+    return;
+  }
+  bb8 {
+    %11 = %13;
+    GOTO bb9;
+  }
+  bb9 {
+    intOut = %11;
+    %16 = println(intOut) -> bb10;
+  }
+  bb10 {
+    %17 = ConstantLoad true
+    boolJson = %17;
+    %20 = ConstantLoad typedesc
+    %21 = fromJsonWithType(boolJson,%20) -> bb11;
+  }
+  bb11 {
+    %22 = %21 is error
+    %22 ? bb12 : bb13;
+  }
+  bb12 {
+    %0 = %21;
+    return;
+  }
+  bb13 {
+    %19 = %21;
+    GOTO bb14;
+  }
+  bb14 {
+    boolOut = %19;
+    %24 = println(boolOut) -> bb15;
+  }
+  bb15 {
+    %25 = ConstantLoad 1
+    %26 = ConstantLoad <nil>
+    %27 = ConstantLoad 3
+    %28 = ConstantLoad 3
+    %29 = newArray [json...][%28]{%25, %26, %27}
+    arr = %29;
+    %32 = ConstantLoad typedesc
+    %33 = fromJsonWithType(arr,%32) -> bb16;
+  }
+  bb16 {
+    %34 = %33 is error
+    %34 ? bb17 : bb18;
+  }
+  bb17 {
+    %0 = %33;
+    return;
+  }
+  bb18 {
+    %31 = %33;
+    GOTO bb19;
+  }
+  bb19 {
+    arrOut = %31;
+    %36 = println(arrOut) -> bb20;
+  }
+  bb20 {
+    %37 = ConstantLoad a
+    %38 = ConstantLoad 1
+    %39 = ConstantLoad b
+    %40 = ConstantLoad <nil>
+    %41 = newMap {| json... |}{%37=%38, %39=%40}
+    m = %41;
+    %44 = ConstantLoad typedesc
+    %45 = fromJsonWithType(m,%44) -> bb21;
+  }
+  bb21 {
+    %46 = %45 is error
+    %46 ? bb22 : bb23;
+  }
+  bb22 {
+    %0 = %45;
+    return;
+  }
+  bb23 {
+    %43 = %45;
+    GOTO bb24;
+  }
+  bb24 {
+    mapOut = %43;
+    %48 = println(mapOut) -> bb25;
+  }
+  bb25 {
+    %49 = ConstantLoad 1
+    %50 = ConstantLoad 2
+    %51 = ConstantLoad 2
+    %52 = newArray [json...][%51]{%49, %50}
+    %53 = ConstantLoad 3
+    %54 = ConstantLoad 4
+    %55 = ConstantLoad 2
+    %56 = newArray [json...][%55]{%53, %54}
+    %57 = ConstantLoad 2
+    %58 = newArray [json...][%57]{%52, %56}
+    nested = %58;
+    %61 = ConstantLoad typedesc
+    %62 = fromJsonWithType(nested,%61) -> bb26;
+  }
+  bb26 {
+    %63 = %62 is error
+    %63 ? bb27 : bb28;
+  }
+  bb27 {
+    %0 = %62;
+    return;
+  }
+  bb28 {
+    %60 = %62;
+    GOTO bb29;
+  }
+  bb29 {
+    nestedOut = %60;
+    %65 = println(nestedOut) -> bb30;
+  }
+  bb30 {
+    %66 = ConstantLoad items
+    %67 = ConstantLoad 1
+    %68 = ConstantLoad 2
+    %69 = ConstantLoad 2
+    %70 = newArray [json...][%69]{%67, %68}
+    %71 = ConstantLoad meta
+    %72 = ConstantLoad n
+    %73 = ConstantLoad 2
+    %74 = newMap {| json... |}{%72=%73}
+    %75 = newMap {| json... |}{%66=%70, %71=%74}
+    rec = %75;
+    %78 = ConstantLoad typedesc
+    %79 = fromJsonWithType(rec,%78) -> bb31;
+  }
+  bb31 {
+    %80 = %79 is error
+    %80 ? bb32 : bb33;
+  }
+  bb32 {
+    %0 = %79;
+    return;
+  }
+  bb33 {
+    %77 = %79;
+    GOTO bb34;
+  }
+  bb34 {
+    recOut = %77;
+    %82 = println(recOut) -> bb35;
+  }
+  bb35 {
+    %83 = ConstantLoad <nil>
+    %0 = %83;
+    return;
+  }
+}

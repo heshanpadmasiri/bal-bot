@@ -1,0 +1,88 @@
+module $anon.. v 0.0.0;
+keyFor(int) -> string{
+  bb0 {
+    %3 = x;
+    %4 = ConstantLoad 2
+    %5 = %4;
+    %2 = <= %3 %5;
+    %2 ? bb1 : bb2;
+  }
+  bb1 {
+    PushScopeFrame 1
+    %0 = ConstantLoad a
+    (1, %0) = %0;
+    PopScopeFrame
+    return;
+  }
+  bb2 {
+    PushScopeFrame 1
+    %0 = ConstantLoad b
+    (1, %0) = %0;
+    PopScopeFrame
+    return;
+  }
+}
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad k1
+    %2 = ConstantLoad 1
+    %3 = ConstantLoad k2
+    %4 = ConstantLoad 2
+    %5 = ConstantLoad k3
+    %6 = ConstantLoad 3
+    %7 = newMap {| int... |}{%1=%2, %3=%4, %5=%6}
+    xs = %7;
+    $desugar$0 = xs;
+    %10 = keys($desugar$0) -> bb1;
+  }
+  bb1 {
+    $desugar$1 = %10;
+    %12 = length($desugar$1) -> bb2;
+  }
+  bb2 {
+    $desugar$2 = %12;
+    %14 = newMap {| int... |}{}
+    $desugar$3 = %14;
+    %17 = ConstantLoad 0
+    $desugar$4 = %17;
+    GOTO bb3;
+  }
+  bb3 {
+    %20 = $desugar$4;
+    %21 = $desugar$2;
+    %19 = < %20 %21;
+    %19 ? bb4 : bb5;
+  }
+  bb4 {
+    PushScopeFrame 15
+    %1 = (1, $desugar$1)[(1, $desugar$4)];
+    %0 = (1, $desugar$0)[%1];
+    (1, x) = %0;
+    %2 = (1, x);
+    %3 = keyFor(%2) -> bb6;
+  }
+  bb5 {
+    out = $desugar$3;
+    %23 = println(out) -> bb7;
+  }
+  bb6 {
+    %4 = ConstantLoad 2
+    %5 = newArray [string, int, never...][%4]{%3, (1, x)}
+    $desugar$5 = %5;
+    %8 = ConstantLoad 1
+    %7 = $desugar$5[%8];
+    %10 = ConstantLoad 0
+    %9 = $desugar$5[%10];
+    (1, $desugar$3)[%9] = %7;
+    %12 = (1, $desugar$4);
+    %13 = ConstantLoad 1
+    %14 = %13;
+    %11 = + %12 %14;
+    (1, $desugar$4) = %11;
+    PopScopeFrame
+    GOTO bb3;
+  }
+  bb7 {
+    return;
+  }
+}

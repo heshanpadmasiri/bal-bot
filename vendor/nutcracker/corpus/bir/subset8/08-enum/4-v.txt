@@ -1,0 +1,16 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad green
+    c = %1;
+    x = c;
+    y = c;
+    %5 = println(x) -> bb1;
+  }
+  bb1 {
+    %6 = println(y) -> bb2;
+  }
+  bb2 {
+    return;
+  }
+}

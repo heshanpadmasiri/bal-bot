@@ -1,0 +1,102 @@
+module $anon.. v 0.0.0;
+class F1 {
+
+  foo() -> int{
+    bb0 {
+      %2 = ConstantLoad f1
+      %3 = println(%2) -> bb1;
+    }
+    bb1 {
+      %5 = ConstantLoad x
+      %4 = self[%5];
+      %0 = %4;
+      return;
+    }
+  }
+
+  init() -> nil{
+    bb0 {
+      %2 = ConstantLoad 1
+      %3 = ConstantLoad x
+      self[%3] = %2;
+      return;
+    }
+  }
+}
+class F2 {
+
+  foo() -> int{
+    bb0 {
+      %2 = ConstantLoad f2
+      %3 = println(%2) -> bb1;
+    }
+    bb1 {
+      %5 = ConstantLoad x
+      %4 = self[%5];
+      %0 = %4;
+      return;
+    }
+  }
+
+  init() -> nil{
+    bb0 {
+      %2 = ConstantLoad 2
+      %3 = ConstantLoad x
+      self[%3] = %2;
+      return;
+    }
+  }
+}
+main() -> nil{
+  bb0 {
+    %1 = newObject $anon/.:F1
+    %2 = %1.init() -> bb1;
+  }
+  bb1 {
+    %4 = %2 is nil
+    %4 ? bb2 : bb3;
+  }
+  bb2 {
+    %3 = %1;
+    GOTO bb4;
+  }
+  bb3 {
+    %3 = %2;
+    GOTO bb4;
+  }
+  bb4 {
+    f = %3;
+    %6 = f.foo() -> bb5;
+  }
+  bb5 {
+    %7 = %6;
+    %8 = println(%7) -> bb6;
+  }
+  bb6 {
+    %9 = newObject $anon/.:F2
+    %10 = %9.init() -> bb7;
+  }
+  bb7 {
+    %12 = %10 is nil
+    %12 ? bb8 : bb9;
+  }
+  bb8 {
+    %11 = %9;
+    GOTO bb10;
+  }
+  bb9 {
+    %11 = %10;
+    GOTO bb10;
+  }
+  bb10 {
+    f = %11;
+    %13 = f.foo() -> bb11;
+  }
+  bb11 {
+    %14 = %13;
+    %15 = println(%14) -> bb12;
+  }
+  bb12 {
+    return;
+  }
+}

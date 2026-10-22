@@ -1,0 +1,77 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad 42
+    i = %1;
+    %3 = i;
+    %4 = toHexString(%3) -> bb1;
+  }
+  bb1 {
+    s = %4;
+    %6 = println(s) -> bb2;
+  }
+  bb2 {
+    %8 = ConstantLoad 2a
+    %7 = == s %8;
+    %9 = %7;
+    %10 = println(%9) -> bb3;
+  }
+  bb3 {
+    %11 = ConstantLoad 0
+    %12 = %11;
+    %13 = toHexString(%12) -> bb4;
+  }
+  bb4 {
+    %14 = println(%13) -> bb5;
+  }
+  bb5 {
+    %15 = ConstantLoad 1
+    %16 = unknown %15;
+    %17 = %16;
+    %18 = toHexString(%17) -> bb6;
+  }
+  bb6 {
+    %19 = println(%18) -> bb7;
+  }
+  bb7 {
+    %20 = ConstantLoad 255
+    %21 = %20;
+    %22 = toHexString(%21) -> bb8;
+  }
+  bb8 {
+    %23 = println(%22) -> bb9;
+  }
+  bb9 {
+    %24 = ConstantLoad 170
+    %25 = unknown %24;
+    %26 = %25;
+    %27 = toHexString(%26) -> bb10;
+  }
+  bb10 {
+    %28 = println(%27) -> bb11;
+  }
+  bb11 {
+    %29 = ConstantLoad 9223372036854775807
+    %30 = %29;
+    %31 = toHexString(%30) -> bb12;
+  }
+  bb12 {
+    %32 = println(%31) -> bb13;
+  }
+  bb13 {
+    %34 = ConstantLoad 9223372036854775807
+    %35 = unknown %34;
+    %36 = %35;
+    %37 = ConstantLoad 1
+    %38 = %37;
+    %33 = - %36 %38;
+    %39 = %33;
+    %40 = toHexString(%39) -> bb14;
+  }
+  bb14 {
+    %41 = println(%40) -> bb15;
+  }
+  bb15 {
+    return;
+  }
+}

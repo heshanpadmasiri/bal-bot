@@ -1,0 +1,7 @@
+-- stdout --
+-- stderr --
+error[SYNTAX_ERROR]: annotation not attached to a construct
+  --> missing-name-eof-e.bal:17:1
+   |
+17 | @ // @error missing annotation name
+   | ^

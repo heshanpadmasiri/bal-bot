@@ -1,0 +1,41 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = catch() -> bb1;
+  }
+  bb1 {
+    %2 = println(%1) -> bb2;
+  }
+  bb2 {
+    return;
+  }
+}
+catch() -> int|error{
+  bb0 {
+    %2 = neverErr() -> bb1;
+  }
+  bb1 {
+    %3 = %2 is error
+    %3 ? bb2 : bb3;
+  }
+  bb2 {
+    %0 = %2;
+    return;
+  }
+  bb3 {
+    %1 = %2;
+    GOTO bb4;
+  }
+  bb4 {
+    %4 = ConstantLoad 22
+    %0 = %4;
+    return;
+  }
+}
+neverErr() -> nil|error{
+  bb0 {
+    %1 = ConstantLoad <nil>
+    %0 = %1;
+    return;
+  }
+}

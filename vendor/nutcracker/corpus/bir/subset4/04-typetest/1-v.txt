@@ -1,0 +1,200 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad 1
+    x = %1;
+    %3 = x is int
+    %3 ? bb1 : bb3;
+  }
+  bb1 {
+    PushScopeFrame 2
+    %0 = ConstantLoad int
+    %1 = println(%0) -> bb2;
+  }
+  bb2 {
+    PopScopeFrame
+    GOTO bb3;
+  }
+  bb3 {
+    PushScopeFrame 1
+    %0 = (1, x) is string
+    %0 ? bb4 : bb6;
+  }
+  bb4 {
+    PushScopeFrame 2
+    %0 = ConstantLoad string
+    %1 = println(%0) -> bb5;
+  }
+  bb5 {
+    PopScopeFrame
+    GOTO bb6;
+  }
+  bb6 {
+    PushScopeFrame 3
+    %0 = ConstantLoad hello
+    s = %0;
+    %2 = s is string
+    %2 ? bb7 : bb9;
+  }
+  bb7 {
+    PushScopeFrame 2
+    %0 = ConstantLoad string
+    %1 = println(%0) -> bb8;
+  }
+  bb8 {
+    PopScopeFrame
+    GOTO bb9;
+  }
+  bb9 {
+    PushScopeFrame 1
+    %0 = (1, s) is decimal
+    %0 ? bb10 : bb12;
+  }
+  bb10 {
+    PushScopeFrame 2
+    %0 = ConstantLoad decimal
+    %1 = println(%0) -> bb11;
+  }
+  bb11 {
+    PopScopeFrame
+    GOTO bb12;
+  }
+  bb12 {
+    PushScopeFrame 3
+    %0 = ConstantLoad 1
+    f = %0;
+    %2 = f is float
+    %2 ? bb13 : bb15;
+  }
+  bb13 {
+    PushScopeFrame 2
+    %0 = ConstantLoad float
+    %1 = println(%0) -> bb14;
+  }
+  bb14 {
+    PopScopeFrame
+    GOTO bb15;
+  }
+  bb15 {
+    PushScopeFrame 1
+    %0 = (1, f) is boolean
+    %0 ? bb16 : bb18;
+  }
+  bb16 {
+    PushScopeFrame 2
+    %0 = ConstantLoad int
+    %1 = println(%0) -> bb17;
+  }
+  bb17 {
+    PopScopeFrame
+    GOTO bb18;
+  }
+  bb18 {
+    PushScopeFrame 3
+    %0 = ConstantLoad true
+    y = %0;
+    %2 = y is boolean
+    %2 ? bb19 : bb21;
+  }
+  bb19 {
+    PushScopeFrame 2
+    %0 = ConstantLoad boolean
+    %1 = println(%0) -> bb20;
+  }
+  bb20 {
+    PopScopeFrame
+    GOTO bb21;
+  }
+  bb21 {
+    PushScopeFrame 1
+    %0 = (1, y) is float
+    %0 ? bb22 : bb24;
+  }
+  bb22 {
+    PushScopeFrame 2
+    %0 = ConstantLoad int
+    %1 = println(%0) -> bb23;
+  }
+  bb23 {
+    PopScopeFrame
+    GOTO bb24;
+  }
+  bb24 {
+    PushScopeFrame 4
+    %0 = ConstantLoad <nil>
+    %1 = <any>(%0)
+    n = %1;
+    %3 = n is nil
+    %3 ? bb25 : bb27;
+  }
+  bb25 {
+    PushScopeFrame 2
+    %0 = ConstantLoad nil
+    %1 = println(%0) -> bb26;
+  }
+  bb26 {
+    PopScopeFrame
+    GOTO bb27;
+  }
+  bb27 {
+    PushScopeFrame 1
+    %0 = (1, n) is any
+    %0 ? bb28 : bb30;
+  }
+  bb28 {
+    PushScopeFrame 2
+    %0 = ConstantLoad any
+    %1 = println(%0) -> bb29;
+  }
+  bb29 {
+    PopScopeFrame
+    GOTO bb30;
+  }
+  bb30 {
+    PushScopeFrame 4
+    %0 = ConstantLoad 1
+    %1 = <decimal>(%0)
+    z = %1;
+    %3 = z is decimal
+    %3 ? bb31 : bb33;
+  }
+  bb31 {
+    PushScopeFrame 2
+    %0 = ConstantLoad decimal
+    %1 = println(%0) -> bb32;
+  }
+  bb32 {
+    PopScopeFrame
+    GOTO bb33;
+  }
+  bb33 {
+    PushScopeFrame 1
+    %0 = (1, z) is int
+    %0 ? bb34 : bb36;
+  }
+  bb34 {
+    PushScopeFrame 2
+    %0 = ConstantLoad int
+    %1 = println(%0) -> bb35;
+  }
+  bb35 {
+    PopScopeFrame
+    GOTO bb36;
+  }
+  bb36 {
+    PushScopeFrame 0
+    PopScopeFrame
+    PopScopeFrame
+    PopScopeFrame
+    PopScopeFrame
+    PopScopeFrame
+    PopScopeFrame
+    PopScopeFrame
+    PopScopeFrame
+    PopScopeFrame
+    PopScopeFrame
+    PopScopeFrame
+    PopScopeFrame
+    return;
+  }
+}

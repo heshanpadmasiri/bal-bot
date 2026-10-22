@@ -1,0 +1,13 @@
+-- stdout --
+-- stderr --
+error[SEMANTIC_ERROR]: included field 'x' declared in multiple type inclusions must be overridden
+  --> inclusion-dup-e.bal:26:9
+   |
+26 | type R3 record {|
+   |         ^^^^^^^^^
+27 |     *R1;
+   |     ^^^^
+28 |     *R2; // @error
+   |     ^^^^^^^^^^^^^^
+29 | |};
+   | ^^

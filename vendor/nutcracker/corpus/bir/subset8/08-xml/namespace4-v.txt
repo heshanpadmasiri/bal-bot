@@ -1,0 +1,40 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = foo() -> bb1;
+  }
+  bb1 {
+    %2 = baz() -> bb2;
+  }
+  bb2 {
+    return;
+  }
+}
+foo() -> nil{
+  bb0 {
+    %1 = newXMLElement("bar:x", namespace="https:foo/bar", ())
+    %2 = ConstantLoad xmlns:bar
+    %3 = ConstantLoad https:foo/bar
+    %4 = newMap {| string... |}{%2=%3}
+    %5 = newXMLElement("bar:f", namespace="https:foo/bar", %1, (), %4)
+    elem = %5;
+    %7 = println(elem) -> bb1;
+  }
+  bb1 {
+    return;
+  }
+}
+baz() -> nil{
+  bb0 {
+    %1 = newXMLElement("bar:x", namespace="https:foo/baz", ())
+    %2 = ConstantLoad xmlns:bar
+    %3 = ConstantLoad https:foo/baz
+    %4 = newMap {| string... |}{%2=%3}
+    %5 = newXMLElement("bar:f", namespace="https:foo/baz", %1, (), %4)
+    elem = %5;
+    %7 = println(elem) -> bb1;
+  }
+  bb1 {
+    return;
+  }
+}

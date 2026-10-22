@@ -1,0 +1,32 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad 1
+    x = %1;
+    %4 = x is int|string
+    %3 = %4;
+    %4 ? bb1 : bb2;
+  }
+  bb1 {
+    %5 = x is float|string
+    %3 = %5;
+    GOTO bb2;
+  }
+  bb2 {
+    %3 ? bb3 : bb4;
+  }
+  bb3 {
+    PushScopeFrame 2
+    _ = (1, x);
+    %1 = ConstantLoad <nil>
+    (1, %0) = %1;
+    PopScopeFrame
+    return;
+  }
+  bb4 {
+    PushScopeFrame 1
+    _ = (1, x);
+    PopScopeFrame
+    return;
+  }
+}

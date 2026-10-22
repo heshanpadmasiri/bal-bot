@@ -1,0 +1,25 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %2 = newXMLElement("x", ())
+    %3 = ConstantLoad hello
+    %4 = newXMLText(%3)
+    %1 = + %2 %4;
+    a = %1;
+    %6 = ConstantLoad world
+    %7 = newXMLText(%6)
+    b = %7;
+    %9 = println(a) -> bb1;
+  }
+  bb1 {
+    %10 = + a b;
+    c = %10;
+    %12 = println(a) -> bb2;
+  }
+  bb2 {
+    %13 = println(c) -> bb3;
+  }
+  bb3 {
+    return;
+  }
+}

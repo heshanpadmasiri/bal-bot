@@ -1,0 +1,286 @@
+module $anon.. v 0.0.0;
+main() -> nil|error{
+  bb0 {
+    %1 = ConstantLoad 42
+    n = %1;
+    %4 = ConstantLoad typedesc
+    %5 = cloneWithType(n,%4) -> bb1;
+  }
+  bb1 {
+    %6 = %5 is error
+    %6 ? bb2 : bb3;
+  }
+  bb2 {
+    %0 = %5;
+    return;
+  }
+  bb3 {
+    %3 = %5;
+    GOTO bb4;
+  }
+  bb4 {
+    i = %3;
+    %8 = i;
+    %9 = println(%8) -> bb5;
+  }
+  bb5 {
+    %10 = ConstantLoad hello
+    s = %10;
+    %13 = ConstantLoad typedesc
+    %14 = cloneWithType(s,%13) -> bb6;
+  }
+  bb6 {
+    %15 = %14 is error
+    %15 ? bb7 : bb8;
+  }
+  bb7 {
+    %0 = %14;
+    return;
+  }
+  bb8 {
+    %12 = %14;
+    GOTO bb9;
+  }
+  bb9 {
+    str = %12;
+    %17 = println(str) -> bb10;
+  }
+  bb10 {
+    %18 = ConstantLoad 7
+    intVal = %18;
+    %21 = ConstantLoad typedesc
+    %22 = cloneWithType(intVal,%21) -> bb11;
+  }
+  bb11 {
+    %23 = %22 is error
+    %23 ? bb12 : bb13;
+  }
+  bb12 {
+    %0 = %22;
+    return;
+  }
+  bb13 {
+    %20 = %22;
+    GOTO bb14;
+  }
+  bb14 {
+    f = %20;
+    %25 = f;
+    %26 = println(%25) -> bb15;
+  }
+  bb15 {
+    %27 = ConstantLoad name
+    %28 = ConstantLoad Alice
+    %29 = ConstantLoad age
+    %30 = ConstantLoad 30
+    %31 = newMap {| anydata... |}{%27=%28, %29=%30}
+    raw = %31;
+    %34 = ConstantLoad typedesc
+    %35 = cloneWithType(raw,%34) -> bb16;
+  }
+  bb16 {
+    %36 = %35 is error
+    %36 ? bb17 : bb18;
+  }
+  bb17 {
+    %0 = %35;
+    return;
+  }
+  bb18 {
+    %33 = %35;
+    GOTO bb19;
+  }
+  bb19 {
+    p = %33;
+    %38 = println(p) -> bb20;
+  }
+  bb20 {
+    %39 = ConstantLoad 1
+    %40 = ConstantLoad 2
+    %41 = ConstantLoad 3
+    %42 = ConstantLoad 3
+    %43 = newArray [anydata...][%42]{%39, %40, %41}
+    nums = %43;
+    %46 = ConstantLoad typedesc
+    %47 = cloneWithType(nums,%46) -> bb21;
+  }
+  bb21 {
+    %48 = %47 is error
+    %48 ? bb22 : bb23;
+  }
+  bb22 {
+    %0 = %47;
+    return;
+  }
+  bb23 {
+    %45 = %47;
+    GOTO bb24;
+  }
+  bb24 {
+    ia = %45;
+    %50 = println(ia) -> bb25;
+  }
+  bb25 {
+    %51 = ConstantLoad 10
+    %52 = ConstantLoad 20
+    %53 = ConstantLoad 30
+    %54 = ConstantLoad 3
+    %55 = newArray [anydata...][%54]{%51, %52, %53}
+    ints = %55;
+    %58 = ConstantLoad typedesc
+    %59 = cloneWithType(ints,%58) -> bb26;
+  }
+  bb26 {
+    %60 = %59 is error
+    %60 ? bb27 : bb28;
+  }
+  bb27 {
+    %0 = %59;
+    return;
+  }
+  bb28 {
+    %57 = %59;
+    GOTO bb29;
+  }
+  bb29 {
+    fa = %57;
+    %62 = println(fa) -> bb30;
+  }
+  bb30 {
+    %63 = ConstantLoad x
+    %64 = ConstantLoad 3
+    %65 = ConstantLoad y
+    %66 = ConstantLoad 4
+    %67 = newMap {| anydata... |}{%63=%64, %65=%66}
+    coords = %67;
+    %70 = ConstantLoad typedesc
+    %71 = cloneWithType(coords,%70) -> bb31;
+  }
+  bb31 {
+    %72 = %71 is error
+    %72 ? bb32 : bb33;
+  }
+  bb32 {
+    %0 = %71;
+    return;
+  }
+  bb33 {
+    %69 = %71;
+    GOTO bb34;
+  }
+  bb34 {
+    pt = %69;
+    %74 = println(pt) -> bb35;
+  }
+  bb35 {
+    %75 = ConstantLoad label
+    %76 = ConstantLoad origin
+    %77 = ConstantLoad origin
+    %78 = ConstantLoad x
+    %79 = ConstantLoad 0
+    %80 = ConstantLoad y
+    %81 = ConstantLoad 0
+    %82 = newMap {| anydata... |}{%78=%79, %80=%81}
+    %83 = newMap {| anydata... |}{%75=%76, %77=%82}
+    shapeRaw = %83;
+    %86 = ConstantLoad typedesc
+    %87 = cloneWithType(shapeRaw,%86) -> bb36;
+  }
+  bb36 {
+    %88 = %87 is error
+    %88 ? bb37 : bb38;
+  }
+  bb37 {
+    %0 = %87;
+    return;
+  }
+  bb38 {
+    %85 = %87;
+    GOTO bb39;
+  }
+  bb39 {
+    sh = %85;
+    %90 = println(sh) -> bb40;
+  }
+  bb40 {
+    %91 = ConstantLoad name
+    %92 = ConstantLoad Bob
+    %93 = ConstantLoad age
+    %94 = ConstantLoad 25
+    %95 = newMap {| anydata... |}{%91=%92, %93=%94}
+    personMap = %95;
+    %98 = ConstantLoad typedesc
+    %99 = cloneWithType(personMap,%98) -> bb41;
+  }
+  bb41 {
+    %100 = %99 is error
+    %100 ? bb42 : bb43;
+  }
+  bb42 {
+    %0 = %99;
+    return;
+  }
+  bb43 {
+    %97 = %99;
+    GOTO bb44;
+  }
+  bb44 {
+    poi = %97;
+    %102 = println(poi) -> bb45;
+  }
+  bb45 {
+    %103 = ConstantLoad name
+    %104 = ConstantLoad Carol
+    %105 = ConstantLoad age
+    %106 = ConstantLoad <nil>
+    %107 = newMap {| anydata... |}{%103=%104, %105=%106}
+    withNull = %107;
+    %110 = ConstantLoad typedesc
+    %111 = cloneWithType(withNull,%110) -> bb46;
+  }
+  bb46 {
+    %112 = %111 is error
+    %112 ? bb47 : bb48;
+  }
+  bb47 {
+    %0 = %111;
+    return;
+  }
+  bb48 {
+    %109 = %111;
+    GOTO bb49;
+  }
+  bb49 {
+    nilAge = %109;
+    %114 = println(nilAge) -> bb50;
+  }
+  bb50 {
+    %115 = ConstantLoad name
+    %116 = ConstantLoad Dave
+    %117 = newMap {| anydata... |}{%115=%116}
+    partial = %117;
+    %120 = ConstantLoad typedesc
+    %121 = cloneWithType(partial,%120) -> bb51;
+  }
+  bb51 {
+    %122 = %121 is error
+    %122 ? bb52 : bb53;
+  }
+  bb52 {
+    %0 = %121;
+    return;
+  }
+  bb53 {
+    %119 = %121;
+    GOTO bb54;
+  }
+  bb54 {
+    optAge = %119;
+    %124 = println(optAge) -> bb55;
+  }
+  bb55 {
+    %125 = ConstantLoad <nil>
+    %0 = %125;
+    return;
+  }
+}

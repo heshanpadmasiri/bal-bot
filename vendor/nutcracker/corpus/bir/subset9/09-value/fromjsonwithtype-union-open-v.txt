@@ -1,0 +1,132 @@
+module $anon.. v 0.0.0;
+main() -> nil|error{
+  bb0 {
+    %1 = ConstantLoad nickname
+    %2 = ConstantLoad Fido
+    %3 = ConstantLoad pet_type
+    %4 = ConstantLoad Dog
+    %5 = ConstantLoad age
+    %6 = ConstantLoad 4
+    %7 = newMap {| json... |}{%1=%2, %3=%4, %5=%6}
+    petJson = %7;
+    %10 = ConstantLoad typedesc
+    %11 = fromJsonWithType(petJson,%10) -> bb1;
+  }
+  bb1 {
+    %12 = %11 is error
+    %12 ? bb2 : bb3;
+  }
+  bb2 {
+    %0 = %11;
+    return;
+  }
+  bb3 {
+    %9 = %11;
+    GOTO bb4;
+  }
+  bb4 {
+    pet = %9;
+    %14 = println(pet) -> bb5;
+  }
+  bb5 {
+    %15 = ConstantLoad 1
+    %16 = ConstantLoad 2
+    %17 = ConstantLoad 2
+    %18 = newArray [json...][%17]{%15, %16}
+    arrJson = %18;
+    %21 = ConstantLoad typedesc
+    %22 = fromJsonWithType(arrJson,%21) -> bb6;
+  }
+  bb6 {
+    %23 = %22 is error
+    %23 ? bb7 : bb8;
+  }
+  bb7 {
+    %0 = %22;
+    return;
+  }
+  bb8 {
+    %20 = %22;
+    GOTO bb9;
+  }
+  bb9 {
+    arrVal = %20;
+    %25 = println(arrVal) -> bb10;
+  }
+  bb10 {
+    %26 = ConstantLoad a
+    %27 = ConstantLoad b
+    %28 = ConstantLoad 2
+    %29 = newArray [json...][%28]{%26, %27}
+    strArrJson = %29;
+    %32 = ConstantLoad typedesc
+    %33 = fromJsonWithType(strArrJson,%32) -> bb11;
+  }
+  bb11 {
+    %34 = %33 is error
+    %34 ? bb12 : bb13;
+  }
+  bb12 {
+    %0 = %33;
+    return;
+  }
+  bb13 {
+    %31 = %33;
+    GOTO bb14;
+  }
+  bb14 {
+    strArrVal = %31;
+    %36 = println(strArrVal) -> bb15;
+  }
+  bb15 {
+    %37 = ConstantLoad 12
+    floatJson = %37;
+    %40 = ConstantLoad typedesc
+    %41 = fromJsonWithType(floatJson,%40) -> bb16;
+  }
+  bb16 {
+    %42 = %41 is error
+    %42 ? bb17 : bb18;
+  }
+  bb17 {
+    %0 = %41;
+    return;
+  }
+  bb18 {
+    %39 = %41;
+    GOTO bb19;
+  }
+  bb19 {
+    numVal = %39;
+    %44 = numVal is float
+    %45 = %44;
+    %46 = println(%45) -> bb20;
+  }
+  bb20 {
+    %47 = ConstantLoad 200
+    floatAsByte = %47;
+    %50 = ConstantLoad typedesc
+    %51 = fromJsonWithType(floatAsByte,%50) -> bb21;
+  }
+  bb21 {
+    %52 = %51 is error
+    %52 ? bb22 : bb23;
+  }
+  bb22 {
+    %0 = %51;
+    return;
+  }
+  bb23 {
+    %49 = %51;
+    GOTO bb24;
+  }
+  bb24 {
+    asByte = %49;
+    %54 = println(asByte) -> bb25;
+  }
+  bb25 {
+    %55 = ConstantLoad <nil>
+    %0 = %55;
+    return;
+  }
+}

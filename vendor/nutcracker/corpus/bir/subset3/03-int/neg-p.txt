@@ -1,0 +1,28 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %2 = ConstantLoad 9223372036854775807
+    %3 = unknown %2;
+    %4 = %3;
+    %5 = ConstantLoad 1
+    %6 = %5;
+    %1 = - %4 %6;
+    INT_MIN = %1;
+    %8 = INT_MIN;
+    %9 = neg(%8) -> bb1;
+  }
+  bb1 {
+    %10 = %9;
+    %11 = println(%10) -> bb2;
+  }
+  bb2 {
+    return;
+  }
+}
+neg(int) -> int{
+  bb0 {
+    %2 = unknown x;
+    %0 = %2;
+    return;
+  }
+}

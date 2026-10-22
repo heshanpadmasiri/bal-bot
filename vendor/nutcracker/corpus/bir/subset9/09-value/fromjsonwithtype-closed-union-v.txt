@@ -1,0 +1,69 @@
+module $anon.. v 0.0.0;
+main() -> nil|error{
+  bb0 {
+    %1 = ConstantLoad age
+    %2 = ConstantLoad 5
+    %3 = newMap {| json... |}{%1=%2}
+    ageOnly = %3;
+    %6 = ConstantLoad typedesc
+    %7 = fromJsonWithType(ageOnly,%6) -> bb1;
+  }
+  bb1 {
+    %8 = %7 is error
+    %8 ? bb2 : bb3;
+  }
+  bb2 {
+    %0 = %7;
+    return;
+  }
+  bb3 {
+    %5 = %7;
+    GOTO bb4;
+  }
+  bb4 {
+    ageOnlyPet = %5;
+    %10 = println(ageOnlyPet) -> bb5;
+  }
+  bb5 {
+    %11 = ConstantLoad pet_type
+    %12 = ConstantLoad Cat
+    %13 = newMap {| json... |}{%11=%12}
+    typeOnly = %13;
+    %16 = ConstantLoad typedesc
+    %17 = fromJsonWithType(typeOnly,%16) -> bb6;
+  }
+  bb6 {
+    %18 = %17 is error
+    %18 ? bb7 : bb8;
+  }
+  bb7 {
+    %0 = %17;
+    return;
+  }
+  bb8 {
+    %15 = %17;
+    GOTO bb9;
+  }
+  bb9 {
+    typeOnlyPet = %15;
+    %20 = println(typeOnlyPet) -> bb10;
+  }
+  bb10 {
+    %21 = ConstantLoad nickname
+    %22 = ConstantLoad Fido
+    %23 = newMap {| json... |}{%21=%22}
+    petJson = %23;
+    %25 = ConstantLoad typedesc
+    %26 = fromJsonWithType(petJson,%25) -> bb11;
+  }
+  bb11 {
+    %27 = %26 is error
+    %28 = %27;
+    %29 = println(%28) -> bb12;
+  }
+  bb12 {
+    %30 = ConstantLoad <nil>
+    %0 = %30;
+    return;
+  }
+}

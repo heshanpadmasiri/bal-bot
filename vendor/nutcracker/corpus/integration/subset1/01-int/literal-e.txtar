@@ -1,0 +1,7 @@
+-- stdout --
+-- stderr --
+error[SYNTAX_ERROR]: leading zeros in numeric literals
+  --> literal-e.bal:20:13
+   |
+20 |     int x = 01; // @error
+   |             ^^

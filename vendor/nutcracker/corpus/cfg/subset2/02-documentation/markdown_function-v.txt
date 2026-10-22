@@ -1,0 +1,89 @@
+(File
+  (open
+    (bb0 () ()
+      (var-def
+        (variable _ (type
+          (value-type string)) (expr
+          (simple-var-ref accessMode))))
+      (return
+        (literal true))
+    )
+  )
+)
+(add
+  (bb0 () ()
+    (return
+      (binary-expr +
+        (simple-var-ref x)
+        (simple-var-ref y)))
+  )
+)
+(foo
+  (bb0 () (bb1)
+    (type-test-expr is
+      (simple-var-ref example)
+      (error-type))
+  )
+  (bb1 (bb0) (bb2))
+  (bb2 (bb1) ())
+)
+(foo_unicode
+  (bb0 () (bb1)
+    (type-test-expr is
+      (simple-var-ref foo_\u{2345}\u{0376})
+      (error-type))
+  )
+  (bb1 (bb0) (bb2))
+  (bb2 (bb1) ())
+)
+(getX
+  (bb0 () ()
+    (return
+      (literal ))
+  )
+)
+(insert
+  (bb0 () ()
+    (var-def
+      (variable _ (type
+        (union-type
+          (union-type
+            (value-type string)
+            (value-type int))
+          (value-type float))) (expr
+        (simple-var-ref anUnion))))
+    (var-def
+      (variable _ (type
+        (value-type int)) (expr
+        (simple-var-ref anInt))))
+    (var-def
+      (variable _ (type
+        (array-type
+          (value-type string) dimensions: 1 ([]))) (expr
+        (simple-var-ref rest))))
+  )
+)
+(searchPeople
+  (bb0 () ()
+    (return
+      (list-constructor-expr
+        (literal )
+        (literal 1)
+        (literal 1)))
+  )
+)
+(updatePeople
+  (bb0 () ()
+    (var-def
+      (variable _ (type
+        (tuple-type
+          (value-type string)
+          (value-type int)
+          (value-type float))) (expr
+        (simple-var-ref aTuple))))
+    (var-def
+      (variable _ (type
+        (value-type int)) (expr
+        (simple-var-ref anInt))))
+  )
+)

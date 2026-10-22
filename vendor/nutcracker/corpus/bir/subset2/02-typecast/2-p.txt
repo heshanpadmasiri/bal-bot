@@ -1,0 +1,41 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad true
+    %2 = %1;
+    %3 = ConstantLoad true
+    %4 = %3;
+    %5 = ConstantLoad 17
+    %6 = %5;
+    %7 = ifElse(%2,%4,%6) -> bb1;
+  }
+  bb1 {
+    %8 = <int>(%7)
+    n = %8;
+    %10 = n;
+    %11 = println(%10) -> bb2;
+  }
+  bb2 {
+    return;
+  }
+}
+ifElse(boolean,boolean,int) -> any{
+  bb0 {
+    t ? bb1 : bb2;
+  }
+  bb1 {
+    PushScopeFrame 0
+    (1, %0) = (1, b);
+    PopScopeFrame
+    return;
+  }
+  bb2 {
+    PushScopeFrame 0
+    (1, %0) = (1, n);
+    PopScopeFrame
+    return;
+  }
+  bb3 {
+    return;
+  }
+}

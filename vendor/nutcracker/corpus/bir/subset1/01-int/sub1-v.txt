@@ -1,0 +1,39 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad 5
+    %2 = %1;
+    %3 = ConstantLoad 2
+    %4 = %3;
+    %5 = sub(%2,%4) -> bb1;
+  }
+  bb1 {
+    sub1 = %5;
+    %7 = sub1;
+    %8 = println(%7) -> bb2;
+  }
+  bb2 {
+    %9 = ConstantLoad 0
+    %10 = %9;
+    %11 = ConstantLoad 1
+    %12 = %11;
+    %13 = sub(%10,%12) -> bb3;
+  }
+  bb3 {
+    sub2 = %13;
+    %15 = sub2;
+    %16 = println(%15) -> bb4;
+  }
+  bb4 {
+    return;
+  }
+}
+sub(int,int) -> int{
+  bb0 {
+    %4 = x;
+    %5 = y;
+    %3 = - %4 %5;
+    %0 = %3;
+    return;
+  }
+}

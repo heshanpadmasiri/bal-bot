@@ -1,0 +1,10 @@
+-- stdout --
+-- stderr --
+ballerina: cannot run a workspace project directly. Use 'bal run <package-path>' to run a specific package within the workspace
+
+USAGE:
+    run [<source-file.bal> | <package-dir> | .]
+
+For more information try 'bal run --help'
+-- exitcode --
+1

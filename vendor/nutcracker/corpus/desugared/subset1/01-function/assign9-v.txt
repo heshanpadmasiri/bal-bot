@@ -1,0 +1,20 @@
+(package
+  (function main () (
+    (value-type null))
+    (block-function-body
+      (assignment
+        (wildcard-binding-pattern)
+        (literal 100))
+      (assignment
+        (wildcard-binding-pattern)
+        (binary-expr +
+          (literal 100)
+          (literal 11)))
+      (assignment
+        (wildcard-binding-pattern)
+        (numeric-literal 43))
+      (assignment
+        (wildcard-binding-pattern)
+        (binary-expr +
+          (numeric-literal 43)
+          (numeric-literal 44))))))

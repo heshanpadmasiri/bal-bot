@@ -2,45 +2,54 @@
 
 The editor discovers services through a workspace. Services and endpoints are distinct types implementing `Anchor`, the common interface for everything the editor can render and interact with.
 
-An anchor exposes its agent, diff, and flow UI. The editor uses PI's `AgentSession` API directly for conversation state, prompting, subscriptions, and cancellation. Diff and flow UI shapes remain opaque for now.
+An anchor exposes its agent, diff, and flow UI. The editor uses PI's existing browser-compatible `Agent` API directly for conversation state, prompting, subscriptions, and cancellation. Diff and flow UI shapes remain opaque for now.
 
 ## Editor-facing API
 
 ```ts
-import type { AgentSession } from "@earendil-works/pi-coding-agent";
+import type { Agent } from '@earendil-works/pi-agent-core';
 
-// Members to be defined.
-export enum ServiceKind {}
-export enum EndpointKind {}
+export type { Agent, AgentMessage } from '@earendil-works/pi-agent-core';
+export type Files = Readonly<Record<string, string>>;
 
-// Opaque placeholders; shapes deferred.
+export const ServiceKind = { HTTP: 'http' } as const;
+export type ServiceKind = typeof ServiceKind[keyof typeof ServiceKind];
+export const EndpointKind = {} as const;
+export type EndpointKind = never;
+
 declare const opaque: unique symbol;
-export type Diff = { readonly [opaque]: "Diff" };
-export type FlowUI = { readonly [opaque]: "FlowUI" };
+export type Diff = { readonly [opaque]: 'Diff' };
+export type FlowUI = { readonly [opaque]: 'FlowUI' };
 
 export interface Anchor {
-  getAgent(): Promise<AgentSession>;
+  getAgent(): Promise<Agent>;
   getDiff(): Promise<Diff>;
   getFlowUI(): Promise<FlowUI>;
 }
-
 export interface Service extends Anchor {
   readonly kind: ServiceKind;
-
   getEndpoints(): readonly Endpoint[];
 }
-
 export interface Endpoint extends Anchor {
   readonly kind: EndpointKind;
   readonly title: string;
 }
 
+// File operations already used by the source editor and workspace tools.
 export interface Workspace {
+  readonly loadError?: string;
   getServices(): Promise<readonly Service[]>;
+  snapshot(): Files;
+  subscribe(listener: () => void): () => void;
+  list(): string[];
+  read(path: string): string;
+  write(path: string, content: string): void;
+  edit(path: string, oldText: string, newText: string): void;
+  remove(path: string): void;
 }
 ```
 
-The kind enums describe the kind of service or endpoint. An endpoint's title is used for rendering. Service discovery and anchor accessors are asynchronous; a service exposes its endpoints synchronously.
+The kind types describe the kind of service or endpoint. An endpoint's title is used for rendering. Service discovery and anchor accessors are asynchronous; a service exposes its endpoints synchronously.
 
 ## Control flow
 
@@ -68,7 +77,7 @@ Conversation persistence across closing and reopening a workspace is a workspace
 
 ## Deferred details
 
-- Service-kind and endpoint-kind enum members.
+- Additional service kinds and endpoint kinds.
 - Diff and flow UI payload shapes.
 - Concrete workspace implementations, including filesystem and runtime access, agent construction, and persistence.
 
@@ -76,3 +85,12 @@ Conversation persistence across closing and reopening a workspace is a workspace
 
 - [UI overview](ui/overview.md)
 - [PI SDK](https://pi.dev/docs/latest/sdk)
+
+## Repository layout
+
+- `packages/workspace`: shared contracts, including the existing source editor's file operations. No browser storage, transport, or agent construction.
+- `packages/browser-workspace`: localStorage files, the single HTTP service anchor, and PI agent/tool construction. Its model stream transport is injected at construction.
+- `apps/editor`: runnable React editor and local OAuth/streaming server. `src/main.tsx` constructs the concrete workspace; `src/editor.tsx` consumes only the shared workspace contracts.
+- `vendor/nutcracker`: unmodified upstream source snapshot. Provenance is recorded in `vendor/nutcracker.json`; it is not compiled or bundled into the editor.
+
+The contract exposes the PI `Agent` already used by the application, rather than adding a new agent interface or introducing the Node-oriented `AgentSession`. The service retains its agent across calls. Automatic discovery, diff, and flow remain deferred; their accessors reject explicitly until implemented.

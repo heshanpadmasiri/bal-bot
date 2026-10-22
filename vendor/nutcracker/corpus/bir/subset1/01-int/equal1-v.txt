@@ -1,0 +1,260 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad 9223372036854775806
+    big = %1;
+    %4 = big;
+    %5 = ConstantLoad 9223372036854775806
+    %6 = %5;
+    %3 = == %4 %6;
+    %7 = %3;
+    %8 = printBoolean(%7) -> bb1;
+  }
+  bb1 {
+    %10 = big;
+    %11 = ConstantLoad 1
+    %12 = %11;
+    %9 = == %10 %12;
+    %13 = %9;
+    %14 = printBoolean(%13) -> bb2;
+  }
+  bb2 {
+    %16 = big;
+    %17 = ConstantLoad 0
+    %18 = %17;
+    %15 = == %16 %18;
+    %19 = %15;
+    %20 = printBoolean(%19) -> bb3;
+  }
+  bb3 {
+    %22 = big;
+    %23 = ConstantLoad 1
+    %24 = unknown %23;
+    %25 = %24;
+    %21 = == %22 %25;
+    %26 = %21;
+    %27 = printBoolean(%26) -> bb4;
+  }
+  bb4 {
+    %29 = big;
+    %30 = ConstantLoad 9223372036854775806
+    %31 = unknown %30;
+    %32 = %31;
+    %28 = == %29 %32;
+    %33 = %28;
+    %34 = printBoolean(%33) -> bb5;
+  }
+  bb5 {
+    %35 = ConstantLoad 1
+    one = %35;
+    %38 = one;
+    %39 = ConstantLoad 9223372036854775806
+    %40 = %39;
+    %37 = == %38 %40;
+    %41 = %37;
+    %42 = printBoolean(%41) -> bb6;
+  }
+  bb6 {
+    %44 = one;
+    %45 = ConstantLoad 1
+    %46 = %45;
+    %43 = == %44 %46;
+    %47 = %43;
+    %48 = printBoolean(%47) -> bb7;
+  }
+  bb7 {
+    %50 = one;
+    %51 = ConstantLoad 0
+    %52 = %51;
+    %49 = == %50 %52;
+    %53 = %49;
+    %54 = printBoolean(%53) -> bb8;
+  }
+  bb8 {
+    %56 = one;
+    %57 = ConstantLoad 1
+    %58 = unknown %57;
+    %59 = %58;
+    %55 = == %56 %59;
+    %60 = %55;
+    %61 = printBoolean(%60) -> bb9;
+  }
+  bb9 {
+    %63 = one;
+    %64 = ConstantLoad 9223372036854775806
+    %65 = unknown %64;
+    %66 = %65;
+    %62 = == %63 %66;
+    %67 = %62;
+    %68 = printBoolean(%67) -> bb10;
+  }
+  bb10 {
+    %69 = ConstantLoad 0
+    zero = %69;
+    %72 = zero;
+    %73 = ConstantLoad 9223372036854775806
+    %74 = %73;
+    %71 = == %72 %74;
+    %75 = %71;
+    %76 = printBoolean(%75) -> bb11;
+  }
+  bb11 {
+    %78 = zero;
+    %79 = ConstantLoad 1
+    %80 = %79;
+    %77 = == %78 %80;
+    %81 = %77;
+    %82 = printBoolean(%81) -> bb12;
+  }
+  bb12 {
+    %84 = zero;
+    %85 = ConstantLoad 0
+    %86 = %85;
+    %83 = == %84 %86;
+    %87 = %83;
+    %88 = printBoolean(%87) -> bb13;
+  }
+  bb13 {
+    %90 = zero;
+    %91 = ConstantLoad 1
+    %92 = unknown %91;
+    %93 = %92;
+    %89 = == %90 %93;
+    %94 = %89;
+    %95 = printBoolean(%94) -> bb14;
+  }
+  bb14 {
+    %97 = zero;
+    %98 = ConstantLoad 9223372036854775806
+    %99 = unknown %98;
+    %100 = %99;
+    %96 = == %97 %100;
+    %101 = %96;
+    %102 = printBoolean(%101) -> bb15;
+  }
+  bb15 {
+    %104 = unknown one;
+    %105 = %104;
+    %106 = ConstantLoad 9223372036854775806
+    %107 = %106;
+    %103 = == %105 %107;
+    %108 = %103;
+    %109 = printBoolean(%108) -> bb16;
+  }
+  bb16 {
+    %111 = unknown one;
+    %112 = %111;
+    %113 = ConstantLoad 1
+    %114 = %113;
+    %110 = == %112 %114;
+    %115 = %110;
+    %116 = printBoolean(%115) -> bb17;
+  }
+  bb17 {
+    %118 = unknown one;
+    %119 = %118;
+    %120 = ConstantLoad 0
+    %121 = %120;
+    %117 = == %119 %121;
+    %122 = %117;
+    %123 = printBoolean(%122) -> bb18;
+  }
+  bb18 {
+    %125 = unknown one;
+    %126 = %125;
+    %127 = ConstantLoad 1
+    %128 = unknown %127;
+    %129 = %128;
+    %124 = == %126 %129;
+    %130 = %124;
+    %131 = printBoolean(%130) -> bb19;
+  }
+  bb19 {
+    %133 = unknown one;
+    %134 = %133;
+    %135 = ConstantLoad 9223372036854775806
+    %136 = unknown %135;
+    %137 = %136;
+    %132 = == %134 %137;
+    %138 = %132;
+    %139 = printBoolean(%138) -> bb20;
+  }
+  bb20 {
+    %141 = unknown big;
+    %142 = %141;
+    %143 = ConstantLoad 9223372036854775806
+    %144 = %143;
+    %140 = == %142 %144;
+    %145 = %140;
+    %146 = printBoolean(%145) -> bb21;
+  }
+  bb21 {
+    %148 = unknown big;
+    %149 = %148;
+    %150 = ConstantLoad 1
+    %151 = %150;
+    %147 = == %149 %151;
+    %152 = %147;
+    %153 = printBoolean(%152) -> bb22;
+  }
+  bb22 {
+    %155 = unknown big;
+    %156 = %155;
+    %157 = ConstantLoad 0
+    %158 = %157;
+    %154 = == %156 %158;
+    %159 = %154;
+    %160 = printBoolean(%159) -> bb23;
+  }
+  bb23 {
+    %162 = unknown big;
+    %163 = %162;
+    %164 = ConstantLoad 1
+    %165 = unknown %164;
+    %166 = %165;
+    %161 = == %163 %166;
+    %167 = %161;
+    %168 = printBoolean(%167) -> bb24;
+  }
+  bb24 {
+    %170 = unknown big;
+    %171 = %170;
+    %172 = ConstantLoad 9223372036854775806
+    %173 = unknown %172;
+    %174 = %173;
+    %169 = == %171 %174;
+    %175 = %169;
+    %176 = printBoolean(%175) -> bb25;
+  }
+  bb25 {
+    return;
+  }
+}
+printBoolean(boolean) -> nil{
+  bb0 {
+    b ? bb1 : bb3;
+  }
+  bb1 {
+    PushScopeFrame 3
+    %0 = ConstantLoad 1
+    %1 = %0;
+    %2 = println(%1) -> bb2;
+  }
+  bb2 {
+    PopScopeFrame
+    GOTO bb5;
+  }
+  bb3 {
+    PushScopeFrame 3
+    %0 = ConstantLoad 0
+    %1 = %0;
+    %2 = println(%1) -> bb4;
+  }
+  bb4 {
+    PopScopeFrame
+    GOTO bb5;
+  }
+  bb5 {
+    return;
+  }
+}

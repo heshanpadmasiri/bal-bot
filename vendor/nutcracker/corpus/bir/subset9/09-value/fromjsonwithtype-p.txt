@@ -1,0 +1,26 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad name
+    %2 = ConstantLoad Alice
+    %3 = newMap {| json... |}{%1=%2}
+    missing = %3;
+    %6 = ConstantLoad typedesc
+    %7 = fromJsonWithType(missing,%6) -> bb1;
+  }
+  bb1 {
+    %8 = %7 is error
+    %8 ? bb2 : bb3;
+  }
+  bb2 {
+    panic %7;
+  }
+  bb3 {
+    %5 = %7;
+    GOTO bb4;
+  }
+  bb4 {
+    _ = %5;
+    return;
+  }
+}

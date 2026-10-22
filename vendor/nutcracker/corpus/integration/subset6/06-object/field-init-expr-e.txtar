@@ -1,0 +1,13 @@
+-- stdout --
+-- stderr --
+error[SEMANTIC_ERROR]: incompatible type: expected int, got "hello"
+  --> field-init-expr-e.bal:18:15
+   |
+18 |     int bar = "hello"; // @error
+   |               ^^^^^^^
+
+error[SEMANTIC_ERROR]: incompatible type: expected string, got 3
+  --> field-init-expr-e.bal:25:19
+   |
+25 |     string name = 1 + 2; // @error
+   |                   ^^^^^

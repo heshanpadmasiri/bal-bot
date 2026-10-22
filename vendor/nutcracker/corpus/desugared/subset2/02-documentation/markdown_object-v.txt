@@ -1,0 +1,137 @@
+(package
+  (class-definition TestConnector
+    (variable url (type
+      (value-type string)))
+    (variable path (type
+      (value-type string)))
+    (variable abc (type
+      (value-type string)))
+    (function init () ()
+      (block-function-body
+        (assignment
+          (index-based-access
+            (simple-var-ref self)
+            (literal url))
+          (literal ))
+        (assignment
+          (index-based-access
+            (simple-var-ref self)
+            (literal path))
+          (literal ))
+        (assignment
+          (index-based-access
+            (simple-var-ref self)
+            (literal abc))
+          (literal ))))
+    (function testAction
+      (md-doc
+        (doc-lines
+          (md-doc-line "Test Connector action testAction"))
+        (return-param
+          (md-return-param-doc
+            (doc-lines
+              "whether successful or not"))
+        )) () (
+      (value-type boolean))
+      (block-function-body
+        (var-def
+          (variable value (type
+            (value-type boolean)) (expr
+            (literal false))))
+        (return
+          (simple-var-ref value))))
+    (function testSend
+      (md-doc
+        (doc-lines
+          (md-doc-line "Test Connector action testSend"))
+        (params
+          (md-param-doc (param-name ep)
+            (doc-lines
+              "endpoint url")))
+        (return-param
+          (md-return-param-doc
+            (doc-lines
+              "whether successful or not"))
+        )) (
+      (variable ep (type
+        (value-type string)))) (
+      (value-type boolean))
+      (block-function-body
+        (var-def
+          (variable _ (type
+            (value-type string)) (expr
+            (simple-var-ref ep))))
+        (var-def
+          (variable value (type
+            (value-type boolean)) (expr
+            (literal false))))
+        (return
+          (simple-var-ref value)))))
+  (class-definition TestConnector2
+    (variable url (type
+      (value-type string)))
+    (variable path (type
+      (value-type string)))
+    (variable abc (type
+      (value-type string)))
+    (function init () ()
+      (block-function-body
+        (assignment
+          (index-based-access
+            (simple-var-ref self)
+            (literal url))
+          (literal ))
+        (assignment
+          (index-based-access
+            (simple-var-ref self)
+            (literal path))
+          (literal ))
+        (assignment
+          (index-based-access
+            (simple-var-ref self)
+            (literal abc))
+          (literal ))))
+    (function testAction
+      (md-doc
+        (doc-lines
+          (md-doc-line "Test Connector action testAction"))
+        (return-param
+          (md-return-param-doc
+            (doc-lines
+              "whether successful or not"))
+        )) () (
+      (value-type boolean))
+      (block-function-body
+        (var-def
+          (variable value (type
+            (value-type boolean)) (expr
+            (literal false))))
+        (return
+          (simple-var-ref value))))
+    (function testSend
+      (md-doc
+        (doc-lines
+          (md-doc-line "Test Connector action testSend"))
+        (params
+          (md-param-doc (param-name ep)
+            (doc-lines
+              "endpoint url")))
+        (return-param
+          (md-return-param-doc
+            (doc-lines
+              "whether successful or not"))
+        )) (
+      (variable ep (type
+        (value-type string)))) (
+      (value-type boolean))
+      (block-function-body
+        (var-def
+          (variable _ (type
+            (value-type string)) (expr
+            (simple-var-ref ep))))
+        (var-def
+          (variable value (type
+            (value-type boolean)) (expr
+            (literal false))))
+        (return
+          (simple-var-ref value))))))

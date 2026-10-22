@@ -1,0 +1,5 @@
+-- stdout --
+-- stderr --
+error: arithmetic overflow
+        at mul(mul-p.bal:25)
+           main(mul-p.bal:21)

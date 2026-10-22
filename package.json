@@ -6,28 +6,19 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "node server/index.mjs",
-    "build": "tsc && vite build",
-    "preview": "node server/index.mjs --production",
-    "test": "node --test tests/*.test.mjs",
-    "start": "node server/index.mjs --production"
+    "dev": "npm run dev --workspace @bal-bot/editor",
+    "build": "npm run build --workspace @bal-bot/editor",
+    "preview": "npm run start --workspace @bal-bot/editor",
+    "test": "node --test packages/browser-workspace/tests/*.test.mjs apps/editor/tests/*.test.mjs",
+    "start": "npm run start --workspace @bal-bot/editor"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
-  "dependencies": {
-    "@earendil-works/pi-agent-core": "^1.4.0",
-    "@earendil-works/pi-ai": "^1.4.0",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "sirv": "^3.0.2"
-  },
-  "devDependencies": {
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "typescript": "^7.0.2",
-    "vite": "^8.3.5"
-  },
-  "private": true
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
 }

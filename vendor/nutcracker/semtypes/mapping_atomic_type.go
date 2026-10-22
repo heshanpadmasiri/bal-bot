@@ -1,0 +1,196 @@
+// Copyright (c) 2026, WSO2 LLC. (http://www.wso2.com).
+//
+// WSO2 LLC. licenses this file to you under the Apache License,
+// Version 2.0 (the "License"); you may not use this file except
+// in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
+package semtypes
+
+import (
+	"slices"
+)
+
+type MappingAtomicType struct {
+	names []string
+	types []SemType
+	rest  SemType
+}
+
+var _ AtomicType = &MappingAtomicType{}
+
+func mappingAtomicTypeFrom(names []string, types []SemType, rest SemType) MappingAtomicType {
+	return MappingAtomicType{
+		names: names,
+		types: types,
+		rest:  rest,
+	}
+}
+
+func (m *MappingAtomicType) atomKind() kind {
+	return kind_MAPPING_ATOM
+}
+
+func (m *MappingAtomicType) FieldNames() []string {
+	return slices.Clone(m.names)
+}
+
+// FieldCell returns the cell semtype of the named field, falling back to the rest cell for a
+// name that is not a declared field. A closed record's rest cell is CellMutabilityNone over
+// Never, so a caller reading mutability off the result must first check that the cell can
+// actually hold a value, that is, that CellInnerVal of it is not Never.
+func (m *MappingAtomicType) FieldCell(name string) SemType {
+	for i, n := range m.names {
+		if n == name {
+			return m.types[i]
+		}
+	}
+	return m.rest
+}
+
+func (m *MappingAtomicType) FieldInnerVal(name string) SemType {
+	return CellInnerVal(m.FieldCell(name))
+}
+
+func (m *MappingAtomicType) IsOptional(cx Context, name string) bool {
+	for i, n := range m.names {
+		if n == name {
+			return isOptionalCell(cx, m.types[i])
+		}
+	}
+	return true
+}
+
+func isOptionalCell(cx Context, cell SemType) bool {
+	return IsSubtype(cx, Undef, cellInner(cell))
+}
+
+type matchQuantifier int
+
+const (
+	matchAny matchQuantifier = iota
+	matchAll
+)
+
+func AllMapConstraintTypesMatch(cx Context, ty SemType, predicate func(SemType) bool) bool {
+	return mappingAtomsMatch(cx, ty, matchAll, func(cx Context, atom *MappingAtomicType) bool {
+		for i := range atom.names {
+			if isOptionalCell(cx, atom.types[i]) && IsNever(CellInnerVal(atom.types[i])) {
+				continue
+			}
+			return false
+		}
+		return predicate(CellInnerVal(atom.rest))
+	})
+}
+
+func AnyMappingAtomHasFieldByName(cx Context, ty SemType, key string) bool {
+	return mappingAtomsMatch(cx, ty, matchAny, func(_ Context, atom *MappingAtomicType) bool {
+		return mappingAtomHasFieldByName(atom, key)
+	})
+}
+
+func AllMappingAtomHasFieldByName(cx Context, ty SemType, key string) bool {
+	// I think this is fine, but may have problems with narrowing. Spec describes unions only assuming positive atoms
+	return mappingAtomsMatch(cx, ty, matchAll, func(_ Context, atom *MappingAtomicType) bool {
+		return mappingAtomHasFieldByName(atom, key)
+	})
+}
+
+func AllMappingAtomsHaveOptionalFieldByName(cx Context, ty SemType, key string) bool {
+	return mappingAtomsMatch(cx, ty, matchAll, func(cx Context, atom *MappingAtomicType) bool {
+		return mappingAtomHasOptionalFieldByName(cx, atom, key)
+	})
+}
+
+func mappingAtomsMatch(cx Context, ty SemType, quantifier matchQuantifier, predicate func(Context, *MappingAtomicType) bool) bool {
+	if !IsSubtypeSimple(ty, Mapping) {
+		return false
+	}
+	if ty.some() == 0 {
+		return false
+	}
+	bdd := getComplexSubtypeData(ty, btMapping).(bdd)
+	if simple, ok := bdd.(*bddNodeSimple); ok {
+		return predicate(cx, cx.MappingAtomType(simple.atom()))
+	}
+
+	return bddMappingAtomsMatch(cx, bdd, quantifier, predicate)
+}
+
+func bddMappingAtomsMatch(cx Context, bdd bdd, quantifier matchQuantifier, predicate func(Context, *MappingAtomicType) bool) bool {
+	switch quantifier {
+	case matchAny:
+		found := false
+		bddEvery(cx, bdd, conjunctionNil, conjunctionNil, func(cx Context, pos conjunctionHandle, neg conjunctionHandle) bool {
+			_ = neg
+			for h := pos; h != conjunctionNil; h = cx.conjunctionNext(h) {
+				if predicate(cx, cx.MappingAtomType(cx.conjunctionAtom(h))) {
+					found = true
+					return false
+				}
+			}
+			return true
+		})
+		return found
+	case matchAll:
+		return bddEvery(cx, bdd, conjunctionNil, conjunctionNil, func(cx Context, pos conjunctionHandle, neg conjunctionHandle) bool {
+			_ = neg
+			for h := pos; h != conjunctionNil; h = cx.conjunctionNext(h) {
+				if !predicate(cx, cx.MappingAtomType(cx.conjunctionAtom(h))) {
+					return false
+				}
+			}
+			return true
+		})
+	}
+	panic("unreachable")
+}
+
+func mappingAtomHasFieldByName(atom *MappingAtomicType, key string) bool {
+	return slices.Contains(atom.names, key)
+}
+
+func mappingAtomHasOptionalFieldByName(cx Context, atom *MappingAtomicType, key string) bool {
+	for i, n := range atom.names {
+		if n == key {
+			return isOptionalCell(cx, atom.types[i])
+		}
+	}
+	return false
+}
+
+// MappingWithReadonlyFields returns the mapping type of atom with the named fields narrowed to
+// immutable cells over their readonly values. A name atom does not declare is added as a
+// required field over the value part of the rest cell, which is how an explicitly readonly field
+// gets a cell of its own in a map<T>.
+func MappingWithReadonlyFields(env Env, atom *MappingAtomicType, names []string) SemType {
+	readonlyCell := func(inner SemType) SemType {
+		return cellContainingWithEnvSemTypeCellMutability(env, Intersect(inner, ReadonlyInner), CellMutabilityNone)
+	}
+	fields := make([]cellField, 0, len(atom.names)+len(names))
+	for i, name := range atom.names {
+		ty := atom.types[i]
+		if slices.Contains(names, name) {
+			ty = readonlyCell(cellInner(ty))
+		}
+		fields = append(fields, cellFieldFrom(name, ty))
+	}
+	for _, name := range names {
+		if slices.ContainsFunc(fields, func(f cellField) bool { return f.Name == name }) {
+			continue
+		}
+		fields = append(fields, cellFieldFrom(name, readonlyCell(CellInnerVal(atom.rest))))
+	}
+	md := NewMappingDefinition()
+	return md.defineFromCells(env, fields, atom.rest)
+}

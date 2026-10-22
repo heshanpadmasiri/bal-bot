@@ -1,0 +1,115 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = fp $anon/.:f1
+    f = %1;
+    %3 = call(f) -> bb1;
+  }
+  bb1 {
+    %4 = %3;
+    %5 = println(%4) -> bb2;
+  }
+  bb2 {
+    %6 = fp $anon/.:f2
+    f = %6;
+    %7 = call(f) -> bb3;
+  }
+  bb3 {
+    %8 = %7;
+    %9 = println(%8) -> bb4;
+  }
+  bb4 {
+    %10 = fp $anon/.:f3
+    f = %10;
+    %11 = call(f) -> bb5;
+  }
+  bb5 {
+    %12 = %11;
+    %13 = println(%12) -> bb6;
+  }
+  bb6 {
+    return;
+  }
+}
+call(function(int) returns int|function(int, int) returns int|function(int, int, int) returns int) -> int{
+  bb0 {
+    %2 = f is function(int) returns int
+    %2 ? bb1 : bb3;
+  }
+  bb1 {
+    PushScopeFrame 3
+    %0 = ConstantLoad 1
+    %1 = %0;
+    %2 = (1, f)(%1) -> bb2;
+  }
+  bb2 {
+    (1, %0) = %2;
+    PopScopeFrame
+    return;
+  }
+  bb3 {
+    %3 = f is function(int, int) returns int
+    %3 ? bb4 : bb6;
+  }
+  bb4 {
+    PushScopeFrame 5
+    %0 = ConstantLoad 1
+    %1 = %0;
+    %2 = ConstantLoad 2
+    %3 = %2;
+    %4 = (1, f)(%1,%3) -> bb5;
+  }
+  bb5 {
+    (1, %0) = %4;
+    PopScopeFrame
+    return;
+  }
+  bb6 {
+    PushScopeFrame 7
+    %0 = ConstantLoad 1
+    %1 = %0;
+    %2 = ConstantLoad 2
+    %3 = %2;
+    %4 = ConstantLoad 3
+    %5 = %4;
+    %6 = (1, f)(%1,%3,%5) -> bb7;
+  }
+  bb7 {
+    (1, %0) = %6;
+    PopScopeFrame
+    return;
+  }
+  bb8 {
+    GOTO bb9;
+  }
+  bb9 {
+    return;
+  }
+}
+f1(int) -> int{
+  bb0 {
+    %0 = i;
+    return;
+  }
+}
+f2(int,int) -> int{
+  bb0 {
+    %4 = i;
+    %5 = j;
+    %3 = + %4 %5;
+    %0 = %3;
+    return;
+  }
+}
+f3(int,int,int) -> int{
+  bb0 {
+    %6 = i;
+    %7 = j;
+    %5 = + %6 %7;
+    %8 = %5;
+    %9 = k;
+    %4 = + %8 %9;
+    %0 = %4;
+    return;
+  }
+}

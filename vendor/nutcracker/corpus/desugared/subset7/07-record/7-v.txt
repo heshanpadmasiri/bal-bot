@@ -1,0 +1,24 @@
+(package
+  (import-package ballerina io (as io))
+  (function main () (
+    (value-type null))
+    (block-function-body
+      (var-def
+        (variable $desugar$0 (expr
+          (lambda
+            (function $default$0 () ()
+              (block-function-body
+                (return
+                  (numeric-literal 10))))))))
+      (var-def
+        (variable f (type
+          (record-type
+            (field value
+              (value-type int)
+              (numeric-literal 10)))) (expr
+          (mapping-constructor-expr))))
+      (expression-stmt
+        (invocation io println (
+          (index-based-access
+            (simple-var-ref f)
+            (literal value))))))))

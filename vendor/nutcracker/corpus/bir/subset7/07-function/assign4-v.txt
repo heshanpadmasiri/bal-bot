@@ -1,0 +1,152 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = fp $anon/.:fooBar
+    x = %1;
+    %3 = fp $anon/.:foo
+    %4 = fp $anon/.:bar
+    %5 = ConstantLoad 1
+    %6 = %5;
+    %7 = x(%3,%4,%6) -> bb1;
+  }
+  bb1 {
+    %8 = %7;
+    %9 = println(%8) -> bb2;
+  }
+  bb2 {
+    %10 = fp $anon/.:foo
+    %11 = fp $anon/.:bar
+    %12 = ConstantLoad 1
+    %13 = %12;
+    %14 = ConstantLoad 2
+    %15 = %14;
+    %16 = x(%10,%11,%13,%15) -> bb3;
+  }
+  bb3 {
+    %17 = %16;
+    %18 = println(%17) -> bb4;
+  }
+  bb4 {
+    %19 = fp $anon/.:foo
+    %20 = fp $anon/.:bar
+    %21 = ConstantLoad 1
+    %22 = %21;
+    %23 = ConstantLoad 2
+    %24 = %23;
+    %25 = ConstantLoad 3
+    %26 = %25;
+    %27 = x(%19,%20,%22,%24,%26) -> bb5;
+  }
+  bb5 {
+    %28 = %27;
+    %29 = println(%28) -> bb6;
+  }
+  bb6 {
+    %30 = fp $anon/.:foo
+    %31 = fp $anon/.:bar
+    %32 = ConstantLoad 1
+    %33 = %32;
+    %34 = ConstantLoad 2
+    %35 = %34;
+    %36 = ConstantLoad 3
+    %37 = %36;
+    %38 = ConstantLoad 4
+    %39 = %38;
+    %40 = x(%30,%31,%33,%35,%37,%39) -> bb7;
+  }
+  bb7 {
+    %41 = %40;
+    %42 = println(%41) -> bb8;
+  }
+  bb8 {
+    return;
+  }
+}
+bar(int,int) -> int{
+  bb0 {
+    %4 = x;
+    %5 = y;
+    %3 = + %4 %5;
+    %0 = %3;
+    return;
+  }
+}
+foo(int) -> int{
+  bb0 {
+    %3 = x;
+    %4 = ConstantLoad 1
+    %5 = %4;
+    %2 = + %3 %5;
+    %0 = %2;
+    return;
+  }
+}
+fooBar(function(int) returns int,function(int, int) returns int,int,[int...]...) -> int{
+  bb0 {
+    %6 = length(y) -> bb1;
+  }
+  bb1 {
+    %7 = %6;
+    %8 = ConstantLoad 0
+    %9 = %8;
+    %5 = == %7 %9;
+    %5 ? bb2 : bb4;
+  }
+  bb2 {
+    PushScopeFrame 2
+    %0 = (1, x);
+    %1 = (1, single)(%0) -> bb3;
+  }
+  bb3 {
+    (1, %0) = %1;
+    PopScopeFrame
+    return;
+  }
+  bb4 {
+    PushScopeFrame 13
+    %0 = (1, x);
+    %2 = ConstantLoad 0
+    %1 = (1, y)[%2];
+    %3 = %1;
+    %4 = (1, pair)(%0,%3) -> bb5;
+  }
+  bb5 {
+    curr = %4;
+    %6 = ConstantLoad 1
+    $desugar$0 = %6;
+    %8 = length((1, y)) -> bb6;
+  }
+  bb6 {
+    $desugar$1 = %8;
+    GOTO bb7;
+  }
+  bb7 {
+    %11 = $desugar$0;
+    %12 = $desugar$1;
+    %10 = < %11 %12;
+    %10 ? bb8 : bb9;
+  }
+  bb8 {
+    PushScopeFrame 9
+    i = (1, $desugar$0);
+    %1 = (1, curr);
+    %2 = (2, y)[i];
+    %3 = %2;
+    %4 = (2, pair)(%1,%3) -> bb10;
+  }
+  bb9 {
+    (1, %0) = curr;
+    PopScopeFrame
+    return;
+  }
+  bb10 {
+    (1, curr) = %4;
+    %6 = (1, $desugar$0);
+    %7 = ConstantLoad 1
+    %8 = %7;
+    %5 = + %6 %8;
+    (1, $desugar$0) = %5;
+    PopScopeFrame
+    GOTO bb7;
+  }
+}

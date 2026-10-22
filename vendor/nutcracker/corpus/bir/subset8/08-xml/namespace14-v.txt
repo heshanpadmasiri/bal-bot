@@ -1,0 +1,28 @@
+module $anon.. v 0.0.0;
+main() -> nil{
+  bb0 {
+    %1 = ConstantLoad true
+    %1 ? bb1 : bb3;
+  }
+  bb1 {
+    PushScopeFrame 9
+    %0 = newXMLElement("bar:x", namespace="https:foo/baz", ())
+    %1 = ConstantLoad xmlns:bar
+    %2 = ConstantLoad https:foo/baz
+    %3 = ConstantLoad xmlns:foo
+    %4 = ConstantLoad https:foo/bar
+    %5 = newMap {| string... |}{%1=%2, %3=%4}
+    %6 = newXMLElement("foo:f", namespace="https:foo/bar", %0, (), %5)
+    elem = %6;
+    %8 = println(elem) -> bb2;
+  }
+  bb2 {
+    PopScopeFrame
+    GOTO bb3;
+  }
+  bb3 {
+    PushScopeFrame 0
+    PopScopeFrame
+    return;
+  }
+}

@@ -1,0 +1,5 @@
+-- stdout --
+-- stderr --
+error: arithmetic overflow
+        at add(add10-p.bal:26)
+           main(add10-p.bal:22)
