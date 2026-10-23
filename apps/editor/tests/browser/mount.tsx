@@ -7,7 +7,7 @@ import {createCompiler} from '../../../../packages/compiler/src/index';
 import '../../src/style.css';
 const windowState = window as any;
 windowState.mountEditor = (files: Record<string,string>, models?: unknown[]) => {
-  windowState.prompts = []; windowState.analysisRequests = []; windowState.controlAnalysis = false;
+  windowState.prompts = []; windowState.pendingResponses = []; windowState.holdResponses = false; windowState.analysisRequests = []; windowState.controlAnalysis = false;
   const compiler = createCompiler();
   const store = new Map([[STORAGE_KEY, JSON.stringify(files)]]);
   const workspace = new BrowserWorkspace({getItem: k => store.get(k) ?? null, setItem: (k,v) => {store.set(k,v);}}, {
@@ -19,7 +19,10 @@ windowState.mountEditor = (files: Record<string,string>, models?: unknown[]) => 
       windowState.prompts.push(context.messages.filter(m => m.role === 'user').at(-1));
       const stream = createAssistantMessageEventStream();
       const message = {role:'assistant' as const, content:[{type:'text' as const,text:'Mock response'}], api:model.api, provider:model.provider, model:model.id, stopReason:'stop' as const, timestamp:Date.now(), usage:{input:0,output:0,cacheRead:0,cacheWrite:0,totalTokens:0,cost:{input:0,output:0,cacheRead:0,cacheWrite:0,total:0}}};
-      queueMicrotask(() => {stream.push({type:'done',reason:'stop',message});stream.end();});return stream;
+      const finish = () => {stream.push({type:'done',reason:'stop',message});stream.end();};
+      if (windowState.holdResponses) windowState.pendingResponses.push(finish);
+      else queueMicrotask(finish);
+      return stream;
     },
   });
   windowState.workspace = workspace;

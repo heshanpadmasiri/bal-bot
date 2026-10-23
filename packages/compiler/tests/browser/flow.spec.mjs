@@ -225,3 +225,54 @@ test('inspection expansion is available only for flow diagrams',async({page})=>{
  await page.locator('.endpoint').first().click();
  await expect(expand).toBeVisible();
 });
+
+
+test('anchor activity follows concurrent chats and completion clears only on click', async ({page}) => {
+ await open(page, 'definitions-and-calls');
+ await page.evaluate(() => {window.holdResponses = true;});
+ const service = page.locator('.service').first(), endpoint = page.locator('.endpoint').first();
+ const running = row => row.getByRole('status', {name:'Chat running'});
+ const completed = row => row.getByRole('status', {name:'Chat completed'});
+ await page.getByRole('textbox', {name:'Message PI'}).fill('Update the service');
+ await page.getByRole('button', {name:'Send message', exact:true}).click();
+ await expect(running(service)).toBeVisible();
+ await service.click();
+ await expect(running(service)).toBeVisible();
+ await endpoint.click();
+ await page.getByRole('textbox', {name:'Message PI'}).fill('Update the endpoint');
+ await page.getByRole('button', {name:'Send message', exact:true}).click();
+ await expect(running(endpoint)).toBeVisible();
+ await expect(running(service)).toBeVisible();
+ await page.evaluate(() => window.pendingResponses[0]());
+ await expect(completed(service)).toBeVisible();
+ await expect(running(service)).toHaveCount(0);
+ await expect(running(endpoint)).toBeVisible();
+ await endpoint.click();
+ await expect(completed(service)).toBeVisible();
+ await service.click();
+ await expect(completed(service)).toHaveCount(0);
+ await page.evaluate(() => window.pendingResponses[1]());
+ await expect(completed(endpoint)).toBeVisible();
+ await endpoint.click();
+ await expect(completed(endpoint)).toHaveCount(0);
+ await page.getByRole('textbox', {name:'Message PI'}).fill('Run again');
+ await page.getByRole('button', {name:'Send message', exact:true}).click();
+ await expect(running(endpoint)).toBeVisible();
+ await page.evaluate(() => window.pendingResponses[2]());
+ await expect(completed(endpoint)).toBeVisible();
+ await endpoint.click();
+ await expect(completed(endpoint)).toHaveCount(0);
+});
+
+test('automation anchor shows running and completed activity', async ({page}) => {
+ await open(page, 'automation-flow');
+ await page.evaluate(() => {window.holdResponses = true;});
+ const automation = page.locator('.service').first();
+ await page.getByRole('textbox', {name:'Message PI'}).fill('Update the automation');
+ await page.getByRole('button', {name:'Send message', exact:true}).click();
+ await expect(automation.getByRole('status', {name:'Chat running'})).toBeVisible();
+ await page.evaluate(() => window.pendingResponses[0]());
+ await expect(automation.getByRole('status', {name:'Chat completed'})).toBeVisible();
+ await automation.click();
+ await expect(automation.getByRole('status')).toHaveCount(0);
+});
