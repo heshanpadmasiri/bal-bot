@@ -113,7 +113,7 @@ test('discovery, definitions, endpoint source selection and explicit chips-only 
 test('20/60/20, scope drafts, expansion and floating chat survive panel changes',async({page})=>{
  await page.setViewportSize({width:1500,height:950});await open(page,'panel-state');
  await page.locator('.endpoint').first().click();
- await page.getByRole('textbox',{name:'Message PI'}).fill('keep this draft');
+ await page.getByRole('textbox',{name:'Message'}).fill('keep this draft');
  const normal=await page.evaluate(()=>[...document.querySelector('.flow-workspace').children].map(e=>e.getBoundingClientRect().width));
  expect(normal.map(n=>Math.round(n))).toEqual([300,900,300]);
  await page.getByRole('button',{name:/Expand buildReport/}).click();
@@ -123,24 +123,24 @@ test('20/60/20, scope drafts, expansion and floating chat survive panel changes'
  const box=await page.locator('.floating-chat .main-bar').boundingBox();await page.mouse.move(box.x+180,box.y+18);await page.mouse.down();await page.mouse.move(850,450);await page.mouse.up();
  const moved=await page.locator('.floating-chat').boundingBox();expect(moved.x).toBeGreaterThan(24);
  await page.setViewportSize({width:900,height:650});await expect.poll(async()=>{const resized=await page.locator('.floating-chat').boundingBox();return resized.x+resized.width;}).toBeLessThanOrEqual(901);
- await page.getByRole('button',{name:'Collapse inspection',exact:true}).click();await expect(page.getByRole('textbox',{name:'Message PI'})).toHaveValue('keep this draft');
- await page.locator('.endpoint').last().click();await expect(page.getByRole('textbox',{name:'Message PI'})).toHaveValue('');await page.locator('.endpoint').first().click();await expect(page.getByRole('textbox',{name:'Message PI'})).toHaveValue('keep this draft');await expect(page.getByRole('button',{name:/Collapse buildReport/})).toBeVisible();
+ await page.getByRole('button',{name:'Collapse inspection',exact:true}).click();await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('keep this draft');
+ await page.locator('.endpoint').last().click();await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('');await page.locator('.endpoint').first().click();await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('keep this draft');await expect(page.getByRole('button',{name:/Collapse buildReport/})).toBeVisible();
 });
 test('invalid edits retain stale flow, disable references and repair',async({page})=>{
- await open(page,'analysis-recovery');await page.locator('.node-select').first().click();await page.getByRole('textbox',{name:'Message PI'}).fill('prose survives');
+ await open(page,'analysis-recovery');await page.locator('.node-select').first().click();await page.getByRole('textbox',{name:'Message'}).fill('prose survives');
  await page.evaluate(()=>workspace.write('main.bal',workspace.read('main.bal').replace('int amount = 2;','int amount = true + 2;')));
  await page.waitForFunction(()=>workspace.analysisSnapshot().kind==='invalid');await expect(page.locator('.node-select').first()).toBeDisabled();await expect(page.locator('.reference-chip')).toContainText('stale');await expect(page.getByRole('button',{name:'Send message',exact:true})).toBeDisabled();
- await page.evaluate(files=>workspace.write('main.bal',files['main.bal']),inputs['analysis-recovery']);await page.waitForFunction(()=>workspace.analysisSnapshot().kind==='ready');await expect(page.locator('.node-select').first()).toBeEnabled();await expect(page.getByRole('textbox',{name:'Message PI'})).toHaveValue('prose survives');
+ await page.evaluate(files=>workspace.write('main.bal',files['main.bal']),inputs['analysis-recovery']);await page.waitForFunction(()=>workspace.analysisSnapshot().kind==='ready');await expect(page.locator('.node-select').first()).toBeEnabled();await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('prose survives');
 });
 test('Automation and limited regions show exact source without async dependency edges',async({page})=>{
  await open(page,'unsupported-constructs');await expect(page.locator('.service')).toContainText('Automation');await expect(page.locator('[data-node-kind="mapping"]')).toHaveCount(1);await expect(page.locator('[data-node-kind="unsupported"]')).toHaveCount(3);await expect(page.locator('.node-limitation').first()).toContainText('not modeled');
 });
 
 test('expanded call bodies reference definitions, call headers reference sites, and recursion stays finite',async({page})=>{
- await open(page,'function-expansion');await page.getByRole('textbox',{name:'Message PI'}).fill('keep prose');
+ await open(page,'function-expansion');await page.getByRole('textbox',{name:'Message'}).fill('keep prose');
  await page.getByRole('button',{name:'Expand shared(2)',exact:true}).click();await page.getByRole('button',{name:'Expand shared(3)',exact:true}).click();
  const bodies=page.getByRole('button',{name:'Reference return adjust(value);',exact:true});await expect(bodies).toHaveCount(2);await bodies.first().click();await bodies.last().click();await expect(page.locator('.reference-chip')).toHaveCount(1);await expect(page.locator('.reference-chip')).toContainText('helpers.bal:');
- await page.getByRole('button',{name:'Reference shared(2)',exact:true}).click();await expect(page.locator('.reference-chip')).toHaveCount(2);await expect(page.getByRole('textbox',{name:'Message PI'})).toHaveValue('keep prose');
+ await page.getByRole('button',{name:'Reference shared(2)',exact:true}).click();await expect(page.locator('.reference-chip')).toHaveCount(2);await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('keep prose');
  await page.getByRole('button',{name:'Expand countdown(first)',exact:true}).click();await expect(page.getByRole('button',{name:'Expand countdown(value - 1)',exact:true})).toBeDisabled();await expect(page.locator('.node-limitation').filter({hasText:'Recursive calls remain collapsed.'})).toHaveCount(1);
 });
 test('obsolete browser completions and infrastructure failures retain current flow',async({page})=>{
@@ -148,12 +148,12 @@ test('obsolete browser completions and infrastructure failures retain current fl
  await page.evaluate(()=>{window.baseProgram=workspace.analysisSnapshot().program;window.controlAnalysis=true;workspace.write('main.bal',workspace.read('main.bal')+'\n// A');workspace.write('main.bal',workspace.read('main.bal').replace('// A','// B'));window.latestRevision=workspace.analysisSnapshot().revision;window.analysisRequests[1].resolve({kind:'valid',program:window.baseProgram,diagnostics:[]});});
  await page.waitForFunction(()=>workspace.analysisSnapshot().kind==='ready');await page.evaluate(()=>window.analysisRequests[0].resolve({kind:'invalid',diagnostics:[{severity:'error',message:'obsolete'}]}));await expect.poll(()=>page.evaluate(()=>workspace.analysisSnapshot().revision)).toBe(await page.evaluate(()=>window.latestRevision));await expect(page.locator('.flow-view')).toHaveAttribute('data-analysis','ready');
  await page.evaluate(()=>{workspace.write('main.bal',workspace.read('main.bal')+'\n// failure');window.analysisRequests[2].reject(Error('controlled runtime failure'));});await expect(page.locator('.flow-view')).toHaveAttribute('data-analysis','failed');await expect(page.locator('.flow-notice')).toContainText('controlled runtime failure');await expect(page.locator('.node-select').first()).toBeDisabled();
- await page.getByRole('textbox',{name:'Message PI'}).fill('Repair the saved source');await page.getByRole('button',{name:'Send message',exact:true}).click();await expect.poll(()=>page.evaluate(()=>window.prompts.length)).toBe(1);
+ await page.getByRole('textbox',{name:'Message'}).fill('Repair the saved source');await page.getByRole('button',{name:'Send message',exact:true}).click();await expect.poll(()=>page.evaluate(()=>window.prompts.length)).toBe(1);
 });
 test('a saved source update immediately before prompting blocks stale references',async({page})=>{
- await open(page,'chat-references');await page.locator('.endpoint').first().click();await page.locator('.node-select').first().click();await page.getByRole('textbox',{name:'Message PI'}).fill('do not lose this');
+ await open(page,'chat-references');await page.locator('.endpoint').first().click();await page.locator('.node-select').first().click();await page.getByRole('textbox',{name:'Message'}).fill('do not lose this');
  await page.evaluate(async()=>{const [service]=await workspace.getServices();const endpoint=service.getEndpoints()[0];const original=endpoint.getAgent.bind(endpoint);endpoint.getAgent=async()=>{const agent=await original();workspace.write('main.bal',workspace.read('main.bal')+'\n// racing disk update');return agent;};});
- await page.getByRole('button',{name:'Send message',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Saved source changed');expect(await page.evaluate(()=>window.prompts.length)).toBe(0);await expect(page.getByRole('textbox',{name:'Message PI'})).toHaveValue('do not lose this');
+ await page.getByRole('button',{name:'Send message',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Saved source changed');expect(await page.evaluate(()=>window.prompts.length)).toBe(0);await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('do not lose this');
 });
 test('unsaved editor text does not invalidate analysis; removing selected scopes falls back to Automation',async({page})=>{
  await open(page,'chat-references');await page.locator('.endpoint').first().click();const revision=await page.evaluate(()=>workspace.analysisSnapshot().revision);
@@ -257,13 +257,13 @@ test('anchor activity follows concurrent chats and completion clears only on cli
  const service = page.locator('.service').first(), endpoint = page.locator('.endpoint').first();
  const running = row => row.getByRole('status', {name:'Chat running'});
  const completed = row => row.getByRole('status', {name:'Chat completed'});
- await page.getByRole('textbox', {name:'Message PI'}).fill('Update the service');
+ await page.getByRole('textbox', {name:'Message'}).fill('Update the service');
  await page.getByRole('button', {name:'Send message', exact:true}).click();
  await expect(running(service)).toBeVisible();
  await service.click();
  await expect(running(service)).toBeVisible();
  await endpoint.click();
- await page.getByRole('textbox', {name:'Message PI'}).fill('Update the endpoint');
+ await page.getByRole('textbox', {name:'Message'}).fill('Update the endpoint');
  await page.getByRole('button', {name:'Send message', exact:true}).click();
  await expect(running(endpoint)).toBeVisible();
  await expect(running(service)).toBeVisible();
@@ -279,7 +279,7 @@ test('anchor activity follows concurrent chats and completion clears only on cli
  await expect(completed(endpoint)).toBeVisible();
  await endpoint.click();
  await expect(completed(endpoint)).toHaveCount(0);
- await page.getByRole('textbox', {name:'Message PI'}).fill('Run again');
+ await page.getByRole('textbox', {name:'Message'}).fill('Run again');
  await page.getByRole('button', {name:'Send message', exact:true}).click();
  await expect(running(endpoint)).toBeVisible();
  await page.evaluate(() => window.pendingResponses[2]());
@@ -292,7 +292,7 @@ test('automation anchor shows running and completed activity', async ({page}) =>
  await open(page, 'automation-flow');
  await page.evaluate(() => {window.holdResponses = true;});
  const automation = page.locator('.service').first();
- await page.getByRole('textbox', {name:'Message PI'}).fill('Update the automation');
+ await page.getByRole('textbox', {name:'Message'}).fill('Update the automation');
  await page.getByRole('button', {name:'Send message', exact:true}).click();
  await expect(automation.getByRole('status', {name:'Chat running'})).toBeVisible();
  await page.evaluate(() => window.pendingResponses[0]());

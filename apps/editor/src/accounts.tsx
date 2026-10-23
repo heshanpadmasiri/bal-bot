@@ -125,7 +125,7 @@ export function Accounts({ accounts, provider, busy, chooseProvider, refresh, lo
     </div>}
     {(error || login?.error) && <p className="message-error" role="alert">{error || login?.error}</p>}
     {login?.status === 'complete' && <p role="status">Signed in successfully.</p>}
-    {!pending && !working && <div className="login-actions">{!current?.connected && <button onClick={() => startLogin(provider)}>Retry login</button>}<button onClick={() => setShowLogin(false)}>Close</button></div>}
+    {!pending && !working && !current?.connected && <div className="login-actions"><button onClick={() => startLogin(provider)}>Retry login</button></div>}
     <p>Sign-in and token refresh use PI. Credentials stay on this local server.</p>
   </section>}
     {!showLogin && error && <span className="message-error" role="alert">{error}</span>}
