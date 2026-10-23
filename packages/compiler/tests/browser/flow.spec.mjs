@@ -11,6 +11,41 @@ const native=spawnSync('go',['run','./tests/native'],{cwd:join(process.cwd(),'pa
 if(native.status!==0)throw Error(native.stderr);
 const nativeModels=JSON.parse(native.stdout);
 const registry=createModels();registry.setProvider(openaiProvider());const model=registry.getModels('openai')[0];
+test('chat renders action-only tool summaries through streaming, outcomes and scope restoration', async ({page}) => {
+ await open(page,'definitions-and-calls');
+ await page.evaluate(async () => {
+  const [scope] = await workspace.getScopes();
+  const agent = await scope.getAgent();
+  window.summaryAgent = agent;
+  agent.state.messages = [{role:'assistant',content:[{type:'text',text:'Preparing the change.'},{type:'toolCall',id:'summary-edit',name:'edit_file',arguments:{path:'private.bal',oldText:'secret old source',newText:'secret new source'},partialJson:'secret partial JSON'}],stopReason:'pending'}];
+  agent.state.isStreaming = true;
+ });
+ await page.locator('.endpoint').first().click();
+ await page.locator('.service').first().click();
+ await expect(page.locator('.tool-summary')).toHaveText('Editing file…');
+ await expect(page.locator('.message.assistant')).toContainText('Preparing the change.');
+ await expect(page.locator('.conversation')).not.toContainText(/private\.bal|secret|edit_file|oldText|partialJson/);
+ await page.evaluate(() => {
+  const agent = window.summaryAgent;
+  agent.state.isStreaming = false;
+  agent.state.messages = [
+   {...agent.state.messages[0],stopReason:'toolUse'},
+   {role:'toolResult',toolCallId:'summary-edit',toolName:'edit_file',isError:false,content:[{type:'text',text:'Edited private.bal: secret source'}]},
+   {role:'assistant',content:[{type:'toolCall',id:'summary-read',name:'read_file',arguments:{path:'private.bal'}},{type:'toolCall',id:'summary-delete',name:'delete_file',arguments:{path:'private.bal'}}],stopReason:'toolUse'},
+   {role:'toolResult',toolCallId:'summary-read',toolName:'read_file',isError:true,content:[{type:'text',text:'File not found: private.bal'}]},
+   {role:'toolResult',toolCallId:'summary-delete',toolName:'delete_file',isError:true,content:[{type:'text',text:'Operation aborted'}]},
+   {role:'assistant',content:[{type:'text',text:'Finished explaining the change.'}],stopReason:'stop'},
+  ];
+ });
+ await page.locator('.endpoint').first().click();
+ await expect(page.locator('.tool-summary')).toHaveCount(0);
+ await page.locator('.service').first().click();
+ await expect(page.locator('.tool-summary')).toHaveText(['Edited file','Could not read file. File not found.','Stopped: delete file']);
+ await expect(page.locator('.conversation')).toContainText('Finished explaining the change.');
+ await expect(page.locator('.conversation')).not.toContainText(/private\.bal|secret|edit_file|read_file|delete_file/);
+ await expect(page.locator('.conversation details,.message.toolResult')).toHaveCount(0);
+ await expect(page.locator('.tool-summary button')).toHaveCount(0);
+});
 async function open(page,name){
  await page.route('**/api/session',r=>r.fulfill({json:{token:'test'}}));
  await page.route('**/api/providers',r=>r.fulfill({json:[{id:'openai',connected:true,models:[model]}]}));
