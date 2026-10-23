@@ -42,7 +42,5 @@ if (chosen) {
   const sources = import.meta.glob('/examples/**/*.{bal,toml}', {query: '?raw', import: 'default', eager: true}) as Record<string,string>;
   const prefix = `/examples/${chosen}/`;
   const files = Object.fromEntries(Object.entries(sources).filter(([path]) => path.startsWith(prefix)).map(([path, text]) => [path.slice(prefix.length), text]));
-  const originalFetch = window.fetch.bind(window);
-  window.fetch = (input, options) => String(input) === '/api/session' ? Promise.resolve(Response.json({token:'local-harness'})) : originalFetch(input,options);
   windowState.mountEditor(files);
 }

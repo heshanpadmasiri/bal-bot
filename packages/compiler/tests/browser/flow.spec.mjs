@@ -68,7 +68,6 @@ test('chat renders action-only tool summaries through streaming, outcomes and sc
  await expect(page.locator('.tool-summary button')).toHaveCount(0);
 });
 async function open(page,name){
- await page.route('**/api/session',r=>r.fulfill({json:{token:'test'}}));
  await page.goto('/apps/editor/tests/browser/harness.html');await page.waitForFunction(()=>window.ready&&window.mountEditor);
  await page.evaluate(async files=>{
   await window.loginProvider('openai','sk-browser-test-key');

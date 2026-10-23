@@ -16,14 +16,7 @@ async function dismiss(page) {
 async function setup(page) {
   const requests = [];
   page.on('request', request => requests.push({ url: request.url(), body: request.postData() ?? '' }));
-  await page.route('**/api/session', route => route.fulfill({ json: { token: 'auth-ui-test' } }));
-  await page.route('**/api/project', route => route.fulfill({ json: { id: 'auth-ui-test', name: 'Auth test' } }));
-  await page.route('**/api/sync-ticket', route => route.fulfill({ json: { ticket: 'test' } }));
-  await page.routeWebSocket('**/api/workspace-sync?*', socket => {
-    socket.send(JSON.stringify({ type: 'snapshot', projectId: 'auth-ui-test', epoch: 'auth-test', revision: 0, files: {
-      'main.bal': 'public function main() {}',
-    } }));
-  });
+  page.on('websocket', socket => requests.push({ url: socket.url(), body: '' }));
   await page.goto('/apps/editor/tests/browser/app.html');
   await expect(page.getByRole('button', { name: /^Provider:/ })).toBeEnabled();
   return requests;
@@ -76,8 +69,8 @@ test('all four API keys are independent, forgotten explicitly and on refresh, an
     await expect(panel(page).getByLabel('API key', { exact: true })).toHaveValue('');
     await dismiss(page);
   }
-  const backendAuth = requests.filter(({ url }) => /\/api\/(providers|auth|login|logout|oauth)(?:[/?]|$)/.test(url));
-  expect(backendAuth).toEqual([]);
+  const backendRequests = requests.filter(({ url }) => new URL(url).pathname.startsWith('/api/'));
+  expect(backendRequests).toEqual([]);
   for (const secret of secrets) expect(JSON.stringify(requests)).not.toContain(secret);
 });
 

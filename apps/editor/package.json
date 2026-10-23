@@ -4,9 +4,9 @@
   "type": "module",
   "name": "@bal-bot/editor",
   "scripts": {
-    "dev": "node server/index.mjs",
+    "dev": "vite --host 127.0.0.1",
     "build": "tsc -p tsconfig.json && vite build",
-    "start": "node server/index.mjs --production",
+    "start": "vite preview --host 127.0.0.1",
     "predev": "python3 ../../scripts/build_compiler.py",
     "prebuild": "python3 ../../scripts/build_compiler.py"
   },
@@ -19,8 +19,7 @@
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-markdown": "^10.1.0",
-    "remark-gfm": "^4.0.1",
-    "sirv": "^3.0.2"
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

@@ -11,7 +11,7 @@ interface Props {
 }
 function ProviderIcon({ id }: { id: string }) {
   return <span className="provider-icon" aria-hidden="true">{id === 'openai' || id === 'anthropic'
-    ? <img src={`/${id}.svg`} alt="" width="20" height="20" />
+    ? <img src={`${import.meta.env.BASE_URL}${id}.svg`} alt="" width="20" height="20" />
     : <span>{id === 'google' ? '✦' : '⇄'}</span>}</span>;
 }
 export function Accounts({ accounts, provider, busy, chooseProvider, refresh, loginRequest }: Props) {

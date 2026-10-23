@@ -1,19 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-async function server(page) {
-  const workspaceRequests = [];
-  page.on('request', request => {
-    if (/\/api\/(project|sync-ticket|workspace-sync)/.test(request.url())) workspaceRequests.push(request.url());
-  });
-  await page.route('**/api/session', route => route.fulfill({ json: { token: 'test' } }));
-  await page.route('**/api/providers', route => route.fulfill({ json: [{ id: 'openai', connected: false, models: [] }] }));
-  return workspaceRequests;
+function trackBackendRequests(page) {
+  const requests = [];
+  const track = url => {
+    if (new URL(url).pathname.startsWith('/api/')) requests.push(url);
+  };
+  page.on('request', request => track(request.url()));
+  page.on('websocket', socket => track(socket.url()));
+  return requests;
 }
 const status = page => page.locator('.aside-bottom [role="status"]');
 const open = page => page.goto('/apps/editor/tests/browser/app.html');
 
 test('starts with Hello World and persists edits without server workspace access', async ({ page }) => {
-  const requests = await server(page);
+  const requests = trackBackendRequests(page);
   await open(page);
   await expect(status(page)).toHaveText('Saved in this browser');
   await expect(page.getByRole('switch', { name: 'File sync', exact: true })).toHaveCount(0);
@@ -30,7 +30,7 @@ test('starts with Hello World and persists edits without server workspace access
 });
 
 test('unavailable browser storage is read-only and reported', async ({ page }) => {
-  await server(page);
+  const requests = trackBackendRequests(page);
   await page.addInitScript(() => {
     Storage.prototype.setItem = function() { throw new Error('Storage unavailable'); };
   });
@@ -38,4 +38,5 @@ test('unavailable browser storage is read-only and reported', async ({ page }) =
   await expect(status(page)).toHaveText('Storage unavailable');
   await expect(page.getByRole('button', { name: 'New file', exact: true })).toBeDisabled();
   await expect(page.getByRole('alert')).toContainText('Could not restore or initialize browser files');
+  expect(requests).toEqual([]);
 });
