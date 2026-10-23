@@ -4,6 +4,7 @@ import { mkdtemp, rm, stat, readdir, readFile, writeFile } from 'node:fs/promise
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createServer, request as httpRequest } from 'node:http';
+import { spawnSync } from 'node:child_process';
 import { createApi } from '../server/api.mjs';
 import { installationId } from '../server/installation.mjs';
 
@@ -23,8 +24,7 @@ test('installation ID is stable and private without reading or writing credentia
 });
 
 async function apiFixture(t) {
-  const project = { id: 'test-project', name: 'service', directory: '/private/project' };
-  const api = createApi({ project });
+  const api = createApi();
   const server = createServer((req, res) => { void api.handle(req, res); });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   t.after(() => { api.close(); server.close(); server.closeAllConnections(); });
@@ -44,11 +44,10 @@ async function apiFixture(t) {
   };
   const token = (await (await request('session')).json()).token;
   const call = (path, options) => request(path, { token, ...options });
-  const upgrade = (origin = base, host = new URL(base).host) => ({ headers: { host, ...(origin ? { origin } : {}) } });
-  return { request, call, api, base, upgrade };
+  return { request, call, api, base };
 }
 
-test('provider, OAuth and inference endpoints no longer exist', async t => {
+test('provider, OAuth, inference, project and sync endpoints no longer exist', async t => {
   const { call } = await apiFixture(t);
   for (const [path, methods] of [
     ['providers', ['GET']],
@@ -56,6 +55,9 @@ test('provider, OAuth and inference endpoints no longer exist', async t => {
     ['login/old-login-id', ['GET', 'POST', 'DELETE']],
     ['logout', ['POST']],
     ['stream', ['POST']],
+    ['project', ['GET', 'POST']],
+    ['sync-ticket', ['GET', 'POST']],
+    ['workspace-sync', ['GET']],
   ]) {
     for (const method of methods) {
       const response = await call(path, { method, ...(method === 'POST' ? { data: { provider: 'openai', context: { messages: [] } } } : {}) });
@@ -66,7 +68,17 @@ test('provider, OAuth and inference endpoints no longer exist', async t => {
   }
 });
 
-test('project and sync ticket access still require a same-origin localhost session', async t => {
+test('startup rejects local directories and unsupported arguments before starting the server', () => {
+  const entry = new URL('../server/index.mjs', import.meta.url);
+  for (const args of [['./service'], ['/tmp/service'], ['--unknown'], ['--production', './service'], ['--production', '--production']]) {
+    const result = spawnSync(process.execPath, [entry.pathname, ...args], { encoding: 'utf8', timeout: 10_000 });
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /Usage:.*local directory arguments are not supported/);
+    assert.doesNotMatch(result.stdout, /bal-bot: http/);
+  }
+});
+
+test('API access still requires a same-origin localhost session', async t => {
   const { request, call, base } = await apiFixture(t);
   for (const [path, method] of [['project', 'GET'], ['sync-ticket', 'POST']]) {
     assert.equal((await request(path, { method })).status, 401);
@@ -77,37 +89,19 @@ test('project and sync ticket access still require a same-origin localhost sessi
   assert.equal((await request('session', { origin: 'https://evil.example' })).status, 403);
   assert.equal((await request('session', { host: 'evil.example' })).status, 403);
   const response = await call('project', { origin: base });
-  assert.equal(response.status, 200);
-  assert.deepEqual(await response.json(), { id: 'test-project', name: 'service' });
+  assert.equal(response.status, 404);
+  assert.deepEqual(await response.json(), { error: 'Unknown API endpoint' });
   assert.equal(response.headers.get('cache-control'), 'no-store');
-  assert.equal((await call('sync-ticket')).status, 404);
-  assert.equal((await call('project', { method: 'POST' })).status, 404);
 });
 
-test('sync tickets require a matching origin, are single use and are cleared on close', async t => {
-  const { call, api, upgrade } = await apiFixture(t);
-  const ticket = (await (await call('sync-ticket', { method: 'POST' })).json()).ticket;
-  assert.match(ticket, /^[\da-f]{64}$/);
-  assert.equal(api.authorizeUpgrade(upgrade(), 'invalid'), false);
-  assert.equal(api.authorizeUpgrade(upgrade(''), ticket), false);
-  assert.equal(api.authorizeUpgrade(upgrade('https://evil.example'), ticket), false);
-  assert.equal(api.authorizeUpgrade(upgrade('http://evil.example', 'evil.example'), ticket), false);
-  assert.equal(api.authorizeUpgrade(upgrade(), ticket), true);
-  assert.equal(api.authorizeUpgrade(upgrade(), ticket), false);
-  const pending = (await (await call('sync-ticket', { method: 'POST' })).json()).ticket;
-  api.close();
-  assert.equal(api.authorizeUpgrade(upgrade(), pending), false);
-});
-
-test('sync tickets and sessions expire', async t => {
-  const { call, api, upgrade } = await apiFixture(t);
-  const ticket = (await (await call('sync-ticket', { method: 'POST' })).json()).ticket;
+test('sessions expire and are cleared on close', async t => {
+  const { call, api } = await apiFixture(t);
   const now = Date.now;
   try {
-    Date.now = () => now() + 31_000;
-    assert.equal(api.authorizeUpgrade(upgrade(), ticket), false);
     Date.now = () => now() + 25 * 60 * 60_000;
     assert.equal((await call('project')).status, 401);
     assert.equal((await call('sync-ticket', { method: 'POST' })).status, 401);
   } finally { Date.now = now; }
+  api.close();
+  assert.equal((await call('project')).status, 401);
 });

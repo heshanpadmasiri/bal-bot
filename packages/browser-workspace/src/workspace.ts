@@ -1,21 +1,20 @@
 import type { Compiler } from '@bal-bot/compiler';
-import type { DiagnosticsResult } from '@bal-bot/workspace';
+import type { DiagnosticsResult, StorageState } from '@bal-bot/workspace';
 import { type Workspace, type Service, type Endpoint, type Diff, type FlowUI, type Files, type Id, type Revision, type AnalysisState, type ProgramModel, type ScopeModel, type EndpointModel, type WorkspaceScope, type Automation } from '@bal-bot/workspace';
 import type { Agent, StreamFn } from '@earendil-works/pi-agent-core';
 import { createWorkspaceAgent } from './agent.ts';
 export type { Files } from '@bal-bot/workspace';
 
-export interface BrowserWorkspaceOptions { streamFn: StreamFn; compiler?: Compiler; projectId?: string; projectName?: string; }
+export interface BrowserWorkspaceOptions { streamFn: StreamFn; compiler?: Compiler; projectName?: string; }
 export interface Storage {
   getItem(key: string): string | null;
   setItem(key: string, value: string): void;
 }
-export { initialFiles, validatePath } from '@bal-bot/workspace/sync';
-import { initialFiles, validatePath, validateFiles, validateChange, validateOperation, applyChange,
-  type PendingOperation, type FileChange, type SyncState } from '@bal-bot/workspace/sync';
+export { initialFiles, validatePath } from '@bal-bot/workspace/files';
+import { initialFiles, validatePath, validateFiles, validateChange, applyChange,
+  type FileChange } from '@bal-bot/workspace/files';
 
 export const STORAGE_KEY = 'bal-bot.workspace.v1';
-export const projectStorageKey = (projectId: string): string => `bal-bot.project.v1.${projectId}`;
 
 export class BrowserWorkspace implements Workspace {
   private readonly anchors = new Map<Id, BrowserAnchor>();
@@ -27,15 +26,10 @@ export class BrowserWorkspace implements Workspace {
   private analysisController?: AbortController;
   private analysisListeners = new Set<() => void>();
   private files: Files;
-  private serverFiles: Files = {};
-  private pending: readonly PendingOperation[] = [];
   private listeners = new Set<() => void>();
-  private syncListeners = new Set<() => void>();
-  private sync: SyncState;
-  readonly loadError?: string;
-  readonly projectId?: string;
+  private storageListeners = new Set<() => void>();
+  private storageState: StorageState = { writable: true };
   readonly projectName?: string;
-  private key: string;
   private storage: Storage;
   private readonly compiler?: Compiler;
   private readonly options?: BrowserWorkspaceOptions;
@@ -44,31 +38,19 @@ export class BrowserWorkspace implements Workspace {
     this.options = options;
     this.storage = storage;
     this.compiler = options?.compiler;
-    this.projectId = options?.projectId;
     this.projectName = options?.projectName;
-    this.key = this.projectId ? projectStorageKey(this.projectId) : STORAGE_KEY;
-    this.sync = { status: this.projectId ? 'connecting' : 'synced', writable: !this.projectId, pendingCount: 0 };
-    this.files = this.projectId ? {} : { ...initialFiles };
+    this.files = { ...initialFiles };
     try {
-      const saved = storage.getItem(this.key);
+      const saved = storage.getItem(STORAGE_KEY);
       if (saved !== null) {
         const parsed: unknown = JSON.parse(saved);
-        if (this.projectId) {
-          const state = parsed as { files: Files; pending: PendingOperation[] };
-          if (!state || !Array.isArray(state.pending)) throw new Error('Invalid workspace');
-          validateFiles(state.files);
-          state.pending.forEach(validateOperation);
-          this.files = state.files;
-          this.pending = state.pending;
-          this.sync = { ...this.sync, pendingCount: this.pending.length };
-        } else {
-          validateFiles(parsed, false);
-          this.files = { ...parsed };
-        }
+        validateFiles(parsed);
+        this.files = { ...parsed };
+      } else {
+        storage.setItem(STORAGE_KEY, JSON.stringify(this.files));
       }
-    } catch {
-      this.loadError = 'Could not restore browser files. Saved storage has not been overwritten.';
-      this.sync = { ...this.sync, status: 'error', writable: false, error: this.loadError };
+    } catch (error) {
+      this.failStorage('Could not restore or initialize browser files. Saved storage has not been overwritten.', error);
     }
     queueMicrotask(() => this.scheduleAnalysis());
   }
@@ -145,14 +127,14 @@ export class BrowserWorkspace implements Workspace {
   }
 
   snapshot = (): Files => this.files;
-  syncSnapshot = (): SyncState => this.sync;
+  storageSnapshot = (): StorageState => this.storageState;
   subscribe = (listener: () => void): (() => void) => {
     this.listeners.add(listener);
     return () => { this.listeners.delete(listener); };
   };
-  subscribeSync = (listener: () => void): (() => void) => {
-    this.syncListeners.add(listener);
-    return () => { this.syncListeners.delete(listener); };
+  subscribeStorage = (listener: () => void): (() => void) => {
+    this.storageListeners.add(listener);
+    return () => { this.storageListeners.delete(listener); };
   };
   list(): string[] { return Object.keys(this.files).sort(); }
   read(path: string): string {
@@ -175,52 +157,26 @@ export class BrowserWorkspace implements Workspace {
     this.mutate({ kind: 'delete', path });
   }
   private mutate(change: FileChange): void {
-    if (!this.sync.writable) throw new Error('Workspace is read-only until synchronization reconnects.');
-    if (this.projectId) validateChange(change);
-    const pending = this.projectId ? [...this.pending, { operationId: crypto.randomUUID(), change }] : [];
-    this.commit(applyChange(this.files, change), pending);
-    if (this.projectId && this.sync.status !== 'paused') this.setSyncState({ ...this.sync, status: 'syncing' });
-  }
-  pendingOperations(): readonly PendingOperation[] { return this.pending; }
-  applyServerSnapshot(files: Files): void {
-    validateFiles(files);
-    this.commit(this.overlay(files), this.pending);
-    this.serverFiles = files;
-  }
-  applyServerChange(change: FileChange): void {
+    if (!this.storageState.writable) throw new Error(this.storageState.error ?? 'Browser storage is read-only.');
     validateChange(change);
-    const next = applyChange(this.serverFiles, change);
-    this.commit(this.overlay(next), this.pending);
-    this.serverFiles = next;
-  }
-  acknowledge(operationId: string): void {
-    const pending = this.pending.filter(operation => operation.operationId !== operationId);
-    this.commit(this.overlay(this.serverFiles, pending), pending);
-  }
-  setSyncState(state: Omit<SyncState, 'pendingCount'>): void {
-    const next = { ...state, pendingCount: this.pending.length };
-    if (JSON.stringify(next) === JSON.stringify(this.sync)) return;
-    this.sync = next;
-    if (!next.writable) {
-      // All retained anchor agents must stop, including an unselected conversation.
-      for (const anchor of this.retainedAnchors) anchor.abort();
+    const next = applyChange(this.files, change);
+    // Persist the entire snapshot atomically before exposing a successful change.
+    try {
+      this.storage.setItem(STORAGE_KEY, JSON.stringify(next));
+    } catch (error) {
+      this.failStorage('Could not save browser files. Workspace is read-only.', error);
+      throw error;
     }
-    for (const listener of this.syncListeners) listener();
-  }
-  private overlay(files: Files, pending = this.pending): Files {
-    return pending.reduce((result, operation) => applyChange(result, operation.change), files);
-  }
-  private commit(next: Files, pending: readonly PendingOperation[]): void {
-    if (this.loadError) throw new Error(this.loadError);
-    // Persist files and the outbox together before exposing any successful change.
-    this.storage.setItem(this.key, JSON.stringify(this.projectId ? { files: next, pending } : next));
     const changed = Object.keys(next).length !== Object.keys(this.files).length || Object.keys(next).some(path => this.files[path] !== next[path]);
     this.files = next;
-    this.pending = pending;
     if (changed) this.scheduleAnalysis();
-    this.sync = { ...this.sync, pendingCount: pending.length };
     for (const listener of this.listeners) listener();
-    for (const listener of this.syncListeners) listener();
+  }
+  private failStorage(message: string, error: unknown): void {
+    this.storageState = { writable: false, error: `${message} ${error instanceof Error ? error.message : String(error)}` };
+    // Stop all retained agents, including conversations no longer selected.
+    for (const anchor of this.retainedAnchors) anchor.abort();
+    for (const listener of this.storageListeners) listener();
   }
 }
 

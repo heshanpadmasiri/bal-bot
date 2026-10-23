@@ -45,7 +45,7 @@ test('failure reasons are concise templates with no filename or source disclosur
   for (const [raw, reason] of [
     ['File not found: private.bal', 'File not found.'],
     ['Error: oldText must match exactly once. Read the file and try again.', 'Text to replace must match exactly once.'],
-    ['Workspace is read-only until synchronization reconnects.', 'Workspace is read-only until reconnected.'],
+    ['Could not save browser files. Workspace is read-only. secret details', 'Browser storage is unavailable.'],
     ['Only .md, .bal and .toml files are supported.', 'Unsupported file type.'],
     ['Invalid arguments for tool edit_file: private.bal secret source', 'Invalid tool arguments.'],
     ['private.bal\nsecret source\nstack trace', 'Operation could not be completed.'],

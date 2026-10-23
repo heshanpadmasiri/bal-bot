@@ -2,9 +2,8 @@ import { randomBytes } from 'node:crypto';
 
 const json = (res, status, value) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(value)); };
 
-export function createApi({ project }) {
+export function createApi() {
   const sessions = new Map();
-  const tickets = new Map();
   const localRequest = req => {
     const host = req.headers.host;
     return !!host && /^(localhost|127\.0\.0\.1)(:\d+)?$/.test(host) && (!req.headers.origin || req.headers.origin === `http://${host}`);
@@ -27,25 +26,8 @@ export function createApi({ project }) {
     }
     const token = req.headers['x-bal-bot-session'];
     if (!token || (sessions.get(token) ?? 0) < Date.now()) { json(res, 401, { error: 'Reload the page to reconnect to the local server.' }); return true; }
-    if (url.pathname === '/api/project' && req.method === 'GET' && project) {
-      json(res, 200, { id: project.id, name: project.name });
-    } else if (url.pathname === '/api/sync-ticket' && req.method === 'POST' && project) {
-      for (const [ticket, expires] of tickets) if (expires < Date.now()) tickets.delete(ticket);
-      if (tickets.size >= 1024) { json(res, 429, { error: 'Too many sync connections' }); return true; }
-      const ticket = randomBytes(32).toString('hex');
-      tickets.set(ticket, Date.now() + 30_000);
-      json(res, 200, { ticket });
-    } else json(res, 404, { error: 'Unknown API endpoint' });
+    json(res, 404, { error: 'Unknown API endpoint' });
     return true;
   }
-  return {
-    handle,
-    authorizeUpgrade(req, ticket) {
-      const expires = tickets.get(ticket) ?? 0;
-      if (!localRequest(req) || !req.headers.origin || expires < Date.now()) return false;
-      tickets.delete(ticket);
-      return true;
-    },
-    close() { tickets.clear(); },
-  };
+  return { handle, close() { sessions.clear(); } };
 }

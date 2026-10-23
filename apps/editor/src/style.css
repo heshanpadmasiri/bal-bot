@@ -16,7 +16,7 @@
 /* Keep navigation available when the workspace is collapsed. */
 aside[hidden]{display:none}.main-location{display:flex;align-items:center;gap:14px;min-width:0}.breadcrumb{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sidebar-toggle{display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;padding:6px;background:transparent;border-color:transparent;color:#778572}.sidebar-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}.back-to-chat{flex:none;margin-left:12px;font-size:11px;background:#eef2e9;border:0;color:#3a5431}@media(max-width:480px){.main-bar{padding:0 10px}.back-to-chat{padding:7px;font-size:10px}}
 .sidebar-heading{display:flex;align-items:center;justify-content:space-between;min-height:32px;margin:0 4px 12px 10px}.sidebar-heading .section-title{margin:0}.sidebar-content{display:flex;flex-direction:column;flex:1;min-height:0}.sidebar-content[hidden]{display:none}aside{padding-top:14px}aside.collapsed{width:54px;padding:14px 10px}.collapsed .sidebar-heading{margin:0;justify-content:center}.sidebar-toggle:hover{background:#e4ebdf}.provider-picker{position:relative}.provider-trigger{display:flex;align-items:center;gap:9px;padding:8px 10px;background:#f7f9f4;font-size:12px}.provider-trigger img{display:block;flex:none}.provider-chevron{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.provider-options{position:absolute;right:0;top:calc(100% + 8px);width:210px;padding:5px;background:#fff;border:1px solid #dce2db;border-radius:10px;box-shadow:0 8px 24px #25312c18}.provider-option{display:flex;align-items:center;gap:12px;width:100%;padding:10px;border:0;background:transparent;text-align:left;font-size:12px}.provider-option img{display:block;flex:none}.provider-option small{display:block;color:#8c978b;font-size:10px;margin-top:3px}.provider-option[aria-pressed="true"]{background:#eef2e9}.provider-check{margin-left:auto;color:#628952}@media(max-width:480px){.provider-trigger{gap:6px;padding:7px;font-size:11px}.provider-trigger img{width:18px;height:18px}}
-.sync-connecting .dot,.sync-syncing .dot{background:#b88b38;animation:sync-pulse 1.2s ease-in-out infinite}.sync-disconnected .dot{background:#969b92}.sync-error .dot{background:#b75a3b}.sync-error p{color:#995239}.aside-bottom p{overflow-wrap:anywhere}.connecting{padding:40px;color:#778572}.connecting p{font-size:12px}@keyframes sync-pulse{50%{opacity:.35}}@media(prefers-reduced-motion:reduce){.sync-connecting .dot,.sync-syncing .dot{animation:none}}
+.aside-bottom p{overflow-wrap:anywhere}
 
 /* Fit source flow to the inspection width; tall diagrams scroll vertically. */
 .flow-workspace { position: relative; display: grid; grid-template-columns: 20% 60% 20%; min-height: 0; overflow: hidden; }
@@ -91,7 +91,7 @@ aside[hidden]{display:none}.main-location{display:flex;align-items:center;gap:14
 
 .flow-node.referenced { stroke: #3578d4; stroke-width: 2.5; vector-effect: non-scaling-stroke; }
 
-.file-sync-toggle{display:flex;align-items:center;gap:7px;margin-bottom:10px;color:#25312c;cursor:pointer}.file-sync-toggle input{accent-color:#31543c;margin:0}
+
 .tool-summary{margin:0 0 12px;font-size:11px;line-height:1.7;color:#7b8e6b;overflow-wrap:anywhere}.tool-summary.tool-failed{color:#a64e38}
 
 .message-body{min-width:0;overflow-wrap:anywhere}
