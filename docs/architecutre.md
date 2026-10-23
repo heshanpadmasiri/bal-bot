@@ -28,7 +28,7 @@ Both operations retain the root-package and named-module layouts, file validatio
 
 Every successful saved-source change immediately publishes pending/stale analysis, increments the browser workspace's revision, cancels superseded work, and analyzes a captured snapshot. Only the current revision can publish. Unsaved source-editor drafts are excluded. Invalid source or infrastructure failure retains the last valid model and exposes diagnostics/error state; valid current analysis clears staleness. Editing text back does not revive an obsolete completion.
 
-Declaration IDs use module/enclosing declaration/name or resource signature; ambiguous unnamed services add file/path/order context. Statement IDs use owning function and structural paths. Call occurrence paths distinguish inline expansions; source IDs identify references. Surviving anchors retain agents across harmless edits. Removed anchors leave current navigation but remain retained for cleanup; recreation after a valid removal gets a new agent. Ambiguous service edits retire the affected sessions. Scope selection never aborts another agent. Agent writes depend on browser persistence, not a file-sync connection.
+Declaration IDs use module/enclosing declaration/name or resource signature; ambiguous unnamed services add file/path/order context. Statement IDs use owning function and structural paths. Call occurrence paths distinguish inline expansions; source IDs identify references. Surviving anchors retain agents across harmless edits. Removed anchors leave current navigation but remain retained for cleanup; recreation after a valid removal gets a new agent. Ambiguous service edits retire the affected sessions. Scope selection never aborts another agent. Agent writes update the in-memory workspace, without browser persistence or a file-sync connection.
 
 ## Graphs, layout, and editor state
 
@@ -50,7 +50,7 @@ Builds require Go 1.27.1 or newer and Python 3. Editor predev/prebuild run `scri
 
 Run `npm run dev` without a project-directory argument. A fresh browser workspace starts with `Ballerina.toml` and a Hello World Ballerina HTTP service. The workspace, agent loop, file tools, and compiler all run in the browser. File tools support relative `.md`, `.bal`, and `.toml` text files; they cannot access the host filesystem.
 
-Saved workspace files persist in browser localStorage across reloads. Mutations must persist successfully before being reported as successful or published to file subscribers. A persistence failure must not publish an unpersisted change. Source-editor drafts remain separate until an explicit Save. Clearing browser storage removes the saved workspace; it is not backed up to a source repository or server.
+The editor keeps workspace files in memory only, using a no-op storage adapter. It never reads or writes browser storage for source files, including source left by previous versions. Source-editor drafts remain separate until an explicit Save updates the in-memory workspace. Refreshing or closing the page discards all changes; files are not backed up to a source repository or server.
 
 There is no directory scan, project file API, synchronization WebSocket, outbox, sync status, or File sync switch. Workspace editing does not depend on a server file connection. The application neither imports a local directory at startup nor writes changes back to disk.
 

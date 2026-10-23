@@ -1,6 +1,6 @@
 # Flow-view example packages
 
-Each directory is a separate Ballerina package with its own manifest and main function or service. These are reference fixtures: `npm run dev` starts a persistent browser-only workspace with a default Hello World service, not a local package directory. There is no directory argument or file synchronization. To inspect an example interactively, reproduce its manifest and source files in the browser workspace using the editor or agent, removing unrelated files as needed. Changes in the browser do not modify these fixtures on disk.
+Each directory is a separate Ballerina package with its own manifest and main function or service. These are reference fixtures: `npm run dev` starts an in-memory browser-only workspace with a default Hello World service that resets on refresh, not a local package directory. There is no directory argument or file synchronization. To inspect an example interactively, reproduce its manifest and source files in the browser workspace using the editor or agent, removing unrelated files as needed. Changes in the browser do not modify these fixtures on disk.
 
 These are source fixtures for [the flow specification](../spec.md), not Ballerina unit tests and not proof that the future UI is implemented. Each README supplies browser steps and expected results. Invalid edits are applied to valid baselines and then restored. No provider account or running Ballerina service is needed for compiler or mocked-browser validation.
 

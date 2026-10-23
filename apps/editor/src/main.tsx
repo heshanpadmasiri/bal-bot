@@ -8,8 +8,9 @@ import './style.css';
 
 function App() {
   const [workspace] = useState(() => new BrowserWorkspace({
-    getItem: key => window.localStorage.getItem(key),
-    setItem: (key, value) => window.localStorage.setItem(key, value),
+    // Workspace files live only in memory; never restore or persist browser source.
+    getItem: () => null,
+    setItem: () => {},
   }, { streamFn: streamBrowser, compiler: createCompiler(), projectName: 'Hello World' }));
   return <Editor workspace={workspace} />;
 }
