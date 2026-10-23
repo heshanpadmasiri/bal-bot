@@ -12,13 +12,15 @@
   },
   "dependencies": {
     "@bal-bot/browser-workspace": "*",
+    "@bal-bot/compiler": "*",
     "@bal-bot/workspace": "*",
     "@earendil-works/pi-agent-core": "^1.4.0",
     "@earendil-works/pi-ai": "^1.4.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "sirv": "^3.0.2",
-    "@bal-bot/compiler": "*",
     "ws": "^8.22.0"
   },
   "devDependencies": {

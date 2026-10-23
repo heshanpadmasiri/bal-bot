@@ -11,6 +11,30 @@ const native=spawnSync('go',['run','./tests/native'],{cwd:join(process.cwd(),'pa
 if(native.status!==0)throw Error(native.stderr);
 const nativeModels=JSON.parse(native.stdout);
 const registry=createModels();registry.setProvider(openaiProvider());const model=registry.getModels('openai')[0];
+test('agent replies render Markdown while user text and unsafe markup stay inert', async ({page}) => {
+ await open(page,'definitions-and-calls');
+ await page.evaluate(async () => {
+  const [scope] = await workspace.getScopes();
+  const agent = await scope.getAgent();
+  agent.state.messages = [
+   {role:'user',content:'**Keep this literal**'},
+   {role:'assistant',content:[{type:'text',text:'# Result\n\n**Done** with `value`.\n\n- First\n- Second\n\n```ballerina\nfunction main() {}\n```\n\n| Name | Status |\n| --- | --- |\n| build | passed |\n\n[Docs](https://example.com)\n\n<script>window.markdownExecuted = true</script>\n\n[Unsafe](javascript:alert(1))'}],stopReason:'stop'},
+  ];
+ });
+ await page.locator('.endpoint').first().click();
+ await page.locator('.service').first().click();
+ const reply = page.locator('.message.assistant');
+ await expect(reply.getByRole('heading',{name:'Result'})).toBeVisible();
+ await expect(reply.locator('strong')).toHaveText('Done');
+ await expect(reply.locator('li')).toHaveText(['First','Second']);
+ await expect(reply.locator('pre code.language-ballerina')).toHaveText('function main() {}\n');
+ await expect(reply.getByRole('cell',{name:'passed',exact:true})).toBeVisible();
+ await expect(reply.getByRole('link',{name:'Docs'})).toHaveAttribute('href','https://example.com');
+ await expect(reply.locator('script')).toHaveCount(0);
+ expect(await page.evaluate(() => window.markdownExecuted)).toBeUndefined();
+ await expect(reply.locator('a[href^="javascript:"]')).toHaveCount(0);
+ await expect(page.locator('.message.user pre')).toHaveText('**Keep this literal**');
+});
 test('chat renders action-only tool summaries through streaming, outcomes and scope restoration', async ({page}) => {
  await open(page,'definitions-and-calls');
  await page.evaluate(async () => {
