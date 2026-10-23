@@ -57,3 +57,33 @@ test('branch arrows leave opposite sides with orthogonal routes and top-level re
  }
  assert.equal(nodes(diagram).find(n=>n.selection.id==='return').kind,'return');
 });
+
+test('direct and mutual recursion retain call sites and continuations even with stale expansion paths',()=>{
+ const ret=(id,targets)=>({...located(id),kind:'return',calls:targets.map((target,i)=>({...located(`${id}/call/${i}`,`${target}(${i})`),target:{kind:'workspace',functionId:target},expansion:'supported'}))});
+ const p={scopes:[],functions:{fib:fn('fib',[ret('sum',['fib','fib'])]),even:fn('even',[ret('even-return',['odd'])]),odd:fn('odd',[ret('odd-return',['even'])])}};
+ for(const root of ['fib','even']){
+  const expanded=new Set();
+  let diagram;
+  for(let i=0;i<4;i++){
+   diagram=buildDiagram(p,root,expanded);structural(diagram);
+   for(const n of nodes(diagram))if(nodeHint(n)?.path)expanded.add(nodeHint(n).path);
+  }
+  const recursive=nodes(diagram).filter(n=>nodeHint(n)?.recursive);
+  assert.equal(recursive.length,root==='fib'?2:1);
+  for(const node of recursive){
+   assert.equal(node.children.length,0);
+   assert.equal(nodeHint(node).unavailable,'Recursive calls remain collapsed.');
+   assert.ok(diagram.edges.some(e=>e.toPort===`${node.id}:entry`),'recursive call has an incoming execution edge');
+   assert.ok(diagram.edges.some(e=>e.fromPort===`${node.id}:normal-exit`),'recursive call continues after completion');
+  }
+  const layout=layoutDiagram(diagram,()=>({width:300,height:20}));
+  assert.equal(layout.routes.length,diagram.edges.length);
+  for(const route of layout.routes)for(const point of route)assert.ok(Number.isFinite(point.x)&&Number.isFinite(point.y));
+  const returnNodes=nodes(diagram).filter(n=>n.kind==='return');
+  for(const node of returnNodes){
+   const calls=node.children;
+   for(let i=1;i<calls.length;i++)assert.ok(diagram.edges.some(e=>e.fromPort===`${calls[i-1].id}:normal-exit`&&e.toPort===`${calls[i].id}:entry`));
+   assert.ok(diagram.edges.some(e=>e.fromPort===`${calls.at(-1).id}:normal-exit`&&e.toPort===`${node.id}:return`));
+  }
+ }
+});

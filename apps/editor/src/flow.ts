@@ -7,7 +7,7 @@ export interface Diagram { readonly nodes: readonly DiagramNode[]; readonly port
 export interface Box { readonly x: number; readonly y: number; readonly width: number; readonly height: number; }
 export interface DiagramLayout { readonly diagram: Diagram; readonly boxes: Readonly<Record<Id, Box>>; readonly routes: readonly (readonly { readonly x: number; readonly y: number }[])[]; readonly width: number; readonly height: number; }
 interface Fragment { nodes: DiagramNode[]; entry?: Id; normal: Id[]; returns: Id[]; breaks: Id[]; continues: Id[]; }
-interface Hint { mode: 'sequence' | 'if' | 'while' | 'foreach'; split?: number; path?: string; unavailable?: string; root?: boolean; }
+interface Hint { mode: 'sequence' | 'if' | 'while' | 'foreach'; split?: number; path?: string; unavailable?: string; recursive?: boolean; root?: boolean; }
 // Layout-only hierarchy metadata accompanies an owned diagram without changing its public shape.
 const hints = new WeakMap<DiagramNode, Hint>();
 export function nodeHint(node: DiagramNode): Readonly<Hint> | undefined { return hints.get(node); }
@@ -60,9 +60,10 @@ export function buildDiagram(program: ProgramModel, functionId: Id, expanded: Re
       if (call.target.kind === 'external') continue;
       const callPath = `${path}/expand/${call.id}`;
       const target = call.target.kind === 'workspace' ? program.functions[call.target.functionId] : undefined;
-      const unavailable = call.expansion === 'unavailable' ? call.reason : !target ? 'Function body is unavailable.' : ancestors.includes(target.id) ? 'Recursive calls remain collapsed.' : undefined;
+      const recursive = !!target && ancestors.includes(target.id);
+      const unavailable = call.expansion === 'unavailable' ? call.reason : !target ? 'Function body is unavailable.' : recursive ? 'Recursive calls remain collapsed.' : undefined;
       const callNode: DiagramNode = {id: callPath, kind: 'function', selection: call, label: call.text, children: []};
-      hints.set(callNode, {mode: 'sequence', path: callPath, unavailable});
+      hints.set(callNode, {mode: 'sequence', path: callPath, unavailable, recursive});
       children.push(callNode);
       if (call.expansion === 'supported') {
         if (normal) edge(normal, port(callNode, 'entry'));

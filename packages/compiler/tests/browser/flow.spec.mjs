@@ -201,7 +201,13 @@ test('expanded call bodies reference definitions, call headers reference sites, 
  await page.getByRole('button',{name:'Expand shared(2)',exact:true}).click();await page.getByRole('button',{name:'Expand shared(3)',exact:true}).click();
  const bodies=page.getByRole('button',{name:'Reference return adjust(value);',exact:true});await expect(bodies).toHaveCount(2);await bodies.first().click();await bodies.last().click();await expect(page.locator('.reference-chip')).toHaveCount(1);await expect(page.locator('.reference-chip')).toContainText('helpers.bal:');
  await page.getByRole('button',{name:'Reference shared(2)',exact:true}).click();await expect(page.locator('.reference-chip')).toHaveCount(2);await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('keep prose');
- await page.getByRole('button',{name:'Expand countdown(first)',exact:true}).click();await expect(page.getByRole('button',{name:'Expand countdown(value - 1)',exact:true})).toBeDisabled();await expect(page.locator('.node-limitation').filter({hasText:'Recursive calls remain collapsed.'})).toHaveCount(1);
+ await page.getByRole('button',{name:'Expand countdown(first)',exact:true}).click();await expect(page.getByRole('button',{name:'Recursive call countdown(value - 1)',exact:true})).toBeDisabled();await expect(page.locator('.node-limitation').filter({hasText:'Recursive calls remain collapsed.'})).toHaveCount(1);
+ await page.getByRole('button',{name:'Expand evenStep(second)',exact:true}).click();
+ await page.getByRole('button',{name:'Expand oddStep(value - 1)',exact:true}).click();
+ const mutual=page.getByRole('button',{name:'Recursive call evenStep(value - 1)',exact:true});
+ await expect(mutual).toBeDisabled();await expect(mutual).toHaveText('↻');
+ await expect(mutual).toHaveAttribute('aria-expanded','false');
+ await expect(page.locator('[data-recursive="true"]')).toHaveCount(2);
 });
 test('obsolete browser completions and infrastructure failures retain current flow',async({page})=>{
  await open(page,'analysis-recovery');
@@ -359,4 +365,49 @@ test('automation anchor shows running and completed activity', async ({page}) =>
  await expect(automation.getByRole('status', {name:'Chat completed'})).toBeVisible();
  await automation.click();
  await expect(automation.getByRole('status')).toHaveCount(0);
+});
+
+test('Fibonacci arithmetic calls expand independently and recursive calls stay collapsed',async({page})=>{
+ const errors=[];page.on('pageerror',error=>errors.push(error.message));
+ await open(page,'automation-flow');
+ await page.evaluate(()=>workspace.write('main.bal',`import ballerina/http;
+import ballerina/io;
+service / on new http:Listener(8080) {
+ resource function get hello() returns string { return "Hello, World!"; }
+ resource function get [int x]/[int y]/sum() returns int {
+  io:println("x: ", x, ", y: ", y);
+  return fib(x) + fib(y);
+ }
+}
+function fib(int n) returns int {
+ if n <= 1 { return n; }
+ return fib(n - 1) + fib(n - 2);
+}`));
+ await page.waitForFunction(()=>workspace.analysisSnapshot().kind==='ready');
+ await page.locator('.endpoint').filter({hasText:'sum'}).click();
+ await expect(page.getByRole('button',{name:'Expand fib(x)',exact:true})).toBeEnabled();
+ await expect(page.getByRole('button',{name:'Expand fib(y)',exact:true})).toBeEnabled();
+ await page.getByRole('button',{name:'Expand fib(x)',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Reference return fib(n - 1) + fib(n - 2);',exact:true})).toHaveCount(1);
+ await page.getByRole('button',{name:'Expand fib(y)',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Reference return fib(n - 1) + fib(n - 2);',exact:true})).toHaveCount(2);
+ for(const arg of ['n - 1','n - 2']){
+  const recursive=page.getByRole('button',{name:`Recursive call fib(${arg})`,exact:true});
+  await expect(recursive).toHaveCount(2);
+  for(const button of await recursive.all()){
+   await expect(button).toBeDisabled();await expect(button).toHaveText('↻');
+   await expect(button).toHaveAttribute('aria-expanded','false');
+  }
+ }
+ await expect(page.locator('.node-limitation')).toHaveText(Array(4).fill('Recursive calls remain collapsed.'));
+ await page.getByRole('button',{name:'Collapse fib(x)',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Reference return fib(n - 1) + fib(n - 2);',exact:true})).toHaveCount(1);
+ await page.locator('.service').click();
+ await page.getByRole('button',{name:'fib',exact:true}).click();
+ await expect(page.locator('[data-recursive="true"]')).toHaveCount(2);
+ await expect(page.getByRole('button',{name:'Recursive call fib(n - 1)',exact:true})).toBeDisabled();
+ const reference=page.getByRole('button',{name:'Reference fib(n - 1)',exact:true});
+ await reference.click();
+ await expect(page.locator('.reference-chip')).toHaveCount(1);
+ expect(errors).toEqual([]);
 });

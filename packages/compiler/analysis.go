@@ -576,8 +576,15 @@ func (p *resolvedProgram) expressionCalls(id string, expr ast.BLangActionOrExpre
 		switch n := expr.(type) {
 		case *ast.BLangLiteral, *ast.BLangNumericLiteral, *ast.BLangVarRef, *ast.BLangConstRef, *ast.BLangTypedescExpr, *ast.BLangWildCardBindingPattern:
 		case *ast.BLangBinaryExpr:
-			scan(n.LhsExpr, false)
-			scan(n.RhsExpr, false)
+			// Arithmetic operands execute in order, so their calls can use the
+			// statement's sequential expansion. Keep conditional evaluation and
+			// contexts that already disallow expansion conservative.
+			arithmetic := n.OpKind == model.OperatorKind_ADD || n.OpKind == model.OperatorKind_SUB ||
+				n.OpKind == model.OperatorKind_MUL || n.OpKind == model.OperatorKind_DIV || n.OpKind == model.OperatorKind_MOD
+			scan(n.LhsExpr, expand && arithmetic)
+			scan(n.RhsExpr, expand && arithmetic)
+		case *ast.BLangGroupExpr:
+			scan(n.Expression, expand)
 		case *ast.BLangUnaryExpr:
 			scan(n.Expr, false)
 		case *ast.BLangTernaryExpr:

@@ -172,3 +172,89 @@ func TestRangesAndSupportedBlocks(t *testing.T) {
 		inspect(fn.Body)
 	}
 }
+
+func TestArithmeticCallExpansion(t *testing.T) {
+	t.Parallel()
+	result, err := Analyze(project(`import ballerina/http;
+import ballerina/io;
+service / on new http:Listener(8080) {
+ resource function get hello() returns string { return "Hello, World!"; }
+ resource function get [int x]/[int y]/sum() returns int {
+  io:println("x: ", x, ", y: ", y);
+  return fib(x) + fib(y);
+ }
+}
+function fib(int n) returns int {
+ if n <= 1 { return n; }
+ return fib(n - 1) + fib(n - 2);
+}`))
+	if err != nil || result.Kind != "valid" {
+		t.Fatalf("analysis: %+v, %v", result, err)
+	}
+	var fibID string
+	for id, fn := range result.Program.Functions {
+		if fn.Entry.Name == "fib" {
+			fibID = id
+		}
+	}
+	if fibID == "" {
+		t.Fatal("missing fib definition")
+	}
+	checked := 0
+	for _, fn := range result.Program.Functions {
+		last := fn.Body[len(fn.Body)-1]
+		var want []string
+		switch last.Text {
+		case "return fib(x) + fib(y);":
+			want = []string{"fib(x)", "fib(y)"}
+		case "return fib(n - 1) + fib(n - 2);":
+			want = []string{"fib(n - 1)", "fib(n - 2)"}
+		default:
+			continue
+		}
+		checked++
+		if last.Kind != "return" || last.Calls == nil || len(*last.Calls) != 2 {
+			t.Fatalf("missing return calls: %+v", last)
+		}
+		for i, call := range *last.Calls {
+			if call.Text != want[i] || call.Expansion != "supported" || call.Target.FunctionID != fibID || call.Reason != "" {
+				t.Fatalf("call %d: %+v", i, call)
+			}
+		}
+	}
+	if checked != 2 {
+		t.Fatalf("checked %d returns, want 2", checked)
+	}
+}
+
+func TestArithmeticExpansionRespectsEvaluationContext(t *testing.T) {
+	t.Parallel()
+	for _, tc := range []struct {
+		expr string
+		want []string
+	}{
+		{"value(1) + value(2) * value(3)", []string{"supported", "supported", "supported"}},
+		{"(value(1) - value(2)) / value(3) % value(4)", []string{"supported", "supported", "supported", "supported"}},
+		{"value(value(1) + value(2))", []string{"unavailable", "unavailable", "unavailable"}},
+		{"(value(1) + value(2) > 0) && (value(3) + value(4) > 0)", []string{"unavailable", "unavailable", "unavailable", "unavailable"}},
+		{"(value(1) > 0) || (value(2) > 0)", []string{"unavailable", "unavailable"}},
+		{"true ? value(1) + value(2) : value(3)", []string{"unavailable", "unavailable", "unavailable"}},
+	} {
+		t.Run(tc.expr, func(t *testing.T) {
+			result, err := Analyze(project("public function main() { var result = " + tc.expr + "; _ = result; } function value(int n) returns int { return n; }"))
+			if err != nil || result.Kind != "valid" {
+				t.Fatalf("analysis: %+v, %v", result, err)
+			}
+			main := result.Program.Functions[result.Program.Scopes[0].FunctionID]
+			stmt := main.Body[0]
+			if stmt.Kind != "simple" || stmt.Calls == nil || len(*stmt.Calls) != len(tc.want) {
+				t.Fatalf("missing calls: %+v", stmt)
+			}
+			for i, call := range *stmt.Calls {
+				if call.Expansion != tc.want[i] {
+					t.Fatalf("call %s: got %s, want %s", call.Text, call.Expansion, tc.want[i])
+				}
+			}
+		})
+	}
+}
