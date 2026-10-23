@@ -33,6 +33,17 @@ func TestAnalyzeExamples(t *testing.T) {
 				if len(result.Program.Scopes) != 3 {
 					t.Fatalf("services: %+v", result.Program.Scopes)
 				}
+				remoteTitles := []string{}
+				for _, scope := range result.Program.Scopes {
+					for _, endpoint := range *scope.Endpoints {
+						if endpoint.Kind == "remote" {
+							remoteTitles = append(remoteTitles, endpoint.Title)
+						}
+					}
+				}
+				if strings.Join(remoteTitles, ",") != "onBytes,refresh" {
+					t.Fatalf("remote display titles: %v", remoteTitles)
+				}
 			}
 			if name == "automation-flow" && result.Program.Scopes[0].Kind != "automation" {
 				t.Fatal("not Automation")

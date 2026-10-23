@@ -18,6 +18,20 @@ async function open(page,name){
  await page.evaluate(files=>window.mountEditor(files),inputs[name]);await page.waitForFunction(()=>window.workspace.analysisSnapshot().kind==='ready');
  await expect(page.locator('.flow-view')).toHaveAttribute('data-analysis','ready');
 }
+test('sidebar endpoint names, marker alignment and resource operations',async({page})=>{
+ await open(page,'service-discovery');
+ await expect(page.getByRole('button',{name:'remote onBytes',exact:true})).toBeVisible();
+ await expect(page.getByRole('button',{name:'remote refresh',exact:true})).toBeVisible();
+ const resource=page.getByRole('button',{name:'resource get /inventory/items',exact:true});
+ await expect(resource.locator('.endpoint-operation')).toHaveText('get');
+ await expect(resource.locator('.endpoint-operation')).toHaveCSS('text-transform','uppercase');
+ const positions=await page.locator('.endpoint').evaluateAll(rows=>rows.map(row=>[row.querySelector('small').getBoundingClientRect().x,row.querySelector('.endpoint-label').getBoundingClientRect().x]));
+ expect(new Set(positions.map(([x])=>x)).size).toBe(1);
+ expect(new Set(positions.map(([,x])=>x)).size).toBe(1);
+ await resource.click();
+ await expect(resource).toHaveClass(/selected/);
+ await expect(page.locator('.flow-view')).toHaveAttribute('data-analysis','ready');
+});
 test('native and real browser WASM models match for all supported fixtures',async({page})=>{
  await page.goto('/apps/editor/tests/browser/harness.html');await page.waitForFunction(()=>window.ready);
  for(const [index,name]of names.entries()){

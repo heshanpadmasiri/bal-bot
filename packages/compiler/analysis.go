@@ -275,7 +275,7 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 				fn := service.Methods[name]
 				fid := p.functionIDs[fn.Symbol()]
 				if fn.IsRemote() {
-					endpoints = append(endpoints, EndpointModel{LocatedModel: p.located(fid, fn), Kind: "remote", Title: name, FunctionID: fid})
+					endpoints = append(endpoints, EndpointModel{LocatedModel: p.located(fid, fn), Kind: "remote", Title: strings.TrimPrefix(name, "$remote$"), FunctionID: fid})
 				} else {
 					defs = append(defs, DefinitionModel{LocatedModel: p.located(fid, fn), Kind: "function", Label: name, FunctionID: fid})
 				}

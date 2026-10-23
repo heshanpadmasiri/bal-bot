@@ -25,8 +25,10 @@ aside[hidden]{display:none}.main-location{display:flex;align-items:center;gap:14
 .flow-workspace .sidebar-content { overflow: auto; }
 .flow-workspace .service, .flow-workspace .endpoint { width: 100%; text-align: left; white-space: normal; overflow-wrap: anywhere; }
 .flow-workspace .service small { display: block; font-size: 10px; opacity: .65; }
-.flow-workspace .endpoint { border: 0; padding: 9px 12px 9px 28px; background: transparent; color: inherit; }
-.flow-workspace .endpoint small { color: #8b729c; font-size: 10px; }
+.flow-workspace .endpoint { display: grid; grid-template-columns: 46px minmax(0, 1fr); align-items: baseline; gap: 8px; border: 0; padding: 9px 12px 9px 28px; background: transparent; color: inherit; }
+.flow-workspace .endpoint small { color: #796287; font-size: 10px; }
+.endpoint-label { min-width: 0; }
+.endpoint-operation { display: inline-block; margin-right: 6px; padding: 2px 5px; border-radius: 4px; background: #e0eee6; color: #285d43; font-size: 10px; font-weight: 700; line-height: 1.4; text-transform: uppercase; vertical-align: baseline; }
 .flow-workspace .selected { background: #f0ebf7; }
 .inspection { border-left: 1px solid #e2e5eb; min-width: 0; overflow: hidden; background: #fafbfd; display: flex; flex-direction: column; }
 .inspection-toolbar { display: flex; justify-content: flex-end; padding: 10px 12px; flex: none; }
