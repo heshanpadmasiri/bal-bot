@@ -132,3 +132,47 @@ test('foreach is explicit and call disclosure stays in its top-left corner',asyn
   await disclosure.click();await expect(page.locator('.reference-chip')).toHaveCount(0);
  }
 });
+
+test('signed-in provider submenus sign out the chosen account',async({page})=>{
+ await open(page,'design-critique');
+ let accounts=[{id:'openai',connected:true,models:[model]},{id:'anthropic',connected:true,models:[]}];
+ const loggedOut=[];
+ await page.route('**/api/providers',r=>r.fulfill({json:accounts}));
+ await page.route('**/api/logout',r=>{
+  const {provider}=r.request().postDataJSON();loggedOut.push(provider);
+  accounts=accounts.map(a=>a.id===provider?{...a,connected:false}:a);
+  return r.fulfill({json:{ok:true}});
+ });
+ await page.reload();await page.waitForFunction(()=>window.ready&&window.mountEditor);
+ await page.evaluate(files=>window.mountEditor(files),inputs['design-critique']);
+ const picker=page.getByRole('button',{name:'Provider: OpenAI',exact:true});
+ await expect(page.locator('header').getByRole('button',{name:'Sign out',exact:true})).toHaveCount(0);
+ await expect(page.locator('.inspection').getByRole('button',{name:'Expand inspection',exact:true})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:/Reference service definition|Reference calculate/})).toHaveCount(0);
+ await picker.click();await page.getByRole('button',{name:'Anthropic account options',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Sign out',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'← Providers',exact:true}).click();
+ await page.getByRole('button',{name:'Anthropic account options',exact:true}).click();
+ await page.getByRole('button',{name:'Sign out',exact:true}).click();
+ await expect.poll(()=>loggedOut).toEqual(['anthropic']);
+ await expect(picker).toBeFocused();await picker.click();
+ await expect(page.getByRole('button',{name:'Anthropic account options',exact:true})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'OpenAI account options',exact:true})).toBeVisible();
+ await page.keyboard.press('Escape');await expect(picker).toBeFocused();
+});
+
+test('inspection expansion is available only for flow diagrams',async({page})=>{
+ await open(page,'design-critique');
+ const expand=page.getByRole('button',{name:'Expand inspection',exact:true});
+ await expect(expand).toHaveCount(0);
+ await page.getByRole('button',{name:'calculate',exact:true}).click();
+ await expect(page.getByRole('group',{name:'Source flow diagram'})).toBeVisible();
+ await expand.click();
+ await expect(page.getByRole('button',{name:'Collapse inspection',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'← Definitions',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Functions',exact:true})).toBeVisible();
+ await expect(page.locator('.inspection-toggle')).toHaveCount(0);
+ await expect(page.locator('.flow-workspace')).not.toHaveClass(/inspection-expanded/);
+ await page.locator('.endpoint').first().click();
+ await expect(expand).toBeVisible();
+});

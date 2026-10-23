@@ -36,9 +36,9 @@ export function FlowView({flow, references, expanded, onToggle, onSelect, onOpen
     {!program && state.kind !== 'pending' && <p className="flow-notice">No valid source analysis is available.</p>}
     {program && selection.kind === 'definitions' && (() => {
       const scope = program.scopes.find(s => s.id === selection.scopeId); if (scope?.kind !== 'service') return null;
-      return <div className="definitions"><button className="service-reference" disabled={!ready} aria-label="Reference service definition" title="Attach service declaration" onClick={() => onSelect(scope)}>↗</button>{(['function','type','connector','configurable'] as const).map(kind => {
+      return <div className="definitions">{(['function','type','connector','configurable'] as const).map(kind => {
         const defs = scope.definitions.filter(d => d.kind === kind); if (!defs.length) return null;
-        return <section key={kind}><h2>{({function:'Functions',type:'Types',connector:'Connectors',configurable:'Configurables'})[kind]}</h2>{defs.map(def => <div className="definition" key={def.id}><button disabled={!ready && def.kind !== 'function'} onClick={() => def.kind === 'function' ? onOpenFunction(def.functionId) : onSelect(def)}>{def.label}</button>{def.kind === 'function' && <button disabled={!ready} aria-label={`Reference ${def.label}`} onClick={() => onSelect(def)}>↗</button>}</div>)}</section>;
+        return <section key={kind}><h2>{({function:'Functions',type:'Types',connector:'Connectors',configurable:'Configurables'})[kind]}</h2>{defs.map(def => <div className="definition" key={def.id}><button disabled={!ready && def.kind !== 'function'} onClick={() => def.kind === 'function' ? onOpenFunction(def.functionId) : onSelect(def)}>{def.label}</button></div>)}</section>;
       })}</div>;
     })()}
     {layout && bounds && <div className="diagram-scroll"><svg className="diagram" width={bounds.width} height={bounds.height} viewBox={`${bounds.x} ${bounds.y} ${bounds.width} ${bounds.height}`} style={{maxWidth: bounds.width}} role="group" aria-label="Source flow diagram">

@@ -19,6 +19,7 @@ export function Accounts({ accounts, provider, busy, chooseProvider, refresh, lo
   const [working, setWorking] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [accountMenu, setAccountMenu] = useState<string | null>(null);
   const picker = useRef<HTMLDivElement>(null);
   const pickerButton = useRef<HTMLButtonElement>(null);
   const selectedProvider = providers.find(option => option.id === provider)!;
@@ -86,22 +87,30 @@ export function Accounts({ accounts, provider, busy, chooseProvider, refresh, lo
   const safeUrl = authUrl?.url && /^https:\/\/(auth\.openai\.com|claude\.ai)\//.test(authUrl.url) ? authUrl.url : undefined;
   return <div className="provider-controls">
     <div className="provider-picker" ref={picker} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setPickerOpen(false); }}>
-      <button ref={pickerButton} className="provider-trigger" aria-label={`Provider: ${selectedProvider.name}`} aria-expanded={pickerOpen} aria-controls="provider-options" disabled={busy || pending || working || !accounts.length} onClick={() => setPickerOpen(!pickerOpen)}>
+      <button ref={pickerButton} className="provider-trigger" aria-label={`Provider: ${selectedProvider.name}`} aria-expanded={pickerOpen} aria-controls="provider-options" disabled={busy || pending || working || !accounts.length} onClick={() => { setAccountMenu(null); setPickerOpen(!pickerOpen); }}>
         <img src={`/${provider}.svg`} alt="" width="20" height="20" /><span>{selectedProvider.name}</span><svg className="provider-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
       </button>
       {pickerOpen && <div id="provider-options" className="provider-options" role="group" aria-label="Select provider">
-        {providers.map(option => <button key={option.id} className="provider-option" aria-pressed={provider === option.id} onClick={() => {
-          setPickerOpen(false); pickerButton.current?.focus();
-          if (option.id === provider) return;
-          chooseProvider(option.id); setLogin(null); setError('');
-          if (!accounts.find(a => a.id === option.id)?.connected) startLogin(option.id);
-          else setShowLogin(false);
-        }}><img src={`/${option.id}.svg`} alt="" width="22" height="22" /><span>{option.name}<small>{option.description}</small></span>{provider === option.id && <span className="provider-check" aria-hidden="true">✓</span>}</button>)}
+        {accountMenu ? <>
+          <button className="provider-menu-back" onClick={() => setAccountMenu(null)}>← Providers</button>
+          <div className="provider-menu-heading">{providers.find(option => option.id === accountMenu)?.name}</div>
+          <button className="provider-option sign-out" disabled={busy || working || pending} onClick={() => {
+            const id = accountMenu;
+            setPickerOpen(false); pickerButton.current?.focus();
+            void action(async () => { await api('logout', 'POST', { provider: id }); await refresh(); if (id === provider) setLogin(null); });
+          }}>Sign out</button>
+        </> : providers.map(option => <div className="provider-option-row" key={option.id}>
+          <button className="provider-option" aria-pressed={provider === option.id} onClick={() => {
+            setPickerOpen(false); pickerButton.current?.focus();
+            if (option.id === provider) return;
+            chooseProvider(option.id); setLogin(null); setError('');
+            if (!accounts.find(a => a.id === option.id)?.connected) startLogin(option.id);
+            else setShowLogin(false);
+          }}><img src={`/${option.id}.svg`} alt="" width="22" height="22" /><span>{option.name}<small>{option.description}</small></span>{provider === option.id && <span className="provider-check" aria-hidden="true">✓</span>}</button>
+          {accounts.find(a => a.id === option.id)?.connected && <button className="provider-account-menu" aria-label={`${option.name} account options`} aria-expanded={false} onClick={() => setAccountMenu(option.id)}>›</button>}
+        </div>)}
       </div>}
     </div>
-    {current?.connected && <>
-      <button className="sign-out" disabled={busy || working || pending} onClick={() => void action(async () => { await api('logout', 'POST', { provider }); await refresh(); setLogin(null); })}>Sign out</button>
-    </>}
     {showLogin && <section className="settings accounts provider-popover" aria-label="Provider login">
     <div className="login-heading">{provider === 'openai' ? 'Sign in with ChatGPT' : 'Sign in with Claude'}</div>
     {working && !pending && <p role="status">Starting sign-in…</p>}
