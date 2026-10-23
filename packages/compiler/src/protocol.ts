@@ -51,7 +51,18 @@ export function validateProgram(value: unknown): ProgramModel {
       }
     }
   };
-  for (const [id, value] of Object.entries(functions)) { const fn = located(value); if (fn.id !== id) fail(); string(fn.moduleId); statements(fn.body, new Set([id])); }
+  for (const [id, value] of Object.entries(functions)) {
+    const fn = located(value); if (fn.id !== id) fail(); string(fn.moduleId);
+    const entry = object(fn.entry);
+    if (!['resource', 'remote', 'function', 'method'].includes(String(entry.kind))) fail();
+    string(entry.name); string(entry.signature); string(entry.returnType);
+    for (const value of array(entry.parameters)) {
+      const parameter = object(value);
+      if (!['input', 'path'].includes(String(parameter.kind))) fail();
+      string(parameter.text);
+    }
+    statements(fn.body, new Set([id]));
+  }
   unique(scopes);
   const endpoints = new Set<string>();
   for (const value of scopes) {

@@ -75,6 +75,55 @@ async function open(page,name){
  },inputs[name]);await page.waitForFunction(()=>window.workspace.analysisSnapshot().kind==='ready');
  await expect(page.locator('.flow-view')).toHaveAttribute('data-analysis','ready');
 }
+test('compact entry follows resource, remote and method selection with source-backed signatures',async({page})=>{
+ await open(page,'service-discovery');
+ await page.evaluate(()=>workspace.write('orders.bal',`import ballerina/http;
+service /orders on new http:Listener(8080) {
+ resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return "order"; }
+ remote function refresh(string note = "") returns boolean { _ = note; return true; }
+ function formatOrder() returns string { return "order"; }
+}
+function sharedLabel() returns string { return "order"; }`));
+ await page.waitForFunction(()=>workspace.analysisSnapshot().kind==='ready');
+ await page.getByRole('button',{name:'resource get /orders/[int id]',exact:true}).click();
+ const entry=page.locator('.flow-entry');
+ await expect(entry.getByRole('heading')).toHaveText('get/orders/[int id]');
+ await expect(page.locator('.flow-entry-owner')).toHaveText('Service /orders · ballerina/http:Listener');
+ await expect(entry.locator('details')).not.toHaveAttribute('open');
+ await entry.locator('summary').click();
+ await expect(entry.locator('.flow-entry-signature')).toHaveText('resource function get [int id](boolean includeItems = false) returns string');
+ await expect(entry.locator('dt')).toHaveText(['Path','Input','Returns']);
+ await expect(entry.locator('dd')).toHaveText(['[int id]','boolean includeItems = false','string']);
+ await page.getByRole('button',{name:'remote refresh',exact:true}).click();
+ await expect(entry).toHaveAttribute('aria-label','remote entry');
+ await expect(entry.locator('details')).not.toHaveAttribute('open');
+ await expect(page.locator('.flow-entry-owner')).toContainText('Service /orders');
+ await entry.locator('summary').click();
+ await expect(entry.locator('dd')).toHaveText(['string note = ""','boolean']);
+ await page.locator('.service').filter({hasText:'/orders'}).click();
+ await expect(page.locator('.flow-entry')).toHaveCount(0);
+ await page.getByRole('button',{name:'formatOrder',exact:true}).click();
+ await expect(entry).toHaveAttribute('aria-label','method entry');
+ await expect(page.locator('.flow-entry-owner')).toHaveCount(0);
+ await entry.locator('summary').click();
+ await expect(entry.locator('.flow-entry-signature')).toHaveText('function formatOrder() returns string');
+ await expect(entry.locator('dd')).toHaveText(['None','string']);
+});
+test('ordinary function entry handles defaults and empty bodies without an invented execution step',async({page})=>{
+ await open(page,'automation-flow');
+ await page.evaluate(()=>workspace.write('main.bal','public function main(string greeting = "Hello") { _ = greeting; }'));
+ await page.waitForFunction(()=>workspace.analysisSnapshot().kind==='ready');
+ const entry=page.locator('.flow-entry');
+ await expect(entry).toHaveAttribute('aria-label','function entry');
+ await expect(entry.getByRole('heading')).toHaveText('main');
+ await expect(page.locator('.flow-entry-owner')).toHaveCount(0);
+ await entry.locator('summary').click();
+ await expect(entry.locator('dd')).toHaveText(['string greeting = "Hello"','()']);
+ await page.evaluate(()=>workspace.write('main.bal','public function main() {}'));
+ await page.waitForFunction(()=>workspace.analysisSnapshot().kind==='ready');
+ await expect(page.locator('.flow-empty')).toHaveText('No statements in this function.');
+ await expect(page.getByRole('group',{name:'Source flow diagram'})).toHaveCount(0);
+});
 test('sidebar endpoint names, marker alignment and resource operations',async({page})=>{
  await open(page,'service-discovery');
  await expect(page.getByRole('button',{name:'remote onBytes',exact:true})).toBeVisible();

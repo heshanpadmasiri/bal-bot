@@ -15,7 +15,7 @@ const open = page => page.goto('/apps/editor/tests/browser/app.html');
 test('starts with Hello World and persists edits without server workspace access', async ({ page }) => {
   const requests = trackBackendRequests(page);
   await open(page);
-  await expect(status(page)).toHaveText('Saved in this browser');
+  await expect(page.locator('.aside-bottom')).toHaveCount(0);
   await expect(page.getByRole('switch', { name: 'File sync', exact: true })).toHaveCount(0);
   await page.getByRole('button', { name: 'main.bal', exact: true }).click();
   await expect(page.getByLabel('Contents of main.bal', { exact: true })).toContainText('Hello, World!');

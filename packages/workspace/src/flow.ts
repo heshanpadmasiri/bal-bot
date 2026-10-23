@@ -18,7 +18,14 @@ export type Statement = Located & (
   | { readonly kind: 'break' | 'continue' }
   | { readonly kind: 'unsupported'; readonly reason: string }
 );
-export interface FunctionModel extends Located { readonly moduleId: Id; readonly body: readonly Statement[]; }
+export interface FunctionEntry {
+  readonly kind: 'resource' | 'remote' | 'function' | 'method';
+  readonly name: string;
+  readonly signature: string;
+  readonly parameters: readonly { readonly kind: 'input' | 'path'; readonly text: string }[];
+  readonly returnType: string;
+}
+export interface FunctionModel extends Located { readonly moduleId: Id; readonly entry: FunctionEntry; readonly body: readonly Statement[]; }
 export type Definition = Located & ({ readonly kind: 'function'; readonly label: string; readonly functionId: Id }
   | { readonly kind: 'type' | 'connector' | 'configurable'; readonly label: string });
 export interface EndpointModel extends Located {

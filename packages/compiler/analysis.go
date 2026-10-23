@@ -50,8 +50,20 @@ type StatementModel struct {
 }
 type FunctionModel struct {
 	LocatedModel
-	ModuleID string           `json:"moduleId"`
-	Body     []StatementModel `json:"body"`
+	ModuleID string             `json:"moduleId"`
+	Entry    FunctionEntryModel `json:"entry"`
+	Body     []StatementModel   `json:"body"`
+}
+type FunctionEntryModel struct {
+	Kind       string                   `json:"kind"`
+	Name       string                   `json:"name"`
+	Signature  string                   `json:"signature"`
+	Parameters []FunctionParameterModel `json:"parameters"`
+	ReturnType string                   `json:"returnType"`
+}
+type FunctionParameterModel struct {
+	Kind string `json:"kind"`
+	Text string `json:"text"`
 }
 type DefinitionModel struct {
 	LocatedModel
@@ -148,11 +160,13 @@ type sourceFunction interface {
 	ast.InvokableNode
 	Symbol() model.SymbolRef
 	IsAttached() bool
+	IsRemote() bool
 }
 
 type extractionFunction struct {
 	node         sourceFunction
 	moduleID, id string
+	owner        string
 }
 
 func extractProgram(p *resolvedProgram) (ProgramModel, error) {
@@ -160,13 +174,13 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 	p.functionIDs = map[model.SymbolRef]string{}
 	p.availableBodies = map[string]bool{}
 	var functions []extractionFunction
-	addFunction := func(fn sourceFunction, moduleID, id string) {
+	addFunction := func(fn sourceFunction, moduleID, id, owner string) {
 		p.functionIDs[fn.Symbol()] = id
 		switch fn.GetBody().(type) {
 		case *ast.BLangBlockFunctionBody, *ast.BLangExprFunctionBody:
 			p.availableBodies[id] = true
 		}
-		functions = append(functions, extractionFunction{fn, moduleID, id})
+		functions = append(functions, extractionFunction{fn, moduleID, id, owner})
 	}
 	// Collect definition identities before resolving any call sites.
 	serviceIDs := map[*ast.BLangService]string{}
@@ -176,7 +190,7 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 		}
 		moduleID := mod.module.Descriptor().Org().Value() + "/" + mod.module.ModuleName().String()
 		for _, fn := range mod.pkg.Functions {
-			addFunction(fn, moduleID, moduleID+"/function/"+fn.Name.GetValue())
+			addFunction(fn, moduleID, moduleID+"/function/"+fn.Name.GetValue(), "")
 		}
 		for _, class := range mod.pkg.ClassDefinitions {
 			names := []string{}
@@ -185,10 +199,10 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 			}
 			slices.Sort(names)
 			for _, name := range names {
-				addFunction(class.Methods[name], moduleID, moduleID+"/class/"+class.Name.GetValue()+"/method/"+name)
+				addFunction(class.Methods[name], moduleID, moduleID+"/class/"+class.Name.GetValue()+"/method/"+name, class.Name.GetValue())
 			}
 			for _, fn := range class.ResourceMethods {
-				addFunction(fn, moduleID, moduleID+"/class/"+class.Name.GetValue()+"/resource/"+resourceSignature(p, fn))
+				addFunction(fn, moduleID, moduleID+"/class/"+class.Name.GetValue()+"/resource/"+resourceSignature(p, fn), class.Name.GetValue())
 			}
 		}
 		counts := map[string]int{}
@@ -205,10 +219,10 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 			}
 			slices.Sort(names)
 			for _, name := range names {
-				addFunction(service.Methods[name], moduleID, id+"/method/"+name)
+				addFunction(service.Methods[name], moduleID, id+"/method/"+name, "")
 			}
 			for _, fn := range service.ResourceMethods {
-				addFunction(fn, moduleID, id+"/resource/"+resourceSignature(p, fn))
+				addFunction(fn, moduleID, id+"/resource/"+resourceSignature(p, fn), "")
 			}
 		}
 	}
@@ -234,7 +248,43 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 		default:
 			body = []StatementModel{{LocatedModel: p.located(fn.id+"/body", fn.node), Kind: "unsupported", Reason: "Function body is unavailable for visualization."}}
 		}
-		result.Functions[fn.id] = FunctionModel{LocatedModel: p.located(fn.id, fn.node), ModuleID: fn.moduleID, Body: body}
+		entry := FunctionEntryModel{Kind: "function", Name: strings.TrimPrefix(fn.node.GetName().GetValue(), "$remote$"), Parameters: []FunctionParameterModel{}, ReturnType: "()"}
+		if fn.node.IsAttached() {
+			entry.Kind = "method"
+		}
+		if fn.owner != "" {
+			entry.Name = fn.owner + "." + entry.Name
+		}
+		if fn.node.IsRemote() {
+			entry.Kind = "remote"
+		}
+		if resource, ok := fn.node.(*ast.BLangResourceMethod); ok {
+			entry.Kind = "resource"
+			entry.Name = resource.Name.GetValue() + " /" + resourcePath(p, resource)
+			for i := range resource.ResourcePath {
+				segment := &resource.ResourcePath[i]
+				if segment.Kind != ast.ResourcePathSegmentName {
+					entry.Parameters = append(entry.Parameters, FunctionParameterModel{Kind: "path", Text: p.located("path", segment).Text})
+				}
+			}
+		}
+		for i, param := range fn.node.GetParameters() {
+			entry.Parameters = append(entry.Parameters, FunctionParameterModel{Kind: "input", Text: p.located(fmt.Sprintf("parameter/%d", i), &param).Text})
+		}
+		if param := fn.node.GetRestParam(); param != nil {
+			entry.Parameters = append(entry.Parameters, FunctionParameterModel{Kind: "input", Text: p.located("rest", param).Text})
+		}
+		if descriptor := fn.node.GetReturnTypeDescriptor(); fn.node.HasExplicitReturnTypeDescriptor() && descriptor != nil {
+			entry.ReturnType = p.located("returnType", descriptor).Text
+		}
+		location := fn.node.GetPosition()
+		end := location.EndOffset()
+		if fn.node.HasBody() {
+			bodyLocation := fn.node.GetBody().GetPosition()
+			end = bodyLocation.StartOffset()
+		}
+		entry.Signature = strings.TrimSpace(p.files[p.env.DiagnosticEnv().FileName(location)][location.StartOffset():end])
+		result.Functions[fn.id] = FunctionModel{LocatedModel: p.located(fn.id, fn.node), ModuleID: fn.moduleID, Entry: entry, Body: body}
 	}
 	for _, mod := range p.modules {
 		if !mod.workspace {

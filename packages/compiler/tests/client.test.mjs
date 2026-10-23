@@ -55,11 +55,11 @@ test('analysis validates source bounds, identities, targets and operation; cance
   const original=globalThis.Worker; globalThis.Worker=WorkerStub; const post=WorkerStub.prototype.postMessage;
   WorkerStub.prototype.postMessage=function(request){this.request=request;};
   const located={id:'main',text:'x',source:{file:'main.bal',range:{start:{line:1,column:1},end:{line:1,column:2}}}};
-  const result={kind:'valid',diagnostics:[],program:{scopes:[{...located,kind:'automation',title:'Automation',moduleId:'m',functionId:'main'}],functions:{main:{...located,moduleId:'m',body:[]}}}};
+  const result={kind:'valid',diagnostics:[],program:{scopes:[{...located,kind:'automation',title:'Automation',moduleId:'m',functionId:'main'}],functions:{main:{...located,moduleId:'m',entry:{kind:'function',name:'main',signature:'function main()',parameters:[],returnType:'()'},body:[]}}}};
   const response={kind:'result',operation:'analyze',result};
   try {
     const compiler=createCompiler();const promise=compiler.analyze({'main.bal':'x'});WorkerStub.instances.at(-1).respond(response);assert.deepEqual(await promise,result);
-    for(const mutate of [r=>r.result.program.scopes.push(r.result.program.scopes[0]),r=>r.result.program.scopes[0].functionId='missing',r=>r.result.program.functions.main.source.range.end.column=3,r=>r.result.program.functions.main.text='bad',r=>r.operation='check']){
+    for(const mutate of [r=>r.result.program.scopes.push(r.result.program.scopes[0]),r=>r.result.program.scopes[0].functionId='missing',r=>r.result.program.functions.main.source.range.end.column=3,r=>r.result.program.functions.main.text='bad',r=>r.result.program.functions.main.entry.kind='unknown',r=>r.result.program.functions.main.entry.parameters=[{kind:'query',text:'invented'}],r=>r.result.program.functions.main.entry.returnType=null,r=>r.operation='check']){
       const bad=structuredClone(response);mutate(bad);const pending=compiler.analyze({'main.bal':'x'});WorkerStub.instances.at(-1).respond(bad);await assert.rejects(pending);assert.ok(WorkerStub.instances.at(-1).terminated);
     }
     const cancel=new AbortController();const pending=compiler.analyze({'main.bal':'x'},cancel.signal).catch(e=>e.name);const check=compiler.check({});cancel.abort();WorkerStub.instances.at(-1).respond(valid);assert.equal(await pending,'AbortError');assert.deepEqual(await check,{diagnostics:[]});
