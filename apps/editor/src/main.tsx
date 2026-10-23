@@ -2,7 +2,8 @@ import { createCompiler } from '@bal-bot/compiler';
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Editor, type FileSyncControl } from './editor';
-import { api, streamServer, connectWorkspace } from './connection';
+import { api, connectWorkspace } from './connection';
+import { streamBrowser } from './providers';
 import { BrowserWorkspace, createWorkspaceSync } from '@bal-bot/browser-workspace';
 import './style.css';
 
@@ -21,7 +22,7 @@ function App() {
         const current = new BrowserWorkspace({
           getItem: key => window.localStorage.getItem(key),
           setItem: (key, value) => window.localStorage.setItem(key, value),
-        }, { streamFn: streamServer, compiler: createCompiler(), projectId: project.id, projectName: project.name });
+        }, { streamFn: streamBrowser, compiler: createCompiler(), projectId: project.id, projectName: project.name });
         const preferenceKey = `bal-bot.file-sync.v1.${project.id}`;
         const enabled = window.sessionStorage.getItem(preferenceKey) !== 'false';
         const controller = createWorkspaceSync({ workspace: current, connect: connectWorkspace, enabled });

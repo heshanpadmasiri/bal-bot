@@ -76,6 +76,13 @@ aside[hidden]{display:none}.main-location{display:flex;align-items:center;gap:14
 .flow-workspace .composer textarea { min-height: 56px; }
 .flow-workspace .service { display: block; }
 
+.provider-popover .api-key-form { display: flex; flex-direction: column; gap: 14px; width: 100%; min-width: 0; }
+.api-key-form label { width: 100%; }
+.provider-popover .api-key-form input { width: 100%; max-width: none; min-width: 0; height: 38px; }
+.api-key-form button { align-self: flex-end; min-height: 36px; }
+.provider-icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex: 0 0 20px; line-height: 1; }
+.provider-icon img { width: 20px; height: 20px; object-fit: contain; }
+.provider-option > .provider-icon + span { min-width: 0; flex: 1; }
 .provider-option-row { display: flex; align-items: stretch; }
 .provider-option-row .provider-option { flex: 1; min-width: 0; }
 .provider-account-menu { flex: none; border: 0; background: transparent; padding: 8px 10px; font-size: 22px; }

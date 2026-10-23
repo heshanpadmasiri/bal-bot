@@ -1,9 +1,6 @@
 import { createServer } from 'node:http';
 import { resolve } from 'node:path';
-import { createModels } from '@earendil-works/pi-ai';
-import { openaiProvider } from '@earendil-works/pi-ai/providers/openai';
-import { anthropicProvider } from '@earendil-works/pi-ai/providers/anthropic';
-import { FileCredentials, installationId } from './credentials.mjs';
+import { installationId } from './installation.mjs';
 import { createApi } from './api.mjs';
 import { openProject, parseProjectDirectory } from './project.mjs';
 import { attachWorkspaceSync } from './sync.mjs';
@@ -12,13 +9,9 @@ let projectDirectory;
 try { projectDirectory = parseProjectDirectory(process.argv.slice(2), process.env.INIT_CWD || process.cwd()); }
 catch (error) { console.error(error.message); process.exit(1); }
 const directory = resolve(import.meta.dirname, '../../../.bal-bot');
-const credentials = new FileCredentials(directory);
-const models = createModels({ credentials });
-models.setProvider(openaiProvider());
-models.setProvider(anthropicProvider());
 const deviceId = await installationId(directory);
 const project = await openProject(projectDirectory, { stateDirectory: directory, installationId: deviceId });
-const api = createApi({ models, credentials, deviceId, project });
+const api = createApi({ project });
 const production = process.argv.includes('--production');
 const server = createServer();
 const sync = attachWorkspaceSync({ server, project, authorizeUpgrade: api.authorizeUpgrade });

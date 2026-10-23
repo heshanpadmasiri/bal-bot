@@ -2,10 +2,17 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 import {createAssistantMessageEventStream} from '@earendil-works/pi-ai';
 import {Editor} from '../../src/editor';
+import {loginProvider, getAccounts, models, streamBrowser} from '../../src/providers';
 import {BrowserWorkspace, STORAGE_KEY} from '../../../../packages/browser-workspace/src/workspace';
 import {createCompiler} from '../../../../packages/compiler/src/index';
 import '../../src/style.css';
 const windowState = window as any;
+windowState.loginProvider = loginProvider;
+windowState.getAccounts = getAccounts;
+windowState.testProviderRequest = async (id: string) => {
+  const model = models.getModels(id)[0];
+  return streamBrowser(model, {messages: [{role: 'user', content: 'Hello', timestamp: Date.now()}]}).result();
+};
 windowState.mountEditor = (files: Record<string,string>, models?: unknown[]) => {
   windowState.prompts = []; windowState.pendingResponses = []; windowState.holdResponses = false; windowState.analysisRequests = []; windowState.controlAnalysis = false;
   const compiler = createCompiler();
@@ -36,6 +43,6 @@ if (chosen) {
   const prefix = `/examples/${chosen}/`;
   const files = Object.fromEntries(Object.entries(sources).filter(([path]) => path.startsWith(prefix)).map(([path, text]) => [path.slice(prefix.length), text]));
   const originalFetch = window.fetch.bind(window);
-  window.fetch = (input, options) => String(input) === '/api/session' ? Promise.resolve(Response.json({token:'local-harness'})) : String(input) === '/api/providers' ? Promise.resolve(Response.json([{id:'openai',connected:false,models:[]}])) : originalFetch(input,options);
+  window.fetch = (input, options) => String(input) === '/api/session' ? Promise.resolve(Response.json({token:'local-harness'})) : originalFetch(input,options);
   windowState.mountEditor(files);
 }

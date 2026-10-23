@@ -5,7 +5,7 @@ import type { Workspace, WorkspaceScope, Endpoint, Anchor, Agent, AgentMessage, 
 import type { AgentScope } from '@bal-bot/browser-workspace';
 import { Accounts } from './accounts';
 import { AnchorButton } from './anchor-button';
-import { api, type ProviderAccount } from './connection';
+import { getAccounts, type ProviderAccount } from './providers';
 import { FileTree } from './file-tree';
 import { FlowView } from './flow-view';
 import { ReferenceChips } from './reference-chips';
@@ -75,7 +75,7 @@ export function Editor({workspace, syncControl}: {workspace: Workspace; syncCont
     }).catch(e => { if (!disposed) setError(String(e)); });
     return () => { disposed = true; unsubscribe?.(); };
   }, [anchor]);
-  async function refreshAccounts() { setAccounts(await (await api('providers')).json()); }
+  async function refreshAccounts() { setAccounts(await getAccounts()); }
   useEffect(() => { void refreshAccounts().catch(e => setError(String(e))); }, []);
   const providerModels = accounts.find(a => a.id === provider)?.models ?? [], activeModel = providerModels.find(m => m.id === model) ?? providerModels[0];
   function openFile(path: string) { setSelected(path); setEditing(false); setDeletePending(false); }

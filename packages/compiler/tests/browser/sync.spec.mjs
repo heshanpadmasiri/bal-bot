@@ -7,7 +7,6 @@ async function server(page, projectId = 'sync-browser-test') {
   } };
   await page.route('**/api/session', route => route.fulfill({ json: { token: 'test' } }));
   await page.route('**/api/project', route => route.fulfill({ json: { id: projectId, name: 'Sync test' } }));
-  await page.route('**/api/providers', route => route.fulfill({ json: [{ id: 'openai', connected: false, models: [] }] }));
   await page.route('**/api/sync-ticket', route => route.fulfill({ json: { ticket: 'test' } }));
   await page.routeWebSocket('**/api/workspace-sync?*', socket => {
     state.connections++;

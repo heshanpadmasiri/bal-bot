@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { api, type LoginState, type ProviderAccount } from './connection';
-
-const providers = [{ id: 'openai', name: 'OpenAI', description: 'ChatGPT' }, { id: 'anthropic', name: 'Anthropic', description: 'Claude' }];
+import { loginProvider, logoutProvider, providerOptions, type ProviderAccount } from './providers';
 
 interface Props {
   accounts: ProviderAccount[];
@@ -11,123 +9,70 @@ interface Props {
   refresh: () => Promise<void>;
   loginRequest: number;
 }
-
+function ProviderIcon({ id }: { id: string }) {
+  return <span className="provider-icon" aria-hidden="true">{id === 'openai' || id === 'anthropic'
+    ? <img src={`/${id}.svg`} alt="" width="20" height="20" />
+    : <span>{id === 'google' ? '✦' : '⇄'}</span>}</span>;
+}
 export function Accounts({ accounts, provider, busy, chooseProvider, refresh, loginRequest }: Props) {
-  const [login, setLogin] = useState<LoginState | null>(null);
   const [error, setError] = useState('');
-  const [answer, setAnswer] = useState('');
+  const [key, setKey] = useState('');
   const [working, setWorking] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [pickerOpen, setPickerOpen] = useState(false);
-  const [accountMenu, setAccountMenu] = useState<string | null>(null);
   const picker = useRef<HTMLDivElement>(null);
-  const pickerButton = useRef<HTMLButtonElement>(null);
-  const selectedProvider = providers.find(option => option.id === provider)!;
-  useEffect(() => {
-    if (!pickerOpen) return;
-    function dismiss(event: PointerEvent) {
-      if (!picker.current?.contains(event.target as Node)) setPickerOpen(false);
-    }
-    function escape(event: KeyboardEvent) {
-      if (event.key === 'Escape') { setPickerOpen(false); pickerButton.current?.focus(); }
-    }
-    document.addEventListener('pointerdown', dismiss);
-    document.addEventListener('keydown', escape);
-    return () => {
-      document.removeEventListener('pointerdown', dismiss);
-      document.removeEventListener('keydown', escape);
-    };
-  }, [pickerOpen]);
   const lastLoginRequest = useRef(loginRequest);
-  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const current = accounts.find(a => a.id === provider);
-  const pending = login?.status === 'pending';
-
+  const selected = providerOptions.find(option => option.id === provider)!;
+  const current = accounts.find(account => account.id === provider);
   useEffect(() => {
-    if (!login || login.status !== 'pending') return;
-    let disposed = false;
-    const poll = async () => {
-      try {
-        const next: LoginState = await (await api(`login/${login.id}`)).json();
-        if (disposed) return;
-        setLogin(next);
-        if (next.status === 'pending') timer.current = setTimeout(poll, 800);
-      } catch (e) { if (!disposed) setError(String(e)); }
+    if (!pickerOpen && !showLogin) return;
+    const dismiss = (event: MouseEvent) => {
+      if (!picker.current?.contains(event.target as Node)) { setPickerOpen(false); setShowLogin(false); setKey(''); }
     };
-    timer.current = setTimeout(poll, 200);
-    return () => { disposed = true; clearTimeout(timer.current); };
-  }, [login?.id, login?.status]);
-
-  useEffect(() => {
-    if (login?.status !== 'complete') return;
-    setShowLogin(false);
-    void refresh().catch(e => setError(e instanceof Error ? e.message : String(e)));
-  }, [login?.id, login?.status]);
-
-  useEffect(() => { setAnswer(''); }, [login?.prompt?.id]);
-
-  async function action(fn: () => Promise<void>) {
-    setWorking(true); setError('');
-    try { await fn(); } catch (e) { setError(e instanceof Error ? e.message : String(e)); }
-    finally { setWorking(false); }
-  }
-  function startLogin(id: string) {
-    setShowLogin(true);
-    setLogin(null);
-    void action(async () => { setLogin(await (await api('login', 'POST', { provider: id })).json()); });
-  }
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { setPickerOpen(false); setShowLogin(false); setKey(''); }
+    };
+    document.addEventListener('mousedown', dismiss); document.addEventListener('keydown', escape);
+    return () => { document.removeEventListener('mousedown', dismiss); document.removeEventListener('keydown', escape); };
+  }, [pickerOpen, showLogin]);
   useEffect(() => {
     if (lastLoginRequest.current === loginRequest) return;
     lastLoginRequest.current = loginRequest;
-    if (!current?.connected && !pending && !working) startLogin(provider);
+    setError(''); setKey(''); setShowLogin(true);
   }, [loginRequest]);
-
-  const authUrl = login?.events.findLast(e => e.type === 'auth_url');
-  const progress = login?.events.findLast(e => e.type === 'progress');
-  const safeUrl = authUrl?.url && /^https:\/\/(auth\.openai\.com|claude\.ai)\//.test(authUrl.url) ? authUrl.url : undefined;
-  return <div className="provider-controls">
-    <div className="provider-picker" ref={picker} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setPickerOpen(false); }}>
-      <button ref={pickerButton} className="provider-trigger" aria-label={`Provider: ${selectedProvider.name}`} aria-expanded={pickerOpen} aria-controls="provider-options" disabled={busy || pending || working || !accounts.length} onClick={() => { setAccountMenu(null); setPickerOpen(!pickerOpen); }}>
-        <img src={`/${provider}.svg`} alt="" width="20" height="20" /><span>{selectedProvider.name}</span><svg className="provider-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
+  async function saveKey() {
+    setWorking(true); setError('');
+    try { await loginProvider(provider, key); setKey(''); await refresh(); setShowLogin(false); }
+    catch { setKey(''); setError('Could not configure the API key. Please try again.'); }
+    finally { setWorking(false); }
+  }
+  async function forgetKey() {
+    setWorking(true); setError(''); setKey('');
+    try { await logoutProvider(provider); await refresh(); setShowLogin(false); }
+    catch { setError('Could not forget the API key. Please retry.'); }
+    finally { setWorking(false); }
+  }
+  return <div className="provider-controls" ref={picker}>
+    <div className="provider-picker">
+      <button className="provider-trigger" aria-label={`Provider: ${selected.name}`} aria-expanded={pickerOpen} aria-controls="provider-options" disabled={busy || working} onClick={() => { setPickerOpen(!pickerOpen); setShowLogin(false); setKey(''); }}>
+        <ProviderIcon id={provider} /><span>{selected.name}</span><span aria-hidden="true">⌄</span>
       </button>
       {pickerOpen && <div id="provider-options" className="provider-options" role="group" aria-label="Select provider">
-        {accountMenu ? <>
-          <button className="provider-menu-back" onClick={() => setAccountMenu(null)}>← Providers</button>
-          <div className="provider-menu-heading">{providers.find(option => option.id === accountMenu)?.name}</div>
-          <button className="provider-option sign-out" disabled={busy || working || pending} onClick={() => {
-            const id = accountMenu;
-            setPickerOpen(false); pickerButton.current?.focus();
-            void action(async () => { await api('logout', 'POST', { provider: id }); await refresh(); if (id === provider) setLogin(null); });
-          }}>Sign out</button>
-        </> : providers.map(option => <div className="provider-option-row" key={option.id}>
-          <button className="provider-option" aria-pressed={provider === option.id} onClick={() => {
-            setPickerOpen(false); pickerButton.current?.focus();
-            if (option.id === provider) return;
-            chooseProvider(option.id); setLogin(null); setError('');
-            if (!accounts.find(a => a.id === option.id)?.connected) startLogin(option.id);
-            else setShowLogin(false);
-          }}><img src={`/${option.id}.svg`} alt="" width="22" height="22" /><span>{option.name}<small>{option.description}</small></span>{provider === option.id && <span className="provider-check" aria-hidden="true">✓</span>}</button>
-          {accounts.find(a => a.id === option.id)?.connected && <button className="provider-account-menu" aria-label={`${option.name} account options`} aria-expanded={false} onClick={() => setAccountMenu(option.id)}>›</button>}
-        </div>)}
+        {providerOptions.map(option => <button key={option.id} className="provider-option" aria-pressed={provider === option.id} onClick={() => {
+          chooseProvider(option.id); setPickerOpen(false); setError(''); setKey(''); setShowLogin(true);
+        }}><ProviderIcon id={option.id} /><span>{option.name}<small>{option.description}</small></span>{accounts.find(account => account.id === option.id)?.connected && <span aria-label="API key configured">✓</span>}</button>)}
       </div>}
     </div>
-    {showLogin && <section className="settings accounts provider-popover" aria-label="Provider login">
-    <div className="login-heading">{provider === 'openai' ? 'Sign in with ChatGPT' : 'Sign in with Claude'}</div>
-    {working && !pending && <p role="status">Starting sign-in…</p>}
-    {pending && <div className="login-flow">
-      {safeUrl && <div><a className="login-link" href={safeUrl} target="_blank" rel="noreferrer">Continue to {login.provider === 'openai' ? 'ChatGPT' : 'Claude'} ↗</a><p>{authUrl?.instructions}</p></div>}
-      {progress && <p role="status">{progress.message}</p>}
-      {login.prompt && <form onSubmit={e => { e.preventDefault(); void action(async () => { await api(`login/${login.id}`, 'POST', { promptId: login.prompt!.id, value: answer }); setLogin(await (await api(`login/${login.id}`)).json()); }); }}>
-        <label>{login.prompt.message}{login.prompt.type === 'select' ? <select aria-label="Login method" value={answer} onChange={e => setAnswer(e.target.value)}><option value="" disabled>Choose a login method</option>{login.prompt.options?.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}</select>
-          : <input type={login.prompt.type === 'secret' ? 'password' : 'text'} autoComplete="off" value={answer} placeholder={login.prompt.placeholder} onChange={e => setAnswer(e.target.value)} />}</label><button disabled={working || !answer.trim()}>Continue</button>
-      </form>}
-      <button disabled={working} onClick={() => void action(async () => { await api(`login/${login.id}`, 'DELETE'); setLogin(await (await api(`login/${login.id}`)).json()); })}>Cancel login</button>
-    </div>}
-    {(error || login?.error) && <p className="message-error" role="alert">{error || login?.error}</p>}
-    {login?.status === 'complete' && <p role="status">Signed in successfully.</p>}
-    {!pending && !working && !current?.connected && <div className="login-actions"><button onClick={() => startLogin(provider)}>Retry login</button></div>}
-    <p>Sign-in and token refresh use PI. Credentials stay on this local server.</p>
-  </section>}
-    {!showLogin && error && <span className="message-error" role="alert">{error}</span>}
+    {showLogin && <section className="settings accounts provider-popover" aria-label="Provider API key">
+      <div className="login-heading">{selected.name} API key</div>
+      <p>Use an API key, not a subscription sign-in. Keys stay in this tab’s memory and are forgotten on refresh or close.</p>
+      {current?.connected && <p role="status">API key configured. It will be checked when you send a message.</p>}
+      <form className="api-key-form" onSubmit={event => { event.preventDefault(); void saveKey(); }}>
+        <label>API key<input type="password" aria-label="API key" autoComplete="off" spellCheck={false} value={key} disabled={busy || working} onChange={event => setKey(event.target.value)} /></label>
+        <button disabled={busy || working || !key.trim()}>{current?.connected ? 'Replace API key' : 'Use API key'}</button>
+      </form>
+      {error && <p className="message-error" role="alert">{error}</p>}
+      {current?.connected && <div className="login-actions"><button disabled={busy || working} onClick={() => void forgetKey()}>Forget API key</button></div>}
+    </section>}
   </div>;
 }

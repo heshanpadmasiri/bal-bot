@@ -2,15 +2,12 @@ import {test, expect} from '@playwright/test';
 import {readFileSync, readdirSync} from 'node:fs';
 import {join, relative} from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {createModels} from '@earendil-works/pi-ai';
-import {openaiProvider} from '@earendil-works/pi-ai/providers/openai';
 const names = ['service-discovery','automation-flow','definitions-and-calls','control-flow','function-expansion','source-ranges','analysis-recovery','chat-references','panel-state','unsupported-constructs','design-critique'];
 function fixture(name) {const root=join(process.cwd(),'examples',name), files={};const visit=dir=>{for(const entry of readdirSync(dir,{withFileTypes:true})){const path=join(dir,entry.name);if(entry.isDirectory())visit(path);else if(/\.(bal|toml)$/.test(entry.name))files[relative(root,path)]=readFileSync(path,'utf8');}};visit(root);return files;}
 const inputs=Object.fromEntries(names.map(n=>[n,fixture(n)]));
 const native=spawnSync('go',['run','./tests/native'],{cwd:join(process.cwd(),'packages/compiler'),env:{...process.env,GOWORK:'off'},input:JSON.stringify(Object.values(inputs)),encoding:'utf8',maxBuffer:8*1024*1024});
 if(native.status!==0)throw Error(native.stderr);
 const nativeModels=JSON.parse(native.stdout);
-const registry=createModels();registry.setProvider(openaiProvider());const model=registry.getModels('openai')[0];
 test('agent replies render Markdown while user text and unsafe markup stay inert', async ({page}) => {
  await open(page,'definitions-and-calls');
  await page.evaluate(async () => {
@@ -72,9 +69,11 @@ test('chat renders action-only tool summaries through streaming, outcomes and sc
 });
 async function open(page,name){
  await page.route('**/api/session',r=>r.fulfill({json:{token:'test'}}));
- await page.route('**/api/providers',r=>r.fulfill({json:[{id:'openai',connected:true,models:[model]}]}));
  await page.goto('/apps/editor/tests/browser/harness.html');await page.waitForFunction(()=>window.ready&&window.mountEditor);
- await page.evaluate(files=>window.mountEditor(files),inputs[name]);await page.waitForFunction(()=>window.workspace.analysisSnapshot().kind==='ready');
+ await page.evaluate(async files=>{
+  await window.loginProvider('openai','sk-browser-test-key');
+  window.mountEditor(files);
+ },inputs[name]);await page.waitForFunction(()=>window.workspace.analysisSnapshot().kind==='ready');
  await expect(page.locator('.flow-view')).toHaveAttribute('data-analysis','ready');
 }
 test('sidebar endpoint names, marker alignment and resource operations',async({page})=>{
@@ -206,32 +205,32 @@ test('foreach is explicit and call disclosure stays in its top-left corner',asyn
  }
 });
 
-test('signed-in provider submenus sign out the chosen account',async({page})=>{
+test('provider controls forget only the chosen API key',async({page})=>{
  await open(page,'design-critique');
- let accounts=[{id:'openai',connected:true,models:[model]},{id:'anthropic',connected:true,models:[]}];
- const loggedOut=[];
- await page.route('**/api/providers',r=>r.fulfill({json:accounts}));
- await page.route('**/api/logout',r=>{
-  const {provider}=r.request().postDataJSON();loggedOut.push(provider);
-  accounts=accounts.map(a=>a.id===provider?{...a,connected:false}:a);
-  return r.fulfill({json:{ok:true}});
- });
- await page.reload();await page.waitForFunction(()=>window.ready&&window.mountEditor);
- await page.evaluate(files=>window.mountEditor(files),inputs['design-critique']);
+ const backendRequests=[];
+ page.on('request',request=>{if(/\/api\/(providers|login|logout|stream)/.test(request.url()))backendRequests.push(request.url());});
+ await page.evaluate(async files=>{
+  await window.loginProvider('anthropic','sk-ant-browser-test-key');
+  window.mountEditor(files);
+ },inputs['design-critique']);
  const picker=page.getByRole('button',{name:'Provider: OpenAI',exact:true});
  await expect(page.locator('header').getByRole('button',{name:'Sign out',exact:true})).toHaveCount(0);
  await expect(page.locator('.inspection').getByRole('button',{name:'Expand inspection',exact:true})).toHaveCount(0);
  await expect(page.getByRole('button',{name:/Reference service definition|Reference calculate/})).toHaveCount(0);
- await picker.click();await page.getByRole('button',{name:'Anthropic account options',exact:true}).click();
- await expect(page.getByRole('button',{name:'Sign out',exact:true})).toBeVisible();
- await page.getByRole('button',{name:'← Providers',exact:true}).click();
- await page.getByRole('button',{name:'Anthropic account options',exact:true}).click();
- await page.getByRole('button',{name:'Sign out',exact:true}).click();
- await expect.poll(()=>loggedOut).toEqual(['anthropic']);
- await expect(picker).toBeFocused();await picker.click();
- await expect(page.getByRole('button',{name:'Anthropic account options',exact:true})).toHaveCount(0);
- await expect(page.getByRole('button',{name:'OpenAI account options',exact:true})).toBeVisible();
- await page.keyboard.press('Escape');await expect(picker).toBeFocused();
+ await picker.click();await page.getByRole('button',{name:/Anthropic Anthropic API key/}).click();
+ await expect(page.getByRole('button',{name:'Forget API key',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Forget API key',exact:true}).click();
+ await expect.poll(()=>page.evaluate(async()=>{
+  return (await window.getAccounts()).filter(account=>account.connected).map(account=>account.id);
+ })).toEqual(['openai']);
+ expect(backendRequests).toEqual([]);
+ const selectedPicker=page.getByRole('button',{name:'Provider: Anthropic',exact:true});
+ await selectedPicker.click();
+ await page.getByRole('button',{name:/Anthropic Anthropic API key/}).click();
+ await expect(page.getByRole('button',{name:'Forget API key',exact:true})).toHaveCount(0);
+ await page.keyboard.press('Escape');
+ await selectedPicker.click();await page.getByRole('button',{name:/OpenAI OpenAI API key/}).click();
+ await expect(page.getByRole('button',{name:'Forget API key',exact:true})).toBeVisible();
 });
 
 test('inspection expansion is available only for flow diagrams',async({page})=>{
