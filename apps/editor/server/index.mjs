@@ -5,23 +5,21 @@ import { openaiProvider } from '@earendil-works/pi-ai/providers/openai';
 import { anthropicProvider } from '@earendil-works/pi-ai/providers/anthropic';
 import { FileCredentials, installationId } from './credentials.mjs';
 import { createApi } from './api.mjs';
-import { openProject, parseProjectDirectory } from './project.mjs';
-import { attachWorkspaceSync } from './sync.mjs';
 
-let projectDirectory;
-try { projectDirectory = parseProjectDirectory(process.argv.slice(2), process.env.INIT_CWD || process.cwd()); }
-catch (error) { console.error(error.message); process.exit(1); }
+const args = process.argv.slice(2);
+if (args.length > 1 || (args.length === 1 && args[0] !== '--production')) {
+  console.error('Usage: npm run dev (or npm start); local directory arguments are not supported.');
+  process.exit(1);
+}
 const directory = resolve(import.meta.dirname, '../../../.bal-bot');
 const credentials = new FileCredentials(directory);
 const models = createModels({ credentials });
 models.setProvider(openaiProvider());
 models.setProvider(anthropicProvider());
 const deviceId = await installationId(directory);
-const project = await openProject(projectDirectory, { stateDirectory: directory, installationId: deviceId });
-const api = createApi({ models, credentials, deviceId, project });
-const production = process.argv.includes('--production');
+const api = createApi({ models, credentials, deviceId });
+const production = args.includes('--production');
 const server = createServer();
-const sync = attachWorkspaceSync({ server, project, authorizeUpgrade: api.authorizeUpgrade });
 let vite;
 let website;
 if (production) {
@@ -40,6 +38,6 @@ server.on('request', async (req, res) => {
 });
 const port = Number(process.env.PORT || 5173);
 server.listen(port, '127.0.0.1', () => console.log(`bal-bot: http://127.0.0.1:${port}`));
-async function close() { api.close(); await sync.close(); await project.close(); await vite?.close(); server.close(); server.closeAllConnections(); }
+async function close() { api.close(); await vite?.close(); server.close(); server.closeAllConnections(); }
 process.once('SIGINT', () => { void close(); });
 process.once('SIGTERM', () => { void close(); });

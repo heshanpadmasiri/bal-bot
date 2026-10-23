@@ -4,6 +4,7 @@ import { mkdtemp, rm, stat } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createServer } from 'node:http';
+import { spawnSync } from 'node:child_process';
 import { createModels, createProvider } from '@earendil-works/pi-ai';
 import { createApi } from '../server/api.mjs';
 import { FileCredentials, installationId } from '../server/credentials.mjs';
@@ -80,6 +81,25 @@ async function apiFixture(t) {
   const call = (path, options) => request(path, { token, ...options });
   return { request, call, credentials, models, base };
 }
+
+test('startup rejects local directories and unsupported arguments before starting the server', () => {
+  const entry = new URL('../server/index.mjs', import.meta.url);
+  for (const args of [['./service'], ['/tmp/service'], ['--unknown'], ['--production', './service'], ['--production', '--production']]) {
+    const result = spawnSync(process.execPath, [entry.pathname, ...args], { encoding: 'utf8', timeout: 10_000 });
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /Usage:.*local directory arguments are not supported/);
+    assert.doesNotMatch(result.stdout, /bal-bot: http/);
+  }
+});
+
+test('removed project and sync endpoints are unavailable to authenticated clients', async t => {
+  const { call } = await apiFixture(t);
+  for (const [path, method] of [['project', 'GET'], ['sync-ticket', 'POST'], ['workspace-sync', 'GET']]) {
+    const response = await call(path, { method });
+    assert.equal(response.status, 404);
+    assert.deepEqual(await response.json(), { error: 'Unknown API endpoint' });
+  }
+});
 
 test('API rejects cross-origin and unauthenticated access without exposing credentials', async t => {
   const { request, call, credentials } = await apiFixture(t);

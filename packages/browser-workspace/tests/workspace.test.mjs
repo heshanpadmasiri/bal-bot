@@ -8,16 +8,17 @@ function storage() {
   return { getItem: key => data.get(key) ?? null, setItem: (key, value) => data.set(key, value) };
 }
 
-test('starts with an empty HTTP service, persists edits and deletions across reloads', () => {
+test('persists initial hello world files, edits and deletions across reloads', () => {
   const store = storage();
   const workspace = new BrowserWorkspace(store);
-  assert.match(workspace.read('main.bal'), /service \/ on new http:Listener\(8080\) \{\n\}/);
+  assert.match(workspace.read('main.bal'), /Hello, World!/);
+  assert.deepEqual(JSON.parse(store.getItem(STORAGE_KEY)), workspace.snapshot());
   workspace.write('modules/example/types.bal', 'type Example string;');
-  workspace.edit('main.bal', '\n}', '\n    resource function get hello() returns string { return "hello"; }\n}');
+  workspace.edit('main.bal', 'Hello, World!', 'hello');
   workspace.remove('Ballerina.toml');
   const restored = new BrowserWorkspace(store);
   assert.equal(restored.read('modules/example/types.bal'), 'type Example string;');
-  assert.match(restored.read('main.bal'), /get hello/);
+  assert.match(restored.read('main.bal'), /return "hello"/);
   assert.throws(() => restored.read('Ballerina.toml'), /not found/);
 });
 
@@ -45,21 +46,72 @@ test('rejects paths outside the workspace and file/directory conflicts', () => {
 });
 
 test('storage failure does not mutate files or publish a successful change', () => {
-  const workspace = new BrowserWorkspace({ getItem: () => null, setItem: () => { throw new Error('Quota exceeded'); } });
-  let updates = 0;
+  let fail = false;
+  const store = storage();
+  const workspace = new BrowserWorkspace({ getItem: store.getItem, setItem: (key, value) => { if (fail) throw new Error('Quota exceeded'); store.setItem(key, value); } });
+  fail = true;
+  let updates = 0, storageUpdates = 0;
   workspace.subscribe(() => updates++);
-  const before = workspace.snapshot();
+  workspace.subscribeStorage(() => storageUpdates++);
+  const before = workspace.snapshot(), saved = store.getItem(STORAGE_KEY), analysis = workspace.analysisSnapshot();
   assert.throws(() => workspace.write('main.bal', 'changed'), /Quota/);
   assert.equal(workspace.snapshot(), before);
+  assert.equal(store.getItem(STORAGE_KEY), saved);
+  assert.equal(workspace.analysisSnapshot(), analysis);
   assert.equal(updates, 0);
+  assert.equal(storageUpdates, 1);
+  assert.equal(workspace.storageSnapshot().writable, false);
+  assert.match(workspace.storageSnapshot().error, /Quota/);
+  assert.throws(() => workspace.write('main.bal', 'retry'), /read-only/);
 });
 
 test('invalid saved data is reported and left untouched', () => {
   const store = storage();
   store.setItem(STORAGE_KEY, 'broken json');
   const workspace = new BrowserWorkspace(store);
-  assert.ok(workspace.loadError);
+  assert.equal(workspace.storageSnapshot().writable, false);
+  assert.match(workspace.storageSnapshot().error, /not been overwritten/);
+  assert.throws(() => workspace.write('main.bal', 'changed'), /not been overwritten/);
   assert.equal(store.getItem(STORAGE_KEY), 'broken json');
+});
+
+test('initial storage access failures leave the workspace read-only', () => {
+  for (const store of [
+    { getItem() { throw Error('Storage denied'); }, setItem() { assert.fail('must not overwrite unreadable storage'); } },
+    { getItem: () => null, setItem() { throw Error('Storage denied'); } },
+  ]) {
+    const workspace = new BrowserWorkspace(store);
+    assert.equal(workspace.storageSnapshot().writable, false);
+    assert.match(workspace.storageSnapshot().error, /Storage denied/);
+    assert.throws(() => workspace.write('main.bal', 'changed'), /Storage denied/);
+  }
+});
+
+test('invalid saved file maps are left untouched and valid empty workspaces stay empty', () => {
+  for (const value of [null, [], { '../main.bal': '' }, { 'a': '', 'a/b': '' }, { 'main.bal': 42 }]) {
+    const store = storage(), saved = JSON.stringify(value);
+    store.setItem(STORAGE_KEY, saved);
+    const workspace = new BrowserWorkspace(store);
+    assert.equal(workspace.storageSnapshot().writable, false);
+    assert.equal(store.getItem(STORAGE_KEY), saved);
+  }
+  const store = storage();
+  store.setItem(STORAGE_KEY, '{}');
+  const workspace = new BrowserWorkspace(store);
+  assert.deepEqual(workspace.snapshot(), {});
+  assert.deepEqual(workspace.storageSnapshot(), { writable: true });
+});
+
+test('file subscribers observe already-persisted snapshots; storage subscriptions can unsubscribe', () => {
+  const store = storage(), workspace = new BrowserWorkspace(store);
+  workspace.subscribe(() => assert.deepEqual(JSON.parse(store.getItem(STORAGE_KEY)), workspace.snapshot()));
+  workspace.write('notes.txt', 'local files are not extension-filtered');
+  let updates = 0;
+  const unsubscribe = workspace.subscribeStorage(() => updates++);
+  unsubscribe();
+  store.setItem = () => { throw Error('Quota exceeded'); };
+  assert.throws(() => workspace.remove('notes.txt'), /Quota/);
+  assert.equal(updates, 0);
 });
 
 test('subscribers see changes and can unsubscribe', () => {

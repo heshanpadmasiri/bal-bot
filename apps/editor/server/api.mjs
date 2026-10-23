@@ -15,9 +15,8 @@ async function body(req) {
   return JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}');
 }
 
-export function createApi({ models, credentials, deviceId, project, loginTimeoutMs = 5 * 60_000 }) {
+export function createApi({ models, credentials, deviceId, loginTimeoutMs = 5 * 60_000 }) {
   const sessions = new Map();
-  const tickets = new Map();
   const localRequest = req => {
     const host = req.headers.host;
     return !!host && /^(localhost|127\.0\.0\.1)(:\d+)?$/.test(host) && (!req.headers.origin || req.headers.origin === `http://${host}`);
@@ -45,15 +44,7 @@ export function createApi({ models, credentials, deviceId, project, loginTimeout
     const token = req.headers['x-bal-bot-session'];
     if (!token || (sessions.get(token) ?? 0) < Date.now()) { json(res, 401, { error: 'Reload the page to reconnect to the local server.' }); return true; }
     try {
-      if (url.pathname === '/api/project' && req.method === 'GET' && project) {
-        json(res, 200, { id: project.id, name: project.name });
-      } else if (url.pathname === '/api/sync-ticket' && req.method === 'POST' && project) {
-        for (const [ticket, expires] of tickets) if (expires < Date.now()) tickets.delete(ticket);
-        if (tickets.size >= 1024) { json(res, 429, { error: 'Too many sync connections' }); return true; }
-        const ticket = randomBytes(32).toString('hex');
-        tickets.set(ticket, Date.now() + 30_000);
-        json(res, 200, { ticket });
-      } else if (url.pathname === '/api/providers' && req.method === 'GET') {
+      if (url.pathname === '/api/providers' && req.method === 'GET') {
         const stored = await credentials.list();
         json(res, 200, PROVIDERS.map(id => ({ id, connected: stored.some(c => c.providerId === id), models: getSelectedModels(models, id) })));
       } else if (url.pathname === '/api/login' && req.method === 'POST') {
@@ -140,12 +131,6 @@ export function createApi({ models, credentials, deviceId, project, loginTimeout
   }
   return {
     handle,
-    authorizeUpgrade(req, ticket) {
-      const expires = tickets.get(ticket) ?? 0;
-      if (!localRequest(req) || !req.headers.origin || expires < Date.now()) return false;
-      tickets.delete(ticket);
-      return true;
-    },
-    close() { tickets.clear(); for (const login of active.values()) cancel(login); },
+    close() { for (const login of active.values()) cancel(login); },
   };
 }

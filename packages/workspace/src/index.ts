@@ -1,8 +1,13 @@
 import type { Agent } from '@earendil-works/pi-agent-core';
 
 export type { Agent, AgentMessage } from '@earendil-works/pi-agent-core';
-export type { Files, SyncState, SyncStatus } from './sync-protocol.ts';
-import type { Files, SyncState } from './sync-protocol.ts';
+export type { Files } from './files.ts';
+import type { Files } from './files.ts';
+
+export interface StorageState {
+  readonly writable: boolean;
+  readonly error?: string;
+}
 
 export type ServiceKind = string | null;
 export type EndpointKind = 'resource' | 'remote';
@@ -35,10 +40,9 @@ export type WorkspaceScope = Service | Automation;
 
 // File operations already used by the source editor and workspace tools.
 export interface Workspace {
-  readonly loadError?: string;
   readonly projectName?: string;
-  syncSnapshot(): SyncState;
-  subscribeSync(listener: () => void): () => void;
+  storageSnapshot(): StorageState;
+  subscribeStorage(listener: () => void): () => void;
   getServices(): Promise<readonly Service[]>;
   getScopes(): Promise<readonly WorkspaceScope[]>;
   analysisSnapshot(): AnalysisState;

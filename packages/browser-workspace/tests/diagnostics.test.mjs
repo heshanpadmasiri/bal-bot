@@ -19,7 +19,7 @@ test('diagnostics use saved snapshot, forward abort, and publish no changes', as
   assert.equal(captured, workspace.snapshot());
   assert.deepEqual(result.details, { diagnostics: [sourceError], stale: false });
   assert.deepEqual(JSON.parse(result.content[0].text), result.details);
-  assert.deepEqual(counts(), [0, 0]);
+  assert.deepEqual(counts(), [1, 0]);
   const tool = workspaceTools(workspace).find(t => t.name === 'get_diagnostics');
   assert.deepEqual(tool.parameters.properties, {});
 });
@@ -46,19 +46,17 @@ test('file-tool repair sequence checks changed saved source', async () => {
   assert.deepEqual((await call('get_diagnostics')).details, { diagnostics: [], stale: false });
 });
 
-test('synchronized project diagnostics use browser files and become stale after a disk update', async () => {
+test('diagnostics use browser files and become stale after a local update', async () => {
   let complete, captured;
   const workspace = new BrowserWorkspace({ getItem: () => null, setItem() {} }, {
-    projectId: 'synced-project',
     streamFn: () => { throw Error('unused'); },
     compiler: { check(files) { captured = files; return new Promise(resolve => { complete = resolve; }); } },
   });
-  workspace.applyServerSnapshot({ 'main.bal': 'int x = 1;' });
+  workspace.write('main.bal', 'int x = 1;');
   const pending = workspace.getDiagnostics();
   assert.equal(captured['main.bal'], 'int x = 1;');
-  workspace.applyServerChange({ kind: 'write', path: 'main.bal', content: 'int x = 2;' });
+  workspace.write('main.bal', 'int x = 2;');
   complete({ diagnostics: [] });
   assert.deepEqual(await pending, { diagnostics: [], stale: true });
   assert.equal(workspace.read('main.bal'), 'int x = 2;');
-  assert.equal(workspace.pendingOperations().length, 0);
 });

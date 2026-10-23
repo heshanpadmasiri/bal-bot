@@ -28,7 +28,7 @@ function failureReason(result: ToolResult): string {
   const text = resultText(result).replace(/^Error:\s*/, '');
   if (text.startsWith('File not found:')) return 'File not found.';
   if (text === 'oldText must match exactly once. Read the file and try again.') return 'Text to replace must match exactly once.';
-  if (text === 'Workspace is read-only until synchronization reconnects.') return 'Workspace is read-only until reconnected.';
+  if (text.startsWith('Could not save browser files.') || text.startsWith('Could not restore or initialize browser files.') || text === 'Browser storage is read-only.') return 'Browser storage is unavailable.';
   if (text === 'A file conflicts with this directory path.') return 'File and directory paths conflict.';
   if (text === 'Only .md, .bal and .toml files are supported.') return 'Unsupported file type.';
   if (text === 'File contents must be valid UTF-8 text.') return 'Invalid text encoding.';
