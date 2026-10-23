@@ -55,6 +55,9 @@ export function buildDiagram(program: ProgramModel, functionId: Id, expanded: Re
     let normal = port(node, 'normal-exit');
     const calls = 'calls' in s ? s.calls : [];
     for (const call of calls) {
+      // Library calls are already represented by the statement's source label.
+      // Only workspace functions have bodies that can be disclosed in the flow.
+      if (call.target.kind === 'external') continue;
       const callPath = `${path}/expand/${call.id}`;
       const target = call.target.kind === 'workspace' ? program.functions[call.target.functionId] : undefined;
       const unavailable = call.expansion === 'unavailable' ? call.reason : !target ? 'Function body is unavailable.' : ancestors.includes(target.id) ? 'Recursive calls remain collapsed.' : undefined;

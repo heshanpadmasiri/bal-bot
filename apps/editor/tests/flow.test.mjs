@@ -6,6 +6,15 @@ const step=(id)=>({...located(id),kind:'simple',operation:'assign',presentation:
 const fn=(id,body)=>({...located(id),moduleId:'test',body});
 const nodes=d=>{const all=[];const visit=items=>items.forEach(n=>{all.push(n);visit(n.children);});visit(d.nodes);return all;};
 function structural(d){const ns=new Set(nodes(d).map(n=>n.id)),ps=new Set(d.ports.map(p=>p.id));assert.equal(ns.size,nodes(d).length);assert.equal(ps.size,d.ports.length);for(const p of d.ports)assert.ok(ns.has(p.nodeId));for(const e of d.edges){assert.ok(ps.has(e.fromPort));assert.ok(ps.has(e.toPort));}}
+test('library calls render once as source steps and retain sequence connections',()=>{
+ const print={...located('print','io:println("Hello, World!");'),kind:'simple',operation:'expression',presentation:'step',calls:[{...located('print/call','io:println("Hello, World!")'),target:{kind:'external',label:'println'},expansion:'unavailable',reason:'The target is outside the workspace.'}]};
+ const diagram=buildDiagram({scopes:[],functions:{main:fn('main',[print,step('after')])}},'main',new Set());structural(diagram);
+ const visible=nodes(diagram).filter(n=>!nodeHint(n)?.root);
+ assert.deepEqual(visible.map(n=>n.label),[print.text,'after']);
+ assert.equal(visible[0].selection,print);
+ assert.equal(visible[0].children.length,0);
+ assert.ok(diagram.edges.some(e=>e.fromPort==='main/print:normal-exit'&&e.toPort==='main/after:entry'));
+});
 test('abrupt exits, empty branches and unsupported regions have no invented continuation',()=>{
  const ret={...located('return'),kind:'return',calls:[]}, limited={...located('limited'),kind:'unsupported',reason:'unknown effect'};
  const branch={...located('if'),kind:'if',condition:{...located('condition'),calls:[]},thenBody:[ret],elseBody:[]};

@@ -8,6 +8,19 @@ const inputs=Object.fromEntries(names.map(n=>[n,fixture(n)]));
 const native=spawnSync('go',['run','./tests/native'],{cwd:join(process.cwd(),'packages/compiler'),env:{...process.env,GOWORK:'off'},input:JSON.stringify(Object.values(inputs)),encoding:'utf8',maxBuffer:8*1024*1024});
 if(native.status!==0)throw Error(native.stderr);
 const nativeModels=JSON.parse(native.stdout);
+test('Hello World library call renders as one source step', async ({page}) => {
+ await open(page,'automation-flow');
+ await page.evaluate(() => workspace.write('main.bal','import ballerina/io;\n\npublic function main() {\n    io:println("Hello, World!");\n}'));
+ await page.waitForFunction(() => workspace.analysisSnapshot().kind === 'ready');
+ await expect(page.locator('.node-select')).toHaveCount(1);
+ const print=page.getByRole('button',{name:'Reference io:println("Hello, World!");',exact:true});
+ await expect(print).toHaveText('io:println("Hello, World!");');
+ await expect(page.locator('.node-disclosure')).toHaveCount(0);
+ await expect(page.locator('.node-limitation')).toHaveCount(0);
+ await print.click();
+ await expect(page.locator('.reference-chip')).toHaveCount(1);
+ await expect(page.locator('.reference-chip')).toContainText('main.bal:4');
+});
 test('agent replies render Markdown while user text and unsafe markup stay inert', async ({page}) => {
  await open(page,'definitions-and-calls');
  await page.evaluate(async () => {
