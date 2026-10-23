@@ -74,3 +74,5 @@ aside[hidden]{display:none}.main-location{display:flex;align-items:center;gap:14
 .service-reference { display: block; margin-left: auto; border: 0; background: transparent; padding: 0 4px 8px; color: #586885; }
 
 .flow-node.referenced { stroke: #3578d4; stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+
+.file-sync-toggle{display:flex;align-items:center;gap:7px;margin-bottom:10px;color:#25312c;cursor:pointer}.file-sync-toggle input{accent-color:#31543c;margin:0}

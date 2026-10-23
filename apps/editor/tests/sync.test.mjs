@@ -47,9 +47,9 @@ async function fixture(t) {
     sockets.push(ws);
     return ws;
   }
-  function browser(store = storage(), connector = connect) {
+  function browser(store = storage(), connector = connect, enabled = true) {
     const workspace = new BrowserWorkspace(store, { projectId: project.id, projectName: project.name, compiler: {analyze}, streamFn() { throw new Error('Unexpected model request'); } });
-    const controller = createWorkspaceSync({ workspace, connect: connector, retryMs: 20, timeoutMs: 1000 });
+    const controller = createWorkspaceSync({ workspace, connect: connector, retryMs: 20, timeoutMs: 1000, enabled });
     clients.push(controller);
     controller.start();
     return { workspace, controller, store };
@@ -309,4 +309,148 @@ test('WebSocket upgrades require an authenticated, single-use, same-origin ticke
   const [bytes] = await once(ws, 'message');
   assert.equal(JSON.parse(String(bytes)).type, 'error');
   ws.close();
+});
+
+test('pause keeps browser tools writable, stops both directions, and replays persisted changes on resume', async t => {
+  const f = await fixture(t);
+  const { workspace, controller, store } = f.browser();
+  await until(() => workspace.syncSnapshot().status === 'synced');
+  controller.setEnabled(false);
+  assert.equal(workspace.syncSnapshot().status, 'paused');
+  assert.equal(workspace.syncSnapshot().writable, true);
+  await writeFile(join(f.directory, 'main.bal'), 'external edit');
+  await writeFile(join(f.directory, 'untouched.md'), 'external addition');
+  const tools = workspaceTools(workspace);
+  await tools.find(tool => tool.name === 'write_file').execute('test', { path: 'queued.md', content: 'created' });
+  await tools.find(tool => tool.name === 'edit_file').execute('test', { path: 'queued.md', oldText: 'created', newText: 'edited' });
+  workspace.write('main.bal', '// browser wins');
+  workspace.remove('Ballerina.toml');
+  await sleep(150);
+  assert.equal(workspace.syncSnapshot().status, 'paused');
+  assert.equal(workspace.syncSnapshot().pendingCount, 4);
+  assert.equal(workspace.read('main.bal'), '// browser wins');
+  assert.ok(!Object.hasOwn(workspace.snapshot(), 'untouched.md'));
+  assert.equal(await readFile(join(f.directory, 'main.bal'), 'utf8'), 'external edit');
+  await assert.rejects(readFile(join(f.directory, 'queued.md')), { code: 'ENOENT' });
+  assert.match(await readFile(join(f.directory, 'Ballerina.toml'), 'utf8'), /package/);
+  controller.close();
+  let connections = 0;
+  const restored = f.browser(store, () => { connections++; return f.connect(); }, false);
+  assert.equal(restored.workspace.syncSnapshot().status, 'paused');
+  assert.equal(restored.workspace.pendingOperations().length, 4);
+  assert.equal(restored.workspace.read('queued.md'), 'edited');
+  await sleep(100);
+  assert.equal(connections, 0);
+  restored.controller.setEnabled(true);
+  assert.equal(restored.workspace.syncSnapshot().writable, false);
+  assert.throws(() => restored.workspace.write('blocked.md', 'blocked'), /read-only/);
+  await until(() => restored.workspace.syncSnapshot().status === 'synced');
+  assert.equal(await readFile(join(f.directory, 'main.bal'), 'utf8'), '// browser wins');
+  assert.equal(await readFile(join(f.directory, 'queued.md'), 'utf8'), 'edited');
+  await assert.rejects(readFile(join(f.directory, 'Ballerina.toml')), { code: 'ENOENT' });
+  assert.equal(restored.workspace.read('untouched.md'), 'external addition');
+  assert.equal(restored.workspace.pendingOperations().length, 0);
+});
+
+test('pause retains all agents; resume aborts them without restarting turns', async t => {
+  const f = await fixture(t);
+  const { workspace, controller } = f.browser();
+  await until(() => workspace.syncSnapshot().status === 'synced');
+  const [service] = await workspace.getServices();
+  const agent = await service.getAgent();
+  let aborts = 0;
+  agent.abort = () => { aborts++; };
+  const messages = [...agent.state.messages];
+  controller.setEnabled(false);
+  assert.equal(aborts, 0);
+  controller.setEnabled(true);
+  assert.ok(aborts > 0);
+  await until(() => workspace.syncSnapshot().status === 'synced');
+  assert.deepEqual(agent.state.messages, messages);
+});
+
+class ControlledSocket extends EventTarget {
+  readyState = 1;
+  closed = false;
+  sent = [];
+  send(data) { this.sent.push(JSON.parse(data)); }
+  close() { this.closed = true; this.readyState = 3; this.dispatchEvent(new Event('close')); }
+  receive(message) { this.dispatchEvent(new MessageEvent('message', { data: JSON.stringify(message) })); }
+}
+const snapshot = files => ({ type: 'snapshot', projectId: 'controlled', epoch: 'epoch', revision: 0, files });
+
+test('rapid toggles ignore delayed connections, late events and queued sends', async t => {
+  const workspace = new BrowserWorkspace(storage(), { projectId: 'controlled', streamFn() {} });
+  const connections = [];
+  const controller = createWorkspaceSync({ workspace, connect: () => new Promise((resolve, reject) => connections.push({ resolve, reject })), retryMs: 10 });
+  t.after(() => controller.close());
+  controller.start();
+  controller.setEnabled(false);
+  workspace.write('local.md', 'local');
+  controller.setEnabled(true);
+  assert.equal(connections.length, 2);
+  const old = new ControlledSocket();
+  connections[0].resolve(old);
+  await sleep(0);
+  assert.equal(old.closed, true);
+  assert.equal(workspace.syncSnapshot().status, 'connecting');
+  const current = new ControlledSocket();
+  connections[1].resolve(current);
+  await sleep(0);
+  current.receive(snapshot({}));
+  assert.equal(current.sent.length, 1);
+  const operation = workspace.pendingOperations()[0];
+  current.receive({ type: 'committed', epoch: 'epoch', revision: 1, change: operation.change });
+  current.receive({ type: 'ack', operationId: operation.operationId });
+  assert.equal(workspace.syncSnapshot().status, 'synced');
+  workspace.write('local.md', 'queued microtask');
+  controller.setEnabled(false);
+  const sends = current.sent.length;
+  current.receive(snapshot({ 'local.md': 'late overwrite' }));
+  current.dispatchEvent(new Event('error'));
+  await sleep(40);
+  assert.equal(current.sent.length, sends);
+  assert.equal(workspace.read('local.md'), 'queued microtask');
+  assert.equal(workspace.syncSnapshot().status, 'paused');
+  assert.equal(connections.length, 2);
+  controller.setEnabled(true);
+  controller.setEnabled(false);
+  connections[2].reject(new Error('obsolete connection failure'));
+  await sleep(40);
+  assert.equal(workspace.syncSnapshot().status, 'paused');
+  assert.equal(connections.length, 3);
+});
+
+test('resuming a paused cache preserves receipt identity and newer disk edits', async t => {
+  const f = await fixture(t);
+  const store = storage();
+  const cached = new BrowserWorkspace(store, { projectId: f.project.id, streamFn() {} });
+  cached.applyServerSnapshot(f.project.snapshot().files);
+  cached.setSyncState({ status: 'synced', writable: true });
+  cached.write('main.bal', 'already applied');
+  await f.project.apply(cached.pendingOperations()[0]);
+  await writeFile(join(f.directory, 'main.bal'), 'newer disk edit');
+  const { workspace, controller } = f.browser(store, f.connect, false);
+  assert.equal(workspace.pendingOperations()[0].operationId, cached.pendingOperations()[0].operationId);
+  controller.setEnabled(true);
+  await until(() => workspace.syncSnapshot().status === 'synced');
+  assert.equal(workspace.read('main.bal'), 'newer disk edit');
+  assert.equal(await readFile(join(f.directory, 'main.bal'), 'utf8'), 'newer disk edit');
+});
+
+test('pause does not bypass corrupt cache or failed local writes', async t => {
+  const f = await fixture(t);
+  const brokenStore = storage();
+  brokenStore.setItem(projectStorageKey(f.project.id), 'corrupt');
+  const broken = f.browser(brokenStore, f.connect, false);
+  assert.equal(broken.workspace.syncSnapshot().status, 'error');
+  assert.equal(broken.workspace.syncSnapshot().writable, false);
+  assert.equal(brokenStore.getItem(projectStorageKey(f.project.id)), 'corrupt');
+  const { workspace, store } = f.browser(storage(), f.connect, false);
+  const before = workspace.snapshot();
+  store.setItem = () => { throw new Error('Quota exceeded'); };
+  assert.throws(() => workspace.write('lost.md', 'lost'), /Quota/);
+  assert.equal(workspace.snapshot(), before);
+  assert.equal(workspace.pendingOperations().length, 0);
+  assert.equal(workspace.syncSnapshot().status, 'paused');
 });

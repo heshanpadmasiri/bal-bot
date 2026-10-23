@@ -6,16 +6,19 @@ export interface SyncConnectionOptions {
   connect: () => Promise<WebSocket>;
   retryMs?: number;
   timeoutMs?: number;
+  enabled?: boolean;
 }
-export interface SyncController { start(): void; close(): void; }
+export interface SyncController { start(): void; close(): void; setEnabled(enabled: boolean): void; }
 
-export function createWorkspaceSync({ workspace, connect, retryMs = 500, timeoutMs = 30_000 }: SyncConnectionOptions): SyncController {
+export function createWorkspaceSync({ workspace, connect, retryMs = 500, timeoutMs = 30_000, enabled = true }: SyncConnectionOptions): SyncController {
   let stopped = true;
   let socket: WebSocket | undefined;
   let retry: ReturnType<typeof setTimeout> | undefined;
   let watchdog: ReturnType<typeof setInterval> | undefined;
   let unsubscribe: (() => void) | undefined;
   let connecting = false;
+  let generation = 0;
+  let detach: (() => void) | undefined;
   let initialized = false;
   let recovering = true;
   let inFlight: string | undefined;
@@ -28,7 +31,7 @@ export function createWorkspaceSync({ workspace, connect, retryMs = 500, timeout
   let attempts = 0;
 
   function update() {
-    if (!initialized || stopped) return;
+    if (!initialized || stopped || !enabled) return;
     const pending = workspace.pendingOperations();
     if (!pending.length && !error) recovering = false;
     workspace.setSyncState({ status: error ? 'error' : pending.length ? 'syncing' : 'synced', writable: !recovering && !error, error });
@@ -38,7 +41,13 @@ export function createWorkspaceSync({ workspace, connect, retryMs = 500, timeout
       socket.send(JSON.stringify({ type: 'mutate', operation: pending[0] }));
     }
   }
-  const scheduleUpdate = () => { queueMicrotask(() => { try { update(); } catch (cause) { fail(cause); } }); };
+  const scheduleUpdate = () => {
+    const scheduledGeneration = generation;
+    queueMicrotask(() => {
+      if (scheduledGeneration !== generation || stopped || !enabled) return;
+      try { update(); } catch (cause) { fail(cause); }
+    });
+  };
   function fail(cause: unknown) {
     error = cause instanceof Error ? cause.message : 'Workspace synchronization failed.';
     workspace.setSyncState({ status: 'error', writable: false, error });
@@ -46,11 +55,12 @@ export function createWorkspaceSync({ workspace, connect, retryMs = 500, timeout
   }
   function disconnected(current: WebSocket) {
     if (socket !== current) return;
+    detach?.(); detach = undefined;
     socket = undefined;
     initialized = false;
     recovering = true;
     inFlight = undefined;
-    if (stopped) return;
+    if (stopped || !enabled) return;
     workspace.setSyncState({ status: error ? 'error' : 'disconnected', writable: false, error });
     retry = setTimeout(() => { void open(); }, Math.min(retryMs * 2 ** attempts++, 10_000));
   }
@@ -83,43 +93,76 @@ export function createWorkspaceSync({ workspace, connect, retryMs = 500, timeout
     update();
   }
   async function open() {
-    if (stopped || connecting) return;
+    if (stopped || !enabled || connecting) return;
+    const connectionGeneration = ++generation;
     connecting = true;
     initialized = false; recovering = true; inFlight = undefined;
     workspace.setSyncState({ status: attempts ? 'disconnected' : 'connecting', writable: false });
     try {
       const current = await connect();
-      if (stopped) { current.close(); return; }
+      if (stopped || !enabled || connectionGeneration !== generation) { current.close(); return; }
       socket = current;
       receivedAt = Date.now();
-      current.addEventListener('message', event => { if (socket === current) { try { receive(String(event.data)); } catch (cause) { fail(cause); } } });
-      current.addEventListener('close', () => disconnected(current));
-      current.addEventListener('error', () => { if (socket === current) { workspace.setSyncState({ status: 'disconnected', writable: false }); current.close(); } });
+      const active = () => !stopped && enabled && connectionGeneration === generation && socket === current;
+      const onMessage = (event: MessageEvent) => { if (active()) { try { receive(String(event.data)); } catch (cause) { fail(cause); } } };
+      const onClose = () => { if (active()) disconnected(current); };
+      const onError = () => { if (active()) { workspace.setSyncState({ status: 'disconnected', writable: false }); current.close(); } };
+      current.addEventListener('message', onMessage);
+      current.addEventListener('close', onClose);
+      current.addEventListener('error', onError);
+      detach = () => {
+        current.removeEventListener('message', onMessage);
+        current.removeEventListener('close', onClose);
+        current.removeEventListener('error', onError);
+      };
     } catch (cause) {
-      if (!stopped) {
+      if (!stopped && enabled && connectionGeneration === generation) {
         workspace.setSyncState({ status: 'disconnected', writable: false, error: cause instanceof Error ? cause.message : 'Could not connect.' });
         retry = setTimeout(() => { void open(); }, Math.min(retryMs * 2 ** attempts++, 10_000));
       }
-    } finally { connecting = false; }
+    } finally { if (connectionGeneration === generation) connecting = false; }
+  }
+  function stopTransport() {
+    generation++;
+    clearTimeout(retry); clearInterval(watchdog);
+    retry = undefined; watchdog = undefined;
+    detach?.(); detach = undefined;
+    const current = socket;
+    socket = undefined; initialized = false; connecting = false;
+    recovering = true; inFlight = undefined;
+    error = undefined; retryOperationAt = 0; attempts = 0;
+    current?.close();
+  }
+  function activate() {
+    if (workspace.loadError) { workspace.setSyncState({ status: 'error', writable: false, error: workspace.loadError }); return; }
+    if (!enabled) { workspace.setSyncState({ status: 'paused', writable: true }); return; }
+    watchdog = setInterval(() => {
+      const current = socket;
+      if (current && (Date.now() - receivedAt > timeoutMs || (inFlight && Date.now() - sentAt > timeoutMs))) {
+        workspace.setSyncState({ status: 'disconnected', writable: false });
+        current.close();
+        disconnected(current);
+      } else scheduleUpdate();
+    }, Math.min(1000, timeoutMs / 2));
+    void open();
   }
   return {
     start() {
       if (!stopped) return;
       stopped = false;
-      if (workspace.loadError) { workspace.setSyncState({ status: 'error', writable: false, error: workspace.loadError }); return; }
       unsubscribe = workspace.subscribe(scheduleUpdate);
-      watchdog = setInterval(() => {
-        if (socket && (Date.now() - receivedAt > timeoutMs || (inFlight && Date.now() - sentAt > timeoutMs))) {
-          workspace.setSyncState({ status: 'disconnected', writable: false });
-          socket.close();
-          disconnected(socket);
-        } else scheduleUpdate();
-      }, Math.min(1000, timeoutMs / 2));
-      void open();
+      activate();
+    },
+    setEnabled(next) {
+      if (next === enabled) return;
+      enabled = next;
+      if (stopped) return;
+      stopTransport();
+      activate();
     },
     close() {
-      stopped = true; clearTimeout(retry); clearInterval(watchdog); unsubscribe?.();
-      socket?.close(); socket = undefined; initialized = false;
+      stopped = true;
+      stopTransport(); unsubscribe?.(); unsubscribe = undefined;
       workspace.setSyncState({ status: 'disconnected', writable: false });
     },
   };

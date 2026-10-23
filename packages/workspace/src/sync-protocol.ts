@@ -1,7 +1,7 @@
 export type Files = Readonly<Record<string, string>>;
 export type FileChange = { kind: 'write'; path: string; content: string } | { kind: 'delete'; path: string };
 export interface PendingOperation { operationId: string; change: FileChange; }
-export type SyncStatus = 'connecting' | 'syncing' | 'synced' | 'disconnected' | 'error';
+export type SyncStatus = 'connecting' | 'syncing' | 'synced' | 'paused' | 'disconnected' | 'error';
 export interface SyncState {
   readonly status: SyncStatus;
   readonly writable: boolean;

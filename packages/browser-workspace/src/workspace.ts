@@ -179,7 +179,7 @@ export class BrowserWorkspace implements Workspace {
     if (this.projectId) validateChange(change);
     const pending = this.projectId ? [...this.pending, { operationId: crypto.randomUUID(), change }] : [];
     this.commit(applyChange(this.files, change), pending);
-    if (this.projectId) this.setSyncState({ ...this.sync, status: 'syncing' });
+    if (this.projectId && this.sync.status !== 'paused') this.setSyncState({ ...this.sync, status: 'syncing' });
   }
   pendingOperations(): readonly PendingOperation[] { return this.pending; }
   applyServerSnapshot(files: Files): void {
