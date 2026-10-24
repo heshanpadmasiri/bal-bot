@@ -6,7 +6,15 @@ Stage 1 tools replay the **current production renderer**. The contract below fol
 
 The revised isolated-SVG/separate-HTML baseline is recorded, frozen, and verified for all 663 cases in both development and production. Recording passed two fresh-context runs per case/mode; verification replayed the frozen artifacts successfully. The required artifact set contains no PNGs. Earlier partial recordings remain non-authoritative. Earlier raster differences do not block this gate, and no GPU/raster stability is required.
 
-The baseline authority is `tests/fixtures/flow-rendering/frozen-manifest.json` (schema version 2, pipeline `isolated-svg+editor-integration`), with the original Git revision, working-tree hashes, pinned environment, and artifact hashes. The baseline/tooling commit is still pending; do not start production refactoring until it is committed. No shared production SVG extraction or HIR migration has been performed.
+The baseline authority is `tests/fixtures/flow-rendering/frozen-manifest.json` (schema version 2, pipeline `isolated-svg+editor-integration`), with the original Git revision, working-tree hashes, pinned environment, and artifact hashes. The baseline/tooling commit is `280850fd`. This is the committed Stage 1 authority for subsequent migration; its recorded pre-commit revision and working-tree hashes remain unchanged in the manifest. No shared production SVG extraction has been performed.
+
+## Frozen inventory and post-baseline suites
+
+`loadRenderCases()` retains strict discovery and original byte-hash checks for every Stage 1 suite. The frozen inventory, source archives, case metadata and artifacts must not be updated to accommodate new tests.
+
+`tests/hir-suite-inventory.json` separately allows the planned non-rendering HIR suites `packages/compiler/hir_test.go` and `packages/compiler/tests/hir.test.mjs`. Entries may be registered before their files exist. Each entry explicitly declares `rendering: false` and its purpose; duplicate entries, overlap with baseline suites, malformed entries and all unregistered discovered suites fail loading. Registered suites do not bypass the original baseline suite presence or source-hash checks.
+
+This registry is an explicit, reviewable classification, not automatic detection of whether test code renders. Keep it limited to contract validation, printing and serialization (and later non-rendering AST/HIR corpus checks). A new flow-producing suite must receive separate post-baseline scenario/render coverage, not be labeled non-rendering or claimed as part of the original 663 cases. Adding such coverage must not regenerate or extend the frozen inventory or expected artifacts. Review any additional registry names and their classification explicitly.
 
 ## Rendering boundary
 

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "stage": "post-baseline",
+  "suites": [
+    {
+      "file": "packages/compiler/hir_test.go",
+      "rendering": false,
+      "purpose": "HIR contract validation, canonical printing and serialization; no rendered output or frozen baseline coverage."
+    },
+    {
+      "file": "packages/compiler/tests/hir.test.mjs",
+      "rendering": false,
+      "purpose": "TypeScript HIR contract validation and serialization parity; no rendered output or frozen baseline coverage."
+    }
+  ]
+}

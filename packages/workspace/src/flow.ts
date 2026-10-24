@@ -68,3 +68,113 @@ export interface FlowUI {
   readonly selection: { readonly kind: 'definitions'; readonly scopeId: Id }
     | { readonly kind: 'function'; readonly functionId: Id };
 }
+
+// HIR is deliberately alongside the legacy model until the bridge migration.
+// See docs/hir-wire.md for identity, ordering, and nullability rules.
+export interface HIRProgram {
+  readonly scopes: readonly ScopeModel[];
+  readonly sources: Readonly<Record<Id, Located>>;
+  readonly functions: Readonly<Record<Id, HIRGraph>>;
+}
+export interface HIRGraph extends Located {
+  readonly moduleId: Id;
+  readonly entry: HIREntry;
+  readonly nodes: readonly HIRNode[];
+  readonly ports: readonly HIRPort[];
+  readonly edges: readonly HIREdge[];
+  readonly groups: readonly HIRGroup[];
+  readonly rootGroup: Id;
+  readonly interfaces: readonly HIRInterface[];
+  readonly emission: { readonly root: HIREmissionPlan; readonly inline: HIREmissionPlan };
+}
+export interface HIREntry {
+  readonly kind: 'resource' | 'remote' | 'function' | 'method';
+  readonly owner: string | null;
+  readonly operation: string | null;
+  readonly name: string;
+  readonly signature: string;
+  readonly parameters: readonly { readonly label: 'Path' | 'Input'; readonly text: string }[];
+  readonly returnType: string;
+}
+export interface HIRNode {
+  readonly id: Id;
+  readonly occurrenceKey: string;
+  readonly sourceId: Id;
+  readonly presentation: HIRPresentation;
+  readonly body: HIRNodeBody;
+}
+export type HIRNodeBody = { readonly kind: 'leaf' }
+  | { readonly kind: 'group'; readonly groupId: Id }
+  | { readonly kind: 'reference'; readonly reference: HIRGraphReference };
+export type HIRNodeStyle = 'step' | 'condition' | 'function' | 'loop' | 'mapping' | 'unsupported' | 'return' | 'client' | 'trap' | 'panic' | 'template';
+export interface HIRLabelSection {
+  readonly kind: 'text' | 'receiver' | 'context' | 'method';
+  readonly text: string;
+}
+export type HIRPresentation = { readonly kind: 'hidden' }
+  | { readonly kind: 'plain'; readonly style: HIRNodeStyle; readonly label: string; readonly sections: readonly HIRLabelSection[]; readonly limitation: string | null; readonly disclosure: HIRDisclosure }
+  | { readonly kind: 'client'; readonly style: 'client'; readonly label: string; readonly sections: readonly HIRLabelSection[]; readonly limitation: string | null; readonly disclosure: HIRDisclosure };
+export type HIRDisclosure = { readonly kind: 'none' }
+  | { readonly kind: 'call'; readonly occurrenceKey: string; readonly availability: HIRAvailability; readonly recursive: HIRRecursivePresentation }
+  | { readonly kind: 'client-context'; readonly occurrenceKey: string; readonly collapsed: HIRLabelContent; readonly expanded: HIRLabelContent };
+export interface HIRLabelContent { readonly label: string; readonly sections: readonly HIRLabelSection[]; }
+export interface HIRRecursivePresentation {
+  readonly label: string;
+  readonly sections: readonly HIRLabelSection[];
+  readonly limitation: string | null;
+  readonly title: string;
+  readonly ariaLabel: string;
+  readonly glyph: string;
+}
+export type HIRAvailability = { readonly kind: 'available' } | { readonly kind: 'unavailable'; readonly reason: string };
+export type HIRPortRole = 'entry' | 'normal-exit' | 'true' | 'false' | 'return' | 'break' | 'continue' | 'next-iteration' | 'panic';
+export type HIRAnchor = { readonly kind: 'top-center' | 'header-left' | 'header-right' | 'header-bottom-center' | 'bottom-center' | 'group-bottom-center' | 'iteration-marker' };
+export interface HIRPort { readonly id: Id; readonly nodeId: Id; readonly role: HIRPortRole; readonly anchor: HIRAnchor; }
+export type HIREdgeKind = 'sequence' | 'true' | 'false' | 'back' | 'break' | 'continue' | 'return' | 'error' | 'panic';
+export interface HIREdgeStyle {
+  readonly kind: HIREdgeKind;
+  readonly label: string | null;
+  readonly routing: 'direct' | 'branch-left' | 'branch-right' | 'back';
+}
+export interface HIREdge extends HIREdgeStyle { readonly id: Id; readonly fromPort: Id; readonly toPort: Id; readonly when: HIRPresence; }
+export interface HIRGroup {
+  readonly id: Id;
+  readonly arrangement: HIRArrangement;
+  readonly style: HIRGroupStyle;
+}
+export type HIRArrangement = { readonly kind: 'sequence'; readonly members: readonly Id[] }
+  | { readonly kind: 'columns'; readonly left: readonly Id[]; readonly right: readonly Id[] }
+  | { readonly kind: 'container'; readonly members: readonly Id[] };
+export interface HIRGroupVisibility { readonly node: boolean; readonly header: boolean; readonly container: boolean; }
+export interface HIRGroupStyle {
+  readonly profile: 'sequence' | 'if' | 'while' | 'foreach' | 'trap' | 'root' | 'call';
+  readonly root: HIRGroupVisibility;
+  readonly inline: HIRGroupVisibility;
+}
+export interface HIRInterface {
+  readonly id: Id;
+  readonly members: readonly { readonly portId: Id; readonly when: HIRPresence }[];
+  readonly exports: readonly { readonly bindingId: Id; readonly beforeMember: number }[];
+  readonly root: HIRRootTreatment;
+}
+export type HIRRootTreatment = { readonly kind: 'terminal' }
+  | { readonly kind: 'connect'; readonly bindingId: Id; readonly toPort: Id; readonly edge: HIREdgeStyle };
+export interface HIRGraphReference {
+  readonly graphId: Id;
+  readonly occurrenceKey: string;
+  readonly availability: HIRAvailability;
+  readonly container: HIRGroupStyle;
+  readonly collapsed: { readonly interfaces: readonly HIRInterface[]; readonly edges: readonly HIREdge[] };
+  readonly inline: readonly HIRBinding[];
+}
+export type HIRBinding = { readonly kind: 'entry'; readonly id: Id; readonly when: HIRPresence; readonly callerPortId: Id; readonly targetInterfaceId: Id; readonly edge: HIREdgeStyle }
+  | { readonly kind: 'exit'; readonly id: Id; readonly when: HIRPresence; readonly targetInterfaceId: Id; readonly callerPortId: Id; readonly edge: HIREdgeStyle }
+  | { readonly kind: 'export'; readonly id: Id; readonly when: HIRPresence; readonly targetInterfaceId: Id; readonly callerInterfaceId: Id };
+export type HIRPresence = { readonly kind: 'constant'; readonly value: boolean }
+  | { readonly kind: 'all' | 'any'; readonly operands: readonly HIRPresence[] }
+  | { readonly kind: 'not'; readonly operand: HIRPresence }
+  | { readonly kind: 'nonempty'; readonly referenceNodeId: Id; readonly interfaceId: Id };
+export type HIREmission = { readonly kind: 'local'; readonly itemId: Id; readonly when: HIRPresence }
+  | { readonly kind: 'child'; readonly referenceNodeId: Id; readonly when: HIRPresence }
+  | { readonly kind: 'binding'; readonly bindingId: Id; readonly when: HIRPresence };
+export interface HIREmissionPlan { readonly nodes: readonly HIREmission[]; readonly ports: readonly HIREmission[]; readonly edges: readonly HIREmission[]; }
