@@ -87,3 +87,38 @@ test('direct and mutual recursion retain call sites and continuations even with 
   }
  }
 });
+
+const evaluation=(id,kind,children=[],extra={})=>({...located(id),kind,children,...extra});
+const evalStep=(id,value)=>({...step(id),evaluation:value,binding:'Person person'});
+test('generic client cards preserve constructor and named arguments with explicit check returns',()=>{
+ const context={receiver:located('receiver','producer'),type:'Queue',origin:'constructor',initializer:located('init','new ("broker", port = 9093)')};
+ const call={...located('call','producer->send("hello", topic = "orders")'),client:{context,method:'send',arguments:[located('arg0','"hello"'),located('arg1','topic = "orders"')]},target:{kind:'external',label:'send'},expansion:'unavailable',reason:'External'};
+ const e=evaluation('check','check',[evaluation('invoke','call',[],{call})]);
+ const d=buildDiagram({scopes:[],functions:{main:fn('main',[evalStep('binding',e),step('after')])}},'main',new Set());structural(d);
+ const all=nodes(d),card=all.find(n=>n.kind==='client'),error=all.find(n=>n.label==='Return error');
+ assert.ok(card.label.includes('producer · Queue\nnew ("broker", port = 9093)\n→ send("hello", topic = "orders")'));
+ assert.ok(d.edges.some(e=>e.kind==='error'&&e.toPort===`${error.id}:entry`));
+ assert.ok(!d.edges.some(e=>e.fromPort.startsWith(error.id+':')),'error must not continue to binding or next statement');
+ assert.ok(d.edges.some(e=>e.fromPort==='main/binding:normal-exit'&&e.toPort==='main/after:entry'));
+ const l=layoutDiagram(d,label=>({width:300,height:label.split('\n').length*19}));assert.equal(l.routes.length,d.edges.length);
+});
+test('trap captures panic paths while check returns escape the operand scope',()=>{
+ const source=evaluation('source','source');
+ const inner=evaluation('panic','checkpanic',[source]);
+ const checked=evaluation('checked','check',[evaluation('source2','source')]);
+ const wrapped=evaluation('trap','trap',[evaluation('combined','source',[inner,checked])]);
+ const d=buildDiagram({scopes:[],functions:{main:fn('main',[evalStep('result',wrapped),step('after')])}},'main',new Set());structural(d);
+ const all=nodes(d),panic=all.find(n=>n.label==='Panic with error'),capture=all.find(n=>n.label==='Capture panic as error value'),ret=all.find(n=>n.label==='Return error');
+ assert.ok(d.edges.some(e=>e.fromPort===`${panic.id}:panic`&&e.toPort===`${capture.id}:entry`));
+ assert.ok(!d.edges.some(e=>e.fromPort.startsWith(ret.id+':')));
+ assert.ok(d.edges.some(e=>e.fromPort==='main/result:normal-exit'&&e.toPort==='main/after:entry'));
+ const l=layoutDiagram(d,()=>({width:300,height:20}));for(const route of l.routes)for(const p of route)assert.ok(Number.isFinite(p.x)&&Number.isFinite(p.y));
+});
+test('long initialization expands without truncating call arguments or losing source selection',()=>{
+ const text=`new ({host: "broker", configuration: "${'x'.repeat(160)}"})`;
+ const call={...located('call','producer->send("hello")'),client:{context:{receiver:located('receiver','producer'),origin:'initializer',initializer:located('init',text)},method:'send',arguments:[located('arg','"hello"')]},target:{kind:'external',label:'send'},expansion:'unavailable',reason:'External'};
+ const program={scopes:[],functions:{main:fn('main',[evalStep('result',evaluation('invoke','call',[],{call}))])}};
+ const collapsed=buildDiagram(program,'main',new Set()),card=nodes(collapsed).find(n=>n.kind==='client'),path=card.contextPath;
+ assert.ok(card.label.includes('…'));assert.equal(card.selection,call);
+ const expanded=buildDiagram(program,'main',new Set([path]));assert.ok(nodes(expanded).find(n=>n.kind==='client').label.includes(text));
+});

@@ -25,18 +25,40 @@ type CallTargetModel struct {
 	FunctionID string `json:"functionId,omitempty"`
 	Label      string `json:"label,omitempty"`
 }
+type ReceiverContextModel struct {
+	Receiver    LocatedModel  `json:"receiver"`
+	Type        string        `json:"type,omitempty"`
+	Origin      string        `json:"origin"`
+	Initializer *LocatedModel `json:"initializer,omitempty"`
+}
+type ClientInvocationModel struct {
+	Context   ReceiverContextModel `json:"context"`
+	Method    string               `json:"method"`
+	Arguments []LocatedModel       `json:"arguments"`
+}
+type EvaluationModel struct {
+	LocatedModel
+	Kind     string            `json:"kind"`
+	Children []EvaluationModel `json:"children"`
+	Call     *CallSiteModel    `json:"call,omitempty"`
+	Strings  []string          `json:"strings,omitempty"`
+}
 type CallSiteModel struct {
 	LocatedModel
-	Target    CallTargetModel `json:"target"`
-	Expansion string          `json:"expansion"`
-	Reason    string          `json:"reason,omitempty"`
+	Client    *ClientInvocationModel `json:"client,omitempty"`
+	Target    CallTargetModel        `json:"target"`
+	Expansion string                 `json:"expansion"`
+	Reason    string                 `json:"reason,omitempty"`
 }
 type ExpressionModel struct {
 	LocatedModel
-	Calls []CallSiteModel `json:"calls"`
+	Calls      []CallSiteModel  `json:"calls"`
+	Evaluation *EvaluationModel `json:"evaluation,omitempty"`
 }
 type StatementModel struct {
 	LocatedModel
+	Evaluation   *EvaluationModel  `json:"evaluation,omitempty"`
+	Binding      string            `json:"binding,omitempty"`
 	Kind         string            `json:"kind"`
 	Operation    string            `json:"operation,omitempty"`
 	Presentation string            `json:"presentation,omitempty"`
@@ -173,6 +195,7 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 	result := ProgramModel{Scopes: []ScopeModel{}, Functions: map[string]FunctionModel{}}
 	p.functionIDs = map[model.SymbolRef]string{}
 	p.availableBodies = map[string]bool{}
+	p.collectReceiverContexts()
 	var functions []extractionFunction
 	addFunction := func(fn sourceFunction, moduleID, id, owner string) {
 		p.functionIDs[fn.Symbol()] = id
@@ -243,6 +266,7 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 				stmt.Reason = reason
 			} else {
 				stmt.Calls = &calls
+				stmt.Evaluation = p.renderedEvaluation(stmt.ID+"/value", node.Expr, calls)
 			}
 			body = []StatementModel{stmt}
 		default:
@@ -514,6 +538,15 @@ func extractStatements(p *resolvedProgram, functionID string, nodes []ast.Statem
 				stmt.Reason = reason
 			} else {
 				stmt.Calls = &calls
+				stmt.Evaluation = p.statementEvaluation(id, node, lhs, expr, calls)
+				if stmt.Evaluation != nil && expr != nil && stmt.Kind == "simple" && stmt.Operation != "expression" {
+					stmtPos, exprPos := node.GetPosition(), expr.GetPosition()
+					start, end := stmtPos.StartOffset(), exprPos.StartOffset()
+					stmt.Binding = strings.TrimSpace(strings.TrimSuffix(strings.TrimSpace(p.files[stmt.Source.File][start:end]), "="))
+					if lhs != nil {
+						stmt.Binding = p.located(id+"/binding", lhs).Text
+					}
+				}
 				if stmt.Kind == "simple" {
 					stmt.Presentation = "step"
 					if _, ok := expr.(*ast.BLangMappingConstructorExpr); ok {
@@ -528,7 +561,7 @@ func extractStatements(p *resolvedProgram, functionID string, nodes []ast.Statem
 }
 func (p *resolvedProgram) expression(id string, expr ast.BLangActionOrExpression, safe bool) ExpressionModel {
 	calls, _ := p.expressionCalls(id, expr, safe)
-	return ExpressionModel{LocatedModel: p.located(id, expr), Calls: calls}
+	return ExpressionModel{LocatedModel: p.located(id, expr), Calls: calls, Evaluation: p.renderedEvaluation(id+"/value", expr, calls)}
 }
 func resolveCallTarget(p *resolvedProgram, call ast.Invocable) (CallTargetModel, error) {
 	symbol := call.ResolvedSymbol()
@@ -544,6 +577,7 @@ func resolveCallTarget(p *resolvedProgram, call ast.Invocable) (CallTargetModel,
 func (p *resolvedProgram) expressionCalls(id string, expr ast.BLangActionOrExpression, safe bool) ([]CallSiteModel, string) {
 	calls := []CallSiteModel{}
 	reason := ""
+	conditional := 0
 	var scan func(ast.BLangActionOrExpression, bool)
 	scan = func(expr ast.BLangActionOrExpression, expand bool) {
 		if expr == nil {
@@ -554,7 +588,10 @@ func (p *resolvedProgram) expressionCalls(id string, expr ast.BLangActionOrExpre
 			if call.Receiver() != nil {
 				scan(call.Receiver(), false)
 			}
-			for _, arg := range call.CallArgs() {
+			for _, segment := range resourcePathExpressions(call) {
+				scan(segment, false)
+			}
+			for _, arg := range p.callArgs(call) {
 				scan(arg, false)
 			}
 			target, err := resolveCallTarget(p, call)
@@ -570,6 +607,10 @@ func (p *resolvedProgram) expressionCalls(id string, expr ast.BLangActionOrExpre
 				site.Expansion = "supported"
 				site.Reason = ""
 			}
+			site.Client = p.clientInvocation(site.ID, call)
+			if conditional > 0 && site.Client != nil {
+				reason = "Client calls in conditionally evaluated expressions are not modeled."
+			}
 			calls = append(calls, site)
 			return
 		}
@@ -581,19 +622,30 @@ func (p *resolvedProgram) expressionCalls(id string, expr ast.BLangActionOrExpre
 			// contexts that already disallow expansion conservative.
 			arithmetic := n.OpKind == model.OperatorKind_ADD || n.OpKind == model.OperatorKind_SUB ||
 				n.OpKind == model.OperatorKind_MUL || n.OpKind == model.OperatorKind_DIV || n.OpKind == model.OperatorKind_MOD
+			shortCircuit := n.OpKind == model.OperatorKind_AND || n.OpKind == model.OperatorKind_OR
+			if shortCircuit {
+				conditional++
+			}
 			scan(n.LhsExpr, expand && arithmetic)
 			scan(n.RhsExpr, expand && arithmetic)
+			if shortCircuit {
+				conditional--
+			}
 		case *ast.BLangGroupExpr:
 			scan(n.Expression, expand)
 		case *ast.BLangUnaryExpr:
 			scan(n.Expr, false)
 		case *ast.BLangTernaryExpr:
+			conditional++
 			scan(n.Condition, false)
 			scan(n.ThenExpr, false)
 			scan(n.ElseExpr, false)
+			conditional--
 		case *ast.BLangNilConditionalExpr:
+			conditional++
 			scan(n.LhsExpr, false)
 			scan(n.RhsExpr, false)
+			conditional--
 		case *ast.BLangListConstructorExpr:
 			for _, e := range n.Exprs {
 				scan(e, false)
@@ -617,11 +669,35 @@ func (p *resolvedProgram) expressionCalls(id string, expr ast.BLangActionOrExpre
 		case *ast.BLangNamedArgsExpression:
 			scan(n.Expr, false)
 		case *ast.BLangNewExpression:
-			for _, e := range n.ArgsExprs {
+			for _, e := range p.newArgs(n) {
 				scan(e, false)
 			}
 		case *ast.BLangTypeTestExpr:
 			scan(n.Expr, false)
+		case *ast.BLangCheckedExpr:
+			if conditional > 0 {
+				reason = "Error operators in conditionally evaluated operands are not modeled."
+			}
+			scan(n.Expr, expand)
+		case *ast.BLangCheckPanickedExpr:
+			if conditional > 0 {
+				reason = "Error operators in conditionally evaluated operands are not modeled."
+			}
+			scan(n.Expr, expand)
+		case *ast.BLangTrapExpr:
+			if conditional > 0 {
+				reason = "Error operators in conditionally evaluated operands are not modeled."
+			}
+			scan(n.Expr, expand)
+		case *ast.BLangTemplateExpr:
+			if n.Kind != ast.TemplateExprKindString {
+				reason = "Non-string template evaluation is not modeled."
+				break
+			}
+			for _, e := range n.Insertions {
+				scan(e, expand)
+			}
+
 		default:
 			reason = fmt.Sprintf("Control effects of %T are not modeled; later source may still execute.", expr)
 		}

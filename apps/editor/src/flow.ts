@@ -1,31 +1,100 @@
-import type { Id, Located, ProgramModel, Statement } from '@bal-bot/workspace';
+import type { Id, Located, ProgramModel, Statement, Evaluation, ClientInvocation } from '@bal-bot/workspace';
 export type ExpansionPath = string;
-export interface DiagramNode { readonly id: Id; readonly kind: 'step' | 'condition' | 'function' | 'loop' | 'mapping' | 'unsupported' | 'return'; readonly selection: Located; readonly label: string; readonly children: readonly DiagramNode[]; }
-export interface DiagramPort { readonly id: Id; readonly nodeId: Id; readonly role: 'entry' | 'normal-exit' | 'true' | 'false' | 'return' | 'break' | 'continue' | 'next-iteration'; }
-export interface DiagramEdge { readonly fromPort: Id; readonly toPort: Id; readonly kind: 'sequence' | 'true' | 'false' | 'back' | 'break' | 'continue' | 'return'; }
+export interface DiagramNode { readonly id: Id; readonly kind: 'step' | 'condition' | 'function' | 'loop' | 'mapping' | 'unsupported' | 'return' | 'client' | 'trap' | 'panic' | 'template'; readonly client?: ClientInvocation; readonly contextExpanded?: boolean; readonly contextPath?: string; readonly selection: Located; readonly label: string; readonly children: readonly DiagramNode[]; }
+export interface DiagramPort { readonly id: Id; readonly nodeId: Id; readonly role: 'entry' | 'normal-exit' | 'true' | 'false' | 'return' | 'break' | 'continue' | 'next-iteration' | 'panic'; }
+export interface DiagramEdge { readonly fromPort: Id; readonly toPort: Id; readonly kind: 'sequence' | 'true' | 'false' | 'back' | 'break' | 'continue' | 'return' | 'error' | 'panic'; readonly label?: string; }
 export interface Diagram { readonly nodes: readonly DiagramNode[]; readonly ports: readonly DiagramPort[]; readonly edges: readonly DiagramEdge[]; }
 export interface Box { readonly x: number; readonly y: number; readonly width: number; readonly height: number; }
 export interface DiagramLayout { readonly diagram: Diagram; readonly boxes: Readonly<Record<Id, Box>>; readonly routes: readonly (readonly { readonly x: number; readonly y: number }[])[]; readonly width: number; readonly height: number; }
-interface Fragment { nodes: DiagramNode[]; entry?: Id; normal: Id[]; returns: Id[]; breaks: Id[]; continues: Id[]; }
-interface Hint { mode: 'sequence' | 'if' | 'while' | 'foreach'; split?: number; path?: string; unavailable?: string; recursive?: boolean; root?: boolean; }
+interface Fragment { nodes: DiagramNode[]; entry?: Id; normal: Id[]; returns: Id[]; breaks: Id[]; continues: Id[]; panics: Id[]; }
+interface Hint { mode: 'sequence' | 'if' | 'while' | 'foreach' | 'trap'; split?: number; path?: string; unavailable?: string; recursive?: boolean; root?: boolean; }
 // Layout-only hierarchy metadata accompanies an owned diagram without changing its public shape.
 const hints = new WeakMap<DiagramNode, Hint>();
 export function nodeHint(node: DiagramNode): Readonly<Hint> | undefined { return hints.get(node); }
 export function buildDiagram(program: ProgramModel, functionId: Id, expanded: ReadonlySet<ExpansionPath>): Diagram {
   const ports: DiagramPort[] = [], edges: DiagramEdge[] = [];
   const port = (node: DiagramNode, role: DiagramPort['role']) => { const id = `${node.id}:${role}`; if (!ports.some(p => p.id === id)) ports.push({id, nodeId: node.id, role}); return id; };
-  const edge = (fromPort: Id, toPort: Id | undefined, kind: DiagramEdge['kind'] = 'sequence') => { if (toPort) edges.push({fromPort, toPort, kind}); };
+  const edge = (fromPort: Id, toPort: Id | undefined, kind: DiagramEdge['kind'] = 'sequence', label?: string) => { if (toPort) edges.push({fromPort, toPort, kind, ...(label ? {label} : {})}); };
   const connect = (from: Id[], to: Id | undefined, kind: DiagramEdge['kind'] = 'sequence') => from.forEach(p => edge(p, to, kind));
-  const empty = (): Fragment => ({nodes: [], normal: [], returns: [], breaks: [], continues: []});
+  const empty = (): Fragment => ({nodes: [], normal: [], returns: [], breaks: [], continues: [], panics: []});
   const block = (statements: readonly Statement[], path: string, ancestors: readonly Id[]): Fragment => {
     const result = empty(); let previous: Id[] = [], first = true;
     for (const statement of statements) {
       const fragment = convert(statement, `${path}/${statement.id}`, ancestors);
       if (first) { result.entry = fragment.entry; first = false; }
       connect(previous, fragment.entry); previous = fragment.normal;
-      result.nodes.push(...fragment.nodes); result.returns.push(...fragment.returns); result.breaks.push(...fragment.breaks); result.continues.push(...fragment.continues);
+      result.nodes.push(...fragment.nodes); result.returns.push(...fragment.returns); result.breaks.push(...fragment.breaks); result.continues.push(...fragment.continues); result.panics.push(...fragment.panics);
     }
     result.normal = previous; return result;
+  };
+  const evaluate = (e: Evaluation, path: string, ancestors: readonly Id[]): Fragment => {
+    const f = empty();
+    const sequence = (items: readonly Evaluation[]): Fragment => {
+      const result = empty(); let previous: Id[] = [];
+      items.forEach((child, i) => {
+        const part = evaluate(child, `${path}/part/${i}`, ancestors);
+        if (i === 0) result.entry = part.entry;
+        connect(previous, part.entry); previous = part.normal;
+        result.nodes.push(...part.nodes); result.returns.push(...part.returns); result.panics.push(...part.panics);
+      });
+      result.normal = previous; return result;
+    };
+    if (e.kind === 'check' || e.kind === 'checkpanic') {
+      const operand = sequence(e.children);
+      const terminal: DiagramNode = {id: path + '/error', kind: e.kind === 'check' ? 'return' : 'panic', selection: e, label: e.kind === 'check' ? 'Return error' : 'Panic with error', children: []};
+      const gate: DiagramNode = {id: path, kind: 'condition', selection: e, label: e.kind, children: [terminal]};
+      hints.set(gate, {mode: 'if', split: 0}); hints.set(terminal, {mode: 'sequence'});
+      const join = port(gate, 'normal-exit');
+      edge(port(gate, 'true'), join, 'true', 'value');
+      edge(port(gate, 'false'), port(terminal, 'entry'), 'error', 'error');
+      connect(operand.normal, port(gate, 'entry'));
+      f.nodes = [...operand.nodes, gate]; f.entry = operand.entry ?? port(gate, 'entry'); f.normal = [join];
+      f.returns = [...operand.returns]; f.panics = [...operand.panics];
+      if (e.kind === 'check') f.returns.push(port(terminal, 'return'));
+      else f.panics.push(port(terminal, 'panic'));
+      return f;
+    }
+    if (e.kind === 'trap') {
+      const operand = sequence(e.children);
+      const capture: DiagramNode = {id: path + '/capture', kind: 'step', selection: e, label: 'Capture panic as error value', children: []};
+      const node: DiagramNode = {id: path, kind: 'trap', selection: e, label: 'trap', children: [...operand.nodes, capture]};
+      hints.set(node, {mode: 'trap'}); hints.set(capture, {mode: 'sequence'});
+      const exit = port(node, 'normal-exit');
+      edge(port(node, 'entry'), operand.entry ?? exit);
+      connect(operand.normal, exit);
+      operand.panics.forEach(p => edge(p, port(capture, 'entry'), 'panic', 'panic'));
+      edge(port(capture, 'normal-exit'), exit, 'sequence', 'error value');
+      f.nodes = [node]; f.entry = port(node, 'entry'); f.normal = [exit]; f.returns = operand.returns;
+      return f;
+    }
+    const nested = sequence(e.kind === 'template' ? e.children.filter(child => child.kind !== 'source' || child.children.length > 0) : e.children);
+    const client = e.call?.client;
+    const contextExpanded = expanded.has(path + '/context');
+    const context = client ? client.context.initializer?.text ?? (client.context.origin === 'parameter' ? 'Parameter' : 'Initialization not statically known') : '';
+    const summary = contextExpanded || context.length <= 90 ? context : context.slice(0, 87) + '…';
+    const method = client ? (client.method.startsWith('->') ? client.method : `→ ${client.method}(${client.arguments.map(a => a.text).join(', ')})`) : '';
+    const label = client ? `${client.context.receiver.text}${client.context.type ? ` · ${client.context.type}` : ''}\n${summary}\n${method}` : e.text;
+    const node: DiagramNode = {id: path, kind: client ? 'client' : e.kind === 'template' ? 'template' : e.call?.target.kind === 'workspace' ? 'function' : 'step', selection: e.call ?? e, label, children: [], ...(client ? {client, contextExpanded, ...(context.length > 90 ? {contextPath: path + '/context'} : {})} : {})};
+    hints.set(node, {mode: 'sequence'});
+    f.nodes = [...nested.nodes, node]; f.entry = nested.entry ?? port(node, 'entry');
+    connect(nested.normal, port(node, 'entry'));
+    f.normal = [port(node, 'normal-exit')]; f.returns = nested.returns; f.panics = [...nested.panics, port(node, 'panic')];
+    // Keep workspace expansion available inside operators and interpolations.
+    if (e.call?.target.kind === 'workspace') {
+      const call = e.call, target = program.functions[e.call.target.functionId];
+      const recursive = !!target && ancestors.includes(target.id), callPath = path + '/expand';
+      const unavailable = !target ? 'Function body is unavailable.' : recursive ? 'Recursive calls remain collapsed.' : call.expansion === 'unavailable' ? call.reason : undefined;
+      hints.set(node, {mode: 'sequence', path: callPath, unavailable, recursive});
+      if (expanded.has(callPath) && !unavailable && target) {
+        const body = block(target.body, callPath, [...ancestors, target.id]);
+        (node.children as DiagramNode[]).push(...body.nodes);
+        edge(port(node, 'entry'), body.entry ?? port(node, 'normal-exit'));
+        connect([...body.normal, ...body.returns], port(node, 'normal-exit'), 'return');
+        f.panics = [...nested.panics, port(node, 'panic'), ...body.panics];
+        if (body.entry && !body.normal.length && !body.returns.length) f.normal = [];
+      }
+    }
+    return f;
   };
   const convert = (s: Statement, path: string, ancestors: readonly Id[]): Fragment => {
     const f = empty();
@@ -34,8 +103,24 @@ export function buildDiagram(program: ProgramModel, functionId: Id, expanded: Re
     hints.set(node, {mode: 'sequence', ...(s.kind === 'unsupported' ? {unavailable: s.reason} : {})});
     f.nodes.push(node); f.entry = port(node, 'entry');
     if (s.kind === 'unsupported') return f;
+    const evaluation = s.evaluation ?? (s.kind === 'if' || s.kind === 'while' ? s.condition.evaluation : s.kind === 'foreach' ? s.header.evaluation : undefined);
+    if (evaluation && (s.kind === 'simple' || s.kind === 'return')) {
+      const evaluated = evaluate(evaluation, path + '/evaluation', ancestors);
+      const completion: DiagramNode = {...node, label: s.kind === 'return' ? 'Return value' : s.binding ? `Result → ${s.binding}` : s.text};
+      hints.set(completion, {mode: 'sequence'});
+      connect(evaluated.normal, port(completion, 'entry'));
+      return {...evaluated, nodes: [...evaluated.nodes, completion], entry: evaluated.entry ?? port(completion, 'entry'),
+        normal: s.kind === 'return' ? [] : [port(completion, 'normal-exit')],
+        returns: [...evaluated.returns, ...(s.kind === 'return' ? [port(completion, 'return')] : [])]};
+    }
     if (s.kind === 'break') { f.breaks.push(port(node, 'break')); return f; }
     if (s.kind === 'continue') { f.continues.push(port(node, 'continue')); return f; }
+    if (evaluation && (s.kind === 'if' || s.kind === 'while' || s.kind === 'foreach')) {
+      const evaluated = evaluate(evaluation, path + '/evaluation', ancestors);
+      f.nodes.unshift(...evaluated.nodes); f.entry = evaluated.entry ?? f.entry;
+      connect(evaluated.normal, port(node, 'entry'));
+      f.returns.push(...evaluated.returns); f.panics.push(...evaluated.panics);
+    }
     if (s.kind === 'if') {
       const a = block(s.thenBody, path + '/then', ancestors), b = block(s.elseBody, path + '/else', ancestors);
       children.push(...a.nodes, ...b.nodes); hints.set(node, {mode: 'if', split: a.nodes.length});
@@ -43,14 +128,14 @@ export function buildDiagram(program: ProgramModel, functionId: Id, expanded: Re
       edge(port(node, 'true'), a.entry ?? join, 'true'); edge(port(node, 'false'), b.entry ?? join, 'false');
       connect(a.normal, join); connect(b.normal, join);
       f.normal = a.entry && b.entry && !a.normal.length && !b.normal.length ? [] : [join];
-      f.returns.push(...a.returns, ...b.returns); f.breaks.push(...a.breaks, ...b.breaks); f.continues.push(...a.continues, ...b.continues); return f;
+      f.panics.push(...a.panics, ...b.panics); f.returns.push(...a.returns, ...b.returns); f.breaks.push(...a.breaks, ...b.breaks); f.continues.push(...a.continues, ...b.continues); return f;
     }
     if (s.kind === 'while' || s.kind === 'foreach') {
       const body = block(s.body, path + '/loop', ancestors); children.push(...body.nodes); hints.set(node, {mode: s.kind});
       const exit = port(node, 'normal-exit'); f.normal = [exit];
       const iteration = s.kind === 'while' ? f.entry : port(node, 'next-iteration');
       edge(port(node, 'true'), body.entry ?? iteration, s.kind === 'while' ? 'true' : 'sequence'); if (s.kind === 'while') edge(port(node, 'false'), exit, 'false');
-      connect(body.normal, iteration, s.kind === 'while' ? 'back' : 'sequence'); connect(body.continues, iteration, 'continue'); connect(body.breaks, exit, 'break'); f.returns = body.returns; return f;
+      connect(body.normal, iteration, s.kind === 'while' ? 'back' : 'sequence'); connect(body.continues, iteration, 'continue'); connect(body.breaks, exit, 'break'); f.returns.push(...body.returns); f.panics.push(...body.panics); return f;
     }
     let normal = port(node, 'normal-exit');
     const calls = 'calls' in s ? s.calls : [];
@@ -127,9 +212,10 @@ export function layoutDiagram(diagram: Diagram, measure: (label: string) => {wid
     if (p.role === 'true') return hint?.mode === 'foreach'
       ? {x: b.x + b.width / 2, y: b.y + Math.max(52, measure(node.label).height + 28)}
       : {x: b.x, y: b.y + Math.max(52, measure(node.label).height + 28) / 2};
+    if (p.role === 'panic') return {x: b.x + b.width, y: b.y + Math.max(52, measure(node.label).height + 28) / 2};
     if (p.role === 'false') return {x: b.x + b.width, y: b.y + Math.max(52, measure(node.label).height + 28) / 2};
     if (p.role === 'normal-exit' && hint?.mode === 'if') return {x: b.x + b.width / 2, y: exits.get(p.nodeId)!};
-    if (p.role === 'normal-exit' && node.children.length && !hint?.path && !hint?.root && node.kind !== 'loop') return {x: b.x + b.width / 2, y: b.y + Math.max(52, measure(node.label).height + 28)};
+    if (p.role === 'normal-exit' && node.children.length && !hint?.path && !hint?.root && node.kind !== 'loop' && node.kind !== 'trap') return {x: b.x + b.width / 2, y: b.y + Math.max(52, measure(node.label).height + 28)};
     return {x: b.x + b.width / 2, y: b.y + b.height};
   };
   const parents = new Map<Id, Id>();
@@ -143,7 +229,7 @@ export function layoutDiagram(diagram: Diagram, measure: (label: string) => {wid
     const a = point(e.fromPort), b = point(e.toPort), from = portMap.get(e.fromPort)!, to = portMap.get(e.toPort)!, box = boxes[to.nodeId];
     let preferred: {x: number; y: number}[];
     if (e.kind === 'back' || e.kind === 'continue' && b.y < a.y) { const x = box.x - lane / 2; preferred = [a, {x: a.x, y: a.y + 18}, {x, y: a.y + 18}, {x, y: b.y - 18}, {x: b.x, y: b.y - 18}, b]; }
-    else if (e.kind === 'true' || e.kind === 'false') {
+    else if (e.kind === 'true' || e.kind === 'false' || e.kind === 'error') {
       const outward = e.kind === 'true' ? b.x < a.x : b.x > a.x;
       if (outward && b.y > a.y) preferred = [a, {x: b.x, y: a.y}, b];
       else { const x = a.x + (e.kind === 'true' ? -24 : 24); preferred = [a, {x, y: a.y}, {x, y: b.y - 18}, {x: b.x, y: b.y - 18}, b]; }

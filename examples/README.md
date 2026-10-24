@@ -19,3 +19,5 @@ These are source fixtures for [the flow specification](../spec.md), not Ballerin
 | [design-critique](design-critique/) | Representative browser design comparison |
 
 Runnable baselines stay within the pinned Nutcracker compiler's supported scope. They contain no configurable declarations or unused module variables. Unreferenced functions and types remain covered. `TestResolvedFrontendExamples` checks all eleven packages through both native `Check` and the public frontend pipeline; visualization limitations in unsupported-constructs are supported compiler syntax, not intentionally uncompilable source.
+
+- [Client calls](client-calls/README.md): generic constructor and method context, named arguments, string templates, and error operators.

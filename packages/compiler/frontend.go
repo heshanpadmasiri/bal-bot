@@ -29,11 +29,14 @@ type resolvedModule struct {
 }
 
 type resolvedProgram struct {
-	functionIDs     map[model.SymbolRef]string
-	availableBodies map[string]bool
-	files           Files
-	env             *context.CompilerEnvironment
-	modules         []*resolvedModule
+	sourceCallArgs   map[ast.Invocable][]ast.BLangExpression
+	sourceNewArgs    map[*ast.BLangNewExpression][]ast.BLangExpression
+	receiverContexts map[model.SymbolRef]ReceiverContextModel
+	functionIDs      map[model.SymbolRef]string
+	availableBodies  map[string]bool
+	files            Files
+	env              *context.CompilerEnvironment
+	modules          []*resolvedModule
 }
 
 // resolveProgram resolves captured source through local types, retaining no state between calls.
@@ -83,7 +86,7 @@ func resolveProgram(files Files) (program *resolvedProgram, items []Diagnostic, 
 	if projects.NewDiagnosticResult(all).HasErrors() {
 		return finish(nil)
 	}
-	program = &resolvedProgram{files: files, env: env}
+	program = &resolvedProgram{files: files, env: env, sourceCallArgs: map[ast.Invocable][]ast.BLangExpression{}, sourceNewArgs: map[*ast.BLangNewExpression][]ast.BLangExpression{}}
 	public := map[semantics.PackageIdentifier]model.ExportedSymbolSpace{}
 	visibility := map[semantics.PackageIdentifier]semantics.ModuleVisibility{}
 	var packages []*projects.Package
@@ -156,6 +159,17 @@ func resolveProgram(files Files) (program *resolvedProgram, items []Diagnostic, 
 			astPkg.PackageID, astPkg.Scope = pid, scope
 			if cx.HasErrors() {
 				return finish(nil)
+			}
+			if pkg == root {
+				ast.Walk(sourceVisitor(func(n ast.BLangNode) bool {
+					if call, ok := n.(ast.Invocable); ok {
+						program.sourceCallArgs[call] = append([]ast.BLangExpression{}, call.CallArgs()...)
+					}
+					if expr, ok := n.(*ast.BLangNewExpression); ok {
+						program.sourceNewArgs[expr] = append([]ast.BLangExpression{}, expr.ArgsExprs...)
+					}
+					return true
+				}), astPkg)
 			}
 			semantics.ResolvePublicNodeTypes(cx, astPkg, imports)
 			if cx.HasErrors() {

@@ -46,7 +46,7 @@ func exampleFiles(t *testing.T, name string) Files {
 // which is outside the upstream compiler corpus and must not call Compilation.
 func TestResolvedFrontendExamples(t *testing.T) {
 	t.Parallel()
-	for _, name := range []string{"service-discovery", "automation-flow", "definitions-and-calls", "control-flow", "function-expansion", "source-ranges", "analysis-recovery", "chat-references", "panel-state", "unsupported-constructs", "design-critique"} {
+	for _, name := range []string{"service-discovery", "automation-flow", "definitions-and-calls", "control-flow", "function-expansion", "source-ranges", "analysis-recovery", "chat-references", "panel-state", "unsupported-constructs", "design-critique", "client-calls"} {
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			files := exampleFiles(t, name)

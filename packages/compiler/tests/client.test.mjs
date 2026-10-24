@@ -65,3 +65,14 @@ test('analysis validates source bounds, identities, targets and operation; cance
     const cancel=new AbortController();const pending=compiler.analyze({'main.bal':'x'},cancel.signal).catch(e=>e.name);const check=compiler.check({});cancel.abort();WorkerStub.instances.at(-1).respond(valid);assert.equal(await pending,'AbortError');assert.deepEqual(await check,{diagnostics:[]});
   }finally{globalThis.Worker=original;WorkerStub.prototype.postMessage=post;}
 });
+
+test('evaluation transport rejects malformed nesting and inconsistent client context',()=>{
+ const at=id=>({id,text:'x',source:{file:'main.bal',range:{start:{line:1,column:1},end:{line:1,column:2}}}});
+ const call={...at('call'),target:{kind:'external',label:'send'},expansion:'unavailable',reason:'External',client:{context:{receiver:at('receiver'),origin:'constructor',initializer:at('initializer')},method:'send',arguments:[at('argument')]}};
+ const statement={...at('statement'),kind:'simple',operation:'declare',presentation:'step',calls:[call],evaluation:{...at('check'),kind:'check',children:[{...at('invoke'),kind:'call',children:[],call}]}};
+ const response={kind:'result',operation:'analyze',result:{kind:'valid',diagnostics:[],program:{scopes:[],functions:{main:{...at('main'),moduleId:'m',entry:{kind:'function',name:'main',signature:'function main()',parameters:[],returnType:'()'},body:[statement]}}}}};
+ assert.doesNotThrow(()=>validateResponse(response));
+ for(const mutate of [s=>s.evaluation.children=[],s=>s.evaluation.kind='unknown',s=>s.evaluation.children[0].call={...s.evaluation.children[0].call,id:'missing'},s=>s.calls[0].client.context.origin='guessed',s=>delete s.calls[0].client.context.initializer,s=>s.calls[0].client.arguments=[{}]]){
+  const bad=structuredClone(response);mutate(bad.result.program.functions.main.body[0]);assert.throws(()=>validateResponse(bad),/Invalid compiler response/);
+ }
+});

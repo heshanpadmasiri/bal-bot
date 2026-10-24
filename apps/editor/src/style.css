@@ -138,3 +138,14 @@ aside[hidden]{display:none}.main-location{display:flex;align-items:center;gap:14
 
 .flow-node.function.recursive { stroke-dasharray: 5 3; }
 [data-recursive] .node-disclosure:disabled { opacity: 1; color: #85633b; border-color: #b99d75; }
+
+.flow-node.client { fill: #effaf8; stroke: #68b5a8; }
+.flow-node.trap, .container.trap { fill: #f5f0fc; stroke: #b6a1d2; }
+.flow-node.panic { fill: #fff0ef; stroke: #d68b86; }
+.flow-node.template { fill: #edf5fd; stroke: #adc7e3; }
+.client-receiver, .client-context, .client-method { display: block; }
+.client-receiver { color: #336b65; font-weight: 600; }
+.client-context { color: #667582; }
+.client-method { color: #164e49; font-weight: 600; }
+
+.node-header.client-header .node-select { width: 100%; }

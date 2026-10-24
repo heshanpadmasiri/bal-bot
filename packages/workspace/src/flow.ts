@@ -6,10 +6,27 @@ export interface SourceReference { readonly file: string; readonly range: Source
 export interface Located { readonly id: Id; readonly source: SourceReference; readonly text: string; }
 export type CallTarget = { readonly kind: 'workspace'; readonly functionId: Id }
   | { readonly kind: 'external'; readonly label: string };
-export type CallSite = Located & ({ readonly target: { readonly kind: 'workspace'; readonly functionId: Id }; readonly expansion: 'supported' }
+export interface ReceiverContext {
+  readonly receiver: Located;
+  readonly type?: string;
+  readonly origin: 'constructor' | 'initializer' | 'parameter' | 'unavailable';
+  readonly initializer?: Located;
+}
+export interface ClientInvocation {
+  readonly context: ReceiverContext;
+  readonly method: string;
+  readonly arguments: readonly Located[];
+}
+export interface Evaluation extends Located {
+  readonly kind: 'source' | 'call' | 'check' | 'checkpanic' | 'trap' | 'template';
+  readonly children: readonly Evaluation[];
+  readonly call?: CallSite;
+  readonly strings?: readonly string[];
+}
+export type CallSite = Located & { readonly client?: ClientInvocation } & ({ readonly target: { readonly kind: 'workspace'; readonly functionId: Id }; readonly expansion: 'supported' }
   | { readonly target: CallTarget; readonly expansion: 'unavailable'; readonly reason: string });
-export interface Expression extends Located { readonly calls: readonly CallSite[]; }
-export type Statement = Located & (
+export interface Expression extends Located { readonly calls: readonly CallSite[]; readonly evaluation?: Evaluation; }
+export type Statement = Located & { readonly evaluation?: Evaluation; readonly binding?: string } & (
   | { readonly kind: 'simple'; readonly operation: 'declare' | 'assign' | 'expression'; readonly presentation: 'step' | 'mapping'; readonly calls: readonly CallSite[] }
   | { readonly kind: 'return'; readonly calls: readonly CallSite[] }
   | { readonly kind: 'if'; readonly condition: Expression; readonly thenBody: readonly Statement[]; readonly elseBody: readonly Statement[] }

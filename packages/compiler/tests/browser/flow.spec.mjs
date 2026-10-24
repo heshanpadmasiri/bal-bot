@@ -2,7 +2,7 @@ import {test, expect} from '@playwright/test';
 import {readFileSync, readdirSync} from 'node:fs';
 import {join, relative} from 'node:path';
 import {spawnSync} from 'node:child_process';
-const names = ['service-discovery','automation-flow','definitions-and-calls','control-flow','function-expansion','source-ranges','analysis-recovery','chat-references','panel-state','unsupported-constructs','design-critique'];
+const names = ['service-discovery','automation-flow','definitions-and-calls','control-flow','function-expansion','source-ranges','analysis-recovery','chat-references','panel-state','unsupported-constructs','design-critique','client-calls'];
 function fixture(name) {const root=join(process.cwd(),'examples',name), files={};const visit=dir=>{for(const entry of readdirSync(dir,{withFileTypes:true})){const path=join(dir,entry.name);if(entry.isDirectory())visit(path);else if(/\.(bal|toml)$/.test(entry.name))files[relative(root,path)]=readFileSync(path,'utf8');}};visit(root);return files;}
 const inputs=Object.fromEntries(names.map(n=>[n,fixture(n)]));
 const native=spawnSync('go',['run','./tests/native'],{cwd:join(process.cwd(),'packages/compiler'),env:{...process.env,GOWORK:'off'},input:JSON.stringify(Object.values(inputs)),encoding:'utf8',maxBuffer:8*1024*1024});
@@ -410,4 +410,31 @@ function fib(int n) returns int {
  await reference.click();
  await expect(page.locator('.reference-chip')).toHaveCount(1);
  expect(errors).toEqual([]);
+});
+
+test('client call cards render generic source context, explicit errors and string templates', async ({page}) => {
+ await open(page,'client-calls');
+ await page.locator('.endpoint').first().click();
+ const card=page.locator('[data-node-kind="client"]');
+ await expect(card).toHaveCount(1);
+ await expect(card).toContainText('testClient · http:Client');
+ await expect(card).toContainText('check new ("https://test.com")');
+ await expect(card).toContainText('→ get("/foo/bar")');
+ await expect(page.locator('[data-node-kind="return"]')).toContainText(['Return error','Return value']);
+ await expect(page.locator('[data-node-kind="template"] .node-select')).toHaveAttribute('aria-label','Reference string `hello ${person.first_name} ${person.last_name}`');
+ await expect(page.locator('.node-limitation')).toHaveCount(0);
+ await page.locator('.diagram-scroll').screenshot({path:test.info().outputPath('client-flow.png')});
+ await card.getByRole('button').click();
+ await expect(page.locator('.reference-chip')).toHaveAttribute('title','testClient->get("/foo/bar")');
+ await page.locator('.service').first().click();
+ await page.getByRole('button',{name:'sendMessage',exact:true}).click();
+ const queue=page.locator('[data-node-kind="client"]');
+ await expect(queue).toContainText('producer · Queue');
+ await expect(queue).toContainText('new ("broker", port = 9093)');
+ await expect(queue).toContainText('→ send("hello", topic = "orders")');
+ await page.getByRole('button',{name:'← Definitions',exact:true}).click();
+ await page.getByRole('button',{name:'capturePanic',exact:true}).click();
+ await expect(page.locator('[data-node-kind="trap"] .node-select')).toHaveText('trap');
+ await expect(page.locator('[data-node-kind="panic"]')).toContainText('Panic with error');
+ await expect(page.getByRole('button',{name:'Reference Capture panic as error value',exact:true})).toBeVisible();
 });

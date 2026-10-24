@@ -31,14 +31,48 @@ export function validateProgram(value: unknown): ProgramModel {
       const call = located(item), target = object(call.target); reserve(call, seen);
       if (target.kind === 'workspace') functionId(target.functionId);
       else if (target.kind === 'external') { string(target.label); if (target.functionId !== undefined) fail(); } else fail();
+      if (call.client !== undefined) {
+        const client = object(call.client), context = object(client.context);
+        located(context.receiver); string(client.method);
+        if (context.type !== undefined) string(context.type);
+        if (!['constructor', 'initializer', 'parameter', 'unavailable'].includes(String(context.origin))) fail();
+        if (context.origin === 'constructor' || context.origin === 'initializer') located(context.initializer);
+        else if (context.initializer !== undefined) fail();
+        for (const arg of array(client.arguments)) located(arg);
+      }
       if (call.expansion === 'supported') { if (target.kind !== 'workspace' || call.reason !== undefined) fail(); }
       else if (call.expansion === 'unavailable') string(call.reason); else fail();
     }
   };
-  const expression = (value: unknown, seen: Set<string>) => { const expr = located(value); reserve(expr, seen); calls(expr.calls, seen); };
+  const evaluation = (value: unknown, knownCalls: unknown, seen: Set<string>) => {
+    if (value === undefined) return;
+    const known = new Map(array(knownCalls).map(call => [string(object(call).id), call]));
+    const visit = (value: unknown) => {
+      const e = located(value); reserve(e, seen);
+      if (!['source', 'call', 'check', 'checkpanic', 'trap', 'template'].includes(String(e.kind))) fail();
+      const children = array(e.children);
+      if (['check', 'checkpanic', 'trap'].includes(String(e.kind)) && children.length !== 1) fail();
+      if (e.kind === 'call') {
+        const call = located(e.call);
+        if (!known.has(string(call.id)) || JSON.stringify(call) !== JSON.stringify(known.get(string(call.id)))) fail();
+      } else if (e.call !== undefined) fail();
+      if (e.kind === 'template') {
+        const strings = array(e.strings);
+        if (strings.length !== children.length + 1 || !strings.every(s => typeof s === 'string')) fail();
+      } else if (e.strings !== undefined) fail();
+      children.forEach(visit);
+    };
+    visit(value);
+  };
+  const expression = (value: unknown, seen: Set<string>) => { const expr = located(value); reserve(expr, seen); calls(expr.calls, seen); evaluation(expr.evaluation, expr.calls, seen); };
   const statements = (value: unknown, seen: Set<string>) => {
     for (const item of array(value)) {
       const s = located(item), id = string(s.id); if (seen.has(id)) fail(); seen.add(id);
+      if (s.binding !== undefined && typeof s.binding !== 'string') fail();
+      if (s.evaluation !== undefined) {
+        if (s.kind !== 'simple' && s.kind !== 'return') fail();
+        evaluation(s.evaluation, s.calls, seen);
+      }
       switch (s.kind) {
         case 'simple': if (!['declare', 'assign', 'expression'].includes(String(s.operation)) || !['step', 'mapping'].includes(String(s.presentation))) fail(); calls(s.calls, seen); break;
         case 'return': calls(s.calls, seen); break;

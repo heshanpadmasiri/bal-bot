@@ -41,6 +41,9 @@ Selecting an endpoint shows its connected control-flow graph. Keep execution pat
 - **While:** show the condition expression, body, back edge, and exit.
 - **Foreach:** show a container headed by the iteration binding and collection. Its body runs per item; execution leaves the container after iteration. No routine back arrow is needed. Explicit `continue` and `break` indicate next iteration and exit.
 - **Function call:** click to expand the function's flow in place, preserving entry and exit connections. Shared functions remain one implementation; show affected callers in change details.
+- **Client calls:** show the receiver and declared type, its source initializer when reliable, and the method with original arguments in source order. Use the same card for every client library. Long initializers expand independently of workspace method bodies. Parameter receivers say `Parameter`; mutable or unresolved origins do not display a guessed constructor.
+- **Error operators:** `check` branches to `Return error`; `checkpanic` branches to `Panic with error`. A `trap` container captures panic paths from its operand as error values and rejoins normal evaluation. A checked failure inside `trap` still leaves the function. Enclosing on-fail constructs and conditional evaluation of these effects retain explicit unsupported-source regions.
+- **String templates:** preserve the template source and ordered literal/interpolation parts. Calls and error operators in interpolations participate in the surrounding evaluation.
 - **Async:** dotted arrows connect the launch to the asynchronous work and its result to the wait. Execution inside each path uses solid arrows. Identify the future without a “runs async” label.
 
 Allow the graph to pan and zoom, and expand inspection to the full workspace for detailed exploration. Function and mapping expansion must preserve the surrounding flow.
