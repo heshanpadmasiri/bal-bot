@@ -1,0 +1,4461 @@
+{
+  "wrapper": {
+    "mode": "normal",
+    "workspace": {
+      "className": "workspace flow-workspace ",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 1200,
+        "y": 68,
+        "width": 300,
+        "height": 882
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "grid",
+          "position": "relative",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 1200,
+          "y": 68,
+          "width": 300,
+          "height": 882
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "300px",
+          "height": "882px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 274.1875,
+          "width": 259,
+          "height": 870.203125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "870.203px",
+          "min-width": "0px",
+          "max-width": "828px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 20px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 142,
+          "width": 259,
+          "height": 116.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "116.188px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 1231.01123046875,
+          "y": 281.69464111328125,
+          "width": 238.9775390625,
+          "height": 16.265472412109375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "764px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 240, 252)",
+          "stroke": "rgb(182, 161, 210)",
+          "stroke-width": "2.5px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1307.95947265625,
+          "y": 314.2255859375,
+          "width": 85.0810546875,
+          "height": 16.2655029296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1307.95947265625,
+          "y": 346.7565612792969,
+          "width": 85.0810546875,
+          "height": 16.265472412109375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 241, 253)",
+          "stroke": "rgb(180, 162, 212)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1360.509521484375,
+          "y": 379.28753662109375,
+          "width": 85.0809326171875,
+          "height": 16.26544189453125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 240, 239)",
+          "stroke": "rgb(214, 139, 134)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1305.076171875,
+          "y": 444.34942626953125,
+          "width": 90.84765625,
+          "height": 16.2655029296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "290.436px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(53, 120, 212)",
+          "stroke-width": "2.5px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1306.2923583984375,
+          "y": 518.7952880859375,
+          "width": 88.415283203125,
+          "height": 16.2655029296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "282.66px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1280.677978515625,
+          "y": 551.3262329101562,
+          "width": 139.64404296875,
+          "height": 16.26544189453125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "446.436px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 240, 252)",
+          "stroke": "rgb(182, 161, 210)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1307.95947265625,
+          "y": 583.857177734375,
+          "width": 85.0810546875,
+          "height": 16.2655029296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1305.076171875,
+          "y": 616.38818359375,
+          "width": 90.84765625,
+          "height": 16.26544189453125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "290.436px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1307.95947265625,
+          "y": 690.833984375,
+          "width": 85.0810546875,
+          "height": 16.2655029296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 241, 253)",
+          "stroke": "rgb(180, 162, 212)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1360.509521484375,
+          "y": 723.364990234375,
+          "width": 85.0809326171875,
+          "height": 16.26544189453125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1307.95947265625,
+          "y": 788.4268798828125,
+          "width": 85.0810546875,
+          "height": 16.2655029296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1307.95947265625,
+          "y": 820.9578247070312,
+          "width": 85.0810546875,
+          "height": 16.2655029296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1307.95947265625,
+          "y": 853.48876953125,
+          "width": 85.0810546875,
+          "height": 16.2655029296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 241, 253)",
+          "stroke": "rgb(180, 162, 212)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1360.509521484375,
+          "y": 886.019775390625,
+          "width": 85.0809326171875,
+          "height": 16.26544189453125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1301.4158935546875,
+          "y": 951.0816650390625,
+          "width": 98.168212890625,
+          "height": 16.2655029296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "313.839px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1307.95947265625,
+          "y": 983.6126098632812,
+          "width": 85.0810546875,
+          "height": 16.2655029296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1307.95947265625,
+          "y": 1016.1435546875,
+          "width": 85.0810546875,
+          "height": 16.2655029296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1307.95947265625,
+          "y": 1048.674560546875,
+          "width": 85.0810546875,
+          "height": 16.265380859375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1307.95947265625,
+          "y": 1081.20556640625,
+          "width": 85.0810546875,
+          "height": 16.265380859375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [
+      {
+        "rect": {
+          "x": 1231.01123046875,
+          "y": 281.69464111328125,
+          "width": 238.9775390625,
+          "height": 220.83514404296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "764px",
+          "height": "706px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 240, 252)",
+          "stroke": "rgb(182, 161, 210)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1280.677978515625,
+          "y": 551.3262329101562,
+          "width": 139.64404296875,
+          "height": 123.24224853515625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "446.436px",
+          "height": "394px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 240, 252)",
+          "stroke": "rgb(182, 161, 210)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 1297.3243408203125,
+          "y": 286.230224609375,
+          "width": 106.3511962890625,
+          "height": 8.445526123046875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgb(237, 242, 235)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1321.0970458984375,
+          "y": 318.76116943359375,
+          "width": 58.805908203125,
+          "height": 8.445526123046875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1311.0875244140625,
+          "y": 351.2921142578125,
+          "width": 78.824951171875,
+          "height": 8.445556640625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1363.637451171875,
+          "y": 383.8230895996094,
+          "width": 78.8250732421875,
+          "height": 8.445526123046875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1308.203857421875,
+          "y": 448.885009765625,
+          "width": 84.58740234375,
+          "height": 8.445526123046875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "270.422px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1309.416015625,
+          "y": 523.330810546875,
+          "width": 82.158203125,
+          "height": 8.445556640625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "262.656px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1297.3243408203125,
+          "y": 555.86181640625,
+          "width": 106.3511962890625,
+          "height": 8.445556640625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1321.0970458984375,
+          "y": 588.3927612304688,
+          "width": 58.805908203125,
+          "height": 8.44549560546875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1308.203857421875,
+          "y": 620.9237060546875,
+          "width": 84.58740234375,
+          "height": 8.445556640625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "270.422px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1311.0875244140625,
+          "y": 695.3695678710938,
+          "width": 78.824951171875,
+          "height": 8.44549560546875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1363.637451171875,
+          "y": 727.9005126953125,
+          "width": 78.8250732421875,
+          "height": 8.445556640625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1311.0875244140625,
+          "y": 792.9624633789062,
+          "width": 78.824951171875,
+          "height": 8.44549560546875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1321.0970458984375,
+          "y": 825.493408203125,
+          "width": 58.805908203125,
+          "height": 8.445556640625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1311.0875244140625,
+          "y": 858.0243530273438,
+          "width": 78.824951171875,
+          "height": 8.445556640625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1363.637451171875,
+          "y": 890.5552978515625,
+          "width": 78.8250732421875,
+          "height": 8.445556640625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1304.543212890625,
+          "y": 955.6172485351562,
+          "width": 91.90869140625,
+          "height": 8.44549560546875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "293.828px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1311.0875244140625,
+          "y": 988.148193359375,
+          "width": 78.824951171875,
+          "height": 8.445556640625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1311.0875244140625,
+          "y": 1020.6791381835938,
+          "width": 78.824951171875,
+          "height": 8.44561767578125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1311.0875244140625,
+          "y": 1053.2100830078125,
+          "width": 78.824951171875,
+          "height": 8.445556640625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1311.0875244140625,
+          "y": 1085.7410888671875,
+          "width": 78.824951171875,
+          "height": 8.4454345703125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [
+      {
+        "rect": {
+          "x": 1310.4619140625,
+          "y": 316.72796630859375,
+          "width": 8.1326904296875,
+          "height": 8.13275146484375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1310.4619140625,
+          "y": 586.359619140625,
+          "width": 8.1326904296875,
+          "height": 8.1326904296875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1310.4619140625,
+          "y": 823.460205078125,
+          "width": 8.1326904296875,
+          "height": 8.13275146484375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-limitation": [],
+    ".edge-label": [
+      {
+        "rect": {
+          "x": 1296.59716796875,
+          "y": 348.38690185546875,
+          "width": 8.234375,
+          "height": 5
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1396.16845703125,
+          "y": 348.38690185546875,
+          "width": 7.265625,
+          "height": 5
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1396.16845703125,
+          "y": 315.85595703125,
+          "width": 8.234375,
+          "height": 5
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1448.718505859375,
+          "y": 380.9178771972656,
+          "width": 8.234375,
+          "height": 5
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1353.6279296875,
+          "y": 454.1125183105469,
+          "width": 16.453125,
+          "height": 5.000030517578125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1396.16845703125,
+          "y": 585.487548828125,
+          "width": 8.234375,
+          "height": 5
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1353.6279296875,
+          "y": 626.1512451171875,
+          "width": 16.453125,
+          "height": 5
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1296.59716796875,
+          "y": 692.46435546875,
+          "width": 8.234375,
+          "height": 5
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1396.16845703125,
+          "y": 692.46435546875,
+          "width": 7.265625,
+          "height": 5
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1296.59716796875,
+          "y": 855.119140625,
+          "width": 8.234375,
+          "height": 5
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1396.16845703125,
+          "y": 855.119140625,
+          "width": 7.265625,
+          "height": 5
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".client-receiver": [],
+    ".client-context": [],
+    ".client-method": []
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "browser/http_service/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 2,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 7,
+                    "column": 3
+                  }
+                }
+              },
+              "text": "public function main() returns error? {\n   int|error captured = trap checkpanic risky();\n   int checked = check (trap risky());\n   string message = string `value ${check risky()}`;\n _ = captured; _ = checked; _ = message;\n }",
+              "kind": "automation",
+              "title": "Automation",
+              "moduleId": "browser/http_service",
+              "serviceType": null,
+              "functionId": "browser/http_service/function/main"
+            }
+          ],
+          "functions": {
+            "browser/http_service/function/main": {
+              "id": "browser/http_service/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 2,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 7,
+                    "column": 3
+                  }
+                }
+              },
+              "text": "public function main() returns error? {\n   int|error captured = trap checkpanic risky();\n   int checked = check (trap risky());\n   string message = string `value ${check risky()}`;\n _ = captured; _ = checked; _ = message;\n }",
+              "moduleId": "browser/http_service",
+              "entry": {
+                "kind": "function",
+                "name": "main",
+                "signature": "public function main() returns error?",
+                "parameters": [],
+                "returnType": "error?"
+              },
+              "body": [
+                {
+                  "id": "browser/http_service/function/main/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 49
+                      }
+                    }
+                  },
+                  "text": "int|error captured = trap checkpanic risky();",
+                  "evaluation": {
+                    "id": "browser/http_service/function/main/statement/0/value",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 3,
+                          "column": 25
+                        },
+                        "end": {
+                          "line": 3,
+                          "column": 48
+                        }
+                      }
+                    },
+                    "text": "trap checkpanic risky()",
+                    "kind": "trap",
+                    "children": [
+                      {
+                        "id": "browser/http_service/function/main/statement/0/value/part/0",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 3,
+                              "column": 30
+                            },
+                            "end": {
+                              "line": 3,
+                              "column": 48
+                            }
+                          }
+                        },
+                        "text": "checkpanic risky()",
+                        "kind": "checkpanic",
+                        "children": [
+                          {
+                            "id": "browser/http_service/function/main/statement/0/value/part/0/part/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 3,
+                                  "column": 41
+                                },
+                                "end": {
+                                  "line": 3,
+                                  "column": 48
+                                }
+                              }
+                            },
+                            "text": "risky()",
+                            "kind": "call",
+                            "children": [],
+                            "call": {
+                              "id": "browser/http_service/function/main/statement/0/call/0",
+                              "source": {
+                                "file": "main.bal",
+                                "range": {
+                                  "start": {
+                                    "line": 3,
+                                    "column": 41
+                                  },
+                                  "end": {
+                                    "line": 3,
+                                    "column": 48
+                                  }
+                                }
+                              },
+                              "text": "risky()",
+                              "target": {
+                                "kind": "workspace",
+                                "functionId": "browser/http_service/function/risky"
+                              },
+                              "expansion": "supported"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "binding": "int|error captured",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "browser/http_service/function/main/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 41
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 48
+                          }
+                        }
+                      },
+                      "text": "risky()",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "browser/http_service/function/risky"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                },
+                {
+                  "id": "browser/http_service/function/main/statement/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 39
+                      }
+                    }
+                  },
+                  "text": "int checked = check (trap risky());",
+                  "evaluation": {
+                    "id": "browser/http_service/function/main/statement/1/value",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 4,
+                          "column": 18
+                        },
+                        "end": {
+                          "line": 4,
+                          "column": 38
+                        }
+                      }
+                    },
+                    "text": "check (trap risky())",
+                    "kind": "check",
+                    "children": [
+                      {
+                        "id": "browser/http_service/function/main/statement/1/value/part/0",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 25
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 37
+                            }
+                          }
+                        },
+                        "text": "trap risky()",
+                        "kind": "trap",
+                        "children": [
+                          {
+                            "id": "browser/http_service/function/main/statement/1/value/part/0/part/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 4,
+                                  "column": 30
+                                },
+                                "end": {
+                                  "line": 4,
+                                  "column": 37
+                                }
+                              }
+                            },
+                            "text": "risky()",
+                            "kind": "call",
+                            "children": [],
+                            "call": {
+                              "id": "browser/http_service/function/main/statement/1/call/0",
+                              "source": {
+                                "file": "main.bal",
+                                "range": {
+                                  "start": {
+                                    "line": 4,
+                                    "column": 30
+                                  },
+                                  "end": {
+                                    "line": 4,
+                                    "column": 37
+                                  }
+                                }
+                              },
+                              "text": "risky()",
+                              "target": {
+                                "kind": "workspace",
+                                "functionId": "browser/http_service/function/risky"
+                              },
+                              "expansion": "supported"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "binding": "int checked",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "browser/http_service/function/main/statement/1/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 30
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 37
+                          }
+                        }
+                      },
+                      "text": "risky()",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "browser/http_service/function/risky"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                },
+                {
+                  "id": "browser/http_service/function/main/statement/2",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 53
+                      }
+                    }
+                  },
+                  "text": "string message = string `value ${check risky()}`;",
+                  "evaluation": {
+                    "id": "browser/http_service/function/main/statement/2/value",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 5,
+                          "column": 21
+                        },
+                        "end": {
+                          "line": 5,
+                          "column": 52
+                        }
+                      }
+                    },
+                    "text": "string `value ${check risky()}`",
+                    "kind": "template",
+                    "children": [
+                      {
+                        "id": "browser/http_service/function/main/statement/2/value/insertion/0",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 5,
+                              "column": 37
+                            },
+                            "end": {
+                              "line": 5,
+                              "column": 50
+                            }
+                          }
+                        },
+                        "text": "check risky()",
+                        "kind": "check",
+                        "children": [
+                          {
+                            "id": "browser/http_service/function/main/statement/2/value/insertion/0/part/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 5,
+                                  "column": 43
+                                },
+                                "end": {
+                                  "line": 5,
+                                  "column": 50
+                                }
+                              }
+                            },
+                            "text": "risky()",
+                            "kind": "call",
+                            "children": [],
+                            "call": {
+                              "id": "browser/http_service/function/main/statement/2/call/0",
+                              "source": {
+                                "file": "main.bal",
+                                "range": {
+                                  "start": {
+                                    "line": 5,
+                                    "column": 43
+                                  },
+                                  "end": {
+                                    "line": 5,
+                                    "column": 50
+                                  }
+                                }
+                              },
+                              "text": "risky()",
+                              "target": {
+                                "kind": "workspace",
+                                "functionId": "browser/http_service/function/risky"
+                              },
+                              "expansion": "supported"
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "strings": [
+                      "value ",
+                      ""
+                    ]
+                  },
+                  "binding": "string message",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "browser/http_service/function/main/statement/2/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 43
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 50
+                          }
+                        }
+                      },
+                      "text": "risky()",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "browser/http_service/function/risky"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                },
+                {
+                  "id": "browser/http_service/function/main/statement/3",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 6,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 15
+                      }
+                    }
+                  },
+                  "text": "_ = captured;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "browser/http_service/function/main/statement/4",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 6,
+                        "column": 16
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 28
+                      }
+                    }
+                  },
+                  "text": "_ = checked;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "browser/http_service/function/main/statement/5",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 6,
+                        "column": 29
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 41
+                      }
+                    }
+                  },
+                  "text": "_ = message;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                }
+              ]
+            },
+            "browser/http_service/function/risky": {
+              "id": "browser/http_service/function/risky",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 49
+                  }
+                }
+              },
+              "text": "function risky() returns int|error { return 1; }",
+              "moduleId": "browser/http_service",
+              "entry": {
+                "kind": "function",
+                "name": "risky",
+                "signature": "function risky() returns int|error",
+                "parameters": [],
+                "returnType": "int|error"
+              },
+              "body": [
+                {
+                  "id": "browser/http_service/function/risky/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 38
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 47
+                      }
+                    }
+                  },
+                  "text": "return 1;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "browser/http_service/function/main"
+      }
+    },
+    "references": [
+      {
+        "id": "browser/http_service/function/main/statement/0/value",
+        "source": {
+          "file": "main.bal",
+          "range": {
+            "start": {
+              "line": 3,
+              "column": 25
+            },
+            "end": {
+              "line": 3,
+              "column": 48
+            }
+          }
+        },
+        "text": "trap checkpanic risky()",
+        "kind": "trap",
+        "children": [
+          {
+            "id": "browser/http_service/function/main/statement/0/value/part/0",
+            "source": {
+              "file": "main.bal",
+              "range": {
+                "start": {
+                  "line": 3,
+                  "column": 30
+                },
+                "end": {
+                  "line": 3,
+                  "column": 48
+                }
+              }
+            },
+            "text": "checkpanic risky()",
+            "kind": "checkpanic",
+            "children": [
+              {
+                "id": "browser/http_service/function/main/statement/0/value/part/0/part/0",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 3,
+                      "column": 41
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 48
+                    }
+                  }
+                },
+                "text": "risky()",
+                "kind": "call",
+                "children": [],
+                "call": {
+                  "id": "browser/http_service/function/main/statement/0/call/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 41
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 48
+                      }
+                    }
+                  },
+                  "text": "risky()",
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "browser/http_service/function/risky"
+                  },
+                  "expansion": "supported"
+                }
+              }
+            ]
+          }
+        ],
+        "revision": 1,
+        "stale": false
+      }
+    ],
+    "expanded": [],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "browser/http_service/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 3
+                      }
+                    }
+                  },
+                  "text": "public function main() returns error? {\n   int|error captured = trap checkpanic risky();\n   int checked = check (trap risky());\n   string message = string `value ${check risky()}`;\n _ = captured; _ = checked; _ = message;\n }",
+                  "kind": "automation",
+                  "title": "Automation",
+                  "moduleId": "browser/http_service",
+                  "serviceType": null,
+                  "functionId": "browser/http_service/function/main"
+                }
+              ],
+              "functions": {
+                "browser/http_service/function/main": {
+                  "id": "browser/http_service/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 3
+                      }
+                    }
+                  },
+                  "text": "public function main() returns error? {\n   int|error captured = trap checkpanic risky();\n   int checked = check (trap risky());\n   string message = string `value ${check risky()}`;\n _ = captured; _ = checked; _ = message;\n }",
+                  "moduleId": "browser/http_service",
+                  "entry": {
+                    "kind": "function",
+                    "name": "main",
+                    "signature": "public function main() returns error?",
+                    "parameters": [],
+                    "returnType": "error?"
+                  },
+                  "body": [
+                    {
+                      "id": "browser/http_service/function/main/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 49
+                          }
+                        }
+                      },
+                      "text": "int|error captured = trap checkpanic risky();",
+                      "evaluation": {
+                        "id": "browser/http_service/function/main/statement/0/value",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 3,
+                              "column": 25
+                            },
+                            "end": {
+                              "line": 3,
+                              "column": 48
+                            }
+                          }
+                        },
+                        "text": "trap checkpanic risky()",
+                        "kind": "trap",
+                        "children": [
+                          {
+                            "id": "browser/http_service/function/main/statement/0/value/part/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 3,
+                                  "column": 30
+                                },
+                                "end": {
+                                  "line": 3,
+                                  "column": 48
+                                }
+                              }
+                            },
+                            "text": "checkpanic risky()",
+                            "kind": "checkpanic",
+                            "children": [
+                              {
+                                "id": "browser/http_service/function/main/statement/0/value/part/0/part/0",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 3,
+                                      "column": 41
+                                    },
+                                    "end": {
+                                      "line": 3,
+                                      "column": 48
+                                    }
+                                  }
+                                },
+                                "text": "risky()",
+                                "kind": "call",
+                                "children": [],
+                                "call": {
+                                  "id": "browser/http_service/function/main/statement/0/call/0",
+                                  "source": {
+                                    "file": "main.bal",
+                                    "range": {
+                                      "start": {
+                                        "line": 3,
+                                        "column": 41
+                                      },
+                                      "end": {
+                                        "line": 3,
+                                        "column": 48
+                                      }
+                                    }
+                                  },
+                                  "text": "risky()",
+                                  "target": {
+                                    "kind": "workspace",
+                                    "functionId": "browser/http_service/function/risky"
+                                  },
+                                  "expansion": "supported"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "binding": "int|error captured",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "browser/http_service/function/main/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 3,
+                                "column": 41
+                              },
+                              "end": {
+                                "line": 3,
+                                "column": 48
+                              }
+                            }
+                          },
+                          "text": "risky()",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/risky"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 39
+                          }
+                        }
+                      },
+                      "text": "int checked = check (trap risky());",
+                      "evaluation": {
+                        "id": "browser/http_service/function/main/statement/1/value",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 18
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 38
+                            }
+                          }
+                        },
+                        "text": "check (trap risky())",
+                        "kind": "check",
+                        "children": [
+                          {
+                            "id": "browser/http_service/function/main/statement/1/value/part/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 4,
+                                  "column": 25
+                                },
+                                "end": {
+                                  "line": 4,
+                                  "column": 37
+                                }
+                              }
+                            },
+                            "text": "trap risky()",
+                            "kind": "trap",
+                            "children": [
+                              {
+                                "id": "browser/http_service/function/main/statement/1/value/part/0/part/0",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 4,
+                                      "column": 30
+                                    },
+                                    "end": {
+                                      "line": 4,
+                                      "column": 37
+                                    }
+                                  }
+                                },
+                                "text": "risky()",
+                                "kind": "call",
+                                "children": [],
+                                "call": {
+                                  "id": "browser/http_service/function/main/statement/1/call/0",
+                                  "source": {
+                                    "file": "main.bal",
+                                    "range": {
+                                      "start": {
+                                        "line": 4,
+                                        "column": 30
+                                      },
+                                      "end": {
+                                        "line": 4,
+                                        "column": 37
+                                      }
+                                    }
+                                  },
+                                  "text": "risky()",
+                                  "target": {
+                                    "kind": "workspace",
+                                    "functionId": "browser/http_service/function/risky"
+                                  },
+                                  "expansion": "supported"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "binding": "int checked",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "browser/http_service/function/main/statement/1/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 30
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 37
+                              }
+                            }
+                          },
+                          "text": "risky()",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/risky"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/2",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 53
+                          }
+                        }
+                      },
+                      "text": "string message = string `value ${check risky()}`;",
+                      "evaluation": {
+                        "id": "browser/http_service/function/main/statement/2/value",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 5,
+                              "column": 21
+                            },
+                            "end": {
+                              "line": 5,
+                              "column": 52
+                            }
+                          }
+                        },
+                        "text": "string `value ${check risky()}`",
+                        "kind": "template",
+                        "children": [
+                          {
+                            "id": "browser/http_service/function/main/statement/2/value/insertion/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 5,
+                                  "column": 37
+                                },
+                                "end": {
+                                  "line": 5,
+                                  "column": 50
+                                }
+                              }
+                            },
+                            "text": "check risky()",
+                            "kind": "check",
+                            "children": [
+                              {
+                                "id": "browser/http_service/function/main/statement/2/value/insertion/0/part/0",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 5,
+                                      "column": 43
+                                    },
+                                    "end": {
+                                      "line": 5,
+                                      "column": 50
+                                    }
+                                  }
+                                },
+                                "text": "risky()",
+                                "kind": "call",
+                                "children": [],
+                                "call": {
+                                  "id": "browser/http_service/function/main/statement/2/call/0",
+                                  "source": {
+                                    "file": "main.bal",
+                                    "range": {
+                                      "start": {
+                                        "line": 5,
+                                        "column": 43
+                                      },
+                                      "end": {
+                                        "line": 5,
+                                        "column": 50
+                                      }
+                                    }
+                                  },
+                                  "text": "risky()",
+                                  "target": {
+                                    "kind": "workspace",
+                                    "functionId": "browser/http_service/function/risky"
+                                  },
+                                  "expansion": "supported"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "strings": [
+                          "value ",
+                          ""
+                        ]
+                      },
+                      "binding": "string message",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "browser/http_service/function/main/statement/2/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 5,
+                                "column": 43
+                              },
+                              "end": {
+                                "line": 5,
+                                "column": 50
+                              }
+                            }
+                          },
+                          "text": "risky()",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/risky"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/3",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 15
+                          }
+                        }
+                      },
+                      "text": "_ = captured;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/4",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 16
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 28
+                          }
+                        }
+                      },
+                      "text": "_ = checked;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/5",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 29
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 41
+                          }
+                        }
+                      },
+                      "text": "_ = message;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ]
+                },
+                "browser/http_service/function/risky": {
+                  "id": "browser/http_service/function/risky",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 49
+                      }
+                    }
+                  },
+                  "text": "function risky() returns int|error { return 1; }",
+                  "moduleId": "browser/http_service",
+                  "entry": {
+                    "kind": "function",
+                    "name": "risky",
+                    "signature": "function risky() returns int|error",
+                    "parameters": [],
+                    "returnType": "int|error"
+                  },
+                  "body": [
+                    {
+                      "id": "browser/http_service/function/risky/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 38
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 47
+                          }
+                        }
+                      },
+                      "text": "return 1;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "browser/http_service/function/main"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "browser/http_service/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 3
+                      }
+                    }
+                  },
+                  "text": "public function main() returns error? {\n   int|error captured = trap checkpanic risky();\n   int checked = check (trap risky());\n   string message = string `value ${check risky()}`;\n _ = captured; _ = checked; _ = message;\n }",
+                  "kind": "automation",
+                  "title": "Automation",
+                  "moduleId": "browser/http_service",
+                  "serviceType": null,
+                  "functionId": "browser/http_service/function/main"
+                }
+              ],
+              "functions": {
+                "browser/http_service/function/main": {
+                  "id": "browser/http_service/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 3
+                      }
+                    }
+                  },
+                  "text": "public function main() returns error? {\n   int|error captured = trap checkpanic risky();\n   int checked = check (trap risky());\n   string message = string `value ${check risky()}`;\n _ = captured; _ = checked; _ = message;\n }",
+                  "moduleId": "browser/http_service",
+                  "entry": {
+                    "kind": "function",
+                    "name": "main",
+                    "signature": "public function main() returns error?",
+                    "parameters": [],
+                    "returnType": "error?"
+                  },
+                  "body": [
+                    {
+                      "id": "browser/http_service/function/main/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 49
+                          }
+                        }
+                      },
+                      "text": "int|error captured = trap checkpanic risky();",
+                      "evaluation": {
+                        "id": "browser/http_service/function/main/statement/0/value",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 3,
+                              "column": 25
+                            },
+                            "end": {
+                              "line": 3,
+                              "column": 48
+                            }
+                          }
+                        },
+                        "text": "trap checkpanic risky()",
+                        "kind": "trap",
+                        "children": [
+                          {
+                            "id": "browser/http_service/function/main/statement/0/value/part/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 3,
+                                  "column": 30
+                                },
+                                "end": {
+                                  "line": 3,
+                                  "column": 48
+                                }
+                              }
+                            },
+                            "text": "checkpanic risky()",
+                            "kind": "checkpanic",
+                            "children": [
+                              {
+                                "id": "browser/http_service/function/main/statement/0/value/part/0/part/0",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 3,
+                                      "column": 41
+                                    },
+                                    "end": {
+                                      "line": 3,
+                                      "column": 48
+                                    }
+                                  }
+                                },
+                                "text": "risky()",
+                                "kind": "call",
+                                "children": [],
+                                "call": {
+                                  "id": "browser/http_service/function/main/statement/0/call/0",
+                                  "source": {
+                                    "file": "main.bal",
+                                    "range": {
+                                      "start": {
+                                        "line": 3,
+                                        "column": 41
+                                      },
+                                      "end": {
+                                        "line": 3,
+                                        "column": 48
+                                      }
+                                    }
+                                  },
+                                  "text": "risky()",
+                                  "target": {
+                                    "kind": "workspace",
+                                    "functionId": "browser/http_service/function/risky"
+                                  },
+                                  "expansion": "supported"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "binding": "int|error captured",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "browser/http_service/function/main/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 3,
+                                "column": 41
+                              },
+                              "end": {
+                                "line": 3,
+                                "column": 48
+                              }
+                            }
+                          },
+                          "text": "risky()",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/risky"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 39
+                          }
+                        }
+                      },
+                      "text": "int checked = check (trap risky());",
+                      "evaluation": {
+                        "id": "browser/http_service/function/main/statement/1/value",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 18
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 38
+                            }
+                          }
+                        },
+                        "text": "check (trap risky())",
+                        "kind": "check",
+                        "children": [
+                          {
+                            "id": "browser/http_service/function/main/statement/1/value/part/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 4,
+                                  "column": 25
+                                },
+                                "end": {
+                                  "line": 4,
+                                  "column": 37
+                                }
+                              }
+                            },
+                            "text": "trap risky()",
+                            "kind": "trap",
+                            "children": [
+                              {
+                                "id": "browser/http_service/function/main/statement/1/value/part/0/part/0",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 4,
+                                      "column": 30
+                                    },
+                                    "end": {
+                                      "line": 4,
+                                      "column": 37
+                                    }
+                                  }
+                                },
+                                "text": "risky()",
+                                "kind": "call",
+                                "children": [],
+                                "call": {
+                                  "id": "browser/http_service/function/main/statement/1/call/0",
+                                  "source": {
+                                    "file": "main.bal",
+                                    "range": {
+                                      "start": {
+                                        "line": 4,
+                                        "column": 30
+                                      },
+                                      "end": {
+                                        "line": 4,
+                                        "column": 37
+                                      }
+                                    }
+                                  },
+                                  "text": "risky()",
+                                  "target": {
+                                    "kind": "workspace",
+                                    "functionId": "browser/http_service/function/risky"
+                                  },
+                                  "expansion": "supported"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "binding": "int checked",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "browser/http_service/function/main/statement/1/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 30
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 37
+                              }
+                            }
+                          },
+                          "text": "risky()",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/risky"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/2",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 53
+                          }
+                        }
+                      },
+                      "text": "string message = string `value ${check risky()}`;",
+                      "evaluation": {
+                        "id": "browser/http_service/function/main/statement/2/value",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 5,
+                              "column": 21
+                            },
+                            "end": {
+                              "line": 5,
+                              "column": 52
+                            }
+                          }
+                        },
+                        "text": "string `value ${check risky()}`",
+                        "kind": "template",
+                        "children": [
+                          {
+                            "id": "browser/http_service/function/main/statement/2/value/insertion/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 5,
+                                  "column": 37
+                                },
+                                "end": {
+                                  "line": 5,
+                                  "column": 50
+                                }
+                              }
+                            },
+                            "text": "check risky()",
+                            "kind": "check",
+                            "children": [
+                              {
+                                "id": "browser/http_service/function/main/statement/2/value/insertion/0/part/0",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 5,
+                                      "column": 43
+                                    },
+                                    "end": {
+                                      "line": 5,
+                                      "column": 50
+                                    }
+                                  }
+                                },
+                                "text": "risky()",
+                                "kind": "call",
+                                "children": [],
+                                "call": {
+                                  "id": "browser/http_service/function/main/statement/2/call/0",
+                                  "source": {
+                                    "file": "main.bal",
+                                    "range": {
+                                      "start": {
+                                        "line": 5,
+                                        "column": 43
+                                      },
+                                      "end": {
+                                        "line": 5,
+                                        "column": 50
+                                      }
+                                    }
+                                  },
+                                  "text": "risky()",
+                                  "target": {
+                                    "kind": "workspace",
+                                    "functionId": "browser/http_service/function/risky"
+                                  },
+                                  "expansion": "supported"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "strings": [
+                          "value ",
+                          ""
+                        ]
+                      },
+                      "binding": "string message",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "browser/http_service/function/main/statement/2/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 5,
+                                "column": 43
+                              },
+                              "end": {
+                                "line": 5,
+                                "column": 50
+                              }
+                            }
+                          },
+                          "text": "risky()",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/risky"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/3",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 15
+                          }
+                        }
+                      },
+                      "text": "_ = captured;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/4",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 16
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 28
+                          }
+                        }
+                      },
+                      "text": "_ = checked;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/5",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 29
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 41
+                          }
+                        }
+                      },
+                      "text": "_ = message;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ]
+                },
+                "browser/http_service/function/risky": {
+                  "id": "browser/http_service/function/risky",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 49
+                      }
+                    }
+                  },
+                  "text": "function risky() returns int|error { return 1; }",
+                  "moduleId": "browser/http_service",
+                  "entry": {
+                    "kind": "function",
+                    "name": "risky",
+                    "signature": "function risky() returns int|error",
+                    "parameters": [],
+                    "returnType": "int|error"
+                  },
+                  "body": [
+                    {
+                      "id": "browser/http_service/function/risky/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 38
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 47
+                          }
+                        }
+                      },
+                      "text": "return 1;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "browser/http_service/function/main"
+          }
+        },
+        "references": [
+          {
+            "id": "browser/http_service/function/main/statement/0/value",
+            "source": {
+              "file": "main.bal",
+              "range": {
+                "start": {
+                  "line": 3,
+                  "column": 25
+                },
+                "end": {
+                  "line": 3,
+                  "column": 48
+                }
+              }
+            },
+            "text": "trap checkpanic risky()",
+            "kind": "trap",
+            "children": [
+              {
+                "id": "browser/http_service/function/main/statement/0/value/part/0",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 3,
+                      "column": 30
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 48
+                    }
+                  }
+                },
+                "text": "checkpanic risky()",
+                "kind": "checkpanic",
+                "children": [
+                  {
+                    "id": "browser/http_service/function/main/statement/0/value/part/0/part/0",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 3,
+                          "column": 41
+                        },
+                        "end": {
+                          "line": 3,
+                          "column": 48
+                        }
+                      }
+                    },
+                    "text": "risky()",
+                    "kind": "call",
+                    "children": [],
+                    "call": {
+                      "id": "browser/http_service/function/main/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 41
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 48
+                          }
+                        }
+                      },
+                      "text": "risky()",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "browser/http_service/function/risky"
+                      },
+                      "expansion": "supported"
+                    }
+                  }
+                ]
+              }
+            ],
+            "revision": 1,
+            "stale": false
+          }
+        ],
+        "expanded": [],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"828\" height=\"2782\" viewBox=\"86 16 828 2782\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 828px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container trap\" x=\"118\" y=\"40\" width=\"764\" height=\"706\" rx=\"12\"></rect><rect class=\"container trap\" x=\"276.7822265625\" y=\"902\" width=\"446.435546875\" height=\"394\" rx=\"12\"></rect><g data-edge-kind=\"true\"><polyline points=\"364,274 340,274 340,490 500,490 500,508\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"354\" y=\"266\" text-anchor=\"end\" class=\"edge-label\">value</text></g><g data-edge-kind=\"error\"><polyline points=\"636,274 668,274 668,352\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"646\" y=\"266\" text-anchor=\"start\" class=\"edge-label\">error</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,196 500,248\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,40 500,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,508 500,526 346,526 346,728 500,728 500,746\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"panic\"><polyline points=\"636,170 636,334 500,334 500,560\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"646\" y=\"162\" text-anchor=\"start\" class=\"edge-label\">panic</text></g><g data-edge-kind=\"panic\"><polyline points=\"804,378 804,469 500,469 500,560\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"814\" y=\"370\" text-anchor=\"start\" class=\"edge-label\">panic</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,612 500,746\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"510\" y=\"604\" text-anchor=\"start\" class=\"edge-label\">error value</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,746 500,798\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,902 500,1006\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1058 500,1076 346,1076 346,1278 500,1278 500,1296\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"panic\"><polyline points=\"636,1032 636,1071 500,1071 500,1110\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"646\" y=\"1024\" text-anchor=\"start\" class=\"edge-label\">panic</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1162 500,1296\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"510\" y=\"1154\" text-anchor=\"start\" class=\"edge-label\">error value</text></g><g data-edge-kind=\"true\"><polyline points=\"364,1374 340,1374 340,1590 500,1590 500,1608\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"354\" y=\"1366\" text-anchor=\"end\" class=\"edge-label\">value</text></g><g data-edge-kind=\"error\"><polyline points=\"636,1374 668,1374 668,1452\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"646\" y=\"1366\" text-anchor=\"start\" class=\"edge-label\">error</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1296 500,1348\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1608 500,1660\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,850 500,902\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"364,1894 340,1894 340,2110 500,2110 500,2128\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"354\" y=\"1886\" text-anchor=\"end\" class=\"edge-label\">value</text></g><g data-edge-kind=\"error\"><polyline points=\"636,1894 668,1894 668,1972\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"646\" y=\"1886\" text-anchor=\"start\" class=\"edge-label\">error</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1816 500,1868\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2128 500,2180\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2232 500,2284\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1712 500,1764\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2336 500,2388\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2440 500,2492\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2544 500,2596\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,16 500,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2648 500,2782\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"trap\" data-node-id=\"browser/http_service/function/main/statement/0/value\"><rect x=\"118\" y=\"40\" width=\"764\" height=\"52\" class=\"flow-node trap referenced\" rx=\"8\"></rect><foreignObject x=\"310\" y=\"48\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"true\" aria-label=\"Reference trap\">trap</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/0/call/0\"><rect x=\"364\" y=\"144\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"152\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference risky()\">risky()</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"372\" y=\"152\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand risky()\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"browser/http_service/function/main/statement/0/value/part/0\"><rect x=\"364\" y=\"248\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"374\" y=\"256\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference checkpanic\">checkpanic</button></div></foreignObject></g><g data-node-kind=\"panic\" data-node-id=\"browser/http_service/function/main/statement/0/value/part/0\"><rect x=\"532\" y=\"352\" width=\"272\" height=\"52\" class=\"flow-node panic\" rx=\"8\"></rect><foreignObject x=\"542\" y=\"360\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Panic with error\">Panic with error</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/0/value\"><rect x=\"354.7822265625\" y=\"560\" width=\"290.435546875\" height=\"52\" class=\"flow-node step referenced\" rx=\"8\"></rect><foreignObject x=\"364.7822265625\" y=\"568\" width=\"270.435546875\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"true\" aria-label=\"Reference Capture panic as error value\">Capture panic as error value</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/0\"><rect x=\"358.670166015625\" y=\"798\" width=\"282.65966796875\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"368.670166015625\" y=\"806\" width=\"262.65966796875\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Result → int|error captured\">Result → int|error captured</button></div></foreignObject></g><g data-node-kind=\"trap\" data-node-id=\"browser/http_service/function/main/statement/1/value/part/0\"><rect x=\"276.7822265625\" y=\"902\" width=\"446.435546875\" height=\"52\" class=\"flow-node trap\" rx=\"8\"></rect><foreignObject x=\"310\" y=\"910\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference trap\">trap</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/1/call/0\"><rect x=\"364\" y=\"1006\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"1014\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference risky()\">risky()</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"372\" y=\"1014\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand risky()\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/1/value/part/0\"><rect x=\"354.7822265625\" y=\"1110\" width=\"290.435546875\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"364.7822265625\" y=\"1118\" width=\"270.435546875\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Capture panic as error value\">Capture panic as error value</button></div></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"browser/http_service/function/main/statement/1/value\"><rect x=\"364\" y=\"1348\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"374\" y=\"1356\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference check\">check</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"browser/http_service/function/main/statement/1/value\"><rect x=\"532\" y=\"1452\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"542\" y=\"1460\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Return error\">Return error</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/1\"><rect x=\"364\" y=\"1660\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"1668\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Result → int checked\">Result → int checked</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/2/call/0\"><rect x=\"364\" y=\"1764\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"1772\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference risky()\">risky()</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"372\" y=\"1772\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand risky()\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"browser/http_service/function/main/statement/2/value/insertion/0\"><rect x=\"364\" y=\"1868\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"374\" y=\"1876\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference check\">check</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"browser/http_service/function/main/statement/2/value/insertion/0\"><rect x=\"532\" y=\"1972\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"542\" y=\"1980\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Return error\">Return error</button></div></foreignObject></g><g data-node-kind=\"template\" data-node-id=\"browser/http_service/function/main/statement/2/value\"><rect x=\"343.080322265625\" y=\"2180\" width=\"313.83935546875\" height=\"52\" class=\"flow-node template\" rx=\"8\"></rect><foreignObject x=\"353.080322265625\" y=\"2188\" width=\"293.83935546875\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference string `value ${check risky()}`\">string `value ${check risky()}`</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/2\"><rect x=\"364\" y=\"2284\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"2292\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Result → string message\">Result → string message</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/3\"><rect x=\"364\" y=\"2388\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"2396\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = captured;\">_ = captured;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/4\"><rect x=\"364\" y=\"2492\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"2500\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = checked;\">_ = checked;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/5\"><rect x=\"364\" y=\"2596\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"2604\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = message;\">_ = message;</button></div></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"828\" height=\"2782\" viewBox=\"86 16 828 2782\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 828px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container trap\" x=\"118\" y=\"40\" width=\"764\" height=\"706\" rx=\"12\"></rect><rect class=\"container trap\" x=\"276.7822265625\" y=\"902\" width=\"446.435546875\" height=\"394\" rx=\"12\"></rect><g data-edge-kind=\"true\"><polyline points=\"364,274 340,274 340,490 500,490 500,508\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"354\" y=\"266\" text-anchor=\"end\" class=\"edge-label\">value</text></g><g data-edge-kind=\"error\"><polyline points=\"636,274 668,274 668,352\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"646\" y=\"266\" text-anchor=\"start\" class=\"edge-label\">error</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,196 500,248\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,40 500,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,508 500,526 346,526 346,728 500,728 500,746\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"panic\"><polyline points=\"636,170 636,334 500,334 500,560\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"646\" y=\"162\" text-anchor=\"start\" class=\"edge-label\">panic</text></g><g data-edge-kind=\"panic\"><polyline points=\"804,378 804,469 500,469 500,560\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"814\" y=\"370\" text-anchor=\"start\" class=\"edge-label\">panic</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,612 500,746\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"510\" y=\"604\" text-anchor=\"start\" class=\"edge-label\">error value</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,746 500,798\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,902 500,1006\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1058 500,1076 346,1076 346,1278 500,1278 500,1296\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"panic\"><polyline points=\"636,1032 636,1071 500,1071 500,1110\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"646\" y=\"1024\" text-anchor=\"start\" class=\"edge-label\">panic</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1162 500,1296\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"510\" y=\"1154\" text-anchor=\"start\" class=\"edge-label\">error value</text></g><g data-edge-kind=\"true\"><polyline points=\"364,1374 340,1374 340,1590 500,1590 500,1608\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"354\" y=\"1366\" text-anchor=\"end\" class=\"edge-label\">value</text></g><g data-edge-kind=\"error\"><polyline points=\"636,1374 668,1374 668,1452\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"646\" y=\"1366\" text-anchor=\"start\" class=\"edge-label\">error</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1296 500,1348\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1608 500,1660\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,850 500,902\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"364,1894 340,1894 340,2110 500,2110 500,2128\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"354\" y=\"1886\" text-anchor=\"end\" class=\"edge-label\">value</text></g><g data-edge-kind=\"error\"><polyline points=\"636,1894 668,1894 668,1972\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"646\" y=\"1886\" text-anchor=\"start\" class=\"edge-label\">error</text></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1816 500,1868\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2128 500,2180\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2232 500,2284\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,1712 500,1764\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2336 500,2388\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2440 500,2492\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2544 500,2596\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,16 500,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"500,2648 500,2782\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"trap\" data-node-id=\"browser/http_service/function/main/statement/0/value\"><rect x=\"118\" y=\"40\" width=\"764\" height=\"52\" class=\"flow-node trap referenced\" rx=\"8\"></rect><foreignObject x=\"310\" y=\"48\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"true\" aria-label=\"Reference trap\">trap</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/0/call/0\"><rect x=\"364\" y=\"144\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"152\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference risky()\">risky()</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"372\" y=\"152\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand risky()\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"browser/http_service/function/main/statement/0/value/part/0\"><rect x=\"364\" y=\"248\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"374\" y=\"256\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference checkpanic\">checkpanic</button></div></foreignObject></g><g data-node-kind=\"panic\" data-node-id=\"browser/http_service/function/main/statement/0/value/part/0\"><rect x=\"532\" y=\"352\" width=\"272\" height=\"52\" class=\"flow-node panic\" rx=\"8\"></rect><foreignObject x=\"542\" y=\"360\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Panic with error\">Panic with error</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/0/value\"><rect x=\"354.7822265625\" y=\"560\" width=\"290.435546875\" height=\"52\" class=\"flow-node step referenced\" rx=\"8\"></rect><foreignObject x=\"364.7822265625\" y=\"568\" width=\"270.435546875\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"true\" aria-label=\"Reference Capture panic as error value\">Capture panic as error value</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/0\"><rect x=\"358.670166015625\" y=\"798\" width=\"282.65966796875\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"368.670166015625\" y=\"806\" width=\"262.65966796875\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Result → int|error captured\">Result → int|error captured</button></div></foreignObject></g><g data-node-kind=\"trap\" data-node-id=\"browser/http_service/function/main/statement/1/value/part/0\"><rect x=\"276.7822265625\" y=\"902\" width=\"446.435546875\" height=\"52\" class=\"flow-node trap\" rx=\"8\"></rect><foreignObject x=\"310\" y=\"910\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference trap\">trap</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/1/call/0\"><rect x=\"364\" y=\"1006\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"1014\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference risky()\">risky()</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"372\" y=\"1014\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand risky()\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/1/value/part/0\"><rect x=\"354.7822265625\" y=\"1110\" width=\"290.435546875\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"364.7822265625\" y=\"1118\" width=\"270.435546875\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Capture panic as error value\">Capture panic as error value</button></div></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"browser/http_service/function/main/statement/1/value\"><rect x=\"364\" y=\"1348\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"374\" y=\"1356\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference check\">check</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"browser/http_service/function/main/statement/1/value\"><rect x=\"532\" y=\"1452\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"542\" y=\"1460\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Return error\">Return error</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/1\"><rect x=\"364\" y=\"1660\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"1668\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Result → int checked\">Result → int checked</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/2/call/0\"><rect x=\"364\" y=\"1764\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"1772\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference risky()\">risky()</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"372\" y=\"1772\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand risky()\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"browser/http_service/function/main/statement/2/value/insertion/0\"><rect x=\"364\" y=\"1868\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"374\" y=\"1876\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference check\">check</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"browser/http_service/function/main/statement/2/value/insertion/0\"><rect x=\"532\" y=\"1972\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"542\" y=\"1980\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Return error\">Return error</button></div></foreignObject></g><g data-node-kind=\"template\" data-node-id=\"browser/http_service/function/main/statement/2/value\"><rect x=\"343.080322265625\" y=\"2180\" width=\"313.83935546875\" height=\"52\" class=\"flow-node template\" rx=\"8\"></rect><foreignObject x=\"353.080322265625\" y=\"2188\" width=\"293.83935546875\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference string `value ${check risky()}`\">string `value ${check risky()}`</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/2\"><rect x=\"364\" y=\"2284\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"2292\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Result → string message\">Result → string message</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/3\"><rect x=\"364\" y=\"2388\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"2396\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = captured;\">_ = captured;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/4\"><rect x=\"364\" y=\"2492\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"2500\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = checked;\">_ = checked;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/5\"><rect x=\"364\" y=\"2596\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"374\" y=\"2604\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = message;\">_ = message;</button></div></foreignObject></g></svg>",
+  "renderInputHash": "21b34b9276bbe0d394330f939c992a5d4e635be7d17ca0ace9f5fc60477926c9",
+  "svgAbsent": false
+}

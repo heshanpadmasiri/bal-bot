@@ -1,0 +1,622 @@
+{
+  "wrapper": {
+    "mode": "normal",
+    "workspace": {
+      "className": "workspace flow-workspace ",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 1200,
+        "y": 68,
+        "width": 300,
+        "height": 882
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "grid",
+          "position": "relative",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 1200,
+          "y": 68,
+          "width": 300,
+          "height": 882
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "300px",
+          "height": "882px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 274.1875,
+          "width": 259,
+          "height": 165.140625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "165.141px",
+          "min-width": "0px",
+          "max-width": "354.436px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 20px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 142,
+          "width": 259,
+          "height": 116.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "116.188px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 1244.3878173828125,
+          "y": 291.72454833984375,
+          "width": 212.224365234375,
+          "height": 37.996978759765625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "290.436px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 1251.6949462890625,
+          "y": 302.3198547363281,
+          "width": 197.60009765625,
+          "height": 19.72918701171875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "270.422px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [],
+    ".node-limitation": [],
+    ".edge-label": [],
+    ".client-receiver": [],
+    ".client-context": [],
+    ".client-method": []
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "examples/automation_flow/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 3,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 5,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "public function main() {\n    io:println(\"Hello, World!\");\n}",
+              "kind": "automation",
+              "title": "Automation",
+              "moduleId": "examples/automation_flow",
+              "serviceType": null,
+              "functionId": "examples/automation_flow/function/main"
+            }
+          ],
+          "functions": {
+            "examples/automation_flow/function/main": {
+              "id": "examples/automation_flow/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 3,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 5,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "public function main() {\n    io:println(\"Hello, World!\");\n}",
+              "moduleId": "examples/automation_flow",
+              "entry": {
+                "kind": "function",
+                "name": "main",
+                "signature": "public function main()",
+                "parameters": [],
+                "returnType": "()"
+              },
+              "body": [
+                {
+                  "id": "examples/automation_flow/function/main/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 33
+                      }
+                    }
+                  },
+                  "text": "io:println(\"Hello, World!\");",
+                  "kind": "simple",
+                  "operation": "expression",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "examples/automation_flow/function/main/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 32
+                          }
+                        }
+                      },
+                      "text": "io:println(\"Hello, World!\")",
+                      "target": {
+                        "kind": "external",
+                        "label": "println"
+                      },
+                      "expansion": "unavailable",
+                      "reason": "The target is outside the workspace."
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "examples/automation_flow/function/main"
+      }
+    },
+    "references": [],
+    "expanded": [],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/automation_flow/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() {\n    io:println(\"Hello, World!\");\n}",
+                  "kind": "automation",
+                  "title": "Automation",
+                  "moduleId": "examples/automation_flow",
+                  "serviceType": null,
+                  "functionId": "examples/automation_flow/function/main"
+                }
+              ],
+              "functions": {
+                "examples/automation_flow/function/main": {
+                  "id": "examples/automation_flow/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() {\n    io:println(\"Hello, World!\");\n}",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "function",
+                    "name": "main",
+                    "signature": "public function main()",
+                    "parameters": [],
+                    "returnType": "()"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/function/main/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "io:println(\"Hello, World!\");",
+                      "kind": "simple",
+                      "operation": "expression",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/function/main/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 5
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 32
+                              }
+                            }
+                          },
+                          "text": "io:println(\"Hello, World!\")",
+                          "target": {
+                            "kind": "external",
+                            "label": "println"
+                          },
+                          "expansion": "unavailable",
+                          "reason": "The target is outside the workspace."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/automation_flow/function/main"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"354.435546875\" height=\"226\" viewBox=\"86 16 354.435546875 226\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 354.436px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><g data-edge-kind=\"sequence\"><polyline points=\"263.2177734375,16 263.2177734375,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"263.2177734375,92 263.2177734375,226\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"examples/automation_flow/function/main/statement/0\"><rect x=\"118\" y=\"40\" width=\"290.435546875\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"128\" y=\"48\" width=\"270.435546875\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference io:println(&quot;Hello, World!&quot;);\">io:println(\"Hello, World!\");</button></div></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"354.435546875\" height=\"226\" viewBox=\"86 16 354.435546875 226\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 354.436px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><g data-edge-kind=\"sequence\"><polyline points=\"263.2177734375,16 263.2177734375,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"263.2177734375,92 263.2177734375,226\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"examples/automation_flow/function/main/statement/0\"><rect x=\"118\" y=\"40\" width=\"290.435546875\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"128\" y=\"48\" width=\"270.435546875\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference io:println(&quot;Hello, World!&quot;);\">io:println(\"Hello, World!\");</button></div></foreignObject></g></svg>",
+  "renderInputHash": "31a3d7fb73df6719c804915537af72b0b413ed8545abfbc1de7e1d1e47288fc7",
+  "svgAbsent": false
+}

@@ -1,0 +1,2137 @@
+{
+  "wrapper": {
+    "mode": "normal",
+    "workspace": {
+      "className": "workspace flow-workspace ",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 1200,
+        "y": 68,
+        "width": 300,
+        "height": 882
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "grid",
+          "position": "relative",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 1200,
+          "y": 68,
+          "width": 300,
+          "height": 882
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "300px",
+          "height": "882px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 274.1875,
+          "width": 259,
+          "height": 724.34375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "724.344px",
+          "min-width": "0px",
+          "max-width": "492px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 20px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 142,
+          "width": 259,
+          "height": 116.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "116.188px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 1278.9078369140625,
+          "y": 286.8214111328125,
+          "width": 143.184326171875,
+          "height": 27.373443603515625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1243.25537109375,
+          "y": 341.56829833984375,
+          "width": 214.4892578125,
+          "height": 34.743255615234375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "407.455px",
+          "height": "66px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 247, 231)",
+          "stroke": "rgb(216, 186, 120)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.1622314453125,
+          "y": 403.68499755859375,
+          "width": 144.675537109375,
+          "height": 54.746917724609375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "274.833px",
+          "height": "104px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 240, 233)",
+          "stroke": "rgb(210, 164, 136)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1237.84765625,
+          "y": 485.80535888671875,
+          "width": 225.3046875,
+          "height": 34.74322509765625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "66px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.9078369140625,
+          "y": 547.9220581054688,
+          "width": 143.184326171875,
+          "height": 27.37347412109375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1245.3087158203125,
+          "y": 673.208251953125,
+          "width": 210.382568359375,
+          "height": 27.37347412109375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "399.653px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 240, 233)",
+          "stroke": "rgb(210, 164, 136)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1265.8421630859375,
+          "y": 727.9552001953125,
+          "width": 169.315673828125,
+          "height": 27.3734130859375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "321.641px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 240, 233)",
+          "stroke": "rgb(210, 164, 136)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.9078369140625,
+          "y": 782.7020874023438,
+          "width": 143.184326171875,
+          "height": 27.37347412109375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.9078369140625,
+          "y": 837.448974609375,
+          "width": 143.184326171875,
+          "height": 27.37347412109375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.9078369140625,
+          "y": 892.1959228515625,
+          "width": 143.184326171875,
+          "height": 27.3734130859375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [
+      {
+        "rect": {
+          "x": 1237.84765625,
+          "y": 485.80535888671875,
+          "width": 225.3046875,
+          "height": 160.02947998046875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "304px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 1284.1719970703125,
+          "y": 294.4543762207031,
+          "width": 132.656005859375,
+          "height": 14.213165283203125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1261.0098876953125,
+          "y": 347.88525390625,
+          "width": 178.980224609375,
+          "height": 24.214996337890625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "46px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1283.4234619140625,
+          "y": 410.001953125,
+          "width": 134.144775390625,
+          "height": 44.218658447265625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "254.828px",
+          "height": "84px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1261.0098876953125,
+          "y": 492.122314453125,
+          "width": 178.980224609375,
+          "height": 24.2149658203125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "46px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1301.0172119140625,
+          "y": 555.5550537109375,
+          "width": 98.965576171875,
+          "height": 14.213134765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1261.0015869140625,
+          "y": 680.8412475585938,
+          "width": 178.9803466796875,
+          "height": 14.213134765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1271.1021728515625,
+          "y": 735.588134765625,
+          "width": 158.7874755859375,
+          "height": 14.213134765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "301.641px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1284.1719970703125,
+          "y": 790.3350830078125,
+          "width": 132.656005859375,
+          "height": 14.213134765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1284.1719970703125,
+          "y": 845.0819702148438,
+          "width": 132.656005859375,
+          "height": 14.213134765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1284.1719970703125,
+          "y": 899.828857421875,
+          "width": 132.656005859375,
+          "height": 14.21319580078125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [
+      {
+        "rect": {
+          "x": 1283.119140625,
+          "y": 552.1333618164062,
+          "width": 13.686767578125,
+          "height": 13.68670654296875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-limitation": [
+      {
+        "rect": {
+          "x": 1278.159423828125,
+          "y": 460.01116943359375,
+          "width": 144.6729736328125,
+          "height": 14.739532470703125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "274.828px",
+          "height": "28px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px 5px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "14px",
+          "letter-spacing": "normal",
+          "color": "rgb(133, 99, 59)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(133, 99, 59)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.9078369140625,
+          "y": 576.874755859375,
+          "width": 143.184326171875,
+          "height": 14.739501953125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "272px",
+          "height": "28px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px 5px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "14px",
+          "letter-spacing": "normal",
+          "color": "rgb(133, 99, 59)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(133, 99, 59)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1245.3079833984375,
+          "y": 702.1609497070312,
+          "width": 210.3758544921875,
+          "height": 14.73956298828125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "399.641px",
+          "height": "28px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px 5px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "14px",
+          "letter-spacing": "normal",
+          "color": "rgb(133, 99, 59)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(133, 99, 59)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1265.8380126953125,
+          "y": 756.9078369140625,
+          "width": 169.315673828125,
+          "height": 14.7396240234375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "321.641px",
+          "height": "28px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px 5px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "14px",
+          "letter-spacing": "normal",
+          "color": "rgb(133, 99, 59)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(133, 99, 59)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".edge-label": [],
+    ".client-receiver": [],
+    ".client-context": [],
+    ".client-method": []
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "examples/unsupported_constructs/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 14,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "public function main() returns error? {\n    int mode = 1;\n    record {| int value; |} request = {value: mode};\n    match mode {\n        1 => { mode = 2; }\n        _ => { mode = 3; }\n    }\n    boolean selected = mode > 0 && positive(mode);\n    future<int> pending = start compute(mode);\n    int result = check wait pending;\n    _ = request;\n    _ = selected;\n    _ = result;\n}",
+              "kind": "automation",
+              "title": "Automation",
+              "moduleId": "examples/unsupported_constructs",
+              "serviceType": null,
+              "functionId": "examples/unsupported_constructs/function/main"
+            }
+          ],
+          "functions": {
+            "examples/unsupported_constructs/function/compute": {
+              "id": "examples/unsupported_constructs/function/compute",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 17,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 17,
+                    "column": 62
+                  }
+                }
+              },
+              "text": "function compute(int value) returns int { return value * 2; }",
+              "moduleId": "examples/unsupported_constructs",
+              "entry": {
+                "kind": "function",
+                "name": "compute",
+                "signature": "function compute(int value) returns int",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "int value"
+                  }
+                ],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/unsupported_constructs/function/compute/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 17,
+                        "column": 43
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 60
+                      }
+                    }
+                  },
+                  "text": "return value * 2;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/unsupported_constructs/function/main": {
+              "id": "examples/unsupported_constructs/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 14,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "public function main() returns error? {\n    int mode = 1;\n    record {| int value; |} request = {value: mode};\n    match mode {\n        1 => { mode = 2; }\n        _ => { mode = 3; }\n    }\n    boolean selected = mode > 0 && positive(mode);\n    future<int> pending = start compute(mode);\n    int result = check wait pending;\n    _ = request;\n    _ = selected;\n    _ = result;\n}",
+              "moduleId": "examples/unsupported_constructs",
+              "entry": {
+                "kind": "function",
+                "name": "main",
+                "signature": "public function main() returns error?",
+                "parameters": [],
+                "returnType": "error?"
+              },
+              "body": [
+                {
+                  "id": "examples/unsupported_constructs/function/main/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 18
+                      }
+                    }
+                  },
+                  "text": "int mode = 1;",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/unsupported_constructs/function/main/statement/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 53
+                      }
+                    }
+                  },
+                  "text": "record {| int value; |} request = {value: mode};",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "mapping",
+                  "calls": []
+                },
+                {
+                  "id": "examples/unsupported_constructs/function/main/statement/2",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 6
+                      }
+                    }
+                  },
+                  "text": "match mode {\n        1 => { mode = 2; }\n        _ => { mode = 3; }\n    }",
+                  "kind": "unsupported",
+                  "reason": "Visualization of *ast.BLangMatchStatement is not modeled; later source may still execute."
+                },
+                {
+                  "id": "examples/unsupported_constructs/function/main/statement/3",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 51
+                      }
+                    }
+                  },
+                  "text": "boolean selected = mode > 0 && positive(mode);",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "examples/unsupported_constructs/function/main/statement/3/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 36
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 50
+                          }
+                        }
+                      },
+                      "text": "positive(mode)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/unsupported_constructs/function/positive"
+                      },
+                      "expansion": "unavailable",
+                      "reason": "Expansion in this expression evaluation is not modeled."
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/unsupported_constructs/function/main/statement/4",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 9,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 47
+                      }
+                    }
+                  },
+                  "text": "future<int> pending = start compute(mode);",
+                  "kind": "unsupported",
+                  "reason": "Control effects of *ast.BLangStartAction are not modeled; later source may still execute."
+                },
+                {
+                  "id": "examples/unsupported_constructs/function/main/statement/5",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 10,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 10,
+                        "column": 37
+                      }
+                    }
+                  },
+                  "text": "int result = check wait pending;",
+                  "kind": "unsupported",
+                  "reason": "Control effects of *ast.BLangSingleWaitAction are not modeled; later source may still execute."
+                },
+                {
+                  "id": "examples/unsupported_constructs/function/main/statement/6",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 11,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 17
+                      }
+                    }
+                  },
+                  "text": "_ = request;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/unsupported_constructs/function/main/statement/7",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 12,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 18
+                      }
+                    }
+                  },
+                  "text": "_ = selected;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/unsupported_constructs/function/main/statement/8",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 13,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 16
+                      }
+                    }
+                  },
+                  "text": "_ = result;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/unsupported_constructs/function/positive": {
+              "id": "examples/unsupported_constructs/function/positive",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 16,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 16,
+                    "column": 67
+                  }
+                }
+              },
+              "text": "function positive(int value) returns boolean { return value > 0; }",
+              "moduleId": "examples/unsupported_constructs",
+              "entry": {
+                "kind": "function",
+                "name": "positive",
+                "signature": "function positive(int value) returns boolean",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "int value"
+                  }
+                ],
+                "returnType": "boolean"
+              },
+              "body": [
+                {
+                  "id": "examples/unsupported_constructs/function/positive/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 16,
+                        "column": 48
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 65
+                      }
+                    }
+                  },
+                  "text": "return value > 0;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "examples/unsupported_constructs/function/main"
+      }
+    },
+    "references": [],
+    "expanded": [],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/unsupported_constructs/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 14,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() returns error? {\n    int mode = 1;\n    record {| int value; |} request = {value: mode};\n    match mode {\n        1 => { mode = 2; }\n        _ => { mode = 3; }\n    }\n    boolean selected = mode > 0 && positive(mode);\n    future<int> pending = start compute(mode);\n    int result = check wait pending;\n    _ = request;\n    _ = selected;\n    _ = result;\n}",
+                  "kind": "automation",
+                  "title": "Automation",
+                  "moduleId": "examples/unsupported_constructs",
+                  "serviceType": null,
+                  "functionId": "examples/unsupported_constructs/function/main"
+                }
+              ],
+              "functions": {
+                "examples/unsupported_constructs/function/compute": {
+                  "id": "examples/unsupported_constructs/function/compute",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 17,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 62
+                      }
+                    }
+                  },
+                  "text": "function compute(int value) returns int { return value * 2; }",
+                  "moduleId": "examples/unsupported_constructs",
+                  "entry": {
+                    "kind": "function",
+                    "name": "compute",
+                    "signature": "function compute(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/unsupported_constructs/function/compute/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 17,
+                            "column": 43
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 60
+                          }
+                        }
+                      },
+                      "text": "return value * 2;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/unsupported_constructs/function/main": {
+                  "id": "examples/unsupported_constructs/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 14,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() returns error? {\n    int mode = 1;\n    record {| int value; |} request = {value: mode};\n    match mode {\n        1 => { mode = 2; }\n        _ => { mode = 3; }\n    }\n    boolean selected = mode > 0 && positive(mode);\n    future<int> pending = start compute(mode);\n    int result = check wait pending;\n    _ = request;\n    _ = selected;\n    _ = result;\n}",
+                  "moduleId": "examples/unsupported_constructs",
+                  "entry": {
+                    "kind": "function",
+                    "name": "main",
+                    "signature": "public function main() returns error?",
+                    "parameters": [],
+                    "returnType": "error?"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/unsupported_constructs/function/main/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 2,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 18
+                          }
+                        }
+                      },
+                      "text": "int mode = 1;",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/unsupported_constructs/function/main/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 53
+                          }
+                        }
+                      },
+                      "text": "record {| int value; |} request = {value: mode};",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "mapping",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/unsupported_constructs/function/main/statement/2",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 6
+                          }
+                        }
+                      },
+                      "text": "match mode {\n        1 => { mode = 2; }\n        _ => { mode = 3; }\n    }",
+                      "kind": "unsupported",
+                      "reason": "Visualization of *ast.BLangMatchStatement is not modeled; later source may still execute."
+                    },
+                    {
+                      "id": "examples/unsupported_constructs/function/main/statement/3",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 51
+                          }
+                        }
+                      },
+                      "text": "boolean selected = mode > 0 && positive(mode);",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/unsupported_constructs/function/main/statement/3/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 8,
+                                "column": 36
+                              },
+                              "end": {
+                                "line": 8,
+                                "column": 50
+                              }
+                            }
+                          },
+                          "text": "positive(mode)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/unsupported_constructs/function/positive"
+                          },
+                          "expansion": "unavailable",
+                          "reason": "Expansion in this expression evaluation is not modeled."
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/unsupported_constructs/function/main/statement/4",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 47
+                          }
+                        }
+                      },
+                      "text": "future<int> pending = start compute(mode);",
+                      "kind": "unsupported",
+                      "reason": "Control effects of *ast.BLangStartAction are not modeled; later source may still execute."
+                    },
+                    {
+                      "id": "examples/unsupported_constructs/function/main/statement/5",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 10,
+                            "column": 37
+                          }
+                        }
+                      },
+                      "text": "int result = check wait pending;",
+                      "kind": "unsupported",
+                      "reason": "Control effects of *ast.BLangSingleWaitAction are not modeled; later source may still execute."
+                    },
+                    {
+                      "id": "examples/unsupported_constructs/function/main/statement/6",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 11,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 17
+                          }
+                        }
+                      },
+                      "text": "_ = request;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/unsupported_constructs/function/main/statement/7",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 18
+                          }
+                        }
+                      },
+                      "text": "_ = selected;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/unsupported_constructs/function/main/statement/8",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 13,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 16
+                          }
+                        }
+                      },
+                      "text": "_ = result;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/unsupported_constructs/function/positive": {
+                  "id": "examples/unsupported_constructs/function/positive",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 16,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 67
+                      }
+                    }
+                  },
+                  "text": "function positive(int value) returns boolean { return value > 0; }",
+                  "moduleId": "examples/unsupported_constructs",
+                  "entry": {
+                    "kind": "function",
+                    "name": "positive",
+                    "signature": "function positive(int value) returns boolean",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "boolean"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/unsupported_constructs/function/positive/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 16,
+                            "column": 48
+                          },
+                          "end": {
+                            "line": 16,
+                            "column": 65
+                          }
+                        }
+                      },
+                      "text": "return value > 0;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/unsupported_constructs/function/main"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"492\" height=\"1376\" viewBox=\"86 16 492 1376\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 492px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container step\" x=\"118\" y=\"418\" width=\"428\" height=\"304\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"332,92 332,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,210 332,262\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,484 332,502 178,502 178,756 332,756 332,774\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1034 332,1086\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1138 332,1190\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,16 332,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1242 332,1376\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"examples/unsupported_constructs/function/main/statement/0\"><rect x=\"196\" y=\"40\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"48\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int mode = 1;\">int mode = 1;</button></div></foreignObject></g><g data-node-kind=\"mapping\" data-node-id=\"examples/unsupported_constructs/function/main/statement/1\"><rect x=\"128.272705078125\" y=\"144\" width=\"407.45458984375\" height=\"66\" class=\"flow-node mapping\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"152\" width=\"380\" height=\"54\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference record {| int value; |} request = {value: mode};\">record {| int value; |} request = {value: m\node};</button></div></foreignObject></g><g data-node-kind=\"unsupported\" data-node-id=\"examples/unsupported_constructs/function/main/statement/2\"><rect x=\"194.58349609375\" y=\"262\" width=\"274.8330078125\" height=\"104\" class=\"flow-node unsupported\" rx=\"8\"></rect><foreignObject x=\"204.58349609375\" y=\"270\" width=\"254.8330078125\" height=\"92\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference match mode {\n        1 =&gt; { mode = 2; }\n        _ =&gt; { mode = 3; }\n    }\">match mode {\n        1 =&gt; { mode = 2; }\n        _ =&gt; { mode = 3; }\n    }</button></div></foreignObject><foreignObject x=\"194.58349609375\" y=\"369\" width=\"274.8330078125\" height=\"48\"><div class=\"node-limitation\">Visualization of *ast.BLangMatchStatement is not modeled; later source may still execute.</div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/unsupported_constructs/function/main/statement/3\"><rect x=\"118\" y=\"418\" width=\"428\" height=\"66\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"426\" width=\"380\" height=\"54\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference boolean selected = mode &gt; 0 &amp;&amp; positive(mode);\">boolean selected = mode &gt; 0 &amp;&amp; positive(mod\ne);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/unsupported_constructs/function/main/statement/3/call/0\"><rect x=\"196\" y=\"536\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"544\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference positive(mode)\">positive(mode)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"544\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" disabled=\"\" title=\"Expansion in this expression evaluation is not modeled.\" aria-label=\"Expand positive(mode)\" aria-expanded=\"false\">+</button></foreignObject><foreignObject x=\"196\" y=\"591\" width=\"272\" height=\"48\"><div class=\"node-limitation\">Expansion in this expression evaluation is not modeled.</div></foreignObject></g><g data-node-kind=\"unsupported\" data-node-id=\"examples/unsupported_constructs/function/main/statement/4\"><rect x=\"132.17333984375\" y=\"774\" width=\"399.6533203125\" height=\"52\" class=\"flow-node unsupported\" rx=\"8\"></rect><foreignObject x=\"142.17333984375\" y=\"782\" width=\"379.6533203125\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference future&lt;int&gt; pending = start compute(mode);\">future&lt;int&gt; pending = start compute(mode);</button></div></foreignObject><foreignObject x=\"132.17333984375\" y=\"829\" width=\"399.6533203125\" height=\"48\"><div class=\"node-limitation\">Control effects of *ast.BLangStartAction are not modeled; later source may still execute.</div></foreignObject></g><g data-node-kind=\"unsupported\" data-node-id=\"examples/unsupported_constructs/function/main/statement/5\"><rect x=\"171.1796875\" y=\"878\" width=\"321.640625\" height=\"52\" class=\"flow-node unsupported\" rx=\"8\"></rect><foreignObject x=\"181.1796875\" y=\"886\" width=\"301.640625\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int result = check wait pending;\">int result = check wait pending;</button></div></foreignObject><foreignObject x=\"171.1796875\" y=\"933\" width=\"321.640625\" height=\"48\"><div class=\"node-limitation\">Control effects of *ast.BLangSingleWaitAction are not modeled; later source may still execute.</div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/unsupported_constructs/function/main/statement/6\"><rect x=\"196\" y=\"982\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"990\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = request;\">_ = request;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/unsupported_constructs/function/main/statement/7\"><rect x=\"196\" y=\"1086\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"1094\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = selected;\">_ = selected;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/unsupported_constructs/function/main/statement/8\"><rect x=\"196\" y=\"1190\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"1198\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = result;\">_ = result;</button></div></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"492\" height=\"1376\" viewBox=\"86 16 492 1376\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 492px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container step\" x=\"118\" y=\"418\" width=\"428\" height=\"304\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"332,92 332,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,210 332,262\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,484 332,502 178,502 178,756 332,756 332,774\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1034 332,1086\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1138 332,1190\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,16 332,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1242 332,1376\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"examples/unsupported_constructs/function/main/statement/0\"><rect x=\"196\" y=\"40\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"48\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int mode = 1;\">int mode = 1;</button></div></foreignObject></g><g data-node-kind=\"mapping\" data-node-id=\"examples/unsupported_constructs/function/main/statement/1\"><rect x=\"128.272705078125\" y=\"144\" width=\"407.45458984375\" height=\"66\" class=\"flow-node mapping\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"152\" width=\"380\" height=\"54\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference record {| int value; |} request = {value: mode};\">record {| int value; |} request = {value: m\node};</button></div></foreignObject></g><g data-node-kind=\"unsupported\" data-node-id=\"examples/unsupported_constructs/function/main/statement/2\"><rect x=\"194.58349609375\" y=\"262\" width=\"274.8330078125\" height=\"104\" class=\"flow-node unsupported\" rx=\"8\"></rect><foreignObject x=\"204.58349609375\" y=\"270\" width=\"254.8330078125\" height=\"92\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference match mode {\n        1 =&gt; { mode = 2; }\n        _ =&gt; { mode = 3; }\n    }\">match mode {\n        1 =&gt; { mode = 2; }\n        _ =&gt; { mode = 3; }\n    }</button></div></foreignObject><foreignObject x=\"194.58349609375\" y=\"369\" width=\"274.8330078125\" height=\"48\"><div class=\"node-limitation\">Visualization of *ast.BLangMatchStatement is not modeled; later source may still execute.</div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/unsupported_constructs/function/main/statement/3\"><rect x=\"118\" y=\"418\" width=\"428\" height=\"66\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"426\" width=\"380\" height=\"54\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference boolean selected = mode &gt; 0 &amp;&amp; positive(mode);\">boolean selected = mode &gt; 0 &amp;&amp; positive(mod\ne);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/unsupported_constructs/function/main/statement/3/call/0\"><rect x=\"196\" y=\"536\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"544\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference positive(mode)\">positive(mode)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"544\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" disabled=\"\" title=\"Expansion in this expression evaluation is not modeled.\" aria-label=\"Expand positive(mode)\" aria-expanded=\"false\">+</button></foreignObject><foreignObject x=\"196\" y=\"591\" width=\"272\" height=\"48\"><div class=\"node-limitation\">Expansion in this expression evaluation is not modeled.</div></foreignObject></g><g data-node-kind=\"unsupported\" data-node-id=\"examples/unsupported_constructs/function/main/statement/4\"><rect x=\"132.17333984375\" y=\"774\" width=\"399.6533203125\" height=\"52\" class=\"flow-node unsupported\" rx=\"8\"></rect><foreignObject x=\"142.17333984375\" y=\"782\" width=\"379.6533203125\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference future&lt;int&gt; pending = start compute(mode);\">future&lt;int&gt; pending = start compute(mode);</button></div></foreignObject><foreignObject x=\"132.17333984375\" y=\"829\" width=\"399.6533203125\" height=\"48\"><div class=\"node-limitation\">Control effects of *ast.BLangStartAction are not modeled; later source may still execute.</div></foreignObject></g><g data-node-kind=\"unsupported\" data-node-id=\"examples/unsupported_constructs/function/main/statement/5\"><rect x=\"171.1796875\" y=\"878\" width=\"321.640625\" height=\"52\" class=\"flow-node unsupported\" rx=\"8\"></rect><foreignObject x=\"181.1796875\" y=\"886\" width=\"301.640625\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int result = check wait pending;\">int result = check wait pending;</button></div></foreignObject><foreignObject x=\"171.1796875\" y=\"933\" width=\"321.640625\" height=\"48\"><div class=\"node-limitation\">Control effects of *ast.BLangSingleWaitAction are not modeled; later source may still execute.</div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/unsupported_constructs/function/main/statement/6\"><rect x=\"196\" y=\"982\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"990\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = request;\">_ = request;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/unsupported_constructs/function/main/statement/7\"><rect x=\"196\" y=\"1086\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"1094\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = selected;\">_ = selected;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/unsupported_constructs/function/main/statement/8\"><rect x=\"196\" y=\"1190\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"1198\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = result;\">_ = result;</button></div></foreignObject></g></svg>",
+  "renderInputHash": "64ab30304f357e8af173d4e421b462320cc2f2defce4feefd6c951feee35d9a7",
+  "svgAbsent": false
+}

@@ -1,0 +1,4316 @@
+{
+  "wrapper": {
+    "mode": "expanded",
+    "workspace": {
+      "className": "workspace flow-workspace inspection-expanded",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "block",
+          "position": "relative",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "flex",
+          "position": "absolute",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 122,
+          "width": 1500,
+          "height": 828
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "1500px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 122,
+          "width": 1500,
+          "height": 828
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "1500px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 180,
+          "y": -236.625,
+          "width": 1140,
+          "height": 2102
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "1140px",
+          "height": "2102px",
+          "min-width": "0px",
+          "max-width": "1140px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 180px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 530,
+          "y": -368.8125,
+          "width": 440,
+          "height": 116.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "440px",
+          "height": "116.188px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [
+      {
+        "rect": {
+          "x": 530,
+          "y": -402,
+          "width": 440,
+          "height": 19.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "440px",
+          "height": "19.1875px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px 0px 14px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "12px",
+          "font-weight": "400",
+          "line-height": "19.2px",
+          "letter-spacing": "normal",
+          "color": "rgb(105, 121, 111)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(105, 121, 111)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 614,
+          "y": -212.625,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 614,
+          "y": -108.625,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 212,
+          "y": -4.625,
+          "width": 1076,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "1076px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(243, 237, 250)",
+          "stroke": "rgb(186, 168, 212)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 614,
+          "y": 99.375,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 241, 253)",
+          "stroke": "rgb(180, 162, 212)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 446,
+          "y": 203.375,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 290,
+          "y": 411.375,
+          "width": 920,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "920px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 368,
+          "y": 515.375,
+          "width": 764,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "764px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 614,
+          "y": 619.375,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 241, 253)",
+          "stroke": "rgb(180, 162, 212)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 446,
+          "y": 723.375,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 614,
+          "y": 931.375,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 614,
+          "y": 1437.375,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 241, 253)",
+          "stroke": "rgb(180, 162, 212)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 430,
+          "y": 1541.375,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 798,
+          "y": 1541.375,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 614,
+          "y": 1749.375,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [
+      {
+        "rect": {
+          "x": 212,
+          "y": -4.625,
+          "width": 1076,
+          "height": 1390
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "1076px",
+          "height": "1390px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(243, 237, 250)",
+          "stroke": "rgb(186, 168, 212)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 290,
+          "y": 411.375,
+          "width": 920,
+          "height": 840
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "920px",
+          "height": "840px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 368,
+          "y": 515.375,
+          "width": 764,
+          "height": 602
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "764px",
+          "height": "602px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 624,
+          "y": -198.125,
+          "width": 252,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 624,
+          "y": -94.125,
+          "width": 252,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 580,
+          "y": 9.875,
+          "width": 340,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 624,
+          "y": 113.875,
+          "width": 252,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 456,
+          "y": 217.875,
+          "width": 252,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 580,
+          "y": 425.875,
+          "width": 340,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 592,
+          "y": 529.875,
+          "width": 316,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "316px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgb(237, 242, 235)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 624,
+          "y": 633.875,
+          "width": 252,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 456,
+          "y": 737.875,
+          "width": 252,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 624,
+          "y": 945.875,
+          "width": 252,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 624,
+          "y": 1451.875,
+          "width": 252,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 440,
+          "y": 1555.875,
+          "width": 252,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 808,
+          "y": 1555.875,
+          "width": 252,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 624,
+          "y": 1763.875,
+          "width": 252,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [
+      {
+        "rect": {
+          "x": 376,
+          "y": 523.375,
+          "width": 26,
+          "height": 26
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-limitation": [],
+    ".edge-label": [
+      {
+        "rect": {
+          "x": 585.03125,
+          "y": 107.375,
+          "width": 18.96875,
+          "height": 13
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 896,
+          "y": 107.375,
+          "width": 23.25,
+          "height": 13
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 585.03125,
+          "y": 627.375,
+          "width": 18.96875,
+          "height": 13
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 896,
+          "y": 627.375,
+          "width": 23.25,
+          "height": 13
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 585.03125,
+          "y": 1445.375,
+          "width": 18.96875,
+          "height": 13
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 896,
+          "y": 1445.375,
+          "width": 23.25,
+          "height": 13
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 690,
+          "y": 1351.375,
+          "width": 62.984375,
+          "height": 13
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".client-receiver": [],
+    ".client-context": [],
+    ".client-method": []
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "examples/design_critique/service/main.bal//orders/1",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 6,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 18,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "service /orders on new http:Listener(8080) {\n    resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }\n    resource function get status() returns string { return \"ready\"; }\n}",
+              "kind": "service",
+              "title": "/orders",
+              "moduleId": "examples/design_critique",
+              "serviceType": "ballerina/http:Listener",
+              "endpoints": [
+                {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 6
+                      }
+                    }
+                  },
+                  "text": "resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }",
+                  "kind": "resource",
+                  "title": "post /orders/orders",
+                  "functionId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders"
+                },
+                {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 17,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 70
+                      }
+                    }
+                  },
+                  "text": "resource function get status() returns string { return \"ready\"; }",
+                  "kind": "resource",
+                  "title": "get /orders/status",
+                  "functionId": "examples/design_critique/service/main.bal//orders/1/resource/get/status"
+                }
+              ],
+              "definitions": [
+                {
+                  "id": "examples/design_critique/function/calculate",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 20,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 23,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function calculate(int value) returns int {\n    if value < 0 { return 0; }\n    return value * 2;\n}",
+                  "kind": "function",
+                  "label": "calculate",
+                  "functionId": "examples/design_critique/function/calculate"
+                },
+                {
+                  "id": "examples/design_critique/type/Order",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 37
+                      }
+                    }
+                  },
+                  "text": "type Order record {| int amount; |};",
+                  "kind": "type",
+                  "label": "Order"
+                }
+              ]
+            }
+          ],
+          "functions": {
+            "examples/design_critique/function/calculate": {
+              "id": "examples/design_critique/function/calculate",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 20,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 23,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "function calculate(int value) returns int {\n    if value < 0 { return 0; }\n    return value * 2;\n}",
+              "moduleId": "examples/design_critique",
+              "entry": {
+                "kind": "function",
+                "name": "calculate",
+                "signature": "function calculate(int value) returns int",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "int value"
+                  }
+                ],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/design_critique/function/calculate/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 21,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 21,
+                        "column": 31
+                      }
+                    }
+                  },
+                  "text": "if value < 0 { return 0; }",
+                  "kind": "if",
+                  "condition": {
+                    "id": "examples/design_critique/function/calculate/statement/0/condition",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 21,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 21,
+                          "column": 17
+                        }
+                      }
+                    },
+                    "text": "value < 0",
+                    "calls": []
+                  },
+                  "thenBody": [
+                    {
+                      "id": "examples/design_critique/function/calculate/statement/0/then/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 21,
+                            "column": 20
+                          },
+                          "end": {
+                            "line": 21,
+                            "column": 29
+                          }
+                        }
+                      },
+                      "text": "return 0;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ],
+                  "elseBody": []
+                },
+                {
+                  "id": "examples/design_critique/function/calculate/statement/1/block/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 22,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 22,
+                        "column": 22
+                      }
+                    }
+                  },
+                  "text": "return value * 2;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/design_critique/service/main.bal//orders/1/resource/get/status": {
+              "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 17,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 17,
+                    "column": 70
+                  }
+                }
+              },
+              "text": "resource function get status() returns string { return \"ready\"; }",
+              "moduleId": "examples/design_critique",
+              "entry": {
+                "kind": "resource",
+                "name": "get /status",
+                "signature": "resource function get status() returns string",
+                "parameters": [],
+                "returnType": "string"
+              },
+              "body": [
+                {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 17,
+                        "column": 53
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 68
+                      }
+                    }
+                  },
+                  "text": "return \"ready\";",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/design_critique/service/main.bal//orders/1/resource/post/orders": {
+              "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 7,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 16,
+                    "column": 6
+                  }
+                }
+              },
+              "text": "resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }",
+              "moduleId": "examples/design_critique",
+              "entry": {
+                "kind": "resource",
+                "name": "post /orders",
+                "signature": "resource function post orders() returns int",
+                "parameters": [],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 33
+                      }
+                    }
+                  },
+                  "text": "int[] items = [1, 2, 3];",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 9,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 23
+                      }
+                    }
+                  },
+                  "text": "int total = 0;",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 10,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 10
+                      }
+                    }
+                  },
+                  "text": "foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }",
+                  "kind": "foreach",
+                  "header": {
+                    "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/header",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 10,
+                          "column": 17
+                        },
+                        "end": {
+                          "line": 10,
+                          "column": 34
+                        }
+                      }
+                    },
+                    "text": "int item in items",
+                    "calls": []
+                  },
+                  "body": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 11,
+                            "column": 13
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 44
+                          }
+                        }
+                      },
+                      "text": "if item < minimum { continue; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 11,
+                              "column": 16
+                            },
+                            "end": {
+                              "line": 11,
+                              "column": 30
+                            }
+                          }
+                        },
+                        "text": "item < minimum",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 11,
+                                "column": 33
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 42
+                              }
+                            }
+                          },
+                          "text": "continue;",
+                          "kind": "continue"
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 13
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 38
+                          }
+                        }
+                      },
+                      "text": "total += calculate(item);",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 22
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 37
+                              }
+                            }
+                          },
+                          "text": "calculate(item)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/design_critique/function/calculate"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 14,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 14,
+                        "column": 59
+                      }
+                    }
+                  },
+                  "text": "if total > 10 { total += 2; } else { total += 1; }",
+                  "kind": "if",
+                  "condition": {
+                    "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/condition",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 14,
+                          "column": 12
+                        },
+                        "end": {
+                          "line": 14,
+                          "column": 22
+                        }
+                      }
+                    },
+                    "text": "total > 10",
+                    "calls": []
+                  },
+                  "thenBody": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 14,
+                            "column": 25
+                          },
+                          "end": {
+                            "line": 14,
+                            "column": 36
+                          }
+                        }
+                      },
+                      "text": "total += 2;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ],
+                  "elseBody": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 14,
+                            "column": 46
+                          },
+                          "end": {
+                            "line": 14,
+                            "column": 57
+                          }
+                        }
+                      },
+                      "text": "total += 1;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 15,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 15,
+                        "column": 22
+                      }
+                    }
+                  },
+                  "text": "return total;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders"
+      }
+    },
+    "references": [],
+    "expanded": [
+      "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0"
+    ],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/design_critique/service/main.bal//orders/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 6,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 18,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /orders on new http:Listener(8080) {\n    resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }\n    resource function get status() returns string { return \"ready\"; }\n}",
+                  "kind": "service",
+                  "title": "/orders",
+                  "moduleId": "examples/design_critique",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 16,
+                            "column": 6
+                          }
+                        }
+                      },
+                      "text": "resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }",
+                      "kind": "resource",
+                      "title": "post /orders/orders",
+                      "functionId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders"
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 17,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 70
+                          }
+                        }
+                      },
+                      "text": "resource function get status() returns string { return \"ready\"; }",
+                      "kind": "resource",
+                      "title": "get /orders/status",
+                      "functionId": "examples/design_critique/service/main.bal//orders/1/resource/get/status"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/design_critique/function/calculate",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 20,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 23,
+                            "column": 2
+                          }
+                        }
+                      },
+                      "text": "function calculate(int value) returns int {\n    if value < 0 { return 0; }\n    return value * 2;\n}",
+                      "kind": "function",
+                      "label": "calculate",
+                      "functionId": "examples/design_critique/function/calculate"
+                    },
+                    {
+                      "id": "examples/design_critique/type/Order",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 37
+                          }
+                        }
+                      },
+                      "text": "type Order record {| int amount; |};",
+                      "kind": "type",
+                      "label": "Order"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/design_critique/function/calculate": {
+                  "id": "examples/design_critique/function/calculate",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 20,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 23,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function calculate(int value) returns int {\n    if value < 0 { return 0; }\n    return value * 2;\n}",
+                  "moduleId": "examples/design_critique",
+                  "entry": {
+                    "kind": "function",
+                    "name": "calculate",
+                    "signature": "function calculate(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/design_critique/function/calculate/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 21,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 21,
+                            "column": 31
+                          }
+                        }
+                      },
+                      "text": "if value < 0 { return 0; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/design_critique/function/calculate/statement/0/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 21,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 21,
+                              "column": 17
+                            }
+                          }
+                        },
+                        "text": "value < 0",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/design_critique/function/calculate/statement/0/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 21,
+                                "column": 20
+                              },
+                              "end": {
+                                "line": 21,
+                                "column": 29
+                              }
+                            }
+                          },
+                          "text": "return 0;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/design_critique/function/calculate/statement/1/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 22,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 22,
+                            "column": 22
+                          }
+                        }
+                      },
+                      "text": "return value * 2;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/design_critique/service/main.bal//orders/1/resource/get/status": {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 17,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 70
+                      }
+                    }
+                  },
+                  "text": "resource function get status() returns string { return \"ready\"; }",
+                  "moduleId": "examples/design_critique",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /status",
+                    "signature": "resource function get status() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 17,
+                            "column": 53
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 68
+                          }
+                        }
+                      },
+                      "text": "return \"ready\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/design_critique/service/main.bal//orders/1/resource/post/orders": {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 6
+                      }
+                    }
+                  },
+                  "text": "resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }",
+                  "moduleId": "examples/design_critique",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "post /orders",
+                    "signature": "resource function post orders() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "int[] items = [1, 2, 3];",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 23
+                          }
+                        }
+                      },
+                      "text": "int total = 0;",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 10
+                          }
+                        }
+                      },
+                      "text": "foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }",
+                      "kind": "foreach",
+                      "header": {
+                        "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/header",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 10,
+                              "column": 17
+                            },
+                            "end": {
+                              "line": 10,
+                              "column": 34
+                            }
+                          }
+                        },
+                        "text": "int item in items",
+                        "calls": []
+                      },
+                      "body": [
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 11,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 44
+                              }
+                            }
+                          },
+                          "text": "if item < minimum { continue; }",
+                          "kind": "if",
+                          "condition": {
+                            "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/condition",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 11,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 11,
+                                  "column": 30
+                                }
+                              }
+                            },
+                            "text": "item < minimum",
+                            "calls": []
+                          },
+                          "thenBody": [
+                            {
+                              "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0",
+                              "source": {
+                                "file": "main.bal",
+                                "range": {
+                                  "start": {
+                                    "line": 11,
+                                    "column": 33
+                                  },
+                                  "end": {
+                                    "line": 11,
+                                    "column": 42
+                                  }
+                                }
+                              },
+                              "text": "continue;",
+                              "kind": "continue"
+                            }
+                          ],
+                          "elseBody": []
+                        },
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 38
+                              }
+                            }
+                          },
+                          "text": "total += calculate(item);",
+                          "kind": "simple",
+                          "operation": "assign",
+                          "presentation": "step",
+                          "calls": [
+                            {
+                              "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
+                              "source": {
+                                "file": "main.bal",
+                                "range": {
+                                  "start": {
+                                    "line": 12,
+                                    "column": 22
+                                  },
+                                  "end": {
+                                    "line": 12,
+                                    "column": 37
+                                  }
+                                }
+                              },
+                              "text": "calculate(item)",
+                              "target": {
+                                "kind": "workspace",
+                                "functionId": "examples/design_critique/function/calculate"
+                              },
+                              "expansion": "supported"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 14,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 14,
+                            "column": 59
+                          }
+                        }
+                      },
+                      "text": "if total > 10 { total += 2; } else { total += 1; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 14,
+                              "column": 12
+                            },
+                            "end": {
+                              "line": 14,
+                              "column": 22
+                            }
+                          }
+                        },
+                        "text": "total > 10",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 14,
+                                "column": 25
+                              },
+                              "end": {
+                                "line": 14,
+                                "column": 36
+                              }
+                            }
+                          },
+                          "text": "total += 2;",
+                          "kind": "simple",
+                          "operation": "assign",
+                          "presentation": "step",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": [
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 14,
+                                "column": 46
+                              },
+                              "end": {
+                                "line": 14,
+                                "column": 57
+                              }
+                            }
+                          },
+                          "text": "total += 1;",
+                          "kind": "simple",
+                          "operation": "assign",
+                          "presentation": "step",
+                          "calls": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 15,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 15,
+                            "column": 22
+                          }
+                        }
+                      },
+                      "text": "return total;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "definitions",
+            "scopeId": "examples/design_critique/service/main.bal//orders/1"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/design_critique/service/main.bal//orders/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 6,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 18,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /orders on new http:Listener(8080) {\n    resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }\n    resource function get status() returns string { return \"ready\"; }\n}",
+                  "kind": "service",
+                  "title": "/orders",
+                  "moduleId": "examples/design_critique",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 16,
+                            "column": 6
+                          }
+                        }
+                      },
+                      "text": "resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }",
+                      "kind": "resource",
+                      "title": "post /orders/orders",
+                      "functionId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders"
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 17,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 70
+                          }
+                        }
+                      },
+                      "text": "resource function get status() returns string { return \"ready\"; }",
+                      "kind": "resource",
+                      "title": "get /orders/status",
+                      "functionId": "examples/design_critique/service/main.bal//orders/1/resource/get/status"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/design_critique/function/calculate",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 20,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 23,
+                            "column": 2
+                          }
+                        }
+                      },
+                      "text": "function calculate(int value) returns int {\n    if value < 0 { return 0; }\n    return value * 2;\n}",
+                      "kind": "function",
+                      "label": "calculate",
+                      "functionId": "examples/design_critique/function/calculate"
+                    },
+                    {
+                      "id": "examples/design_critique/type/Order",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 37
+                          }
+                        }
+                      },
+                      "text": "type Order record {| int amount; |};",
+                      "kind": "type",
+                      "label": "Order"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/design_critique/function/calculate": {
+                  "id": "examples/design_critique/function/calculate",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 20,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 23,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function calculate(int value) returns int {\n    if value < 0 { return 0; }\n    return value * 2;\n}",
+                  "moduleId": "examples/design_critique",
+                  "entry": {
+                    "kind": "function",
+                    "name": "calculate",
+                    "signature": "function calculate(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/design_critique/function/calculate/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 21,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 21,
+                            "column": 31
+                          }
+                        }
+                      },
+                      "text": "if value < 0 { return 0; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/design_critique/function/calculate/statement/0/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 21,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 21,
+                              "column": 17
+                            }
+                          }
+                        },
+                        "text": "value < 0",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/design_critique/function/calculate/statement/0/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 21,
+                                "column": 20
+                              },
+                              "end": {
+                                "line": 21,
+                                "column": 29
+                              }
+                            }
+                          },
+                          "text": "return 0;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/design_critique/function/calculate/statement/1/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 22,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 22,
+                            "column": 22
+                          }
+                        }
+                      },
+                      "text": "return value * 2;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/design_critique/service/main.bal//orders/1/resource/get/status": {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 17,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 70
+                      }
+                    }
+                  },
+                  "text": "resource function get status() returns string { return \"ready\"; }",
+                  "moduleId": "examples/design_critique",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /status",
+                    "signature": "resource function get status() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 17,
+                            "column": 53
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 68
+                          }
+                        }
+                      },
+                      "text": "return \"ready\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/design_critique/service/main.bal//orders/1/resource/post/orders": {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 6
+                      }
+                    }
+                  },
+                  "text": "resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }",
+                  "moduleId": "examples/design_critique",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "post /orders",
+                    "signature": "resource function post orders() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "int[] items = [1, 2, 3];",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 23
+                          }
+                        }
+                      },
+                      "text": "int total = 0;",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 10
+                          }
+                        }
+                      },
+                      "text": "foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }",
+                      "kind": "foreach",
+                      "header": {
+                        "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/header",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 10,
+                              "column": 17
+                            },
+                            "end": {
+                              "line": 10,
+                              "column": 34
+                            }
+                          }
+                        },
+                        "text": "int item in items",
+                        "calls": []
+                      },
+                      "body": [
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 11,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 44
+                              }
+                            }
+                          },
+                          "text": "if item < minimum { continue; }",
+                          "kind": "if",
+                          "condition": {
+                            "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/condition",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 11,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 11,
+                                  "column": 30
+                                }
+                              }
+                            },
+                            "text": "item < minimum",
+                            "calls": []
+                          },
+                          "thenBody": [
+                            {
+                              "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0",
+                              "source": {
+                                "file": "main.bal",
+                                "range": {
+                                  "start": {
+                                    "line": 11,
+                                    "column": 33
+                                  },
+                                  "end": {
+                                    "line": 11,
+                                    "column": 42
+                                  }
+                                }
+                              },
+                              "text": "continue;",
+                              "kind": "continue"
+                            }
+                          ],
+                          "elseBody": []
+                        },
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 38
+                              }
+                            }
+                          },
+                          "text": "total += calculate(item);",
+                          "kind": "simple",
+                          "operation": "assign",
+                          "presentation": "step",
+                          "calls": [
+                            {
+                              "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
+                              "source": {
+                                "file": "main.bal",
+                                "range": {
+                                  "start": {
+                                    "line": 12,
+                                    "column": 22
+                                  },
+                                  "end": {
+                                    "line": 12,
+                                    "column": 37
+                                  }
+                                }
+                              },
+                              "text": "calculate(item)",
+                              "target": {
+                                "kind": "workspace",
+                                "functionId": "examples/design_critique/function/calculate"
+                              },
+                              "expansion": "supported"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 14,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 14,
+                            "column": 59
+                          }
+                        }
+                      },
+                      "text": "if total > 10 { total += 2; } else { total += 1; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 14,
+                              "column": 12
+                            },
+                            "end": {
+                              "line": 14,
+                              "column": 22
+                            }
+                          }
+                        },
+                        "text": "total > 10",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 14,
+                                "column": 25
+                              },
+                              "end": {
+                                "line": 14,
+                                "column": 36
+                              }
+                            }
+                          },
+                          "text": "total += 2;",
+                          "kind": "simple",
+                          "operation": "assign",
+                          "presentation": "step",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": [
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 14,
+                                "column": 46
+                              },
+                              "end": {
+                                "line": 14,
+                                "column": 57
+                              }
+                            }
+                          },
+                          "text": "total += 1;",
+                          "kind": "simple",
+                          "operation": "assign",
+                          "presentation": "step",
+                          "calls": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 15,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 15,
+                            "column": 22
+                          }
+                        }
+                      },
+                      "text": "return total;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/design_critique/service/main.bal//orders/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 6,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 18,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /orders on new http:Listener(8080) {\n    resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }\n    resource function get status() returns string { return \"ready\"; }\n}",
+                  "kind": "service",
+                  "title": "/orders",
+                  "moduleId": "examples/design_critique",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 16,
+                            "column": 6
+                          }
+                        }
+                      },
+                      "text": "resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }",
+                      "kind": "resource",
+                      "title": "post /orders/orders",
+                      "functionId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders"
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 17,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 70
+                          }
+                        }
+                      },
+                      "text": "resource function get status() returns string { return \"ready\"; }",
+                      "kind": "resource",
+                      "title": "get /orders/status",
+                      "functionId": "examples/design_critique/service/main.bal//orders/1/resource/get/status"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/design_critique/function/calculate",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 20,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 23,
+                            "column": 2
+                          }
+                        }
+                      },
+                      "text": "function calculate(int value) returns int {\n    if value < 0 { return 0; }\n    return value * 2;\n}",
+                      "kind": "function",
+                      "label": "calculate",
+                      "functionId": "examples/design_critique/function/calculate"
+                    },
+                    {
+                      "id": "examples/design_critique/type/Order",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 37
+                          }
+                        }
+                      },
+                      "text": "type Order record {| int amount; |};",
+                      "kind": "type",
+                      "label": "Order"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/design_critique/function/calculate": {
+                  "id": "examples/design_critique/function/calculate",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 20,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 23,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function calculate(int value) returns int {\n    if value < 0 { return 0; }\n    return value * 2;\n}",
+                  "moduleId": "examples/design_critique",
+                  "entry": {
+                    "kind": "function",
+                    "name": "calculate",
+                    "signature": "function calculate(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/design_critique/function/calculate/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 21,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 21,
+                            "column": 31
+                          }
+                        }
+                      },
+                      "text": "if value < 0 { return 0; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/design_critique/function/calculate/statement/0/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 21,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 21,
+                              "column": 17
+                            }
+                          }
+                        },
+                        "text": "value < 0",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/design_critique/function/calculate/statement/0/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 21,
+                                "column": 20
+                              },
+                              "end": {
+                                "line": 21,
+                                "column": 29
+                              }
+                            }
+                          },
+                          "text": "return 0;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/design_critique/function/calculate/statement/1/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 22,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 22,
+                            "column": 22
+                          }
+                        }
+                      },
+                      "text": "return value * 2;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/design_critique/service/main.bal//orders/1/resource/get/status": {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 17,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 70
+                      }
+                    }
+                  },
+                  "text": "resource function get status() returns string { return \"ready\"; }",
+                  "moduleId": "examples/design_critique",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /status",
+                    "signature": "resource function get status() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 17,
+                            "column": 53
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 68
+                          }
+                        }
+                      },
+                      "text": "return \"ready\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/design_critique/service/main.bal//orders/1/resource/post/orders": {
+                  "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 6
+                      }
+                    }
+                  },
+                  "text": "resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }",
+                  "moduleId": "examples/design_critique",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "post /orders",
+                    "signature": "resource function post orders() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "int[] items = [1, 2, 3];",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 23
+                          }
+                        }
+                      },
+                      "text": "int total = 0;",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 10
+                          }
+                        }
+                      },
+                      "text": "foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }",
+                      "kind": "foreach",
+                      "header": {
+                        "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/header",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 10,
+                              "column": 17
+                            },
+                            "end": {
+                              "line": 10,
+                              "column": 34
+                            }
+                          }
+                        },
+                        "text": "int item in items",
+                        "calls": []
+                      },
+                      "body": [
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 11,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 44
+                              }
+                            }
+                          },
+                          "text": "if item < minimum { continue; }",
+                          "kind": "if",
+                          "condition": {
+                            "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/condition",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 11,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 11,
+                                  "column": 30
+                                }
+                              }
+                            },
+                            "text": "item < minimum",
+                            "calls": []
+                          },
+                          "thenBody": [
+                            {
+                              "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0",
+                              "source": {
+                                "file": "main.bal",
+                                "range": {
+                                  "start": {
+                                    "line": 11,
+                                    "column": 33
+                                  },
+                                  "end": {
+                                    "line": 11,
+                                    "column": 42
+                                  }
+                                }
+                              },
+                              "text": "continue;",
+                              "kind": "continue"
+                            }
+                          ],
+                          "elseBody": []
+                        },
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 38
+                              }
+                            }
+                          },
+                          "text": "total += calculate(item);",
+                          "kind": "simple",
+                          "operation": "assign",
+                          "presentation": "step",
+                          "calls": [
+                            {
+                              "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
+                              "source": {
+                                "file": "main.bal",
+                                "range": {
+                                  "start": {
+                                    "line": 12,
+                                    "column": 22
+                                  },
+                                  "end": {
+                                    "line": 12,
+                                    "column": 37
+                                  }
+                                }
+                              },
+                              "text": "calculate(item)",
+                              "target": {
+                                "kind": "workspace",
+                                "functionId": "examples/design_critique/function/calculate"
+                              },
+                              "expansion": "supported"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 14,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 14,
+                            "column": 59
+                          }
+                        }
+                      },
+                      "text": "if total > 10 { total += 2; } else { total += 1; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 14,
+                              "column": 12
+                            },
+                            "end": {
+                              "line": 14,
+                              "column": 22
+                            }
+                          }
+                        },
+                        "text": "total > 10",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 14,
+                                "column": 25
+                              },
+                              "end": {
+                                "line": 14,
+                                "column": 36
+                              }
+                            }
+                          },
+                          "text": "total += 2;",
+                          "kind": "simple",
+                          "operation": "assign",
+                          "presentation": "step",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": [
+                        {
+                          "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 14,
+                                "column": 46
+                              },
+                              "end": {
+                                "line": 14,
+                                "column": 57
+                              }
+                            }
+                          },
+                          "text": "total += 1;",
+                          "kind": "simple",
+                          "operation": "assign",
+                          "presentation": "step",
+                          "calls": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 15,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 15,
+                            "column": 22
+                          }
+                        }
+                      },
+                      "text": "return total;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders"
+          }
+        },
+        "references": [],
+        "expanded": [
+          "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0"
+        ],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"1140\" height=\"2102\" viewBox=\"86 16 1140 2102\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 1140px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container loop\" x=\"118\" y=\"248\" width=\"1076\" height=\"1390\" rx=\"12\"></rect><rect class=\"container step\" x=\"196\" y=\"664\" width=\"920\" height=\"840\" rx=\"12\"></rect><rect class=\"container function\" x=\"274\" y=\"768\" width=\"764\" height=\"602\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"656,92 656,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"520,378 488,378 488,456\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"510\" y=\"370\" text-anchor=\"end\" class=\"edge-label\">true</text></g><g data-edge-kind=\"false\"><polyline points=\"792,378 816,378 816,594 656,594 656,612\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"802\" y=\"370\" text-anchor=\"start\" class=\"edge-label\">false</text></g><g data-edge-kind=\"sequence\"><polyline points=\"656,716 656,768\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"520,898 488,898 488,976\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"510\" y=\"890\" text-anchor=\"end\" class=\"edge-label\">true</text></g><g data-edge-kind=\"false\"><polyline points=\"792,898 816,898 816,1114 656,1114 656,1132\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"802\" y=\"890\" text-anchor=\"start\" class=\"edge-label\">false</text></g><g data-edge-kind=\"sequence\"><polyline points=\"656,1132 656,1184\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,768 656,872\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"488,1028 488,1352 656,1352 656,1370\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"656,1236 656,1370\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,612 656,664\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,300 656,352\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,1370 656,1490 586,1490 586,1610\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"continue\"><polyline points=\"488,508 488,526 178,526 178,1592 586,1592 586,1610\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,196 656,248\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"520,1716 472,1716 472,1794\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"510\" y=\"1708\" text-anchor=\"end\" class=\"edge-label\">true</text></g><g data-edge-kind=\"false\"><polyline points=\"792,1716 840,1716 840,1794\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"802\" y=\"1708\" text-anchor=\"start\" class=\"edge-label\">false</text></g><g data-edge-kind=\"sequence\"><polyline points=\"472,1846 472,1898 656,1898 656,1950\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"840,1846 840,1898 656,1898 656,1950\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,1638 656,1690\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,1950 656,2002\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,16 656,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g class=\"iteration-marker\"><circle cx=\"586\" cy=\"1610\" r=\"4\" fill=\"#7c8899\"></circle><text x=\"596\" y=\"1614\" class=\"edge-label\">next iteration</text></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0\"><rect x=\"520\" y=\"40\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"530\" y=\"48\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int[] items = [1, 2, 3];\">int[] items = [1, 2, 3];</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1\"><rect x=\"520\" y=\"144\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"530\" y=\"152\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int total = 0;\">int total = 0;</button></div></foreignObject></g><g data-node-kind=\"loop\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/header\"><rect x=\"118\" y=\"248\" width=\"1076\" height=\"52\" class=\"flow-node loop\" rx=\"8\"></rect><foreignObject x=\"466\" y=\"256\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference foreach int item in items\">foreach int item in items</button></div></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/condition\"><rect x=\"520\" y=\"352\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"530\" y=\"360\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference item &lt; minimum\">item &lt; minimum</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0\"><rect x=\"352\" y=\"456\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"362\" y=\"464\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference continue;\">continue;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0\"><rect x=\"196\" y=\"664\" width=\"920\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"466\" y=\"672\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference total += calculate(item);\">total += calculate(item);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0\"><rect x=\"274\" y=\"768\" width=\"764\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"466\" y=\"776\" width=\"380\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference calculate(item)\">calculate(item)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"282\" y=\"776\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Collapse calculate(item)\" aria-expanded=\"true\">−</button></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"examples/design_critique/function/calculate/statement/0/condition\"><rect x=\"520\" y=\"872\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"530\" y=\"880\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference value &lt; 0\">value &lt; 0</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/design_critique/function/calculate/statement/0/then/statement/0\"><rect x=\"352\" y=\"976\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"362\" y=\"984\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return 0;\">return 0;</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/design_critique/function/calculate/statement/1/block/statement/0\"><rect x=\"520\" y=\"1184\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"530\" y=\"1192\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return value * 2;\">return value * 2;</button></div></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/condition\"><rect x=\"520\" y=\"1690\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"530\" y=\"1698\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference total &gt; 10\">total &gt; 10</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0\"><rect x=\"336\" y=\"1794\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"346\" y=\"1802\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference total += 2;\">total += 2;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0\"><rect x=\"704\" y=\"1794\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"714\" y=\"1802\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference total += 1;\">total += 1;</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4\"><rect x=\"520\" y=\"2002\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"530\" y=\"2010\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return total;\">return total;</button></div></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"1140\" height=\"2102\" viewBox=\"86 16 1140 2102\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 1140px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container loop\" x=\"118\" y=\"248\" width=\"1076\" height=\"1390\" rx=\"12\"></rect><rect class=\"container step\" x=\"196\" y=\"664\" width=\"920\" height=\"840\" rx=\"12\"></rect><rect class=\"container function\" x=\"274\" y=\"768\" width=\"764\" height=\"602\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"656,92 656,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"520,378 488,378 488,456\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"510\" y=\"370\" text-anchor=\"end\" class=\"edge-label\">true</text></g><g data-edge-kind=\"false\"><polyline points=\"792,378 816,378 816,594 656,594 656,612\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"802\" y=\"370\" text-anchor=\"start\" class=\"edge-label\">false</text></g><g data-edge-kind=\"sequence\"><polyline points=\"656,716 656,768\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"520,898 488,898 488,976\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"510\" y=\"890\" text-anchor=\"end\" class=\"edge-label\">true</text></g><g data-edge-kind=\"false\"><polyline points=\"792,898 816,898 816,1114 656,1114 656,1132\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"802\" y=\"890\" text-anchor=\"start\" class=\"edge-label\">false</text></g><g data-edge-kind=\"sequence\"><polyline points=\"656,1132 656,1184\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,768 656,872\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"488,1028 488,1352 656,1352 656,1370\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"656,1236 656,1370\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,612 656,664\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,300 656,352\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,1370 656,1490 586,1490 586,1610\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"continue\"><polyline points=\"488,508 488,526 178,526 178,1592 586,1592 586,1610\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,196 656,248\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"520,1716 472,1716 472,1794\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"510\" y=\"1708\" text-anchor=\"end\" class=\"edge-label\">true</text></g><g data-edge-kind=\"false\"><polyline points=\"792,1716 840,1716 840,1794\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"802\" y=\"1708\" text-anchor=\"start\" class=\"edge-label\">false</text></g><g data-edge-kind=\"sequence\"><polyline points=\"472,1846 472,1898 656,1898 656,1950\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"840,1846 840,1898 656,1898 656,1950\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,1638 656,1690\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,1950 656,2002\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"656,16 656,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g class=\"iteration-marker\"><circle cx=\"586\" cy=\"1610\" r=\"4\" fill=\"#7c8899\"></circle><text x=\"596\" y=\"1614\" class=\"edge-label\">next iteration</text></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0\"><rect x=\"520\" y=\"40\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"530\" y=\"48\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int[] items = [1, 2, 3];\">int[] items = [1, 2, 3];</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1\"><rect x=\"520\" y=\"144\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"530\" y=\"152\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int total = 0;\">int total = 0;</button></div></foreignObject></g><g data-node-kind=\"loop\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/header\"><rect x=\"118\" y=\"248\" width=\"1076\" height=\"52\" class=\"flow-node loop\" rx=\"8\"></rect><foreignObject x=\"466\" y=\"256\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference foreach int item in items\">foreach int item in items</button></div></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/condition\"><rect x=\"520\" y=\"352\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"530\" y=\"360\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference item &lt; minimum\">item &lt; minimum</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0\"><rect x=\"352\" y=\"456\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"362\" y=\"464\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference continue;\">continue;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0\"><rect x=\"196\" y=\"664\" width=\"920\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"466\" y=\"672\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference total += calculate(item);\">total += calculate(item);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0\"><rect x=\"274\" y=\"768\" width=\"764\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"466\" y=\"776\" width=\"380\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference calculate(item)\">calculate(item)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"282\" y=\"776\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Collapse calculate(item)\" aria-expanded=\"true\">−</button></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"examples/design_critique/function/calculate/statement/0/condition\"><rect x=\"520\" y=\"872\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"530\" y=\"880\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference value &lt; 0\">value &lt; 0</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/design_critique/function/calculate/statement/0/then/statement/0\"><rect x=\"352\" y=\"976\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"362\" y=\"984\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return 0;\">return 0;</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/design_critique/function/calculate/statement/1/block/statement/0\"><rect x=\"520\" y=\"1184\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"530\" y=\"1192\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return value * 2;\">return value * 2;</button></div></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/condition\"><rect x=\"520\" y=\"1690\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"530\" y=\"1698\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference total &gt; 10\">total &gt; 10</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0\"><rect x=\"336\" y=\"1794\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"346\" y=\"1802\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference total += 2;\">total += 2;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0\"><rect x=\"704\" y=\"1794\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"714\" y=\"1802\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference total += 1;\">total += 1;</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4\"><rect x=\"520\" y=\"2002\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"530\" y=\"2010\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return total;\">return total;</button></div></foreignObject></g></svg>",
+  "renderInputHash": "0d8ea96f5dcc358fb0e00743dd60ebe1db65df9b2f839bc848fba7a16214cce6",
+  "svgAbsent": false
+}

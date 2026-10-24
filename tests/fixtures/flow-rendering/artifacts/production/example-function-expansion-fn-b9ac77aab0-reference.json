@@ -1,0 +1,3982 @@
+{
+  "wrapper": {
+    "mode": "normal",
+    "workspace": {
+      "className": "workspace flow-workspace ",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 1200,
+        "y": 68,
+        "width": 300,
+        "height": 882
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "grid",
+          "position": "relative",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 1200,
+          "y": 68,
+          "width": 300,
+          "height": 882
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "300px",
+          "height": "882px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 274.1875,
+          "width": 259,
+          "height": 893.859375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "893.859px",
+          "min-width": "0px",
+          "max-width": "492px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 20px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 142,
+          "width": 259,
+          "height": 116.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "116.188px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 1237.8463134765625,
+          "y": 286.8215637207031,
+          "width": 225.307373046875,
+          "height": 27.373779296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(53, 120, 212)",
+          "stroke-width": "2.5px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.906982421875,
+          "y": 341.5691223144531,
+          "width": 143.18603515625,
+          "height": 27.373779296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1237.8463134765625,
+          "y": 466.8568420410156,
+          "width": 225.307373046875,
+          "height": 27.373779296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.906982421875,
+          "y": 521.6043701171875,
+          "width": 143.18603515625,
+          "height": 27.373779296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1237.8463134765625,
+          "y": 646.89208984375,
+          "width": 225.307373046875,
+          "height": 27.373779296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.906982421875,
+          "y": 701.6396484375,
+          "width": 143.18603515625,
+          "height": 27.373779296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1237.8463134765625,
+          "y": 826.9273681640625,
+          "width": 225.307373046875,
+          "height": 27.37384033203125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.906982421875,
+          "y": 881.6749877929688,
+          "width": 143.18603515625,
+          "height": 27.373779296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.906982421875,
+          "y": 1006.962646484375,
+          "width": 143.18603515625,
+          "height": 27.373779296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.906982421875,
+          "y": 1061.710205078125,
+          "width": 143.18603515625,
+          "height": 27.373779296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [
+      {
+        "rect": {
+          "x": 1237.8463134765625,
+          "y": 286.8215637207031,
+          "width": 225.307373046875,
+          "height": 152.66146850585938
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "290px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1237.8463134765625,
+          "y": 466.8568420410156,
+          "width": 225.307373046875,
+          "height": 152.66146850585938
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "290px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1237.8463134765625,
+          "y": 646.89208984375,
+          "width": 225.307373046875,
+          "height": 152.6614990234375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "290px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1237.8463134765625,
+          "y": 826.9273681640625,
+          "width": 225.307373046875,
+          "height": 152.6614990234375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "290px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 1261.0087890625,
+          "y": 294.4546203613281,
+          "width": 178.982421875,
+          "height": 14.21331787109375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgb(237, 242, 235)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1301.0166015625,
+          "y": 349.20220947265625,
+          "width": 98.966796875,
+          "height": 14.21331787109375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1261.0087890625,
+          "y": 474.48992919921875,
+          "width": 178.982421875,
+          "height": 14.213287353515625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1301.0166015625,
+          "y": 529.2374877929688,
+          "width": 98.966796875,
+          "height": 14.21331787109375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1261.0087890625,
+          "y": 654.525146484375,
+          "width": 178.982421875,
+          "height": 14.21337890625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1301.0166015625,
+          "y": 709.2727661132812,
+          "width": 98.966796875,
+          "height": 14.21331787109375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1261.0087890625,
+          "y": 834.5604858398438,
+          "width": 178.982421875,
+          "height": 14.21331787109375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1301.0166015625,
+          "y": 889.3080444335938,
+          "width": 98.966796875,
+          "height": 14.21331787109375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1284.1712646484375,
+          "y": 1014.5957641601562,
+          "width": 132.657470703125,
+          "height": 14.21331787109375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1284.1712646484375,
+          "y": 1069.34326171875,
+          "width": 132.657470703125,
+          "height": 14.21337890625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [
+      {
+        "rect": {
+          "x": 1283.118408203125,
+          "y": 345.7804870605469,
+          "width": 13.6868896484375,
+          "height": 13.6868896484375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1283.118408203125,
+          "y": 525.8157348632812,
+          "width": 13.6868896484375,
+          "height": 13.68695068359375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1283.118408203125,
+          "y": 705.85107421875,
+          "width": 13.6868896484375,
+          "height": 13.6868896484375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1283.118408203125,
+          "y": 885.8862915039062,
+          "width": 13.6868896484375,
+          "height": 13.6868896484375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-limitation": [],
+    ".edge-label": [],
+    ".client-receiver": [],
+    ".client-context": [],
+    ".client-method": []
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "examples/function_expansion/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 8,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "public function main() {\n    int first = shared(2);\n    int second = shared(3);\n    int recursive = countdown(first);\n    int mutual = evenStep(second);\n    _ = recursive;\n    _ = mutual;\n}",
+              "kind": "automation",
+              "title": "Automation",
+              "moduleId": "examples/function_expansion",
+              "serviceType": null,
+              "functionId": "examples/function_expansion/function/main"
+            }
+          ],
+          "functions": {
+            "examples/function_expansion/function/adjust": {
+              "id": "examples/function_expansion/function/adjust",
+              "source": {
+                "file": "helpers.bal",
+                "range": {
+                  "start": {
+                    "line": 2,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 61
+                  }
+                }
+              },
+              "text": "function adjust(int value) returns int { return value + 1; }",
+              "moduleId": "examples/function_expansion",
+              "entry": {
+                "kind": "function",
+                "name": "adjust",
+                "signature": "function adjust(int value) returns int",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "int value"
+                  }
+                ],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/function_expansion/function/adjust/statement/0",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 42
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 59
+                      }
+                    }
+                  },
+                  "text": "return value + 1;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/function_expansion/function/countdown": {
+              "id": "examples/function_expansion/function/countdown",
+              "source": {
+                "file": "helpers.bal",
+                "range": {
+                  "start": {
+                    "line": 3,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "function countdown(int value) returns int {\n    if value <= 0 { return 0; }\n    return countdown(value - 1);\n}",
+              "moduleId": "examples/function_expansion",
+              "entry": {
+                "kind": "function",
+                "name": "countdown",
+                "signature": "function countdown(int value) returns int",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "int value"
+                  }
+                ],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/function_expansion/function/countdown/statement/0",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 32
+                      }
+                    }
+                  },
+                  "text": "if value <= 0 { return 0; }",
+                  "kind": "if",
+                  "condition": {
+                    "id": "examples/function_expansion/function/countdown/statement/0/condition",
+                    "source": {
+                      "file": "helpers.bal",
+                      "range": {
+                        "start": {
+                          "line": 4,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 4,
+                          "column": 18
+                        }
+                      }
+                    },
+                    "text": "value <= 0",
+                    "calls": []
+                  },
+                  "thenBody": [
+                    {
+                      "id": "examples/function_expansion/function/countdown/statement/0/then/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 21
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 30
+                          }
+                        }
+                      },
+                      "text": "return 0;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ],
+                  "elseBody": []
+                },
+                {
+                  "id": "examples/function_expansion/function/countdown/statement/1/block/statement/0",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 33
+                      }
+                    }
+                  },
+                  "text": "return countdown(value - 1);",
+                  "kind": "return",
+                  "calls": [
+                    {
+                      "id": "examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 12
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 32
+                          }
+                        }
+                      },
+                      "text": "countdown(value - 1)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/function_expansion/function/countdown"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                }
+              ]
+            },
+            "examples/function_expansion/function/evenStep": {
+              "id": "examples/function_expansion/function/evenStep",
+              "source": {
+                "file": "helpers.bal",
+                "range": {
+                  "start": {
+                    "line": 7,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 10,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "function evenStep(int value) returns int {\n    if value <= 0 { return 0; }\n    return oddStep(value - 1);\n}",
+              "moduleId": "examples/function_expansion",
+              "entry": {
+                "kind": "function",
+                "name": "evenStep",
+                "signature": "function evenStep(int value) returns int",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "int value"
+                  }
+                ],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/function_expansion/function/evenStep/statement/0",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 32
+                      }
+                    }
+                  },
+                  "text": "if value <= 0 { return 0; }",
+                  "kind": "if",
+                  "condition": {
+                    "id": "examples/function_expansion/function/evenStep/statement/0/condition",
+                    "source": {
+                      "file": "helpers.bal",
+                      "range": {
+                        "start": {
+                          "line": 8,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 8,
+                          "column": 18
+                        }
+                      }
+                    },
+                    "text": "value <= 0",
+                    "calls": []
+                  },
+                  "thenBody": [
+                    {
+                      "id": "examples/function_expansion/function/evenStep/statement/0/then/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 21
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 30
+                          }
+                        }
+                      },
+                      "text": "return 0;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ],
+                  "elseBody": []
+                },
+                {
+                  "id": "examples/function_expansion/function/evenStep/statement/1/block/statement/0",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 9,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 31
+                      }
+                    }
+                  },
+                  "text": "return oddStep(value - 1);",
+                  "kind": "return",
+                  "calls": [
+                    {
+                      "id": "examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 12
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 30
+                          }
+                        }
+                      },
+                      "text": "oddStep(value - 1)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/function_expansion/function/oddStep"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                }
+              ]
+            },
+            "examples/function_expansion/function/main": {
+              "id": "examples/function_expansion/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 8,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "public function main() {\n    int first = shared(2);\n    int second = shared(3);\n    int recursive = countdown(first);\n    int mutual = evenStep(second);\n    _ = recursive;\n    _ = mutual;\n}",
+              "moduleId": "examples/function_expansion",
+              "entry": {
+                "kind": "function",
+                "name": "main",
+                "signature": "public function main()",
+                "parameters": [],
+                "returnType": "()"
+              },
+              "body": [
+                {
+                  "id": "examples/function_expansion/function/main/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 27
+                      }
+                    }
+                  },
+                  "text": "int first = shared(2);",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "examples/function_expansion/function/main/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 2,
+                            "column": 17
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 26
+                          }
+                        }
+                      },
+                      "text": "shared(2)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/function_expansion/function/shared"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/function_expansion/function/main/statement/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 28
+                      }
+                    }
+                  },
+                  "text": "int second = shared(3);",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "examples/function_expansion/function/main/statement/1/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 18
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 27
+                          }
+                        }
+                      },
+                      "text": "shared(3)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/function_expansion/function/shared"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/function_expansion/function/main/statement/2",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 38
+                      }
+                    }
+                  },
+                  "text": "int recursive = countdown(first);",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "examples/function_expansion/function/main/statement/2/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 21
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 37
+                          }
+                        }
+                      },
+                      "text": "countdown(first)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/function_expansion/function/countdown"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/function_expansion/function/main/statement/3",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 35
+                      }
+                    }
+                  },
+                  "text": "int mutual = evenStep(second);",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "examples/function_expansion/function/main/statement/3/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 18
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 34
+                          }
+                        }
+                      },
+                      "text": "evenStep(second)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/function_expansion/function/evenStep"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/function_expansion/function/main/statement/4",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 6,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 19
+                      }
+                    }
+                  },
+                  "text": "_ = recursive;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/function_expansion/function/main/statement/5",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 16
+                      }
+                    }
+                  },
+                  "text": "_ = mutual;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/function_expansion/function/oddStep": {
+              "id": "examples/function_expansion/function/oddStep",
+              "source": {
+                "file": "helpers.bal",
+                "range": {
+                  "start": {
+                    "line": 11,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 14,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "function oddStep(int value) returns int {\n    if value <= 0 { return 1; }\n    return evenStep(value - 1);\n}",
+              "moduleId": "examples/function_expansion",
+              "entry": {
+                "kind": "function",
+                "name": "oddStep",
+                "signature": "function oddStep(int value) returns int",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "int value"
+                  }
+                ],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/function_expansion/function/oddStep/statement/0",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 12,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 32
+                      }
+                    }
+                  },
+                  "text": "if value <= 0 { return 1; }",
+                  "kind": "if",
+                  "condition": {
+                    "id": "examples/function_expansion/function/oddStep/statement/0/condition",
+                    "source": {
+                      "file": "helpers.bal",
+                      "range": {
+                        "start": {
+                          "line": 12,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 12,
+                          "column": 18
+                        }
+                      }
+                    },
+                    "text": "value <= 0",
+                    "calls": []
+                  },
+                  "thenBody": [
+                    {
+                      "id": "examples/function_expansion/function/oddStep/statement/0/then/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 21
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 30
+                          }
+                        }
+                      },
+                      "text": "return 1;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ],
+                  "elseBody": []
+                },
+                {
+                  "id": "examples/function_expansion/function/oddStep/statement/1/block/statement/0",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 13,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 32
+                      }
+                    }
+                  },
+                  "text": "return evenStep(value - 1);",
+                  "kind": "return",
+                  "calls": [
+                    {
+                      "id": "examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 13,
+                            "column": 12
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 31
+                          }
+                        }
+                      },
+                      "text": "evenStep(value - 1)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/function_expansion/function/evenStep"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                }
+              ]
+            },
+            "examples/function_expansion/function/shared": {
+              "id": "examples/function_expansion/function/shared",
+              "source": {
+                "file": "helpers.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 65
+                  }
+                }
+              },
+              "text": "function shared(int value) returns int { return adjust(value); }",
+              "moduleId": "examples/function_expansion",
+              "entry": {
+                "kind": "function",
+                "name": "shared",
+                "signature": "function shared(int value) returns int",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "int value"
+                  }
+                ],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/function_expansion/function/shared/statement/0",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 42
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 63
+                      }
+                    }
+                  },
+                  "text": "return adjust(value);",
+                  "kind": "return",
+                  "calls": [
+                    {
+                      "id": "examples/function_expansion/function/shared/statement/0/call/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 49
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 62
+                          }
+                        }
+                      },
+                      "text": "adjust(value)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/function_expansion/function/adjust"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "examples/function_expansion/function/main"
+      }
+    },
+    "references": [
+      {
+        "id": "examples/function_expansion/function/main/statement/0",
+        "source": {
+          "file": "main.bal",
+          "range": {
+            "start": {
+              "line": 2,
+              "column": 5
+            },
+            "end": {
+              "line": 2,
+              "column": 27
+            }
+          }
+        },
+        "text": "int first = shared(2);",
+        "kind": "simple",
+        "operation": "declare",
+        "presentation": "step",
+        "calls": [
+          {
+            "id": "examples/function_expansion/function/main/statement/0/call/0",
+            "source": {
+              "file": "main.bal",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "column": 17
+                },
+                "end": {
+                  "line": 2,
+                  "column": 26
+                }
+              }
+            },
+            "text": "shared(2)",
+            "target": {
+              "kind": "workspace",
+              "functionId": "examples/function_expansion/function/shared"
+            },
+            "expansion": "supported"
+          }
+        ],
+        "revision": 1,
+        "stale": false
+      }
+    ],
+    "expanded": [],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/function_expansion/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() {\n    int first = shared(2);\n    int second = shared(3);\n    int recursive = countdown(first);\n    int mutual = evenStep(second);\n    _ = recursive;\n    _ = mutual;\n}",
+                  "kind": "automation",
+                  "title": "Automation",
+                  "moduleId": "examples/function_expansion",
+                  "serviceType": null,
+                  "functionId": "examples/function_expansion/function/main"
+                }
+              ],
+              "functions": {
+                "examples/function_expansion/function/adjust": {
+                  "id": "examples/function_expansion/function/adjust",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 61
+                      }
+                    }
+                  },
+                  "text": "function adjust(int value) returns int { return value + 1; }",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "adjust",
+                    "signature": "function adjust(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/adjust/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 2,
+                            "column": 42
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 59
+                          }
+                        }
+                      },
+                      "text": "return value + 1;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/function_expansion/function/countdown": {
+                  "id": "examples/function_expansion/function/countdown",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function countdown(int value) returns int {\n    if value <= 0 { return 0; }\n    return countdown(value - 1);\n}",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "countdown",
+                    "signature": "function countdown(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/countdown/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 32
+                          }
+                        }
+                      },
+                      "text": "if value <= 0 { return 0; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/function_expansion/function/countdown/statement/0/condition",
+                        "source": {
+                          "file": "helpers.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 18
+                            }
+                          }
+                        },
+                        "text": "value <= 0",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/function_expansion/function/countdown/statement/0/then/statement/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 30
+                              }
+                            }
+                          },
+                          "text": "return 0;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/function_expansion/function/countdown/statement/1/block/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "return countdown(value - 1);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 5,
+                                "column": 12
+                              },
+                              "end": {
+                                "line": 5,
+                                "column": 32
+                              }
+                            }
+                          },
+                          "text": "countdown(value - 1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/countdown"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/function_expansion/function/evenStep": {
+                  "id": "examples/function_expansion/function/evenStep",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 10,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function evenStep(int value) returns int {\n    if value <= 0 { return 0; }\n    return oddStep(value - 1);\n}",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "evenStep",
+                    "signature": "function evenStep(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/evenStep/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 32
+                          }
+                        }
+                      },
+                      "text": "if value <= 0 { return 0; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/function_expansion/function/evenStep/statement/0/condition",
+                        "source": {
+                          "file": "helpers.bal",
+                          "range": {
+                            "start": {
+                              "line": 8,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 8,
+                              "column": 18
+                            }
+                          }
+                        },
+                        "text": "value <= 0",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/function_expansion/function/evenStep/statement/0/then/statement/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 8,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 8,
+                                "column": 30
+                              }
+                            }
+                          },
+                          "text": "return 0;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/function_expansion/function/evenStep/statement/1/block/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 31
+                          }
+                        }
+                      },
+                      "text": "return oddStep(value - 1);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 9,
+                                "column": 12
+                              },
+                              "end": {
+                                "line": 9,
+                                "column": 30
+                              }
+                            }
+                          },
+                          "text": "oddStep(value - 1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/oddStep"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/function_expansion/function/main": {
+                  "id": "examples/function_expansion/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() {\n    int first = shared(2);\n    int second = shared(3);\n    int recursive = countdown(first);\n    int mutual = evenStep(second);\n    _ = recursive;\n    _ = mutual;\n}",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "main",
+                    "signature": "public function main()",
+                    "parameters": [],
+                    "returnType": "()"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/main/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 2,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 27
+                          }
+                        }
+                      },
+                      "text": "int first = shared(2);",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/main/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 2,
+                                "column": 17
+                              },
+                              "end": {
+                                "line": 2,
+                                "column": 26
+                              }
+                            }
+                          },
+                          "text": "shared(2)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/shared"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/function_expansion/function/main/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 28
+                          }
+                        }
+                      },
+                      "text": "int second = shared(3);",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/main/statement/1/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 3,
+                                "column": 18
+                              },
+                              "end": {
+                                "line": 3,
+                                "column": 27
+                              }
+                            }
+                          },
+                          "text": "shared(3)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/shared"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/function_expansion/function/main/statement/2",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 38
+                          }
+                        }
+                      },
+                      "text": "int recursive = countdown(first);",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/main/statement/2/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 37
+                              }
+                            }
+                          },
+                          "text": "countdown(first)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/countdown"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/function_expansion/function/main/statement/3",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 35
+                          }
+                        }
+                      },
+                      "text": "int mutual = evenStep(second);",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/main/statement/3/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 5,
+                                "column": 18
+                              },
+                              "end": {
+                                "line": 5,
+                                "column": 34
+                              }
+                            }
+                          },
+                          "text": "evenStep(second)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/evenStep"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/function_expansion/function/main/statement/4",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 19
+                          }
+                        }
+                      },
+                      "text": "_ = recursive;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/function_expansion/function/main/statement/5",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 16
+                          }
+                        }
+                      },
+                      "text": "_ = mutual;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/function_expansion/function/oddStep": {
+                  "id": "examples/function_expansion/function/oddStep",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 11,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 14,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function oddStep(int value) returns int {\n    if value <= 0 { return 1; }\n    return evenStep(value - 1);\n}",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "oddStep",
+                    "signature": "function oddStep(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/oddStep/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 32
+                          }
+                        }
+                      },
+                      "text": "if value <= 0 { return 1; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/function_expansion/function/oddStep/statement/0/condition",
+                        "source": {
+                          "file": "helpers.bal",
+                          "range": {
+                            "start": {
+                              "line": 12,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 12,
+                              "column": 18
+                            }
+                          }
+                        },
+                        "text": "value <= 0",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/function_expansion/function/oddStep/statement/0/then/statement/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 30
+                              }
+                            }
+                          },
+                          "text": "return 1;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/function_expansion/function/oddStep/statement/1/block/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 13,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 32
+                          }
+                        }
+                      },
+                      "text": "return evenStep(value - 1);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 13,
+                                "column": 12
+                              },
+                              "end": {
+                                "line": 13,
+                                "column": 31
+                              }
+                            }
+                          },
+                          "text": "evenStep(value - 1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/evenStep"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/function_expansion/function/shared": {
+                  "id": "examples/function_expansion/function/shared",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 65
+                      }
+                    }
+                  },
+                  "text": "function shared(int value) returns int { return adjust(value); }",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "shared",
+                    "signature": "function shared(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/shared/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 42
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 63
+                          }
+                        }
+                      },
+                      "text": "return adjust(value);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/shared/statement/0/call/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 1,
+                                "column": 49
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 62
+                              }
+                            }
+                          },
+                          "text": "adjust(value)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/adjust"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/function_expansion/function/main"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/function_expansion/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() {\n    int first = shared(2);\n    int second = shared(3);\n    int recursive = countdown(first);\n    int mutual = evenStep(second);\n    _ = recursive;\n    _ = mutual;\n}",
+                  "kind": "automation",
+                  "title": "Automation",
+                  "moduleId": "examples/function_expansion",
+                  "serviceType": null,
+                  "functionId": "examples/function_expansion/function/main"
+                }
+              ],
+              "functions": {
+                "examples/function_expansion/function/adjust": {
+                  "id": "examples/function_expansion/function/adjust",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 61
+                      }
+                    }
+                  },
+                  "text": "function adjust(int value) returns int { return value + 1; }",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "adjust",
+                    "signature": "function adjust(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/adjust/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 2,
+                            "column": 42
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 59
+                          }
+                        }
+                      },
+                      "text": "return value + 1;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/function_expansion/function/countdown": {
+                  "id": "examples/function_expansion/function/countdown",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function countdown(int value) returns int {\n    if value <= 0 { return 0; }\n    return countdown(value - 1);\n}",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "countdown",
+                    "signature": "function countdown(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/countdown/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 32
+                          }
+                        }
+                      },
+                      "text": "if value <= 0 { return 0; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/function_expansion/function/countdown/statement/0/condition",
+                        "source": {
+                          "file": "helpers.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 18
+                            }
+                          }
+                        },
+                        "text": "value <= 0",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/function_expansion/function/countdown/statement/0/then/statement/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 30
+                              }
+                            }
+                          },
+                          "text": "return 0;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/function_expansion/function/countdown/statement/1/block/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "return countdown(value - 1);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 5,
+                                "column": 12
+                              },
+                              "end": {
+                                "line": 5,
+                                "column": 32
+                              }
+                            }
+                          },
+                          "text": "countdown(value - 1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/countdown"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/function_expansion/function/evenStep": {
+                  "id": "examples/function_expansion/function/evenStep",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 10,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function evenStep(int value) returns int {\n    if value <= 0 { return 0; }\n    return oddStep(value - 1);\n}",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "evenStep",
+                    "signature": "function evenStep(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/evenStep/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 32
+                          }
+                        }
+                      },
+                      "text": "if value <= 0 { return 0; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/function_expansion/function/evenStep/statement/0/condition",
+                        "source": {
+                          "file": "helpers.bal",
+                          "range": {
+                            "start": {
+                              "line": 8,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 8,
+                              "column": 18
+                            }
+                          }
+                        },
+                        "text": "value <= 0",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/function_expansion/function/evenStep/statement/0/then/statement/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 8,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 8,
+                                "column": 30
+                              }
+                            }
+                          },
+                          "text": "return 0;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/function_expansion/function/evenStep/statement/1/block/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 31
+                          }
+                        }
+                      },
+                      "text": "return oddStep(value - 1);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 9,
+                                "column": 12
+                              },
+                              "end": {
+                                "line": 9,
+                                "column": 30
+                              }
+                            }
+                          },
+                          "text": "oddStep(value - 1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/oddStep"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/function_expansion/function/main": {
+                  "id": "examples/function_expansion/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() {\n    int first = shared(2);\n    int second = shared(3);\n    int recursive = countdown(first);\n    int mutual = evenStep(second);\n    _ = recursive;\n    _ = mutual;\n}",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "main",
+                    "signature": "public function main()",
+                    "parameters": [],
+                    "returnType": "()"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/main/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 2,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 27
+                          }
+                        }
+                      },
+                      "text": "int first = shared(2);",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/main/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 2,
+                                "column": 17
+                              },
+                              "end": {
+                                "line": 2,
+                                "column": 26
+                              }
+                            }
+                          },
+                          "text": "shared(2)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/shared"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/function_expansion/function/main/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 28
+                          }
+                        }
+                      },
+                      "text": "int second = shared(3);",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/main/statement/1/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 3,
+                                "column": 18
+                              },
+                              "end": {
+                                "line": 3,
+                                "column": 27
+                              }
+                            }
+                          },
+                          "text": "shared(3)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/shared"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/function_expansion/function/main/statement/2",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 38
+                          }
+                        }
+                      },
+                      "text": "int recursive = countdown(first);",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/main/statement/2/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 37
+                              }
+                            }
+                          },
+                          "text": "countdown(first)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/countdown"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/function_expansion/function/main/statement/3",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 35
+                          }
+                        }
+                      },
+                      "text": "int mutual = evenStep(second);",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/main/statement/3/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 5,
+                                "column": 18
+                              },
+                              "end": {
+                                "line": 5,
+                                "column": 34
+                              }
+                            }
+                          },
+                          "text": "evenStep(second)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/evenStep"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/function_expansion/function/main/statement/4",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 19
+                          }
+                        }
+                      },
+                      "text": "_ = recursive;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/function_expansion/function/main/statement/5",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 16
+                          }
+                        }
+                      },
+                      "text": "_ = mutual;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/function_expansion/function/oddStep": {
+                  "id": "examples/function_expansion/function/oddStep",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 11,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 14,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function oddStep(int value) returns int {\n    if value <= 0 { return 1; }\n    return evenStep(value - 1);\n}",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "oddStep",
+                    "signature": "function oddStep(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/oddStep/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 32
+                          }
+                        }
+                      },
+                      "text": "if value <= 0 { return 1; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/function_expansion/function/oddStep/statement/0/condition",
+                        "source": {
+                          "file": "helpers.bal",
+                          "range": {
+                            "start": {
+                              "line": 12,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 12,
+                              "column": 18
+                            }
+                          }
+                        },
+                        "text": "value <= 0",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/function_expansion/function/oddStep/statement/0/then/statement/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 30
+                              }
+                            }
+                          },
+                          "text": "return 1;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/function_expansion/function/oddStep/statement/1/block/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 13,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 32
+                          }
+                        }
+                      },
+                      "text": "return evenStep(value - 1);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 13,
+                                "column": 12
+                              },
+                              "end": {
+                                "line": 13,
+                                "column": 31
+                              }
+                            }
+                          },
+                          "text": "evenStep(value - 1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/evenStep"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/function_expansion/function/shared": {
+                  "id": "examples/function_expansion/function/shared",
+                  "source": {
+                    "file": "helpers.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 65
+                      }
+                    }
+                  },
+                  "text": "function shared(int value) returns int { return adjust(value); }",
+                  "moduleId": "examples/function_expansion",
+                  "entry": {
+                    "kind": "function",
+                    "name": "shared",
+                    "signature": "function shared(int value) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int value"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/function_expansion/function/shared/statement/0",
+                      "source": {
+                        "file": "helpers.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 42
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 63
+                          }
+                        }
+                      },
+                      "text": "return adjust(value);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/function_expansion/function/shared/statement/0/call/0",
+                          "source": {
+                            "file": "helpers.bal",
+                            "range": {
+                              "start": {
+                                "line": 1,
+                                "column": 49
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 62
+                              }
+                            }
+                          },
+                          "text": "adjust(value)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/function_expansion/function/adjust"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/function_expansion/function/main"
+          }
+        },
+        "references": [
+          {
+            "id": "examples/function_expansion/function/main/statement/0",
+            "source": {
+              "file": "main.bal",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "column": 5
+                },
+                "end": {
+                  "line": 2,
+                  "column": 27
+                }
+              }
+            },
+            "text": "int first = shared(2);",
+            "kind": "simple",
+            "operation": "declare",
+            "presentation": "step",
+            "calls": [
+              {
+                "id": "examples/function_expansion/function/main/statement/0/call/0",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 2,
+                      "column": 17
+                    },
+                    "end": {
+                      "line": 2,
+                      "column": 26
+                    }
+                  }
+                },
+                "text": "shared(2)",
+                "target": {
+                  "kind": "workspace",
+                  "functionId": "examples/function_expansion/function/shared"
+                },
+                "expansion": "supported"
+              }
+            ],
+            "revision": 1,
+            "stale": false
+          }
+        ],
+        "expanded": [],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"492\" height=\"1698\" viewBox=\"86 16 492 1698\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 492px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container step\" x=\"118\" y=\"40\" width=\"428\" height=\"290\" rx=\"12\"></rect><rect class=\"container step\" x=\"118\" y=\"382\" width=\"428\" height=\"290\" rx=\"12\"></rect><rect class=\"container step\" x=\"118\" y=\"724\" width=\"428\" height=\"290\" rx=\"12\"></rect><rect class=\"container step\" x=\"118\" y=\"1066\" width=\"428\" height=\"290\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"332,92 332,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,434 332,486\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,196 332,382\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,776 332,828\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,538 332,724\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1118 332,1170\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,880 332,1066\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1222 332,1408\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1460 332,1512\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,16 332,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1564 332,1698\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/0\"><rect x=\"118\" y=\"40\" width=\"428\" height=\"52\" class=\"flow-node step referenced\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"48\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"true\" aria-label=\"Reference int first = shared(2);\">int first = shared(2);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/function_expansion/function/main/statement/0/call/0\"><rect x=\"196\" y=\"144\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"152\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference shared(2)\">shared(2)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"152\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand shared(2)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/1\"><rect x=\"118\" y=\"382\" width=\"428\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"390\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int second = shared(3);\">int second = shared(3);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/function_expansion/function/main/statement/1/call/0\"><rect x=\"196\" y=\"486\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"494\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference shared(3)\">shared(3)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"494\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand shared(3)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/2\"><rect x=\"118\" y=\"724\" width=\"428\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"732\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int recursive = countdown(first);\">int recursive = countdown(first);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/function_expansion/function/main/statement/2/call/0\"><rect x=\"196\" y=\"828\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"836\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference countdown(first)\">countdown(first)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"836\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand countdown(first)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/3\"><rect x=\"118\" y=\"1066\" width=\"428\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"1074\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int mutual = evenStep(second);\">int mutual = evenStep(second);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/function_expansion/function/main/statement/3/call/0\"><rect x=\"196\" y=\"1170\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"1178\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference evenStep(second)\">evenStep(second)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"1178\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand evenStep(second)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/4\"><rect x=\"196\" y=\"1408\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"1416\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = recursive;\">_ = recursive;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/5\"><rect x=\"196\" y=\"1512\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"1520\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = mutual;\">_ = mutual;</button></div></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"492\" height=\"1698\" viewBox=\"86 16 492 1698\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 492px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container step\" x=\"118\" y=\"40\" width=\"428\" height=\"290\" rx=\"12\"></rect><rect class=\"container step\" x=\"118\" y=\"382\" width=\"428\" height=\"290\" rx=\"12\"></rect><rect class=\"container step\" x=\"118\" y=\"724\" width=\"428\" height=\"290\" rx=\"12\"></rect><rect class=\"container step\" x=\"118\" y=\"1066\" width=\"428\" height=\"290\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"332,92 332,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,434 332,486\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,196 332,382\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,776 332,828\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,538 332,724\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1118 332,1170\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,880 332,1066\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1222 332,1408\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1460 332,1512\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,16 332,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,1564 332,1698\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/0\"><rect x=\"118\" y=\"40\" width=\"428\" height=\"52\" class=\"flow-node step referenced\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"48\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"true\" aria-label=\"Reference int first = shared(2);\">int first = shared(2);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/function_expansion/function/main/statement/0/call/0\"><rect x=\"196\" y=\"144\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"152\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference shared(2)\">shared(2)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"152\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand shared(2)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/1\"><rect x=\"118\" y=\"382\" width=\"428\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"390\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int second = shared(3);\">int second = shared(3);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/function_expansion/function/main/statement/1/call/0\"><rect x=\"196\" y=\"486\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"494\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference shared(3)\">shared(3)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"494\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand shared(3)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/2\"><rect x=\"118\" y=\"724\" width=\"428\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"732\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int recursive = countdown(first);\">int recursive = countdown(first);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/function_expansion/function/main/statement/2/call/0\"><rect x=\"196\" y=\"828\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"836\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference countdown(first)\">countdown(first)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"836\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand countdown(first)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/3\"><rect x=\"118\" y=\"1066\" width=\"428\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"1074\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int mutual = evenStep(second);\">int mutual = evenStep(second);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/function_expansion/function/main/statement/3/call/0\"><rect x=\"196\" y=\"1170\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"1178\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference evenStep(second)\">evenStep(second)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"1178\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand evenStep(second)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/4\"><rect x=\"196\" y=\"1408\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"1416\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = recursive;\">_ = recursive;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/function_expansion/function/main/statement/5\"><rect x=\"196\" y=\"1512\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"1520\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = mutual;\">_ = mutual;</button></div></foreignObject></g></svg>",
+  "renderInputHash": "ada0581db68ed82ed9347bb4bbbbb77985c495e7a817c8f21195643a58eab73e",
+  "svgAbsent": false
+}

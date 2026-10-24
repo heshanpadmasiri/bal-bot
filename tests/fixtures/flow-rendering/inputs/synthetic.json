@@ -1,0 +1,3753 @@
+[
+  {
+    "test": "library calls render once as source steps and retain sequence connections",
+    "ordinal": 1,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "main": {
+          "id": "main",
+          "text": "main",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "print",
+              "text": "io:println(\"Hello, World!\");",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 29
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "expression",
+              "presentation": "step",
+              "calls": [
+                {
+                  "id": "print/call",
+                  "text": "io:println(\"Hello, World!\")",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 28
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "external",
+                    "label": "println"
+                  },
+                  "expansion": "unavailable",
+                  "reason": "The target is outside the workspace."
+                }
+              ]
+            },
+            {
+              "id": "after",
+              "text": "after",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": []
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "main",
+    "expanded": []
+  },
+  {
+    "test": "abrupt exits, empty branches and unsupported regions have no invented continuation",
+    "ordinal": 1,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "main": {
+          "id": "main",
+          "text": "main",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "if",
+              "text": "if",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "if",
+              "condition": {
+                "id": "condition",
+                "text": "condition",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 1,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 10
+                    }
+                  }
+                },
+                "calls": []
+              },
+              "thenBody": [
+                {
+                  "id": "return",
+                  "text": "return",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "kind": "return",
+                  "calls": []
+                }
+              ],
+              "elseBody": []
+            },
+            {
+              "id": "next",
+              "text": "next",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 5
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": []
+            },
+            {
+              "id": "limited",
+              "text": "limited",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 8
+                  }
+                }
+              },
+              "kind": "unsupported",
+              "reason": "unknown effect"
+            },
+            {
+              "id": "unreachable",
+              "text": "unreachable",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": []
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "main",
+    "expanded": []
+  },
+  {
+    "test": "loops preserve nested break/continue ownership and foreach has no routine back edge",
+    "ordinal": 1,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "main": {
+          "id": "main",
+          "text": "main",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "while",
+              "text": "while",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6
+                  }
+                }
+              },
+              "kind": "while",
+              "condition": {
+                "id": "condition",
+                "text": "condition",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 1,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 10
+                    }
+                  }
+                },
+                "calls": []
+              },
+              "body": [
+                {
+                  "id": "foreach",
+                  "text": "foreach",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "kind": "foreach",
+                  "header": {
+                    "id": "iteration",
+                    "text": "iteration",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 1,
+                          "column": 1
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 10
+                        }
+                      }
+                    },
+                    "calls": []
+                  },
+                  "body": [
+                    {
+                      "id": "continue",
+                      "text": "continue",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 9
+                          }
+                        }
+                      },
+                      "kind": "continue"
+                    },
+                    {
+                      "id": "break",
+                      "text": "break",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 6
+                          }
+                        }
+                      },
+                      "kind": "break"
+                    }
+                  ]
+                },
+                {
+                  "id": "increment",
+                  "text": "increment",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 10
+                      }
+                    }
+                  },
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                }
+              ]
+            },
+            {
+              "id": "after",
+              "text": "after",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": []
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "main",
+    "expanded": []
+  },
+  {
+    "test": "call occurrences expand independently; callee returns stay inside their call and recursion stays finite",
+    "ordinal": 1,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "main": {
+          "id": "main",
+          "text": "main",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "first",
+              "text": "first",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "declare",
+              "presentation": "step",
+              "calls": [
+                {
+                  "id": "first/call",
+                  "text": "first/call",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 11
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "helper"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            },
+            {
+              "id": "second",
+              "text": "second",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "declare",
+              "presentation": "step",
+              "calls": [
+                {
+                  "id": "second/call",
+                  "text": "second/call",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 12
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "helper"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            },
+            {
+              "id": "after",
+              "text": "after",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": []
+            }
+          ]
+        },
+        "helper": {
+          "id": "helper",
+          "text": "helper",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 7
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "recursive",
+              "text": "recursive",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 10
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "declare",
+              "presentation": "step",
+              "calls": [
+                {
+                  "id": "recursive/call",
+                  "text": "recursive/call",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 15
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "helper"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            },
+            {
+              "id": "ret",
+              "text": "ret",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": []
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "main",
+    "expanded": []
+  },
+  {
+    "test": "call occurrences expand independently; callee returns stay inside their call and recursion stays finite",
+    "ordinal": 2,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "main": {
+          "id": "main",
+          "text": "main",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "first",
+              "text": "first",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "declare",
+              "presentation": "step",
+              "calls": [
+                {
+                  "id": "first/call",
+                  "text": "first/call",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 11
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "helper"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            },
+            {
+              "id": "second",
+              "text": "second",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "declare",
+              "presentation": "step",
+              "calls": [
+                {
+                  "id": "second/call",
+                  "text": "second/call",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 12
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "helper"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            },
+            {
+              "id": "after",
+              "text": "after",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": []
+            }
+          ]
+        },
+        "helper": {
+          "id": "helper",
+          "text": "helper",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 7
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "recursive",
+              "text": "recursive",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 10
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "declare",
+              "presentation": "step",
+              "calls": [
+                {
+                  "id": "recursive/call",
+                  "text": "recursive/call",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 15
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "helper"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            },
+            {
+              "id": "ret",
+              "text": "ret",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": []
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "main",
+    "expanded": [
+      "main/first/expand/first/call",
+      "main/second/expand/second/call"
+    ]
+  },
+  {
+    "test": "routing avoids unrelated source boxes through nested branch and loop lanes",
+    "ordinal": 1,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "main": {
+          "id": "main",
+          "text": "main",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "outer",
+              "text": "outer",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6
+                  }
+                }
+              },
+              "kind": "if",
+              "condition": {
+                "id": "outer/condition",
+                "text": "outer/condition",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 1,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 16
+                    }
+                  }
+                },
+                "calls": []
+              },
+              "thenBody": [
+                {
+                  "id": "loop",
+                  "text": "loop",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 5
+                      }
+                    }
+                  },
+                  "kind": "while",
+                  "condition": {
+                    "id": "loop/condition",
+                    "text": "loop/condition",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 1,
+                          "column": 1
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 15
+                        }
+                      }
+                    },
+                    "calls": []
+                  },
+                  "body": [
+                    {
+                      "id": "nested",
+                      "text": "nested",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 7
+                          }
+                        }
+                      },
+                      "kind": "if",
+                      "condition": {
+                        "id": "nested/condition",
+                        "text": "nested/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 1,
+                              "column": 1
+                            },
+                            "end": {
+                              "line": 1,
+                              "column": 17
+                            }
+                          }
+                        },
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "left",
+                          "text": "left",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 1,
+                                "column": 1
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 5
+                              }
+                            }
+                          },
+                          "kind": "simple",
+                          "operation": "assign",
+                          "presentation": "step",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": [
+                        {
+                          "id": "right",
+                          "text": "right",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 1,
+                                "column": 1
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 6
+                              }
+                            }
+                          },
+                          "kind": "simple",
+                          "operation": "assign",
+                          "presentation": "step",
+                          "calls": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": "body-end",
+                      "text": "body-end",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 9
+                          }
+                        }
+                      },
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ]
+                }
+              ],
+              "elseBody": [
+                {
+                  "id": "other-lane",
+                  "text": "other-lane",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 11
+                      }
+                    }
+                  },
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                }
+              ]
+            },
+            {
+              "id": "after",
+              "text": "after",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": []
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "main",
+    "expanded": []
+  },
+  {
+    "test": "branch arrows leave opposite sides with orthogonal routes and top-level returns terminate",
+    "ordinal": 1,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "main": {
+          "id": "main",
+          "text": "main",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "if",
+              "text": "if",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "if",
+              "condition": {
+                "id": "condition",
+                "text": "condition",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 1,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 10
+                    }
+                  }
+                },
+                "calls": []
+              },
+              "thenBody": [
+                {
+                  "id": "yes",
+                  "text": "yes",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 4
+                      }
+                    }
+                  },
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                }
+              ],
+              "elseBody": [
+                {
+                  "id": "no",
+                  "text": "no",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 3
+                      }
+                    }
+                  },
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                }
+              ]
+            },
+            {
+              "id": "return",
+              "text": "return total;",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 14
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": []
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "main",
+    "expanded": []
+  },
+  {
+    "test": "direct and mutual recursion retain call sites and continuations even with stale expansion paths",
+    "ordinal": 1,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "fib": {
+          "id": "fib",
+          "text": "fib",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "sum",
+              "text": "sum",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "sum/call/0",
+                  "text": "fib(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                },
+                {
+                  "id": "sum/call/1",
+                  "text": "fib(1)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "even": {
+          "id": "even",
+          "text": "even",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "even-return",
+              "text": "even-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "even-return/call/0",
+                  "text": "odd(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "odd"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "odd": {
+          "id": "odd",
+          "text": "odd",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "odd-return",
+              "text": "odd-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 11
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "odd-return/call/0",
+                  "text": "even(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "even"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "fib",
+    "expanded": []
+  },
+  {
+    "test": "direct and mutual recursion retain call sites and continuations even with stale expansion paths",
+    "ordinal": 2,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "fib": {
+          "id": "fib",
+          "text": "fib",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "sum",
+              "text": "sum",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "sum/call/0",
+                  "text": "fib(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                },
+                {
+                  "id": "sum/call/1",
+                  "text": "fib(1)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "even": {
+          "id": "even",
+          "text": "even",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "even-return",
+              "text": "even-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "even-return/call/0",
+                  "text": "odd(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "odd"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "odd": {
+          "id": "odd",
+          "text": "odd",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "odd-return",
+              "text": "odd-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 11
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "odd-return/call/0",
+                  "text": "even(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "even"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "fib",
+    "expanded": [
+      "fib/sum/expand/sum/call/0",
+      "fib/sum/expand/sum/call/1"
+    ]
+  },
+  {
+    "test": "direct and mutual recursion retain call sites and continuations even with stale expansion paths",
+    "ordinal": 3,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "fib": {
+          "id": "fib",
+          "text": "fib",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "sum",
+              "text": "sum",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "sum/call/0",
+                  "text": "fib(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                },
+                {
+                  "id": "sum/call/1",
+                  "text": "fib(1)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "even": {
+          "id": "even",
+          "text": "even",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "even-return",
+              "text": "even-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "even-return/call/0",
+                  "text": "odd(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "odd"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "odd": {
+          "id": "odd",
+          "text": "odd",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "odd-return",
+              "text": "odd-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 11
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "odd-return/call/0",
+                  "text": "even(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "even"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "fib",
+    "expanded": [
+      "fib/sum/expand/sum/call/0",
+      "fib/sum/expand/sum/call/1"
+    ]
+  },
+  {
+    "test": "direct and mutual recursion retain call sites and continuations even with stale expansion paths",
+    "ordinal": 4,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "fib": {
+          "id": "fib",
+          "text": "fib",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "sum",
+              "text": "sum",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "sum/call/0",
+                  "text": "fib(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                },
+                {
+                  "id": "sum/call/1",
+                  "text": "fib(1)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "even": {
+          "id": "even",
+          "text": "even",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "even-return",
+              "text": "even-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "even-return/call/0",
+                  "text": "odd(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "odd"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "odd": {
+          "id": "odd",
+          "text": "odd",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "odd-return",
+              "text": "odd-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 11
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "odd-return/call/0",
+                  "text": "even(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "even"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "fib",
+    "expanded": [
+      "fib/sum/expand/sum/call/0",
+      "fib/sum/expand/sum/call/1"
+    ]
+  },
+  {
+    "test": "direct and mutual recursion retain call sites and continuations even with stale expansion paths",
+    "ordinal": 5,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "fib": {
+          "id": "fib",
+          "text": "fib",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "sum",
+              "text": "sum",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "sum/call/0",
+                  "text": "fib(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                },
+                {
+                  "id": "sum/call/1",
+                  "text": "fib(1)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "even": {
+          "id": "even",
+          "text": "even",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "even-return",
+              "text": "even-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "even-return/call/0",
+                  "text": "odd(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "odd"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "odd": {
+          "id": "odd",
+          "text": "odd",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "odd-return",
+              "text": "odd-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 11
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "odd-return/call/0",
+                  "text": "even(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "even"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "even",
+    "expanded": []
+  },
+  {
+    "test": "direct and mutual recursion retain call sites and continuations even with stale expansion paths",
+    "ordinal": 6,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "fib": {
+          "id": "fib",
+          "text": "fib",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "sum",
+              "text": "sum",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "sum/call/0",
+                  "text": "fib(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                },
+                {
+                  "id": "sum/call/1",
+                  "text": "fib(1)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "even": {
+          "id": "even",
+          "text": "even",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "even-return",
+              "text": "even-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "even-return/call/0",
+                  "text": "odd(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "odd"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "odd": {
+          "id": "odd",
+          "text": "odd",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "odd-return",
+              "text": "odd-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 11
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "odd-return/call/0",
+                  "text": "even(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "even"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "even",
+    "expanded": [
+      "even/even-return/expand/even-return/call/0"
+    ]
+  },
+  {
+    "test": "direct and mutual recursion retain call sites and continuations even with stale expansion paths",
+    "ordinal": 7,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "fib": {
+          "id": "fib",
+          "text": "fib",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "sum",
+              "text": "sum",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "sum/call/0",
+                  "text": "fib(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                },
+                {
+                  "id": "sum/call/1",
+                  "text": "fib(1)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "even": {
+          "id": "even",
+          "text": "even",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "even-return",
+              "text": "even-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "even-return/call/0",
+                  "text": "odd(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "odd"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "odd": {
+          "id": "odd",
+          "text": "odd",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "odd-return",
+              "text": "odd-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 11
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "odd-return/call/0",
+                  "text": "even(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "even"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "even",
+    "expanded": [
+      "even/even-return/expand/even-return/call/0",
+      "even/even-return/expand/even-return/call/0/odd-return/expand/odd-return/call/0"
+    ]
+  },
+  {
+    "test": "direct and mutual recursion retain call sites and continuations even with stale expansion paths",
+    "ordinal": 8,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "fib": {
+          "id": "fib",
+          "text": "fib",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "sum",
+              "text": "sum",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "sum/call/0",
+                  "text": "fib(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                },
+                {
+                  "id": "sum/call/1",
+                  "text": "fib(1)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "fib"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "even": {
+          "id": "even",
+          "text": "even",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "even-return",
+              "text": "even-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "even-return/call/0",
+                  "text": "odd(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "odd"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        },
+        "odd": {
+          "id": "odd",
+          "text": "odd",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 4
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "odd-return",
+              "text": "odd-return",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 11
+                  }
+                }
+              },
+              "kind": "return",
+              "calls": [
+                {
+                  "id": "odd-return/call/0",
+                  "text": "even(0)",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "target": {
+                    "kind": "workspace",
+                    "functionId": "even"
+                  },
+                  "expansion": "supported"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "even",
+    "expanded": [
+      "even/even-return/expand/even-return/call/0",
+      "even/even-return/expand/even-return/call/0/odd-return/expand/odd-return/call/0"
+    ]
+  },
+  {
+    "test": "generic client cards preserve constructor and named arguments with explicit check returns",
+    "ordinal": 1,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "main": {
+          "id": "main",
+          "text": "main",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "binding",
+              "text": "binding",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 8
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": [],
+              "evaluation": {
+                "id": "check",
+                "text": "check",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 1,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 6
+                    }
+                  }
+                },
+                "kind": "check",
+                "children": [
+                  {
+                    "id": "invoke",
+                    "text": "invoke",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 1,
+                          "column": 1
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 7
+                        }
+                      }
+                    },
+                    "kind": "call",
+                    "children": [],
+                    "call": {
+                      "id": "call",
+                      "text": "producer->send(\"hello\", topic = \"orders\")",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 42
+                          }
+                        }
+                      },
+                      "client": {
+                        "context": {
+                          "receiver": {
+                            "id": "receiver",
+                            "text": "producer",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 1,
+                                  "column": 1
+                                },
+                                "end": {
+                                  "line": 1,
+                                  "column": 9
+                                }
+                              }
+                            }
+                          },
+                          "type": "Queue",
+                          "origin": "constructor",
+                          "initializer": {
+                            "id": "init",
+                            "text": "new (\"broker\", port = 9093)",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 1,
+                                  "column": 1
+                                },
+                                "end": {
+                                  "line": 1,
+                                  "column": 28
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "method": "send",
+                        "arguments": [
+                          {
+                            "id": "arg0",
+                            "text": "\"hello\"",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 1,
+                                  "column": 1
+                                },
+                                "end": {
+                                  "line": 1,
+                                  "column": 8
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "id": "arg1",
+                            "text": "topic = \"orders\"",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 1,
+                                  "column": 1
+                                },
+                                "end": {
+                                  "line": 1,
+                                  "column": 17
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "target": {
+                        "kind": "external",
+                        "label": "send"
+                      },
+                      "expansion": "unavailable",
+                      "reason": "External"
+                    }
+                  }
+                ]
+              },
+              "binding": "Person person"
+            },
+            {
+              "id": "after",
+              "text": "after",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": []
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "main",
+    "expanded": []
+  },
+  {
+    "test": "trap captures panic paths while check returns escape the operand scope",
+    "ordinal": 1,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "main": {
+          "id": "main",
+          "text": "main",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "result",
+              "text": "result",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": [],
+              "evaluation": {
+                "id": "trap",
+                "text": "trap",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 1,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 5
+                    }
+                  }
+                },
+                "kind": "trap",
+                "children": [
+                  {
+                    "id": "combined",
+                    "text": "combined",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 1,
+                          "column": 1
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 9
+                        }
+                      }
+                    },
+                    "kind": "source",
+                    "children": [
+                      {
+                        "id": "panic",
+                        "text": "panic",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 1,
+                              "column": 1
+                            },
+                            "end": {
+                              "line": 1,
+                              "column": 6
+                            }
+                          }
+                        },
+                        "kind": "checkpanic",
+                        "children": [
+                          {
+                            "id": "source",
+                            "text": "source",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 1,
+                                  "column": 1
+                                },
+                                "end": {
+                                  "line": 1,
+                                  "column": 7
+                                }
+                              }
+                            },
+                            "kind": "source",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "id": "checked",
+                        "text": "checked",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 1,
+                              "column": 1
+                            },
+                            "end": {
+                              "line": 1,
+                              "column": 8
+                            }
+                          }
+                        },
+                        "kind": "check",
+                        "children": [
+                          {
+                            "id": "source2",
+                            "text": "source2",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 1,
+                                  "column": 1
+                                },
+                                "end": {
+                                  "line": 1,
+                                  "column": 8
+                                }
+                              }
+                            },
+                            "kind": "source",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "binding": "Person person"
+            },
+            {
+              "id": "after",
+              "text": "after",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": []
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "main",
+    "expanded": []
+  },
+  {
+    "test": "long initialization expands without truncating call arguments or losing source selection",
+    "ordinal": 1,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "main": {
+          "id": "main",
+          "text": "main",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "result",
+              "text": "result",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": [],
+              "evaluation": {
+                "id": "invoke",
+                "text": "invoke",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 1,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 7
+                    }
+                  }
+                },
+                "kind": "call",
+                "children": [],
+                "call": {
+                  "id": "call",
+                  "text": "producer->send(\"hello\")",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 24
+                      }
+                    }
+                  },
+                  "client": {
+                    "context": {
+                      "receiver": {
+                        "id": "receiver",
+                        "text": "producer",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 1,
+                              "column": 1
+                            },
+                            "end": {
+                              "line": 1,
+                              "column": 9
+                            }
+                          }
+                        }
+                      },
+                      "origin": "initializer",
+                      "initializer": {
+                        "id": "init",
+                        "text": "new ({host: \"broker\", configuration: \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"})",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 1,
+                              "column": 1
+                            },
+                            "end": {
+                              "line": 1,
+                              "column": 202
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "method": "send",
+                    "arguments": [
+                      {
+                        "id": "arg",
+                        "text": "\"hello\"",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 1,
+                              "column": 1
+                            },
+                            "end": {
+                              "line": 1,
+                              "column": 8
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "target": {
+                    "kind": "external",
+                    "label": "send"
+                  },
+                  "expansion": "unavailable",
+                  "reason": "External"
+                }
+              },
+              "binding": "Person person"
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "main",
+    "expanded": []
+  },
+  {
+    "test": "long initialization expands without truncating call arguments or losing source selection",
+    "ordinal": 2,
+    "program": {
+      "scopes": [],
+      "functions": {
+        "main": {
+          "id": "main",
+          "text": "main",
+          "source": {
+            "file": "main.bal",
+            "range": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 5
+              }
+            }
+          },
+          "moduleId": "test",
+          "body": [
+            {
+              "id": "result",
+              "text": "result",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7
+                  }
+                }
+              },
+              "kind": "simple",
+              "operation": "assign",
+              "presentation": "step",
+              "calls": [],
+              "evaluation": {
+                "id": "invoke",
+                "text": "invoke",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 1,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 7
+                    }
+                  }
+                },
+                "kind": "call",
+                "children": [],
+                "call": {
+                  "id": "call",
+                  "text": "producer->send(\"hello\")",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 24
+                      }
+                    }
+                  },
+                  "client": {
+                    "context": {
+                      "receiver": {
+                        "id": "receiver",
+                        "text": "producer",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 1,
+                              "column": 1
+                            },
+                            "end": {
+                              "line": 1,
+                              "column": 9
+                            }
+                          }
+                        }
+                      },
+                      "origin": "initializer",
+                      "initializer": {
+                        "id": "init",
+                        "text": "new ({host: \"broker\", configuration: \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"})",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 1,
+                              "column": 1
+                            },
+                            "end": {
+                              "line": 1,
+                              "column": 202
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "method": "send",
+                    "arguments": [
+                      {
+                        "id": "arg",
+                        "text": "\"hello\"",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 1,
+                              "column": 1
+                            },
+                            "end": {
+                              "line": 1,
+                              "column": 8
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "target": {
+                    "kind": "external",
+                    "label": "send"
+                  },
+                  "expansion": "unavailable",
+                  "reason": "External"
+                }
+              },
+              "binding": "Person person"
+            }
+          ]
+        }
+      }
+    },
+    "functionId": "main",
+    "expanded": [
+      "main/result/evaluation/context"
+    ]
+  }
+]

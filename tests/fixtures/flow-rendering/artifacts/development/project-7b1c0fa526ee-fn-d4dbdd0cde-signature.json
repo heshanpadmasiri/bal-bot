@@ -1,0 +1,2377 @@
+{
+  "wrapper": {
+    "mode": "normal",
+    "workspace": {
+      "className": "workspace flow-workspace ",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 1200,
+        "y": 68,
+        "width": 300,
+        "height": 882
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "grid",
+          "position": "relative",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 1200,
+          "y": 68,
+          "width": 300,
+          "height": 882
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "300px",
+          "height": "882px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 428.9375,
+          "width": 259,
+          "height": 367.390625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "367.391px",
+          "min-width": "0px",
+          "max-width": "571.727px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 20px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 175.1875,
+          "width": 259,
+          "height": 237.75
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "237.75px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 142,
+          "width": 259,
+          "height": 19.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "19.1875px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px 0px 14px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "12px",
+          "font-weight": "400",
+          "line-height": "19.2px",
+          "letter-spacing": "normal",
+          "color": "rgb(105, 121, 111)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(105, 121, 111)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 1258.46875,
+          "y": 439.8097229003906,
+          "width": 138.6380615234375,
+          "height": 38.50579833984375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "306.038px",
+          "height": "85px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(239, 250, 248)",
+          "stroke": "rgb(104, 181, 168)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1266.178466796875,
+          "y": 501.87200927734375,
+          "width": 123.218505859375,
+          "height": 23.5565185546875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 241, 253)",
+          "stroke": "rgb(180, 162, 212)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1342.2840576171875,
+          "y": 548.9849853515625,
+          "width": 123.2186279296875,
+          "height": 23.5565185546875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1266.178466796875,
+          "y": 643.2109375,
+          "width": 123.218505859375,
+          "height": 23.5565185546875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1235.4974365234375,
+          "y": 690.3239135742188,
+          "width": 184.5806884765625,
+          "height": 29.89862060546875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "407.455px",
+          "height": "66px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1266.178466796875,
+          "y": 743.779052734375,
+          "width": 123.218505859375,
+          "height": 23.55645751953125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 1262.9932861328125,
+          "y": 445.245849609375,
+          "width": 129.5748291015625,
+          "height": 29.445587158203125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "286.031px",
+          "height": "65px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1270.7086181640625,
+          "y": 508.4406433105469,
+          "width": 114.1583251953125,
+          "height": 12.231231689453125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1346.814208984375,
+          "y": 555.5536499023438,
+          "width": 114.1583251953125,
+          "height": 12.23126220703125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1270.7086181640625,
+          "y": 649.7796020507812,
+          "width": 114.1583251953125,
+          "height": 12.23126220703125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1250.776123046875,
+          "y": 695.760009765625,
+          "width": 154.023193359375,
+          "height": 20.8385009765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "46px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1270.7086181640625,
+          "y": 750.34765625,
+          "width": 114.1583251953125,
+          "height": 12.23126220703125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [],
+    ".node-limitation": [],
+    ".edge-label": [
+      {
+        "rect": {
+          "x": 1249.7421875,
+          "y": 505.02618408203125,
+          "width": 11.90625,
+          "height": 6
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1393.9271240234375,
+          "y": 505.02618408203125,
+          "width": 10.515625,
+          "height": 6
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".client-receiver": [
+      {
+        "rect": {
+          "x": 1262.9932861328125,
+          "y": 447.057861328125,
+          "width": 129.5748291015625,
+          "height": 8.607177734375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "286.031px",
+          "height": "19px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "600",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(51, 107, 101)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(51, 107, 101)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".client-context": [
+      {
+        "rect": {
+          "x": 1262.9932861328125,
+          "y": 455.6650390625,
+          "width": 129.5748291015625,
+          "height": 8.607177734375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "286.031px",
+          "height": "19px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(102, 117, 130)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(102, 117, 130)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".client-method": [
+      {
+        "rect": {
+          "x": 1262.9932861328125,
+          "y": 464.272216796875,
+          "width": 129.5748291015625,
+          "height": 8.607208251953125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "286.031px",
+          "height": "19px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "600",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(22, 78, 73)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(22, 78, 73)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ]
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "browser/http_service/service/main.bal///1",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 4,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 211
+                  }
+                }
+              },
+              "text": "service / on new http:Listener(8080) { resource function get hello() returns string|error { Person person = check testClient->get(\"/foo/bar\"); return string `hello ${person.first_name} ${person.last_name}`; } }",
+              "kind": "service",
+              "title": "/",
+              "moduleId": "browser/http_service",
+              "serviceType": "ballerina/http:Listener",
+              "endpoints": [
+                {
+                  "id": "browser/http_service/service/main.bal///1/resource/get/hello",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 40
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 209
+                      }
+                    }
+                  },
+                  "text": "resource function get hello() returns string|error { Person person = check testClient->get(\"/foo/bar\"); return string `hello ${person.first_name} ${person.last_name}`; }",
+                  "kind": "resource",
+                  "title": "get /hello",
+                  "functionId": "browser/http_service/service/main.bal///1/resource/get/hello"
+                }
+              ],
+              "definitions": [
+                {
+                  "id": "browser/http_service/type/Person",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 63
+                      }
+                    }
+                  },
+                  "text": "type Person record {| string first_name; string last_name; |};",
+                  "kind": "type",
+                  "label": "Person"
+                },
+                {
+                  "id": "browser/http_service/connector/testClient",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 63
+                      }
+                    }
+                  },
+                  "text": "final http:Client testClient = check new (\"https://test.com\");",
+                  "kind": "connector",
+                  "label": "testClient"
+                }
+              ]
+            }
+          ],
+          "functions": {
+            "browser/http_service/service/main.bal///1/resource/get/hello": {
+              "id": "browser/http_service/service/main.bal///1/resource/get/hello",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 4,
+                    "column": 40
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 209
+                  }
+                }
+              },
+              "text": "resource function get hello() returns string|error { Person person = check testClient->get(\"/foo/bar\"); return string `hello ${person.first_name} ${person.last_name}`; }",
+              "moduleId": "browser/http_service",
+              "entry": {
+                "kind": "resource",
+                "name": "get /hello",
+                "signature": "resource function get hello() returns string|error",
+                "parameters": [],
+                "returnType": "string|error"
+              },
+              "body": [
+                {
+                  "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 93
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 143
+                      }
+                    }
+                  },
+                  "text": "Person person = check testClient->get(\"/foo/bar\");",
+                  "evaluation": {
+                    "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 4,
+                          "column": 109
+                        },
+                        "end": {
+                          "line": 4,
+                          "column": 142
+                        }
+                      }
+                    },
+                    "text": "check testClient->get(\"/foo/bar\")",
+                    "kind": "check",
+                    "children": [
+                      {
+                        "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value/part/0",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 115
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 142
+                            }
+                          }
+                        },
+                        "text": "testClient->get(\"/foo/bar\")",
+                        "kind": "call",
+                        "children": [],
+                        "call": {
+                          "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 115
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 142
+                              }
+                            }
+                          },
+                          "text": "testClient->get(\"/foo/bar\")",
+                          "client": {
+                            "context": {
+                              "receiver": {
+                                "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/receiver",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 4,
+                                      "column": 115
+                                    },
+                                    "end": {
+                                      "line": 4,
+                                      "column": 125
+                                    }
+                                  }
+                                },
+                                "text": "testClient"
+                              },
+                              "type": "http:Client",
+                              "origin": "constructor",
+                              "initializer": {
+                                "id": "receiver/0/initializer",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 3,
+                                      "column": 32
+                                    },
+                                    "end": {
+                                      "line": 3,
+                                      "column": 62
+                                    }
+                                  }
+                                },
+                                "text": "check new (\"https://test.com\")"
+                              }
+                            },
+                            "method": "get",
+                            "arguments": [
+                              {
+                                "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/argument/0",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 4,
+                                      "column": 131
+                                    },
+                                    "end": {
+                                      "line": 4,
+                                      "column": 141
+                                    }
+                                  }
+                                },
+                                "text": "\"/foo/bar\""
+                              }
+                            ]
+                          },
+                          "target": {
+                            "kind": "external",
+                            "label": "$mono$$remote$get$0"
+                          },
+                          "expansion": "unavailable",
+                          "reason": "The target is outside the workspace."
+                        }
+                      }
+                    ]
+                  },
+                  "binding": "Person person",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 115
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 142
+                          }
+                        }
+                      },
+                      "text": "testClient->get(\"/foo/bar\")",
+                      "client": {
+                        "context": {
+                          "receiver": {
+                            "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/receiver",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 4,
+                                  "column": 115
+                                },
+                                "end": {
+                                  "line": 4,
+                                  "column": 125
+                                }
+                              }
+                            },
+                            "text": "testClient"
+                          },
+                          "type": "http:Client",
+                          "origin": "constructor",
+                          "initializer": {
+                            "id": "receiver/0/initializer",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 3,
+                                  "column": 32
+                                },
+                                "end": {
+                                  "line": 3,
+                                  "column": 62
+                                }
+                              }
+                            },
+                            "text": "check new (\"https://test.com\")"
+                          }
+                        },
+                        "method": "get",
+                        "arguments": [
+                          {
+                            "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/argument/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 4,
+                                  "column": 131
+                                },
+                                "end": {
+                                  "line": 4,
+                                  "column": 141
+                                }
+                              }
+                            },
+                            "text": "\"/foo/bar\""
+                          }
+                        ]
+                      },
+                      "target": {
+                        "kind": "external",
+                        "label": "$mono$$remote$get$0"
+                      },
+                      "expansion": "unavailable",
+                      "reason": "The target is outside the workspace."
+                    }
+                  ]
+                },
+                {
+                  "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 144
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 207
+                      }
+                    }
+                  },
+                  "text": "return string `hello ${person.first_name} ${person.last_name}`;",
+                  "evaluation": {
+                    "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 4,
+                          "column": 151
+                        },
+                        "end": {
+                          "line": 4,
+                          "column": 206
+                        }
+                      }
+                    },
+                    "text": "string `hello ${person.first_name} ${person.last_name}`",
+                    "kind": "template",
+                    "children": [
+                      {
+                        "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value/insertion/0",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 167
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 184
+                            }
+                          }
+                        },
+                        "text": "person.first_name",
+                        "kind": "source",
+                        "children": []
+                      },
+                      {
+                        "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value/insertion/1",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 188
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 204
+                            }
+                          }
+                        },
+                        "text": "person.last_name",
+                        "kind": "source",
+                        "children": []
+                      }
+                    ],
+                    "strings": [
+                      "hello ",
+                      " ",
+                      ""
+                    ]
+                  },
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "browser/http_service/service/main.bal///1/resource/get/hello"
+      }
+    },
+    "references": [],
+    "expanded": [],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "browser/http_service/service/main.bal///1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 211
+                      }
+                    }
+                  },
+                  "text": "service / on new http:Listener(8080) { resource function get hello() returns string|error { Person person = check testClient->get(\"/foo/bar\"); return string `hello ${person.first_name} ${person.last_name}`; } }",
+                  "kind": "service",
+                  "title": "/",
+                  "moduleId": "browser/http_service",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "browser/http_service/service/main.bal///1/resource/get/hello",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 40
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 209
+                          }
+                        }
+                      },
+                      "text": "resource function get hello() returns string|error { Person person = check testClient->get(\"/foo/bar\"); return string `hello ${person.first_name} ${person.last_name}`; }",
+                      "kind": "resource",
+                      "title": "get /hello",
+                      "functionId": "browser/http_service/service/main.bal///1/resource/get/hello"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "browser/http_service/type/Person",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 2,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 63
+                          }
+                        }
+                      },
+                      "text": "type Person record {| string first_name; string last_name; |};",
+                      "kind": "type",
+                      "label": "Person"
+                    },
+                    {
+                      "id": "browser/http_service/connector/testClient",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 63
+                          }
+                        }
+                      },
+                      "text": "final http:Client testClient = check new (\"https://test.com\");",
+                      "kind": "connector",
+                      "label": "testClient"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "browser/http_service/service/main.bal///1/resource/get/hello": {
+                  "id": "browser/http_service/service/main.bal///1/resource/get/hello",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 40
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 209
+                      }
+                    }
+                  },
+                  "text": "resource function get hello() returns string|error { Person person = check testClient->get(\"/foo/bar\"); return string `hello ${person.first_name} ${person.last_name}`; }",
+                  "moduleId": "browser/http_service",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /hello",
+                    "signature": "resource function get hello() returns string|error",
+                    "parameters": [],
+                    "returnType": "string|error"
+                  },
+                  "body": [
+                    {
+                      "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 93
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 143
+                          }
+                        }
+                      },
+                      "text": "Person person = check testClient->get(\"/foo/bar\");",
+                      "evaluation": {
+                        "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 109
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 142
+                            }
+                          }
+                        },
+                        "text": "check testClient->get(\"/foo/bar\")",
+                        "kind": "check",
+                        "children": [
+                          {
+                            "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value/part/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 4,
+                                  "column": 115
+                                },
+                                "end": {
+                                  "line": 4,
+                                  "column": 142
+                                }
+                              }
+                            },
+                            "text": "testClient->get(\"/foo/bar\")",
+                            "kind": "call",
+                            "children": [],
+                            "call": {
+                              "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0",
+                              "source": {
+                                "file": "main.bal",
+                                "range": {
+                                  "start": {
+                                    "line": 4,
+                                    "column": 115
+                                  },
+                                  "end": {
+                                    "line": 4,
+                                    "column": 142
+                                  }
+                                }
+                              },
+                              "text": "testClient->get(\"/foo/bar\")",
+                              "client": {
+                                "context": {
+                                  "receiver": {
+                                    "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/receiver",
+                                    "source": {
+                                      "file": "main.bal",
+                                      "range": {
+                                        "start": {
+                                          "line": 4,
+                                          "column": 115
+                                        },
+                                        "end": {
+                                          "line": 4,
+                                          "column": 125
+                                        }
+                                      }
+                                    },
+                                    "text": "testClient"
+                                  },
+                                  "type": "http:Client",
+                                  "origin": "constructor",
+                                  "initializer": {
+                                    "id": "receiver/0/initializer",
+                                    "source": {
+                                      "file": "main.bal",
+                                      "range": {
+                                        "start": {
+                                          "line": 3,
+                                          "column": 32
+                                        },
+                                        "end": {
+                                          "line": 3,
+                                          "column": 62
+                                        }
+                                      }
+                                    },
+                                    "text": "check new (\"https://test.com\")"
+                                  }
+                                },
+                                "method": "get",
+                                "arguments": [
+                                  {
+                                    "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/argument/0",
+                                    "source": {
+                                      "file": "main.bal",
+                                      "range": {
+                                        "start": {
+                                          "line": 4,
+                                          "column": 131
+                                        },
+                                        "end": {
+                                          "line": 4,
+                                          "column": 141
+                                        }
+                                      }
+                                    },
+                                    "text": "\"/foo/bar\""
+                                  }
+                                ]
+                              },
+                              "target": {
+                                "kind": "external",
+                                "label": "$mono$$remote$get$0"
+                              },
+                              "expansion": "unavailable",
+                              "reason": "The target is outside the workspace."
+                            }
+                          }
+                        ]
+                      },
+                      "binding": "Person person",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 115
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 142
+                              }
+                            }
+                          },
+                          "text": "testClient->get(\"/foo/bar\")",
+                          "client": {
+                            "context": {
+                              "receiver": {
+                                "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/receiver",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 4,
+                                      "column": 115
+                                    },
+                                    "end": {
+                                      "line": 4,
+                                      "column": 125
+                                    }
+                                  }
+                                },
+                                "text": "testClient"
+                              },
+                              "type": "http:Client",
+                              "origin": "constructor",
+                              "initializer": {
+                                "id": "receiver/0/initializer",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 3,
+                                      "column": 32
+                                    },
+                                    "end": {
+                                      "line": 3,
+                                      "column": 62
+                                    }
+                                  }
+                                },
+                                "text": "check new (\"https://test.com\")"
+                              }
+                            },
+                            "method": "get",
+                            "arguments": [
+                              {
+                                "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/argument/0",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 4,
+                                      "column": 131
+                                    },
+                                    "end": {
+                                      "line": 4,
+                                      "column": 141
+                                    }
+                                  }
+                                },
+                                "text": "\"/foo/bar\""
+                              }
+                            ]
+                          },
+                          "target": {
+                            "kind": "external",
+                            "label": "$mono$$remote$get$0"
+                          },
+                          "expansion": "unavailable",
+                          "reason": "The target is outside the workspace."
+                        }
+                      ]
+                    },
+                    {
+                      "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 144
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 207
+                          }
+                        }
+                      },
+                      "text": "return string `hello ${person.first_name} ${person.last_name}`;",
+                      "evaluation": {
+                        "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 151
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 206
+                            }
+                          }
+                        },
+                        "text": "string `hello ${person.first_name} ${person.last_name}`",
+                        "kind": "template",
+                        "children": [
+                          {
+                            "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value/insertion/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 4,
+                                  "column": 167
+                                },
+                                "end": {
+                                  "line": 4,
+                                  "column": 184
+                                }
+                              }
+                            },
+                            "text": "person.first_name",
+                            "kind": "source",
+                            "children": []
+                          },
+                          {
+                            "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value/insertion/1",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 4,
+                                  "column": 188
+                                },
+                                "end": {
+                                  "line": 4,
+                                  "column": 204
+                                }
+                              }
+                            },
+                            "text": "person.last_name",
+                            "kind": "source",
+                            "children": []
+                          }
+                        ],
+                        "strings": [
+                          "hello ",
+                          " ",
+                          ""
+                        ]
+                      },
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "definitions",
+            "scopeId": "browser/http_service/service/main.bal///1"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "browser/http_service/service/main.bal///1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 211
+                      }
+                    }
+                  },
+                  "text": "service / on new http:Listener(8080) { resource function get hello() returns string|error { Person person = check testClient->get(\"/foo/bar\"); return string `hello ${person.first_name} ${person.last_name}`; } }",
+                  "kind": "service",
+                  "title": "/",
+                  "moduleId": "browser/http_service",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "browser/http_service/service/main.bal///1/resource/get/hello",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 40
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 209
+                          }
+                        }
+                      },
+                      "text": "resource function get hello() returns string|error { Person person = check testClient->get(\"/foo/bar\"); return string `hello ${person.first_name} ${person.last_name}`; }",
+                      "kind": "resource",
+                      "title": "get /hello",
+                      "functionId": "browser/http_service/service/main.bal///1/resource/get/hello"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "browser/http_service/type/Person",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 2,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 63
+                          }
+                        }
+                      },
+                      "text": "type Person record {| string first_name; string last_name; |};",
+                      "kind": "type",
+                      "label": "Person"
+                    },
+                    {
+                      "id": "browser/http_service/connector/testClient",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 63
+                          }
+                        }
+                      },
+                      "text": "final http:Client testClient = check new (\"https://test.com\");",
+                      "kind": "connector",
+                      "label": "testClient"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "browser/http_service/service/main.bal///1/resource/get/hello": {
+                  "id": "browser/http_service/service/main.bal///1/resource/get/hello",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 40
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 209
+                      }
+                    }
+                  },
+                  "text": "resource function get hello() returns string|error { Person person = check testClient->get(\"/foo/bar\"); return string `hello ${person.first_name} ${person.last_name}`; }",
+                  "moduleId": "browser/http_service",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /hello",
+                    "signature": "resource function get hello() returns string|error",
+                    "parameters": [],
+                    "returnType": "string|error"
+                  },
+                  "body": [
+                    {
+                      "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 93
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 143
+                          }
+                        }
+                      },
+                      "text": "Person person = check testClient->get(\"/foo/bar\");",
+                      "evaluation": {
+                        "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 109
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 142
+                            }
+                          }
+                        },
+                        "text": "check testClient->get(\"/foo/bar\")",
+                        "kind": "check",
+                        "children": [
+                          {
+                            "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value/part/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 4,
+                                  "column": 115
+                                },
+                                "end": {
+                                  "line": 4,
+                                  "column": 142
+                                }
+                              }
+                            },
+                            "text": "testClient->get(\"/foo/bar\")",
+                            "kind": "call",
+                            "children": [],
+                            "call": {
+                              "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0",
+                              "source": {
+                                "file": "main.bal",
+                                "range": {
+                                  "start": {
+                                    "line": 4,
+                                    "column": 115
+                                  },
+                                  "end": {
+                                    "line": 4,
+                                    "column": 142
+                                  }
+                                }
+                              },
+                              "text": "testClient->get(\"/foo/bar\")",
+                              "client": {
+                                "context": {
+                                  "receiver": {
+                                    "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/receiver",
+                                    "source": {
+                                      "file": "main.bal",
+                                      "range": {
+                                        "start": {
+                                          "line": 4,
+                                          "column": 115
+                                        },
+                                        "end": {
+                                          "line": 4,
+                                          "column": 125
+                                        }
+                                      }
+                                    },
+                                    "text": "testClient"
+                                  },
+                                  "type": "http:Client",
+                                  "origin": "constructor",
+                                  "initializer": {
+                                    "id": "receiver/0/initializer",
+                                    "source": {
+                                      "file": "main.bal",
+                                      "range": {
+                                        "start": {
+                                          "line": 3,
+                                          "column": 32
+                                        },
+                                        "end": {
+                                          "line": 3,
+                                          "column": 62
+                                        }
+                                      }
+                                    },
+                                    "text": "check new (\"https://test.com\")"
+                                  }
+                                },
+                                "method": "get",
+                                "arguments": [
+                                  {
+                                    "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/argument/0",
+                                    "source": {
+                                      "file": "main.bal",
+                                      "range": {
+                                        "start": {
+                                          "line": 4,
+                                          "column": 131
+                                        },
+                                        "end": {
+                                          "line": 4,
+                                          "column": 141
+                                        }
+                                      }
+                                    },
+                                    "text": "\"/foo/bar\""
+                                  }
+                                ]
+                              },
+                              "target": {
+                                "kind": "external",
+                                "label": "$mono$$remote$get$0"
+                              },
+                              "expansion": "unavailable",
+                              "reason": "The target is outside the workspace."
+                            }
+                          }
+                        ]
+                      },
+                      "binding": "Person person",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 115
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 142
+                              }
+                            }
+                          },
+                          "text": "testClient->get(\"/foo/bar\")",
+                          "client": {
+                            "context": {
+                              "receiver": {
+                                "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/receiver",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 4,
+                                      "column": 115
+                                    },
+                                    "end": {
+                                      "line": 4,
+                                      "column": 125
+                                    }
+                                  }
+                                },
+                                "text": "testClient"
+                              },
+                              "type": "http:Client",
+                              "origin": "constructor",
+                              "initializer": {
+                                "id": "receiver/0/initializer",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 3,
+                                      "column": 32
+                                    },
+                                    "end": {
+                                      "line": 3,
+                                      "column": 62
+                                    }
+                                  }
+                                },
+                                "text": "check new (\"https://test.com\")"
+                              }
+                            },
+                            "method": "get",
+                            "arguments": [
+                              {
+                                "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0/argument/0",
+                                "source": {
+                                  "file": "main.bal",
+                                  "range": {
+                                    "start": {
+                                      "line": 4,
+                                      "column": 131
+                                    },
+                                    "end": {
+                                      "line": 4,
+                                      "column": 141
+                                    }
+                                  }
+                                },
+                                "text": "\"/foo/bar\""
+                              }
+                            ]
+                          },
+                          "target": {
+                            "kind": "external",
+                            "label": "$mono$$remote$get$0"
+                          },
+                          "expansion": "unavailable",
+                          "reason": "The target is outside the workspace."
+                        }
+                      ]
+                    },
+                    {
+                      "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 144
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 207
+                          }
+                        }
+                      },
+                      "text": "return string `hello ${person.first_name} ${person.last_name}`;",
+                      "evaluation": {
+                        "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 4,
+                              "column": 151
+                            },
+                            "end": {
+                              "line": 4,
+                              "column": 206
+                            }
+                          }
+                        },
+                        "text": "string `hello ${person.first_name} ${person.last_name}`",
+                        "kind": "template",
+                        "children": [
+                          {
+                            "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value/insertion/0",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 4,
+                                  "column": 167
+                                },
+                                "end": {
+                                  "line": 4,
+                                  "column": 184
+                                }
+                              }
+                            },
+                            "text": "person.first_name",
+                            "kind": "source",
+                            "children": []
+                          },
+                          {
+                            "id": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value/insertion/1",
+                            "source": {
+                              "file": "main.bal",
+                              "range": {
+                                "start": {
+                                  "line": 4,
+                                  "column": 188
+                                },
+                                "end": {
+                                  "line": 4,
+                                  "column": 204
+                                }
+                              }
+                            },
+                            "text": "person.last_name",
+                            "kind": "source",
+                            "children": []
+                          }
+                        ],
+                        "strings": [
+                          "hello ",
+                          " ",
+                          ""
+                        ]
+                      },
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "browser/http_service/service/main.bal///1/resource/get/hello"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"571.727294921875\" height=\"811\" viewBox=\"186.272705078125 16 571.727294921875 811\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 571.727px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><g data-edge-kind=\"true\"><polyline points=\"286,203 262,203 262,419 422,419 422,437\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"276\" y=\"195\" text-anchor=\"end\" class=\"edge-label\">value</text></g><g data-edge-kind=\"error\"><polyline points=\"558,203 590,203 590,281\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"568\" y=\"195\" text-anchor=\"start\" class=\"edge-label\">error</text></g><g data-edge-kind=\"sequence\"><polyline points=\"422,125 422,177\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"422,437 422,489\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"422,659 422,711\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"422,541 422,593\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"422,16 422,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"client\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0\"><rect x=\"268.98095703125\" y=\"40\" width=\"306.0380859375\" height=\"85\" class=\"flow-node client\" rx=\"8\"></rect><foreignObject x=\"278.98095703125\" y=\"48\" width=\"286.0380859375\" height=\"73\"><div class=\"node-header client-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference testClient · http:Client\ncheck new (&quot;https://test.com&quot;)\n→ get(&quot;/foo/bar&quot;)\"><span class=\"client-receiver\">testClient · http:Client</span><span class=\"client-context\">check new (\"https://test.com\")</span><span class=\"client-method\">→ get(\"/foo/bar\")</span></button></div></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value\"><rect x=\"286\" y=\"177\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"296\" y=\"185\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference check\">check</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value\"><rect x=\"454\" y=\"281\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"464\" y=\"289\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Return error\">Return error</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/0\"><rect x=\"286\" y=\"489\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"296\" y=\"497\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Result → Person person\">Result → Person person</button></div></foreignObject></g><g data-node-kind=\"template\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value\"><rect x=\"218.272705078125\" y=\"593\" width=\"407.45458984375\" height=\"66\" class=\"flow-node template\" rx=\"8\"></rect><foreignObject x=\"232\" y=\"601\" width=\"380\" height=\"54\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference string `hello ${person.first_name} ${person.last_name}`\">string `hello ${person.first_name} ${person\n.last_name}`</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/1\"><rect x=\"286\" y=\"711\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"296\" y=\"719\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Return value\">Return value</button></div></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"571.727294921875\" height=\"811\" viewBox=\"186.272705078125 16 571.727294921875 811\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 571.727px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><g data-edge-kind=\"true\"><polyline points=\"286,203 262,203 262,419 422,419 422,437\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"276\" y=\"195\" text-anchor=\"end\" class=\"edge-label\">value</text></g><g data-edge-kind=\"error\"><polyline points=\"558,203 590,203 590,281\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"568\" y=\"195\" text-anchor=\"start\" class=\"edge-label\">error</text></g><g data-edge-kind=\"sequence\"><polyline points=\"422,125 422,177\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"422,437 422,489\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"422,659 422,711\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"422,541 422,593\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"422,16 422,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"client\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0\"><rect x=\"268.98095703125\" y=\"40\" width=\"306.0380859375\" height=\"85\" class=\"flow-node client\" rx=\"8\"></rect><foreignObject x=\"278.98095703125\" y=\"48\" width=\"286.0380859375\" height=\"73\"><div class=\"node-header client-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference testClient · http:Client\ncheck new (&quot;https://test.com&quot;)\n→ get(&quot;/foo/bar&quot;)\"><span class=\"client-receiver\">testClient · http:Client</span><span class=\"client-context\">check new (\"https://test.com\")</span><span class=\"client-method\">→ get(\"/foo/bar\")</span></button></div></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value\"><rect x=\"286\" y=\"177\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"296\" y=\"185\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference check\">check</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value\"><rect x=\"454\" y=\"281\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"464\" y=\"289\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Return error\">Return error</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/0\"><rect x=\"286\" y=\"489\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"296\" y=\"497\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Result → Person person\">Result → Person person</button></div></foreignObject></g><g data-node-kind=\"template\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value\"><rect x=\"218.272705078125\" y=\"593\" width=\"407.45458984375\" height=\"66\" class=\"flow-node template\" rx=\"8\"></rect><foreignObject x=\"232\" y=\"601\" width=\"380\" height=\"54\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference string `hello ${person.first_name} ${person.last_name}`\">string `hello ${person.first_name} ${person\n.last_name}`</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"browser/http_service/service/main.bal///1/resource/get/hello/statement/1\"><rect x=\"286\" y=\"711\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"296\" y=\"719\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference Return value\">Return value</button></div></foreignObject></g></svg>",
+  "renderInputHash": "fe006b5658193cc3b25b85ec4004590b70a59b27bc8e55389665655357c9eb2e",
+  "svgAbsent": false
+}

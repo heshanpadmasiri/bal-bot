@@ -1,0 +1,2289 @@
+{
+  "wrapper": {
+    "mode": "normal",
+    "workspace": {
+      "className": "workspace flow-workspace ",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 1200,
+        "y": 68,
+        "width": 300,
+        "height": 882
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "grid",
+          "position": "relative",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 1200,
+          "y": 68,
+          "width": 300,
+          "height": 882
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "300px",
+          "height": "882px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 274.1875,
+          "width": 259,
+          "height": 625.109375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "625.109px",
+          "min-width": "0px",
+          "max-width": "648px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 20px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 142,
+          "width": 259,
+          "height": 116.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "116.188px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 1283.0247802734375,
+          "y": 283.77996826171875,
+          "width": 134.9503173828125,
+          "height": 20.78369140625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "337.641px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1264.9671630859375,
+          "y": 325.34735107421875,
+          "width": 171.065673828125,
+          "height": 41.5673828125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "104px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1296.1427001953125,
+          "y": 387.69842529296875,
+          "width": 108.714599609375,
+          "height": 41.567352294921875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "104px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1233.7916259765625,
+          "y": 503.607421875,
+          "width": 233.416748046875,
+          "height": 20.78369140625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "584px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1264.9671630859375,
+          "y": 545.1748046875,
+          "width": 171.065673828125,
+          "height": 20.78369140625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1296.1427001953125,
+          "y": 586.7421875,
+          "width": 108.714599609375,
+          "height": 20.78369140625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1296.1427001953125,
+          "y": 628.3095703125,
+          "width": 108.714599609375,
+          "height": 20.78369140625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1296.1427001953125,
+          "y": 776.9928588867188,
+          "width": 108.714599609375,
+          "height": 20.78369140625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1296.1427001953125,
+          "y": 818.5602416992188,
+          "width": 108.714599609375,
+          "height": 20.78369140625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [
+      {
+        "rect": {
+          "x": 1264.9671630859375,
+          "y": 325.34735107421875,
+          "width": 171.065673828125,
+          "height": 157.47637939453125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "394px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1233.7916259765625,
+          "y": 503.607421875,
+          "width": 233.416748046875,
+          "height": 252.60174560546875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "584px",
+          "height": "632px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1264.9671630859375,
+          "y": 545.1748046875,
+          "width": 171.065673828125,
+          "height": 157.4764404296875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "394px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 1287.0185546875,
+          "y": 289.5754089355469,
+          "width": 126.9566650390625,
+          "height": 10.791534423828125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "317.641px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1282.5533447265625,
+          "y": 330.1435852050781,
+          "width": 135.893310546875,
+          "height": 33.573638916015625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "84px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1312.929443359375,
+          "y": 392.49462890625,
+          "width": 75.14111328125,
+          "height": 33.57366943359375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "84px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1282.5533447265625,
+          "y": 509.40289306640625,
+          "width": 135.893310546875,
+          "height": 10.79150390625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1287.349609375,
+          "y": 550.9702758789062,
+          "width": 126.30078125,
+          "height": 10.79150390625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "316px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1300.1395263671875,
+          "y": 592.53759765625,
+          "width": 100.720947265625,
+          "height": 10.79156494140625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1300.1395263671875,
+          "y": 634.10498046875,
+          "width": 100.720947265625,
+          "height": 10.79156494140625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1300.1395263671875,
+          "y": 782.788330078125,
+          "width": 100.720947265625,
+          "height": 10.79150390625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1300.1395263671875,
+          "y": 824.355712890625,
+          "width": 100.720947265625,
+          "height": 10.79150390625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [
+      {
+        "rect": {
+          "x": 1299.3402099609375,
+          "y": 390.8959045410156,
+          "width": 10.3917236328125,
+          "height": 10.391845703125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1268.1646728515625,
+          "y": 548.372314453125,
+          "width": 10.391845703125,
+          "height": 10.391845703125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-limitation": [],
+    ".edge-label": [],
+    ".client-receiver": [],
+    ".client-context": [],
+    ".client-method": []
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "examples/source_ranges/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 11,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "public function main() {\n    // café, සිංහල, and an astral character: 🚀\n    string greeting = \"Hello 🚀 café\";\n    string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );\n    int windows = windowsValue();\n    _ = result;\n    _ = windows;\n}",
+              "kind": "automation",
+              "title": "Automation",
+              "moduleId": "examples/source_ranges",
+              "serviceType": null,
+              "functionId": "examples/source_ranges/function/main"
+            }
+          ],
+          "functions": {
+            "examples/source_ranges/function/decorate": {
+              "id": "examples/source_ranges/function/decorate",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 13,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 15,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "function decorate(string left, string right) returns string {\n    return left + \" / \" + right;\n}",
+              "moduleId": "examples/source_ranges",
+              "entry": {
+                "kind": "function",
+                "name": "decorate",
+                "signature": "function decorate(string left, string right) returns string",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "string left"
+                  },
+                  {
+                    "kind": "input",
+                    "text": "string right"
+                  }
+                ],
+                "returnType": "string"
+              },
+              "body": [
+                {
+                  "id": "examples/source_ranges/function/decorate/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 14,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 14,
+                        "column": 33
+                      }
+                    }
+                  },
+                  "text": "return left + \" / \" + right;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/source_ranges/function/main": {
+              "id": "examples/source_ranges/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 11,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "public function main() {\n    // café, සිංහල, and an astral character: 🚀\n    string greeting = \"Hello 🚀 café\";\n    string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );\n    int windows = windowsValue();\n    _ = result;\n    _ = windows;\n}",
+              "moduleId": "examples/source_ranges",
+              "entry": {
+                "kind": "function",
+                "name": "main",
+                "signature": "public function main()",
+                "parameters": [],
+                "returnType": "()"
+              },
+              "body": [
+                {
+                  "id": "examples/source_ranges/function/main/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 38
+                      }
+                    }
+                  },
+                  "text": "string greeting = \"Hello 🚀 café\";",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/source_ranges/function/main/statement/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 7
+                      }
+                    }
+                  },
+                  "text": "string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "examples/source_ranges/function/main/statement/1/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 21
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 6
+                          }
+                        }
+                      },
+                      "text": "decorate(\n        greeting,\n        \"සිංහල\"\n    )",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/source_ranges/function/decorate"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/source_ranges/function/main/statement/2",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 34
+                      }
+                    }
+                  },
+                  "text": "int windows = windowsValue();",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "examples/source_ranges/function/main/statement/2/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 19
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "windowsValue()",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/source_ranges/function/windowsValue"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/source_ranges/function/main/statement/3",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 9,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 16
+                      }
+                    }
+                  },
+                  "text": "_ = result;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/source_ranges/function/main/statement/4",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 10,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 10,
+                        "column": 17
+                      }
+                    }
+                  },
+                  "text": "_ = windows;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/source_ranges/function/windowsValue": {
+              "id": "examples/source_ranges/function/windowsValue",
+              "source": {
+                "file": "windows.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "function windowsValue() returns int {\r\n    int value = 2;\r\n    return value;\r\n}",
+              "moduleId": "examples/source_ranges",
+              "entry": {
+                "kind": "function",
+                "name": "windowsValue",
+                "signature": "function windowsValue() returns int",
+                "parameters": [],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/source_ranges/function/windowsValue/statement/0",
+                  "source": {
+                    "file": "windows.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 19
+                      }
+                    }
+                  },
+                  "text": "int value = 2;",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/source_ranges/function/windowsValue/statement/1",
+                  "source": {
+                    "file": "windows.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 18
+                      }
+                    }
+                  },
+                  "text": "return value;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "examples/source_ranges/function/main"
+      }
+    },
+    "references": [],
+    "expanded": [
+      "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0"
+    ],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/source_ranges/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() {\n    // café, සිංහල, and an astral character: 🚀\n    string greeting = \"Hello 🚀 café\";\n    string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );\n    int windows = windowsValue();\n    _ = result;\n    _ = windows;\n}",
+                  "kind": "automation",
+                  "title": "Automation",
+                  "moduleId": "examples/source_ranges",
+                  "serviceType": null,
+                  "functionId": "examples/source_ranges/function/main"
+                }
+              ],
+              "functions": {
+                "examples/source_ranges/function/decorate": {
+                  "id": "examples/source_ranges/function/decorate",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 13,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 15,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function decorate(string left, string right) returns string {\n    return left + \" / \" + right;\n}",
+                  "moduleId": "examples/source_ranges",
+                  "entry": {
+                    "kind": "function",
+                    "name": "decorate",
+                    "signature": "function decorate(string left, string right) returns string",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "string left"
+                      },
+                      {
+                        "kind": "input",
+                        "text": "string right"
+                      }
+                    ],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/source_ranges/function/decorate/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 14,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 14,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "return left + \" / \" + right;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/source_ranges/function/main": {
+                  "id": "examples/source_ranges/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() {\n    // café, සිංහල, and an astral character: 🚀\n    string greeting = \"Hello 🚀 café\";\n    string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );\n    int windows = windowsValue();\n    _ = result;\n    _ = windows;\n}",
+                  "moduleId": "examples/source_ranges",
+                  "entry": {
+                    "kind": "function",
+                    "name": "main",
+                    "signature": "public function main()",
+                    "parameters": [],
+                    "returnType": "()"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/source_ranges/function/main/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 38
+                          }
+                        }
+                      },
+                      "text": "string greeting = \"Hello 🚀 café\";",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/source_ranges/function/main/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 7
+                          }
+                        }
+                      },
+                      "text": "string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/source_ranges/function/main/statement/1/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 6
+                              }
+                            }
+                          },
+                          "text": "decorate(\n        greeting,\n        \"සිංහල\"\n    )",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/source_ranges/function/decorate"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/source_ranges/function/main/statement/2",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 34
+                          }
+                        }
+                      },
+                      "text": "int windows = windowsValue();",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/source_ranges/function/main/statement/2/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 8,
+                                "column": 19
+                              },
+                              "end": {
+                                "line": 8,
+                                "column": 33
+                              }
+                            }
+                          },
+                          "text": "windowsValue()",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/source_ranges/function/windowsValue"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/source_ranges/function/main/statement/3",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 16
+                          }
+                        }
+                      },
+                      "text": "_ = result;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/source_ranges/function/main/statement/4",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 10,
+                            "column": 17
+                          }
+                        }
+                      },
+                      "text": "_ = windows;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/source_ranges/function/windowsValue": {
+                  "id": "examples/source_ranges/function/windowsValue",
+                  "source": {
+                    "file": "windows.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function windowsValue() returns int {\r\n    int value = 2;\r\n    return value;\r\n}",
+                  "moduleId": "examples/source_ranges",
+                  "entry": {
+                    "kind": "function",
+                    "name": "windowsValue",
+                    "signature": "function windowsValue() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/source_ranges/function/windowsValue/statement/0",
+                      "source": {
+                        "file": "windows.bal",
+                        "range": {
+                          "start": {
+                            "line": 2,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 19
+                          }
+                        }
+                      },
+                      "text": "int value = 2;",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/source_ranges/function/windowsValue/statement/1",
+                      "source": {
+                        "file": "windows.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 18
+                          }
+                        }
+                      },
+                      "text": "return value;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/source_ranges/function/main"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/source_ranges/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() {\n    // café, සිංහල, and an astral character: 🚀\n    string greeting = \"Hello 🚀 café\";\n    string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );\n    int windows = windowsValue();\n    _ = result;\n    _ = windows;\n}",
+                  "kind": "automation",
+                  "title": "Automation",
+                  "moduleId": "examples/source_ranges",
+                  "serviceType": null,
+                  "functionId": "examples/source_ranges/function/main"
+                }
+              ],
+              "functions": {
+                "examples/source_ranges/function/decorate": {
+                  "id": "examples/source_ranges/function/decorate",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 13,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 15,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function decorate(string left, string right) returns string {\n    return left + \" / \" + right;\n}",
+                  "moduleId": "examples/source_ranges",
+                  "entry": {
+                    "kind": "function",
+                    "name": "decorate",
+                    "signature": "function decorate(string left, string right) returns string",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "string left"
+                      },
+                      {
+                        "kind": "input",
+                        "text": "string right"
+                      }
+                    ],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/source_ranges/function/decorate/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 14,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 14,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "return left + \" / \" + right;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/source_ranges/function/main": {
+                  "id": "examples/source_ranges/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "public function main() {\n    // café, සිංහල, and an astral character: 🚀\n    string greeting = \"Hello 🚀 café\";\n    string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );\n    int windows = windowsValue();\n    _ = result;\n    _ = windows;\n}",
+                  "moduleId": "examples/source_ranges",
+                  "entry": {
+                    "kind": "function",
+                    "name": "main",
+                    "signature": "public function main()",
+                    "parameters": [],
+                    "returnType": "()"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/source_ranges/function/main/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 38
+                          }
+                        }
+                      },
+                      "text": "string greeting = \"Hello 🚀 café\";",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/source_ranges/function/main/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 7
+                          }
+                        }
+                      },
+                      "text": "string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/source_ranges/function/main/statement/1/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 6
+                              }
+                            }
+                          },
+                          "text": "decorate(\n        greeting,\n        \"සිංහල\"\n    )",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/source_ranges/function/decorate"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/source_ranges/function/main/statement/2",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 34
+                          }
+                        }
+                      },
+                      "text": "int windows = windowsValue();",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/source_ranges/function/main/statement/2/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 8,
+                                "column": 19
+                              },
+                              "end": {
+                                "line": 8,
+                                "column": 33
+                              }
+                            }
+                          },
+                          "text": "windowsValue()",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/source_ranges/function/windowsValue"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/source_ranges/function/main/statement/3",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 16
+                          }
+                        }
+                      },
+                      "text": "_ = result;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/source_ranges/function/main/statement/4",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 10,
+                            "column": 17
+                          }
+                        }
+                      },
+                      "text": "_ = windows;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/source_ranges/function/windowsValue": {
+                  "id": "examples/source_ranges/function/windowsValue",
+                  "source": {
+                    "file": "windows.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function windowsValue() returns int {\r\n    int value = 2;\r\n    return value;\r\n}",
+                  "moduleId": "examples/source_ranges",
+                  "entry": {
+                    "kind": "function",
+                    "name": "windowsValue",
+                    "signature": "function windowsValue() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/source_ranges/function/windowsValue/statement/0",
+                      "source": {
+                        "file": "windows.bal",
+                        "range": {
+                          "start": {
+                            "line": 2,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 19
+                          }
+                        }
+                      },
+                      "text": "int value = 2;",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/source_ranges/function/windowsValue/statement/1",
+                      "source": {
+                        "file": "windows.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 18
+                          }
+                        }
+                      },
+                      "text": "return value;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/source_ranges/function/main"
+          }
+        },
+        "references": [],
+        "expanded": [
+          "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0"
+        ],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"648\" height=\"1564\" viewBox=\"86 16 648 1564\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 648px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container step\" x=\"196\" y=\"144\" width=\"428\" height=\"394\" rx=\"12\"></rect><rect class=\"container step\" x=\"118\" y=\"590\" width=\"584\" height=\"632\" rx=\"12\"></rect><rect class=\"container function\" x=\"196\" y=\"694\" width=\"428\" height=\"394\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"410,248 410,300\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,92 410,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,642 410,694\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,850 410,902\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,694 410,798\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"410,954 410,1088\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,404 410,590\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,1088 410,1274\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,1326 410,1378\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,16 410,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,1430 410,1564\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/main/statement/0\"><rect x=\"241.1796875\" y=\"40\" width=\"337.640625\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"251.1796875\" y=\"48\" width=\"317.640625\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference string greeting = &quot;Hello 🚀 café&quot;;\">string greeting = \"Hello 🚀 café\";</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/main/statement/1\"><rect x=\"196\" y=\"144\" width=\"428\" height=\"104\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"220\" y=\"152\" width=\"380\" height=\"92\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference string result = decorate(\n        greeting,\n        &quot;සිංහල&quot;\n    );\">string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/source_ranges/function/main/statement/1/call/0\"><rect x=\"274\" y=\"300\" width=\"272\" height=\"104\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"308\" width=\"252\" height=\"92\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference decorate(\n        greeting,\n        &quot;සිංහල&quot;\n    )\">decorate(\n        greeting,\n        \"සිංහල\"\n    )</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"282\" y=\"308\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand decorate(\n        greeting,\n        &quot;සිංහල&quot;\n    )\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/main/statement/2\"><rect x=\"118\" y=\"590\" width=\"584\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"220\" y=\"598\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int windows = windowsValue();\">int windows = windowsValue();</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/source_ranges/function/main/statement/2/call/0\"><rect x=\"196\" y=\"694\" width=\"428\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"220\" y=\"702\" width=\"380\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference windowsValue()\">windowsValue()</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"702\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Collapse windowsValue()\" aria-expanded=\"true\">−</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/windowsValue/statement/0\"><rect x=\"274\" y=\"798\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"806\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int value = 2;\">int value = 2;</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/source_ranges/function/windowsValue/statement/1\"><rect x=\"274\" y=\"902\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"910\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return value;\">return value;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/main/statement/3\"><rect x=\"274\" y=\"1274\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"1282\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = result;\">_ = result;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/main/statement/4\"><rect x=\"274\" y=\"1378\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"1386\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = windows;\">_ = windows;</button></div></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"648\" height=\"1564\" viewBox=\"86 16 648 1564\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 648px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container step\" x=\"196\" y=\"144\" width=\"428\" height=\"394\" rx=\"12\"></rect><rect class=\"container step\" x=\"118\" y=\"590\" width=\"584\" height=\"632\" rx=\"12\"></rect><rect class=\"container function\" x=\"196\" y=\"694\" width=\"428\" height=\"394\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"410,248 410,300\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,92 410,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,642 410,694\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,850 410,902\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,694 410,798\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"410,954 410,1088\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,404 410,590\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,1088 410,1274\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,1326 410,1378\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,16 410,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"410,1430 410,1564\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/main/statement/0\"><rect x=\"241.1796875\" y=\"40\" width=\"337.640625\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"251.1796875\" y=\"48\" width=\"317.640625\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference string greeting = &quot;Hello 🚀 café&quot;;\">string greeting = \"Hello 🚀 café\";</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/main/statement/1\"><rect x=\"196\" y=\"144\" width=\"428\" height=\"104\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"220\" y=\"152\" width=\"380\" height=\"92\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference string result = decorate(\n        greeting,\n        &quot;සිංහල&quot;\n    );\">string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/source_ranges/function/main/statement/1/call/0\"><rect x=\"274\" y=\"300\" width=\"272\" height=\"104\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"308\" width=\"252\" height=\"92\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference decorate(\n        greeting,\n        &quot;සිංහල&quot;\n    )\">decorate(\n        greeting,\n        \"සිංහල\"\n    )</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"282\" y=\"308\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand decorate(\n        greeting,\n        &quot;සිංහල&quot;\n    )\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/main/statement/2\"><rect x=\"118\" y=\"590\" width=\"584\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"220\" y=\"598\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int windows = windowsValue();\">int windows = windowsValue();</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/source_ranges/function/main/statement/2/call/0\"><rect x=\"196\" y=\"694\" width=\"428\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"220\" y=\"702\" width=\"380\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference windowsValue()\">windowsValue()</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"702\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Collapse windowsValue()\" aria-expanded=\"true\">−</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/windowsValue/statement/0\"><rect x=\"274\" y=\"798\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"806\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int value = 2;\">int value = 2;</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/source_ranges/function/windowsValue/statement/1\"><rect x=\"274\" y=\"902\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"910\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return value;\">return value;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/main/statement/3\"><rect x=\"274\" y=\"1274\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"1282\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = result;\">_ = result;</button></div></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/source_ranges/function/main/statement/4\"><rect x=\"274\" y=\"1378\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"1386\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = windows;\">_ = windows;</button></div></foreignObject></g></svg>",
+  "renderInputHash": "2fda70b9ff9137f000260edd4022708883b1bde4178be2a228a6076a61b5fec4",
+  "svgAbsent": false
+}

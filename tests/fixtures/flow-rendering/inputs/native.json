@@ -1,0 +1,353 @@
+[
+  {
+    "test": "TestAnalysisIsNotFullChecking",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() { int x = \"bad\"; _ = x; }"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/analysis-recovery",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"analysis_recovery\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() {\n    int amount = 2;\n    int result = double(amount);\n    _ = result;\n}\n\nfunction double(int amount) returns int { return amount * 2; }\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/automation-flow",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"automation_flow\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() {\n    int count = 3;\n    while count > 0 {\n        count -= 1;\n    }\n    _ = finish(count);\n}\n\nfunction finish(int count) returns int { return count; }\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/chat-references",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"chat_references\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\n\nservice /notes on new http:Listener(8080) {\n    resource function get first() returns string { return shared(\"first\"); }\n    resource function get second() returns string { return shared(\"second\"); }\n}\n\nfunction shared(string value) returns string { return value; }\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/client-calls",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"client_calls\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\n\ntype Person record {|\n    string first_name;\n    string last_name;\n|};\n\nfinal http:Client testClient = check new (\"https://test.com\");\n\nservice / on new http:Listener(8080) {\n    resource function get hello() returns string|error {\n        Person person = check testClient->get(\"/foo/bar\");\n        return string `hello ${person.first_name} ${person.last_name}`;\n    }\n}\n\nclient class Queue {\n    public function init(string host, int port = 9092) {\n        _ = host;\n        _ = port;\n    }\n    remote function send(string message, string topic = \"jobs\") returns string|error {\n        return topic + \": \" + message;\n    }\n}\n\nfunction sendMessage() returns string|error {\n    Queue producer = new (\"broker\", port = 9093);\n    string result = check producer->send(\"hello\", topic = \"orders\");\n    return result;\n}\n\nfunction capturePanic() returns string|error {\n    string|error result = trap checkpanic sendMessage();\n    return result;\n}\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/control-flow",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"control_flow\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() { _ = process([1, 2, 3, 4]); }\n\nfunction process(int[] values) returns int {\n    int total = 0;\n    int index = 0;\n    while index < 3 {\n        index += 1;\n        if index == 2 { continue; }\n        foreach int value in values {\n            if value == 1 { continue; }\n            if value > 3 { break; }\n            total += value;\n        }\n        if total > 20 { break; }\n    }\n    if total < 0 {\n        return 0;\n    } else if total == 0 {\n        total = 1;\n    } else {\n        total += 2;\n    }\n    if total > 10 {} else { total += 1; }\n    return total;\n}\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/definitions-and-calls",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"definitions_and_calls\"\nversion = \"0.1.0\"\n",
+      "helpers.bal": "function calculate(int value) returns int { return value + 1; }\n",
+      "main.bal": "import ballerina/http;\nimport examples/definitions_and_calls.math;\n\nfinal int minimumAmount = 5;\nfinal string upstream = \"http://localhost:9090\";\nLocalClient upstreamClient = new ();\n\nclient class LocalClient {\n    remote function send() returns string { return \"sent\"; }\n}\ntype Order record {| int amount; |};\ntype UnusedRecord record {| string description; |};\n\nservice /orders on new http:Listener(8080) {\n    resource function get total() returns int {\n        int local = calculate(minimumAmount);\n        return math:calculate(local);\n    }\n}\n\nfunction unusedHelper() returns string {\n    string status = upstreamClient->send();\n    return upstream + \": \" + status;\n}\n",
+      "modules/math/calculate.bal": "public function calculate(int value) returns int { return value * 2; }\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/design-critique",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"design_critique\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\n\nfinal int minimum = 1;\ntype Order record {| int amount; |};\n\nservice /orders on new http:Listener(8080) {\n    resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }\n    resource function get status() returns string { return \"ready\"; }\n}\n\nfunction calculate(int value) returns int {\n    if value < 0 { return 0; }\n    return value * 2;\n}\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/function-expansion",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"function_expansion\"\nversion = \"0.1.0\"\n",
+      "helpers.bal": "function shared(int value) returns int { return adjust(value); }\nfunction adjust(int value) returns int { return value + 1; }\nfunction countdown(int value) returns int {\n    if value <= 0 { return 0; }\n    return countdown(value - 1);\n}\nfunction evenStep(int value) returns int {\n    if value <= 0 { return 0; }\n    return oddStep(value - 1);\n}\nfunction oddStep(int value) returns int {\n    if value <= 0 { return 1; }\n    return evenStep(value - 1);\n}\n",
+      "main.bal": "public function main() {\n    int first = shared(2);\n    int second = shared(3);\n    int recursive = countdown(first);\n    int mutual = evenStep(second);\n    _ = recursive;\n    _ = mutual;\n}\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/panel-state",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"panel_state\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\n\nservice /reports on new http:Listener(8080) {\n    resource function get daily() returns int { return buildReport(5); }\n    resource function get weekly() returns int { return buildReport(35); }\n}\n\nfunction buildReport(int extraordinarilyLongButMeaningfulInputName) returns int {\n    int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\n    if calculatedReportTotal > 10 { return calculatedReportTotal; }\n    return 10;\n}\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/service-discovery",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"service_discovery\"\nversion = \"0.1.0\"\n",
+      "datagrams.bal": "import ballerina/udp;\n\nservice on new udp:Listener(9090) {\n    remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }\n}\n",
+      "inventory.bal": "import ballerina/http;\n\nservice /inventory on new http:Listener(8081) {\n    resource function get items() returns string { return sharedLabel(); }\n}\n\nfunction unusedHelper() returns int { return 42; }\n",
+      "orders.bal": "import ballerina/http;\n\nservice /orders on new http:Listener(8080) {\n    resource function get orders() returns string { return formatOrder(); }\n    remote function refresh() returns string { return \"refreshed\"; }\n    function formatOrder() returns string { return sharedLabel(); }\n}\n\nfunction sharedLabel() returns string { return \"order\"; }\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/source-ranges",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"source_ranges\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() {\n    // café, සිංහල, and an astral character: 🚀\n    string greeting = \"Hello 🚀 café\";\n    string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );\n    int windows = windowsValue();\n    _ = result;\n    _ = windows;\n}\n\nfunction decorate(string left, string right) returns string {\n    return left + \" / \" + right;\n}\n",
+      "windows.bal": "function windowsValue() returns int {\r\n    int value = 2;\r\n    return value;\r\n}\r\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeExamples/unsupported-constructs",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"unsupported_constructs\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() returns error? {\n    int mode = 1;\n    record {| int value; |} request = {value: mode};\n    match mode {\n        1 => { mode = 2; }\n        _ => { mode = 3; }\n    }\n    boolean selected = mode > 0 && positive(mode);\n    future<int> pending = start compute(mode);\n    int result = check wait pending;\n    _ = request;\n    _ = selected;\n    _ = result;\n}\n\nfunction positive(int value) returns boolean { return value > 0; }\nfunction compute(int value) returns int { return value * 2; }\n"
+    }
+  },
+  {
+    "test": "TestAnalyzeInvalidInput",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main( {"
+    }
+  },
+  {
+    "test": "TestAnalyzeInvalidInput",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() { int x = true + 2; _ = x; }"
+    }
+  },
+  {
+    "test": "TestAnalyzeInvalidInput",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "tests/test.bal": ""
+    }
+  },
+  {
+    "test": "TestAnalyzeInvalidInput",
+    "files": {
+      "main.bal": ""
+    }
+  },
+  {
+    "test": "TestAnalyzeInvalidInput",
+    "files": null
+  },
+  {
+    "test": "TestArithmeticCallExpansion",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\nimport ballerina/io;\nservice / on new http:Listener(8080) {\n resource function get hello() returns string { return \"Hello, World!\"; }\n resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }\n}\nfunction fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}"
+    }
+  },
+  {
+    "test": "TestArithmeticExpansionRespectsEvaluationContext/(value(1)_-_value(2))_/_value(3)_%_value(4)",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() { var result = (value(1) - value(2)) / value(3) % value(4); _ = result; } function value(int n) returns int { return n; }"
+    }
+  },
+  {
+    "test": "TestArithmeticExpansionRespectsEvaluationContext/(value(1)_+_value(2)_>_0)_&&_(value(3)_+_value(4)_>_0)",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() { var result = (value(1) + value(2) > 0) && (value(3) + value(4) > 0); _ = result; } function value(int n) returns int { return n; }"
+    }
+  },
+  {
+    "test": "TestArithmeticExpansionRespectsEvaluationContext/(value(1)_>_0)_||_(value(2)_>_0)",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() { var result = (value(1) > 0) || (value(2) > 0); _ = result; } function value(int n) returns int { return n; }"
+    }
+  },
+  {
+    "test": "TestArithmeticExpansionRespectsEvaluationContext/true_?_value(1)_+_value(2)_:_value(3)",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() { var result = true ? value(1) + value(2) : value(3); _ = result; } function value(int n) returns int { return n; }"
+    }
+  },
+  {
+    "test": "TestArithmeticExpansionRespectsEvaluationContext/value(1)_+_value(2)_*_value(3)",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() { var result = value(1) + value(2) * value(3); _ = result; } function value(int n) returns int { return n; }"
+    }
+  },
+  {
+    "test": "TestArithmeticExpansionRespectsEvaluationContext/value(value(1)_+_value(2))",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() { var result = value(value(1) + value(2)); _ = result; } function value(int n) returns int { return n; }"
+    }
+  },
+  {
+    "test": "TestClientAssignmentRetainsComputedTarget",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "client class Queue {\n remote function read() returns string|error { return \"value\"; }\n }\n function index() returns int { return 0; }\n function fill(Queue queue, string[] values) returns error? {\n values[index()] = check queue->read();\n }\n public function main() {}"
+    }
+  },
+  {
+    "test": "TestClientCallAndTemplate",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\ntype Person record {| string first_name; string last_name; |};\nfinal http:Client testClient = check new (\"https://test.com\");\nservice / on new http:Listener(8080) { resource function get hello() returns string|error { Person person = check testClient->get(\"/foo/bar\"); return string `hello ${person.first_name} ${person.last_name}`; } }"
+    }
+  },
+  {
+    "test": "TestFunctionEntrySourceMetadata",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\nservice /orders on new http:Listener(8080) {\n    resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }\n    remote function refresh(string note = \"\") returns boolean { _ = note; return true; }\n}\nclass PricingEngine {\n    function quote(decimal subtotal) returns decimal { return subtotal; }\n}\nfunction calculateTax(decimal amount, decimal rate = 0.15) returns decimal { return amount * rate; }\nfunction identity(int value) returns int => value;\npublic function main() {}\n"
+    }
+  },
+  {
+    "test": "TestGenericClientContexts",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "client class Queue {\n   public function init(string host, int port = 12) { _ = host; _ = port; }\n   remote function send(string message, string topic = \"jobs\") returns string|error { return topic + message; }\n }\n final Queue globalQueue = new (\"host\", port = 99);\n function makeQueue() returns Queue { return new (\"factory\"); }\n function run(Queue inputQueue) returns error? {\n   string first = check globalQueue->send(\"one\", topic = \"orders\");\n   Queue local = makeQueue();\n   string second = check local->send(\"two\");\n   local = new (\"replacement\");\n   string third = check local->send(\"three\");\n   string fourth = check inputQueue->send(\"four\");\n _ = first; _ = second; _ = third; _ = fourth;\n   { Queue globalQueue = new (\"shadow\"); string fifth = check globalQueue->send(\"five\"); _ = fifth; }\n }\n public function main() {}"
+    }
+  },
+  {
+    "test": "TestNestedErrorOperators",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "function risky() returns int|error { return 1; }\n public function main() returns error? {\n   int|error captured = trap checkpanic risky();\n   int checked = check (trap risky());\n   string message = string `value ${check risky()}`;\n _ = captured; _ = checked; _ = message;\n }"
+    }
+  },
+  {
+    "test": "TestRangesAndSupportedBlocks",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"design_critique\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\n\nfinal int minimum = 1;\ntype Order record {| int amount; |};\n\nservice /orders on new http:Listener(8080) {\n    resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }\n    resource function get status() returns string { return \"ready\"; }\n}\n\nfunction calculate(int value) returns int {\n    if value < 0 { return 0; }\n    return value * 2;\n}\n"
+    }
+  },
+  {
+    "test": "TestRangesAndSupportedBlocks",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"source_ranges\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() {\n    // café, සිංහල, and an astral character: 🚀\n    string greeting = \"Hello 🚀 café\";\n    string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );\n    int windows = windowsValue();\n    _ = result;\n    _ = windows;\n}\n\nfunction decorate(string left, string right) returns string {\n    return left + \" / \" + right;\n}\n",
+      "windows.bal": "function windowsValue() returns int {\r\n    int value = 2;\r\n    return value;\r\n}\r\n"
+    }
+  },
+  {
+    "test": "TestResolvedDiscoveryAndTargets",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"definitions_and_calls\"\nversion = \"0.1.0\"\n",
+      "helpers.bal": "function calculate(int value) returns int { return value + 1; }\n",
+      "main.bal": "import ballerina/http;\nimport examples/definitions_and_calls.math;\n\nfinal int minimumAmount = 5;\nfinal string upstream = \"http://localhost:9090\";\nLocalClient upstreamClient = new ();\n\nclient class LocalClient {\n    remote function send() returns string { return \"sent\"; }\n}\ntype Order record {| int amount; |};\ntype UnusedRecord record {| string description; |};\n\nservice /orders on new http:Listener(8080) {\n    resource function get total() returns int {\n        int local = calculate(minimumAmount);\n        return math:calculate(local);\n    }\n}\n\nfunction unusedHelper() returns string {\n    string status = upstreamClient->send();\n    return upstream + \": \" + status;\n}\n",
+      "modules/math/calculate.bal": "public function calculate(int value) returns int { return value * 2; }\n",
+      "unrelated.bal": "// harmless new file\n"
+    }
+  },
+  {
+    "test": "TestResolvedDiscoveryAndTargets",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"definitions_and_calls\"\nversion = \"0.1.0\"\n",
+      "helpers.bal": "function calculate(int value) returns int { return value + 1; }\n",
+      "main.bal": "import ballerina/http;\nimport examples/definitions_and_calls.math;\n\nfinal int minimumAmount = 5;\nfinal string upstream = \"http://localhost:9090\";\nLocalClient upstreamClient = new ();\n\nclient class LocalClient {\n    remote function send() returns string { return \"sent\"; }\n}\ntype Order record {| int amount; |};\ntype UnusedRecord record {| string description; |};\n\nservice /orders on new http:Listener(8080) {\n    resource function get total() returns int {\n        int local = calculate(minimumAmount);\n        return math:calculate(local);\n    }\n}\n\nfunction unusedHelper() returns string {\n    string status = upstreamClient->send();\n    return upstream + \": \" + status;\n}\n",
+      "modules/math/calculate.bal": "public function calculate(int value) returns int { return value * 2; }\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/analysis-recovery",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"analysis_recovery\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() {\n    int amount = 2;\n    int result = double(amount);\n    _ = result;\n}\n\nfunction double(int amount) returns int { return amount * 2; }\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/automation-flow",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"automation_flow\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() {\n    int count = 3;\n    while count > 0 {\n        count -= 1;\n    }\n    _ = finish(count);\n}\n\nfunction finish(int count) returns int { return count; }\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/chat-references",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"chat_references\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\n\nservice /notes on new http:Listener(8080) {\n    resource function get first() returns string { return shared(\"first\"); }\n    resource function get second() returns string { return shared(\"second\"); }\n}\n\nfunction shared(string value) returns string { return value; }\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/client-calls",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"client_calls\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\n\ntype Person record {|\n    string first_name;\n    string last_name;\n|};\n\nfinal http:Client testClient = check new (\"https://test.com\");\n\nservice / on new http:Listener(8080) {\n    resource function get hello() returns string|error {\n        Person person = check testClient->get(\"/foo/bar\");\n        return string `hello ${person.first_name} ${person.last_name}`;\n    }\n}\n\nclient class Queue {\n    public function init(string host, int port = 9092) {\n        _ = host;\n        _ = port;\n    }\n    remote function send(string message, string topic = \"jobs\") returns string|error {\n        return topic + \": \" + message;\n    }\n}\n\nfunction sendMessage() returns string|error {\n    Queue producer = new (\"broker\", port = 9093);\n    string result = check producer->send(\"hello\", topic = \"orders\");\n    return result;\n}\n\nfunction capturePanic() returns string|error {\n    string|error result = trap checkpanic sendMessage();\n    return result;\n}\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/control-flow",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"control_flow\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() { _ = process([1, 2, 3, 4]); }\n\nfunction process(int[] values) returns int {\n    int total = 0;\n    int index = 0;\n    while index < 3 {\n        index += 1;\n        if index == 2 { continue; }\n        foreach int value in values {\n            if value == 1 { continue; }\n            if value > 3 { break; }\n            total += value;\n        }\n        if total > 20 { break; }\n    }\n    if total < 0 {\n        return 0;\n    } else if total == 0 {\n        total = 1;\n    } else {\n        total += 2;\n    }\n    if total > 10 {} else { total += 1; }\n    return total;\n}\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/definitions-and-calls",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"definitions_and_calls\"\nversion = \"0.1.0\"\n",
+      "helpers.bal": "function calculate(int value) returns int { return value + 1; }\n",
+      "main.bal": "import ballerina/http;\nimport examples/definitions_and_calls.math;\n\nfinal int minimumAmount = 5;\nfinal string upstream = \"http://localhost:9090\";\nLocalClient upstreamClient = new ();\n\nclient class LocalClient {\n    remote function send() returns string { return \"sent\"; }\n}\ntype Order record {| int amount; |};\ntype UnusedRecord record {| string description; |};\n\nservice /orders on new http:Listener(8080) {\n    resource function get total() returns int {\n        int local = calculate(minimumAmount);\n        return math:calculate(local);\n    }\n}\n\nfunction unusedHelper() returns string {\n    string status = upstreamClient->send();\n    return upstream + \": \" + status;\n}\n",
+      "modules/math/calculate.bal": "public function calculate(int value) returns int { return value * 2; }\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/design-critique",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"design_critique\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\n\nfinal int minimum = 1;\ntype Order record {| int amount; |};\n\nservice /orders on new http:Listener(8080) {\n    resource function post orders() returns int {\n        int[] items = [1, 2, 3];\n        int total = 0;\n        foreach int item in items {\n            if item < minimum { continue; }\n            total += calculate(item);\n        }\n        if total > 10 { total += 2; } else { total += 1; }\n        return total;\n    }\n    resource function get status() returns string { return \"ready\"; }\n}\n\nfunction calculate(int value) returns int {\n    if value < 0 { return 0; }\n    return value * 2;\n}\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/function-expansion",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"function_expansion\"\nversion = \"0.1.0\"\n",
+      "helpers.bal": "function shared(int value) returns int { return adjust(value); }\nfunction adjust(int value) returns int { return value + 1; }\nfunction countdown(int value) returns int {\n    if value <= 0 { return 0; }\n    return countdown(value - 1);\n}\nfunction evenStep(int value) returns int {\n    if value <= 0 { return 0; }\n    return oddStep(value - 1);\n}\nfunction oddStep(int value) returns int {\n    if value <= 0 { return 1; }\n    return evenStep(value - 1);\n}\n",
+      "main.bal": "public function main() {\n    int first = shared(2);\n    int second = shared(3);\n    int recursive = countdown(first);\n    int mutual = evenStep(second);\n    _ = recursive;\n    _ = mutual;\n}\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/panel-state",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"panel_state\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import ballerina/http;\n\nservice /reports on new http:Listener(8080) {\n    resource function get daily() returns int { return buildReport(5); }\n    resource function get weekly() returns int { return buildReport(35); }\n}\n\nfunction buildReport(int extraordinarilyLongButMeaningfulInputName) returns int {\n    int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\n    if calculatedReportTotal > 10 { return calculatedReportTotal; }\n    return 10;\n}\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/service-discovery",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"service_discovery\"\nversion = \"0.1.0\"\n",
+      "datagrams.bal": "import ballerina/udp;\n\nservice on new udp:Listener(9090) {\n    remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }\n}\n",
+      "inventory.bal": "import ballerina/http;\n\nservice /inventory on new http:Listener(8081) {\n    resource function get items() returns string { return sharedLabel(); }\n}\n\nfunction unusedHelper() returns int { return 42; }\n",
+      "orders.bal": "import ballerina/http;\n\nservice /orders on new http:Listener(8080) {\n    resource function get orders() returns string { return formatOrder(); }\n    remote function refresh() returns string { return \"refreshed\"; }\n    function formatOrder() returns string { return sharedLabel(); }\n}\n\nfunction sharedLabel() returns string { return \"order\"; }\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/source-ranges",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"source_ranges\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() {\n    // café, සිංහල, and an astral character: 🚀\n    string greeting = \"Hello 🚀 café\";\n    string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );\n    int windows = windowsValue();\n    _ = result;\n    _ = windows;\n}\n\nfunction decorate(string left, string right) returns string {\n    return left + \" / \" + right;\n}\n",
+      "windows.bal": "function windowsValue() returns int {\r\n    int value = 2;\r\n    return value;\r\n}\r\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendExamples/unsupported-constructs",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"examples\"\nname = \"unsupported_constructs\"\nversion = \"0.1.0\"\n",
+      "main.bal": "public function main() returns error? {\n    int mode = 1;\n    record {| int value; |} request = {value: mode};\n    match mode {\n        1 => { mode = 2; }\n        _ => { mode = 3; }\n    }\n    boolean selected = mode > 0 && positive(mode);\n    future<int> pending = start compute(mode);\n    int result = check wait pending;\n    _ = request;\n    _ = selected;\n    _ = result;\n}\n\nfunction positive(int value) returns boolean { return value > 0; }\nfunction compute(int value) returns int { return value * 2; }\n"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendNamedModules",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "import browser/http_service.math; public function main() { int value = math:calculate(); int result = value + 1; _ = result; }",
+      "modules/math/calculate.bal": "public function calculate() returns int { return 2; }"
+    }
+  },
+  {
+    "test": "TestResolvedFrontendStopsBeforeDesugaring",
+    "files": {
+      "Ballerina.toml": "[package]\norg = \"browser\"\nname = \"http_service\"\nversion = \"0.1.0\"\n",
+      "main.bal": "function step(int i) returns int { return i; } public function main() { int i = 0; while i < 3 { i = step(i + 1); } foreach int n in [1, 2] { i += n; } }"
+    }
+  }
+]

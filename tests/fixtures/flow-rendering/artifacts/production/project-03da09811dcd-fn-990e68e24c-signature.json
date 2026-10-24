@@ -1,0 +1,3466 @@
+{
+  "wrapper": {
+    "mode": "normal",
+    "workspace": {
+      "className": "workspace flow-workspace ",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 1200,
+        "y": 68,
+        "width": 300,
+        "height": 882
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "grid",
+          "position": "relative",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 1200,
+          "y": 68,
+          "width": 300,
+          "height": 882
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "300px",
+          "height": "882px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 164,
+          "width": 299,
+          "height": 786
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "299px",
+          "height": "786px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 164,
+          "width": 299,
+          "height": 786
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "299px",
+          "height": "786px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 437.75,
+          "width": 259,
+          "height": 107.90625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "107.906px",
+          "min-width": "0px",
+          "max-width": "336px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 20px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 184,
+          "width": 259,
+          "height": 237.75
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "237.75px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 1245.6767578125,
+          "y": 456.24822998046875,
+          "width": 209.646484375,
+          "height": 40.079437255859375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 1253.3843994140625,
+          "y": 467.4242248535156,
+          "width": 194.231201171875,
+          "height": 20.81048583984375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [],
+    ".node-limitation": [],
+    ".edge-label": [],
+    ".client-receiver": [],
+    ".client-context": [],
+    ".client-method": []
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "examples/service_discovery/service/datagrams.bal//1",
+              "source": {
+                "file": "datagrams.bal",
+                "range": {
+                  "start": {
+                    "line": 3,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 8,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "service on new udp:Listener(9090) {\n    remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }\n}",
+              "kind": "service",
+              "title": "Service · ballerina/udp:Listener",
+              "moduleId": "examples/service_discovery",
+              "serviceType": "ballerina/udp:Listener",
+              "endpoints": [
+                {
+                  "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes",
+                  "source": {
+                    "file": "datagrams.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 6
+                      }
+                    }
+                  },
+                  "text": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }",
+                  "kind": "remote",
+                  "title": "onBytes",
+                  "functionId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes"
+                }
+              ],
+              "definitions": [
+                {
+                  "id": "examples/service_discovery/function/unusedHelper",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 51
+                      }
+                    }
+                  },
+                  "text": "function unusedHelper() returns int { return 42; }",
+                  "kind": "function",
+                  "label": "unusedHelper",
+                  "functionId": "examples/service_discovery/function/unusedHelper"
+                },
+                {
+                  "id": "examples/service_discovery/function/sharedLabel",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 58
+                      }
+                    }
+                  },
+                  "text": "function sharedLabel() returns string { return \"order\"; }",
+                  "kind": "function",
+                  "label": "sharedLabel",
+                  "functionId": "examples/service_discovery/function/sharedLabel"
+                }
+              ]
+            },
+            {
+              "id": "examples/service_discovery/service/inventory.bal//inventory/1",
+              "source": {
+                "file": "inventory.bal",
+                "range": {
+                  "start": {
+                    "line": 3,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 5,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "service /inventory on new http:Listener(8081) {\n    resource function get items() returns string { return sharedLabel(); }\n}",
+              "kind": "service",
+              "title": "/inventory",
+              "moduleId": "examples/service_discovery",
+              "serviceType": "ballerina/http:Listener",
+              "endpoints": [
+                {
+                  "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 75
+                      }
+                    }
+                  },
+                  "text": "resource function get items() returns string { return sharedLabel(); }",
+                  "kind": "resource",
+                  "title": "get /inventory/items",
+                  "functionId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items"
+                }
+              ],
+              "definitions": [
+                {
+                  "id": "examples/service_discovery/function/unusedHelper",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 51
+                      }
+                    }
+                  },
+                  "text": "function unusedHelper() returns int { return 42; }",
+                  "kind": "function",
+                  "label": "unusedHelper",
+                  "functionId": "examples/service_discovery/function/unusedHelper"
+                },
+                {
+                  "id": "examples/service_discovery/function/sharedLabel",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 58
+                      }
+                    }
+                  },
+                  "text": "function sharedLabel() returns string { return \"order\"; }",
+                  "kind": "function",
+                  "label": "sharedLabel",
+                  "functionId": "examples/service_discovery/function/sharedLabel"
+                }
+              ]
+            },
+            {
+              "id": "examples/service_discovery/service/orders.bal//orders/1",
+              "source": {
+                "file": "orders.bal",
+                "range": {
+                  "start": {
+                    "line": 2,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "service /orders on new http:Listener(8080) {\n resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }\n remote function refresh(string note = \"\") returns boolean { _ = note; return true; }\n function formatOrder() returns string { return \"order\"; }\n}",
+              "kind": "service",
+              "title": "/orders",
+              "moduleId": "examples/service_discovery",
+              "serviceType": "ballerina/http:Listener",
+              "endpoints": [
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 86
+                      }
+                    }
+                  },
+                  "text": "remote function refresh(string note = \"\") returns boolean { _ = note; return true; }",
+                  "kind": "remote",
+                  "title": "refresh",
+                  "functionId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh"
+                },
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 123
+                      }
+                    }
+                  },
+                  "text": "resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }",
+                  "kind": "resource",
+                  "title": "get /orders/[int id]",
+                  "functionId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]"
+                }
+              ],
+              "definitions": [
+                {
+                  "id": "examples/service_discovery/function/unusedHelper",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 51
+                      }
+                    }
+                  },
+                  "text": "function unusedHelper() returns int { return 42; }",
+                  "kind": "function",
+                  "label": "unusedHelper",
+                  "functionId": "examples/service_discovery/function/unusedHelper"
+                },
+                {
+                  "id": "examples/service_discovery/function/sharedLabel",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 58
+                      }
+                    }
+                  },
+                  "text": "function sharedLabel() returns string { return \"order\"; }",
+                  "kind": "function",
+                  "label": "sharedLabel",
+                  "functionId": "examples/service_discovery/function/sharedLabel"
+                },
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 59
+                      }
+                    }
+                  },
+                  "text": "function formatOrder() returns string { return \"order\"; }",
+                  "kind": "function",
+                  "label": "formatOrder",
+                  "functionId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder"
+                }
+              ]
+            }
+          ],
+          "functions": {
+            "examples/service_discovery/function/sharedLabel": {
+              "id": "examples/service_discovery/function/sharedLabel",
+              "source": {
+                "file": "orders.bal",
+                "range": {
+                  "start": {
+                    "line": 7,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 7,
+                    "column": 58
+                  }
+                }
+              },
+              "text": "function sharedLabel() returns string { return \"order\"; }",
+              "moduleId": "examples/service_discovery",
+              "entry": {
+                "kind": "function",
+                "name": "sharedLabel",
+                "signature": "function sharedLabel() returns string",
+                "parameters": [],
+                "returnType": "string"
+              },
+              "body": [
+                {
+                  "id": "examples/service_discovery/function/sharedLabel/statement/0",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 41
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 56
+                      }
+                    }
+                  },
+                  "text": "return \"order\";",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/service_discovery/function/unusedHelper": {
+              "id": "examples/service_discovery/function/unusedHelper",
+              "source": {
+                "file": "inventory.bal",
+                "range": {
+                  "start": {
+                    "line": 7,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 7,
+                    "column": 51
+                  }
+                }
+              },
+              "text": "function unusedHelper() returns int { return 42; }",
+              "moduleId": "examples/service_discovery",
+              "entry": {
+                "kind": "function",
+                "name": "unusedHelper",
+                "signature": "function unusedHelper() returns int",
+                "parameters": [],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/service_discovery/function/unusedHelper/statement/0",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 39
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 49
+                      }
+                    }
+                  },
+                  "text": "return 42;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes": {
+              "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes",
+              "source": {
+                "file": "datagrams.bal",
+                "range": {
+                  "start": {
+                    "line": 4,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 7,
+                    "column": 6
+                  }
+                }
+              },
+              "text": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }",
+              "moduleId": "examples/service_discovery",
+              "entry": {
+                "kind": "remote",
+                "name": "onBytes",
+                "signature": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[]",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "byte[] data"
+                  },
+                  {
+                    "kind": "input",
+                    "text": "udp:Caller caller"
+                  }
+                ],
+                "returnType": "byte[]"
+              },
+              "body": [
+                {
+                  "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
+                  "source": {
+                    "file": "datagrams.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 20
+                      }
+                    }
+                  },
+                  "text": "_ = caller;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
+                  "source": {
+                    "file": "datagrams.bal",
+                    "range": {
+                      "start": {
+                        "line": 6,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 21
+                      }
+                    }
+                  },
+                  "text": "return data;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items": {
+              "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items",
+              "source": {
+                "file": "inventory.bal",
+                "range": {
+                  "start": {
+                    "line": 4,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 75
+                  }
+                }
+              },
+              "text": "resource function get items() returns string { return sharedLabel(); }",
+              "moduleId": "examples/service_discovery",
+              "entry": {
+                "kind": "resource",
+                "name": "get /items",
+                "signature": "resource function get items() returns string",
+                "parameters": [],
+                "returnType": "string"
+              },
+              "body": [
+                {
+                  "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 52
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 73
+                      }
+                    }
+                  },
+                  "text": "return sharedLabel();",
+                  "kind": "return",
+                  "calls": [
+                    {
+                      "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 59
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 72
+                          }
+                        }
+                      },
+                      "text": "sharedLabel()",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/service_discovery/function/sharedLabel"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                }
+              ]
+            },
+            "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh": {
+              "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh",
+              "source": {
+                "file": "orders.bal",
+                "range": {
+                  "start": {
+                    "line": 4,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 86
+                  }
+                }
+              },
+              "text": "remote function refresh(string note = \"\") returns boolean { _ = note; return true; }",
+              "moduleId": "examples/service_discovery",
+              "entry": {
+                "kind": "remote",
+                "name": "refresh",
+                "signature": "remote function refresh(string note = \"\") returns boolean",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "string note = \"\""
+                  }
+                ],
+                "returnType": "boolean"
+              },
+              "body": [
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 62
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 71
+                      }
+                    }
+                  },
+                  "text": "_ = note;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 72
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 84
+                      }
+                    }
+                  },
+                  "text": "return true;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder": {
+              "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder",
+              "source": {
+                "file": "orders.bal",
+                "range": {
+                  "start": {
+                    "line": 5,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 5,
+                    "column": 59
+                  }
+                }
+              },
+              "text": "function formatOrder() returns string { return \"order\"; }",
+              "moduleId": "examples/service_discovery",
+              "entry": {
+                "kind": "method",
+                "name": "formatOrder",
+                "signature": "function formatOrder() returns string",
+                "parameters": [],
+                "returnType": "string"
+              },
+              "body": [
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 42
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 57
+                      }
+                    }
+                  },
+                  "text": "return \"order\";",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]": {
+              "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]",
+              "source": {
+                "file": "orders.bal",
+                "range": {
+                  "start": {
+                    "line": 3,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 123
+                  }
+                }
+              },
+              "text": "resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }",
+              "moduleId": "examples/service_discovery",
+              "entry": {
+                "kind": "resource",
+                "name": "get /[int id]",
+                "signature": "resource function get [int id](boolean includeItems = false) returns string",
+                "parameters": [
+                  {
+                    "kind": "path",
+                    "text": "[int id]"
+                  },
+                  {
+                    "kind": "input",
+                    "text": "boolean includeItems = false"
+                  }
+                ],
+                "returnType": "string"
+              },
+              "body": [
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 80
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 87
+                      }
+                    }
+                  },
+                  "text": "_ = id;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 88
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 105
+                      }
+                    }
+                  },
+                  "text": "_ = includeItems;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 106
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 121
+                      }
+                    }
+                  },
+                  "text": "return \"order\";",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder"
+      }
+    },
+    "references": [],
+    "expanded": [],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/service_discovery/service/datagrams.bal//1",
+                  "source": {
+                    "file": "datagrams.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service on new udp:Listener(9090) {\n    remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }\n}",
+                  "kind": "service",
+                  "title": "Service · ballerina/udp:Listener",
+                  "moduleId": "examples/service_discovery",
+                  "serviceType": "ballerina/udp:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes",
+                      "source": {
+                        "file": "datagrams.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 6
+                          }
+                        }
+                      },
+                      "text": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }",
+                      "kind": "remote",
+                      "title": "onBytes",
+                      "functionId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 51
+                          }
+                        }
+                      },
+                      "text": "function unusedHelper() returns int { return 42; }",
+                      "kind": "function",
+                      "label": "unusedHelper",
+                      "functionId": "examples/service_discovery/function/unusedHelper"
+                    },
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 58
+                          }
+                        }
+                      },
+                      "text": "function sharedLabel() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "sharedLabel",
+                      "functionId": "examples/service_discovery/function/sharedLabel"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/service_discovery/service/inventory.bal//inventory/1",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /inventory on new http:Listener(8081) {\n    resource function get items() returns string { return sharedLabel(); }\n}",
+                  "kind": "service",
+                  "title": "/inventory",
+                  "moduleId": "examples/service_discovery",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 75
+                          }
+                        }
+                      },
+                      "text": "resource function get items() returns string { return sharedLabel(); }",
+                      "kind": "resource",
+                      "title": "get /inventory/items",
+                      "functionId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 51
+                          }
+                        }
+                      },
+                      "text": "function unusedHelper() returns int { return 42; }",
+                      "kind": "function",
+                      "label": "unusedHelper",
+                      "functionId": "examples/service_discovery/function/unusedHelper"
+                    },
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 58
+                          }
+                        }
+                      },
+                      "text": "function sharedLabel() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "sharedLabel",
+                      "functionId": "examples/service_discovery/function/sharedLabel"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /orders on new http:Listener(8080) {\n resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }\n remote function refresh(string note = \"\") returns boolean { _ = note; return true; }\n function formatOrder() returns string { return \"order\"; }\n}",
+                  "kind": "service",
+                  "title": "/orders",
+                  "moduleId": "examples/service_discovery",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 86
+                          }
+                        }
+                      },
+                      "text": "remote function refresh(string note = \"\") returns boolean { _ = note; return true; }",
+                      "kind": "remote",
+                      "title": "refresh",
+                      "functionId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh"
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 123
+                          }
+                        }
+                      },
+                      "text": "resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }",
+                      "kind": "resource",
+                      "title": "get /orders/[int id]",
+                      "functionId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 51
+                          }
+                        }
+                      },
+                      "text": "function unusedHelper() returns int { return 42; }",
+                      "kind": "function",
+                      "label": "unusedHelper",
+                      "functionId": "examples/service_discovery/function/unusedHelper"
+                    },
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 58
+                          }
+                        }
+                      },
+                      "text": "function sharedLabel() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "sharedLabel",
+                      "functionId": "examples/service_discovery/function/sharedLabel"
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 59
+                          }
+                        }
+                      },
+                      "text": "function formatOrder() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "formatOrder",
+                      "functionId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/service_discovery/function/sharedLabel": {
+                  "id": "examples/service_discovery/function/sharedLabel",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 58
+                      }
+                    }
+                  },
+                  "text": "function sharedLabel() returns string { return \"order\"; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "function",
+                    "name": "sharedLabel",
+                    "signature": "function sharedLabel() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 41
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 56
+                          }
+                        }
+                      },
+                      "text": "return \"order\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/function/unusedHelper": {
+                  "id": "examples/service_discovery/function/unusedHelper",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 51
+                      }
+                    }
+                  },
+                  "text": "function unusedHelper() returns int { return 42; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "function",
+                    "name": "unusedHelper",
+                    "signature": "function unusedHelper() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper/statement/0",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 39
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 49
+                          }
+                        }
+                      },
+                      "text": "return 42;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes": {
+                  "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes",
+                  "source": {
+                    "file": "datagrams.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 6
+                      }
+                    }
+                  },
+                  "text": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "remote",
+                    "name": "onBytes",
+                    "signature": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[]",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "byte[] data"
+                      },
+                      {
+                        "kind": "input",
+                        "text": "udp:Caller caller"
+                      }
+                    ],
+                    "returnType": "byte[]"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
+                      "source": {
+                        "file": "datagrams.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 20
+                          }
+                        }
+                      },
+                      "text": "_ = caller;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
+                      "source": {
+                        "file": "datagrams.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 21
+                          }
+                        }
+                      },
+                      "text": "return data;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items": {
+                  "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 75
+                      }
+                    }
+                  },
+                  "text": "resource function get items() returns string { return sharedLabel(); }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /items",
+                    "signature": "resource function get items() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 52
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 73
+                          }
+                        }
+                      },
+                      "text": "return sharedLabel();",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
+                          "source": {
+                            "file": "inventory.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 59
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 72
+                              }
+                            }
+                          },
+                          "text": "sharedLabel()",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/service_discovery/function/sharedLabel"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh": {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 86
+                      }
+                    }
+                  },
+                  "text": "remote function refresh(string note = \"\") returns boolean { _ = note; return true; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "remote",
+                    "name": "refresh",
+                    "signature": "remote function refresh(string note = \"\") returns boolean",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "string note = \"\""
+                      }
+                    ],
+                    "returnType": "boolean"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 62
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 71
+                          }
+                        }
+                      },
+                      "text": "_ = note;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 72
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 84
+                          }
+                        }
+                      },
+                      "text": "return true;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder": {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 59
+                      }
+                    }
+                  },
+                  "text": "function formatOrder() returns string { return \"order\"; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "method",
+                    "name": "formatOrder",
+                    "signature": "function formatOrder() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 42
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 57
+                          }
+                        }
+                      },
+                      "text": "return \"order\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]": {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 123
+                      }
+                    }
+                  },
+                  "text": "resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /[int id]",
+                    "signature": "resource function get [int id](boolean includeItems = false) returns string",
+                    "parameters": [
+                      {
+                        "kind": "path",
+                        "text": "[int id]"
+                      },
+                      {
+                        "kind": "input",
+                        "text": "boolean includeItems = false"
+                      }
+                    ],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 80
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 87
+                          }
+                        }
+                      },
+                      "text": "_ = id;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 88
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 105
+                          }
+                        }
+                      },
+                      "text": "_ = includeItems;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 106
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 121
+                          }
+                        }
+                      },
+                      "text": "return \"order\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "definitions",
+            "scopeId": "examples/service_discovery/service/datagrams.bal//1"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/service_discovery/service/datagrams.bal//1",
+                  "source": {
+                    "file": "datagrams.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service on new udp:Listener(9090) {\n    remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }\n}",
+                  "kind": "service",
+                  "title": "Service · ballerina/udp:Listener",
+                  "moduleId": "examples/service_discovery",
+                  "serviceType": "ballerina/udp:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes",
+                      "source": {
+                        "file": "datagrams.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 6
+                          }
+                        }
+                      },
+                      "text": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }",
+                      "kind": "remote",
+                      "title": "onBytes",
+                      "functionId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 51
+                          }
+                        }
+                      },
+                      "text": "function unusedHelper() returns int { return 42; }",
+                      "kind": "function",
+                      "label": "unusedHelper",
+                      "functionId": "examples/service_discovery/function/unusedHelper"
+                    },
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 58
+                          }
+                        }
+                      },
+                      "text": "function sharedLabel() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "sharedLabel",
+                      "functionId": "examples/service_discovery/function/sharedLabel"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/service_discovery/service/inventory.bal//inventory/1",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /inventory on new http:Listener(8081) {\n    resource function get items() returns string { return sharedLabel(); }\n}",
+                  "kind": "service",
+                  "title": "/inventory",
+                  "moduleId": "examples/service_discovery",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 75
+                          }
+                        }
+                      },
+                      "text": "resource function get items() returns string { return sharedLabel(); }",
+                      "kind": "resource",
+                      "title": "get /inventory/items",
+                      "functionId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 51
+                          }
+                        }
+                      },
+                      "text": "function unusedHelper() returns int { return 42; }",
+                      "kind": "function",
+                      "label": "unusedHelper",
+                      "functionId": "examples/service_discovery/function/unusedHelper"
+                    },
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 58
+                          }
+                        }
+                      },
+                      "text": "function sharedLabel() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "sharedLabel",
+                      "functionId": "examples/service_discovery/function/sharedLabel"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /orders on new http:Listener(8080) {\n resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }\n remote function refresh(string note = \"\") returns boolean { _ = note; return true; }\n function formatOrder() returns string { return \"order\"; }\n}",
+                  "kind": "service",
+                  "title": "/orders",
+                  "moduleId": "examples/service_discovery",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 86
+                          }
+                        }
+                      },
+                      "text": "remote function refresh(string note = \"\") returns boolean { _ = note; return true; }",
+                      "kind": "remote",
+                      "title": "refresh",
+                      "functionId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh"
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 123
+                          }
+                        }
+                      },
+                      "text": "resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }",
+                      "kind": "resource",
+                      "title": "get /orders/[int id]",
+                      "functionId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 51
+                          }
+                        }
+                      },
+                      "text": "function unusedHelper() returns int { return 42; }",
+                      "kind": "function",
+                      "label": "unusedHelper",
+                      "functionId": "examples/service_discovery/function/unusedHelper"
+                    },
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 58
+                          }
+                        }
+                      },
+                      "text": "function sharedLabel() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "sharedLabel",
+                      "functionId": "examples/service_discovery/function/sharedLabel"
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 59
+                          }
+                        }
+                      },
+                      "text": "function formatOrder() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "formatOrder",
+                      "functionId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/service_discovery/function/sharedLabel": {
+                  "id": "examples/service_discovery/function/sharedLabel",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 58
+                      }
+                    }
+                  },
+                  "text": "function sharedLabel() returns string { return \"order\"; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "function",
+                    "name": "sharedLabel",
+                    "signature": "function sharedLabel() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 41
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 56
+                          }
+                        }
+                      },
+                      "text": "return \"order\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/function/unusedHelper": {
+                  "id": "examples/service_discovery/function/unusedHelper",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 51
+                      }
+                    }
+                  },
+                  "text": "function unusedHelper() returns int { return 42; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "function",
+                    "name": "unusedHelper",
+                    "signature": "function unusedHelper() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper/statement/0",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 39
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 49
+                          }
+                        }
+                      },
+                      "text": "return 42;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes": {
+                  "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes",
+                  "source": {
+                    "file": "datagrams.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 6
+                      }
+                    }
+                  },
+                  "text": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "remote",
+                    "name": "onBytes",
+                    "signature": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[]",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "byte[] data"
+                      },
+                      {
+                        "kind": "input",
+                        "text": "udp:Caller caller"
+                      }
+                    ],
+                    "returnType": "byte[]"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
+                      "source": {
+                        "file": "datagrams.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 20
+                          }
+                        }
+                      },
+                      "text": "_ = caller;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
+                      "source": {
+                        "file": "datagrams.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 21
+                          }
+                        }
+                      },
+                      "text": "return data;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items": {
+                  "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 75
+                      }
+                    }
+                  },
+                  "text": "resource function get items() returns string { return sharedLabel(); }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /items",
+                    "signature": "resource function get items() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 52
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 73
+                          }
+                        }
+                      },
+                      "text": "return sharedLabel();",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
+                          "source": {
+                            "file": "inventory.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 59
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 72
+                              }
+                            }
+                          },
+                          "text": "sharedLabel()",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/service_discovery/function/sharedLabel"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh": {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 86
+                      }
+                    }
+                  },
+                  "text": "remote function refresh(string note = \"\") returns boolean { _ = note; return true; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "remote",
+                    "name": "refresh",
+                    "signature": "remote function refresh(string note = \"\") returns boolean",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "string note = \"\""
+                      }
+                    ],
+                    "returnType": "boolean"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 62
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 71
+                          }
+                        }
+                      },
+                      "text": "_ = note;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 72
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 84
+                          }
+                        }
+                      },
+                      "text": "return true;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder": {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 59
+                      }
+                    }
+                  },
+                  "text": "function formatOrder() returns string { return \"order\"; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "method",
+                    "name": "formatOrder",
+                    "signature": "function formatOrder() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 42
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 57
+                          }
+                        }
+                      },
+                      "text": "return \"order\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]": {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 123
+                      }
+                    }
+                  },
+                  "text": "resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /[int id]",
+                    "signature": "resource function get [int id](boolean includeItems = false) returns string",
+                    "parameters": [
+                      {
+                        "kind": "path",
+                        "text": "[int id]"
+                      },
+                      {
+                        "kind": "input",
+                        "text": "boolean includeItems = false"
+                      }
+                    ],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 80
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 87
+                          }
+                        }
+                      },
+                      "text": "_ = id;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 88
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 105
+                          }
+                        }
+                      },
+                      "text": "_ = includeItems;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 106
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 121
+                          }
+                        }
+                      },
+                      "text": "return \"order\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "definitions",
+            "scopeId": "examples/service_discovery/service/orders.bal//orders/1"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/service_discovery/service/datagrams.bal//1",
+                  "source": {
+                    "file": "datagrams.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service on new udp:Listener(9090) {\n    remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }\n}",
+                  "kind": "service",
+                  "title": "Service · ballerina/udp:Listener",
+                  "moduleId": "examples/service_discovery",
+                  "serviceType": "ballerina/udp:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes",
+                      "source": {
+                        "file": "datagrams.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 6
+                          }
+                        }
+                      },
+                      "text": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }",
+                      "kind": "remote",
+                      "title": "onBytes",
+                      "functionId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 51
+                          }
+                        }
+                      },
+                      "text": "function unusedHelper() returns int { return 42; }",
+                      "kind": "function",
+                      "label": "unusedHelper",
+                      "functionId": "examples/service_discovery/function/unusedHelper"
+                    },
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 58
+                          }
+                        }
+                      },
+                      "text": "function sharedLabel() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "sharedLabel",
+                      "functionId": "examples/service_discovery/function/sharedLabel"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/service_discovery/service/inventory.bal//inventory/1",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /inventory on new http:Listener(8081) {\n    resource function get items() returns string { return sharedLabel(); }\n}",
+                  "kind": "service",
+                  "title": "/inventory",
+                  "moduleId": "examples/service_discovery",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 75
+                          }
+                        }
+                      },
+                      "text": "resource function get items() returns string { return sharedLabel(); }",
+                      "kind": "resource",
+                      "title": "get /inventory/items",
+                      "functionId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 51
+                          }
+                        }
+                      },
+                      "text": "function unusedHelper() returns int { return 42; }",
+                      "kind": "function",
+                      "label": "unusedHelper",
+                      "functionId": "examples/service_discovery/function/unusedHelper"
+                    },
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 58
+                          }
+                        }
+                      },
+                      "text": "function sharedLabel() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "sharedLabel",
+                      "functionId": "examples/service_discovery/function/sharedLabel"
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 2,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /orders on new http:Listener(8080) {\n resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }\n remote function refresh(string note = \"\") returns boolean { _ = note; return true; }\n function formatOrder() returns string { return \"order\"; }\n}",
+                  "kind": "service",
+                  "title": "/orders",
+                  "moduleId": "examples/service_discovery",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 86
+                          }
+                        }
+                      },
+                      "text": "remote function refresh(string note = \"\") returns boolean { _ = note; return true; }",
+                      "kind": "remote",
+                      "title": "refresh",
+                      "functionId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh"
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 123
+                          }
+                        }
+                      },
+                      "text": "resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }",
+                      "kind": "resource",
+                      "title": "get /orders/[int id]",
+                      "functionId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 51
+                          }
+                        }
+                      },
+                      "text": "function unusedHelper() returns int { return 42; }",
+                      "kind": "function",
+                      "label": "unusedHelper",
+                      "functionId": "examples/service_discovery/function/unusedHelper"
+                    },
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 58
+                          }
+                        }
+                      },
+                      "text": "function sharedLabel() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "sharedLabel",
+                      "functionId": "examples/service_discovery/function/sharedLabel"
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 59
+                          }
+                        }
+                      },
+                      "text": "function formatOrder() returns string { return \"order\"; }",
+                      "kind": "function",
+                      "label": "formatOrder",
+                      "functionId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/service_discovery/function/sharedLabel": {
+                  "id": "examples/service_discovery/function/sharedLabel",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 58
+                      }
+                    }
+                  },
+                  "text": "function sharedLabel() returns string { return \"order\"; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "function",
+                    "name": "sharedLabel",
+                    "signature": "function sharedLabel() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/function/sharedLabel/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 41
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 56
+                          }
+                        }
+                      },
+                      "text": "return \"order\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/function/unusedHelper": {
+                  "id": "examples/service_discovery/function/unusedHelper",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 51
+                      }
+                    }
+                  },
+                  "text": "function unusedHelper() returns int { return 42; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "function",
+                    "name": "unusedHelper",
+                    "signature": "function unusedHelper() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/function/unusedHelper/statement/0",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 39
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 49
+                          }
+                        }
+                      },
+                      "text": "return 42;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes": {
+                  "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes",
+                  "source": {
+                    "file": "datagrams.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 6
+                      }
+                    }
+                  },
+                  "text": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "remote",
+                    "name": "onBytes",
+                    "signature": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[]",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "byte[] data"
+                      },
+                      {
+                        "kind": "input",
+                        "text": "udp:Caller caller"
+                      }
+                    ],
+                    "returnType": "byte[]"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
+                      "source": {
+                        "file": "datagrams.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 20
+                          }
+                        }
+                      },
+                      "text": "_ = caller;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
+                      "source": {
+                        "file": "datagrams.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 21
+                          }
+                        }
+                      },
+                      "text": "return data;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items": {
+                  "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items",
+                  "source": {
+                    "file": "inventory.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 75
+                      }
+                    }
+                  },
+                  "text": "resource function get items() returns string { return sharedLabel(); }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /items",
+                    "signature": "resource function get items() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0",
+                      "source": {
+                        "file": "inventory.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 52
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 73
+                          }
+                        }
+                      },
+                      "text": "return sharedLabel();",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
+                          "source": {
+                            "file": "inventory.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 59
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 72
+                              }
+                            }
+                          },
+                          "text": "sharedLabel()",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/service_discovery/function/sharedLabel"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh": {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 86
+                      }
+                    }
+                  },
+                  "text": "remote function refresh(string note = \"\") returns boolean { _ = note; return true; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "remote",
+                    "name": "refresh",
+                    "signature": "remote function refresh(string note = \"\") returns boolean",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "string note = \"\""
+                      }
+                    ],
+                    "returnType": "boolean"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 62
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 71
+                          }
+                        }
+                      },
+                      "text": "_ = note;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 72
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 84
+                          }
+                        }
+                      },
+                      "text": "return true;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder": {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 59
+                      }
+                    }
+                  },
+                  "text": "function formatOrder() returns string { return \"order\"; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "method",
+                    "name": "formatOrder",
+                    "signature": "function formatOrder() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 42
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 57
+                          }
+                        }
+                      },
+                      "text": "return \"order\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]": {
+                  "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]",
+                  "source": {
+                    "file": "orders.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 123
+                      }
+                    }
+                  },
+                  "text": "resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }",
+                  "moduleId": "examples/service_discovery",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /[int id]",
+                    "signature": "resource function get [int id](boolean includeItems = false) returns string",
+                    "parameters": [
+                      {
+                        "kind": "path",
+                        "text": "[int id]"
+                      },
+                      {
+                        "kind": "input",
+                        "text": "boolean includeItems = false"
+                      }
+                    ],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 80
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 87
+                          }
+                        }
+                      },
+                      "text": "_ = id;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 88
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 105
+                          }
+                        }
+                      },
+                      "text": "_ = includeItems;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2",
+                      "source": {
+                        "file": "orders.bal",
+                        "range": {
+                          "start": {
+                            "line": 3,
+                            "column": 106
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 121
+                          }
+                        }
+                      },
+                      "text": "return \"order\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"336\" height=\"140\" viewBox=\"86 16 336 140\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 336px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><g data-edge-kind=\"sequence\"><polyline points=\"254,16 254,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"return\" data-node-id=\"examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0\"><rect x=\"118\" y=\"40\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"128\" y=\"48\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return &quot;order&quot;;\">return \"order\";</button></div></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"336\" height=\"140\" viewBox=\"86 16 336 140\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 336px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><g data-edge-kind=\"sequence\"><polyline points=\"254,16 254,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"return\" data-node-id=\"examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0\"><rect x=\"118\" y=\"40\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"128\" y=\"48\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return &quot;order&quot;;\">return \"order\";</button></div></foreignObject></g></svg>",
+  "renderInputHash": "720aa87b513a94893b2c0c29f2109be4bcee382760e7c25d10678d5643687be4",
+  "svgAbsent": false
+}

@@ -1,0 +1,2554 @@
+{
+  "wrapper": {
+    "mode": "expanded",
+    "workspace": {
+      "className": "workspace flow-workspace inspection-expanded",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 900,
+        "height": 582
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 900,
+        "height": 582
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 900,
+          "height": 582
+        },
+        "properties": {
+          "display": "block",
+          "position": "relative",
+          "width": "900px",
+          "height": "582px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 900,
+          "height": 582
+        },
+        "properties": {
+          "display": "flex",
+          "position": "absolute",
+          "width": "900px",
+          "height": "582px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 122,
+          "width": 900,
+          "height": 528
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "900px",
+          "height": "528px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 122,
+          "width": 900,
+          "height": 528
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "900px",
+          "height": "528px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 20,
+          "y": 307.375,
+          "width": 860,
+          "height": 890.4375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "860px",
+          "height": "890.438px",
+          "min-width": "0px",
+          "max-width": "1010.24px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 20px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 230,
+          "y": 175.1875,
+          "width": 440,
+          "height": 116.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "440px",
+          "height": "116.188px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [
+      {
+        "rect": {
+          "x": 230,
+          "y": 142,
+          "width": 440,
+          "height": 19.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "440px",
+          "height": "19.1875px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px 0px 14px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "12px",
+          "font-weight": "400",
+          "line-height": "19.2px",
+          "letter-spacing": "normal",
+          "color": "rgb(105, 121, 111)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(105, 121, 111)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 47.244384765625,
+          "y": 327.8056945800781,
+          "width": 805.51123046875,
+          "height": 44.2664794921875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "946.237px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 113.64411926269531,
+          "y": 416.33868408203125,
+          "width": 672.7117919921875,
+          "height": 44.2664794921875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "790.237px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 276.5712890625,
+          "y": 504.87164306640625,
+          "width": 346.857421875,
+          "height": 56.18438720703125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "407.455px",
+          "height": "66px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 333.020263671875,
+          "y": 605.322509765625,
+          "width": 233.95947265625,
+          "height": 44.2664794921875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "274.833px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 241, 253)",
+          "stroke": "rgb(180, 162, 212)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 180.04385375976562,
+          "y": 693.8555297851562,
+          "width": 253.88265991210938,
+          "height": 44.2664794921875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "298.237px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 334.2261047363281,
+          "y": 870.9215087890625,
+          "width": 231.54782104492188,
+          "height": 44.2664794921875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [
+      {
+        "rect": {
+          "x": 47.244384765625,
+          "y": 327.8056945800781,
+          "width": 805.51123046875,
+          "height": 815.5250244140625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "946.237px",
+          "height": "958px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 113.64411926269531,
+          "y": 416.33868408203125,
+          "width": 672.7117919921875,
+          "height": 612.9205932617188
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "790.237px",
+          "height": "720px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 305.2749328613281,
+          "y": 340.14923095703125,
+          "width": 289.4347229003906,
+          "height": 22.984527587890625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 315.4902648925781,
+          "y": 428.6822204589844,
+          "width": 269.0040588378906,
+          "height": 22.984527587890625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "316px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 305.2749328613281,
+          "y": 515.0870361328125,
+          "width": 289.4347229003906,
+          "height": 39.1588134765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "46px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 341.5207824707031,
+          "y": 617.6660766601562,
+          "width": 216.92977905273438,
+          "height": 22.98455810546875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "254.828px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 188.556640625,
+          "y": 706.1990966796875,
+          "width": 236.85501098632812,
+          "height": 22.9844970703125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "278.234px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 342.731201171875,
+          "y": 883.2650146484375,
+          "width": 214.522216796875,
+          "height": 22.98455810546875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [
+      {
+        "rect": {
+          "x": 120.45435333251953,
+          "y": 423.1488952636719,
+          "width": 22.13324737548828,
+          "height": 22.133270263671875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-limitation": [],
+    ".edge-label": [
+      {
+        "rect": {
+          "x": 308.3668518066406,
+          "y": 612.6455078125,
+          "width": 16.140625,
+          "height": 10
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 575.4925537109375,
+          "y": 612.6455078125,
+          "width": 19.78131103515625,
+          "height": 10
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".client-receiver": [],
+    ".client-context": [],
+    ".client-method": []
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "examples/panel_state/service/main.bal//reports/1",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 3,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "service /reports on new http:Listener(8080) {\n    resource function get daily() returns int { return buildReport(5); }\n    resource function get weekly() returns int { return buildReport(35); }\n}",
+              "kind": "service",
+              "title": "/reports",
+              "moduleId": "examples/panel_state",
+              "serviceType": "ballerina/http:Listener",
+              "endpoints": [
+                {
+                  "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 73
+                      }
+                    }
+                  },
+                  "text": "resource function get daily() returns int { return buildReport(5); }",
+                  "kind": "resource",
+                  "title": "get /reports/daily",
+                  "functionId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily"
+                },
+                {
+                  "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 75
+                      }
+                    }
+                  },
+                  "text": "resource function get weekly() returns int { return buildReport(35); }",
+                  "kind": "resource",
+                  "title": "get /reports/weekly",
+                  "functionId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly"
+                }
+              ],
+              "definitions": [
+                {
+                  "id": "examples/panel_state/function/buildReport",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int {\n    int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\n    if calculatedReportTotal > 10 { return calculatedReportTotal; }\n    return 10;\n}",
+                  "kind": "function",
+                  "label": "buildReport",
+                  "functionId": "examples/panel_state/function/buildReport"
+                }
+              ]
+            }
+          ],
+          "functions": {
+            "examples/panel_state/function/buildReport": {
+              "id": "examples/panel_state/function/buildReport",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 8,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 12,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int {\n    int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\n    if calculatedReportTotal > 10 { return calculatedReportTotal; }\n    return 10;\n}",
+              "moduleId": "examples/panel_state",
+              "entry": {
+                "kind": "function",
+                "name": "buildReport",
+                "signature": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "int extraordinarilyLongButMeaningfulInputName"
+                  }
+                ],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/panel_state/function/buildReport/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 9,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 79
+                      }
+                    }
+                  },
+                  "text": "int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": []
+                },
+                {
+                  "id": "examples/panel_state/function/buildReport/statement/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 10,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 10,
+                        "column": 68
+                      }
+                    }
+                  },
+                  "text": "if calculatedReportTotal > 10 { return calculatedReportTotal; }",
+                  "kind": "if",
+                  "condition": {
+                    "id": "examples/panel_state/function/buildReport/statement/1/condition",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 10,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 10,
+                          "column": 34
+                        }
+                      }
+                    },
+                    "text": "calculatedReportTotal > 10",
+                    "calls": []
+                  },
+                  "thenBody": [
+                    {
+                      "id": "examples/panel_state/function/buildReport/statement/1/then/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 37
+                          },
+                          "end": {
+                            "line": 10,
+                            "column": 66
+                          }
+                        }
+                      },
+                      "text": "return calculatedReportTotal;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ],
+                  "elseBody": []
+                },
+                {
+                  "id": "examples/panel_state/function/buildReport/statement/2/block/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 11,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 15
+                      }
+                    }
+                  },
+                  "text": "return 10;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/panel_state/service/main.bal//reports/1/resource/get/daily": {
+              "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 4,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 73
+                  }
+                }
+              },
+              "text": "resource function get daily() returns int { return buildReport(5); }",
+              "moduleId": "examples/panel_state",
+              "entry": {
+                "kind": "resource",
+                "name": "get /daily",
+                "signature": "resource function get daily() returns int",
+                "parameters": [],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 49
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 71
+                      }
+                    }
+                  },
+                  "text": "return buildReport(5);",
+                  "kind": "return",
+                  "calls": [
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 56
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 70
+                          }
+                        }
+                      },
+                      "text": "buildReport(5)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/panel_state/function/buildReport"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                }
+              ]
+            },
+            "examples/panel_state/service/main.bal//reports/1/resource/get/weekly": {
+              "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 5,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 5,
+                    "column": 75
+                  }
+                }
+              },
+              "text": "resource function get weekly() returns int { return buildReport(35); }",
+              "moduleId": "examples/panel_state",
+              "entry": {
+                "kind": "resource",
+                "name": "get /weekly",
+                "signature": "resource function get weekly() returns int",
+                "parameters": [],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 50
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 73
+                      }
+                    }
+                  },
+                  "text": "return buildReport(35);",
+                  "kind": "return",
+                  "calls": [
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 57
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 72
+                          }
+                        }
+                      },
+                      "text": "buildReport(35)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/panel_state/function/buildReport"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily"
+      }
+    },
+    "references": [],
+    "expanded": [
+      "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0"
+    ],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/panel_state/service/main.bal//reports/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /reports on new http:Listener(8080) {\n    resource function get daily() returns int { return buildReport(5); }\n    resource function get weekly() returns int { return buildReport(35); }\n}",
+                  "kind": "service",
+                  "title": "/reports",
+                  "moduleId": "examples/panel_state",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 73
+                          }
+                        }
+                      },
+                      "text": "resource function get daily() returns int { return buildReport(5); }",
+                      "kind": "resource",
+                      "title": "get /reports/daily",
+                      "functionId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily"
+                    },
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 75
+                          }
+                        }
+                      },
+                      "text": "resource function get weekly() returns int { return buildReport(35); }",
+                      "kind": "resource",
+                      "title": "get /reports/weekly",
+                      "functionId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/panel_state/function/buildReport",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 2
+                          }
+                        }
+                      },
+                      "text": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int {\n    int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\n    if calculatedReportTotal > 10 { return calculatedReportTotal; }\n    return 10;\n}",
+                      "kind": "function",
+                      "label": "buildReport",
+                      "functionId": "examples/panel_state/function/buildReport"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/panel_state/function/buildReport": {
+                  "id": "examples/panel_state/function/buildReport",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int {\n    int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\n    if calculatedReportTotal > 10 { return calculatedReportTotal; }\n    return 10;\n}",
+                  "moduleId": "examples/panel_state",
+                  "entry": {
+                    "kind": "function",
+                    "name": "buildReport",
+                    "signature": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int extraordinarilyLongButMeaningfulInputName"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/panel_state/function/buildReport/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 79
+                          }
+                        }
+                      },
+                      "text": "int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/panel_state/function/buildReport/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 10,
+                            "column": 68
+                          }
+                        }
+                      },
+                      "text": "if calculatedReportTotal > 10 { return calculatedReportTotal; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/panel_state/function/buildReport/statement/1/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 10,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 10,
+                              "column": 34
+                            }
+                          }
+                        },
+                        "text": "calculatedReportTotal > 10",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/panel_state/function/buildReport/statement/1/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 10,
+                                "column": 37
+                              },
+                              "end": {
+                                "line": 10,
+                                "column": 66
+                              }
+                            }
+                          },
+                          "text": "return calculatedReportTotal;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/panel_state/function/buildReport/statement/2/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 11,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 15
+                          }
+                        }
+                      },
+                      "text": "return 10;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/panel_state/service/main.bal//reports/1/resource/get/daily": {
+                  "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 73
+                      }
+                    }
+                  },
+                  "text": "resource function get daily() returns int { return buildReport(5); }",
+                  "moduleId": "examples/panel_state",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /daily",
+                    "signature": "resource function get daily() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 49
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 71
+                          }
+                        }
+                      },
+                      "text": "return buildReport(5);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 56
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 70
+                              }
+                            }
+                          },
+                          "text": "buildReport(5)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/panel_state/function/buildReport"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/panel_state/service/main.bal//reports/1/resource/get/weekly": {
+                  "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 75
+                      }
+                    }
+                  },
+                  "text": "resource function get weekly() returns int { return buildReport(35); }",
+                  "moduleId": "examples/panel_state",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /weekly",
+                    "signature": "resource function get weekly() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 50
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 73
+                          }
+                        }
+                      },
+                      "text": "return buildReport(35);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 5,
+                                "column": 57
+                              },
+                              "end": {
+                                "line": 5,
+                                "column": 72
+                              }
+                            }
+                          },
+                          "text": "buildReport(35)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/panel_state/function/buildReport"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "definitions",
+            "scopeId": "examples/panel_state/service/main.bal//reports/1"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/panel_state/service/main.bal//reports/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /reports on new http:Listener(8080) {\n    resource function get daily() returns int { return buildReport(5); }\n    resource function get weekly() returns int { return buildReport(35); }\n}",
+                  "kind": "service",
+                  "title": "/reports",
+                  "moduleId": "examples/panel_state",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 73
+                          }
+                        }
+                      },
+                      "text": "resource function get daily() returns int { return buildReport(5); }",
+                      "kind": "resource",
+                      "title": "get /reports/daily",
+                      "functionId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily"
+                    },
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 75
+                          }
+                        }
+                      },
+                      "text": "resource function get weekly() returns int { return buildReport(35); }",
+                      "kind": "resource",
+                      "title": "get /reports/weekly",
+                      "functionId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/panel_state/function/buildReport",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 2
+                          }
+                        }
+                      },
+                      "text": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int {\n    int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\n    if calculatedReportTotal > 10 { return calculatedReportTotal; }\n    return 10;\n}",
+                      "kind": "function",
+                      "label": "buildReport",
+                      "functionId": "examples/panel_state/function/buildReport"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/panel_state/function/buildReport": {
+                  "id": "examples/panel_state/function/buildReport",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int {\n    int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\n    if calculatedReportTotal > 10 { return calculatedReportTotal; }\n    return 10;\n}",
+                  "moduleId": "examples/panel_state",
+                  "entry": {
+                    "kind": "function",
+                    "name": "buildReport",
+                    "signature": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int extraordinarilyLongButMeaningfulInputName"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/panel_state/function/buildReport/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 79
+                          }
+                        }
+                      },
+                      "text": "int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/panel_state/function/buildReport/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 10,
+                            "column": 68
+                          }
+                        }
+                      },
+                      "text": "if calculatedReportTotal > 10 { return calculatedReportTotal; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/panel_state/function/buildReport/statement/1/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 10,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 10,
+                              "column": 34
+                            }
+                          }
+                        },
+                        "text": "calculatedReportTotal > 10",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/panel_state/function/buildReport/statement/1/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 10,
+                                "column": 37
+                              },
+                              "end": {
+                                "line": 10,
+                                "column": 66
+                              }
+                            }
+                          },
+                          "text": "return calculatedReportTotal;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/panel_state/function/buildReport/statement/2/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 11,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 15
+                          }
+                        }
+                      },
+                      "text": "return 10;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/panel_state/service/main.bal//reports/1/resource/get/daily": {
+                  "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 73
+                      }
+                    }
+                  },
+                  "text": "resource function get daily() returns int { return buildReport(5); }",
+                  "moduleId": "examples/panel_state",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /daily",
+                    "signature": "resource function get daily() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 49
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 71
+                          }
+                        }
+                      },
+                      "text": "return buildReport(5);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 56
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 70
+                              }
+                            }
+                          },
+                          "text": "buildReport(5)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/panel_state/function/buildReport"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/panel_state/service/main.bal//reports/1/resource/get/weekly": {
+                  "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 75
+                      }
+                    }
+                  },
+                  "text": "resource function get weekly() returns int { return buildReport(35); }",
+                  "moduleId": "examples/panel_state",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /weekly",
+                    "signature": "resource function get weekly() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 50
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 73
+                          }
+                        }
+                      },
+                      "text": "return buildReport(35);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 5,
+                                "column": 57
+                              },
+                              "end": {
+                                "line": 5,
+                                "column": 72
+                              }
+                            }
+                          },
+                          "text": "buildReport(35)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/panel_state/function/buildReport"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/panel_state/service/main.bal//reports/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /reports on new http:Listener(8080) {\n    resource function get daily() returns int { return buildReport(5); }\n    resource function get weekly() returns int { return buildReport(35); }\n}",
+                  "kind": "service",
+                  "title": "/reports",
+                  "moduleId": "examples/panel_state",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 73
+                          }
+                        }
+                      },
+                      "text": "resource function get daily() returns int { return buildReport(5); }",
+                      "kind": "resource",
+                      "title": "get /reports/daily",
+                      "functionId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily"
+                    },
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 75
+                          }
+                        }
+                      },
+                      "text": "resource function get weekly() returns int { return buildReport(35); }",
+                      "kind": "resource",
+                      "title": "get /reports/weekly",
+                      "functionId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/panel_state/function/buildReport",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 2
+                          }
+                        }
+                      },
+                      "text": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int {\n    int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\n    if calculatedReportTotal > 10 { return calculatedReportTotal; }\n    return 10;\n}",
+                      "kind": "function",
+                      "label": "buildReport",
+                      "functionId": "examples/panel_state/function/buildReport"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/panel_state/function/buildReport": {
+                  "id": "examples/panel_state/function/buildReport",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int {\n    int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\n    if calculatedReportTotal > 10 { return calculatedReportTotal; }\n    return 10;\n}",
+                  "moduleId": "examples/panel_state",
+                  "entry": {
+                    "kind": "function",
+                    "name": "buildReport",
+                    "signature": "function buildReport(int extraordinarilyLongButMeaningfulInputName) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int extraordinarilyLongButMeaningfulInputName"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/panel_state/function/buildReport/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 9,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 79
+                          }
+                        }
+                      },
+                      "text": "int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": []
+                    },
+                    {
+                      "id": "examples/panel_state/function/buildReport/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 10,
+                            "column": 68
+                          }
+                        }
+                      },
+                      "text": "if calculatedReportTotal > 10 { return calculatedReportTotal; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/panel_state/function/buildReport/statement/1/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 10,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 10,
+                              "column": 34
+                            }
+                          }
+                        },
+                        "text": "calculatedReportTotal > 10",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/panel_state/function/buildReport/statement/1/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 10,
+                                "column": 37
+                              },
+                              "end": {
+                                "line": 10,
+                                "column": 66
+                              }
+                            }
+                          },
+                          "text": "return calculatedReportTotal;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/panel_state/function/buildReport/statement/2/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 11,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 15
+                          }
+                        }
+                      },
+                      "text": "return 10;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/panel_state/service/main.bal//reports/1/resource/get/daily": {
+                  "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 73
+                      }
+                    }
+                  },
+                  "text": "resource function get daily() returns int { return buildReport(5); }",
+                  "moduleId": "examples/panel_state",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /daily",
+                    "signature": "resource function get daily() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 49
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 71
+                          }
+                        }
+                      },
+                      "text": "return buildReport(5);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 56
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 70
+                              }
+                            }
+                          },
+                          "text": "buildReport(5)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/panel_state/function/buildReport"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/panel_state/service/main.bal//reports/1/resource/get/weekly": {
+                  "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 75
+                      }
+                    }
+                  },
+                  "text": "resource function get weekly() returns int { return buildReport(35); }",
+                  "moduleId": "examples/panel_state",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /weekly",
+                    "signature": "resource function get weekly() returns int",
+                    "parameters": [],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 50
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 73
+                          }
+                        }
+                      },
+                      "text": "return buildReport(35);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 5,
+                                "column": 57
+                              },
+                              "end": {
+                                "line": 5,
+                                "column": 72
+                              }
+                            }
+                          },
+                          "text": "buildReport(35)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/panel_state/function/buildReport"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily"
+          }
+        },
+        "references": [],
+        "expanded": [
+          "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0"
+        ],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"1010.23681640625\" height=\"1046\" viewBox=\"86 16 1010.23681640625 1046\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 1010.24px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container return\" x=\"118\" y=\"40\" width=\"946.23681640625\" height=\"958\" rx=\"12\"></rect><rect class=\"container function\" x=\"196\" y=\"144\" width=\"790.23681640625\" height=\"720\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"591.118408203125,92 591.118408203125,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"453.701904296875,392 423.118408203125,392 423.118408203125,470\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"443.701904296875\" y=\"384\" text-anchor=\"end\" class=\"edge-label\">true</text></g><g data-edge-kind=\"false\"><polyline points=\"728.534912109375,392 752.534912109375,392 752.534912109375,608 591.118408203125,608 591.118408203125,626\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"738.534912109375\" y=\"384\" text-anchor=\"start\" class=\"edge-label\">false</text></g><g data-edge-kind=\"sequence\"><polyline points=\"591.118408203125,314 591.118408203125,366\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"591.118408203125,626 591.118408203125,678\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"591.118408203125,144 591.118408203125,248\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"423.118408203125,522 423.118408203125,846 591.118408203125,846 591.118408203125,864\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"591.118408203125,730 591.118408203125,864\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"591.118408203125,864 591.118408203125,998\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"591.118408203125,16 591.118408203125,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"return\" data-node-id=\"examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0\"><rect x=\"118\" y=\"40\" width=\"946.23681640625\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"401.118408203125\" y=\"48\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return buildReport(5);\">return buildReport(5);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0\"><rect x=\"196\" y=\"144\" width=\"790.23681640625\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"401.118408203125\" y=\"152\" width=\"380\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference buildReport(5)\">buildReport(5)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"152\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Collapse buildReport(5)\" aria-expanded=\"true\">−</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/panel_state/function/buildReport/statement/0\"><rect x=\"387.39111328125\" y=\"248\" width=\"407.45458984375\" height=\"66\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"401.118408203125\" y=\"256\" width=\"380\" height=\"54\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\">int calculatedReportTotal = extraordinarily\nLongButMeaningfulInputName + 1;</button></div></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"examples/panel_state/function/buildReport/statement/1/condition\"><rect x=\"453.701904296875\" y=\"366\" width=\"274.8330078125\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"463.701904296875\" y=\"374\" width=\"254.8330078125\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference calculatedReportTotal &gt; 10\">calculatedReportTotal &gt; 10</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/panel_state/function/buildReport/statement/1/then/statement/0\"><rect x=\"274\" y=\"470\" width=\"298.23681640625\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"478\" width=\"278.23681640625\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return calculatedReportTotal;\">return calculatedReportTotal;</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/panel_state/function/buildReport/statement/2/block/statement/0\"><rect x=\"455.118408203125\" y=\"678\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"465.118408203125\" y=\"686\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return 10;\">return 10;</button></div></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"1010.23681640625\" height=\"1046\" viewBox=\"86 16 1010.23681640625 1046\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 1010.24px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container return\" x=\"118\" y=\"40\" width=\"946.23681640625\" height=\"958\" rx=\"12\"></rect><rect class=\"container function\" x=\"196\" y=\"144\" width=\"790.23681640625\" height=\"720\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"591.118408203125,92 591.118408203125,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"453.701904296875,392 423.118408203125,392 423.118408203125,470\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"443.701904296875\" y=\"384\" text-anchor=\"end\" class=\"edge-label\">true</text></g><g data-edge-kind=\"false\"><polyline points=\"728.534912109375,392 752.534912109375,392 752.534912109375,608 591.118408203125,608 591.118408203125,626\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"738.534912109375\" y=\"384\" text-anchor=\"start\" class=\"edge-label\">false</text></g><g data-edge-kind=\"sequence\"><polyline points=\"591.118408203125,314 591.118408203125,366\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"591.118408203125,626 591.118408203125,678\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"591.118408203125,144 591.118408203125,248\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"423.118408203125,522 423.118408203125,846 591.118408203125,846 591.118408203125,864\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"591.118408203125,730 591.118408203125,864\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"591.118408203125,864 591.118408203125,998\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"591.118408203125,16 591.118408203125,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"return\" data-node-id=\"examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0\"><rect x=\"118\" y=\"40\" width=\"946.23681640625\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"401.118408203125\" y=\"48\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return buildReport(5);\">return buildReport(5);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0\"><rect x=\"196\" y=\"144\" width=\"790.23681640625\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"401.118408203125\" y=\"152\" width=\"380\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference buildReport(5)\">buildReport(5)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"152\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Collapse buildReport(5)\" aria-expanded=\"true\">−</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"examples/panel_state/function/buildReport/statement/0\"><rect x=\"387.39111328125\" y=\"248\" width=\"407.45458984375\" height=\"66\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"401.118408203125\" y=\"256\" width=\"380\" height=\"54\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference int calculatedReportTotal = extraordinarilyLongButMeaningfulInputName + 1;\">int calculatedReportTotal = extraordinarily\nLongButMeaningfulInputName + 1;</button></div></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"examples/panel_state/function/buildReport/statement/1/condition\"><rect x=\"453.701904296875\" y=\"366\" width=\"274.8330078125\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"463.701904296875\" y=\"374\" width=\"254.8330078125\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference calculatedReportTotal &gt; 10\">calculatedReportTotal &gt; 10</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/panel_state/function/buildReport/statement/1/then/statement/0\"><rect x=\"274\" y=\"470\" width=\"298.23681640625\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"478\" width=\"278.23681640625\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return calculatedReportTotal;\">return calculatedReportTotal;</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/panel_state/function/buildReport/statement/2/block/statement/0\"><rect x=\"455.118408203125\" y=\"678\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"465.118408203125\" y=\"686\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return 10;\">return 10;</button></div></foreignObject></g></svg>",
+  "renderInputHash": "83e06df5d9e2177df1cef581149205c9aa038f323a2d03de6cf768078369260c",
+  "svgAbsent": false
+}

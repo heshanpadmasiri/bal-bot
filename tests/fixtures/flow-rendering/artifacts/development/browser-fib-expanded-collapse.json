@@ -1,0 +1,4264 @@
+{
+  "wrapper": {
+    "mode": "normal",
+    "workspace": {
+      "className": "workspace flow-workspace ",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 1200,
+        "y": 68,
+        "width": 300,
+        "height": 882
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "grid",
+          "position": "relative",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 1200,
+          "y": 68,
+          "width": 300,
+          "height": 882
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "300px",
+          "height": "882px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 307.375,
+          "width": 259,
+          "height": 389.015625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "389.016px",
+          "min-width": "0px",
+          "max-width": "984px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 20px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 175.1875,
+          "width": 259,
+          "height": 116.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "116.188px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 142,
+          "width": 259,
+          "height": 19.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "19.1875px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px 0px 14px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "12px",
+          "font-weight": "400",
+          "line-height": "19.2px",
+          "letter-spacing": "normal",
+          "color": "rgb(105, 121, 111)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(105, 121, 111)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 1307.144775390625,
+          "y": 313.69189453125,
+          "width": 86.71044921875,
+          "height": 13.686614990234375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "329.442px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1229.4261474609375,
+          "y": 341.06512451171875,
+          "width": 242.147705078125,
+          "height": 13.686614990234375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "920px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1314.7042236328125,
+          "y": 368.4383544921875,
+          "width": 71.591552734375,
+          "height": 13.68658447265625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1249.9560546875,
+          "y": 395.81158447265625,
+          "width": 201.087890625,
+          "height": 13.68658447265625
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "764px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1314.7042236328125,
+          "y": 423.1847839355469,
+          "width": 71.591552734375,
+          "height": 13.686614990234375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(245, 241, 253)",
+          "stroke": "rgb(180, 162, 212)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1270.4859619140625,
+          "y": 450.5580139160156,
+          "width": 71.591552734375,
+          "height": 13.686614990234375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1294.17431640625,
+          "y": 505.304443359375,
+          "width": 112.6513671875,
+          "height": 13.6866455078125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1314.7042236328125,
+          "y": 532.6776733398438,
+          "width": 71.591552734375,
+          "height": 13.6866455078125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1314.7042236328125,
+          "y": 560.0509033203125,
+          "width": 71.591552734375,
+          "height": 13.6866455078125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [
+      {
+        "rect": {
+          "x": 1229.4261474609375,
+          "y": 341.06512451171875,
+          "width": 242.147705078125,
+          "height": 338.48040771484375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "920px",
+          "height": "1286px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1249.9560546875,
+          "y": 395.81158447265625,
+          "width": 201.087890625,
+          "height": 248.46466064453125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "764px",
+          "height": "944px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1294.17431640625,
+          "y": 505.304443359375,
+          "width": 112.6513671875,
+          "height": 103.702392578125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "394px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 1309.7733154296875,
+          "y": 317.50836181640625,
+          "width": 81.4451904296875,
+          "height": 7.10650634765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "309.438px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1305.75537109375,
+          "y": 344.881591796875,
+          "width": 89.4892578125,
+          "height": 7.10650634765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1325.7587890625,
+          "y": 372.25482177734375,
+          "width": 49.482421875,
+          "height": 7.10650634765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1308.913818359375,
+          "y": 399.6280212402344,
+          "width": 83.17236328125,
+          "height": 7.10650634765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "316px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1317.3363037109375,
+          "y": 427.0012512207031,
+          "width": 66.327392578125,
+          "height": 7.10650634765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1273.1180419921875,
+          "y": 454.3744812011719,
+          "width": 66.327392578125,
+          "height": 7.10650634765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1305.75537109375,
+          "y": 509.12091064453125,
+          "width": 89.4892578125,
+          "height": 7.10650634765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1325.7587890625,
+          "y": 536.494140625,
+          "width": 49.482421875,
+          "height": 7.10650634765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1325.7587890625,
+          "y": 563.8673706054688,
+          "width": 49.482421875,
+          "height": 7.10650634765625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [
+      {
+        "rect": {
+          "x": 1316.809814453125,
+          "y": 370.5439758300781,
+          "width": 6.8433837890625,
+          "height": 6.843292236328125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1252.0616455078125,
+          "y": 397.9172058105469,
+          "width": 6.8433837890625,
+          "height": 6.843292236328125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1316.809814453125,
+          "y": 534.7833251953125,
+          "width": 6.8433837890625,
+          "height": 6.84332275390625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(133, 99, 59)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(185, 157, 117)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1316.809814453125,
+          "y": 562.1565551757812,
+          "width": 6.8433837890625,
+          "height": 6.84332275390625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(133, 99, 59)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(185, 157, 117)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-limitation": [
+      {
+        "rect": {
+          "x": 1314.7042236328125,
+          "y": 547.1539306640625,
+          "width": 71.591552734375,
+          "height": 3.684814453125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "272px",
+          "height": "14px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px 5px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "14px",
+          "letter-spacing": "normal",
+          "color": "rgb(133, 99, 59)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(133, 99, 59)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1314.7042236328125,
+          "y": 574.527099609375,
+          "width": 71.591552734375,
+          "height": 3.6849365234375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "272px",
+          "height": "14px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px 5px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "14px",
+          "letter-spacing": "normal",
+          "color": "rgb(133, 99, 59)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(133, 99, 59)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".edge-label": [
+      {
+        "rect": {
+          "x": 1307.087890625,
+          "y": 425.9224853515625,
+          "width": 4.984375,
+          "height": 3
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1388.927734375,
+          "y": 425.81988525390625,
+          "width": 6.109375,
+          "height": 3.102569580078125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "auto",
+          "height": "auto",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "sans-serif",
+          "font-size": "11px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(105, 117, 139)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "nowrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".client-receiver": [],
+    ".client-context": [],
+    ".client-method": []
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "examples/automation_flow/service/main.bal///1",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 3,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 9,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "service / on new http:Listener(8080) {\n resource function get hello() returns string { return \"Hello, World!\"; }\n resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }\n}",
+              "kind": "service",
+              "title": "/",
+              "moduleId": "examples/automation_flow",
+              "serviceType": "ballerina/http:Listener",
+              "endpoints": [
+                {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 74
+                      }
+                    }
+                  },
+                  "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+                  "kind": "resource",
+                  "title": "get /hello",
+                  "functionId": "examples/automation_flow/service/main.bal///1/resource/get/hello"
+                },
+                {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 3
+                      }
+                    }
+                  },
+                  "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+                  "kind": "resource",
+                  "title": "get /[int x]/[int y]/sum",
+                  "functionId": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum"
+                }
+              ],
+              "definitions": [
+                {
+                  "id": "examples/automation_flow/function/fib",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 10,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+                  "kind": "function",
+                  "label": "fib",
+                  "functionId": "examples/automation_flow/function/fib"
+                }
+              ]
+            }
+          ],
+          "functions": {
+            "examples/automation_flow/function/fib": {
+              "id": "examples/automation_flow/function/fib",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 10,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 13,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+              "moduleId": "examples/automation_flow",
+              "entry": {
+                "kind": "function",
+                "name": "fib",
+                "signature": "function fib(int n) returns int",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "int n"
+                  }
+                ],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/automation_flow/function/fib/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 11,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 25
+                      }
+                    }
+                  },
+                  "text": "if n <= 1 { return n; }",
+                  "kind": "if",
+                  "condition": {
+                    "id": "examples/automation_flow/function/fib/statement/0/condition",
+                    "source": {
+                      "file": "main.bal",
+                      "range": {
+                        "start": {
+                          "line": 11,
+                          "column": 5
+                        },
+                        "end": {
+                          "line": 11,
+                          "column": 11
+                        }
+                      }
+                    },
+                    "text": "n <= 1",
+                    "calls": []
+                  },
+                  "thenBody": [
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/0/then/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 11,
+                            "column": 14
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 23
+                          }
+                        }
+                      },
+                      "text": "return n;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ],
+                  "elseBody": []
+                },
+                {
+                  "id": "examples/automation_flow/function/fib/statement/1/block/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 12,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 33
+                      }
+                    }
+                  },
+                  "text": "return fib(n - 1) + fib(n - 2);",
+                  "kind": "return",
+                  "calls": [
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 19
+                          }
+                        }
+                      },
+                      "text": "fib(n - 1)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/automation_flow/function/fib"
+                      },
+                      "expansion": "supported"
+                    },
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 22
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 32
+                          }
+                        }
+                      },
+                      "text": "fib(n - 2)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/automation_flow/function/fib"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                }
+              ]
+            },
+            "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum": {
+              "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 5,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 8,
+                    "column": 3
+                  }
+                }
+              },
+              "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+              "moduleId": "examples/automation_flow",
+              "entry": {
+                "kind": "resource",
+                "name": "get /[int x]/[int y]/sum",
+                "signature": "resource function get [int x]/[int y]/sum() returns int",
+                "parameters": [
+                  {
+                    "kind": "path",
+                    "text": "[int x]"
+                  },
+                  {
+                    "kind": "path",
+                    "text": "[int y]"
+                  }
+                ],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 6,
+                        "column": 3
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 36
+                      }
+                    }
+                  },
+                  "text": "io:println(\"x: \", x, \", y: \", y);",
+                  "kind": "simple",
+                  "operation": "expression",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 35
+                          }
+                        }
+                      },
+                      "text": "io:println(\"x: \", x, \", y: \", y)",
+                      "target": {
+                        "kind": "external",
+                        "label": "println"
+                      },
+                      "expansion": "unavailable",
+                      "reason": "The target is outside the workspace."
+                    }
+                  ]
+                },
+                {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 7,
+                        "column": 3
+                      },
+                      "end": {
+                        "line": 7,
+                        "column": 26
+                      }
+                    }
+                  },
+                  "text": "return fib(x) + fib(y);",
+                  "kind": "return",
+                  "calls": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 10
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 16
+                          }
+                        }
+                      },
+                      "text": "fib(x)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/automation_flow/function/fib"
+                      },
+                      "expansion": "supported"
+                    },
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 19
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 25
+                          }
+                        }
+                      },
+                      "text": "fib(y)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/automation_flow/function/fib"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                }
+              ]
+            },
+            "examples/automation_flow/service/main.bal///1/resource/get/hello": {
+              "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 4,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 74
+                  }
+                }
+              },
+              "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+              "moduleId": "examples/automation_flow",
+              "entry": {
+                "kind": "resource",
+                "name": "get /hello",
+                "signature": "resource function get hello() returns string",
+                "parameters": [],
+                "returnType": "string"
+              },
+              "body": [
+                {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/hello/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 49
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 72
+                      }
+                    }
+                  },
+                  "text": "return \"Hello, World!\";",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum"
+      }
+    },
+    "references": [],
+    "expanded": [
+      "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/expand/examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/1"
+    ],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/automation_flow/service/main.bal///1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service / on new http:Listener(8080) {\n resource function get hello() returns string { return \"Hello, World!\"; }\n resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }\n}",
+                  "kind": "service",
+                  "title": "/",
+                  "moduleId": "examples/automation_flow",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 74
+                          }
+                        }
+                      },
+                      "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+                      "kind": "resource",
+                      "title": "get /hello",
+                      "functionId": "examples/automation_flow/service/main.bal///1/resource/get/hello"
+                    },
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 3
+                          }
+                        }
+                      },
+                      "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+                      "kind": "resource",
+                      "title": "get /[int x]/[int y]/sum",
+                      "functionId": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/automation_flow/function/fib",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 2
+                          }
+                        }
+                      },
+                      "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+                      "kind": "function",
+                      "label": "fib",
+                      "functionId": "examples/automation_flow/function/fib"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/automation_flow/function/fib": {
+                  "id": "examples/automation_flow/function/fib",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 10,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "function",
+                    "name": "fib",
+                    "signature": "function fib(int n) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int n"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 11,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 25
+                          }
+                        }
+                      },
+                      "text": "if n <= 1 { return n; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/automation_flow/function/fib/statement/0/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 11,
+                              "column": 5
+                            },
+                            "end": {
+                              "line": 11,
+                              "column": 11
+                            }
+                          }
+                        },
+                        "text": "n <= 1",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/0/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 11,
+                                "column": 14
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 23
+                              }
+                            }
+                          },
+                          "text": "return n;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/1/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "return fib(n - 1) + fib(n - 2);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 19
+                              }
+                            }
+                          },
+                          "text": "fib(n - 1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 22
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 32
+                              }
+                            }
+                          },
+                          "text": "fib(n - 2)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum": {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 3
+                      }
+                    }
+                  },
+                  "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /[int x]/[int y]/sum",
+                    "signature": "resource function get [int x]/[int y]/sum() returns int",
+                    "parameters": [
+                      {
+                        "kind": "path",
+                        "text": "[int x]"
+                      },
+                      {
+                        "kind": "path",
+                        "text": "[int y]"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 36
+                          }
+                        }
+                      },
+                      "text": "io:println(\"x: \", x, \", y: \", y);",
+                      "kind": "simple",
+                      "operation": "expression",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 6,
+                                "column": 3
+                              },
+                              "end": {
+                                "line": 6,
+                                "column": 35
+                              }
+                            }
+                          },
+                          "text": "io:println(\"x: \", x, \", y: \", y)",
+                          "target": {
+                            "kind": "external",
+                            "label": "println"
+                          },
+                          "expansion": "unavailable",
+                          "reason": "The target is outside the workspace."
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 26
+                          }
+                        }
+                      },
+                      "text": "return fib(x) + fib(y);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 7,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 16
+                              }
+                            }
+                          },
+                          "text": "fib(x)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 7,
+                                "column": 19
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 25
+                              }
+                            }
+                          },
+                          "text": "fib(y)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/automation_flow/service/main.bal///1/resource/get/hello": {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 74
+                      }
+                    }
+                  },
+                  "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /hello",
+                    "signature": "resource function get hello() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/hello/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 49
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 72
+                          }
+                        }
+                      },
+                      "text": "return \"Hello, World!\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "definitions",
+            "scopeId": "examples/automation_flow/service/main.bal///1"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/automation_flow/service/main.bal///1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service / on new http:Listener(8080) {\n resource function get hello() returns string { return \"Hello, World!\"; }\n resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }\n}",
+                  "kind": "service",
+                  "title": "/",
+                  "moduleId": "examples/automation_flow",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 74
+                          }
+                        }
+                      },
+                      "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+                      "kind": "resource",
+                      "title": "get /hello",
+                      "functionId": "examples/automation_flow/service/main.bal///1/resource/get/hello"
+                    },
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 3
+                          }
+                        }
+                      },
+                      "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+                      "kind": "resource",
+                      "title": "get /[int x]/[int y]/sum",
+                      "functionId": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/automation_flow/function/fib",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 2
+                          }
+                        }
+                      },
+                      "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+                      "kind": "function",
+                      "label": "fib",
+                      "functionId": "examples/automation_flow/function/fib"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/automation_flow/function/fib": {
+                  "id": "examples/automation_flow/function/fib",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 10,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "function",
+                    "name": "fib",
+                    "signature": "function fib(int n) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int n"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 11,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 25
+                          }
+                        }
+                      },
+                      "text": "if n <= 1 { return n; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/automation_flow/function/fib/statement/0/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 11,
+                              "column": 5
+                            },
+                            "end": {
+                              "line": 11,
+                              "column": 11
+                            }
+                          }
+                        },
+                        "text": "n <= 1",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/0/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 11,
+                                "column": 14
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 23
+                              }
+                            }
+                          },
+                          "text": "return n;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/1/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "return fib(n - 1) + fib(n - 2);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 19
+                              }
+                            }
+                          },
+                          "text": "fib(n - 1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 22
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 32
+                              }
+                            }
+                          },
+                          "text": "fib(n - 2)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum": {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 3
+                      }
+                    }
+                  },
+                  "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /[int x]/[int y]/sum",
+                    "signature": "resource function get [int x]/[int y]/sum() returns int",
+                    "parameters": [
+                      {
+                        "kind": "path",
+                        "text": "[int x]"
+                      },
+                      {
+                        "kind": "path",
+                        "text": "[int y]"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 36
+                          }
+                        }
+                      },
+                      "text": "io:println(\"x: \", x, \", y: \", y);",
+                      "kind": "simple",
+                      "operation": "expression",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 6,
+                                "column": 3
+                              },
+                              "end": {
+                                "line": 6,
+                                "column": 35
+                              }
+                            }
+                          },
+                          "text": "io:println(\"x: \", x, \", y: \", y)",
+                          "target": {
+                            "kind": "external",
+                            "label": "println"
+                          },
+                          "expansion": "unavailable",
+                          "reason": "The target is outside the workspace."
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 26
+                          }
+                        }
+                      },
+                      "text": "return fib(x) + fib(y);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 7,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 16
+                              }
+                            }
+                          },
+                          "text": "fib(x)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 7,
+                                "column": 19
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 25
+                              }
+                            }
+                          },
+                          "text": "fib(y)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/automation_flow/service/main.bal///1/resource/get/hello": {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 74
+                      }
+                    }
+                  },
+                  "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /hello",
+                    "signature": "resource function get hello() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/hello/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 49
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 72
+                          }
+                        }
+                      },
+                      "text": "return \"Hello, World!\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/automation_flow/service/main.bal///1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service / on new http:Listener(8080) {\n resource function get hello() returns string { return \"Hello, World!\"; }\n resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }\n}",
+                  "kind": "service",
+                  "title": "/",
+                  "moduleId": "examples/automation_flow",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 74
+                          }
+                        }
+                      },
+                      "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+                      "kind": "resource",
+                      "title": "get /hello",
+                      "functionId": "examples/automation_flow/service/main.bal///1/resource/get/hello"
+                    },
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 3
+                          }
+                        }
+                      },
+                      "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+                      "kind": "resource",
+                      "title": "get /[int x]/[int y]/sum",
+                      "functionId": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/automation_flow/function/fib",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 2
+                          }
+                        }
+                      },
+                      "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+                      "kind": "function",
+                      "label": "fib",
+                      "functionId": "examples/automation_flow/function/fib"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/automation_flow/function/fib": {
+                  "id": "examples/automation_flow/function/fib",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 10,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "function",
+                    "name": "fib",
+                    "signature": "function fib(int n) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int n"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 11,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 25
+                          }
+                        }
+                      },
+                      "text": "if n <= 1 { return n; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/automation_flow/function/fib/statement/0/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 11,
+                              "column": 5
+                            },
+                            "end": {
+                              "line": 11,
+                              "column": 11
+                            }
+                          }
+                        },
+                        "text": "n <= 1",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/0/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 11,
+                                "column": 14
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 23
+                              }
+                            }
+                          },
+                          "text": "return n;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/1/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "return fib(n - 1) + fib(n - 2);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 19
+                              }
+                            }
+                          },
+                          "text": "fib(n - 1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 22
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 32
+                              }
+                            }
+                          },
+                          "text": "fib(n - 2)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum": {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 3
+                      }
+                    }
+                  },
+                  "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /[int x]/[int y]/sum",
+                    "signature": "resource function get [int x]/[int y]/sum() returns int",
+                    "parameters": [
+                      {
+                        "kind": "path",
+                        "text": "[int x]"
+                      },
+                      {
+                        "kind": "path",
+                        "text": "[int y]"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 36
+                          }
+                        }
+                      },
+                      "text": "io:println(\"x: \", x, \", y: \", y);",
+                      "kind": "simple",
+                      "operation": "expression",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 6,
+                                "column": 3
+                              },
+                              "end": {
+                                "line": 6,
+                                "column": 35
+                              }
+                            }
+                          },
+                          "text": "io:println(\"x: \", x, \", y: \", y)",
+                          "target": {
+                            "kind": "external",
+                            "label": "println"
+                          },
+                          "expansion": "unavailable",
+                          "reason": "The target is outside the workspace."
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 26
+                          }
+                        }
+                      },
+                      "text": "return fib(x) + fib(y);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 7,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 16
+                              }
+                            }
+                          },
+                          "text": "fib(x)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 7,
+                                "column": 19
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 25
+                              }
+                            }
+                          },
+                          "text": "fib(y)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/automation_flow/service/main.bal///1/resource/get/hello": {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 74
+                      }
+                    }
+                  },
+                  "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /hello",
+                    "signature": "resource function get hello() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/hello/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 49
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 72
+                          }
+                        }
+                      },
+                      "text": "return \"Hello, World!\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum"
+          }
+        },
+        "references": [],
+        "expanded": [
+          "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/expand/examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/0"
+        ],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/automation_flow/service/main.bal///1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service / on new http:Listener(8080) {\n resource function get hello() returns string { return \"Hello, World!\"; }\n resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }\n}",
+                  "kind": "service",
+                  "title": "/",
+                  "moduleId": "examples/automation_flow",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 74
+                          }
+                        }
+                      },
+                      "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+                      "kind": "resource",
+                      "title": "get /hello",
+                      "functionId": "examples/automation_flow/service/main.bal///1/resource/get/hello"
+                    },
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 3
+                          }
+                        }
+                      },
+                      "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+                      "kind": "resource",
+                      "title": "get /[int x]/[int y]/sum",
+                      "functionId": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/automation_flow/function/fib",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 2
+                          }
+                        }
+                      },
+                      "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+                      "kind": "function",
+                      "label": "fib",
+                      "functionId": "examples/automation_flow/function/fib"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/automation_flow/function/fib": {
+                  "id": "examples/automation_flow/function/fib",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 10,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "function",
+                    "name": "fib",
+                    "signature": "function fib(int n) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int n"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 11,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 25
+                          }
+                        }
+                      },
+                      "text": "if n <= 1 { return n; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/automation_flow/function/fib/statement/0/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 11,
+                              "column": 5
+                            },
+                            "end": {
+                              "line": 11,
+                              "column": 11
+                            }
+                          }
+                        },
+                        "text": "n <= 1",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/0/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 11,
+                                "column": 14
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 23
+                              }
+                            }
+                          },
+                          "text": "return n;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/1/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "return fib(n - 1) + fib(n - 2);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 19
+                              }
+                            }
+                          },
+                          "text": "fib(n - 1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 22
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 32
+                              }
+                            }
+                          },
+                          "text": "fib(n - 2)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum": {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 3
+                      }
+                    }
+                  },
+                  "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /[int x]/[int y]/sum",
+                    "signature": "resource function get [int x]/[int y]/sum() returns int",
+                    "parameters": [
+                      {
+                        "kind": "path",
+                        "text": "[int x]"
+                      },
+                      {
+                        "kind": "path",
+                        "text": "[int y]"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 36
+                          }
+                        }
+                      },
+                      "text": "io:println(\"x: \", x, \", y: \", y);",
+                      "kind": "simple",
+                      "operation": "expression",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 6,
+                                "column": 3
+                              },
+                              "end": {
+                                "line": 6,
+                                "column": 35
+                              }
+                            }
+                          },
+                          "text": "io:println(\"x: \", x, \", y: \", y)",
+                          "target": {
+                            "kind": "external",
+                            "label": "println"
+                          },
+                          "expansion": "unavailable",
+                          "reason": "The target is outside the workspace."
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 26
+                          }
+                        }
+                      },
+                      "text": "return fib(x) + fib(y);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 7,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 16
+                              }
+                            }
+                          },
+                          "text": "fib(x)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 7,
+                                "column": 19
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 25
+                              }
+                            }
+                          },
+                          "text": "fib(y)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/automation_flow/service/main.bal///1/resource/get/hello": {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 74
+                      }
+                    }
+                  },
+                  "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /hello",
+                    "signature": "resource function get hello() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/hello/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 49
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 72
+                          }
+                        }
+                      },
+                      "text": "return \"Hello, World!\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum"
+          }
+        },
+        "references": [],
+        "expanded": [
+          "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/expand/examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/0",
+          "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/expand/examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/1"
+        ],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/automation_flow/service/main.bal///1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service / on new http:Listener(8080) {\n resource function get hello() returns string { return \"Hello, World!\"; }\n resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }\n}",
+                  "kind": "service",
+                  "title": "/",
+                  "moduleId": "examples/automation_flow",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 74
+                          }
+                        }
+                      },
+                      "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+                      "kind": "resource",
+                      "title": "get /hello",
+                      "functionId": "examples/automation_flow/service/main.bal///1/resource/get/hello"
+                    },
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 3
+                          }
+                        }
+                      },
+                      "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+                      "kind": "resource",
+                      "title": "get /[int x]/[int y]/sum",
+                      "functionId": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/automation_flow/function/fib",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 10,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 2
+                          }
+                        }
+                      },
+                      "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+                      "kind": "function",
+                      "label": "fib",
+                      "functionId": "examples/automation_flow/function/fib"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/automation_flow/function/fib": {
+                  "id": "examples/automation_flow/function/fib",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 10,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "function fib(int n) returns int {\n if n <= 1 { return n; }\n return fib(n - 1) + fib(n - 2);\n}",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "function",
+                    "name": "fib",
+                    "signature": "function fib(int n) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int n"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 11,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 25
+                          }
+                        }
+                      },
+                      "text": "if n <= 1 { return n; }",
+                      "kind": "if",
+                      "condition": {
+                        "id": "examples/automation_flow/function/fib/statement/0/condition",
+                        "source": {
+                          "file": "main.bal",
+                          "range": {
+                            "start": {
+                              "line": 11,
+                              "column": 5
+                            },
+                            "end": {
+                              "line": 11,
+                              "column": 11
+                            }
+                          }
+                        },
+                        "text": "n <= 1",
+                        "calls": []
+                      },
+                      "thenBody": [
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/0/then/statement/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 11,
+                                "column": 14
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 23
+                              }
+                            }
+                          },
+                          "text": "return n;",
+                          "kind": "return",
+                          "calls": []
+                        }
+                      ],
+                      "elseBody": []
+                    },
+                    {
+                      "id": "examples/automation_flow/function/fib/statement/1/block/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 12,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 12,
+                            "column": 33
+                          }
+                        }
+                      },
+                      "text": "return fib(n - 1) + fib(n - 2);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 19
+                              }
+                            }
+                          },
+                          "text": "fib(n - 1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "examples/automation_flow/function/fib/statement/1/block/statement/0/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 12,
+                                "column": 22
+                              },
+                              "end": {
+                                "line": 12,
+                                "column": 32
+                              }
+                            }
+                          },
+                          "text": "fib(n - 2)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum": {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 3
+                      }
+                    }
+                  },
+                  "text": "resource function get [int x]/[int y]/sum() returns int {\n  io:println(\"x: \", x, \", y: \", y);\n  return fib(x) + fib(y);\n }",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /[int x]/[int y]/sum",
+                    "signature": "resource function get [int x]/[int y]/sum() returns int",
+                    "parameters": [
+                      {
+                        "kind": "path",
+                        "text": "[int x]"
+                      },
+                      {
+                        "kind": "path",
+                        "text": "[int y]"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 6,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 6,
+                            "column": 36
+                          }
+                        }
+                      },
+                      "text": "io:println(\"x: \", x, \", y: \", y);",
+                      "kind": "simple",
+                      "operation": "expression",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 6,
+                                "column": 3
+                              },
+                              "end": {
+                                "line": 6,
+                                "column": 35
+                              }
+                            }
+                          },
+                          "text": "io:println(\"x: \", x, \", y: \", y)",
+                          "target": {
+                            "kind": "external",
+                            "label": "println"
+                          },
+                          "expansion": "unavailable",
+                          "reason": "The target is outside the workspace."
+                        }
+                      ]
+                    },
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 7,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 7,
+                            "column": 26
+                          }
+                        }
+                      },
+                      "text": "return fib(x) + fib(y);",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 7,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 16
+                              }
+                            }
+                          },
+                          "text": "fib(x)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 7,
+                                "column": 19
+                              },
+                              "end": {
+                                "line": 7,
+                                "column": 25
+                              }
+                            }
+                          },
+                          "text": "fib(y)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/automation_flow/function/fib"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/automation_flow/service/main.bal///1/resource/get/hello": {
+                  "id": "examples/automation_flow/service/main.bal///1/resource/get/hello",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 74
+                      }
+                    }
+                  },
+                  "text": "resource function get hello() returns string { return \"Hello, World!\"; }",
+                  "moduleId": "examples/automation_flow",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /hello",
+                    "signature": "resource function get hello() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/automation_flow/service/main.bal///1/resource/get/hello/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 49
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 72
+                          }
+                        }
+                      },
+                      "text": "return \"Hello, World!\";",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum"
+          }
+        },
+        "references": [],
+        "expanded": [
+          "examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/expand/examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/1"
+        ],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"984\" height=\"1478\" viewBox=\"86 16 984 1478\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 984px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container return\" x=\"118\" y=\"144\" width=\"920\" height=\"1286\" rx=\"12\"></rect><rect class=\"container function\" x=\"196\" y=\"352\" width=\"764\" height=\"944\" rx=\"12\"></rect><rect class=\"container return\" x=\"364\" y=\"768\" width=\"428\" height=\"394\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"578,196 578,248\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,300 578,352\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"442,482 410,482 410,560\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"432\" y=\"474\" text-anchor=\"end\" class=\"edge-label\">true</text></g><g data-edge-kind=\"false\"><polyline points=\"714,482 738,482 738,698 578,698 578,716\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"724\" y=\"474\" text-anchor=\"start\" class=\"edge-label\">false</text></g><g data-edge-kind=\"sequence\"><polyline points=\"578,820 578,872\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,924 578,976\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"578,1028 578,1162\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,716 578,768\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,352 578,456\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"410,612 410,630 346,630 346,1278 578,1278 578,1296\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"578,1162 578,1296\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"578,1296 578,1430\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,92 578,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,16 578,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0\"><rect x=\"413.279052734375\" y=\"40\" width=\"329.44189453125\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"423.279052734375\" y=\"48\" width=\"309.44189453125\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference io:println(&quot;x: &quot;, x, &quot;, y: &quot;, y);\">io:println(\"x: \", x, \", y: \", y);</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1\"><rect x=\"118\" y=\"144\" width=\"920\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"388\" y=\"152\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return fib(x) + fib(y);\">return fib(x) + fib(y);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/0\"><rect x=\"442\" y=\"248\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"452\" y=\"256\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference fib(x)\">fib(x)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"450\" y=\"256\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand fib(x)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/1\"><rect x=\"196\" y=\"352\" width=\"764\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"388\" y=\"360\" width=\"380\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference fib(y)\">fib(y)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"360\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Collapse fib(y)\" aria-expanded=\"true\">−</button></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"examples/automation_flow/function/fib/statement/0/condition\"><rect x=\"442\" y=\"456\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"452\" y=\"464\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference n &lt;= 1\">n &lt;= 1</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/automation_flow/function/fib/statement/0/then/statement/0\"><rect x=\"274\" y=\"560\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"568\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return n;\">return n;</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/automation_flow/function/fib/statement/1/block/statement/0\"><rect x=\"364\" y=\"768\" width=\"428\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"388\" y=\"776\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return fib(n - 1) + fib(n - 2);\">return fib(n - 1) + fib(n - 2);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/automation_flow/function/fib/statement/1/block/statement/0/call/0\" data-recursive=\"true\"><rect x=\"442\" y=\"872\" width=\"272\" height=\"52\" class=\"flow-node function recursive\" rx=\"8\"></rect><foreignObject x=\"452\" y=\"880\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference fib(n - 1)\">fib(n - 1)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"450\" y=\"880\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" disabled=\"\" title=\"Recursive calls remain collapsed.\" aria-label=\"Recursive call fib(n - 1)\" aria-expanded=\"false\">↻</button></foreignObject><foreignObject x=\"442\" y=\"927\" width=\"272\" height=\"48\"><div class=\"node-limitation\">Recursive calls remain collapsed.</div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/automation_flow/function/fib/statement/1/block/statement/0/call/1\" data-recursive=\"true\"><rect x=\"442\" y=\"976\" width=\"272\" height=\"52\" class=\"flow-node function recursive\" rx=\"8\"></rect><foreignObject x=\"452\" y=\"984\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference fib(n - 2)\">fib(n - 2)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"450\" y=\"984\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" disabled=\"\" title=\"Recursive calls remain collapsed.\" aria-label=\"Recursive call fib(n - 2)\" aria-expanded=\"false\">↻</button></foreignObject><foreignObject x=\"442\" y=\"1031\" width=\"272\" height=\"48\"><div class=\"node-limitation\">Recursive calls remain collapsed.</div></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"984\" height=\"1478\" viewBox=\"86 16 984 1478\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 984px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container return\" x=\"118\" y=\"144\" width=\"920\" height=\"1286\" rx=\"12\"></rect><rect class=\"container function\" x=\"196\" y=\"352\" width=\"764\" height=\"944\" rx=\"12\"></rect><rect class=\"container return\" x=\"364\" y=\"768\" width=\"428\" height=\"394\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"578,196 578,248\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,300 578,352\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"true\"><polyline points=\"442,482 410,482 410,560\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"432\" y=\"474\" text-anchor=\"end\" class=\"edge-label\">true</text></g><g data-edge-kind=\"false\"><polyline points=\"714,482 738,482 738,698 578,698 578,716\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline><text x=\"724\" y=\"474\" text-anchor=\"start\" class=\"edge-label\">false</text></g><g data-edge-kind=\"sequence\"><polyline points=\"578,820 578,872\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,924 578,976\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"578,1028 578,1162\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,716 578,768\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,352 578,456\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"410,612 410,630 346,630 346,1278 578,1278 578,1296\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"578,1162 578,1296\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"578,1296 578,1430\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,92 578,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"578,16 578,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/0\"><rect x=\"413.279052734375\" y=\"40\" width=\"329.44189453125\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"423.279052734375\" y=\"48\" width=\"309.44189453125\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference io:println(&quot;x: &quot;, x, &quot;, y: &quot;, y);\">io:println(\"x: \", x, \", y: \", y);</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1\"><rect x=\"118\" y=\"144\" width=\"920\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"388\" y=\"152\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return fib(x) + fib(y);\">return fib(x) + fib(y);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/0\"><rect x=\"442\" y=\"248\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"452\" y=\"256\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference fib(x)\">fib(x)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"450\" y=\"256\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand fib(x)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/automation_flow/service/main.bal///1/resource/get/[int x]/[int y]/sum/statement/1/call/1\"><rect x=\"196\" y=\"352\" width=\"764\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"388\" y=\"360\" width=\"380\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference fib(y)\">fib(y)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"360\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Collapse fib(y)\" aria-expanded=\"true\">−</button></foreignObject></g><g data-node-kind=\"condition\" data-node-id=\"examples/automation_flow/function/fib/statement/0/condition\"><rect x=\"442\" y=\"456\" width=\"272\" height=\"52\" class=\"flow-node condition\" rx=\"20\"></rect><foreignObject x=\"452\" y=\"464\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference n &lt;= 1\">n &lt;= 1</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/automation_flow/function/fib/statement/0/then/statement/0\"><rect x=\"274\" y=\"560\" width=\"272\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"284\" y=\"568\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return n;\">return n;</button></div></foreignObject></g><g data-node-kind=\"return\" data-node-id=\"examples/automation_flow/function/fib/statement/1/block/statement/0\"><rect x=\"364\" y=\"768\" width=\"428\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"388\" y=\"776\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return fib(n - 1) + fib(n - 2);\">return fib(n - 1) + fib(n - 2);</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/automation_flow/function/fib/statement/1/block/statement/0/call/0\" data-recursive=\"true\"><rect x=\"442\" y=\"872\" width=\"272\" height=\"52\" class=\"flow-node function recursive\" rx=\"8\"></rect><foreignObject x=\"452\" y=\"880\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference fib(n - 1)\">fib(n - 1)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"450\" y=\"880\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" disabled=\"\" title=\"Recursive calls remain collapsed.\" aria-label=\"Recursive call fib(n - 1)\" aria-expanded=\"false\">↻</button></foreignObject><foreignObject x=\"442\" y=\"927\" width=\"272\" height=\"48\"><div class=\"node-limitation\">Recursive calls remain collapsed.</div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/automation_flow/function/fib/statement/1/block/statement/0/call/1\" data-recursive=\"true\"><rect x=\"442\" y=\"976\" width=\"272\" height=\"52\" class=\"flow-node function recursive\" rx=\"8\"></rect><foreignObject x=\"452\" y=\"984\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference fib(n - 2)\">fib(n - 2)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"450\" y=\"984\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" disabled=\"\" title=\"Recursive calls remain collapsed.\" aria-label=\"Recursive call fib(n - 2)\" aria-expanded=\"false\">↻</button></foreignObject><foreignObject x=\"442\" y=\"1031\" width=\"272\" height=\"48\"><div class=\"node-limitation\">Recursive calls remain collapsed.</div></foreignObject></g></svg>",
+  "renderInputHash": "6b37e646d1fdd96a66955a17ec3aead6f2d75b779e0124ee3f68af8a64dd9b11",
+  "svgAbsent": false
+}

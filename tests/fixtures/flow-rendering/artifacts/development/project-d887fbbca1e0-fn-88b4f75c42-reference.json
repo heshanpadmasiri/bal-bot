@@ -1,0 +1,1759 @@
+{
+  "wrapper": {
+    "mode": "normal",
+    "workspace": {
+      "className": "workspace flow-workspace ",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 1200,
+        "y": 68,
+        "width": 300,
+        "height": 882
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "grid",
+          "position": "relative",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 1200,
+          "y": 68,
+          "width": 300,
+          "height": 882
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "300px",
+          "height": "882px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 1201,
+          "y": 122,
+          "width": 299,
+          "height": 828
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "299px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 274.1875,
+          "width": 259,
+          "height": 415.859375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "415.859px",
+          "min-width": "0px",
+          "max-width": "492px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 20px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 1221,
+          "y": 142,
+          "width": 259,
+          "height": 116.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "259px",
+          "height": "116.188px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 1237.8494873046875,
+          "y": 286.8211975097656,
+          "width": 225.301025390625,
+          "height": 34.74267578125
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "66px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(53, 120, 212)",
+          "stroke-width": "2.5px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.9090576171875,
+          "y": 348.9368896484375,
+          "width": 143.181884765625,
+          "height": 27.373046875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.9090576171875,
+          "y": 403.6829528808594,
+          "width": 143.181884765625,
+          "height": 27.373016357421875
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.9090576171875,
+          "y": 458.42901611328125,
+          "width": 143.181884765625,
+          "height": 27.37298583984375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1278.9090576171875,
+          "y": 583.7132568359375,
+          "width": 143.181884765625,
+          "height": 27.37298583984375
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(255, 255, 255)",
+          "stroke": "rgb(208, 215, 226)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [
+      {
+        "rect": {
+          "x": 1237.8494873046875,
+          "y": 286.8211975097656,
+          "width": 225.301025390625,
+          "height": 269.5190124511719
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "512px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 1261.01123046875,
+          "y": 293.1380615234375,
+          "width": 178.9775390625,
+          "height": 24.214599609375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "46px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgb(237, 242, 235)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1301.0179443359375,
+          "y": 356.56976318359375,
+          "width": 98.9639892578125,
+          "height": 14.212921142578125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1301.0179443359375,
+          "y": 411.3157958984375,
+          "width": 98.9639892578125,
+          "height": 14.21295166015625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1301.0179443359375,
+          "y": 466.0618591308594,
+          "width": 98.9639892578125,
+          "height": 14.212921142578125
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1284.173095703125,
+          "y": 591.3460693359375,
+          "width": 132.65380859375,
+          "height": 14.212890625
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "252px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [
+      {
+        "rect": {
+          "x": 1283.1202392578125,
+          "y": 353.14813232421875,
+          "width": 13.6865234375,
+          "height": 13.6865234375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1283.1202392578125,
+          "y": 407.8941650390625,
+          "width": 13.6865234375,
+          "height": 13.6865234375
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 1283.1202392578125,
+          "y": 462.6402282714844,
+          "width": 13.6865234375,
+          "height": 13.686492919921875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-limitation": [],
+    ".edge-label": [],
+    ".client-receiver": [],
+    ".client-context": [],
+    ".client-method": []
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "browser/http_service/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 84
+                  }
+                }
+              },
+              "text": "public function main() { var result = value(1) + value(2) * value(3); _ = result; }",
+              "kind": "automation",
+              "title": "Automation",
+              "moduleId": "browser/http_service",
+              "serviceType": null,
+              "functionId": "browser/http_service/function/main"
+            }
+          ],
+          "functions": {
+            "browser/http_service/function/main": {
+              "id": "browser/http_service/function/main",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 84
+                  }
+                }
+              },
+              "text": "public function main() { var result = value(1) + value(2) * value(3); _ = result; }",
+              "moduleId": "browser/http_service",
+              "entry": {
+                "kind": "function",
+                "name": "main",
+                "signature": "public function main()",
+                "parameters": [],
+                "returnType": "()"
+              },
+              "body": [
+                {
+                  "id": "browser/http_service/function/main/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 26
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 70
+                      }
+                    }
+                  },
+                  "text": "var result = value(1) + value(2) * value(3);",
+                  "kind": "simple",
+                  "operation": "declare",
+                  "presentation": "step",
+                  "calls": [
+                    {
+                      "id": "browser/http_service/function/main/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 39
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 47
+                          }
+                        }
+                      },
+                      "text": "value(1)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "browser/http_service/function/value"
+                      },
+                      "expansion": "supported"
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/0/call/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 50
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 58
+                          }
+                        }
+                      },
+                      "text": "value(2)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "browser/http_service/function/value"
+                      },
+                      "expansion": "supported"
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/0/call/2",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 61
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 69
+                          }
+                        }
+                      },
+                      "text": "value(3)",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "browser/http_service/function/value"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                },
+                {
+                  "id": "browser/http_service/function/main/statement/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 71
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 82
+                      }
+                    }
+                  },
+                  "text": "_ = result;",
+                  "kind": "simple",
+                  "operation": "assign",
+                  "presentation": "step",
+                  "calls": []
+                }
+              ]
+            },
+            "browser/http_service/function/value": {
+              "id": "browser/http_service/function/value",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 1,
+                    "column": 85
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 132
+                  }
+                }
+              },
+              "text": "function value(int n) returns int { return n; }",
+              "moduleId": "browser/http_service",
+              "entry": {
+                "kind": "function",
+                "name": "value",
+                "signature": "function value(int n) returns int",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "int n"
+                  }
+                ],
+                "returnType": "int"
+              },
+              "body": [
+                {
+                  "id": "browser/http_service/function/value/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 121
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 130
+                      }
+                    }
+                  },
+                  "text": "return n;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "browser/http_service/function/main"
+      }
+    },
+    "references": [
+      {
+        "id": "browser/http_service/function/main/statement/0",
+        "source": {
+          "file": "main.bal",
+          "range": {
+            "start": {
+              "line": 1,
+              "column": 26
+            },
+            "end": {
+              "line": 1,
+              "column": 70
+            }
+          }
+        },
+        "text": "var result = value(1) + value(2) * value(3);",
+        "kind": "simple",
+        "operation": "declare",
+        "presentation": "step",
+        "calls": [
+          {
+            "id": "browser/http_service/function/main/statement/0/call/0",
+            "source": {
+              "file": "main.bal",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "column": 39
+                },
+                "end": {
+                  "line": 1,
+                  "column": 47
+                }
+              }
+            },
+            "text": "value(1)",
+            "target": {
+              "kind": "workspace",
+              "functionId": "browser/http_service/function/value"
+            },
+            "expansion": "supported"
+          },
+          {
+            "id": "browser/http_service/function/main/statement/0/call/1",
+            "source": {
+              "file": "main.bal",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "column": 50
+                },
+                "end": {
+                  "line": 1,
+                  "column": 58
+                }
+              }
+            },
+            "text": "value(2)",
+            "target": {
+              "kind": "workspace",
+              "functionId": "browser/http_service/function/value"
+            },
+            "expansion": "supported"
+          },
+          {
+            "id": "browser/http_service/function/main/statement/0/call/2",
+            "source": {
+              "file": "main.bal",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "column": 61
+                },
+                "end": {
+                  "line": 1,
+                  "column": 69
+                }
+              }
+            },
+            "text": "value(3)",
+            "target": {
+              "kind": "workspace",
+              "functionId": "browser/http_service/function/value"
+            },
+            "expansion": "supported"
+          }
+        ],
+        "revision": 1,
+        "stale": false
+      }
+    ],
+    "expanded": [],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "browser/http_service/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 84
+                      }
+                    }
+                  },
+                  "text": "public function main() { var result = value(1) + value(2) * value(3); _ = result; }",
+                  "kind": "automation",
+                  "title": "Automation",
+                  "moduleId": "browser/http_service",
+                  "serviceType": null,
+                  "functionId": "browser/http_service/function/main"
+                }
+              ],
+              "functions": {
+                "browser/http_service/function/main": {
+                  "id": "browser/http_service/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 84
+                      }
+                    }
+                  },
+                  "text": "public function main() { var result = value(1) + value(2) * value(3); _ = result; }",
+                  "moduleId": "browser/http_service",
+                  "entry": {
+                    "kind": "function",
+                    "name": "main",
+                    "signature": "public function main()",
+                    "parameters": [],
+                    "returnType": "()"
+                  },
+                  "body": [
+                    {
+                      "id": "browser/http_service/function/main/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 26
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 70
+                          }
+                        }
+                      },
+                      "text": "var result = value(1) + value(2) * value(3);",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "browser/http_service/function/main/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 1,
+                                "column": 39
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 47
+                              }
+                            }
+                          },
+                          "text": "value(1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/value"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "browser/http_service/function/main/statement/0/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 1,
+                                "column": 50
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 58
+                              }
+                            }
+                          },
+                          "text": "value(2)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/value"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "browser/http_service/function/main/statement/0/call/2",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 1,
+                                "column": 61
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 69
+                              }
+                            }
+                          },
+                          "text": "value(3)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/value"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 71
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 82
+                          }
+                        }
+                      },
+                      "text": "_ = result;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ]
+                },
+                "browser/http_service/function/value": {
+                  "id": "browser/http_service/function/value",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 85
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 132
+                      }
+                    }
+                  },
+                  "text": "function value(int n) returns int { return n; }",
+                  "moduleId": "browser/http_service",
+                  "entry": {
+                    "kind": "function",
+                    "name": "value",
+                    "signature": "function value(int n) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int n"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "browser/http_service/function/value/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 121
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 130
+                          }
+                        }
+                      },
+                      "text": "return n;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "browser/http_service/function/main"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "browser/http_service/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 84
+                      }
+                    }
+                  },
+                  "text": "public function main() { var result = value(1) + value(2) * value(3); _ = result; }",
+                  "kind": "automation",
+                  "title": "Automation",
+                  "moduleId": "browser/http_service",
+                  "serviceType": null,
+                  "functionId": "browser/http_service/function/main"
+                }
+              ],
+              "functions": {
+                "browser/http_service/function/main": {
+                  "id": "browser/http_service/function/main",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 84
+                      }
+                    }
+                  },
+                  "text": "public function main() { var result = value(1) + value(2) * value(3); _ = result; }",
+                  "moduleId": "browser/http_service",
+                  "entry": {
+                    "kind": "function",
+                    "name": "main",
+                    "signature": "public function main()",
+                    "parameters": [],
+                    "returnType": "()"
+                  },
+                  "body": [
+                    {
+                      "id": "browser/http_service/function/main/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 26
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 70
+                          }
+                        }
+                      },
+                      "text": "var result = value(1) + value(2) * value(3);",
+                      "kind": "simple",
+                      "operation": "declare",
+                      "presentation": "step",
+                      "calls": [
+                        {
+                          "id": "browser/http_service/function/main/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 1,
+                                "column": 39
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 47
+                              }
+                            }
+                          },
+                          "text": "value(1)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/value"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "browser/http_service/function/main/statement/0/call/1",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 1,
+                                "column": 50
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 58
+                              }
+                            }
+                          },
+                          "text": "value(2)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/value"
+                          },
+                          "expansion": "supported"
+                        },
+                        {
+                          "id": "browser/http_service/function/main/statement/0/call/2",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 1,
+                                "column": 61
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 69
+                              }
+                            }
+                          },
+                          "text": "value(3)",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "browser/http_service/function/value"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "browser/http_service/function/main/statement/1",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 71
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 82
+                          }
+                        }
+                      },
+                      "text": "_ = result;",
+                      "kind": "simple",
+                      "operation": "assign",
+                      "presentation": "step",
+                      "calls": []
+                    }
+                  ]
+                },
+                "browser/http_service/function/value": {
+                  "id": "browser/http_service/function/value",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 1,
+                        "column": 85
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 132
+                      }
+                    }
+                  },
+                  "text": "function value(int n) returns int { return n; }",
+                  "moduleId": "browser/http_service",
+                  "entry": {
+                    "kind": "function",
+                    "name": "value",
+                    "signature": "function value(int n) returns int",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "int n"
+                      }
+                    ],
+                    "returnType": "int"
+                  },
+                  "body": [
+                    {
+                      "id": "browser/http_service/function/value/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 1,
+                            "column": 121
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 130
+                          }
+                        }
+                      },
+                      "text": "return n;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "browser/http_service/function/main"
+          }
+        },
+        "references": [
+          {
+            "id": "browser/http_service/function/main/statement/0",
+            "source": {
+              "file": "main.bal",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "column": 26
+                },
+                "end": {
+                  "line": 1,
+                  "column": 70
+                }
+              }
+            },
+            "text": "var result = value(1) + value(2) * value(3);",
+            "kind": "simple",
+            "operation": "declare",
+            "presentation": "step",
+            "calls": [
+              {
+                "id": "browser/http_service/function/main/statement/0/call/0",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 1,
+                      "column": 39
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 47
+                    }
+                  }
+                },
+                "text": "value(1)",
+                "target": {
+                  "kind": "workspace",
+                  "functionId": "browser/http_service/function/value"
+                },
+                "expansion": "supported"
+              },
+              {
+                "id": "browser/http_service/function/main/statement/0/call/1",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 1,
+                      "column": 50
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 58
+                    }
+                  }
+                },
+                "text": "value(2)",
+                "target": {
+                  "kind": "workspace",
+                  "functionId": "browser/http_service/function/value"
+                },
+                "expansion": "supported"
+              },
+              {
+                "id": "browser/http_service/function/main/statement/0/call/2",
+                "source": {
+                  "file": "main.bal",
+                  "range": {
+                    "start": {
+                      "line": 1,
+                      "column": 61
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 69
+                    }
+                  }
+                },
+                "text": "value(3)",
+                "target": {
+                  "kind": "workspace",
+                  "functionId": "browser/http_service/function/value"
+                },
+                "expansion": "supported"
+              }
+            ],
+            "revision": 1,
+            "stale": false
+          }
+        ],
+        "expanded": [],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"492\" height=\"790\" viewBox=\"86 16 492 790\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 492px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container step\" x=\"118\" y=\"40\" width=\"428\" height=\"512\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"332,106 332,158\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,210 332,262\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,314 332,366\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,418 332,604\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,16 332,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,656 332,790\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/0\"><rect x=\"118\" y=\"40\" width=\"428\" height=\"66\" class=\"flow-node step referenced\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"48\" width=\"380\" height=\"54\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"true\" aria-label=\"Reference var result = value(1) + value(2) * value(3);\">var result = value(1) + value(2) * value(3)\n;</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/0/call/0\"><rect x=\"196\" y=\"158\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"166\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference value(1)\">value(1)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"166\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand value(1)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/0/call/1\"><rect x=\"196\" y=\"262\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"270\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference value(2)\">value(2)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"270\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand value(2)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/0/call/2\"><rect x=\"196\" y=\"366\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"374\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference value(3)\">value(3)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"374\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand value(3)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/1\"><rect x=\"196\" y=\"604\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"612\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = result;\">_ = result;</button></div></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"492\" height=\"790\" viewBox=\"86 16 492 790\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 492px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container step\" x=\"118\" y=\"40\" width=\"428\" height=\"512\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"332,106 332,158\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,210 332,262\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,314 332,366\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,418 332,604\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,16 332,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,656 332,790\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/0\"><rect x=\"118\" y=\"40\" width=\"428\" height=\"66\" class=\"flow-node step referenced\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"48\" width=\"380\" height=\"54\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"true\" aria-label=\"Reference var result = value(1) + value(2) * value(3);\">var result = value(1) + value(2) * value(3)\n;</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/0/call/0\"><rect x=\"196\" y=\"158\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"166\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference value(1)\">value(1)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"166\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand value(1)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/0/call/1\"><rect x=\"196\" y=\"262\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"270\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference value(2)\">value(2)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"270\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand value(2)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"browser/http_service/function/main/statement/0/call/2\"><rect x=\"196\" y=\"366\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"374\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference value(3)\">value(3)</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"374\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand value(3)\" aria-expanded=\"false\">+</button></foreignObject></g><g data-node-kind=\"step\" data-node-id=\"browser/http_service/function/main/statement/1\"><rect x=\"196\" y=\"604\" width=\"272\" height=\"52\" class=\"flow-node step\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"612\" width=\"252\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference _ = result;\">_ = result;</button></div></foreignObject></g></svg>",
+  "renderInputHash": "b34845f464f7f0a615bd2539d39b021f0e71012871b794be82fd66264596d640",
+  "svgAbsent": false
+}

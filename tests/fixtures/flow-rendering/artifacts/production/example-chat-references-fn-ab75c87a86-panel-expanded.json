@@ -1,0 +1,1486 @@
+{
+  "wrapper": {
+    "mode": "expanded",
+    "workspace": {
+      "className": "workspace flow-workspace inspection-expanded",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "inspection": {
+      "className": "inspection",
+      "style": null,
+      "rect": {
+        "x": 0,
+        "y": 68,
+        "width": 1500,
+        "height": 882
+      }
+    },
+    "analysis": "ready"
+  },
+  "styles": {
+    ".flow-workspace": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "block",
+          "position": "relative",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".inspection": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "width": 1500,
+          "height": 882
+        },
+        "properties": {
+          "display": "flex",
+          "position": "absolute",
+          "width": "1500px",
+          "height": "882px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(250, 251, 253)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-view": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 122,
+          "width": 1500,
+          "height": 828
+        },
+        "properties": {
+          "display": "flex",
+          "position": "static",
+          "width": "1500px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "auto",
+          "overflow-x": "auto",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram-scroll": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 122,
+          "width": 1500,
+          "height": 828
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "1500px",
+          "height": "828px",
+          "min-width": "auto",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden auto",
+          "overflow-x": "hidden",
+          "overflow-y": "auto",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".diagram": [
+      {
+        "rect": {
+          "x": 504,
+          "y": 307.375,
+          "width": 492,
+          "height": 378
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "492px",
+          "height": "378px",
+          "min-width": "0px",
+          "max-width": "492px",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px 504px 20px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry": [
+      {
+        "rect": {
+          "x": 530,
+          "y": 175.1875,
+          "width": 440,
+          "height": 116.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "440px",
+          "height": "116.188px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "hidden",
+          "overflow-x": "hidden",
+          "overflow-y": "hidden",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(220, 228, 220)",
+          "border-radius": "10px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-entry-owner": [
+      {
+        "rect": {
+          "x": 530,
+          "y": 142,
+          "width": 440,
+          "height": 19.1875
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "440px",
+          "height": "19.1875px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px 0px 14px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "12px",
+          "font-weight": "400",
+          "line-height": "19.2px",
+          "letter-spacing": "normal",
+          "color": "rgb(105, 121, 111)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(105, 121, 111)",
+          "border-radius": "0px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".flow-empty": [],
+    ".flow-notice": [],
+    ".flow-diagnostics": [],
+    ".definitions": [],
+    ".flow-node": [
+      {
+        "rect": {
+          "x": 536,
+          "y": 331.375,
+          "width": 428,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(228, 244, 233)",
+          "stroke": "rgb(116, 168, 135)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 614,
+          "y": 435.375,
+          "width": 272,
+          "height": 52
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "272px",
+          "height": "52px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(237, 245, 253)",
+          "stroke": "rgb(173, 199, 227)",
+          "stroke-width": "1.2px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".container": [
+      {
+        "rect": {
+          "x": 536,
+          "y": 331.375,
+          "width": 428,
+          "height": 290
+        },
+        "properties": {
+          "display": "inline",
+          "position": "static",
+          "width": "428px",
+          "height": "290px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(37, 49, 44)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(37, 49, 44)",
+          "border-radius": "0px",
+          "fill": "rgb(249, 250, 252)",
+          "stroke": "rgb(212, 220, 231)",
+          "stroke-width": "1px",
+          "text-align": "start",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-select": [
+      {
+        "rect": {
+          "x": 580,
+          "y": 345.875,
+          "width": 340,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "340px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      },
+      {
+        "rect": {
+          "x": 656,
+          "y": 449.875,
+          "width": 188,
+          "height": 27
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "188px",
+          "height": "27px",
+          "min-width": "auto",
+          "max-width": "340px",
+          "min-height": "auto",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "4px 0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "monospace",
+          "font-size": "13px",
+          "font-weight": "400",
+          "line-height": "19px",
+          "letter-spacing": "normal",
+          "color": "rgb(38, 48, 71)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(38, 48, 71)",
+          "border-radius": "7px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "pre-wrap",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-disclosure": [
+      {
+        "rect": {
+          "x": 622,
+          "y": 443.375,
+          "width": 26,
+          "height": 26
+        },
+        "properties": {
+          "display": "block",
+          "position": "static",
+          "width": "26px",
+          "height": "26px",
+          "min-width": "0px",
+          "max-width": "none",
+          "min-height": "0px",
+          "max-height": "none",
+          "overflow": "visible",
+          "overflow-x": "visible",
+          "overflow-y": "visible",
+          "padding": "0px",
+          "margin": "0px",
+          "box-sizing": "border-box",
+          "font-family": "\"DM Sans\", sans-serif",
+          "font-size": "14px",
+          "font-weight": "400",
+          "line-height": "normal",
+          "letter-spacing": "normal",
+          "color": "rgb(71, 99, 141)",
+          "background-color": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(168, 190, 215)",
+          "border-radius": "5px",
+          "fill": "rgb(0, 0, 0)",
+          "stroke": "none",
+          "stroke-width": "1px",
+          "text-align": "center",
+          "text-transform": "none",
+          "white-space": "normal",
+          "transform": "none",
+          "zoom": "1"
+        }
+      }
+    ],
+    ".node-limitation": [],
+    ".edge-label": [],
+    ".client-receiver": [],
+    ".client-context": [],
+    ".client-method": []
+  },
+  "renderInput": {
+    "flow": {
+      "state": {
+        "kind": "ready",
+        "revision": 1,
+        "program": {
+          "scopes": [
+            {
+              "id": "examples/chat_references/service/main.bal//notes/1",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 3,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 2
+                  }
+                }
+              },
+              "text": "service /notes on new http:Listener(8080) {\n    resource function get first() returns string { return shared(\"first\"); }\n    resource function get second() returns string { return shared(\"second\"); }\n}",
+              "kind": "service",
+              "title": "/notes",
+              "moduleId": "examples/chat_references",
+              "serviceType": "ballerina/http:Listener",
+              "endpoints": [
+                {
+                  "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 77
+                      }
+                    }
+                  },
+                  "text": "resource function get first() returns string { return shared(\"first\"); }",
+                  "kind": "resource",
+                  "title": "get /notes/first",
+                  "functionId": "examples/chat_references/service/main.bal//notes/1/resource/get/first"
+                },
+                {
+                  "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 79
+                      }
+                    }
+                  },
+                  "text": "resource function get second() returns string { return shared(\"second\"); }",
+                  "kind": "resource",
+                  "title": "get /notes/second",
+                  "functionId": "examples/chat_references/service/main.bal//notes/1/resource/get/second"
+                }
+              ],
+              "definitions": [
+                {
+                  "id": "examples/chat_references/function/shared",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 63
+                      }
+                    }
+                  },
+                  "text": "function shared(string value) returns string { return value; }",
+                  "kind": "function",
+                  "label": "shared",
+                  "functionId": "examples/chat_references/function/shared"
+                }
+              ]
+            }
+          ],
+          "functions": {
+            "examples/chat_references/function/shared": {
+              "id": "examples/chat_references/function/shared",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 8,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 8,
+                    "column": 63
+                  }
+                }
+              },
+              "text": "function shared(string value) returns string { return value; }",
+              "moduleId": "examples/chat_references",
+              "entry": {
+                "kind": "function",
+                "name": "shared",
+                "signature": "function shared(string value) returns string",
+                "parameters": [
+                  {
+                    "kind": "input",
+                    "text": "string value"
+                  }
+                ],
+                "returnType": "string"
+              },
+              "body": [
+                {
+                  "id": "examples/chat_references/function/shared/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 48
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 61
+                      }
+                    }
+                  },
+                  "text": "return value;",
+                  "kind": "return",
+                  "calls": []
+                }
+              ]
+            },
+            "examples/chat_references/service/main.bal//notes/1/resource/get/first": {
+              "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 4,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 77
+                  }
+                }
+              },
+              "text": "resource function get first() returns string { return shared(\"first\"); }",
+              "moduleId": "examples/chat_references",
+              "entry": {
+                "kind": "resource",
+                "name": "get /first",
+                "signature": "resource function get first() returns string",
+                "parameters": [],
+                "returnType": "string"
+              },
+              "body": [
+                {
+                  "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 52
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 75
+                      }
+                    }
+                  },
+                  "text": "return shared(\"first\");",
+                  "kind": "return",
+                  "calls": [
+                    {
+                      "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 59
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 74
+                          }
+                        }
+                      },
+                      "text": "shared(\"first\")",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/chat_references/function/shared"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                }
+              ]
+            },
+            "examples/chat_references/service/main.bal//notes/1/resource/get/second": {
+              "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second",
+              "source": {
+                "file": "main.bal",
+                "range": {
+                  "start": {
+                    "line": 5,
+                    "column": 5
+                  },
+                  "end": {
+                    "line": 5,
+                    "column": 79
+                  }
+                }
+              },
+              "text": "resource function get second() returns string { return shared(\"second\"); }",
+              "moduleId": "examples/chat_references",
+              "entry": {
+                "kind": "resource",
+                "name": "get /second",
+                "signature": "resource function get second() returns string",
+                "parameters": [],
+                "returnType": "string"
+              },
+              "body": [
+                {
+                  "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 53
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 77
+                      }
+                    }
+                  },
+                  "text": "return shared(\"second\");",
+                  "kind": "return",
+                  "calls": [
+                    {
+                      "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 60
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 76
+                          }
+                        }
+                      },
+                      "text": "shared(\"second\")",
+                      "target": {
+                        "kind": "workspace",
+                        "functionId": "examples/chat_references/function/shared"
+                      },
+                      "expansion": "supported"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "diagnostics": []
+      },
+      "selection": {
+        "kind": "function",
+        "functionId": "examples/chat_references/service/main.bal//notes/1/resource/get/second"
+      }
+    },
+    "references": [],
+    "expanded": [],
+    "graphOnly": false,
+    "commits": [
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/chat_references/service/main.bal//notes/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /notes on new http:Listener(8080) {\n    resource function get first() returns string { return shared(\"first\"); }\n    resource function get second() returns string { return shared(\"second\"); }\n}",
+                  "kind": "service",
+                  "title": "/notes",
+                  "moduleId": "examples/chat_references",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 77
+                          }
+                        }
+                      },
+                      "text": "resource function get first() returns string { return shared(\"first\"); }",
+                      "kind": "resource",
+                      "title": "get /notes/first",
+                      "functionId": "examples/chat_references/service/main.bal//notes/1/resource/get/first"
+                    },
+                    {
+                      "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 79
+                          }
+                        }
+                      },
+                      "text": "resource function get second() returns string { return shared(\"second\"); }",
+                      "kind": "resource",
+                      "title": "get /notes/second",
+                      "functionId": "examples/chat_references/service/main.bal//notes/1/resource/get/second"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/chat_references/function/shared",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 63
+                          }
+                        }
+                      },
+                      "text": "function shared(string value) returns string { return value; }",
+                      "kind": "function",
+                      "label": "shared",
+                      "functionId": "examples/chat_references/function/shared"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/chat_references/function/shared": {
+                  "id": "examples/chat_references/function/shared",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 63
+                      }
+                    }
+                  },
+                  "text": "function shared(string value) returns string { return value; }",
+                  "moduleId": "examples/chat_references",
+                  "entry": {
+                    "kind": "function",
+                    "name": "shared",
+                    "signature": "function shared(string value) returns string",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "string value"
+                      }
+                    ],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/chat_references/function/shared/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 48
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 61
+                          }
+                        }
+                      },
+                      "text": "return value;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/chat_references/service/main.bal//notes/1/resource/get/first": {
+                  "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 77
+                      }
+                    }
+                  },
+                  "text": "resource function get first() returns string { return shared(\"first\"); }",
+                  "moduleId": "examples/chat_references",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /first",
+                    "signature": "resource function get first() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 52
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 75
+                          }
+                        }
+                      },
+                      "text": "return shared(\"first\");",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 59
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 74
+                              }
+                            }
+                          },
+                          "text": "shared(\"first\")",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/chat_references/function/shared"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/chat_references/service/main.bal//notes/1/resource/get/second": {
+                  "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 79
+                      }
+                    }
+                  },
+                  "text": "resource function get second() returns string { return shared(\"second\"); }",
+                  "moduleId": "examples/chat_references",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /second",
+                    "signature": "resource function get second() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 53
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 77
+                          }
+                        }
+                      },
+                      "text": "return shared(\"second\");",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 5,
+                                "column": 60
+                              },
+                              "end": {
+                                "line": 5,
+                                "column": 76
+                              }
+                            }
+                          },
+                          "text": "shared(\"second\")",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/chat_references/function/shared"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "definitions",
+            "scopeId": "examples/chat_references/service/main.bal//notes/1"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      },
+      {
+        "flow": {
+          "state": {
+            "kind": "ready",
+            "revision": 1,
+            "program": {
+              "scopes": [
+                {
+                  "id": "examples/chat_references/service/main.bal//notes/1",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 3,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 2
+                      }
+                    }
+                  },
+                  "text": "service /notes on new http:Listener(8080) {\n    resource function get first() returns string { return shared(\"first\"); }\n    resource function get second() returns string { return shared(\"second\"); }\n}",
+                  "kind": "service",
+                  "title": "/notes",
+                  "moduleId": "examples/chat_references",
+                  "serviceType": "ballerina/http:Listener",
+                  "endpoints": [
+                    {
+                      "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 77
+                          }
+                        }
+                      },
+                      "text": "resource function get first() returns string { return shared(\"first\"); }",
+                      "kind": "resource",
+                      "title": "get /notes/first",
+                      "functionId": "examples/chat_references/service/main.bal//notes/1/resource/get/first"
+                    },
+                    {
+                      "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 5
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 79
+                          }
+                        }
+                      },
+                      "text": "resource function get second() returns string { return shared(\"second\"); }",
+                      "kind": "resource",
+                      "title": "get /notes/second",
+                      "functionId": "examples/chat_references/service/main.bal//notes/1/resource/get/second"
+                    }
+                  ],
+                  "definitions": [
+                    {
+                      "id": "examples/chat_references/function/shared",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 1
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 63
+                          }
+                        }
+                      },
+                      "text": "function shared(string value) returns string { return value; }",
+                      "kind": "function",
+                      "label": "shared",
+                      "functionId": "examples/chat_references/function/shared"
+                    }
+                  ]
+                }
+              ],
+              "functions": {
+                "examples/chat_references/function/shared": {
+                  "id": "examples/chat_references/function/shared",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 8,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 8,
+                        "column": 63
+                      }
+                    }
+                  },
+                  "text": "function shared(string value) returns string { return value; }",
+                  "moduleId": "examples/chat_references",
+                  "entry": {
+                    "kind": "function",
+                    "name": "shared",
+                    "signature": "function shared(string value) returns string",
+                    "parameters": [
+                      {
+                        "kind": "input",
+                        "text": "string value"
+                      }
+                    ],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/chat_references/function/shared/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 8,
+                            "column": 48
+                          },
+                          "end": {
+                            "line": 8,
+                            "column": 61
+                          }
+                        }
+                      },
+                      "text": "return value;",
+                      "kind": "return",
+                      "calls": []
+                    }
+                  ]
+                },
+                "examples/chat_references/service/main.bal//notes/1/resource/get/first": {
+                  "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 4,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 77
+                      }
+                    }
+                  },
+                  "text": "resource function get first() returns string { return shared(\"first\"); }",
+                  "moduleId": "examples/chat_references",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /first",
+                    "signature": "resource function get first() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 4,
+                            "column": 52
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 75
+                          }
+                        }
+                      },
+                      "text": "return shared(\"first\");",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 4,
+                                "column": 59
+                              },
+                              "end": {
+                                "line": 4,
+                                "column": 74
+                              }
+                            }
+                          },
+                          "text": "shared(\"first\")",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/chat_references/function/shared"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "examples/chat_references/service/main.bal//notes/1/resource/get/second": {
+                  "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second",
+                  "source": {
+                    "file": "main.bal",
+                    "range": {
+                      "start": {
+                        "line": 5,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 79
+                      }
+                    }
+                  },
+                  "text": "resource function get second() returns string { return shared(\"second\"); }",
+                  "moduleId": "examples/chat_references",
+                  "entry": {
+                    "kind": "resource",
+                    "name": "get /second",
+                    "signature": "resource function get second() returns string",
+                    "parameters": [],
+                    "returnType": "string"
+                  },
+                  "body": [
+                    {
+                      "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0",
+                      "source": {
+                        "file": "main.bal",
+                        "range": {
+                          "start": {
+                            "line": 5,
+                            "column": 53
+                          },
+                          "end": {
+                            "line": 5,
+                            "column": 77
+                          }
+                        }
+                      },
+                      "text": "return shared(\"second\");",
+                      "kind": "return",
+                      "calls": [
+                        {
+                          "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
+                          "source": {
+                            "file": "main.bal",
+                            "range": {
+                              "start": {
+                                "line": 5,
+                                "column": 60
+                              },
+                              "end": {
+                                "line": 5,
+                                "column": 76
+                              }
+                            }
+                          },
+                          "text": "shared(\"second\")",
+                          "target": {
+                            "kind": "workspace",
+                            "functionId": "examples/chat_references/function/shared"
+                          },
+                          "expansion": "supported"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "diagnostics": []
+          },
+          "selection": {
+            "kind": "function",
+            "functionId": "examples/chat_references/service/main.bal//notes/1/resource/get/second"
+          }
+        },
+        "references": [],
+        "expanded": [],
+        "graphOnly": false
+      }
+    ]
+  },
+  "integrationSVG": "<svg class=\"diagram\" width=\"492\" height=\"378\" viewBox=\"86 16 492 378\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 492px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container return\" x=\"118\" y=\"40\" width=\"428\" height=\"290\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"332,92 332,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"332,196 332,330\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,16 332,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"return\" data-node-id=\"examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0\"><rect x=\"118\" y=\"40\" width=\"428\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"48\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return shared(&quot;second&quot;);\">return shared(\"second\");</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0\"><rect x=\"196\" y=\"144\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"152\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference shared(&quot;second&quot;)\">shared(\"second\")</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"152\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand shared(&quot;second&quot;)\" aria-expanded=\"false\">+</button></foreignObject></g></svg>",
+  "isolatedSVG": "<svg class=\"diagram\" width=\"492\" height=\"378\" viewBox=\"86 16 492 378\" role=\"group\" aria-label=\"Source flow diagram\" style=\"max-width: 492px;\"><defs><marker id=\"flow-arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10Z\" fill=\"#7c8899\"></path></marker></defs><rect class=\"container return\" x=\"118\" y=\"40\" width=\"428\" height=\"290\" rx=\"12\"></rect><g data-edge-kind=\"sequence\"><polyline points=\"332,92 332,144\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"return\"><polyline points=\"332,196 332,330\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-edge-kind=\"sequence\"><polyline points=\"332,16 332,40\" fill=\"none\" stroke=\"#7c8899\" stroke-width=\"1.4\" marker-end=\"url(#flow-arrow)\"></polyline></g><g data-node-kind=\"return\" data-node-id=\"examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0\"><rect x=\"118\" y=\"40\" width=\"428\" height=\"52\" class=\"flow-node return\" rx=\"8\"></rect><foreignObject x=\"142\" y=\"48\" width=\"380\" height=\"40\"><div class=\"node-header\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference return shared(&quot;second&quot;);\">return shared(\"second\");</button></div></foreignObject></g><g data-node-kind=\"function\" data-node-id=\"examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0\"><rect x=\"196\" y=\"144\" width=\"272\" height=\"52\" class=\"flow-node function\" rx=\"8\"></rect><foreignObject x=\"206\" y=\"152\" width=\"252\" height=\"40\"><div class=\"node-header has-disclosure\"><button class=\"node-select\" aria-pressed=\"false\" aria-label=\"Reference shared(&quot;second&quot;)\">shared(\"second\")</button></div></foreignObject><foreignObject class=\"node-disclosure-slot\" x=\"204\" y=\"152\" width=\"30\" height=\"30\"><button class=\"node-disclosure\" title=\"Expand workspace function\" aria-label=\"Expand shared(&quot;second&quot;)\" aria-expanded=\"false\">+</button></foreignObject></g></svg>",
+  "renderInputHash": "fbb8bbfd0f4fb616dc47152b881d7deadff11d9f4bccfa4a1de19fa4c23ef816",
+  "svgAbsent": false
+}
