@@ -9,16 +9,6 @@ import (
 	"github.com/ballerina-nutcracker/ballerina/semtypes"
 )
 
-type sourceVisitor func(ast.BLangNode) bool
-
-func (v sourceVisitor) Visit(n ast.BLangNode) ast.Visitor {
-	if n != nil && v(n) {
-		return v
-	}
-	return nil
-}
-func (v sourceVisitor) VisitTypeData(*ast.TypeData) ast.Visitor { return nil }
-
 // Symbol identity prevents shadowed clients from sharing constructor context. A
 // mutable global or any reassigned receiver deliberately has no initializer hint.
 func (p *resolvedProgram) collectReceiverContexts() {

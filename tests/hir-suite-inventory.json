@@ -3,6 +3,11 @@
   "stage": "post-baseline",
   "suites": [
     {
+      "file": "packages/compiler/hir_corpus_test.go",
+      "rendering": false,
+      "purpose": "Resolved frontend AST/provenance and later HIR corpus goldens; no rendered output or frozen baseline coverage."
+    },
+    {
       "file": "packages/compiler/hir_test.go",
       "rendering": false,
       "purpose": "HIR contract validation, canonical printing and serialization; no rendered output or frozen baseline coverage."

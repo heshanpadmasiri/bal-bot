@@ -12,6 +12,7 @@
     "test": "node --test packages/browser-workspace/tests/*.test.mjs packages/compiler/tests/*.test.mjs apps/editor/tests/*.test.mjs",
     "start": "npm run start --workspace @bal-bot/editor --",
     "test:compiler": "cd packages/compiler && GOWORK=off go test ./...",
+    "test:hir:update": "node scripts/update_hir_goldens.mjs",
     "test:flow-parity": "node scripts/capture_flow_baselines.mjs --verify",
     "review:flow": "node scripts/flow-review/server.mjs",
     "test:browser": "python3 scripts/build_compiler.py && playwright test"

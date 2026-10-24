@@ -20,15 +20,30 @@ import (
 
 var implicitLibraries = []string{"lang.__internal", "lang.int", "lang.boolean", "lang.decimal", "lang.error", "lang.float", "lang.string", "lang.value", "lang.xml", "lang.array", "lang.map", "lang.object", "lang.runtime"}
 
+// sourceVisitor is shared frontend traversal support, independent of flow extraction.
+type sourceVisitor func(ast.BLangNode) bool
+
+func (v sourceVisitor) Visit(n ast.BLangNode) ast.Visitor {
+	if n != nil && v(n) {
+		return v
+	}
+	return nil
+}
+func (v sourceVisitor) VisitTypeData(*ast.TypeData) ast.Visitor { return nil }
+
 type resolvedModule struct {
-	module    *projects.Module
-	ctx       *context.CompilerContext
-	pkg       *ast.BLangPackage
-	imports   map[string]model.ExportedSymbolSpace
-	workspace bool
+	// units and documentNames are parallel, in source document order.
+	units         []*ast.BLangCompilationUnit
+	documentNames []string
+	module        *projects.Module
+	ctx           *context.CompilerContext
+	pkg           *ast.BLangPackage
+	imports       map[string]model.ExportedSymbolSpace
+	workspace     bool
 }
 
 type resolvedProgram struct {
+	// Original argument snapshots are populated during resolution and read-only afterwards.
 	sourceCallArgs   map[ast.Invocable][]ast.BLangExpression
 	sourceNewArgs    map[*ast.BLangNewExpression][]ast.BLangExpression
 	receiverContexts map[model.SymbolRef]ReceiverContextModel
@@ -122,6 +137,7 @@ func resolveProgram(files Files) (program *resolvedProgram, items []Diagnostic, 
 			cx := context.NewCompilerContext(env)
 			contexts = append(contexts, cx)
 			var units []*ast.BLangCompilationUnit
+			var documentNames []string
 			ids := mod.DocumentIDs()
 			slices.SortFunc(ids, func(a, b projects.DocumentID) int {
 				return strings.Compare(mod.Document(a).Name(), mod.Document(b).Name())
@@ -135,6 +151,7 @@ func resolveProgram(files Files) (program *resolvedProgram, items []Diagnostic, 
 				}
 				unit := nodebuilder.GetCompilationUnit(cx, tree)
 				units = append(units, unit)
+				documentNames = append(documentNames, key)
 			}
 			if cx.HasErrors() {
 				return finish(nil)
@@ -177,7 +194,7 @@ func resolveProgram(files Files) (program *resolvedProgram, items []Diagnostic, 
 			}
 			public[id] = exported
 			visibility[id] = semantics.ModuleVisibility{PackageOrg: id.OrgName, PackageName: pkg.PackageName().Value(), Exported: slices.Contains(pkg.Manifest().ExportedModules(), id.ModuleName)}
-			program.modules = append(program.modules, &resolvedModule{module: mod, ctx: cx, pkg: astPkg, imports: imports, workspace: pkg == root})
+			program.modules = append(program.modules, &resolvedModule{units: units, documentNames: documentNames, module: mod, ctx: cx, pkg: astPkg, imports: imports, workspace: pkg == root})
 		}
 	}
 	for _, mod := range program.modules {
