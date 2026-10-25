@@ -1,7 +1,7 @@
 import type { Compiler } from '@bal-bot/compiler';
 import type { DiagnosticsResult, StorageState } from '@bal-bot/workspace';
-import { type Workspace, type Service, type Endpoint, type Diff, type FlowUI, type Files, type Id, type Revision, type AnalysisState, type HIRProgram, type ScopeModel, type EndpointModel, type WorkspaceScope, type Automation } from '@bal-bot/workspace';
-import type { Agent, StreamFn } from '@earendil-works/pi-agent-core';
+import { type Workspace, type Service, type Endpoint, type Diff, type FlowUI, type Files, type Id, type Revision, type AnalysisState, type HIRProgram, type ScopeModel, type EndpointModel, type WorkspaceScope, type Automation, type WorkspaceAgent } from '@bal-bot/workspace';
+import type { StreamFn } from '@earendil-works/pi-agent-core';
 import { createWorkspaceAgent } from './agent.ts';
 export type { Files } from '@bal-bot/workspace';
 
@@ -181,14 +181,14 @@ export class BrowserWorkspace implements Workspace {
 }
 
 class BrowserAnchor {
-  private agent?: Agent;
+  private agent?: WorkspaceAgent;
   protected workspace: BrowserWorkspace;
   readonly id: Id;
   private options?: BrowserWorkspaceOptions;
   constructor(workspace: BrowserWorkspace, id: Id, options?: BrowserWorkspaceOptions) { this.workspace = workspace; this.id = id; this.options = options; }
   get title(): string { return this.workspace.anchorMetadata(this.id).title; }
   abort(): void { this.agent?.abort(); }
-  async getAgent(): Promise<Agent> {
+  async getAgent(): Promise<WorkspaceAgent> {
     if (!this.options) throw new Error('A model stream transport is required to use the workspace agent.');
     const meta = this.workspace.anchorMetadata(this.id);
     return this.agent ??= createWorkspaceAgent(this.workspace, undefined, this.options.streamFn, {id: this.id, title: meta.title, kind: meta.kind === 'service' || meta.kind === 'automation' ? meta.kind : 'endpoint', source: meta.source});

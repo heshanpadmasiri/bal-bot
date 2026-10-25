@@ -17,10 +17,16 @@ export type Diff = { readonly [opaque]: 'Diff' };
 export type * from './flow.ts';
 import type { FlowUI, Id, AnalysisState } from './flow.ts';
 
+export type CompactionState = 'idle' | 'compacting' | 'failed';
+export interface WorkspaceAgent extends Agent {
+  readonly compactionState: CompactionState;
+  subscribeCompaction(listener: () => void): () => void;
+}
+
 export interface Anchor {
   readonly id: Id;
   readonly title: string;
-  getAgent(): Promise<Agent>;
+  getAgent(): Promise<WorkspaceAgent>;
   getDiff(): Promise<Diff>;
   getFlowUI(signal?: AbortSignal): Promise<FlowUI>;
 }

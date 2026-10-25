@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import type { Workspace, WorkspaceScope, Endpoint, Anchor, Agent, AgentMessage, Id, Located, FlowUI } from '@bal-bot/workspace';
+import type { Workspace, WorkspaceScope, Endpoint, Anchor, WorkspaceAgent, AgentMessage, Id, Located, FlowUI } from '@bal-bot/workspace';
 import type { AgentScope } from '@bal-bot/browser-workspace';
 import { Accounts } from './accounts';
 import { AnchorButton } from './anchor-button';
@@ -42,7 +42,8 @@ export function Editor({workspace}: {workspace: Workspace}): React.JSX.Element {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false), [selected, setSelected] = useState<string | null>(null);
   const [accounts, setAccounts] = useState<ProviderAccount[]>([]), [provider, setProvider] = useState('openai'), [model, setModel] = useState(''), [loginRequest, setLoginRequest] = useState(0);
   const [messages, setMessages] = useState<AgentMessage[]>([]), [busy, setBusy] = useState(false), [error, setError] = useState(workspace.storageSnapshot().error ?? '');
-  const agent = useRef<Agent | null>(null);
+  const agent = useRef<WorkspaceAgent | null>(null);
+  const [compactionState, setCompactionState] = useState<WorkspaceAgent['compactionState']>('idle');
   const selectedAnchorRef = useRef(anchor); selectedAnchorRef.current = anchor;
   const [newPath, setNewPath] = useState(''), [creating, setCreating] = useState(false), [deletePending, setDeletePending] = useState(false);
   const activeFile = selected !== null && Object.hasOwn(files, selected) ? selected : null;
@@ -66,14 +67,14 @@ export function Editor({workspace}: {workspace: Workspace}): React.JSX.Element {
     return () => controller.abort();
   }, [anchor, analysis]);
   useEffect(() => {
-    let disposed = false; let unsubscribe: (() => void) | undefined;
-    agent.current = null; setMessages([]); setBusy(false);
+    let disposed = false; let unsubscribe: (() => void) | undefined, unsubscribeCompaction: (() => void) | undefined;
+    agent.current = null; setMessages([]); setBusy(false); setCompactionState('idle');
     if (anchor) void anchor.getAgent().then(current => {
       if (disposed) return; agent.current = current;
-      const update = () => { setMessages([...current.state.messages, ...(current.state.streamingMessage ? [current.state.streamingMessage] : [])]); setBusy(current.state.isStreaming); };
-      update(); unsubscribe = current.subscribe(() => update());
+      const update = () => { if (disposed || selectedAnchorRef.current !== anchor) return; setMessages([...current.state.messages, ...(current.state.streamingMessage ? [current.state.streamingMessage] : [])]); setBusy(current.state.isStreaming || current.compactionState === 'compacting'); setCompactionState(current.compactionState); };
+      update(); unsubscribe = current.subscribe(() => update()); unsubscribeCompaction = current.subscribeCompaction(update);
     }).catch(e => { if (!disposed) setError(String(e)); });
-    return () => { disposed = true; unsubscribe?.(); };
+    return () => { disposed = true; unsubscribe?.(); unsubscribeCompaction?.(); };
   }, [anchor]);
   async function refreshAccounts() { setAccounts(await getAccounts()); }
   useEffect(() => { void refreshAccounts().catch(e => setError(String(e))); }, []);
@@ -85,12 +86,14 @@ export function Editor({workspace}: {workspace: Workspace}): React.JSX.Element {
   function selectNode(node: Located): void { const state = workspace.analysisSnapshot(); if (state.kind !== 'ready') return; updateView(v => ({...v, draft: addReference(refreshReferences(v.draft, state, workspace.snapshot()), node, state.revision)})); }
   function openFunction(id: Id): void { updateView(v => ({...v, inspectedFunction: id})); }
   async function send(): Promise<void> {
-    if ((!draft.text.trim() && !draft.references.length) || busy || !anchor || !writable()) return;
+    if ((!draft.text.trim() && !draft.references.length) || busy || compactionState === 'failed' || !anchor || !writable()) return;
     if (!accounts.find(a => a.id === provider)?.connected || !activeModel) { setLoginRequest(v => v + 1); return; }
     const selectedAnchor = anchor, capturedRevision = workspace.analysisSnapshot().revision;
     setBusy(true); setError(''); setSelected(null);
     try {
-      const current = await selectedAnchor.getAgent(); current.state.model = activeModel;
+      const current = await selectedAnchor.getAgent();
+      if (['compacting', 'failed'].includes(current.compactionState)) return;
+      current.state.model = activeModel;
       const state = workspace.analysisSnapshot(), snapshot = workspace.snapshot();
       if ((draft.references.length > 0 && (state.kind !== 'ready' || state.revision !== capturedRevision)) || !writable()) throw new Error('Saved source changed. Review the current references and send again.');
       const currentProgram = state.kind === 'ready' ? state.program : state.previous;
@@ -103,14 +106,14 @@ export function Editor({workspace}: {workspace: Workspace}): React.JSX.Element {
       const pending = current.prompt(input);
       updateView(v => v.draft.text === draft.text && v.draft.references.map(r => r.id).join('\0') === draft.references.map(r => r.id).join('\0') ? {...v, draft: {text: '', references: []}} : v, selectedAnchor);
       await pending;
-      if (current.state.errorMessage) setError(current.state.errorMessage);
+      if (current.state.errorMessage && current.compactionState !== 'failed' && selectedAnchorRef.current === selectedAnchor) setError(current.state.errorMessage);
     } catch (e) { setError(String(e)); } finally { if (selectedAnchorRef.current === selectedAnchor) setBusy(false); }
   }
   const visibleFlow = flow ? {...flow, state: analysis, ...(view.inspectedFunction ? {selection: {kind: 'function' as const, functionId: view.inspectedFunction}} : {})} : null;
   const showingFlow = visibleFlow?.selection.kind === 'function' && !!(analysis.kind === 'ready' ? analysis.program : analysis.previous);
   useEffect(() => { if (!showingFlow) setInspectionExpanded(false); }, [showingFlow]);
   const conversation = conversationItems(messages, busy);
-  const composer = <><div className="conversation" ref={element => {if (element) element.scrollTop = element.scrollHeight;}}>{!conversation.length && <div className="welcome"><h1>What shall we build?</h1><p>Describe a change or attach source from the flow.</p></div>}{conversation.map((item,i) => item.kind === 'tool' ? <div key={`tool-${item.id}`} className={`tool-summary tool-${item.state}`}>{item.text}</div> : <article key={i} className={`message ${item.message.role}`}><div className="message-label">{item.message.role === 'user' ? 'You' : 'bal-bot'}</div><div className="message-body">{item.message.role === 'assistant' ? <Markdown remarkPlugins={[remarkGfm]}>{messageText(item.message)}</Markdown> : <pre>{messageText(item.message)}</pre>}</div>{item.message.role === 'assistant' && item.message.errorMessage && <p className="message-error">{item.message.errorMessage}</p>}</article>)}</div><div className="composer-area">{busy && <div className="activity" role="status">working...</div>}<form className="composer" onSubmit={event => {event.preventDefault(); void send();}}><ReferenceChips draft={draft} onRemove={id => updateView(v => ({...v, draft: removeReference(v.draft, id)}))}/><textarea aria-label="Message" placeholder="Describe a change…" value={draft.text} onChange={e => updateView(v => ({...v, draft: {...v.draft, text: e.target.value}}))} onKeyDown={e => {if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) {e.preventDefault(); void send();}}}/><div className="composer-bottom"><label className="composer-model"><span className="sr-only">Model</span><select aria-label="Model" value={activeModel?.id ?? ''} disabled={busy || !providerModels.length} onChange={e => setModel(e.target.value)}>{!providerModels.length && <option value="">Loading models…</option>}{providerModels.map(m => <option key={m.id} value={m.id}>{m.name}</option>)}</select></label>{busy ? <button type="button" onClick={() => agent.current?.abort()}>Stop ■</button> : <button className="send" aria-label="Send message" disabled={(!draft.text.trim() && !draft.references.length) || !storage.writable || draft.references.some(r => r.stale)}>↑</button>}</div></form></div></>;
+  const composer = <><div className="conversation" ref={element => {if (element) element.scrollTop = element.scrollHeight;}}>{!conversation.length && <div className="welcome"><h1>What shall we build?</h1><p>Describe a change or attach source from the flow.</p></div>}{conversation.map((item,i) => item.kind === 'tool' ? <div key={`tool-${item.id}`} className={`tool-summary tool-${item.state}`}>{item.text}</div> : <article key={i} className={`message ${item.message.role}`}><div className="message-label">{item.message.role === 'user' ? 'You' : 'bal-bot'}</div><div className="message-body">{item.message.role === 'assistant' ? <Markdown remarkPlugins={[remarkGfm]}>{messageText(item.message)}</Markdown> : <pre>{messageText(item.message)}</pre>}</div>{item.message.role === 'assistant' && item.message.errorMessage && <p className="message-error">{item.message.errorMessage}</p>}</article>)}</div><div className="composer-area">{(busy || compactionState === 'compacting') && <div className="activity" role="status">{compactionState === 'compacting' ? 'Compacting conversation…' : 'working...'}</div>}<form className="composer" onSubmit={event => {event.preventDefault(); void send();}}><ReferenceChips draft={draft} onRemove={id => updateView(v => ({...v, draft: removeReference(v.draft, id)}))}/><textarea aria-label="Message" disabled={compactionState === 'failed'} placeholder="Describe a change…" value={draft.text} onChange={e => updateView(v => ({...v, draft: {...v.draft, text: e.target.value}}))} onKeyDown={e => {if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) {e.preventDefault(); void send();}}}/><div className="composer-bottom"><label className="composer-model"><span className="sr-only">Model</span><select aria-label="Model" value={activeModel?.id ?? ''} disabled={busy || !providerModels.length} onChange={e => setModel(e.target.value)}>{!providerModels.length && <option value="">Loading models…</option>}{providerModels.map(m => <option key={m.id} value={m.id}>{m.name}</option>)}</select></label>{busy ? <button type="button" onClick={() => agent.current?.abort()}>Stop ■</button> : <button className="send" aria-label="Send message" disabled={compactionState === 'failed' || (!draft.text.trim() && !draft.references.length) || !storage.writable || draft.references.some(r => r.stale)}>↑</button>}</div></form></div></>;
   return <div className="app"><header><div className="brand"><img src={`${import.meta.env.BASE_URL}ballerina.ico`} alt="Ballerina logo" width="36" height="36"/>bal-bot</div><Accounts accounts={accounts} provider={provider} busy={busy} chooseProvider={id => {setProvider(id);setModel('');}} refresh={refreshAccounts} loginRequest={loginRequest}/></header>
     <div ref={workspaceElement} className={`workspace flow-workspace ${inspectionExpanded ? 'inspection-expanded' : ''}`}>
       <aside id="workspace-sidebar" className={sidebarCollapsed ? 'collapsed' : ''}><div className="sidebar-heading"><span>WORKSPACE</span><button aria-label={sidebarCollapsed ? 'Expand workspace sidebar' : 'Collapse workspace sidebar'} onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>☰</button></div><div hidden={sidebarCollapsed} className="sidebar-content"><div className="project">{projectName}</div>{scopes.map(scope => <React.Fragment key={scope.id}><AnchorButton anchor={scope} className={`service ${anchorId === scope.id ? 'selected' : ''}`} data-scope-id={scope.id} onChoose={() => chooseAnchor(scope.id)}>{scope.title}{scope.scopeKind === 'service' && <small>{scope.kind ?? 'Service'}</small>}{scope.scopeKind === 'automation' && scopes.length > 1 && <small>{scope.id.split('/function/')[0]}</small>}</AnchorButton>{scope.scopeKind === 'service' && scope.getEndpoints().map(endpoint => <AnchorButton key={endpoint.id} anchor={endpoint} className={`endpoint ${anchorId === endpoint.id ? 'selected' : ''}`} onChoose={() => chooseAnchor(endpoint.id)}><EndpointLabel endpoint={endpoint}/></AnchorButton>)}</React.Fragment>)}<div className="section-title file-heading">FILES<button disabled={!storage.writable} aria-label="New file" onClick={() => setCreating(!creating)}>+</button></div>{creating && <form className="new-file" onSubmit={event => {event.preventDefault();attempt(() => {if (Object.hasOwn(files,newPath)) throw new Error('File already exists');workspace.write(newPath,'');openFile(newPath);setNewPath('');setCreating(false);});}}><input aria-label="New file path" disabled={!storage.writable} value={newPath} onChange={e => setNewPath(e.target.value)} autoFocus/><button disabled={!storage.writable}>Add</button></form>}<FileTree paths={workspace.list()} selected={selected} open={openFile}/>{!storage.writable && <div className="aside-bottom"><div role="status">Storage unavailable</div><p>{storage.error}</p></div>}</div></aside>
