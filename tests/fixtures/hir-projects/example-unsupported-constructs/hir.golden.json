@@ -587,7 +587,7 @@
       "nodes": [
         {
           "id": "examples/unsupported_constructs/function/compute/examples/unsupported_constructs/function/compute/statement/0",
-          "occurrenceKey": "examples/unsupported_constructs/function/compute/examples/unsupported_constructs/function/compute/statement/0",
+          "occurrenceKey": "/examples/unsupported_constructs/function/compute/statement/0",
           "sourceId": "examples/unsupported_constructs/function/compute/statement/0",
           "presentation": {
             "kind": "plain",
@@ -605,7 +605,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/compute/root",
-          "occurrenceKey": "examples/unsupported_constructs/function/compute/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/unsupported_constructs/function/compute",
           "presentation": {
             "kind": "plain",
@@ -625,6 +625,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/compute/statement/0:entry",
           "id": "examples/unsupported_constructs/function/compute/examples/unsupported_constructs/function/compute/statement/0:entry",
           "nodeId": "examples/unsupported_constructs/function/compute/examples/unsupported_constructs/function/compute/statement/0",
           "role": "entry",
@@ -633,6 +634,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/compute/statement/0:normal-exit",
           "id": "examples/unsupported_constructs/function/compute/examples/unsupported_constructs/function/compute/statement/0:normal-exit",
           "nodeId": "examples/unsupported_constructs/function/compute/examples/unsupported_constructs/function/compute/statement/0",
           "role": "normal-exit",
@@ -641,6 +643,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/compute/statement/0:return",
           "id": "examples/unsupported_constructs/function/compute/examples/unsupported_constructs/function/compute/statement/0:return",
           "nodeId": "examples/unsupported_constructs/function/compute/examples/unsupported_constructs/function/compute/statement/0",
           "role": "return",
@@ -649,6 +652,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/unsupported_constructs/function/compute/root:entry",
           "nodeId": "examples/unsupported_constructs/function/compute/root",
           "role": "entry",
@@ -657,6 +661,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/unsupported_constructs/function/compute/root:normal-exit",
           "nodeId": "examples/unsupported_constructs/function/compute/root",
           "role": "normal-exit",
@@ -985,7 +990,7 @@
       "nodes": [
         {
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/0",
-          "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/0",
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/0",
           "sourceId": "examples/unsupported_constructs/function/main/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1003,7 +1008,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/1",
-          "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/1",
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/1",
           "sourceId": "examples/unsupported_constructs/function/main/statement/1",
           "presentation": {
             "kind": "plain",
@@ -1021,7 +1026,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/2",
-          "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/2",
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/2",
           "sourceId": "examples/unsupported_constructs/function/main/statement/2",
           "presentation": {
             "kind": "plain",
@@ -1039,7 +1044,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/3",
-          "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/3",
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/3",
           "sourceId": "examples/unsupported_constructs/function/main/statement/3",
           "presentation": {
             "kind": "plain",
@@ -1058,7 +1063,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/3/expand/examples/unsupported_constructs/function/main/statement/3/call/0",
-          "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/3/expand/examples/unsupported_constructs/function/main/statement/3/call/0",
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/3/expand/examples/unsupported_constructs/function/main/statement/3/call/0",
           "sourceId": "examples/unsupported_constructs/function/main/statement/3/call/0",
           "presentation": {
             "kind": "plain",
@@ -1068,7 +1073,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/3/expand/examples/unsupported_constructs/function/main/statement/3/call/0",
+              "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/3/expand/examples/unsupported_constructs/function/main/statement/3/call/0",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -1076,9 +1081,9 @@
               "recursive": {
                 "label": "positive(mode)",
                 "sections": [],
-                "limitation": "Recursive calls remain collapsed.",
-                "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "limitation": "Expansion in this expression evaluation is not modeled.",
+                "title": "Expansion in this expression evaluation is not modeled.",
+                "ariaLabel": "Recursive call positive(mode)",
                 "glyph": "↻"
               }
             }
@@ -1087,7 +1092,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/unsupported_constructs/function/positive",
-              "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/3/expand/examples/unsupported_constructs/function/main/statement/3/call/0",
+              "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/3/expand/examples/unsupported_constructs/function/main/statement/3/call/0",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -1148,7 +1153,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/4",
-          "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/4",
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/4",
           "sourceId": "examples/unsupported_constructs/function/main/statement/4",
           "presentation": {
             "kind": "plain",
@@ -1166,7 +1171,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/5",
-          "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/5",
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/5",
           "sourceId": "examples/unsupported_constructs/function/main/statement/5",
           "presentation": {
             "kind": "plain",
@@ -1184,7 +1189,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/6",
-          "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/6",
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/6",
           "sourceId": "examples/unsupported_constructs/function/main/statement/6",
           "presentation": {
             "kind": "plain",
@@ -1202,7 +1207,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/7",
-          "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/7",
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/7",
           "sourceId": "examples/unsupported_constructs/function/main/statement/7",
           "presentation": {
             "kind": "plain",
@@ -1220,7 +1225,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/8",
-          "occurrenceKey": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/8",
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/8",
           "sourceId": "examples/unsupported_constructs/function/main/statement/8",
           "presentation": {
             "kind": "plain",
@@ -1238,7 +1243,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/main/root",
-          "occurrenceKey": "examples/unsupported_constructs/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/unsupported_constructs/function/main",
           "presentation": {
             "kind": "plain",
@@ -1258,6 +1263,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/0:entry",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/0:entry",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/0",
           "role": "entry",
@@ -1266,6 +1272,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/0:normal-exit",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/0:normal-exit",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/0",
           "role": "normal-exit",
@@ -1274,6 +1281,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/1:entry",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/1:entry",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/1",
           "role": "entry",
@@ -1282,6 +1290,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/1:normal-exit",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/1:normal-exit",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/1",
           "role": "normal-exit",
@@ -1290,6 +1299,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/2:entry",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/2:entry",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/2",
           "role": "entry",
@@ -1298,6 +1308,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/3:entry",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/3:entry",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/3",
           "role": "entry",
@@ -1306,6 +1317,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/3:normal-exit",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/3:normal-exit",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/3",
           "role": "normal-exit",
@@ -1314,6 +1326,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/4:entry",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/4:entry",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/4",
           "role": "entry",
@@ -1322,6 +1335,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/5:entry",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/5:entry",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/5",
           "role": "entry",
@@ -1330,6 +1344,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/6:entry",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/6:entry",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/6",
           "role": "entry",
@@ -1338,6 +1353,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/6:normal-exit",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/6:normal-exit",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/6",
           "role": "normal-exit",
@@ -1346,6 +1362,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/7:entry",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/7:entry",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/7",
           "role": "entry",
@@ -1354,6 +1371,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/7:normal-exit",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/7:normal-exit",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/7",
           "role": "normal-exit",
@@ -1362,6 +1380,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/8:entry",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/8:entry",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/8",
           "role": "entry",
@@ -1370,6 +1389,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/main/statement/8:normal-exit",
           "id": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/8:normal-exit",
           "nodeId": "examples/unsupported_constructs/function/main/examples/unsupported_constructs/function/main/statement/8",
           "role": "normal-exit",
@@ -1378,6 +1398,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/unsupported_constructs/function/main/root:entry",
           "nodeId": "examples/unsupported_constructs/function/main/root",
           "role": "entry",
@@ -1386,6 +1407,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/unsupported_constructs/function/main/root:normal-exit",
           "nodeId": "examples/unsupported_constructs/function/main/root",
           "role": "normal-exit",
@@ -2394,7 +2416,7 @@
       "nodes": [
         {
           "id": "examples/unsupported_constructs/function/positive/examples/unsupported_constructs/function/positive/statement/0",
-          "occurrenceKey": "examples/unsupported_constructs/function/positive/examples/unsupported_constructs/function/positive/statement/0",
+          "occurrenceKey": "/examples/unsupported_constructs/function/positive/statement/0",
           "sourceId": "examples/unsupported_constructs/function/positive/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2412,7 +2434,7 @@
         },
         {
           "id": "examples/unsupported_constructs/function/positive/root",
-          "occurrenceKey": "examples/unsupported_constructs/function/positive/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/unsupported_constructs/function/positive",
           "presentation": {
             "kind": "plain",
@@ -2432,6 +2454,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/positive/statement/0:entry",
           "id": "examples/unsupported_constructs/function/positive/examples/unsupported_constructs/function/positive/statement/0:entry",
           "nodeId": "examples/unsupported_constructs/function/positive/examples/unsupported_constructs/function/positive/statement/0",
           "role": "entry",
@@ -2440,6 +2463,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/positive/statement/0:normal-exit",
           "id": "examples/unsupported_constructs/function/positive/examples/unsupported_constructs/function/positive/statement/0:normal-exit",
           "nodeId": "examples/unsupported_constructs/function/positive/examples/unsupported_constructs/function/positive/statement/0",
           "role": "normal-exit",
@@ -2448,6 +2472,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/unsupported_constructs/function/positive/statement/0:return",
           "id": "examples/unsupported_constructs/function/positive/examples/unsupported_constructs/function/positive/statement/0:return",
           "nodeId": "examples/unsupported_constructs/function/positive/examples/unsupported_constructs/function/positive/statement/0",
           "role": "return",
@@ -2456,6 +2481,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/unsupported_constructs/function/positive/root:entry",
           "nodeId": "examples/unsupported_constructs/function/positive/root",
           "role": "entry",
@@ -2464,6 +2490,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/unsupported_constructs/function/positive/root:normal-exit",
           "nodeId": "examples/unsupported_constructs/function/positive/root",
           "role": "normal-exit",

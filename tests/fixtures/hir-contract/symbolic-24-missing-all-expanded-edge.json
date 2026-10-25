@@ -1474,7 +1474,8 @@
           "role": "normal-exit",
           "anchor": {
             "kind": "bottom-center"
-          }
+          },
+          "occurrenceKey": "port/from"
         },
         {
           "id": "to",
@@ -1482,7 +1483,8 @@
           "role": "entry",
           "anchor": {
             "kind": "top-center"
-          }
+          },
+          "occurrenceKey": "port/to"
         }
       ],
       "edges": [
@@ -3466,7 +3468,8 @@
           "role": "normal-exit",
           "anchor": {
             "kind": "bottom-center"
-          }
+          },
+          "occurrenceKey": "port/out"
         },
         {
           "id": "in",
@@ -3474,7 +3477,8 @@
           "role": "entry",
           "anchor": {
             "kind": "top-center"
-          }
+          },
+          "occurrenceKey": "port/in"
         }
       ],
       "edges": [

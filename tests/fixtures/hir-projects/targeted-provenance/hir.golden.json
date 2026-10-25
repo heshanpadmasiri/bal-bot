@@ -1509,7 +1509,7 @@
       "nodes": [
         {
           "id": "corpus/provenance/class/Queue/method/$remote$read/corpus/provenance/class/Queue/method/$remote$read/statement/0",
-          "occurrenceKey": "corpus/provenance/class/Queue/method/$remote$read/corpus/provenance/class/Queue/method/$remote$read/statement/0",
+          "occurrenceKey": "/corpus/provenance/class/Queue/method/$remote$read/statement/0",
           "sourceId": "corpus/provenance/class/Queue/method/$remote$read/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1527,7 +1527,7 @@
         },
         {
           "id": "corpus/provenance/class/Queue/method/$remote$read/root",
-          "occurrenceKey": "corpus/provenance/class/Queue/method/$remote$read/root",
+          "occurrenceKey": "/root",
           "sourceId": "corpus/provenance/class/Queue/method/$remote$read",
           "presentation": {
             "kind": "plain",
@@ -1547,6 +1547,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/corpus/provenance/class/Queue/method/$remote$read/statement/0:entry",
           "id": "corpus/provenance/class/Queue/method/$remote$read/corpus/provenance/class/Queue/method/$remote$read/statement/0:entry",
           "nodeId": "corpus/provenance/class/Queue/method/$remote$read/corpus/provenance/class/Queue/method/$remote$read/statement/0",
           "role": "entry",
@@ -1555,6 +1556,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/class/Queue/method/$remote$read/statement/0:normal-exit",
           "id": "corpus/provenance/class/Queue/method/$remote$read/corpus/provenance/class/Queue/method/$remote$read/statement/0:normal-exit",
           "nodeId": "corpus/provenance/class/Queue/method/$remote$read/corpus/provenance/class/Queue/method/$remote$read/statement/0",
           "role": "normal-exit",
@@ -1563,6 +1565,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/class/Queue/method/$remote$read/statement/0:return",
           "id": "corpus/provenance/class/Queue/method/$remote$read/corpus/provenance/class/Queue/method/$remote$read/statement/0:return",
           "nodeId": "corpus/provenance/class/Queue/method/$remote$read/corpus/provenance/class/Queue/method/$remote$read/statement/0",
           "role": "return",
@@ -1571,6 +1574,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "corpus/provenance/class/Queue/method/$remote$read/root:entry",
           "nodeId": "corpus/provenance/class/Queue/method/$remote$read/root",
           "role": "entry",
@@ -1579,6 +1583,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "corpus/provenance/class/Queue/method/$remote$read/root:normal-exit",
           "nodeId": "corpus/provenance/class/Queue/method/$remote$read/root",
           "role": "normal-exit",
@@ -1912,7 +1917,7 @@
       "nodes": [
         {
           "id": "corpus/provenance/class/Queue/method/label/corpus/provenance/class/Queue/method/label/expression",
-          "occurrenceKey": "corpus/provenance/class/Queue/method/label/corpus/provenance/class/Queue/method/label/expression",
+          "occurrenceKey": "/corpus/provenance/class/Queue/method/label/expression",
           "sourceId": "corpus/provenance/class/Queue/method/label/expression",
           "presentation": {
             "kind": "plain",
@@ -1930,7 +1935,7 @@
         },
         {
           "id": "corpus/provenance/class/Queue/method/label/root",
-          "occurrenceKey": "corpus/provenance/class/Queue/method/label/root",
+          "occurrenceKey": "/root",
           "sourceId": "corpus/provenance/class/Queue/method/label",
           "presentation": {
             "kind": "plain",
@@ -1950,6 +1955,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/corpus/provenance/class/Queue/method/label/expression:entry",
           "id": "corpus/provenance/class/Queue/method/label/corpus/provenance/class/Queue/method/label/expression:entry",
           "nodeId": "corpus/provenance/class/Queue/method/label/corpus/provenance/class/Queue/method/label/expression",
           "role": "entry",
@@ -1958,6 +1964,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/class/Queue/method/label/expression:normal-exit",
           "id": "corpus/provenance/class/Queue/method/label/corpus/provenance/class/Queue/method/label/expression:normal-exit",
           "nodeId": "corpus/provenance/class/Queue/method/label/corpus/provenance/class/Queue/method/label/expression",
           "role": "normal-exit",
@@ -1966,6 +1973,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/class/Queue/method/label/expression:return",
           "id": "corpus/provenance/class/Queue/method/label/corpus/provenance/class/Queue/method/label/expression:return",
           "nodeId": "corpus/provenance/class/Queue/method/label/corpus/provenance/class/Queue/method/label/expression",
           "role": "return",
@@ -1974,6 +1982,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "corpus/provenance/class/Queue/method/label/root:entry",
           "nodeId": "corpus/provenance/class/Queue/method/label/root",
           "role": "entry",
@@ -1982,6 +1991,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "corpus/provenance/class/Queue/method/label/root:normal-exit",
           "nodeId": "corpus/provenance/class/Queue/method/label/root",
           "role": "normal-exit",
@@ -2315,7 +2325,7 @@
       "nodes": [
         {
           "id": "corpus/provenance/class/Queue/resource/get/items/[string id]/corpus/provenance/class/Queue/resource/get/items/[string id]/expression",
-          "occurrenceKey": "corpus/provenance/class/Queue/resource/get/items/[string id]/corpus/provenance/class/Queue/resource/get/items/[string id]/expression",
+          "occurrenceKey": "/corpus/provenance/class/Queue/resource/get/items/[string id]/expression",
           "sourceId": "corpus/provenance/class/Queue/resource/get/items/[string id]/expression",
           "presentation": {
             "kind": "plain",
@@ -2333,7 +2343,7 @@
         },
         {
           "id": "corpus/provenance/class/Queue/resource/get/items/[string id]/root",
-          "occurrenceKey": "corpus/provenance/class/Queue/resource/get/items/[string id]/root",
+          "occurrenceKey": "/root",
           "sourceId": "corpus/provenance/class/Queue/resource/get/items/[string id]",
           "presentation": {
             "kind": "plain",
@@ -2353,6 +2363,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/corpus/provenance/class/Queue/resource/get/items/[string id]/expression:entry",
           "id": "corpus/provenance/class/Queue/resource/get/items/[string id]/corpus/provenance/class/Queue/resource/get/items/[string id]/expression:entry",
           "nodeId": "corpus/provenance/class/Queue/resource/get/items/[string id]/corpus/provenance/class/Queue/resource/get/items/[string id]/expression",
           "role": "entry",
@@ -2361,6 +2372,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/class/Queue/resource/get/items/[string id]/expression:normal-exit",
           "id": "corpus/provenance/class/Queue/resource/get/items/[string id]/corpus/provenance/class/Queue/resource/get/items/[string id]/expression:normal-exit",
           "nodeId": "corpus/provenance/class/Queue/resource/get/items/[string id]/corpus/provenance/class/Queue/resource/get/items/[string id]/expression",
           "role": "normal-exit",
@@ -2369,6 +2381,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/class/Queue/resource/get/items/[string id]/expression:return",
           "id": "corpus/provenance/class/Queue/resource/get/items/[string id]/corpus/provenance/class/Queue/resource/get/items/[string id]/expression:return",
           "nodeId": "corpus/provenance/class/Queue/resource/get/items/[string id]/corpus/provenance/class/Queue/resource/get/items/[string id]/expression",
           "role": "return",
@@ -2377,6 +2390,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "corpus/provenance/class/Queue/resource/get/items/[string id]/root:entry",
           "nodeId": "corpus/provenance/class/Queue/resource/get/items/[string id]/root",
           "role": "entry",
@@ -2385,6 +2399,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "corpus/provenance/class/Queue/resource/get/items/[string id]/root:normal-exit",
           "nodeId": "corpus/provenance/class/Queue/resource/get/items/[string id]/root",
           "role": "normal-exit",
@@ -2718,7 +2733,7 @@
       "nodes": [
         {
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0",
-          "occurrenceKey": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0",
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0",
           "sourceId": "corpus/provenance/function/fetch/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2736,7 +2751,7 @@
         },
         {
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0",
-          "occurrenceKey": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0/expand",
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0",
           "sourceId": "corpus/provenance/function/fetch/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -2746,7 +2761,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -2756,7 +2771,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call identity(\"café🚀\")",
                 "glyph": "↻"
               }
             }
@@ -2765,7 +2780,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "corpus/provenance/function/identity",
-              "occurrenceKey": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -2898,7 +2913,7 @@
         },
         {
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0",
-          "occurrenceKey": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/expand",
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0",
           "sourceId": "corpus/provenance/function/fetch/statement/0/call/1",
           "presentation": {
             "kind": "client",
@@ -2921,7 +2936,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/expand",
+              "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -2944,7 +2959,7 @@
                 ],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call caller · Queue\nParameter\n-\u003e/items/[identity(\"café🚀\")].get()",
                 "glyph": "↻"
               }
             }
@@ -2953,7 +2968,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "corpus/provenance/class/Queue/resource/get/items/[string id]",
-              "occurrenceKey": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/expand",
+              "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -3086,7 +3101,7 @@
         },
         {
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/error",
-          "occurrenceKey": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/error",
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/error",
           "sourceId": "corpus/provenance/function/fetch/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -3104,7 +3119,7 @@
         },
         {
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation",
-          "occurrenceKey": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation",
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation",
           "sourceId": "corpus/provenance/function/fetch/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -3123,7 +3138,7 @@
         },
         {
           "id": "corpus/provenance/function/fetch/root",
-          "occurrenceKey": "corpus/provenance/function/fetch/root",
+          "occurrenceKey": "/root",
           "sourceId": "corpus/provenance/function/fetch",
           "presentation": {
             "kind": "plain",
@@ -3143,6 +3158,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0:entry",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0:entry",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0",
           "role": "entry",
@@ -3151,6 +3167,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0:entry",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0:entry",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0",
           "role": "entry",
@@ -3159,6 +3176,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0:normal-exit",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0:normal-exit",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0",
           "role": "normal-exit",
@@ -3167,6 +3185,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0:panic",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0:panic",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0/part/0",
           "role": "panic",
@@ -3175,6 +3194,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0:entry",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0:entry",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0",
           "role": "entry",
@@ -3183,6 +3203,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0:normal-exit",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0:normal-exit",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0",
           "role": "normal-exit",
@@ -3191,6 +3212,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/part/0:panic",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0:panic",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/part/0",
           "role": "panic",
@@ -3199,6 +3221,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation:normal-exit",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation:normal-exit",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation",
           "role": "normal-exit",
@@ -3207,6 +3230,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation:true",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation:true",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation",
           "role": "true",
@@ -3215,6 +3239,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation:false",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation:false",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation",
           "role": "false",
@@ -3223,6 +3248,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/error:entry",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/error:entry",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/error",
           "role": "entry",
@@ -3231,6 +3257,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation:entry",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation:entry",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation",
           "role": "entry",
@@ -3239,6 +3266,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0/evaluation/error:return",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/error:return",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0/evaluation/error",
           "role": "return",
@@ -3247,6 +3275,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fetch/statement/0:return",
           "id": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0:return",
           "nodeId": "corpus/provenance/function/fetch/corpus/provenance/function/fetch/statement/0",
           "role": "return",
@@ -3255,6 +3284,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "corpus/provenance/function/fetch/root:entry",
           "nodeId": "corpus/provenance/function/fetch/root",
           "role": "entry",
@@ -3263,6 +3293,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "corpus/provenance/function/fetch/root:normal-exit",
           "nodeId": "corpus/provenance/function/fetch/root",
           "role": "normal-exit",
@@ -4560,7 +4591,7 @@
       "nodes": [
         {
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0",
-          "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0",
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0",
           "sourceId": "corpus/provenance/function/fill/statement/0",
           "presentation": {
             "kind": "plain",
@@ -4578,7 +4609,7 @@
         },
         {
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0",
-          "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0/expand",
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0",
           "sourceId": "corpus/provenance/function/fill/statement/0/lhs/call/0",
           "presentation": {
             "kind": "plain",
@@ -4588,7 +4619,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -4598,7 +4629,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call index()",
                 "glyph": "↻"
               }
             }
@@ -4607,7 +4638,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "corpus/provenance/function/index",
-              "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -4740,7 +4771,7 @@
         },
         {
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0",
-          "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0",
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/0",
           "sourceId": "corpus/provenance/function/fill/statement/0/target",
           "presentation": {
             "kind": "plain",
@@ -4758,7 +4789,7 @@
         },
         {
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0",
-          "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0/expand",
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0",
           "sourceId": "corpus/provenance/function/fill/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -4768,7 +4799,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0/expand",
+              "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -4778,7 +4809,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call identity(\"orders\")",
                 "glyph": "↻"
               }
             }
@@ -4787,7 +4818,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "corpus/provenance/function/identity",
-              "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0/expand",
+              "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -4920,7 +4951,7 @@
         },
         {
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0",
-          "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0",
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0",
           "sourceId": "corpus/provenance/function/fill/statement/0/value/part/0/part/0",
           "presentation": {
             "kind": "plain",
@@ -4938,7 +4969,7 @@
         },
         {
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0",
-          "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/expand",
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0",
           "sourceId": "corpus/provenance/function/fill/statement/0/call/1",
           "presentation": {
             "kind": "client",
@@ -4961,7 +4992,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/expand",
+              "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -4984,7 +5015,7 @@
                 ],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call queue · Queue\nParameter\n→ read(topic = identity(\"orders\"))",
                 "glyph": "↻"
               }
             }
@@ -4993,7 +5024,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "corpus/provenance/class/Queue/method/$remote$read",
-              "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/expand",
+              "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -5126,7 +5157,7 @@
         },
         {
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/error",
-          "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/error",
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/error",
           "sourceId": "corpus/provenance/function/fill/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -5144,7 +5175,7 @@
         },
         {
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1",
-          "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1",
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1",
           "sourceId": "corpus/provenance/function/fill/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -5163,7 +5194,7 @@
         },
         {
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation",
-          "occurrenceKey": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation",
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation",
           "sourceId": "corpus/provenance/function/fill/statement/0/evaluation",
           "presentation": {
             "kind": "plain",
@@ -5181,7 +5212,7 @@
         },
         {
           "id": "corpus/provenance/function/fill/root",
-          "occurrenceKey": "corpus/provenance/function/fill/root",
+          "occurrenceKey": "/root",
           "sourceId": "corpus/provenance/function/fill",
           "presentation": {
             "kind": "plain",
@@ -5201,6 +5232,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0:entry",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0:entry",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0",
           "role": "entry",
@@ -5209,6 +5241,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0:entry",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0:entry",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0",
           "role": "entry",
@@ -5217,6 +5250,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0:normal-exit",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0:normal-exit",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0",
           "role": "normal-exit",
@@ -5225,6 +5259,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0:panic",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0:panic",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0/part/0",
           "role": "panic",
@@ -5233,6 +5268,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/0:entry",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0:entry",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0",
           "role": "entry",
@@ -5241,6 +5277,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/0:normal-exit",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0:normal-exit",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0",
           "role": "normal-exit",
@@ -5249,6 +5286,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/0:panic",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0:panic",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/0",
           "role": "panic",
@@ -5257,6 +5295,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0:entry",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0:entry",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0",
           "role": "entry",
@@ -5265,6 +5304,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0:normal-exit",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0:normal-exit",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0",
           "role": "normal-exit",
@@ -5273,6 +5313,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0:panic",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0:panic",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0/part/0",
           "role": "panic",
@@ -5281,6 +5322,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0:entry",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0:entry",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0",
           "role": "entry",
@@ -5289,6 +5331,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0:normal-exit",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0:normal-exit",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0",
           "role": "normal-exit",
@@ -5297,6 +5340,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0:panic",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0:panic",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0/part/0",
           "role": "panic",
@@ -5305,6 +5349,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0:entry",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0:entry",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0",
           "role": "entry",
@@ -5313,6 +5358,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0:normal-exit",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0:normal-exit",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0",
           "role": "normal-exit",
@@ -5321,6 +5367,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0:panic",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0:panic",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/part/0",
           "role": "panic",
@@ -5329,6 +5376,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1:normal-exit",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1:normal-exit",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1",
           "role": "normal-exit",
@@ -5337,6 +5385,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1:true",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1:true",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1",
           "role": "true",
@@ -5345,6 +5394,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1:false",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1:false",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1",
           "role": "false",
@@ -5353,6 +5403,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/error:entry",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/error:entry",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/error",
           "role": "entry",
@@ -5361,6 +5412,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1:entry",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1:entry",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1",
           "role": "entry",
@@ -5369,6 +5421,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation/part/1/error:return",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/error:return",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation/part/1/error",
           "role": "return",
@@ -5377,6 +5430,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation:entry",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation:entry",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation",
           "role": "entry",
@@ -5385,6 +5439,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation:normal-exit",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation:normal-exit",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation",
           "role": "normal-exit",
@@ -5393,6 +5448,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0/evaluation:panic",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation:panic",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0/evaluation",
           "role": "panic",
@@ -5401,6 +5457,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/fill/statement/0:normal-exit",
           "id": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0:normal-exit",
           "nodeId": "corpus/provenance/function/fill/corpus/provenance/function/fill/statement/0",
           "role": "normal-exit",
@@ -5409,6 +5466,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "corpus/provenance/function/fill/root:entry",
           "nodeId": "corpus/provenance/function/fill/root",
           "role": "entry",
@@ -5417,6 +5475,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "corpus/provenance/function/fill/root:normal-exit",
           "nodeId": "corpus/provenance/function/fill/root",
           "role": "normal-exit",
@@ -7427,7 +7486,7 @@
       "nodes": [
         {
           "id": "corpus/provenance/function/identity/corpus/provenance/function/identity/expression",
-          "occurrenceKey": "corpus/provenance/function/identity/corpus/provenance/function/identity/expression",
+          "occurrenceKey": "/corpus/provenance/function/identity/expression",
           "sourceId": "corpus/provenance/function/identity/expression",
           "presentation": {
             "kind": "plain",
@@ -7445,7 +7504,7 @@
         },
         {
           "id": "corpus/provenance/function/identity/root",
-          "occurrenceKey": "corpus/provenance/function/identity/root",
+          "occurrenceKey": "/root",
           "sourceId": "corpus/provenance/function/identity",
           "presentation": {
             "kind": "plain",
@@ -7465,6 +7524,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/corpus/provenance/function/identity/expression:entry",
           "id": "corpus/provenance/function/identity/corpus/provenance/function/identity/expression:entry",
           "nodeId": "corpus/provenance/function/identity/corpus/provenance/function/identity/expression",
           "role": "entry",
@@ -7473,6 +7533,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/identity/expression:normal-exit",
           "id": "corpus/provenance/function/identity/corpus/provenance/function/identity/expression:normal-exit",
           "nodeId": "corpus/provenance/function/identity/corpus/provenance/function/identity/expression",
           "role": "normal-exit",
@@ -7481,6 +7542,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/identity/expression:return",
           "id": "corpus/provenance/function/identity/corpus/provenance/function/identity/expression:return",
           "nodeId": "corpus/provenance/function/identity/corpus/provenance/function/identity/expression",
           "role": "return",
@@ -7489,6 +7551,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "corpus/provenance/function/identity/root:entry",
           "nodeId": "corpus/provenance/function/identity/root",
           "role": "entry",
@@ -7497,6 +7560,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "corpus/provenance/function/identity/root:normal-exit",
           "nodeId": "corpus/provenance/function/identity/root",
           "role": "normal-exit",
@@ -7825,7 +7889,7 @@
       "nodes": [
         {
           "id": "corpus/provenance/function/index/corpus/provenance/function/index/expression",
-          "occurrenceKey": "corpus/provenance/function/index/corpus/provenance/function/index/expression",
+          "occurrenceKey": "/corpus/provenance/function/index/expression",
           "sourceId": "corpus/provenance/function/index/expression",
           "presentation": {
             "kind": "plain",
@@ -7843,7 +7907,7 @@
         },
         {
           "id": "corpus/provenance/function/index/root",
-          "occurrenceKey": "corpus/provenance/function/index/root",
+          "occurrenceKey": "/root",
           "sourceId": "corpus/provenance/function/index",
           "presentation": {
             "kind": "plain",
@@ -7863,6 +7927,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/corpus/provenance/function/index/expression:entry",
           "id": "corpus/provenance/function/index/corpus/provenance/function/index/expression:entry",
           "nodeId": "corpus/provenance/function/index/corpus/provenance/function/index/expression",
           "role": "entry",
@@ -7871,6 +7936,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/index/expression:normal-exit",
           "id": "corpus/provenance/function/index/corpus/provenance/function/index/expression:normal-exit",
           "nodeId": "corpus/provenance/function/index/corpus/provenance/function/index/expression",
           "role": "normal-exit",
@@ -7879,6 +7945,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/index/expression:return",
           "id": "corpus/provenance/function/index/corpus/provenance/function/index/expression:return",
           "nodeId": "corpus/provenance/function/index/corpus/provenance/function/index/expression",
           "role": "return",
@@ -7887,6 +7954,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "corpus/provenance/function/index/root:entry",
           "nodeId": "corpus/provenance/function/index/root",
           "role": "entry",
@@ -7895,6 +7963,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "corpus/provenance/function/index/root:normal-exit",
           "nodeId": "corpus/provenance/function/index/root",
           "role": "normal-exit",
@@ -8223,7 +8292,7 @@
       "nodes": [
         {
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0",
-          "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0",
+          "occurrenceKey": "/corpus/provenance/function/main/statement/0",
           "sourceId": "corpus/provenance/function/main/statement/0",
           "presentation": {
             "kind": "plain",
@@ -8242,7 +8311,7 @@
         },
         {
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/0",
-          "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/0",
+          "occurrenceKey": "/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/0",
           "sourceId": "corpus/provenance/function/main/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -8252,7 +8321,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/0",
+              "occurrenceKey": "/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/0",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -8260,9 +8329,9 @@
               "recursive": {
                 "label": "identity(\"broker\")",
                 "sections": [],
-                "limitation": "Recursive calls remain collapsed.",
-                "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "limitation": "Expansion in this expression evaluation is not modeled.",
+                "title": "Expansion in this expression evaluation is not modeled.",
+                "ariaLabel": "Recursive call identity(\"broker\")",
                 "glyph": "↻"
               }
             }
@@ -8271,7 +8340,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "corpus/provenance/function/identity",
-              "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/0",
+              "occurrenceKey": "/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/0",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -8332,7 +8401,7 @@
         },
         {
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/1",
-          "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/1",
+          "occurrenceKey": "/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/1",
           "sourceId": "corpus/provenance/function/main/statement/0/call/1",
           "presentation": {
             "kind": "plain",
@@ -8342,7 +8411,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/1",
+              "occurrenceKey": "/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/1",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -8350,9 +8419,9 @@
               "recursive": {
                 "label": "index()",
                 "sections": [],
-                "limitation": "Recursive calls remain collapsed.",
-                "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "limitation": "Expansion in this expression evaluation is not modeled.",
+                "title": "Expansion in this expression evaluation is not modeled.",
+                "ariaLabel": "Recursive call index()",
                 "glyph": "↻"
               }
             }
@@ -8361,7 +8430,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "corpus/provenance/function/index",
-              "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/1",
+              "occurrenceKey": "/corpus/provenance/function/main/statement/0/expand/corpus/provenance/function/main/statement/0/call/1",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -8422,7 +8491,7 @@
         },
         {
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1",
-          "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1",
+          "occurrenceKey": "/corpus/provenance/function/main/statement/1",
           "sourceId": "corpus/provenance/function/main/statement/1",
           "presentation": {
             "kind": "plain",
@@ -8440,7 +8509,7 @@
         },
         {
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1/evaluation",
-          "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1/evaluation/expand",
+          "occurrenceKey": "/corpus/provenance/function/main/statement/1/evaluation",
           "sourceId": "corpus/provenance/function/main/statement/1/call/0",
           "presentation": {
             "kind": "client",
@@ -8463,7 +8532,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1/evaluation/expand",
+              "occurrenceKey": "/corpus/provenance/function/main/statement/1/evaluation/expand",
               "availability": {
                 "kind": "available"
               },
@@ -8485,7 +8554,7 @@
                 ],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call queue · Queue\nnew (identity(\"broker\"), port = index())\n→ label(value = \"සිංහල\")",
                 "glyph": "↻"
               }
             }
@@ -8494,7 +8563,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "corpus/provenance/class/Queue/method/label",
-              "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1/evaluation/expand",
+              "occurrenceKey": "/corpus/provenance/function/main/statement/1/evaluation/expand",
               "availability": {
                 "kind": "available"
               },
@@ -8626,7 +8695,7 @@
         },
         {
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/2",
-          "occurrenceKey": "corpus/provenance/function/main/corpus/provenance/function/main/statement/2",
+          "occurrenceKey": "/corpus/provenance/function/main/statement/2",
           "sourceId": "corpus/provenance/function/main/statement/2",
           "presentation": {
             "kind": "plain",
@@ -8644,7 +8713,7 @@
         },
         {
           "id": "corpus/provenance/function/main/root",
-          "occurrenceKey": "corpus/provenance/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "corpus/provenance/function/main",
           "presentation": {
             "kind": "plain",
@@ -8664,6 +8733,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/corpus/provenance/function/main/statement/0:entry",
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0:entry",
           "nodeId": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0",
           "role": "entry",
@@ -8672,6 +8742,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/main/statement/0:normal-exit",
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0:normal-exit",
           "nodeId": "corpus/provenance/function/main/corpus/provenance/function/main/statement/0",
           "role": "normal-exit",
@@ -8680,6 +8751,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/main/statement/1:entry",
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1:entry",
           "nodeId": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1",
           "role": "entry",
@@ -8688,6 +8760,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/main/statement/1/evaluation:entry",
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1/evaluation:entry",
           "nodeId": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1/evaluation",
           "role": "entry",
@@ -8696,6 +8769,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/main/statement/1/evaluation:normal-exit",
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1/evaluation:normal-exit",
           "nodeId": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1/evaluation",
           "role": "normal-exit",
@@ -8704,6 +8778,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/main/statement/1/evaluation:panic",
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1/evaluation:panic",
           "nodeId": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1/evaluation",
           "role": "panic",
@@ -8712,6 +8787,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/main/statement/1:normal-exit",
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1:normal-exit",
           "nodeId": "corpus/provenance/function/main/corpus/provenance/function/main/statement/1",
           "role": "normal-exit",
@@ -8720,6 +8796,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/main/statement/2:entry",
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/2:entry",
           "nodeId": "corpus/provenance/function/main/corpus/provenance/function/main/statement/2",
           "role": "entry",
@@ -8728,6 +8805,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/function/main/statement/2:normal-exit",
           "id": "corpus/provenance/function/main/corpus/provenance/function/main/statement/2:normal-exit",
           "nodeId": "corpus/provenance/function/main/corpus/provenance/function/main/statement/2",
           "role": "normal-exit",
@@ -8736,6 +8814,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "corpus/provenance/function/main/root:entry",
           "nodeId": "corpus/provenance/function/main/root",
           "role": "entry",
@@ -8744,6 +8823,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "corpus/provenance/function/main/root:normal-exit",
           "nodeId": "corpus/provenance/function/main/root",
           "role": "normal-exit",
@@ -9759,7 +9839,7 @@
       "nodes": [
         {
           "id": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression",
-          "occurrenceKey": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression",
+          "occurrenceKey": "/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression",
           "sourceId": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression",
           "presentation": {
             "kind": "plain",
@@ -9777,7 +9857,7 @@
         },
         {
           "id": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/root",
-          "occurrenceKey": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/root",
+          "occurrenceKey": "/root",
           "sourceId": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]",
           "presentation": {
             "kind": "plain",
@@ -9797,6 +9877,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression:entry",
           "id": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression:entry",
           "nodeId": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression",
           "role": "entry",
@@ -9805,6 +9886,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression:normal-exit",
           "id": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression:normal-exit",
           "nodeId": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression",
           "role": "normal-exit",
@@ -9813,6 +9895,7 @@
           }
         },
         {
+          "occurrenceKey": "/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression:return",
           "id": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression:return",
           "nodeId": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression",
           "role": "return",
@@ -9821,6 +9904,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/root:entry",
           "nodeId": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/root",
           "role": "entry",
@@ -9829,6 +9913,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/root:normal-exit",
           "nodeId": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/root",
           "role": "normal-exit",

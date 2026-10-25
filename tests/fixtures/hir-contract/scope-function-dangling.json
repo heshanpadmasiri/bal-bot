@@ -175,7 +175,8 @@
           "role": "normal-exit",
           "anchor": {
             "kind": "bottom-center"
-          }
+          },
+          "occurrenceKey": "port/out"
         },
         {
           "id": "in",
@@ -183,7 +184,8 @@
           "role": "entry",
           "anchor": {
             "kind": "top-center"
-          }
+          },
+          "occurrenceKey": "port/in"
         }
       ],
       "edges": [

@@ -2672,6 +2672,27 @@
       "ast": "ast.golden",
       "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
+    },
+    {
+      "id": "targeted-nested-presence",
+      "kind": "project",
+      "directory": "targeted-nested-presence",
+      "inputHash": "a1dfbde5066f7202fe2c249b4ef347e42eb2b613df2022e1505308fd9fe3f625",
+      "catalogRef": null,
+      "renderCases": [],
+      "provenance": [
+        {
+          "file": "tests/fixtures/hir-projects/targeted-nested-presence/source",
+          "scenario": "Stage 5 nested required presence and ordered emission: repeated calls, unsupported panic body, empty helper and nested returns"
+        }
+      ],
+      "sourceHashes": {
+        "Ballerina.toml": "644d9833261f11d0b73676921818cb7c11d4b5abab5553d4c13d940a5e3f38dc",
+        "main.bal": "45ee684798d3c705680dc54b8ce0f18119dfafb3a934bb31cc802b5213adca38"
+      },
+      "ast": "ast.golden",
+      "hir": "hir.golden.json",
+      "diagnostics": "diagnostics.json"
     }
   ]
 }

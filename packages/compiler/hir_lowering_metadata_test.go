@@ -116,6 +116,25 @@ public function main() {}
 	}
 }
 
+func TestLowerCallRecursivePresentationPrecedence(t *testing.T) {
+	for _, evaluation := range []bool{false, true} {
+		for _, supported := range []bool{false, true} {
+			b := graphBuilder{graph: HIRGraph{ID: "main"}, ports: map[string]bool{}}
+			node := b.addNode("call", "/call", "source", plain(HIRNodeStyleFunction, "literal chosen label"))
+			b.lowerCall(node, "/expand", directCall{target: "main", supported: supported, reason: "Source body unavailable."}, evaluation)
+			p := b.node(node).Presentation.Value.(HIRPlainPresentation)
+			r := p.Disclosure.Value.(HIRCallDisclosure).Recursive
+			reason := "Recursive calls remain collapsed."
+			if !evaluation && !supported {
+				reason = "Source body unavailable."
+			}
+			if r.Limitation == nil || *r.Limitation != reason || r.Title != HIRText(reason) || r.AriaLabel != "Recursive call literal chosen label" || r.Glyph != "↻" || r.Label != p.Label || len(r.Sections) != 0 {
+				t.Fatalf("evaluation=%v supported=%v: %+v", evaluation, supported, r)
+			}
+		}
+	}
+}
+
 func TestLoweringWorkspaceClientCallDisclosures(t *testing.T) {
 	for _, long := range []bool{false, true} {
 		name, host := "short", "broker"
@@ -173,13 +192,16 @@ public function main() {
 							t.Fatalf("lost composed controls: %+v", p.Disclosure)
 						}
 						call = context.Call
+						if r := context.ExpandedRecursive; r == nil || r.Label != context.Expanded.Label || !reflect.DeepEqual(r.Sections, context.Expanded.Sections) || r.AriaLabel != HIRText("Recursive call "+string(context.Expanded.Label)) {
+							t.Fatalf("lost expanded recursive presentation: %+v", r)
+						}
 						if context.OccurrenceKey == call.OccurrenceKey || !strings.HasSuffix(context.OccurrenceKey, "/context") || !strings.Contains(string(context.Expanded.Label), host) || !strings.Contains(string(context.Collapsed.Label), "…") {
 							t.Fatalf("invalid independent context: %+v", context)
 						}
 					} else {
 						call, _ = p.Disclosure.Value.(*HIRCallDisclosure)
 					}
-					if call == nil || call.OccurrenceKey != body.Reference.OccurrenceKey || call.OccurrenceKey != node.OccurrenceKey {
+					if call == nil || call.OccurrenceKey != body.Reference.OccurrenceKey || call.OccurrenceKey != node.OccurrenceKey+"/expand" {
 						t.Fatalf("lost call metadata: %+v", node)
 					}
 					left, _ := json.Marshal(call.Availability)
@@ -193,7 +215,7 @@ public function main() {
 						}
 						unavailable++
 					}
-					if call.Recursive.Label != p.Label || !reflect.DeepEqual(call.Recursive.Sections, p.Sections) || call.Recursive.Limitation == nil || call.Recursive.Title == "" || call.Recursive.AriaLabel == "" || call.Recursive.Glyph == "" {
+					if call.Recursive.Label != p.Label || !reflect.DeepEqual(call.Recursive.Sections, p.Sections) || call.Recursive.Limitation == nil || call.Recursive.Title == "" || call.Recursive.AriaLabel != HIRText("Recursive call "+string(p.Label)) || call.Recursive.Glyph == "" {
 						t.Fatalf("lost recursive presentation: %+v", call.Recursive)
 					}
 					if body.Reference.GraphID == graph.ID {

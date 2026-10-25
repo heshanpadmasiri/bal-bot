@@ -1029,7 +1029,7 @@
       "nodes": [
         {
           "id": "examples/function_expansion/function/adjust/examples/function_expansion/function/adjust/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/adjust/examples/function_expansion/function/adjust/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/adjust/statement/0",
           "sourceId": "examples/function_expansion/function/adjust/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1047,7 +1047,7 @@
         },
         {
           "id": "examples/function_expansion/function/adjust/root",
-          "occurrenceKey": "examples/function_expansion/function/adjust/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/function_expansion/function/adjust",
           "presentation": {
             "kind": "plain",
@@ -1067,6 +1067,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/function_expansion/function/adjust/statement/0:entry",
           "id": "examples/function_expansion/function/adjust/examples/function_expansion/function/adjust/statement/0:entry",
           "nodeId": "examples/function_expansion/function/adjust/examples/function_expansion/function/adjust/statement/0",
           "role": "entry",
@@ -1075,6 +1076,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/adjust/statement/0:normal-exit",
           "id": "examples/function_expansion/function/adjust/examples/function_expansion/function/adjust/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/adjust/examples/function_expansion/function/adjust/statement/0",
           "role": "normal-exit",
@@ -1083,6 +1085,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/adjust/statement/0:return",
           "id": "examples/function_expansion/function/adjust/examples/function_expansion/function/adjust/statement/0:return",
           "nodeId": "examples/function_expansion/function/adjust/examples/function_expansion/function/adjust/statement/0",
           "role": "return",
@@ -1091,6 +1094,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/function_expansion/function/adjust/root:entry",
           "nodeId": "examples/function_expansion/function/adjust/root",
           "role": "entry",
@@ -1099,6 +1103,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/function_expansion/function/adjust/root:normal-exit",
           "nodeId": "examples/function_expansion/function/adjust/root",
           "role": "normal-exit",
@@ -1432,7 +1437,7 @@
       "nodes": [
         {
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/0",
           "sourceId": "examples/function_expansion/function/countdown/statement/0/condition",
           "presentation": {
             "kind": "plain",
@@ -1451,7 +1456,7 @@
         },
         {
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0",
           "sourceId": "examples/function_expansion/function/countdown/statement/0/then/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1469,7 +1474,7 @@
         },
         {
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/1/block/statement/0",
           "sourceId": "examples/function_expansion/function/countdown/statement/1/block/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1488,7 +1493,7 @@
         },
         {
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
-          "occurrenceKey": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
           "sourceId": "examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -1498,7 +1503,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -1507,7 +1512,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call countdown(value - 1)",
                 "glyph": "↻"
               }
             }
@@ -1516,7 +1521,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/function_expansion/function/countdown",
-              "occurrenceKey": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -1638,7 +1643,7 @@
         },
         {
           "id": "examples/function_expansion/function/countdown/root",
-          "occurrenceKey": "examples/function_expansion/function/countdown/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/function_expansion/function/countdown",
           "presentation": {
             "kind": "plain",
@@ -1658,6 +1663,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/0:entry",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0:entry",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0",
           "role": "entry",
@@ -1666,6 +1672,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0:entry",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0:entry",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0",
           "role": "entry",
@@ -1674,6 +1681,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0:normal-exit",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0",
           "role": "normal-exit",
@@ -1682,6 +1690,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0:return",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0:return",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0/then/examples/function_expansion/function/countdown/statement/0/then/statement/0",
           "role": "return",
@@ -1690,6 +1699,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/0:normal-exit",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0",
           "role": "normal-exit",
@@ -1698,6 +1708,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/0:true",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0:true",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0",
           "role": "true",
@@ -1706,6 +1717,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/0:false",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0:false",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/0",
           "role": "false",
@@ -1714,6 +1726,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/1/block/statement/0:entry",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0:entry",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0",
           "role": "entry",
@@ -1722,6 +1735,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/1/block/statement/0:normal-exit",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0",
           "role": "normal-exit",
@@ -1730,6 +1744,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0:entry",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0:entry",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
           "role": "entry",
@@ -1738,6 +1753,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0:normal-exit",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0:normal-exit",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0/expand/examples/function_expansion/function/countdown/statement/1/block/statement/0/call/0",
           "role": "normal-exit",
@@ -1746,6 +1762,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/countdown/statement/1/block/statement/0:return",
           "id": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0:return",
           "nodeId": "examples/function_expansion/function/countdown/examples/function_expansion/function/countdown/statement/1/block/statement/0",
           "role": "return",
@@ -1754,6 +1771,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/function_expansion/function/countdown/root:entry",
           "nodeId": "examples/function_expansion/function/countdown/root",
           "role": "entry",
@@ -1762,6 +1780,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/function_expansion/function/countdown/root:normal-exit",
           "nodeId": "examples/function_expansion/function/countdown/root",
           "role": "normal-exit",
@@ -2999,7 +3018,7 @@
       "nodes": [
         {
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/0",
           "sourceId": "examples/function_expansion/function/evenStep/statement/0/condition",
           "presentation": {
             "kind": "plain",
@@ -3018,7 +3037,7 @@
         },
         {
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0",
           "sourceId": "examples/function_expansion/function/evenStep/statement/0/then/statement/0",
           "presentation": {
             "kind": "plain",
@@ -3036,7 +3055,7 @@
         },
         {
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/1/block/statement/0",
           "sourceId": "examples/function_expansion/function/evenStep/statement/1/block/statement/0",
           "presentation": {
             "kind": "plain",
@@ -3055,7 +3074,7 @@
         },
         {
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
-          "occurrenceKey": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
           "sourceId": "examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -3065,7 +3084,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -3074,7 +3093,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call oddStep(value - 1)",
                 "glyph": "↻"
               }
             }
@@ -3083,7 +3102,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/function_expansion/function/oddStep",
-              "occurrenceKey": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -3205,7 +3224,7 @@
         },
         {
           "id": "examples/function_expansion/function/evenStep/root",
-          "occurrenceKey": "examples/function_expansion/function/evenStep/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/function_expansion/function/evenStep",
           "presentation": {
             "kind": "plain",
@@ -3225,6 +3244,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/0:entry",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0:entry",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0",
           "role": "entry",
@@ -3233,6 +3253,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0:entry",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0:entry",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0",
           "role": "entry",
@@ -3241,6 +3262,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0:normal-exit",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0",
           "role": "normal-exit",
@@ -3249,6 +3271,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0:return",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0:return",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0/then/examples/function_expansion/function/evenStep/statement/0/then/statement/0",
           "role": "return",
@@ -3257,6 +3280,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/0:normal-exit",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0",
           "role": "normal-exit",
@@ -3265,6 +3289,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/0:true",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0:true",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0",
           "role": "true",
@@ -3273,6 +3298,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/0:false",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0:false",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/0",
           "role": "false",
@@ -3281,6 +3307,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/1/block/statement/0:entry",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0:entry",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0",
           "role": "entry",
@@ -3289,6 +3316,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/1/block/statement/0:normal-exit",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0",
           "role": "normal-exit",
@@ -3297,6 +3325,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0:entry",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0:entry",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
           "role": "entry",
@@ -3305,6 +3334,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0:normal-exit",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0:normal-exit",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0/expand/examples/function_expansion/function/evenStep/statement/1/block/statement/0/call/0",
           "role": "normal-exit",
@@ -3313,6 +3343,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/evenStep/statement/1/block/statement/0:return",
           "id": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0:return",
           "nodeId": "examples/function_expansion/function/evenStep/examples/function_expansion/function/evenStep/statement/1/block/statement/0",
           "role": "return",
@@ -3321,6 +3352,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/function_expansion/function/evenStep/root:entry",
           "nodeId": "examples/function_expansion/function/evenStep/root",
           "role": "entry",
@@ -3329,6 +3361,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/function_expansion/function/evenStep/root:normal-exit",
           "nodeId": "examples/function_expansion/function/evenStep/root",
           "role": "normal-exit",
@@ -4561,7 +4594,7 @@
       "nodes": [
         {
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/0",
           "sourceId": "examples/function_expansion/function/main/statement/0",
           "presentation": {
             "kind": "plain",
@@ -4580,7 +4613,7 @@
         },
         {
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0",
-          "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0",
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0",
           "sourceId": "examples/function_expansion/function/main/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -4590,7 +4623,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -4599,7 +4632,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call shared(2)",
                 "glyph": "↻"
               }
             }
@@ -4608,7 +4641,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/function_expansion/function/shared",
-              "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -4730,7 +4763,7 @@
         },
         {
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1",
-          "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1",
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/1",
           "sourceId": "examples/function_expansion/function/main/statement/1",
           "presentation": {
             "kind": "plain",
@@ -4749,7 +4782,7 @@
         },
         {
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0",
-          "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0",
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0",
           "sourceId": "examples/function_expansion/function/main/statement/1/call/0",
           "presentation": {
             "kind": "plain",
@@ -4759,7 +4792,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -4768,7 +4801,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call shared(3)",
                 "glyph": "↻"
               }
             }
@@ -4777,7 +4810,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/function_expansion/function/shared",
-              "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -4899,7 +4932,7 @@
         },
         {
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2",
-          "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2",
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/2",
           "sourceId": "examples/function_expansion/function/main/statement/2",
           "presentation": {
             "kind": "plain",
@@ -4918,7 +4951,7 @@
         },
         {
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0",
-          "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0",
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0",
           "sourceId": "examples/function_expansion/function/main/statement/2/call/0",
           "presentation": {
             "kind": "plain",
@@ -4928,7 +4961,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -4937,7 +4970,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call countdown(first)",
                 "glyph": "↻"
               }
             }
@@ -4946,7 +4979,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/function_expansion/function/countdown",
-              "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -5068,7 +5101,7 @@
         },
         {
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3",
-          "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3",
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/3",
           "sourceId": "examples/function_expansion/function/main/statement/3",
           "presentation": {
             "kind": "plain",
@@ -5087,7 +5120,7 @@
         },
         {
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0",
-          "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0",
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0",
           "sourceId": "examples/function_expansion/function/main/statement/3/call/0",
           "presentation": {
             "kind": "plain",
@@ -5097,7 +5130,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -5106,7 +5139,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call evenStep(second)",
                 "glyph": "↻"
               }
             }
@@ -5115,7 +5148,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/function_expansion/function/evenStep",
-              "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -5237,7 +5270,7 @@
         },
         {
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/4",
-          "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/4",
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/4",
           "sourceId": "examples/function_expansion/function/main/statement/4",
           "presentation": {
             "kind": "plain",
@@ -5255,7 +5288,7 @@
         },
         {
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/5",
-          "occurrenceKey": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/5",
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/5",
           "sourceId": "examples/function_expansion/function/main/statement/5",
           "presentation": {
             "kind": "plain",
@@ -5273,7 +5306,7 @@
         },
         {
           "id": "examples/function_expansion/function/main/root",
-          "occurrenceKey": "examples/function_expansion/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/function_expansion/function/main",
           "presentation": {
             "kind": "plain",
@@ -5293,6 +5326,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/0:entry",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0:entry",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0",
           "role": "entry",
@@ -5301,6 +5335,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/0:normal-exit",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0",
           "role": "normal-exit",
@@ -5309,6 +5344,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0:entry",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0:entry",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0",
           "role": "entry",
@@ -5317,6 +5353,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0:normal-exit",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0:normal-exit",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/0/expand/examples/function_expansion/function/main/statement/0/call/0",
           "role": "normal-exit",
@@ -5325,6 +5362,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/1:entry",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1:entry",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1",
           "role": "entry",
@@ -5333,6 +5371,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/1:normal-exit",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1:normal-exit",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1",
           "role": "normal-exit",
@@ -5341,6 +5380,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0:entry",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0:entry",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0",
           "role": "entry",
@@ -5349,6 +5389,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0:normal-exit",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0:normal-exit",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/1/expand/examples/function_expansion/function/main/statement/1/call/0",
           "role": "normal-exit",
@@ -5357,6 +5398,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/2:entry",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2:entry",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2",
           "role": "entry",
@@ -5365,6 +5407,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/2:normal-exit",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2:normal-exit",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2",
           "role": "normal-exit",
@@ -5373,6 +5416,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0:entry",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0:entry",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0",
           "role": "entry",
@@ -5381,6 +5425,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0:normal-exit",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0:normal-exit",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/2/expand/examples/function_expansion/function/main/statement/2/call/0",
           "role": "normal-exit",
@@ -5389,6 +5434,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/3:entry",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3:entry",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3",
           "role": "entry",
@@ -5397,6 +5443,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/3:normal-exit",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3:normal-exit",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3",
           "role": "normal-exit",
@@ -5405,6 +5452,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0:entry",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0:entry",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0",
           "role": "entry",
@@ -5413,6 +5461,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0:normal-exit",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0:normal-exit",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/3/expand/examples/function_expansion/function/main/statement/3/call/0",
           "role": "normal-exit",
@@ -5421,6 +5470,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/4:entry",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/4:entry",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/4",
           "role": "entry",
@@ -5429,6 +5479,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/4:normal-exit",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/4:normal-exit",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/4",
           "role": "normal-exit",
@@ -5437,6 +5488,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/5:entry",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/5:entry",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/5",
           "role": "entry",
@@ -5445,6 +5497,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/main/statement/5:normal-exit",
           "id": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/5:normal-exit",
           "nodeId": "examples/function_expansion/function/main/examples/function_expansion/function/main/statement/5",
           "role": "normal-exit",
@@ -5453,6 +5506,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/function_expansion/function/main/root:entry",
           "nodeId": "examples/function_expansion/function/main/root",
           "role": "entry",
@@ -5461,6 +5515,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/function_expansion/function/main/root:normal-exit",
           "nodeId": "examples/function_expansion/function/main/root",
           "role": "normal-exit",
@@ -7664,7 +7719,7 @@
       "nodes": [
         {
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/0",
           "sourceId": "examples/function_expansion/function/oddStep/statement/0/condition",
           "presentation": {
             "kind": "plain",
@@ -7683,7 +7738,7 @@
         },
         {
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0",
           "sourceId": "examples/function_expansion/function/oddStep/statement/0/then/statement/0",
           "presentation": {
             "kind": "plain",
@@ -7701,7 +7756,7 @@
         },
         {
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/1/block/statement/0",
           "sourceId": "examples/function_expansion/function/oddStep/statement/1/block/statement/0",
           "presentation": {
             "kind": "plain",
@@ -7720,7 +7775,7 @@
         },
         {
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
-          "occurrenceKey": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
           "sourceId": "examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -7730,7 +7785,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -7739,7 +7794,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call evenStep(value - 1)",
                 "glyph": "↻"
               }
             }
@@ -7748,7 +7803,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/function_expansion/function/evenStep",
-              "occurrenceKey": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -7870,7 +7925,7 @@
         },
         {
           "id": "examples/function_expansion/function/oddStep/root",
-          "occurrenceKey": "examples/function_expansion/function/oddStep/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/function_expansion/function/oddStep",
           "presentation": {
             "kind": "plain",
@@ -7890,6 +7945,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/0:entry",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0:entry",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0",
           "role": "entry",
@@ -7898,6 +7954,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0:entry",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0:entry",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0",
           "role": "entry",
@@ -7906,6 +7963,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0:normal-exit",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0",
           "role": "normal-exit",
@@ -7914,6 +7972,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0:return",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0:return",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0/then/examples/function_expansion/function/oddStep/statement/0/then/statement/0",
           "role": "return",
@@ -7922,6 +7981,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/0:normal-exit",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0",
           "role": "normal-exit",
@@ -7930,6 +7990,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/0:true",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0:true",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0",
           "role": "true",
@@ -7938,6 +7999,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/0:false",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0:false",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/0",
           "role": "false",
@@ -7946,6 +8008,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/1/block/statement/0:entry",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0:entry",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0",
           "role": "entry",
@@ -7954,6 +8017,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/1/block/statement/0:normal-exit",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0",
           "role": "normal-exit",
@@ -7962,6 +8026,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0:entry",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0:entry",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
           "role": "entry",
@@ -7970,6 +8035,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0:normal-exit",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0:normal-exit",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0/expand/examples/function_expansion/function/oddStep/statement/1/block/statement/0/call/0",
           "role": "normal-exit",
@@ -7978,6 +8044,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/oddStep/statement/1/block/statement/0:return",
           "id": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0:return",
           "nodeId": "examples/function_expansion/function/oddStep/examples/function_expansion/function/oddStep/statement/1/block/statement/0",
           "role": "return",
@@ -7986,6 +8053,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/function_expansion/function/oddStep/root:entry",
           "nodeId": "examples/function_expansion/function/oddStep/root",
           "role": "entry",
@@ -7994,6 +8062,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/function_expansion/function/oddStep/root:normal-exit",
           "nodeId": "examples/function_expansion/function/oddStep/root",
           "role": "normal-exit",
@@ -9231,7 +9300,7 @@
       "nodes": [
         {
           "id": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0",
-          "occurrenceKey": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0",
+          "occurrenceKey": "/examples/function_expansion/function/shared/statement/0",
           "sourceId": "examples/function_expansion/function/shared/statement/0",
           "presentation": {
             "kind": "plain",
@@ -9250,7 +9319,7 @@
         },
         {
           "id": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0",
-          "occurrenceKey": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0",
+          "occurrenceKey": "/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0",
           "sourceId": "examples/function_expansion/function/shared/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -9260,7 +9329,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -9269,7 +9338,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call adjust(value)",
                 "glyph": "↻"
               }
             }
@@ -9278,7 +9347,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/function_expansion/function/adjust",
-              "occurrenceKey": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0",
+              "occurrenceKey": "/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -9400,7 +9469,7 @@
         },
         {
           "id": "examples/function_expansion/function/shared/root",
-          "occurrenceKey": "examples/function_expansion/function/shared/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/function_expansion/function/shared",
           "presentation": {
             "kind": "plain",
@@ -9420,6 +9489,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/function_expansion/function/shared/statement/0:entry",
           "id": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0:entry",
           "nodeId": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0",
           "role": "entry",
@@ -9428,6 +9498,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/shared/statement/0:normal-exit",
           "id": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0:normal-exit",
           "nodeId": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0",
           "role": "normal-exit",
@@ -9436,6 +9507,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0:entry",
           "id": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0:entry",
           "nodeId": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0",
           "role": "entry",
@@ -9444,6 +9516,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0:normal-exit",
           "id": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0:normal-exit",
           "nodeId": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0/expand/examples/function_expansion/function/shared/statement/0/call/0",
           "role": "normal-exit",
@@ -9452,6 +9525,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/function_expansion/function/shared/statement/0:return",
           "id": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0:return",
           "nodeId": "examples/function_expansion/function/shared/examples/function_expansion/function/shared/statement/0",
           "role": "return",
@@ -9460,6 +9534,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/function_expansion/function/shared/root:entry",
           "nodeId": "examples/function_expansion/function/shared/root",
           "role": "entry",
@@ -9468,6 +9543,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/function_expansion/function/shared/root:normal-exit",
           "nodeId": "examples/function_expansion/function/shared/root",
           "role": "normal-exit",

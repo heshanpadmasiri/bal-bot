@@ -22,7 +22,7 @@ import (
 	"unicode/utf8"
 )
 
-var updateHIRGoldens = flag.Bool("update", false, "explicitly update only hir-projects AST/diagnostic/HIR goldens")
+var updateHIRGoldens = flag.Bool("update", false, "explicitly update HIR corpus and test-only parity lookup/synthetic fixtures")
 
 const hirProjectsRoot = "../../tests/fixtures/hir-projects"
 
@@ -395,6 +395,21 @@ func runHIRCase(t *testing.T, directory string, update bool) {
 	}
 	printed := checkLoweredHIR(t, files, hir)
 	compareHIRGolden(t, root, "hir.golden.json", []byte(printed), update)
+	// Test-only lookup key for the HIR parity Vite alias. Extract independently:
+	// legacy extraction must never supply input to direct HIR lowering.
+	legacyResolved, _, legacyErr := resolveProgram(files)
+	if legacyErr != nil || legacyResolved == nil {
+		t.Fatalf("resolve test-only legacy lookup: %v", legacyErr)
+	}
+	legacy, legacyErr := extractProgram(legacyResolved)
+	if legacyErr != nil {
+		t.Fatal(legacyErr)
+	}
+	legacyJSON, legacyErr := json.MarshalIndent(legacy, "", "  ")
+	if legacyErr != nil {
+		t.Fatal(legacyErr)
+	}
+	compareHIRGolden(t, root, "legacy-model.json", append(legacyJSON, '\n'), update)
 	second, err := lowerProgram(program)
 	if err != nil {
 		t.Fatalf("repeat lowering: %v", err)
@@ -644,8 +659,8 @@ func checkHIRLegacySourceIndexParity(t *testing.T, files Files) {
 func compareHIRGolden(t *testing.T, root, name string, actual []byte, update bool) {
 	t.Helper()
 	// Hard allow-list: even explicit update can never write render SVG/HTML files.
-	if name != "ast.golden" && name != "diagnostics.json" && name != "hir.golden.json" {
-		t.Fatalf("not an AST/diagnostics/HIR golden: %s", name)
+	if name != "ast.golden" && name != "diagnostics.json" && name != "hir.golden.json" && name != "legacy-model.json" {
+		t.Fatalf("not an allowed HIR corpus or test-only lookup golden: %s", name)
 	}
 	path := filepath.Join(root, name)
 	if update {

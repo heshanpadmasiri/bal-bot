@@ -497,7 +497,7 @@
       "nodes": [
         {
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/0",
-          "occurrenceKey": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/0",
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/0",
           "sourceId": "examples/panel_state/function/buildReport/statement/0",
           "presentation": {
             "kind": "plain",
@@ -515,7 +515,7 @@
         },
         {
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1",
-          "occurrenceKey": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1",
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/1",
           "sourceId": "examples/panel_state/function/buildReport/statement/1/condition",
           "presentation": {
             "kind": "plain",
@@ -534,7 +534,7 @@
         },
         {
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0",
-          "occurrenceKey": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0",
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0",
           "sourceId": "examples/panel_state/function/buildReport/statement/1/then/statement/0",
           "presentation": {
             "kind": "plain",
@@ -552,7 +552,7 @@
         },
         {
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/2/block/statement/0",
-          "occurrenceKey": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/2/block/statement/0",
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/2/block/statement/0",
           "sourceId": "examples/panel_state/function/buildReport/statement/2/block/statement/0",
           "presentation": {
             "kind": "plain",
@@ -570,7 +570,7 @@
         },
         {
           "id": "examples/panel_state/function/buildReport/root",
-          "occurrenceKey": "examples/panel_state/function/buildReport/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/panel_state/function/buildReport",
           "presentation": {
             "kind": "plain",
@@ -590,6 +590,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/0:entry",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/0:entry",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/0",
           "role": "entry",
@@ -598,6 +599,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/0:normal-exit",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/0:normal-exit",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/0",
           "role": "normal-exit",
@@ -606,6 +608,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/1:entry",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1:entry",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1",
           "role": "entry",
@@ -614,6 +617,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0:entry",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0:entry",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0",
           "role": "entry",
@@ -622,6 +626,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0:normal-exit",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0:normal-exit",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0",
           "role": "normal-exit",
@@ -630,6 +635,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0:return",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0:return",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1/then/examples/panel_state/function/buildReport/statement/1/then/statement/0",
           "role": "return",
@@ -638,6 +644,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/1:normal-exit",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1:normal-exit",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1",
           "role": "normal-exit",
@@ -646,6 +653,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/1:true",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1:true",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1",
           "role": "true",
@@ -654,6 +662,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/1:false",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1:false",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/1",
           "role": "false",
@@ -662,6 +671,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/2/block/statement/0:entry",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/2/block/statement/0:entry",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/2/block/statement/0",
           "role": "entry",
@@ -670,6 +680,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/2/block/statement/0:normal-exit",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/2/block/statement/0:normal-exit",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/2/block/statement/0",
           "role": "normal-exit",
@@ -678,6 +689,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/function/buildReport/statement/2/block/statement/0:return",
           "id": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/2/block/statement/0:return",
           "nodeId": "examples/panel_state/function/buildReport/examples/panel_state/function/buildReport/statement/2/block/statement/0",
           "role": "return",
@@ -686,6 +698,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/panel_state/function/buildReport/root:entry",
           "nodeId": "examples/panel_state/function/buildReport/root",
           "role": "entry",
@@ -694,6 +707,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/panel_state/function/buildReport/root:normal-exit",
           "nodeId": "examples/panel_state/function/buildReport/root",
           "role": "normal-exit",
@@ -1546,7 +1560,7 @@
       "nodes": [
         {
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0",
-          "occurrenceKey": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0",
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0",
           "sourceId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1565,7 +1579,7 @@
         },
         {
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
-          "occurrenceKey": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
           "sourceId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -1575,7 +1589,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
+              "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -1584,7 +1598,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call buildReport(5)",
                 "glyph": "↻"
               }
             }
@@ -1593,7 +1607,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/panel_state/function/buildReport",
-              "occurrenceKey": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
+              "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -1715,7 +1729,7 @@
         },
         {
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/root",
-          "occurrenceKey": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily",
           "presentation": {
             "kind": "plain",
@@ -1735,6 +1749,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0:entry",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0:entry",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0",
           "role": "entry",
@@ -1743,6 +1758,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0:normal-exit",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0:normal-exit",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0",
           "role": "normal-exit",
@@ -1751,6 +1767,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0:entry",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0:entry",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
           "role": "entry",
@@ -1759,6 +1776,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0:normal-exit",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0:normal-exit",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0/call/0",
           "role": "normal-exit",
@@ -1767,6 +1785,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0:return",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0:return",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/examples/panel_state/service/main.bal//reports/1/resource/get/daily/statement/0",
           "role": "return",
@@ -1775,6 +1794,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/root:entry",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/root",
           "role": "entry",
@@ -1783,6 +1803,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/root:normal-exit",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/daily/root",
           "role": "normal-exit",
@@ -2597,7 +2618,7 @@
       "nodes": [
         {
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0",
-          "occurrenceKey": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0",
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0",
           "sourceId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2616,7 +2637,7 @@
         },
         {
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
-          "occurrenceKey": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
           "sourceId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -2626,7 +2647,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
+              "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -2635,7 +2656,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call buildReport(35)",
                 "glyph": "↻"
               }
             }
@@ -2644,7 +2665,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/panel_state/function/buildReport",
-              "occurrenceKey": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
+              "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -2766,7 +2787,7 @@
         },
         {
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/root",
-          "occurrenceKey": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly",
           "presentation": {
             "kind": "plain",
@@ -2786,6 +2807,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0:entry",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0:entry",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0",
           "role": "entry",
@@ -2794,6 +2816,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0:normal-exit",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0:normal-exit",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0",
           "role": "normal-exit",
@@ -2802,6 +2825,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0:entry",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0:entry",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
           "role": "entry",
@@ -2810,6 +2834,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0:normal-exit",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0:normal-exit",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/expand/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0/call/0",
           "role": "normal-exit",
@@ -2818,6 +2843,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0:return",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0:return",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/examples/panel_state/service/main.bal//reports/1/resource/get/weekly/statement/0",
           "role": "return",
@@ -2826,6 +2852,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/root:entry",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/root",
           "role": "entry",
@@ -2834,6 +2861,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/root:normal-exit",
           "nodeId": "examples/panel_state/service/main.bal//reports/1/resource/get/weekly/root",
           "role": "normal-exit",

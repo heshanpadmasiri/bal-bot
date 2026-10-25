@@ -159,15 +159,15 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 			if e != nil {
 				return f, e
 			}
-			parts := []fragment{target}
+			nested := fragment{}
+			b.appendEvaluation(&nested, target, true)
 			if b.evaluationExists(expr) {
 				value, e := b.evaluate(id+"/value", path+"/evaluation/part/1", expr, calls, false)
 				if e != nil {
 					return f, e
 				}
-				parts = append(parts, value)
+				b.appendEvaluation(&nested, value, false)
 			}
-			nested := b.sequenceFragments(parts)
 			wrapperSource, err := b.source(id+"/evaluation", statement)
 			if err != nil {
 				return fragment{}, err
@@ -295,7 +295,15 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 			b.connect(member(b.addPort(node, HIRPortRoleFalse)), member(exit), HIREdgeKindFalse)
 		}
 		b.connect(body.normal, iteration, backKind)
+		continueStart := len(b.graph.Edges)
 		b.connect(body.continues, iteration, HIREdgeKindContinue)
+		if kind == "foreach" {
+			// The iteration marker lies below the body, so continue uses the
+			// forward obstacle route, not the while loop's backward route.
+			for i := continueStart; i < len(b.graph.Edges); i++ {
+				b.graph.Edges[i].Routing = HIRRoutingDirect
+			}
+		}
 		b.connect(body.breaks, member(exit), HIREdgeKindBreak)
 		f.returns = append(f.returns, body.returns...)
 		appendPanics(&f, body)

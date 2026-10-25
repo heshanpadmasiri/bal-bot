@@ -1008,7 +1008,7 @@
       "nodes": [
         {
           "id": "examples/service_discovery/function/sharedLabel/examples/service_discovery/function/sharedLabel/statement/0",
-          "occurrenceKey": "examples/service_discovery/function/sharedLabel/examples/service_discovery/function/sharedLabel/statement/0",
+          "occurrenceKey": "/examples/service_discovery/function/sharedLabel/statement/0",
           "sourceId": "examples/service_discovery/function/sharedLabel/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1026,7 +1026,7 @@
         },
         {
           "id": "examples/service_discovery/function/sharedLabel/root",
-          "occurrenceKey": "examples/service_discovery/function/sharedLabel/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/service_discovery/function/sharedLabel",
           "presentation": {
             "kind": "plain",
@@ -1046,6 +1046,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/service_discovery/function/sharedLabel/statement/0:entry",
           "id": "examples/service_discovery/function/sharedLabel/examples/service_discovery/function/sharedLabel/statement/0:entry",
           "nodeId": "examples/service_discovery/function/sharedLabel/examples/service_discovery/function/sharedLabel/statement/0",
           "role": "entry",
@@ -1054,6 +1055,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/function/sharedLabel/statement/0:normal-exit",
           "id": "examples/service_discovery/function/sharedLabel/examples/service_discovery/function/sharedLabel/statement/0:normal-exit",
           "nodeId": "examples/service_discovery/function/sharedLabel/examples/service_discovery/function/sharedLabel/statement/0",
           "role": "normal-exit",
@@ -1062,6 +1064,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/function/sharedLabel/statement/0:return",
           "id": "examples/service_discovery/function/sharedLabel/examples/service_discovery/function/sharedLabel/statement/0:return",
           "nodeId": "examples/service_discovery/function/sharedLabel/examples/service_discovery/function/sharedLabel/statement/0",
           "role": "return",
@@ -1070,6 +1073,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/service_discovery/function/sharedLabel/root:entry",
           "nodeId": "examples/service_discovery/function/sharedLabel/root",
           "role": "entry",
@@ -1078,6 +1082,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/service_discovery/function/sharedLabel/root:normal-exit",
           "nodeId": "examples/service_discovery/function/sharedLabel/root",
           "role": "normal-exit",
@@ -1406,7 +1411,7 @@
       "nodes": [
         {
           "id": "examples/service_discovery/function/unusedHelper/examples/service_discovery/function/unusedHelper/statement/0",
-          "occurrenceKey": "examples/service_discovery/function/unusedHelper/examples/service_discovery/function/unusedHelper/statement/0",
+          "occurrenceKey": "/examples/service_discovery/function/unusedHelper/statement/0",
           "sourceId": "examples/service_discovery/function/unusedHelper/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1424,7 +1429,7 @@
         },
         {
           "id": "examples/service_discovery/function/unusedHelper/root",
-          "occurrenceKey": "examples/service_discovery/function/unusedHelper/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/service_discovery/function/unusedHelper",
           "presentation": {
             "kind": "plain",
@@ -1444,6 +1449,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/service_discovery/function/unusedHelper/statement/0:entry",
           "id": "examples/service_discovery/function/unusedHelper/examples/service_discovery/function/unusedHelper/statement/0:entry",
           "nodeId": "examples/service_discovery/function/unusedHelper/examples/service_discovery/function/unusedHelper/statement/0",
           "role": "entry",
@@ -1452,6 +1458,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/function/unusedHelper/statement/0:normal-exit",
           "id": "examples/service_discovery/function/unusedHelper/examples/service_discovery/function/unusedHelper/statement/0:normal-exit",
           "nodeId": "examples/service_discovery/function/unusedHelper/examples/service_discovery/function/unusedHelper/statement/0",
           "role": "normal-exit",
@@ -1460,6 +1467,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/function/unusedHelper/statement/0:return",
           "id": "examples/service_discovery/function/unusedHelper/examples/service_discovery/function/unusedHelper/statement/0:return",
           "nodeId": "examples/service_discovery/function/unusedHelper/examples/service_discovery/function/unusedHelper/statement/0",
           "role": "return",
@@ -1468,6 +1476,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/service_discovery/function/unusedHelper/root:entry",
           "nodeId": "examples/service_discovery/function/unusedHelper/root",
           "role": "entry",
@@ -1476,6 +1485,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/service_discovery/function/unusedHelper/root:normal-exit",
           "nodeId": "examples/service_discovery/function/unusedHelper/root",
           "role": "normal-exit",
@@ -1813,7 +1823,7 @@
       "nodes": [
         {
           "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
-          "occurrenceKey": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
+          "occurrenceKey": "/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
           "sourceId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1831,7 +1841,7 @@
         },
         {
           "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
-          "occurrenceKey": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
+          "occurrenceKey": "/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
           "sourceId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
           "presentation": {
             "kind": "plain",
@@ -1849,7 +1859,7 @@
         },
         {
           "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/root",
-          "occurrenceKey": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes",
           "presentation": {
             "kind": "plain",
@@ -1869,6 +1879,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0:entry",
           "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0:entry",
           "nodeId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
           "role": "entry",
@@ -1877,6 +1888,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0:normal-exit",
           "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0:normal-exit",
           "nodeId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
           "role": "normal-exit",
@@ -1885,6 +1897,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1:entry",
           "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1:entry",
           "nodeId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
           "role": "entry",
@@ -1893,6 +1906,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1:normal-exit",
           "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1:normal-exit",
           "nodeId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
           "role": "normal-exit",
@@ -1901,6 +1915,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1:return",
           "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1:return",
           "nodeId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
           "role": "return",
@@ -1909,6 +1924,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/root:entry",
           "nodeId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/root",
           "role": "entry",
@@ -1917,6 +1933,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/root:normal-exit",
           "nodeId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/root",
           "role": "normal-exit",
@@ -2351,7 +2368,7 @@
       "nodes": [
         {
           "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0",
-          "occurrenceKey": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0",
+          "occurrenceKey": "/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0",
           "sourceId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2370,7 +2387,7 @@
         },
         {
           "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
-          "occurrenceKey": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
+          "occurrenceKey": "/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
           "sourceId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -2380,7 +2397,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
+              "occurrenceKey": "/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -2389,7 +2406,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call sharedLabel()",
                 "glyph": "↻"
               }
             }
@@ -2398,7 +2415,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/service_discovery/function/sharedLabel",
-              "occurrenceKey": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
+              "occurrenceKey": "/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -2520,7 +2537,7 @@
         },
         {
           "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/root",
-          "occurrenceKey": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items",
           "presentation": {
             "kind": "plain",
@@ -2540,6 +2557,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0:entry",
           "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0:entry",
           "nodeId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0",
           "role": "entry",
@@ -2548,6 +2566,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0:normal-exit",
           "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0:normal-exit",
           "nodeId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0",
           "role": "normal-exit",
@@ -2556,6 +2575,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0:entry",
           "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0:entry",
           "nodeId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
           "role": "entry",
@@ -2564,6 +2584,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0:normal-exit",
           "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0:normal-exit",
           "nodeId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/expand/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0/call/0",
           "role": "normal-exit",
@@ -2572,6 +2593,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0:return",
           "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0:return",
           "nodeId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/statement/0",
           "role": "return",
@@ -2580,6 +2602,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/root:entry",
           "nodeId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/root",
           "role": "entry",
@@ -2588,6 +2611,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/root:normal-exit",
           "nodeId": "examples/service_discovery/service/inventory.bal//inventory/1/resource/get/items/root",
           "role": "normal-exit",
@@ -3407,7 +3431,7 @@
       "nodes": [
         {
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0",
-          "occurrenceKey": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0",
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0",
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0",
           "presentation": {
             "kind": "plain",
@@ -3425,7 +3449,7 @@
         },
         {
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1",
-          "occurrenceKey": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1",
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1",
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1",
           "presentation": {
             "kind": "plain",
@@ -3443,7 +3467,7 @@
         },
         {
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/root",
-          "occurrenceKey": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh",
           "presentation": {
             "kind": "plain",
@@ -3463,6 +3487,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0:entry",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0:entry",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0",
           "role": "entry",
@@ -3471,6 +3496,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0:normal-exit",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0:normal-exit",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0",
           "role": "normal-exit",
@@ -3479,6 +3505,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1:entry",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1:entry",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1",
           "role": "entry",
@@ -3487,6 +3514,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1:normal-exit",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1:normal-exit",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1",
           "role": "normal-exit",
@@ -3495,6 +3523,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1:return",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1:return",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/1",
           "role": "return",
@@ -3503,6 +3532,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/root:entry",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/root",
           "role": "entry",
@@ -3511,6 +3541,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/root:normal-exit",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/root",
           "role": "normal-exit",
@@ -3945,7 +3976,7 @@
       "nodes": [
         {
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0",
-          "occurrenceKey": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0",
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0",
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0",
           "presentation": {
             "kind": "plain",
@@ -3963,7 +3994,7 @@
         },
         {
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/root",
-          "occurrenceKey": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder",
           "presentation": {
             "kind": "plain",
@@ -3983,6 +4014,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0:entry",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0:entry",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0",
           "role": "entry",
@@ -3991,6 +4023,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0:normal-exit",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0:normal-exit",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0",
           "role": "normal-exit",
@@ -3999,6 +4032,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0:return",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0:return",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/statement/0",
           "role": "return",
@@ -4007,6 +4041,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/root:entry",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/root",
           "role": "entry",
@@ -4015,6 +4050,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/root:normal-exit",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/method/formatOrder/root",
           "role": "normal-exit",
@@ -4352,7 +4388,7 @@
       "nodes": [
         {
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0",
-          "occurrenceKey": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0",
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0",
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0",
           "presentation": {
             "kind": "plain",
@@ -4370,7 +4406,7 @@
         },
         {
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1",
-          "occurrenceKey": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1",
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1",
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1",
           "presentation": {
             "kind": "plain",
@@ -4388,7 +4424,7 @@
         },
         {
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2",
-          "occurrenceKey": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2",
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2",
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2",
           "presentation": {
             "kind": "plain",
@@ -4406,7 +4442,7 @@
         },
         {
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/root",
-          "occurrenceKey": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]",
           "presentation": {
             "kind": "plain",
@@ -4426,6 +4462,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0:entry",
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0:entry",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0",
           "role": "entry",
@@ -4434,6 +4471,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0:normal-exit",
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0:normal-exit",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0",
           "role": "normal-exit",
@@ -4442,6 +4480,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1:entry",
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1:entry",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1",
           "role": "entry",
@@ -4450,6 +4489,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1:normal-exit",
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1:normal-exit",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1",
           "role": "normal-exit",
@@ -4458,6 +4498,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2:entry",
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2:entry",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2",
           "role": "entry",
@@ -4466,6 +4507,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2:normal-exit",
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2:normal-exit",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2",
           "role": "normal-exit",
@@ -4474,6 +4516,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2:return",
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2:return",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/2",
           "role": "return",
@@ -4482,6 +4525,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/root:entry",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/root",
           "role": "entry",
@@ -4490,6 +4534,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/root:normal-exit",
           "nodeId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/root",
           "role": "normal-exit",

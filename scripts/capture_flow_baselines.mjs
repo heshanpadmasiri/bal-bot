@@ -22,10 +22,12 @@ const args = process.argv.slice(2);
 const operations = ['--record', '--freeze', '--verify', '--smoke', '--self-test', '--prepare-fonts'];
 const modes = operations.filter(mode => args.includes(mode));
 const option = (name, fallback) => { const index = args.indexOf(name); return index < 0 ? fallback : args[index + 1]; };
-if (modes.length !== 1 || args.some((arg,index) => !operations.includes(arg) && !['--case','--concurrency'].includes(arg) && !['--case','--concurrency'].includes(args[index-1]))) {
-  throw Error('Usage: capture_flow_baselines.mjs --record|--freeze|--verify|--smoke|--self-test|--prepare-fonts [--case ID] [--concurrency 2]');
+if (modes.length !== 1 || args.some((arg,index) => !operations.includes(arg) && !['--case','--concurrency','--hir'].includes(arg) && !['--case','--concurrency'].includes(args[index-1]))) {
+  throw Error('Usage: capture_flow_baselines.mjs --record|--freeze|--verify|--smoke|--self-test|--prepare-fonts [--case ID] [--concurrency 2] [--hir]');
 }
 const operation = modes[0];
+const hir = args.includes('--hir');
+if (hir && !['--verify', '--smoke'].includes(operation)) throw Error('--hir is verify/smoke-only; HIR baseline writes are forbidden');
 if (process.env.CI && operation !== '--verify' && operation !== '--self-test') throw Error('CI may verify only; baseline writes/smoke are forbidden');
 const exists = async path => { try { await access(path); return true; } catch (error) { if (error.code === 'ENOENT') return false; throw error; } };
 const frozen = await exists(manifestPath);
@@ -41,7 +43,7 @@ const run = (command, args) => new Promise((accept,reject) => {
   child.once('error', reject); child.once('exit', code => { children.delete(child); code === 0 ? accept() : reject(Error(`${command} exited ${code}`)); });
 });
 const server = mode => new Promise((accept,reject) => {
-  const child = fork(resolve('scripts/flow-parity/server.mjs'), [mode, join(temporary, mode)], {stdio: ['ignore', 'inherit', 'inherit', 'ipc']});
+  const child = fork(resolve('scripts/flow-parity/server.mjs'), [mode, join(temporary, mode), ...(hir ? ['--hir'] : [])], {stdio: ['ignore', 'inherit', 'inherit', 'ipc']});
   children.add(child);
   const timer = setTimeout(() => reject(Error(`${mode} server startup timed out`)), 180000);
   child.once('message', message => {clearTimeout(timer); accept(`http://127.0.0.1:${message.port}`);});

@@ -4,6 +4,10 @@
     "main.bal": "\ud83d\ude00"
   },
   "cases": [
+    {"name": "client-long-expanded-recursive-missing", "file": "client-long-expanded-recursive-missing.json", "accept": false},
+    {"name": "client-long-expanded-recursive-null", "file": "client-long-expanded-recursive-null.json", "accept": false},
+    {"name": "client-long-expanded-recursive-extra", "file": "client-long-expanded-recursive-extra.json", "accept": false},
+    {"name": "client-long-expanded-recursive-without-call", "file": "client-long-expanded-recursive-without-call.json", "accept": false},
     {
       "name": "conditional-return-port",
       "file": "conditional-return-port.json",

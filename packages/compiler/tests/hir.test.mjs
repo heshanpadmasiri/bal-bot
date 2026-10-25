@@ -9,6 +9,19 @@ const root = new URL('../../../tests/fixtures/hir-contract/', import.meta.url);
 const corpus = JSON.parse(await readFile(new URL('cases.json', root), 'utf8'));
 assert.ok(corpus.cases.length > 0, 'empty HIR corpus');
 
+// Exercise the actual Go-lowered wire output, not just hand-built schema cases.
+const projectRoot = new URL('../../../tests/fixtures/hir-projects/', import.meta.url);
+const projects = JSON.parse(await readFile(new URL('manifest.json', projectRoot), 'utf8'));
+for (const fixture of projects.cases.filter(fixture => fixture.hir)) {
+  test(`HIR lowered corpus: ${fixture.id}`, async () => {
+    const value = JSON.parse(await readFile(new URL(`${fixture.directory}/${fixture.hir}`, projectRoot), 'utf8'));
+    const before = JSON.stringify(value);
+    assert.deepEqual(validateHIR(freeze(value)), value);
+    assert.deepEqual(validateHIR(JSON.parse(before)), value);
+    assert.equal(JSON.stringify(value), before, 'validator mutated Go-lowered HIR');
+  });
+}
+
 function freeze(value) {
   if (value && typeof value === 'object') {
     Object.values(value).forEach(freeze);
@@ -16,6 +29,31 @@ function freeze(value) {
   }
   return value;
 }
+
+test('HIR suppressed inline root members need slots only for active consumers', async () => {
+  const value = JSON.parse(await readFile(new URL('binding-mode-hidden-unused-interface.json', root), 'utf8'));
+  const target = value.functions.target;
+  // Root treatment runs in root mode only. Inline still queries the interface,
+  // but deliberately has no local slot for its mode-hidden member "in".
+  target.interfaces[0].root = {
+    kind: 'connect', bindingId: 'finish', toPort: 'out',
+    edge: { kind: 'return', label: null, routing: 'direct' },
+  };
+  target.emission.root.edges.push({ kind: 'binding', bindingId: 'finish', when: { kind: 'constant', value: true } });
+  assert.ok(!target.emission.inline.ports.some(slot => slot.itemId === 'in'));
+  validateHIR(freeze(structuredClone(value)));
+
+  // An actual entry edge into that same inline interface must still fail.
+  value.functions.main.nodes[0].body.reference.inline.push({
+    kind: 'entry', id: 'consume', when: { kind: 'constant', value: true },
+    callerPortId: 'out', targetInterfaceId: 'entry',
+    edge: { kind: 'sequence', label: null, routing: 'direct' },
+  });
+  for (const mode of ['root', 'inline']) {
+    value.functions.main.emission[mode].edges.push({ kind: 'binding', bindingId: 'consume', when: { kind: 'constant', value: true } });
+  }
+  assert.throws(() => validateHIR(freeze(value)), /active binding targets unemitted interface port/);
+});
 
 // A wall-clock guard makes accidental 2^24 expansion enumeration visible. This
 // generous limit is not a microbenchmark; symbolic validation takes milliseconds.

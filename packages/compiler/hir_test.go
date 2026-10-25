@@ -754,6 +754,66 @@ func TestHIRLoweringControlFlowAnchors(t *testing.T) {
 	}
 }
 
+func TestHIRLoweringContinueRouting(t *testing.T) {
+	files := project(`public function main() {
+ int total = 0;
+ foreach int value in [1, 2] {
+  if value == 1 { continue; }
+  while total < value {
+   total += 1;
+   if total == 1 { continue; }
+  }
+ }
+ while total < 5 {
+  total += 1;
+  foreach int value in [1, 2] {
+   if value == 1 { continue; }
+  }
+  if total == 4 { continue; }
+ }
+}`)
+	resolved, diagnostics, err := resolveProgram(files)
+	if err != nil || resolved == nil || len(diagnostics) != 0 {
+		t.Fatalf("resolve: %v: %+v", err, diagnostics)
+	}
+	program, err := lowerProgram(resolved)
+	if err != nil {
+		t.Fatal(err)
+	}
+	checkLoweredHIR(t, files, program)
+	seen := map[HIRRouting]int{}
+	for _, graph := range program.Functions {
+		ports := map[string]HIRPort{}
+		for _, port := range graph.Ports {
+			ports[port.ID] = port
+		}
+		for _, edge := range graph.Edges {
+			if edge.Kind != HIREdgeKindContinue {
+				continue
+			}
+			target := ports[edge.ToPort]
+			want := HIRRoutingBack
+			if target.Role == HIRPortRoleNextIteration {
+				want = HIRRoutingDirect
+				if target.Anchor.Kind != HIRAnchorKindIterationMarker {
+					t.Errorf("foreach continue target anchor = %s", target.Anchor.Kind)
+				}
+			} else if target.Role != HIRPortRoleEntry {
+				t.Errorf("while continue target role = %s", target.Role)
+			}
+			if edge.Routing != want {
+				t.Errorf("continue to %s routing = %s, want %s", target.Role, edge.Routing, want)
+			}
+			seen[want]++
+		}
+	}
+	for _, routing := range []HIRRouting{HIRRoutingDirect, HIRRoutingBack} {
+		if seen[routing] != 2 {
+			t.Errorf("checked %d %s continue edges, want 2", seen[routing], routing)
+		}
+	}
+}
+
 func hirReverseRecord[T any](record HIRRecord[T]) HIRRecord[T] {
 	keys := make([]string, 0, len(record))
 	for key := range record {

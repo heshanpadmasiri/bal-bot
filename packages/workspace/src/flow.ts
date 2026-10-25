@@ -116,7 +116,7 @@ export type HIRPresentation = { readonly kind: 'hidden' }
   | { readonly kind: 'client'; readonly style: 'client'; readonly label: string; readonly sections: readonly HIRLabelSection[]; readonly limitation: string | null; readonly disclosure: HIRDisclosure };
 export type HIRDisclosure = { readonly kind: 'none' }
   | { readonly kind: 'call'; readonly occurrenceKey: string; readonly availability: HIRAvailability; readonly recursive: HIRRecursivePresentation }
-  | { readonly kind: 'client-context'; readonly occurrenceKey: string; readonly collapsed: HIRLabelContent; readonly expanded: HIRLabelContent; readonly call: Extract<HIRDisclosure, { readonly kind: 'call' }> | null };
+  | { readonly kind: 'client-context'; readonly occurrenceKey: string; readonly collapsed: HIRLabelContent; readonly expanded: HIRLabelContent; readonly expandedRecursive: HIRRecursivePresentation | null; readonly call: Extract<HIRDisclosure, { readonly kind: 'call' }> | null };
 export interface HIRLabelContent { readonly label: string; readonly sections: readonly HIRLabelSection[]; }
 export interface HIRRecursivePresentation {
   readonly label: string;
@@ -129,7 +129,7 @@ export interface HIRRecursivePresentation {
 export type HIRAvailability = { readonly kind: 'available' } | { readonly kind: 'unavailable'; readonly reason: string };
 export type HIRPortRole = 'entry' | 'normal-exit' | 'true' | 'false' | 'return' | 'break' | 'continue' | 'next-iteration' | 'panic';
 export type HIRAnchor = { readonly kind: 'top-center' | 'header-left' | 'header-right' | 'header-bottom-center' | 'bottom-center' | 'group-bottom-center' | 'iteration-marker' };
-export interface HIRPort { readonly id: Id; readonly nodeId: Id; readonly role: HIRPortRole; readonly anchor: HIRAnchor; }
+export interface HIRPort { readonly occurrenceKey: string; readonly id: Id; readonly nodeId: Id; readonly role: HIRPortRole; readonly anchor: HIRAnchor; }
 export type HIREdgeKind = 'sequence' | 'true' | 'false' | 'back' | 'break' | 'continue' | 'return' | 'error' | 'panic';
 export interface HIREdgeStyle {
   readonly kind: HIREdgeKind;

@@ -3,6 +3,16 @@
   "stage": "post-baseline",
   "suites": [
     {
+      "file": "apps/editor/tests/hir-flow.test.mjs",
+      "rendering": false,
+      "purpose": "Generic HIR instantiation, occurrence recipes and frozen input structural checks; no SVG output or baseline writes."
+    },
+    {
+      "file": "packages/compiler/hir_synthetic_test.go",
+      "rendering": false,
+      "purpose": "Explicit test-only synthetic graph fixture generation and metadata lookup validation; no rendered output or baseline writes."
+    },
+    {
       "file": "packages/compiler/hir_text_test.go",
       "rendering": false,
       "purpose": "UTF-16-preserving presentation string JSON codec, truncation and print/validation round trips; no rendered baseline coverage."

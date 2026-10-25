@@ -523,7 +523,7 @@
       "nodes": [
         {
           "id": "examples/source_ranges/function/decorate/examples/source_ranges/function/decorate/statement/0",
-          "occurrenceKey": "examples/source_ranges/function/decorate/examples/source_ranges/function/decorate/statement/0",
+          "occurrenceKey": "/examples/source_ranges/function/decorate/statement/0",
           "sourceId": "examples/source_ranges/function/decorate/statement/0",
           "presentation": {
             "kind": "plain",
@@ -541,7 +541,7 @@
         },
         {
           "id": "examples/source_ranges/function/decorate/root",
-          "occurrenceKey": "examples/source_ranges/function/decorate/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/source_ranges/function/decorate",
           "presentation": {
             "kind": "plain",
@@ -561,6 +561,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/source_ranges/function/decorate/statement/0:entry",
           "id": "examples/source_ranges/function/decorate/examples/source_ranges/function/decorate/statement/0:entry",
           "nodeId": "examples/source_ranges/function/decorate/examples/source_ranges/function/decorate/statement/0",
           "role": "entry",
@@ -569,6 +570,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/decorate/statement/0:normal-exit",
           "id": "examples/source_ranges/function/decorate/examples/source_ranges/function/decorate/statement/0:normal-exit",
           "nodeId": "examples/source_ranges/function/decorate/examples/source_ranges/function/decorate/statement/0",
           "role": "normal-exit",
@@ -577,6 +579,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/decorate/statement/0:return",
           "id": "examples/source_ranges/function/decorate/examples/source_ranges/function/decorate/statement/0:return",
           "nodeId": "examples/source_ranges/function/decorate/examples/source_ranges/function/decorate/statement/0",
           "role": "return",
@@ -585,6 +588,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/source_ranges/function/decorate/root:entry",
           "nodeId": "examples/source_ranges/function/decorate/root",
           "role": "entry",
@@ -593,6 +597,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/source_ranges/function/decorate/root:normal-exit",
           "nodeId": "examples/source_ranges/function/decorate/root",
           "role": "normal-exit",
@@ -921,7 +926,7 @@
       "nodes": [
         {
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/0",
-          "occurrenceKey": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/0",
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/0",
           "sourceId": "examples/source_ranges/function/main/statement/0",
           "presentation": {
             "kind": "plain",
@@ -939,7 +944,7 @@
         },
         {
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1",
-          "occurrenceKey": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1",
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/1",
           "sourceId": "examples/source_ranges/function/main/statement/1",
           "presentation": {
             "kind": "plain",
@@ -958,7 +963,7 @@
         },
         {
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0",
-          "occurrenceKey": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0",
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0",
           "sourceId": "examples/source_ranges/function/main/statement/1/call/0",
           "presentation": {
             "kind": "plain",
@@ -968,7 +973,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0",
+              "occurrenceKey": "/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -977,7 +982,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call decorate(\n        greeting,\n        \"සිංහල\"\n    )",
                 "glyph": "↻"
               }
             }
@@ -986,7 +991,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/source_ranges/function/decorate",
-              "occurrenceKey": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0",
+              "occurrenceKey": "/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -1108,7 +1113,7 @@
         },
         {
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2",
-          "occurrenceKey": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2",
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/2",
           "sourceId": "examples/source_ranges/function/main/statement/2",
           "presentation": {
             "kind": "plain",
@@ -1127,7 +1132,7 @@
         },
         {
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0",
-          "occurrenceKey": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0",
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0",
           "sourceId": "examples/source_ranges/function/main/statement/2/call/0",
           "presentation": {
             "kind": "plain",
@@ -1137,7 +1142,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0",
+              "occurrenceKey": "/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -1146,7 +1151,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call windowsValue()",
                 "glyph": "↻"
               }
             }
@@ -1155,7 +1160,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/source_ranges/function/windowsValue",
-              "occurrenceKey": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0",
+              "occurrenceKey": "/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -1277,7 +1282,7 @@
         },
         {
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/3",
-          "occurrenceKey": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/3",
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/3",
           "sourceId": "examples/source_ranges/function/main/statement/3",
           "presentation": {
             "kind": "plain",
@@ -1295,7 +1300,7 @@
         },
         {
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/4",
-          "occurrenceKey": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/4",
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/4",
           "sourceId": "examples/source_ranges/function/main/statement/4",
           "presentation": {
             "kind": "plain",
@@ -1313,7 +1318,7 @@
         },
         {
           "id": "examples/source_ranges/function/main/root",
-          "occurrenceKey": "examples/source_ranges/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/source_ranges/function/main",
           "presentation": {
             "kind": "plain",
@@ -1333,6 +1338,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/0:entry",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/0:entry",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/0",
           "role": "entry",
@@ -1341,6 +1347,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/0:normal-exit",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/0:normal-exit",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/0",
           "role": "normal-exit",
@@ -1349,6 +1356,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/1:entry",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1:entry",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1",
           "role": "entry",
@@ -1357,6 +1365,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/1:normal-exit",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1:normal-exit",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1",
           "role": "normal-exit",
@@ -1365,6 +1374,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0:entry",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0:entry",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0",
           "role": "entry",
@@ -1373,6 +1383,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0:normal-exit",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0:normal-exit",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/1/expand/examples/source_ranges/function/main/statement/1/call/0",
           "role": "normal-exit",
@@ -1381,6 +1392,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/2:entry",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2:entry",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2",
           "role": "entry",
@@ -1389,6 +1401,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/2:normal-exit",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2:normal-exit",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2",
           "role": "normal-exit",
@@ -1397,6 +1410,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0:entry",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0:entry",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0",
           "role": "entry",
@@ -1405,6 +1419,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0:normal-exit",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0:normal-exit",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/2/expand/examples/source_ranges/function/main/statement/2/call/0",
           "role": "normal-exit",
@@ -1413,6 +1428,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/3:entry",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/3:entry",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/3",
           "role": "entry",
@@ -1421,6 +1437,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/3:normal-exit",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/3:normal-exit",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/3",
           "role": "normal-exit",
@@ -1429,6 +1446,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/4:entry",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/4:entry",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/4",
           "role": "entry",
@@ -1437,6 +1455,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/main/statement/4:normal-exit",
           "id": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/4:normal-exit",
           "nodeId": "examples/source_ranges/function/main/examples/source_ranges/function/main/statement/4",
           "role": "normal-exit",
@@ -1445,6 +1464,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/source_ranges/function/main/root:entry",
           "nodeId": "examples/source_ranges/function/main/root",
           "role": "entry",
@@ -1453,6 +1473,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/source_ranges/function/main/root:normal-exit",
           "nodeId": "examples/source_ranges/function/main/root",
           "role": "normal-exit",
@@ -2857,7 +2878,7 @@
       "nodes": [
         {
           "id": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/0",
-          "occurrenceKey": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/0",
+          "occurrenceKey": "/examples/source_ranges/function/windowsValue/statement/0",
           "sourceId": "examples/source_ranges/function/windowsValue/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2875,7 +2896,7 @@
         },
         {
           "id": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/1",
-          "occurrenceKey": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/1",
+          "occurrenceKey": "/examples/source_ranges/function/windowsValue/statement/1",
           "sourceId": "examples/source_ranges/function/windowsValue/statement/1",
           "presentation": {
             "kind": "plain",
@@ -2893,7 +2914,7 @@
         },
         {
           "id": "examples/source_ranges/function/windowsValue/root",
-          "occurrenceKey": "examples/source_ranges/function/windowsValue/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/source_ranges/function/windowsValue",
           "presentation": {
             "kind": "plain",
@@ -2913,6 +2934,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/source_ranges/function/windowsValue/statement/0:entry",
           "id": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/0:entry",
           "nodeId": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/0",
           "role": "entry",
@@ -2921,6 +2943,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/windowsValue/statement/0:normal-exit",
           "id": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/0:normal-exit",
           "nodeId": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/0",
           "role": "normal-exit",
@@ -2929,6 +2952,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/windowsValue/statement/1:entry",
           "id": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/1:entry",
           "nodeId": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/1",
           "role": "entry",
@@ -2937,6 +2961,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/windowsValue/statement/1:normal-exit",
           "id": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/1:normal-exit",
           "nodeId": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/1",
           "role": "normal-exit",
@@ -2945,6 +2970,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/source_ranges/function/windowsValue/statement/1:return",
           "id": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/1:return",
           "nodeId": "examples/source_ranges/function/windowsValue/examples/source_ranges/function/windowsValue/statement/1",
           "role": "return",
@@ -2953,6 +2979,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/source_ranges/function/windowsValue/root:entry",
           "nodeId": "examples/source_ranges/function/windowsValue/root",
           "role": "entry",
@@ -2961,6 +2988,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/source_ranges/function/windowsValue/root:normal-exit",
           "nodeId": "examples/source_ranges/function/windowsValue/root",
           "role": "normal-exit",

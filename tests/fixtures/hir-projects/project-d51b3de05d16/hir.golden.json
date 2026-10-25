@@ -741,7 +741,7 @@
       "nodes": [
         {
           "id": "browser/http_service/class/PricingEngine/method/quote/browser/http_service/class/PricingEngine/method/quote/statement/0",
-          "occurrenceKey": "browser/http_service/class/PricingEngine/method/quote/browser/http_service/class/PricingEngine/method/quote/statement/0",
+          "occurrenceKey": "/browser/http_service/class/PricingEngine/method/quote/statement/0",
           "sourceId": "browser/http_service/class/PricingEngine/method/quote/statement/0",
           "presentation": {
             "kind": "plain",
@@ -759,7 +759,7 @@
         },
         {
           "id": "browser/http_service/class/PricingEngine/method/quote/root",
-          "occurrenceKey": "browser/http_service/class/PricingEngine/method/quote/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/class/PricingEngine/method/quote",
           "presentation": {
             "kind": "plain",
@@ -779,6 +779,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/class/PricingEngine/method/quote/statement/0:entry",
           "id": "browser/http_service/class/PricingEngine/method/quote/browser/http_service/class/PricingEngine/method/quote/statement/0:entry",
           "nodeId": "browser/http_service/class/PricingEngine/method/quote/browser/http_service/class/PricingEngine/method/quote/statement/0",
           "role": "entry",
@@ -787,6 +788,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/class/PricingEngine/method/quote/statement/0:normal-exit",
           "id": "browser/http_service/class/PricingEngine/method/quote/browser/http_service/class/PricingEngine/method/quote/statement/0:normal-exit",
           "nodeId": "browser/http_service/class/PricingEngine/method/quote/browser/http_service/class/PricingEngine/method/quote/statement/0",
           "role": "normal-exit",
@@ -795,6 +797,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/class/PricingEngine/method/quote/statement/0:return",
           "id": "browser/http_service/class/PricingEngine/method/quote/browser/http_service/class/PricingEngine/method/quote/statement/0:return",
           "nodeId": "browser/http_service/class/PricingEngine/method/quote/browser/http_service/class/PricingEngine/method/quote/statement/0",
           "role": "return",
@@ -803,6 +806,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/class/PricingEngine/method/quote/root:entry",
           "nodeId": "browser/http_service/class/PricingEngine/method/quote/root",
           "role": "entry",
@@ -811,6 +815,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/class/PricingEngine/method/quote/root:normal-exit",
           "nodeId": "browser/http_service/class/PricingEngine/method/quote/root",
           "role": "normal-exit",
@@ -1148,7 +1153,7 @@
       "nodes": [
         {
           "id": "browser/http_service/function/calculateTax/browser/http_service/function/calculateTax/statement/0",
-          "occurrenceKey": "browser/http_service/function/calculateTax/browser/http_service/function/calculateTax/statement/0",
+          "occurrenceKey": "/browser/http_service/function/calculateTax/statement/0",
           "sourceId": "browser/http_service/function/calculateTax/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1166,7 +1171,7 @@
         },
         {
           "id": "browser/http_service/function/calculateTax/root",
-          "occurrenceKey": "browser/http_service/function/calculateTax/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/function/calculateTax",
           "presentation": {
             "kind": "plain",
@@ -1186,6 +1191,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/function/calculateTax/statement/0:entry",
           "id": "browser/http_service/function/calculateTax/browser/http_service/function/calculateTax/statement/0:entry",
           "nodeId": "browser/http_service/function/calculateTax/browser/http_service/function/calculateTax/statement/0",
           "role": "entry",
@@ -1194,6 +1200,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/calculateTax/statement/0:normal-exit",
           "id": "browser/http_service/function/calculateTax/browser/http_service/function/calculateTax/statement/0:normal-exit",
           "nodeId": "browser/http_service/function/calculateTax/browser/http_service/function/calculateTax/statement/0",
           "role": "normal-exit",
@@ -1202,6 +1209,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/calculateTax/statement/0:return",
           "id": "browser/http_service/function/calculateTax/browser/http_service/function/calculateTax/statement/0:return",
           "nodeId": "browser/http_service/function/calculateTax/browser/http_service/function/calculateTax/statement/0",
           "role": "return",
@@ -1210,6 +1218,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/function/calculateTax/root:entry",
           "nodeId": "browser/http_service/function/calculateTax/root",
           "role": "entry",
@@ -1218,6 +1227,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/function/calculateTax/root:normal-exit",
           "nodeId": "browser/http_service/function/calculateTax/root",
           "role": "normal-exit",
@@ -1551,7 +1561,7 @@
       "nodes": [
         {
           "id": "browser/http_service/function/identity/browser/http_service/function/identity/expression",
-          "occurrenceKey": "browser/http_service/function/identity/browser/http_service/function/identity/expression",
+          "occurrenceKey": "/browser/http_service/function/identity/expression",
           "sourceId": "browser/http_service/function/identity/expression",
           "presentation": {
             "kind": "plain",
@@ -1569,7 +1579,7 @@
         },
         {
           "id": "browser/http_service/function/identity/root",
-          "occurrenceKey": "browser/http_service/function/identity/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/function/identity",
           "presentation": {
             "kind": "plain",
@@ -1589,6 +1599,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/function/identity/expression:entry",
           "id": "browser/http_service/function/identity/browser/http_service/function/identity/expression:entry",
           "nodeId": "browser/http_service/function/identity/browser/http_service/function/identity/expression",
           "role": "entry",
@@ -1597,6 +1608,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/identity/expression:normal-exit",
           "id": "browser/http_service/function/identity/browser/http_service/function/identity/expression:normal-exit",
           "nodeId": "browser/http_service/function/identity/browser/http_service/function/identity/expression",
           "role": "normal-exit",
@@ -1605,6 +1617,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/identity/expression:return",
           "id": "browser/http_service/function/identity/browser/http_service/function/identity/expression:return",
           "nodeId": "browser/http_service/function/identity/browser/http_service/function/identity/expression",
           "role": "return",
@@ -1613,6 +1626,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/function/identity/root:entry",
           "nodeId": "browser/http_service/function/identity/root",
           "role": "entry",
@@ -1621,6 +1635,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/function/identity/root:normal-exit",
           "nodeId": "browser/http_service/function/identity/root",
           "role": "normal-exit",
@@ -1949,7 +1964,7 @@
       "nodes": [
         {
           "id": "browser/http_service/function/main/root",
-          "occurrenceKey": "browser/http_service/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/function/main",
           "presentation": {
             "kind": "plain",
@@ -1969,6 +1984,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/function/main/root:entry",
           "nodeId": "browser/http_service/function/main/root",
           "role": "entry",
@@ -1977,6 +1993,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/function/main/root:normal-exit",
           "nodeId": "browser/http_service/function/main/root",
           "role": "normal-exit",
@@ -2193,7 +2210,7 @@
       "nodes": [
         {
           "id": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/0",
-          "occurrenceKey": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/0",
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/0",
           "sourceId": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2211,7 +2228,7 @@
         },
         {
           "id": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1",
-          "occurrenceKey": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1",
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1",
           "sourceId": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1",
           "presentation": {
             "kind": "plain",
@@ -2229,7 +2246,7 @@
         },
         {
           "id": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/root",
-          "occurrenceKey": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh",
           "presentation": {
             "kind": "plain",
@@ -2249,6 +2266,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/0:entry",
           "id": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/0:entry",
           "nodeId": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/0",
           "role": "entry",
@@ -2257,6 +2275,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/0:normal-exit",
           "id": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/0:normal-exit",
           "nodeId": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/0",
           "role": "normal-exit",
@@ -2265,6 +2284,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1:entry",
           "id": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1:entry",
           "nodeId": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1",
           "role": "entry",
@@ -2273,6 +2293,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1:normal-exit",
           "id": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1:normal-exit",
           "nodeId": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1",
           "role": "normal-exit",
@@ -2281,6 +2302,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1:return",
           "id": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1:return",
           "nodeId": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/1",
           "role": "return",
@@ -2289,6 +2311,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/root:entry",
           "nodeId": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/root",
           "role": "entry",
@@ -2297,6 +2320,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/root:normal-exit",
           "nodeId": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/root",
           "role": "normal-exit",
@@ -2740,7 +2764,7 @@
       "nodes": [
         {
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/0",
-          "occurrenceKey": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/0",
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/0",
           "sourceId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2758,7 +2782,7 @@
         },
         {
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/1",
-          "occurrenceKey": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/1",
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/1",
           "sourceId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/1",
           "presentation": {
             "kind": "plain",
@@ -2776,7 +2800,7 @@
         },
         {
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2",
-          "occurrenceKey": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2",
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2",
           "sourceId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2",
           "presentation": {
             "kind": "plain",
@@ -2794,7 +2818,7 @@
         },
         {
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/root",
-          "occurrenceKey": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]",
           "presentation": {
             "kind": "plain",
@@ -2814,6 +2838,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/0:entry",
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/0:entry",
           "nodeId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/0",
           "role": "entry",
@@ -2822,6 +2847,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/0:normal-exit",
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/0:normal-exit",
           "nodeId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/0",
           "role": "normal-exit",
@@ -2830,6 +2856,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/1:entry",
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/1:entry",
           "nodeId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/1",
           "role": "entry",
@@ -2838,6 +2865,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/1:normal-exit",
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/1:normal-exit",
           "nodeId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/1",
           "role": "normal-exit",
@@ -2846,6 +2874,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2:entry",
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2:entry",
           "nodeId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2",
           "role": "entry",
@@ -2854,6 +2883,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2:normal-exit",
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2:normal-exit",
           "nodeId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2",
           "role": "normal-exit",
@@ -2862,6 +2892,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2:return",
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2:return",
           "nodeId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/2",
           "role": "return",
@@ -2870,6 +2901,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/root:entry",
           "nodeId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/root",
           "role": "entry",
@@ -2878,6 +2910,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/root:normal-exit",
           "nodeId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/root",
           "role": "normal-exit",

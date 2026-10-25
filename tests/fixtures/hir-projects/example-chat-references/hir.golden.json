@@ -395,7 +395,7 @@
       "nodes": [
         {
           "id": "examples/chat_references/function/shared/examples/chat_references/function/shared/statement/0",
-          "occurrenceKey": "examples/chat_references/function/shared/examples/chat_references/function/shared/statement/0",
+          "occurrenceKey": "/examples/chat_references/function/shared/statement/0",
           "sourceId": "examples/chat_references/function/shared/statement/0",
           "presentation": {
             "kind": "plain",
@@ -413,7 +413,7 @@
         },
         {
           "id": "examples/chat_references/function/shared/root",
-          "occurrenceKey": "examples/chat_references/function/shared/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/chat_references/function/shared",
           "presentation": {
             "kind": "plain",
@@ -433,6 +433,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/chat_references/function/shared/statement/0:entry",
           "id": "examples/chat_references/function/shared/examples/chat_references/function/shared/statement/0:entry",
           "nodeId": "examples/chat_references/function/shared/examples/chat_references/function/shared/statement/0",
           "role": "entry",
@@ -441,6 +442,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/chat_references/function/shared/statement/0:normal-exit",
           "id": "examples/chat_references/function/shared/examples/chat_references/function/shared/statement/0:normal-exit",
           "nodeId": "examples/chat_references/function/shared/examples/chat_references/function/shared/statement/0",
           "role": "normal-exit",
@@ -449,6 +451,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/chat_references/function/shared/statement/0:return",
           "id": "examples/chat_references/function/shared/examples/chat_references/function/shared/statement/0:return",
           "nodeId": "examples/chat_references/function/shared/examples/chat_references/function/shared/statement/0",
           "role": "return",
@@ -457,6 +460,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/chat_references/function/shared/root:entry",
           "nodeId": "examples/chat_references/function/shared/root",
           "role": "entry",
@@ -465,6 +469,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/chat_references/function/shared/root:normal-exit",
           "nodeId": "examples/chat_references/function/shared/root",
           "role": "normal-exit",
@@ -793,7 +798,7 @@
       "nodes": [
         {
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0",
-          "occurrenceKey": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0",
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0",
           "sourceId": "examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0",
           "presentation": {
             "kind": "plain",
@@ -812,7 +817,7 @@
         },
         {
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
-          "occurrenceKey": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
           "sourceId": "examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -822,7 +827,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
+              "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -831,7 +836,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call shared(\"first\")",
                 "glyph": "↻"
               }
             }
@@ -840,7 +845,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/chat_references/function/shared",
-              "occurrenceKey": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
+              "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -962,7 +967,7 @@
         },
         {
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/root",
-          "occurrenceKey": "examples/chat_references/service/main.bal//notes/1/resource/get/first/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/chat_references/service/main.bal//notes/1/resource/get/first",
           "presentation": {
             "kind": "plain",
@@ -982,6 +987,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0:entry",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0:entry",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0",
           "role": "entry",
@@ -990,6 +996,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0:normal-exit",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0:normal-exit",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0",
           "role": "normal-exit",
@@ -998,6 +1005,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0:entry",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0:entry",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
           "role": "entry",
@@ -1006,6 +1014,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0:normal-exit",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0:normal-exit",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0/call/0",
           "role": "normal-exit",
@@ -1014,6 +1023,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0:return",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0:return",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/first/examples/chat_references/service/main.bal//notes/1/resource/get/first/statement/0",
           "role": "return",
@@ -1022,6 +1032,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/root:entry",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/first/root",
           "role": "entry",
@@ -1030,6 +1041,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/first/root:normal-exit",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/first/root",
           "role": "normal-exit",
@@ -1844,7 +1856,7 @@
       "nodes": [
         {
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0",
-          "occurrenceKey": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0",
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0",
           "sourceId": "examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1863,7 +1875,7 @@
         },
         {
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
-          "occurrenceKey": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
           "sourceId": "examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -1873,7 +1885,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
+              "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -1882,7 +1894,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call shared(\"second\")",
                 "glyph": "↻"
               }
             }
@@ -1891,7 +1903,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/chat_references/function/shared",
-              "occurrenceKey": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
+              "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -2013,7 +2025,7 @@
         },
         {
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/root",
-          "occurrenceKey": "examples/chat_references/service/main.bal//notes/1/resource/get/second/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/chat_references/service/main.bal//notes/1/resource/get/second",
           "presentation": {
             "kind": "plain",
@@ -2033,6 +2045,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0:entry",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0:entry",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0",
           "role": "entry",
@@ -2041,6 +2054,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0:normal-exit",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0:normal-exit",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0",
           "role": "normal-exit",
@@ -2049,6 +2063,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0:entry",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0:entry",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
           "role": "entry",
@@ -2057,6 +2072,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0:normal-exit",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0:normal-exit",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/expand/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0/call/0",
           "role": "normal-exit",
@@ -2065,6 +2081,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0:return",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0:return",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/second/examples/chat_references/service/main.bal//notes/1/resource/get/second/statement/0",
           "role": "return",
@@ -2073,6 +2090,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/root:entry",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/second/root",
           "role": "entry",
@@ -2081,6 +2099,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/chat_references/service/main.bal//notes/1/resource/get/second/root:normal-exit",
           "nodeId": "examples/chat_references/service/main.bal//notes/1/resource/get/second/root",
           "role": "normal-exit",

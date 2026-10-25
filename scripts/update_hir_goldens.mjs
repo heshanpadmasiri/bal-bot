@@ -122,9 +122,12 @@ export function collectBrowserInventory() {
 
 function checkBrowserInventory() {
   const inventory = JSON.parse(readFileSync(path.join(base, 'source-inventory.json'), 'utf8'));
+  // New HIR-only suites are audited in the post-baseline registry, not silently
+  // added to the immutable original source inventory.
+  const postBaseline = new Set(JSON.parse(readFileSync(path.join(root, 'tests/hir-suite-inventory.json'), 'utf8')).suites.filter(suite => suite.rendering === false).map(suite => suite.file));
   const infrastructureFiles = ['packages/compiler/tests/client.test.mjs', 'packages/compiler/tests/native/main.go'];
   for (const directory of ['apps/editor/tests', 'packages/browser-workspace/tests']) {
-    infrastructureFiles.push(...readdirSync(path.join(root, directory)).filter(name => name.endsWith('.test.mjs') || name === 'fixtures.mjs').map(name => `${directory}/${name}`));
+    infrastructureFiles.push(...readdirSync(path.join(root, directory)).filter(name => name.endsWith('.test.mjs') || name === 'fixtures.mjs').map(name => `${directory}/${name}`).filter(file => !postBaseline.has(file)));
   }
   const excludedFiles = new Set();
   for (const entry of inventory.infrastructure ?? []) {
@@ -169,14 +172,14 @@ for (const case_ of manifest.cases) {
   if (hash(canonical({ kind: 'project', files })) !== case_.inputHash) throw Error(`Input hash mismatch: ${case_.id}`);
   if (case_.catalogRef && canonical(catalog[case_.catalogRef]?.files) !== canonical(files)) throw Error(`Captured original input mismatch: ${case_.id}`);
 }
-const result = spawnSync('go', ['test', '.', '-run', '^TestHIR(CorpusCoverage|SourceInventory|Projects)$', '-count=1', '-update'], {
+const result = spawnSync('go', ['test', '.', '-run', '^TestHIR(CorpusCoverage|SourceInventory|Projects|SyntheticFixtures)$', '-count=1', '-update'], {
   cwd: path.join(root, 'packages/compiler'), env: { ...process.env, GOWORK: 'off' }, stdio: 'inherit',
 });
 if (result.error) throw result.error;
 process.exitCode = result.status ?? 1;
 if (result.status === 0) {
   const projects = manifest.cases.filter(case_ => case_.kind === 'project');
-  console.log(`Updated ${projects.filter(case_ => case_.ast !== null).length} AST/HIR and ${projects.length} diagnostic goldens; ${manifest.cases.length - projects.length} synthetic inputs explicitly have no AST or lowered HIR. No frozen render artifacts written.`);
+  console.log(`Updated ${projects.filter(case_ => case_.ast !== null).length} AST/HIR/test-only legacy lookup snapshots and ${projects.length} diagnostic goldens; ${manifest.cases.length - projects.length} synthetic inputs have separate test-only graph adapters, never an AST or frontend-lowered HIR. No frozen render artifacts written.`);
 }
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

@@ -15,7 +15,7 @@
           }
         }
       },
-      "text": "\ud83d\ude00",
+      "text": "😀",
       "kind": "automation",
       "title": "Automation",
       "moduleId": "",
@@ -39,7 +39,7 @@
           }
         }
       },
-      "text": "\ud83d\ude00"
+      "text": "😀"
     },
     "source-a": {
       "id": "source-a",
@@ -56,7 +56,7 @@
           }
         }
       },
-      "text": "\ud83d\ude00"
+      "text": "😀"
     },
     "source-b": {
       "id": "source-b",
@@ -73,7 +73,7 @@
           }
         }
       },
-      "text": "\ud83d\ude00"
+      "text": "😀"
     },
     "scope": {
       "id": "scope",
@@ -90,7 +90,7 @@
           }
         }
       },
-      "text": "\ud83d\ude00"
+      "text": "😀"
     }
   },
   "functions": {
@@ -109,7 +109,7 @@
           }
         }
       },
-      "text": "\ud83d\ude00",
+      "text": "😀",
       "moduleId": "m",
       "entry": {
         "kind": "function",
@@ -175,7 +175,8 @@
           "role": "normal-exit",
           "anchor": {
             "kind": "bottom-center"
-          }
+          },
+          "occurrenceKey": "port/out"
         },
         {
           "id": "in",
@@ -183,7 +184,8 @@
           "role": "entry",
           "anchor": {
             "kind": "top-center"
-          }
+          },
+          "occurrenceKey": "port/in"
         }
       ],
       "edges": [

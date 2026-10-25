@@ -106,7 +106,7 @@
       "nodes": [
         {
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0",
-          "occurrenceKey": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0",
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/0",
           "sourceId": "examples/automation_flow/function/main/statement/0",
           "presentation": {
             "kind": "plain",
@@ -124,7 +124,7 @@
         },
         {
           "id": "examples/automation_flow/function/main/root",
-          "occurrenceKey": "examples/automation_flow/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/automation_flow/function/main",
           "presentation": {
             "kind": "plain",
@@ -144,6 +144,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/0:entry",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0:entry",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0",
           "role": "entry",
@@ -152,6 +153,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/0:normal-exit",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0:normal-exit",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0",
           "role": "normal-exit",
@@ -160,6 +162,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/automation_flow/function/main/root:entry",
           "nodeId": "examples/automation_flow/function/main/root",
           "role": "entry",
@@ -168,6 +171,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/automation_flow/function/main/root:normal-exit",
           "nodeId": "examples/automation_flow/function/main/root",
           "role": "normal-exit",

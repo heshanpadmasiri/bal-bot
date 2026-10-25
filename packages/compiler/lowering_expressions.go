@@ -5,6 +5,7 @@ import (
 	"github.com/ballerina-nutcracker/ballerina/ast"
 	"github.com/ballerina-nutcracker/ballerina/model"
 	"github.com/ballerina-nutcracker/ballerina/semtypes"
+	"strings"
 )
 
 // directCall retains resolved source identity, not an exported call DTO.
@@ -238,19 +239,19 @@ func (b *graphBuilder) evaluationExists(expr ast.BLangActionOrExpression) bool {
 	}
 	return false
 }
-func (b *graphBuilder) sequenceFragments(parts []fragment) fragment {
-	f := fragment{}
-	for i, p := range parts {
-		if i == 0 {
-			f.entry = p.entry
-		}
-		b.connect(f.normal, p.entry, HIREdgeKindSequence)
-		f.normal = p.normal
-		f.nodes = append(f.nodes, p.nodes...)
-		f.returns = append(f.returns, p.returns...)
-		appendPanics(&f, p)
+
+// appendEvaluation must run immediately after constructing each child, before
+// constructing its next sibling. Connections belong after that child's own
+// edges (including expanded-call bindings), not after all siblings' edges.
+func (b *graphBuilder) appendEvaluation(f *fragment, p fragment, first bool) {
+	if first {
+		f.entry = p.entry
 	}
-	return f
+	b.connect(f.normal, p.entry, HIREdgeKindSequence)
+	f.normal = p.normal
+	f.nodes = append(f.nodes, p.nodes...)
+	f.returns = append(f.returns, p.returns...)
+	appendPanics(f, p)
 }
 func (b *graphBuilder) lowerExpression(sourceID, path string, expr ast.BLangActionOrExpression, calls []directCall) (fragment, error) {
 	return b.evaluate(sourceID, path, expr, calls, false)
@@ -270,7 +271,7 @@ func (b *graphBuilder) evaluate(sourceID, path string, expr ast.BLangActionOrExp
 	if err != nil {
 		return fragment{}, err
 	}
-	children := []fragment{}
+	nested := fragment{}
 	childIndex := 0
 	for i, p := range parts {
 		exists := b.evaluationExists(p)
@@ -286,21 +287,20 @@ func (b *graphBuilder) evaluate(sourceID, path string, expr ast.BLangActionOrExp
 		if !exists {
 			continue
 		}
-		child, err := b.evaluate(sid, fmt.Sprintf("%s/part/%d", path, len(children)), p, calls, false)
+		child, err := b.evaluate(sid, fmt.Sprintf("%s/part/%d", path, childIndex), p, calls, false)
 		if err != nil {
 			return fragment{}, err
 		}
-		children = append(children, child)
+		b.appendEvaluation(&nested, child, childIndex == 0)
 		childIndex++
 	}
-	if (kind == "check" || kind == "checkpanic" || kind == "trap") && len(children) == 0 && len(parts) > 0 {
+	if (kind == "check" || kind == "checkpanic" || kind == "trap") && childIndex == 0 && len(parts) > 0 {
 		child, err := b.evaluate(sourceID+"/operand", path+"/part/0", parts[0], calls, true)
 		if err != nil {
 			return fragment{}, err
 		}
-		children = append(children, child)
+		b.appendEvaluation(&nested, child, true)
 	}
-	nested := b.sequenceFragments(children)
 	if kind == "check" || kind == "checkpanic" {
 		terminalStyle := HIRNodeStyleReturn
 		label := "Return error"
@@ -408,7 +408,7 @@ func (b *graphBuilder) clientPresentation(c *directCall, path string) (HIRPresen
 	}
 	p := value.presentation.Value.(HIRClientPresentation)
 	if disclosure, ok := p.Disclosure.Value.(HIRClientContextDisclosure); ok {
-		disclosure.OccurrenceKey = path + "/context"
+		disclosure.OccurrenceKey = strings.TrimPrefix(path, b.graph.ID) + "/context"
 		p.Disclosure.Value = disclosure
 	}
 	return HIRPresentation{Value: p}, nil
@@ -419,10 +419,15 @@ func (b *graphBuilder) lowerCall(node, occ string, c directCall, evaluation bool
 		availability = HIRAvailability{Value: HIRUnavailable{Reason: c.reason}}
 	}
 	n := b.node(node)
-	n.OccurrenceKey = occ
+	occ = strings.TrimPrefix(occ, b.graph.ID)
 	reason := "Recursive calls remain collapsed."
+	// Ordinary calls report source unavailability before recursion; evaluation
+	// calls report recursion first. The accessible name always uses the chosen label.
+	if !evaluation && !c.supported {
+		reason = c.reason
+	}
 	callDisclosure := func(label HIRText, sections HIRList[HIRLabelSection]) HIRCallDisclosure {
-		return HIRCallDisclosure{OccurrenceKey: occ, Availability: availability, Recursive: HIRRecursivePresentation{Label: label, Sections: sections, Limitation: &reason, Title: HIRText(reason), AriaLabel: HIRText(reason), Glyph: "↻"}}
+		return HIRCallDisclosure{OccurrenceKey: occ, Availability: availability, Recursive: HIRRecursivePresentation{Label: label, Sections: sections, Limitation: &reason, Title: HIRText(reason), AriaLabel: HIRText("Recursive call " + string(label)), Glyph: "↻"}}
 	}
 	switch p := n.Presentation.Value.(type) {
 	case HIRPlainPresentation:
@@ -431,7 +436,10 @@ func (b *graphBuilder) lowerCall(node, occ string, c directCall, evaluation bool
 	case HIRClientPresentation:
 		call := callDisclosure(p.Label, p.Sections)
 		if context, ok := p.Disclosure.Value.(HIRClientContextDisclosure); ok {
+			call = callDisclosure(context.Collapsed.Label, context.Collapsed.Sections)
 			context.Call = &call
+			expanded := callDisclosure(context.Expanded.Label, context.Expanded.Sections).Recursive
+			context.ExpandedRecursive = &expanded
 			p.Disclosure = HIRDisclosure{Value: context}
 		} else {
 			p.Disclosure = HIRDisclosure{Value: call}

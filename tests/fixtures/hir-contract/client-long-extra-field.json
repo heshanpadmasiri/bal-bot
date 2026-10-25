@@ -154,6 +154,19 @@
                   "glyph": "\u21bb"
                 },
                 "extra": true
+              },
+              "expandedRecursive": {
+                "label": "a",
+                "sections": [
+                  {
+                    "kind": "text",
+                    "text": "a"
+                  }
+                ],
+                "limitation": null,
+                "title": "Recursive",
+                "ariaLabel": "Recursive call a",
+                "glyph": "\u21bb"
               }
             }
           },
@@ -234,7 +247,8 @@
           "role": "normal-exit",
           "anchor": {
             "kind": "bottom-center"
-          }
+          },
+          "occurrenceKey": "port/out"
         },
         {
           "id": "in",
@@ -242,7 +256,8 @@
           "role": "entry",
           "anchor": {
             "kind": "top-center"
-          }
+          },
+          "occurrenceKey": "port/in"
         }
       ],
       "edges": [
@@ -531,7 +546,8 @@
           "role": "normal-exit",
           "anchor": {
             "kind": "bottom-center"
-          }
+          },
+          "occurrenceKey": "port/out"
         },
         {
           "id": "in",
@@ -539,7 +555,8 @@
           "role": "entry",
           "anchor": {
             "kind": "top-center"
-          }
+          },
+          "occurrenceKey": "port/in"
         }
       ],
       "edges": [

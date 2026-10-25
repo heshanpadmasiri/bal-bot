@@ -298,7 +298,7 @@
       "nodes": [
         {
           "id": "examples/analysis_recovery/function/double/examples/analysis_recovery/function/double/statement/0",
-          "occurrenceKey": "examples/analysis_recovery/function/double/examples/analysis_recovery/function/double/statement/0",
+          "occurrenceKey": "/examples/analysis_recovery/function/double/statement/0",
           "sourceId": "examples/analysis_recovery/function/double/statement/0",
           "presentation": {
             "kind": "plain",
@@ -316,7 +316,7 @@
         },
         {
           "id": "examples/analysis_recovery/function/double/root",
-          "occurrenceKey": "examples/analysis_recovery/function/double/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/analysis_recovery/function/double",
           "presentation": {
             "kind": "plain",
@@ -336,6 +336,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/analysis_recovery/function/double/statement/0:entry",
           "id": "examples/analysis_recovery/function/double/examples/analysis_recovery/function/double/statement/0:entry",
           "nodeId": "examples/analysis_recovery/function/double/examples/analysis_recovery/function/double/statement/0",
           "role": "entry",
@@ -344,6 +345,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/analysis_recovery/function/double/statement/0:normal-exit",
           "id": "examples/analysis_recovery/function/double/examples/analysis_recovery/function/double/statement/0:normal-exit",
           "nodeId": "examples/analysis_recovery/function/double/examples/analysis_recovery/function/double/statement/0",
           "role": "normal-exit",
@@ -352,6 +354,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/analysis_recovery/function/double/statement/0:return",
           "id": "examples/analysis_recovery/function/double/examples/analysis_recovery/function/double/statement/0:return",
           "nodeId": "examples/analysis_recovery/function/double/examples/analysis_recovery/function/double/statement/0",
           "role": "return",
@@ -360,6 +363,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/analysis_recovery/function/double/root:entry",
           "nodeId": "examples/analysis_recovery/function/double/root",
           "role": "entry",
@@ -368,6 +372,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/analysis_recovery/function/double/root:normal-exit",
           "nodeId": "examples/analysis_recovery/function/double/root",
           "role": "normal-exit",
@@ -696,7 +701,7 @@
       "nodes": [
         {
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/0",
-          "occurrenceKey": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/0",
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/0",
           "sourceId": "examples/analysis_recovery/function/main/statement/0",
           "presentation": {
             "kind": "plain",
@@ -714,7 +719,7 @@
         },
         {
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1",
-          "occurrenceKey": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1",
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/1",
           "sourceId": "examples/analysis_recovery/function/main/statement/1",
           "presentation": {
             "kind": "plain",
@@ -733,7 +738,7 @@
         },
         {
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0",
-          "occurrenceKey": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0",
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0",
           "sourceId": "examples/analysis_recovery/function/main/statement/1/call/0",
           "presentation": {
             "kind": "plain",
@@ -743,7 +748,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0",
+              "occurrenceKey": "/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -752,7 +757,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call double(amount)",
                 "glyph": "↻"
               }
             }
@@ -761,7 +766,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/analysis_recovery/function/double",
-              "occurrenceKey": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0",
+              "occurrenceKey": "/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -883,7 +888,7 @@
         },
         {
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/2",
-          "occurrenceKey": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/2",
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/2",
           "sourceId": "examples/analysis_recovery/function/main/statement/2",
           "presentation": {
             "kind": "plain",
@@ -901,7 +906,7 @@
         },
         {
           "id": "examples/analysis_recovery/function/main/root",
-          "occurrenceKey": "examples/analysis_recovery/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/analysis_recovery/function/main",
           "presentation": {
             "kind": "plain",
@@ -921,6 +926,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/0:entry",
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/0:entry",
           "nodeId": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/0",
           "role": "entry",
@@ -929,6 +935,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/0:normal-exit",
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/0:normal-exit",
           "nodeId": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/0",
           "role": "normal-exit",
@@ -937,6 +944,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/1:entry",
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1:entry",
           "nodeId": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1",
           "role": "entry",
@@ -945,6 +953,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/1:normal-exit",
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1:normal-exit",
           "nodeId": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1",
           "role": "normal-exit",
@@ -953,6 +962,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0:entry",
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0:entry",
           "nodeId": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0",
           "role": "entry",
@@ -961,6 +971,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0:normal-exit",
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0:normal-exit",
           "nodeId": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/1/expand/examples/analysis_recovery/function/main/statement/1/call/0",
           "role": "normal-exit",
@@ -969,6 +980,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/2:entry",
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/2:entry",
           "nodeId": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/2",
           "role": "entry",
@@ -977,6 +989,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/analysis_recovery/function/main/statement/2:normal-exit",
           "id": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/2:normal-exit",
           "nodeId": "examples/analysis_recovery/function/main/examples/analysis_recovery/function/main/statement/2",
           "role": "normal-exit",
@@ -985,6 +998,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/analysis_recovery/function/main/root:entry",
           "nodeId": "examples/analysis_recovery/function/main/root",
           "role": "entry",
@@ -993,6 +1007,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/analysis_recovery/function/main/root:normal-exit",
           "nodeId": "examples/analysis_recovery/function/main/root",
           "role": "normal-exit",

@@ -548,7 +548,7 @@
       "nodes": [
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0",
+          "occurrenceKey": "/browser/http_service/function/main/statement/0",
           "sourceId": "browser/http_service/function/main/statement/0",
           "presentation": {
             "kind": "plain",
@@ -566,7 +566,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/part/0",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/part/0/expand",
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0/part/0",
           "sourceId": "browser/http_service/function/main/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -576,7 +576,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "available"
               },
@@ -585,7 +585,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call risky()",
                 "glyph": "↻"
               }
             }
@@ -594,7 +594,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "browser/http_service/function/risky",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "available"
               },
@@ -731,7 +731,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/error",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/error",
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0/error",
           "sourceId": "browser/http_service/function/main/statement/0/value/part/0",
           "presentation": {
             "kind": "plain",
@@ -749,7 +749,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0",
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0",
           "sourceId": "browser/http_service/function/main/statement/0/value/part/0",
           "presentation": {
             "kind": "plain",
@@ -768,7 +768,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/capture",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/capture",
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/capture",
           "sourceId": "browser/http_service/function/main/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -786,7 +786,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation",
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation",
           "sourceId": "browser/http_service/function/main/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -805,7 +805,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/1",
+          "occurrenceKey": "/browser/http_service/function/main/statement/1",
           "sourceId": "browser/http_service/function/main/statement/1",
           "presentation": {
             "kind": "plain",
@@ -823,7 +823,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/part/0",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/part/0/expand",
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0/part/0",
           "sourceId": "browser/http_service/function/main/statement/1/call/0",
           "presentation": {
             "kind": "plain",
@@ -833,7 +833,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "available"
               },
@@ -842,7 +842,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call risky()",
                 "glyph": "↻"
               }
             }
@@ -851,7 +851,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "browser/http_service/function/risky",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "available"
               },
@@ -988,7 +988,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/capture",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/capture",
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0/capture",
           "sourceId": "browser/http_service/function/main/statement/1/value/part/0",
           "presentation": {
             "kind": "plain",
@@ -1006,7 +1006,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0",
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0",
           "sourceId": "browser/http_service/function/main/statement/1/value/part/0",
           "presentation": {
             "kind": "plain",
@@ -1025,7 +1025,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/error",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/error",
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/error",
           "sourceId": "browser/http_service/function/main/statement/1/value",
           "presentation": {
             "kind": "plain",
@@ -1043,7 +1043,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation",
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation",
           "sourceId": "browser/http_service/function/main/statement/1/value",
           "presentation": {
             "kind": "plain",
@@ -1062,7 +1062,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/2",
+          "occurrenceKey": "/browser/http_service/function/main/statement/2",
           "sourceId": "browser/http_service/function/main/statement/2",
           "presentation": {
             "kind": "plain",
@@ -1080,7 +1080,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/part/0",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/part/0/expand",
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0/part/0",
           "sourceId": "browser/http_service/function/main/statement/2/call/0",
           "presentation": {
             "kind": "plain",
@@ -1090,7 +1090,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "available"
               },
@@ -1099,7 +1099,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call risky()",
                 "glyph": "↻"
               }
             }
@@ -1108,7 +1108,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "browser/http_service/function/risky",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "available"
               },
@@ -1240,7 +1240,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/error",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/error",
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0/error",
           "sourceId": "browser/http_service/function/main/statement/2/value/insertion/0",
           "presentation": {
             "kind": "plain",
@@ -1258,7 +1258,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0",
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0",
           "sourceId": "browser/http_service/function/main/statement/2/value/insertion/0",
           "presentation": {
             "kind": "plain",
@@ -1277,7 +1277,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation",
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation",
           "sourceId": "browser/http_service/function/main/statement/2/value",
           "presentation": {
             "kind": "plain",
@@ -1295,7 +1295,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/3",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/3",
+          "occurrenceKey": "/browser/http_service/function/main/statement/3",
           "sourceId": "browser/http_service/function/main/statement/3",
           "presentation": {
             "kind": "plain",
@@ -1313,7 +1313,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/4",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/4",
+          "occurrenceKey": "/browser/http_service/function/main/statement/4",
           "sourceId": "browser/http_service/function/main/statement/4",
           "presentation": {
             "kind": "plain",
@@ -1331,7 +1331,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/5",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/5",
+          "occurrenceKey": "/browser/http_service/function/main/statement/5",
           "sourceId": "browser/http_service/function/main/statement/5",
           "presentation": {
             "kind": "plain",
@@ -1349,7 +1349,7 @@
         },
         {
           "id": "browser/http_service/function/main/root",
-          "occurrenceKey": "browser/http_service/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/function/main",
           "presentation": {
             "kind": "plain",
@@ -1369,6 +1369,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0",
           "role": "entry",
@@ -1377,6 +1378,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0/part/0:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/part/0:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/part/0",
           "role": "entry",
@@ -1385,6 +1387,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0/part/0:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/part/0:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/part/0",
           "role": "normal-exit",
@@ -1393,6 +1396,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0/part/0:panic",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/part/0:panic",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/part/0",
           "role": "panic",
@@ -1401,6 +1405,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0",
           "role": "normal-exit",
@@ -1409,6 +1414,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0:true",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0:true",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0",
           "role": "true",
@@ -1417,6 +1423,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0:false",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0:false",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0",
           "role": "false",
@@ -1425,6 +1432,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0/error:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/error:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/error",
           "role": "entry",
@@ -1433,6 +1441,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0",
           "role": "entry",
@@ -1441,6 +1450,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/part/0/error:panic",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/error:panic",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/part/0/error",
           "role": "panic",
@@ -1449,6 +1459,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation",
           "role": "normal-exit",
@@ -1457,6 +1468,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation",
           "role": "entry",
@@ -1465,6 +1477,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/capture:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/capture:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/capture",
           "role": "entry",
@@ -1473,6 +1486,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/evaluation/capture:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/capture:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/evaluation/capture",
           "role": "normal-exit",
@@ -1481,6 +1495,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0",
           "role": "normal-exit",
@@ -1489,6 +1504,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1",
           "role": "entry",
@@ -1497,6 +1513,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0/part/0:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/part/0:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/part/0",
           "role": "entry",
@@ -1505,6 +1522,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0/part/0:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/part/0:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/part/0",
           "role": "normal-exit",
@@ -1513,6 +1531,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0/part/0:panic",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/part/0:panic",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/part/0",
           "role": "panic",
@@ -1521,6 +1540,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0",
           "role": "normal-exit",
@@ -1529,6 +1549,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0",
           "role": "entry",
@@ -1537,6 +1558,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0/capture:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/capture:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/capture",
           "role": "entry",
@@ -1545,6 +1567,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/part/0/capture:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/capture:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/part/0/capture",
           "role": "normal-exit",
@@ -1553,6 +1576,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation",
           "role": "normal-exit",
@@ -1561,6 +1585,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation:true",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation:true",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation",
           "role": "true",
@@ -1569,6 +1594,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation:false",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation:false",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation",
           "role": "false",
@@ -1577,6 +1603,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/error:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/error:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/error",
           "role": "entry",
@@ -1585,6 +1612,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation",
           "role": "entry",
@@ -1593,6 +1621,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1/evaluation/error:return",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/error:return",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1/evaluation/error",
           "role": "return",
@@ -1601,6 +1630,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1",
           "role": "normal-exit",
@@ -1609,6 +1639,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2",
           "role": "entry",
@@ -1617,6 +1648,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0/part/0:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/part/0:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/part/0",
           "role": "entry",
@@ -1625,6 +1657,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0/part/0:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/part/0:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/part/0",
           "role": "normal-exit",
@@ -1633,6 +1666,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0/part/0:panic",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/part/0:panic",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/part/0",
           "role": "panic",
@@ -1641,6 +1675,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0",
           "role": "normal-exit",
@@ -1649,6 +1684,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0:true",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0:true",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0",
           "role": "true",
@@ -1657,6 +1693,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0:false",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0:false",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0",
           "role": "false",
@@ -1665,6 +1702,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0/error:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/error:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/error",
           "role": "entry",
@@ -1673,6 +1711,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0",
           "role": "entry",
@@ -1681,6 +1720,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation/part/0/error:return",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/error:return",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation/part/0/error",
           "role": "return",
@@ -1689,6 +1729,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation",
           "role": "entry",
@@ -1697,6 +1738,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation",
           "role": "normal-exit",
@@ -1705,6 +1747,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2/evaluation:panic",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation:panic",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2/evaluation",
           "role": "panic",
@@ -1713,6 +1756,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/2:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/2:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/2",
           "role": "normal-exit",
@@ -1721,6 +1765,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/3:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/3:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/3",
           "role": "entry",
@@ -1729,6 +1774,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/3:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/3:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/3",
           "role": "normal-exit",
@@ -1737,6 +1783,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/4:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/4:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/4",
           "role": "entry",
@@ -1745,6 +1792,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/4:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/4:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/4",
           "role": "normal-exit",
@@ -1753,6 +1801,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/5:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/5:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/5",
           "role": "entry",
@@ -1761,6 +1810,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/5:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/5:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/5",
           "role": "normal-exit",
@@ -1769,6 +1819,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/function/main/root:entry",
           "nodeId": "browser/http_service/function/main/root",
           "role": "entry",
@@ -1777,6 +1828,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/function/main/root:normal-exit",
           "nodeId": "browser/http_service/function/main/root",
           "role": "normal-exit",
@@ -5189,7 +5241,7 @@
       "nodes": [
         {
           "id": "browser/http_service/function/risky/browser/http_service/function/risky/statement/0",
-          "occurrenceKey": "browser/http_service/function/risky/browser/http_service/function/risky/statement/0",
+          "occurrenceKey": "/browser/http_service/function/risky/statement/0",
           "sourceId": "browser/http_service/function/risky/statement/0",
           "presentation": {
             "kind": "plain",
@@ -5207,7 +5259,7 @@
         },
         {
           "id": "browser/http_service/function/risky/root",
-          "occurrenceKey": "browser/http_service/function/risky/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/function/risky",
           "presentation": {
             "kind": "plain",
@@ -5227,6 +5279,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/function/risky/statement/0:entry",
           "id": "browser/http_service/function/risky/browser/http_service/function/risky/statement/0:entry",
           "nodeId": "browser/http_service/function/risky/browser/http_service/function/risky/statement/0",
           "role": "entry",
@@ -5235,6 +5288,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/risky/statement/0:normal-exit",
           "id": "browser/http_service/function/risky/browser/http_service/function/risky/statement/0:normal-exit",
           "nodeId": "browser/http_service/function/risky/browser/http_service/function/risky/statement/0",
           "role": "normal-exit",
@@ -5243,6 +5297,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/risky/statement/0:return",
           "id": "browser/http_service/function/risky/browser/http_service/function/risky/statement/0:return",
           "nodeId": "browser/http_service/function/risky/browser/http_service/function/risky/statement/0",
           "role": "return",
@@ -5251,6 +5306,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/function/risky/root:entry",
           "nodeId": "browser/http_service/function/risky/root",
           "role": "entry",
@@ -5259,6 +5315,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/function/risky/root:normal-exit",
           "nodeId": "browser/http_service/function/risky/root",
           "role": "normal-exit",

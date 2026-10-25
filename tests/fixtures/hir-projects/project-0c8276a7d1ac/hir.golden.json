@@ -446,7 +446,7 @@
       "nodes": [
         {
           "id": "browser/http_service/class/Queue/method/$remote$read/browser/http_service/class/Queue/method/$remote$read/statement/0",
-          "occurrenceKey": "browser/http_service/class/Queue/method/$remote$read/browser/http_service/class/Queue/method/$remote$read/statement/0",
+          "occurrenceKey": "/browser/http_service/class/Queue/method/$remote$read/statement/0",
           "sourceId": "browser/http_service/class/Queue/method/$remote$read/statement/0",
           "presentation": {
             "kind": "plain",
@@ -464,7 +464,7 @@
         },
         {
           "id": "browser/http_service/class/Queue/method/$remote$read/root",
-          "occurrenceKey": "browser/http_service/class/Queue/method/$remote$read/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/class/Queue/method/$remote$read",
           "presentation": {
             "kind": "plain",
@@ -484,6 +484,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/class/Queue/method/$remote$read/statement/0:entry",
           "id": "browser/http_service/class/Queue/method/$remote$read/browser/http_service/class/Queue/method/$remote$read/statement/0:entry",
           "nodeId": "browser/http_service/class/Queue/method/$remote$read/browser/http_service/class/Queue/method/$remote$read/statement/0",
           "role": "entry",
@@ -492,6 +493,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/class/Queue/method/$remote$read/statement/0:normal-exit",
           "id": "browser/http_service/class/Queue/method/$remote$read/browser/http_service/class/Queue/method/$remote$read/statement/0:normal-exit",
           "nodeId": "browser/http_service/class/Queue/method/$remote$read/browser/http_service/class/Queue/method/$remote$read/statement/0",
           "role": "normal-exit",
@@ -500,6 +502,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/class/Queue/method/$remote$read/statement/0:return",
           "id": "browser/http_service/class/Queue/method/$remote$read/browser/http_service/class/Queue/method/$remote$read/statement/0:return",
           "nodeId": "browser/http_service/class/Queue/method/$remote$read/browser/http_service/class/Queue/method/$remote$read/statement/0",
           "role": "return",
@@ -508,6 +511,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/class/Queue/method/$remote$read/root:entry",
           "nodeId": "browser/http_service/class/Queue/method/$remote$read/root",
           "role": "entry",
@@ -516,6 +520,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/class/Queue/method/$remote$read/root:normal-exit",
           "nodeId": "browser/http_service/class/Queue/method/$remote$read/root",
           "role": "normal-exit",
@@ -853,7 +858,7 @@
       "nodes": [
         {
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0",
-          "occurrenceKey": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0",
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0",
           "sourceId": "browser/http_service/function/fill/statement/0",
           "presentation": {
             "kind": "plain",
@@ -871,7 +876,7 @@
         },
         {
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0",
-          "occurrenceKey": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0/expand",
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0",
           "sourceId": "browser/http_service/function/fill/statement/0/lhs/call/0",
           "presentation": {
             "kind": "plain",
@@ -881,7 +886,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -891,7 +896,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call index()",
                 "glyph": "↻"
               }
             }
@@ -900,7 +905,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "browser/http_service/function/index",
-              "occurrenceKey": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -1033,7 +1038,7 @@
         },
         {
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0",
-          "occurrenceKey": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0",
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/0",
           "sourceId": "browser/http_service/function/fill/statement/0/target",
           "presentation": {
             "kind": "plain",
@@ -1051,7 +1056,7 @@
         },
         {
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0",
-          "occurrenceKey": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0/expand",
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0",
           "sourceId": "browser/http_service/function/fill/statement/0/call/0",
           "presentation": {
             "kind": "client",
@@ -1074,7 +1079,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0/expand",
+              "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -1097,7 +1102,7 @@
                 ],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call queue · Queue\nParameter\n→ read()",
                 "glyph": "↻"
               }
             }
@@ -1106,7 +1111,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "browser/http_service/class/Queue/method/$remote$read",
-              "occurrenceKey": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0/expand",
+              "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0/expand",
               "availability": {
                 "kind": "unavailable",
                 "reason": "Expansion in this expression evaluation is not modeled."
@@ -1239,7 +1244,7 @@
         },
         {
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/error",
-          "occurrenceKey": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/error",
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1/error",
           "sourceId": "browser/http_service/function/fill/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -1257,7 +1262,7 @@
         },
         {
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1",
-          "occurrenceKey": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1",
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1",
           "sourceId": "browser/http_service/function/fill/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -1276,7 +1281,7 @@
         },
         {
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation",
-          "occurrenceKey": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation",
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation",
           "sourceId": "browser/http_service/function/fill/statement/0/evaluation",
           "presentation": {
             "kind": "plain",
@@ -1294,7 +1299,7 @@
         },
         {
           "id": "browser/http_service/function/fill/root",
-          "occurrenceKey": "browser/http_service/function/fill/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/function/fill",
           "presentation": {
             "kind": "plain",
@@ -1314,6 +1319,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0:entry",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0:entry",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0",
           "role": "entry",
@@ -1322,6 +1328,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0:entry",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0:entry",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0",
           "role": "entry",
@@ -1330,6 +1337,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0:normal-exit",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0:normal-exit",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0",
           "role": "normal-exit",
@@ -1338,6 +1346,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0:panic",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0:panic",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0/part/0",
           "role": "panic",
@@ -1346,6 +1355,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/0:entry",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0:entry",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0",
           "role": "entry",
@@ -1354,6 +1364,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/0:normal-exit",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0:normal-exit",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0",
           "role": "normal-exit",
@@ -1362,6 +1373,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/0:panic",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0:panic",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/0",
           "role": "panic",
@@ -1370,6 +1382,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0:entry",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0:entry",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0",
           "role": "entry",
@@ -1378,6 +1391,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0:normal-exit",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0:normal-exit",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0",
           "role": "normal-exit",
@@ -1386,6 +1400,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0:panic",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0:panic",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/part/0",
           "role": "panic",
@@ -1394,6 +1409,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1:normal-exit",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1:normal-exit",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1",
           "role": "normal-exit",
@@ -1402,6 +1418,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1:true",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1:true",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1",
           "role": "true",
@@ -1410,6 +1427,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1:false",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1:false",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1",
           "role": "false",
@@ -1418,6 +1436,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1/error:entry",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/error:entry",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/error",
           "role": "entry",
@@ -1426,6 +1445,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1:entry",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1:entry",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1",
           "role": "entry",
@@ -1434,6 +1454,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation/part/1/error:return",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/error:return",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation/part/1/error",
           "role": "return",
@@ -1442,6 +1463,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation:entry",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation:entry",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation",
           "role": "entry",
@@ -1450,6 +1472,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation:normal-exit",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation:normal-exit",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation",
           "role": "normal-exit",
@@ -1458,6 +1481,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0/evaluation:panic",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation:panic",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0/evaluation",
           "role": "panic",
@@ -1466,6 +1490,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/fill/statement/0:normal-exit",
           "id": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0:normal-exit",
           "nodeId": "browser/http_service/function/fill/browser/http_service/function/fill/statement/0",
           "role": "normal-exit",
@@ -1474,6 +1499,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/function/fill/root:entry",
           "nodeId": "browser/http_service/function/fill/root",
           "role": "entry",
@@ -1482,6 +1508,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/function/fill/root:normal-exit",
           "nodeId": "browser/http_service/function/fill/root",
           "role": "normal-exit",
@@ -3009,7 +3036,7 @@
       "nodes": [
         {
           "id": "browser/http_service/function/index/browser/http_service/function/index/statement/0",
-          "occurrenceKey": "browser/http_service/function/index/browser/http_service/function/index/statement/0",
+          "occurrenceKey": "/browser/http_service/function/index/statement/0",
           "sourceId": "browser/http_service/function/index/statement/0",
           "presentation": {
             "kind": "plain",
@@ -3027,7 +3054,7 @@
         },
         {
           "id": "browser/http_service/function/index/root",
-          "occurrenceKey": "browser/http_service/function/index/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/function/index",
           "presentation": {
             "kind": "plain",
@@ -3047,6 +3074,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/function/index/statement/0:entry",
           "id": "browser/http_service/function/index/browser/http_service/function/index/statement/0:entry",
           "nodeId": "browser/http_service/function/index/browser/http_service/function/index/statement/0",
           "role": "entry",
@@ -3055,6 +3083,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/index/statement/0:normal-exit",
           "id": "browser/http_service/function/index/browser/http_service/function/index/statement/0:normal-exit",
           "nodeId": "browser/http_service/function/index/browser/http_service/function/index/statement/0",
           "role": "normal-exit",
@@ -3063,6 +3092,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/index/statement/0:return",
           "id": "browser/http_service/function/index/browser/http_service/function/index/statement/0:return",
           "nodeId": "browser/http_service/function/index/browser/http_service/function/index/statement/0",
           "role": "return",
@@ -3071,6 +3101,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/function/index/root:entry",
           "nodeId": "browser/http_service/function/index/root",
           "role": "entry",
@@ -3079,6 +3110,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/function/index/root:normal-exit",
           "nodeId": "browser/http_service/function/index/root",
           "role": "normal-exit",
@@ -3407,7 +3439,7 @@
       "nodes": [
         {
           "id": "browser/http_service/function/main/root",
-          "occurrenceKey": "browser/http_service/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/function/main",
           "presentation": {
             "kind": "plain",
@@ -3427,6 +3459,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/function/main/root:entry",
           "nodeId": "browser/http_service/function/main/root",
           "role": "entry",
@@ -3435,6 +3468,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/function/main/root:normal-exit",
           "nodeId": "browser/http_service/function/main/root",
           "role": "normal-exit",

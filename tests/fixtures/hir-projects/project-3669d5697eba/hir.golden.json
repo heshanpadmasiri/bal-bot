@@ -72,7 +72,7 @@
       "nodes": [
         {
           "id": "examples/chat_references/function/main/root",
-          "occurrenceKey": "examples/chat_references/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/chat_references/function/main",
           "presentation": {
             "kind": "plain",
@@ -92,6 +92,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/chat_references/function/main/root:entry",
           "nodeId": "examples/chat_references/function/main/root",
           "role": "entry",
@@ -100,6 +101,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/chat_references/function/main/root:normal-exit",
           "nodeId": "examples/chat_references/function/main/root",
           "role": "normal-exit",

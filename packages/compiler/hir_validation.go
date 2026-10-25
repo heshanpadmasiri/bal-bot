@@ -302,6 +302,9 @@ func (v *hirValidator) index(g HIRGraph) (*hirGraphIndex, error) {
 		case *HIRCallDisclosure:
 			call = item
 		case *HIRClientContextDisclosure:
+			if (item.Call == nil) != (item.ExpandedRecursive == nil) {
+				return nil, fmt.Errorf("node %q: expanded recursive presentation requires call disclosure", n.ID)
+			}
 			keys = append(keys, item.OccurrenceKey)
 			call = item.Call
 		}
@@ -328,12 +331,21 @@ func (v *hirValidator) index(g HIRGraph) (*hirGraphIndex, error) {
 		}
 		if b, ok := n.Body.Value.(*HIRReferenceBody); ok {
 			x.references[n.ID] = b.Reference
-			if b.Reference.OccurrenceKey != n.OccurrenceKey {
-				return nil, fmt.Errorf("reference %q: occurrence mismatch", n.ID)
+			if b.Reference.OccurrenceKey == "" {
+				return nil, fmt.Errorf("reference %q: empty occurrence", n.ID)
+			}
+			for id, other := range x.references {
+				if id != n.ID && other.OccurrenceKey == b.Reference.OccurrenceKey {
+					return nil, fmt.Errorf("reference %q: duplicate occurrence", n.ID)
+				}
 			}
 		}
 	}
 	for _, p := range g.Ports {
+		if p.OccurrenceKey == "" || occurrences[p.OccurrenceKey] {
+			return nil, fmt.Errorf("port %q: duplicate/empty occurrenceKey", p.ID)
+		}
+		occurrences[p.OccurrenceKey] = true
 		if err := hirUnique(x.ports, p.ID, p); err != nil {
 			return nil, err
 		}

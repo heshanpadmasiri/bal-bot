@@ -1083,7 +1083,7 @@
       "nodes": [
         {
           "id": "examples/client_calls/class/Queue/method/$remote$send/examples/client_calls/class/Queue/method/$remote$send/statement/0",
-          "occurrenceKey": "examples/client_calls/class/Queue/method/$remote$send/examples/client_calls/class/Queue/method/$remote$send/statement/0",
+          "occurrenceKey": "/examples/client_calls/class/Queue/method/$remote$send/statement/0",
           "sourceId": "examples/client_calls/class/Queue/method/$remote$send/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1101,7 +1101,7 @@
         },
         {
           "id": "examples/client_calls/class/Queue/method/$remote$send/root",
-          "occurrenceKey": "examples/client_calls/class/Queue/method/$remote$send/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/client_calls/class/Queue/method/$remote$send",
           "presentation": {
             "kind": "plain",
@@ -1121,6 +1121,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/client_calls/class/Queue/method/$remote$send/statement/0:entry",
           "id": "examples/client_calls/class/Queue/method/$remote$send/examples/client_calls/class/Queue/method/$remote$send/statement/0:entry",
           "nodeId": "examples/client_calls/class/Queue/method/$remote$send/examples/client_calls/class/Queue/method/$remote$send/statement/0",
           "role": "entry",
@@ -1129,6 +1130,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/class/Queue/method/$remote$send/statement/0:normal-exit",
           "id": "examples/client_calls/class/Queue/method/$remote$send/examples/client_calls/class/Queue/method/$remote$send/statement/0:normal-exit",
           "nodeId": "examples/client_calls/class/Queue/method/$remote$send/examples/client_calls/class/Queue/method/$remote$send/statement/0",
           "role": "normal-exit",
@@ -1137,6 +1139,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/class/Queue/method/$remote$send/statement/0:return",
           "id": "examples/client_calls/class/Queue/method/$remote$send/examples/client_calls/class/Queue/method/$remote$send/statement/0:return",
           "nodeId": "examples/client_calls/class/Queue/method/$remote$send/examples/client_calls/class/Queue/method/$remote$send/statement/0",
           "role": "return",
@@ -1145,6 +1148,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/client_calls/class/Queue/method/$remote$send/root:entry",
           "nodeId": "examples/client_calls/class/Queue/method/$remote$send/root",
           "role": "entry",
@@ -1153,6 +1157,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/client_calls/class/Queue/method/$remote$send/root:normal-exit",
           "nodeId": "examples/client_calls/class/Queue/method/$remote$send/root",
           "role": "normal-exit",
@@ -1481,7 +1486,7 @@
       "nodes": [
         {
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0",
-          "occurrenceKey": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0",
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0",
           "sourceId": "examples/client_calls/function/capturePanic/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1499,7 +1504,7 @@
         },
         {
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0",
-          "occurrenceKey": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0/expand",
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0",
           "sourceId": "examples/client_calls/function/capturePanic/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -1509,7 +1514,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "available"
               },
@@ -1518,7 +1523,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call sendMessage()",
                 "glyph": "↻"
               }
             }
@@ -1527,7 +1532,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/client_calls/function/sendMessage",
-              "occurrenceKey": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0/expand",
+              "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0/expand",
               "availability": {
                 "kind": "available"
               },
@@ -1664,7 +1669,7 @@
         },
         {
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/error",
-          "occurrenceKey": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/error",
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/error",
           "sourceId": "examples/client_calls/function/capturePanic/statement/0/value/part/0",
           "presentation": {
             "kind": "plain",
@@ -1682,7 +1687,7 @@
         },
         {
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0",
-          "occurrenceKey": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0",
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0",
           "sourceId": "examples/client_calls/function/capturePanic/statement/0/value/part/0",
           "presentation": {
             "kind": "plain",
@@ -1701,7 +1706,7 @@
         },
         {
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/capture",
-          "occurrenceKey": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/capture",
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/capture",
           "sourceId": "examples/client_calls/function/capturePanic/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -1719,7 +1724,7 @@
         },
         {
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation",
-          "occurrenceKey": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation",
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation",
           "sourceId": "examples/client_calls/function/capturePanic/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -1738,7 +1743,7 @@
         },
         {
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/1",
-          "occurrenceKey": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/1",
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/1",
           "sourceId": "examples/client_calls/function/capturePanic/statement/1",
           "presentation": {
             "kind": "plain",
@@ -1756,7 +1761,7 @@
         },
         {
           "id": "examples/client_calls/function/capturePanic/root",
-          "occurrenceKey": "examples/client_calls/function/capturePanic/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/client_calls/function/capturePanic",
           "presentation": {
             "kind": "plain",
@@ -1776,6 +1781,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0:entry",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0:entry",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0",
           "role": "entry",
@@ -1784,6 +1790,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0:entry",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0:entry",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0",
           "role": "entry",
@@ -1792,6 +1799,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0:normal-exit",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0:normal-exit",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0",
           "role": "normal-exit",
@@ -1800,6 +1808,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0:panic",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0:panic",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/part/0",
           "role": "panic",
@@ -1808,6 +1817,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0:normal-exit",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0:normal-exit",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0",
           "role": "normal-exit",
@@ -1816,6 +1826,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0:true",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0:true",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0",
           "role": "true",
@@ -1824,6 +1835,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0:false",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0:false",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0",
           "role": "false",
@@ -1832,6 +1844,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/error:entry",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/error:entry",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/error",
           "role": "entry",
@@ -1840,6 +1853,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0:entry",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0:entry",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0",
           "role": "entry",
@@ -1848,6 +1862,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/error:panic",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/error:panic",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/part/0/error",
           "role": "panic",
@@ -1856,6 +1871,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation:normal-exit",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation:normal-exit",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation",
           "role": "normal-exit",
@@ -1864,6 +1880,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation:entry",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation:entry",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation",
           "role": "entry",
@@ -1872,6 +1889,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/capture:entry",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/capture:entry",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/capture",
           "role": "entry",
@@ -1880,6 +1898,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0/evaluation/capture:normal-exit",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/capture:normal-exit",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0/evaluation/capture",
           "role": "normal-exit",
@@ -1888,6 +1907,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/0:normal-exit",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0:normal-exit",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/0",
           "role": "normal-exit",
@@ -1896,6 +1916,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/1:entry",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/1:entry",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/1",
           "role": "entry",
@@ -1904,6 +1925,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/1:normal-exit",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/1:normal-exit",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/1",
           "role": "normal-exit",
@@ -1912,6 +1934,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/capturePanic/statement/1:return",
           "id": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/1:return",
           "nodeId": "examples/client_calls/function/capturePanic/examples/client_calls/function/capturePanic/statement/1",
           "role": "return",
@@ -1920,6 +1943,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/client_calls/function/capturePanic/root:entry",
           "nodeId": "examples/client_calls/function/capturePanic/root",
           "role": "entry",
@@ -1928,6 +1952,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/client_calls/function/capturePanic/root:normal-exit",
           "nodeId": "examples/client_calls/function/capturePanic/root",
           "role": "normal-exit",
@@ -3294,7 +3319,7 @@
       "nodes": [
         {
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/0",
-          "occurrenceKey": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/0",
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/0",
           "sourceId": "examples/client_calls/function/sendMessage/statement/0",
           "presentation": {
             "kind": "plain",
@@ -3312,7 +3337,7 @@
         },
         {
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1",
-          "occurrenceKey": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1",
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1",
           "sourceId": "examples/client_calls/function/sendMessage/statement/1",
           "presentation": {
             "kind": "plain",
@@ -3330,7 +3355,7 @@
         },
         {
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0",
-          "occurrenceKey": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0/expand",
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0",
           "sourceId": "examples/client_calls/function/sendMessage/statement/1/call/0",
           "presentation": {
             "kind": "client",
@@ -3353,7 +3378,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0/expand",
+              "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0/expand",
               "availability": {
                 "kind": "available"
               },
@@ -3375,7 +3400,7 @@
                 ],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call producer · Queue\nnew (\"broker\", port = 9093)\n→ send(\"hello\", topic = \"orders\")",
                 "glyph": "↻"
               }
             }
@@ -3384,7 +3409,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/client_calls/class/Queue/method/$remote$send",
-              "occurrenceKey": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0/expand",
+              "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0/expand",
               "availability": {
                 "kind": "available"
               },
@@ -3516,7 +3541,7 @@
         },
         {
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/error",
-          "occurrenceKey": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/error",
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation/error",
           "sourceId": "examples/client_calls/function/sendMessage/statement/1/value",
           "presentation": {
             "kind": "plain",
@@ -3534,7 +3559,7 @@
         },
         {
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation",
-          "occurrenceKey": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation",
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation",
           "sourceId": "examples/client_calls/function/sendMessage/statement/1/value",
           "presentation": {
             "kind": "plain",
@@ -3553,7 +3578,7 @@
         },
         {
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/2",
-          "occurrenceKey": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/2",
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/2",
           "sourceId": "examples/client_calls/function/sendMessage/statement/2",
           "presentation": {
             "kind": "plain",
@@ -3571,7 +3596,7 @@
         },
         {
           "id": "examples/client_calls/function/sendMessage/root",
-          "occurrenceKey": "examples/client_calls/function/sendMessage/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/client_calls/function/sendMessage",
           "presentation": {
             "kind": "plain",
@@ -3591,6 +3616,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/0:entry",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/0:entry",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/0",
           "role": "entry",
@@ -3599,6 +3625,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/0:normal-exit",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/0:normal-exit",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/0",
           "role": "normal-exit",
@@ -3607,6 +3634,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1:entry",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1:entry",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1",
           "role": "entry",
@@ -3615,6 +3643,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0:entry",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0:entry",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0",
           "role": "entry",
@@ -3623,6 +3652,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0:normal-exit",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0:normal-exit",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0",
           "role": "normal-exit",
@@ -3631,6 +3661,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0:panic",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0:panic",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/part/0",
           "role": "panic",
@@ -3639,6 +3670,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation:normal-exit",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation:normal-exit",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation",
           "role": "normal-exit",
@@ -3647,6 +3679,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation:true",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation:true",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation",
           "role": "true",
@@ -3655,6 +3688,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation:false",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation:false",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation",
           "role": "false",
@@ -3663,6 +3697,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation/error:entry",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/error:entry",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/error",
           "role": "entry",
@@ -3671,6 +3706,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation:entry",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation:entry",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation",
           "role": "entry",
@@ -3679,6 +3715,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1/evaluation/error:return",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/error:return",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1/evaluation/error",
           "role": "return",
@@ -3687,6 +3724,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/1:normal-exit",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1:normal-exit",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/1",
           "role": "normal-exit",
@@ -3695,6 +3733,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/2:entry",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/2:entry",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/2",
           "role": "entry",
@@ -3703,6 +3742,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/2:normal-exit",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/2:normal-exit",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/2",
           "role": "normal-exit",
@@ -3711,6 +3751,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/function/sendMessage/statement/2:return",
           "id": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/2:return",
           "nodeId": "examples/client_calls/function/sendMessage/examples/client_calls/function/sendMessage/statement/2",
           "role": "return",
@@ -3719,6 +3760,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/client_calls/function/sendMessage/root:entry",
           "nodeId": "examples/client_calls/function/sendMessage/root",
           "role": "entry",
@@ -3727,6 +3769,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/client_calls/function/sendMessage/root:normal-exit",
           "nodeId": "examples/client_calls/function/sendMessage/root",
           "role": "normal-exit",
@@ -4888,7 +4931,7 @@
       "nodes": [
         {
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0",
-          "occurrenceKey": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0",
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0",
           "sourceId": "examples/client_calls/service/main.bal///1/resource/get/hello/statement/0",
           "presentation": {
             "kind": "plain",
@@ -4906,7 +4949,7 @@
         },
         {
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
-          "occurrenceKey": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
           "sourceId": "examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/call/0",
           "presentation": {
             "kind": "client",
@@ -4937,7 +4980,7 @@
         },
         {
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/error",
-          "occurrenceKey": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/error",
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/error",
           "sourceId": "examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -4955,7 +4998,7 @@
         },
         {
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation",
-          "occurrenceKey": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation",
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation",
           "sourceId": "examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -4974,7 +5017,7 @@
         },
         {
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1",
-          "occurrenceKey": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1",
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1",
           "sourceId": "examples/client_calls/service/main.bal///1/resource/get/hello/statement/1",
           "presentation": {
             "kind": "plain",
@@ -4992,7 +5035,7 @@
         },
         {
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation",
-          "occurrenceKey": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation",
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation",
           "sourceId": "examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/value",
           "presentation": {
             "kind": "plain",
@@ -5010,7 +5053,7 @@
         },
         {
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/root",
-          "occurrenceKey": "examples/client_calls/service/main.bal///1/resource/get/hello/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/client_calls/service/main.bal///1/resource/get/hello",
           "presentation": {
             "kind": "plain",
@@ -5030,6 +5073,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0:entry",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0:entry",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0",
           "role": "entry",
@@ -5038,6 +5082,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:entry",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:entry",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
           "role": "entry",
@@ -5046,6 +5091,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:normal-exit",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:normal-exit",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
           "role": "normal-exit",
@@ -5054,6 +5100,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:panic",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:panic",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
           "role": "panic",
@@ -5062,6 +5109,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation:normal-exit",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation:normal-exit",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation",
           "role": "normal-exit",
@@ -5070,6 +5118,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation:true",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation:true",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation",
           "role": "true",
@@ -5078,6 +5127,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation:false",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation:false",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation",
           "role": "false",
@@ -5086,6 +5136,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/error:entry",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/error:entry",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/error",
           "role": "entry",
@@ -5094,6 +5145,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation:entry",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation:entry",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation",
           "role": "entry",
@@ -5102,6 +5154,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/error:return",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/error:return",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/evaluation/error",
           "role": "return",
@@ -5110,6 +5163,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0:normal-exit",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0:normal-exit",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/0",
           "role": "normal-exit",
@@ -5118,6 +5172,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1:entry",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1:entry",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1",
           "role": "entry",
@@ -5126,6 +5181,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation:entry",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation:entry",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation",
           "role": "entry",
@@ -5134,6 +5190,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation:normal-exit",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation:normal-exit",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation",
           "role": "normal-exit",
@@ -5142,6 +5199,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation:panic",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation:panic",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/evaluation",
           "role": "panic",
@@ -5150,6 +5208,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1:return",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1:return",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/examples/client_calls/service/main.bal///1/resource/get/hello/statement/1",
           "role": "return",
@@ -5158,6 +5217,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/root:entry",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/root",
           "role": "entry",
@@ -5166,6 +5226,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/client_calls/service/main.bal///1/resource/get/hello/root:normal-exit",
           "nodeId": "examples/client_calls/service/main.bal///1/resource/get/hello/root",
           "role": "normal-exit",

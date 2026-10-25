@@ -860,7 +860,7 @@
       "nodes": [
         {
           "id": "examples/definitions_and_calls.math/function/calculate/examples/definitions_and_calls.math/function/calculate/statement/0",
-          "occurrenceKey": "examples/definitions_and_calls.math/function/calculate/examples/definitions_and_calls.math/function/calculate/statement/0",
+          "occurrenceKey": "/examples/definitions_and_calls.math/function/calculate/statement/0",
           "sourceId": "examples/definitions_and_calls.math/function/calculate/statement/0",
           "presentation": {
             "kind": "plain",
@@ -878,7 +878,7 @@
         },
         {
           "id": "examples/definitions_and_calls.math/function/calculate/root",
-          "occurrenceKey": "examples/definitions_and_calls.math/function/calculate/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/definitions_and_calls.math/function/calculate",
           "presentation": {
             "kind": "plain",
@@ -898,6 +898,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/definitions_and_calls.math/function/calculate/statement/0:entry",
           "id": "examples/definitions_and_calls.math/function/calculate/examples/definitions_and_calls.math/function/calculate/statement/0:entry",
           "nodeId": "examples/definitions_and_calls.math/function/calculate/examples/definitions_and_calls.math/function/calculate/statement/0",
           "role": "entry",
@@ -906,6 +907,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls.math/function/calculate/statement/0:normal-exit",
           "id": "examples/definitions_and_calls.math/function/calculate/examples/definitions_and_calls.math/function/calculate/statement/0:normal-exit",
           "nodeId": "examples/definitions_and_calls.math/function/calculate/examples/definitions_and_calls.math/function/calculate/statement/0",
           "role": "normal-exit",
@@ -914,6 +916,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls.math/function/calculate/statement/0:return",
           "id": "examples/definitions_and_calls.math/function/calculate/examples/definitions_and_calls.math/function/calculate/statement/0:return",
           "nodeId": "examples/definitions_and_calls.math/function/calculate/examples/definitions_and_calls.math/function/calculate/statement/0",
           "role": "return",
@@ -922,6 +925,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/definitions_and_calls.math/function/calculate/root:entry",
           "nodeId": "examples/definitions_and_calls.math/function/calculate/root",
           "role": "entry",
@@ -930,6 +934,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/definitions_and_calls.math/function/calculate/root:normal-exit",
           "nodeId": "examples/definitions_and_calls.math/function/calculate/root",
           "role": "normal-exit",
@@ -1258,7 +1263,7 @@
       "nodes": [
         {
           "id": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0",
-          "occurrenceKey": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0",
+          "occurrenceKey": "/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0",
           "sourceId": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1276,7 +1281,7 @@
         },
         {
           "id": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/root",
-          "occurrenceKey": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/definitions_and_calls/class/LocalClient/method/$remote$send",
           "presentation": {
             "kind": "plain",
@@ -1296,6 +1301,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0:entry",
           "id": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0:entry",
           "nodeId": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0",
           "role": "entry",
@@ -1304,6 +1310,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0:normal-exit",
           "id": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0:normal-exit",
           "nodeId": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0",
           "role": "normal-exit",
@@ -1312,6 +1319,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0:return",
           "id": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0:return",
           "nodeId": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/examples/definitions_and_calls/class/LocalClient/method/$remote$send/statement/0",
           "role": "return",
@@ -1320,6 +1328,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/root:entry",
           "nodeId": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/root",
           "role": "entry",
@@ -1328,6 +1337,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/root:normal-exit",
           "nodeId": "examples/definitions_and_calls/class/LocalClient/method/$remote$send/root",
           "role": "normal-exit",
@@ -1661,7 +1671,7 @@
       "nodes": [
         {
           "id": "examples/definitions_and_calls/function/calculate/examples/definitions_and_calls/function/calculate/statement/0",
-          "occurrenceKey": "examples/definitions_and_calls/function/calculate/examples/definitions_and_calls/function/calculate/statement/0",
+          "occurrenceKey": "/examples/definitions_and_calls/function/calculate/statement/0",
           "sourceId": "examples/definitions_and_calls/function/calculate/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1679,7 +1689,7 @@
         },
         {
           "id": "examples/definitions_and_calls/function/calculate/root",
-          "occurrenceKey": "examples/definitions_and_calls/function/calculate/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/definitions_and_calls/function/calculate",
           "presentation": {
             "kind": "plain",
@@ -1699,6 +1709,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/definitions_and_calls/function/calculate/statement/0:entry",
           "id": "examples/definitions_and_calls/function/calculate/examples/definitions_and_calls/function/calculate/statement/0:entry",
           "nodeId": "examples/definitions_and_calls/function/calculate/examples/definitions_and_calls/function/calculate/statement/0",
           "role": "entry",
@@ -1707,6 +1718,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/function/calculate/statement/0:normal-exit",
           "id": "examples/definitions_and_calls/function/calculate/examples/definitions_and_calls/function/calculate/statement/0:normal-exit",
           "nodeId": "examples/definitions_and_calls/function/calculate/examples/definitions_and_calls/function/calculate/statement/0",
           "role": "normal-exit",
@@ -1715,6 +1727,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/function/calculate/statement/0:return",
           "id": "examples/definitions_and_calls/function/calculate/examples/definitions_and_calls/function/calculate/statement/0:return",
           "nodeId": "examples/definitions_and_calls/function/calculate/examples/definitions_and_calls/function/calculate/statement/0",
           "role": "return",
@@ -1723,6 +1736,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/definitions_and_calls/function/calculate/root:entry",
           "nodeId": "examples/definitions_and_calls/function/calculate/root",
           "role": "entry",
@@ -1731,6 +1745,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/definitions_and_calls/function/calculate/root:normal-exit",
           "nodeId": "examples/definitions_and_calls/function/calculate/root",
           "role": "normal-exit",
@@ -2059,7 +2074,7 @@
       "nodes": [
         {
           "id": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0",
-          "occurrenceKey": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0",
+          "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/0",
           "sourceId": "examples/definitions_and_calls/function/unusedHelper/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2077,7 +2092,7 @@
         },
         {
           "id": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation",
-          "occurrenceKey": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation/expand",
+          "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation",
           "sourceId": "examples/definitions_and_calls/function/unusedHelper/statement/0/call/0",
           "presentation": {
             "kind": "client",
@@ -2100,7 +2115,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation/expand",
+              "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation/expand",
               "availability": {
                 "kind": "available"
               },
@@ -2122,7 +2137,7 @@
                 ],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call upstreamClient · LocalClient\nInitialization not statically known\n→ send()",
                 "glyph": "↻"
               }
             }
@@ -2131,7 +2146,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/definitions_and_calls/class/LocalClient/method/$remote$send",
-              "occurrenceKey": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation/expand",
+              "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation/expand",
               "availability": {
                 "kind": "available"
               },
@@ -2263,7 +2278,7 @@
         },
         {
           "id": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/1",
-          "occurrenceKey": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/1",
+          "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/1",
           "sourceId": "examples/definitions_and_calls/function/unusedHelper/statement/1",
           "presentation": {
             "kind": "plain",
@@ -2281,7 +2296,7 @@
         },
         {
           "id": "examples/definitions_and_calls/function/unusedHelper/root",
-          "occurrenceKey": "examples/definitions_and_calls/function/unusedHelper/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/definitions_and_calls/function/unusedHelper",
           "presentation": {
             "kind": "plain",
@@ -2301,6 +2316,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/0:entry",
           "id": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0:entry",
           "nodeId": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0",
           "role": "entry",
@@ -2309,6 +2325,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation:entry",
           "id": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation:entry",
           "nodeId": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation",
           "role": "entry",
@@ -2317,6 +2334,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation:normal-exit",
           "id": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation:normal-exit",
           "nodeId": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation",
           "role": "normal-exit",
@@ -2325,6 +2343,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation:panic",
           "id": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation:panic",
           "nodeId": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0/evaluation",
           "role": "panic",
@@ -2333,6 +2352,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/0:normal-exit",
           "id": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0:normal-exit",
           "nodeId": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/0",
           "role": "normal-exit",
@@ -2341,6 +2361,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/1:entry",
           "id": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/1:entry",
           "nodeId": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/1",
           "role": "entry",
@@ -2349,6 +2370,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/1:normal-exit",
           "id": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/1:normal-exit",
           "nodeId": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/1",
           "role": "normal-exit",
@@ -2357,6 +2379,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/function/unusedHelper/statement/1:return",
           "id": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/1:return",
           "nodeId": "examples/definitions_and_calls/function/unusedHelper/examples/definitions_and_calls/function/unusedHelper/statement/1",
           "role": "return",
@@ -2365,6 +2388,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/definitions_and_calls/function/unusedHelper/root:entry",
           "nodeId": "examples/definitions_and_calls/function/unusedHelper/root",
           "role": "entry",
@@ -2373,6 +2397,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/definitions_and_calls/function/unusedHelper/root:normal-exit",
           "nodeId": "examples/definitions_and_calls/function/unusedHelper/root",
           "role": "normal-exit",
@@ -3160,7 +3185,7 @@
       "nodes": [
         {
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0",
-          "occurrenceKey": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0",
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0",
           "sourceId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0",
           "presentation": {
             "kind": "plain",
@@ -3179,7 +3204,7 @@
         },
         {
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0",
-          "occurrenceKey": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0",
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0",
           "sourceId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -3189,7 +3214,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0",
+              "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -3198,7 +3223,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call calculate(minimumAmount)",
                 "glyph": "↻"
               }
             }
@@ -3207,7 +3232,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/definitions_and_calls/function/calculate",
-              "occurrenceKey": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0",
+              "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -3329,7 +3354,7 @@
         },
         {
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1",
-          "occurrenceKey": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1",
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1",
           "sourceId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1",
           "presentation": {
             "kind": "plain",
@@ -3348,7 +3373,7 @@
         },
         {
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0",
-          "occurrenceKey": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0",
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0",
           "sourceId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0",
           "presentation": {
             "kind": "plain",
@@ -3358,7 +3383,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0",
+              "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -3367,7 +3392,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call math:calculate(local)",
                 "glyph": "↻"
               }
             }
@@ -3376,7 +3401,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/definitions_and_calls.math/function/calculate",
-              "occurrenceKey": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0",
+              "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -3498,7 +3523,7 @@
         },
         {
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/root",
-          "occurrenceKey": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total",
           "presentation": {
             "kind": "plain",
@@ -3518,6 +3543,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0:entry",
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0:entry",
           "nodeId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0",
           "role": "entry",
@@ -3526,6 +3552,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0:normal-exit",
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0:normal-exit",
           "nodeId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0",
           "role": "normal-exit",
@@ -3534,6 +3561,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0:entry",
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0:entry",
           "nodeId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0",
           "role": "entry",
@@ -3542,6 +3570,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0:normal-exit",
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0:normal-exit",
           "nodeId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0",
           "role": "normal-exit",
@@ -3550,6 +3579,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1:entry",
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1:entry",
           "nodeId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1",
           "role": "entry",
@@ -3558,6 +3588,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1:normal-exit",
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1:normal-exit",
           "nodeId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1",
           "role": "normal-exit",
@@ -3566,6 +3597,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0:entry",
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0:entry",
           "nodeId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0",
           "role": "entry",
@@ -3574,6 +3606,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0:normal-exit",
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0:normal-exit",
           "nodeId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/expand/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0",
           "role": "normal-exit",
@@ -3582,6 +3615,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1:return",
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1:return",
           "nodeId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1",
           "role": "return",
@@ -3590,6 +3624,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/root:entry",
           "nodeId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/root",
           "role": "entry",
@@ -3598,6 +3633,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/root:normal-exit",
           "nodeId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/root",
           "role": "normal-exit",

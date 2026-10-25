@@ -1,4 +1,6 @@
 import type { Id, Located, ProgramModel, Statement, Evaluation, ClientInvocation } from '@bal-bot/workspace';
+import type { DiagramNode as HIRDiagramNode, DiagramPort as HIRDiagramPort, DiagramEdge as HIRDiagramEdge } from './hir-diagram';
+export { instantiateGraph } from './hir-flow.ts';
 export type ExpansionPath = string;
 export interface DiagramNode { readonly id: Id; readonly kind: 'step' | 'condition' | 'function' | 'loop' | 'mapping' | 'unsupported' | 'return' | 'client' | 'trap' | 'panic' | 'template'; readonly client?: ClientInvocation; readonly contextExpanded?: boolean; readonly contextPath?: string; readonly selection: Located; readonly label: string; readonly children: readonly DiagramNode[]; }
 export interface DiagramPort { readonly id: Id; readonly nodeId: Id; readonly role: 'entry' | 'normal-exit' | 'true' | 'false' | 'return' | 'break' | 'continue' | 'next-iteration' | 'panic'; }
@@ -176,12 +178,20 @@ export function buildDiagram(program: ProgramModel, functionId: Id, expanded: Re
   return {nodes: [root], ports, edges};
 }
 
-export function layoutDiagram(diagram: Diagram, measure: (label: string) => {width: number; height: number}): DiagramLayout {
+export function layoutDiagram<D extends Diagram>(diagram: D, measure: (label: string) => {width: number; height: number}): Omit<DiagramLayout, 'diagram'> & {readonly diagram: D} {
+  // Explicit HIR geometry metadata takes precedence; WeakMap hints are legacy-only.
+  const layoutHint = (node: DiagramNode): Readonly<Hint> | undefined => {
+    if ('layout' in node) {
+      const layout = (node as HIRDiagramNode).layout;
+      return {mode: layout.profile === 'root' || layout.profile === 'call' ? 'sequence' : layout.profile, split: layout.split, root: layout.root, path: layout.reference?.path};
+    }
+    return hints.get(node);
+  };
   const boxes: Record<Id, Box> = {}, exits = new Map<Id, number>(), sizes = new Map<Id, {width: number; height: number}>();
   const gap = 52, padding = 30, lane = 48;
   const sequenceSize = (nodes: readonly DiagramNode[]) => { const dimensions = nodes.map(size); return {width: Math.max(240, ...dimensions.map(d => d.width)), height: dimensions.reduce((h, d) => h + d.height + gap, 0)}; };
   const size = (node: DiagramNode): {width: number; height: number} => {
-    const label = measure(node.label), hint = hints.get(node), header = Math.max(52, label.height + 28), own = Math.max(240, Math.min(440, label.width + 72));
+    const label = measure(node.label), hint = layoutHint(node), header = Math.max(52, label.height + 28), own = Math.max(240, Math.min(440, label.width + 72));
     let result: {width: number; height: number};
     if (hint?.mode === 'if') {
       const left = sequenceSize(node.children.slice(0, hint.split)), right = sequenceSize(node.children.slice(hint.split));
@@ -193,7 +203,7 @@ export function layoutDiagram(diagram: Diagram, measure: (label: string) => {wid
   diagram.nodes.forEach(size);
   const placeSequence = (nodes: readonly DiagramNode[], x: number, y: number, width: number) => { for (const node of nodes) { const s = sizes.get(node.id)!; place(node, x + (width - s.width) / 2, y); y += s.height + gap; } };
   const place = (node: DiagramNode, x: number, y: number) => {
-    const s = sizes.get(node.id)!, hint = hints.get(node), header = Math.max(52, measure(node.label).height + 28);
+    const s = sizes.get(node.id)!, hint = layoutHint(node), header = Math.max(52, measure(node.label).height + 28);
     const conditionWidth = Math.max(240, Math.min(440, measure(node.label).width + 72));
     boxes[node.id] = hint?.mode === 'if' ? {x: x + (s.width - conditionWidth) / 2, y, width: conditionWidth, height: header} : {x, y, ...s};
     exits.set(node.id, y + s.height);
@@ -206,7 +216,19 @@ export function layoutDiagram(diagram: Diagram, measure: (label: string) => {wid
   const total = sequenceSize(diagram.nodes); placeSequence(diagram.nodes, 40, 40, total.width);
   const portMap = new Map(diagram.ports.map(p => [p.id, p]));
   const point = (id: Id) => {
-    const p = portMap.get(id)!; const b = boxes[p.nodeId], node = findNode(diagram.nodes, p.nodeId)!, hint = hints.get(node);
+    const p = portMap.get(id)!; const b = boxes[p.nodeId], node = findNode(diagram.nodes, p.nodeId)!, hint = layoutHint(node);
+    if ('anchor' in p) {
+      const anchor = (p as HIRDiagramPort).anchor.kind, header = Math.max(52, measure(node.label).height + 28);
+      switch (anchor) {
+        case 'top-center': return {x: b.x + b.width / 2, y: b.y - (hint?.root ? 24 : 0)};
+        case 'iteration-marker': return {x: b.x + b.width / 2 - 70, y: b.y + b.height - 28};
+        case 'header-left': return {x: b.x, y: b.y + header / 2};
+        case 'header-right': return {x: b.x + b.width, y: b.y + header / 2};
+        case 'header-bottom-center': return {x: b.x + b.width / 2, y: b.y + header};
+        case 'group-bottom-center': return {x: b.x + b.width / 2, y: exits.get(p.nodeId)!};
+        case 'bottom-center': return {x: b.x + b.width / 2, y: b.y + b.height};
+      }
+    }
     if (p.role === 'entry') return {x: b.x + b.width / 2, y: b.y - (hint?.root ? 24 : 0)};
     if (p.role === 'next-iteration') return {x: b.x + b.width / 2 - 70, y: b.y + b.height - 28};
     if (p.role === 'true') return hint?.mode === 'foreach'
@@ -223,16 +245,17 @@ export function layoutDiagram(diagram: Diagram, measure: (label: string) => {wid
   const ancestor = (a: Id, id: Id) => { for (let p = parents.get(id); p; p = parents.get(p)) if (p === a) return true; return false; };
   const obstacles = [...sizes.keys()].map(id => {
     const node = findNode(diagram.nodes, id)!, box = boxes[id];
-    return {id, box: {...box, height: Math.max(52, measure(node.label).height + 28)}, root: hints.get(node)?.root};
+    return {id, box: {...box, height: Math.max(52, measure(node.label).height + 28)}, root: layoutHint(node)?.root};
   }).filter(o => !o.root);
   const routes = diagram.edges.map(e => {
     const a = point(e.fromPort), b = point(e.toPort), from = portMap.get(e.fromPort)!, to = portMap.get(e.toPort)!, box = boxes[to.nodeId];
     let preferred: {x: number; y: number}[];
-    if (e.kind === 'back' || e.kind === 'continue' && b.y < a.y) { const x = box.x - lane / 2; preferred = [a, {x: a.x, y: a.y + 18}, {x, y: a.y + 18}, {x, y: b.y - 18}, {x: b.x, y: b.y - 18}, b]; }
-    else if (e.kind === 'true' || e.kind === 'false' || e.kind === 'error') {
-      const outward = e.kind === 'true' ? b.x < a.x : b.x > a.x;
+    const routing = 'routing' in e ? (e as HIRDiagramEdge).routing : e.kind === 'back' || e.kind === 'continue' && b.y < a.y ? 'back' : e.kind === 'true' ? 'branch-left' : e.kind === 'false' || e.kind === 'error' ? 'branch-right' : 'direct';
+    if (routing === 'back') { const x = box.x - lane / 2; preferred = [a, {x: a.x, y: a.y + 18}, {x, y: a.y + 18}, {x, y: b.y - 18}, {x: b.x, y: b.y - 18}, b]; }
+    else if (routing === 'branch-left' || routing === 'branch-right') {
+      const outward = routing === 'branch-left' ? b.x < a.x : b.x > a.x;
       if (outward && b.y > a.y) preferred = [a, {x: b.x, y: a.y}, b];
-      else { const x = a.x + (e.kind === 'true' ? -24 : 24); preferred = [a, {x, y: a.y}, {x, y: b.y - 18}, {x: b.x, y: b.y - 18}, b]; }
+      else { const x = a.x + (routing === 'branch-left' ? -24 : 24); preferred = [a, {x, y: a.y}, {x, y: b.y - 18}, {x: b.x, y: b.y - 18}, b]; }
     }
     else if (a.x === b.x) preferred = [a, b];
     else preferred = [a, {x: a.x, y: a.y + Math.max(16, (b.y - a.y) / 2)}, {x: b.x, y: a.y + Math.max(16, (b.y - a.y) / 2)}, b];

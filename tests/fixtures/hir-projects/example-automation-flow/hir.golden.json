@@ -281,7 +281,7 @@
       "nodes": [
         {
           "id": "examples/automation_flow/function/finish/examples/automation_flow/function/finish/statement/0",
-          "occurrenceKey": "examples/automation_flow/function/finish/examples/automation_flow/function/finish/statement/0",
+          "occurrenceKey": "/examples/automation_flow/function/finish/statement/0",
           "sourceId": "examples/automation_flow/function/finish/statement/0",
           "presentation": {
             "kind": "plain",
@@ -299,7 +299,7 @@
         },
         {
           "id": "examples/automation_flow/function/finish/root",
-          "occurrenceKey": "examples/automation_flow/function/finish/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/automation_flow/function/finish",
           "presentation": {
             "kind": "plain",
@@ -319,6 +319,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/automation_flow/function/finish/statement/0:entry",
           "id": "examples/automation_flow/function/finish/examples/automation_flow/function/finish/statement/0:entry",
           "nodeId": "examples/automation_flow/function/finish/examples/automation_flow/function/finish/statement/0",
           "role": "entry",
@@ -327,6 +328,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/finish/statement/0:normal-exit",
           "id": "examples/automation_flow/function/finish/examples/automation_flow/function/finish/statement/0:normal-exit",
           "nodeId": "examples/automation_flow/function/finish/examples/automation_flow/function/finish/statement/0",
           "role": "normal-exit",
@@ -335,6 +337,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/finish/statement/0:return",
           "id": "examples/automation_flow/function/finish/examples/automation_flow/function/finish/statement/0:return",
           "nodeId": "examples/automation_flow/function/finish/examples/automation_flow/function/finish/statement/0",
           "role": "return",
@@ -343,6 +346,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/automation_flow/function/finish/root:entry",
           "nodeId": "examples/automation_flow/function/finish/root",
           "role": "entry",
@@ -351,6 +355,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/automation_flow/function/finish/root:normal-exit",
           "nodeId": "examples/automation_flow/function/finish/root",
           "role": "normal-exit",
@@ -679,7 +684,7 @@
       "nodes": [
         {
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0",
-          "occurrenceKey": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0",
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/0",
           "sourceId": "examples/automation_flow/function/main/statement/0",
           "presentation": {
             "kind": "plain",
@@ -697,7 +702,7 @@
         },
         {
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1",
-          "occurrenceKey": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1",
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/1",
           "sourceId": "examples/automation_flow/function/main/statement/1/condition",
           "presentation": {
             "kind": "plain",
@@ -716,7 +721,7 @@
         },
         {
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1/loop/examples/automation_flow/function/main/statement/1/loop/statement/0",
-          "occurrenceKey": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1/loop/examples/automation_flow/function/main/statement/1/loop/statement/0",
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/1/loop/examples/automation_flow/function/main/statement/1/loop/statement/0",
           "sourceId": "examples/automation_flow/function/main/statement/1/loop/statement/0",
           "presentation": {
             "kind": "plain",
@@ -734,7 +739,7 @@
         },
         {
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2",
-          "occurrenceKey": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2",
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/2",
           "sourceId": "examples/automation_flow/function/main/statement/2",
           "presentation": {
             "kind": "plain",
@@ -753,7 +758,7 @@
         },
         {
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0",
-          "occurrenceKey": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0",
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0",
           "sourceId": "examples/automation_flow/function/main/statement/2/call/0",
           "presentation": {
             "kind": "plain",
@@ -763,7 +768,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0",
+              "occurrenceKey": "/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -772,7 +777,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call finish(count)",
                 "glyph": "↻"
               }
             }
@@ -781,7 +786,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/automation_flow/function/finish",
-              "occurrenceKey": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0",
+              "occurrenceKey": "/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -903,7 +908,7 @@
         },
         {
           "id": "examples/automation_flow/function/main/root",
-          "occurrenceKey": "examples/automation_flow/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/automation_flow/function/main",
           "presentation": {
             "kind": "plain",
@@ -923,6 +928,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/0:entry",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0:entry",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0",
           "role": "entry",
@@ -931,6 +937,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/0:normal-exit",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0:normal-exit",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/0",
           "role": "normal-exit",
@@ -939,6 +946,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/1:entry",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1:entry",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1",
           "role": "entry",
@@ -947,6 +955,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/1/loop/examples/automation_flow/function/main/statement/1/loop/statement/0:entry",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1/loop/examples/automation_flow/function/main/statement/1/loop/statement/0:entry",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1/loop/examples/automation_flow/function/main/statement/1/loop/statement/0",
           "role": "entry",
@@ -955,6 +964,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/1/loop/examples/automation_flow/function/main/statement/1/loop/statement/0:normal-exit",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1/loop/examples/automation_flow/function/main/statement/1/loop/statement/0:normal-exit",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1/loop/examples/automation_flow/function/main/statement/1/loop/statement/0",
           "role": "normal-exit",
@@ -963,6 +973,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/1:normal-exit",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1:normal-exit",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1",
           "role": "normal-exit",
@@ -971,6 +982,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/1:true",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1:true",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1",
           "role": "true",
@@ -979,6 +991,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/1:false",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1:false",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/1",
           "role": "false",
@@ -987,6 +1000,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/2:entry",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2:entry",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2",
           "role": "entry",
@@ -995,6 +1009,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/2:normal-exit",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2:normal-exit",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2",
           "role": "normal-exit",
@@ -1003,6 +1018,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0:entry",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0:entry",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0",
           "role": "entry",
@@ -1011,6 +1027,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0:normal-exit",
           "id": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0:normal-exit",
           "nodeId": "examples/automation_flow/function/main/examples/automation_flow/function/main/statement/2/expand/examples/automation_flow/function/main/statement/2/call/0",
           "role": "normal-exit",
@@ -1019,6 +1036,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/automation_flow/function/main/root:entry",
           "nodeId": "examples/automation_flow/function/main/root",
           "role": "entry",
@@ -1027,6 +1045,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/automation_flow/function/main/root:normal-exit",
           "nodeId": "examples/automation_flow/function/main/root",
           "role": "normal-exit",

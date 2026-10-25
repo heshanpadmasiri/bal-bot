@@ -456,7 +456,7 @@
       "nodes": [
         {
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0",
-          "occurrenceKey": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0",
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0",
           "sourceId": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0",
           "presentation": {
             "kind": "plain",
@@ -474,7 +474,7 @@
         },
         {
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
-          "occurrenceKey": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
           "sourceId": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0",
           "presentation": {
             "kind": "client",
@@ -505,7 +505,7 @@
         },
         {
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/error",
-          "occurrenceKey": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/error",
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/error",
           "sourceId": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -523,7 +523,7 @@
         },
         {
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation",
-          "occurrenceKey": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation",
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation",
           "sourceId": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/value",
           "presentation": {
             "kind": "plain",
@@ -542,7 +542,7 @@
         },
         {
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1",
-          "occurrenceKey": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1",
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/1",
           "sourceId": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1",
           "presentation": {
             "kind": "plain",
@@ -560,7 +560,7 @@
         },
         {
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation",
-          "occurrenceKey": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation",
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation",
           "sourceId": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value",
           "presentation": {
             "kind": "plain",
@@ -578,7 +578,7 @@
         },
         {
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/root",
-          "occurrenceKey": "browser/http_service/service/main.bal///1/resource/get/hello/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/service/main.bal///1/resource/get/hello",
           "presentation": {
             "kind": "plain",
@@ -598,6 +598,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0:entry",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0:entry",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0",
           "role": "entry",
@@ -606,6 +607,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:entry",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:entry",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
           "role": "entry",
@@ -614,6 +616,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:normal-exit",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:normal-exit",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
           "role": "normal-exit",
@@ -622,6 +625,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:panic",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0:panic",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/part/0",
           "role": "panic",
@@ -630,6 +634,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation:normal-exit",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation:normal-exit",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation",
           "role": "normal-exit",
@@ -638,6 +643,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation:true",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation:true",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation",
           "role": "true",
@@ -646,6 +652,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation:false",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation:false",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation",
           "role": "false",
@@ -654,6 +661,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/error:entry",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/error:entry",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/error",
           "role": "entry",
@@ -662,6 +670,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation:entry",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation:entry",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation",
           "role": "entry",
@@ -670,6 +679,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/error:return",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/error:return",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0/evaluation/error",
           "role": "return",
@@ -678,6 +688,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/0:normal-exit",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0:normal-exit",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/0",
           "role": "normal-exit",
@@ -686,6 +697,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/1:entry",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1:entry",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1",
           "role": "entry",
@@ -694,6 +706,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation:entry",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation:entry",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation",
           "role": "entry",
@@ -702,6 +715,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation:normal-exit",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation:normal-exit",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation",
           "role": "normal-exit",
@@ -710,6 +724,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation:panic",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation:panic",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1/evaluation",
           "role": "panic",
@@ -718,6 +733,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/service/main.bal///1/resource/get/hello/statement/1:return",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1:return",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/browser/http_service/service/main.bal///1/resource/get/hello/statement/1",
           "role": "return",
@@ -726,6 +742,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/root:entry",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/root",
           "role": "entry",
@@ -734,6 +751,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/service/main.bal///1/resource/get/hello/root:normal-exit",
           "nodeId": "browser/http_service/service/main.bal///1/resource/get/hello/root",
           "role": "normal-exit",

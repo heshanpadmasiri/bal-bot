@@ -276,7 +276,7 @@
       "nodes": [
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0",
+          "occurrenceKey": "/browser/http_service/function/main/statement/0",
           "sourceId": "browser/http_service/function/main/statement/0",
           "presentation": {
             "kind": "plain",
@@ -295,7 +295,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0",
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0",
           "sourceId": "browser/http_service/function/main/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -305,7 +305,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0",
+              "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -314,7 +314,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call value(1)",
                 "glyph": "↻"
               }
             }
@@ -323,7 +323,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "browser/http_service/function/value",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0",
+              "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -445,7 +445,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1",
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1",
           "sourceId": "browser/http_service/function/main/statement/0/call/1",
           "presentation": {
             "kind": "plain",
@@ -455,7 +455,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1",
+              "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1",
               "availability": {
                 "kind": "available"
               },
@@ -464,7 +464,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call value(2)",
                 "glyph": "↻"
               }
             }
@@ -473,7 +473,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "browser/http_service/function/value",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1",
+              "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1",
               "availability": {
                 "kind": "available"
               },
@@ -595,7 +595,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2",
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2",
           "sourceId": "browser/http_service/function/main/statement/0/call/2",
           "presentation": {
             "kind": "plain",
@@ -605,7 +605,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2",
+              "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2",
               "availability": {
                 "kind": "available"
               },
@@ -614,7 +614,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call value(3)",
                 "glyph": "↻"
               }
             }
@@ -623,7 +623,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "browser/http_service/function/value",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2",
+              "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2",
               "availability": {
                 "kind": "available"
               },
@@ -745,7 +745,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3",
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3",
           "sourceId": "browser/http_service/function/main/statement/0/call/3",
           "presentation": {
             "kind": "plain",
@@ -755,7 +755,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3",
+              "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3",
               "availability": {
                 "kind": "available"
               },
@@ -764,7 +764,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call value(4)",
                 "glyph": "↻"
               }
             }
@@ -773,7 +773,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "browser/http_service/function/value",
-              "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3",
+              "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3",
               "availability": {
                 "kind": "available"
               },
@@ -895,7 +895,7 @@
         },
         {
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1",
-          "occurrenceKey": "browser/http_service/function/main/browser/http_service/function/main/statement/1",
+          "occurrenceKey": "/browser/http_service/function/main/statement/1",
           "sourceId": "browser/http_service/function/main/statement/1",
           "presentation": {
             "kind": "plain",
@@ -913,7 +913,7 @@
         },
         {
           "id": "browser/http_service/function/main/root",
-          "occurrenceKey": "browser/http_service/function/main/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/function/main",
           "presentation": {
             "kind": "plain",
@@ -933,6 +933,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0",
           "role": "entry",
@@ -941,6 +942,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0",
           "role": "normal-exit",
@@ -949,6 +951,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0",
           "role": "entry",
@@ -957,6 +960,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/0",
           "role": "normal-exit",
@@ -965,6 +969,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1",
           "role": "entry",
@@ -973,6 +978,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/1",
           "role": "normal-exit",
@@ -981,6 +987,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2",
           "role": "entry",
@@ -989,6 +996,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/2",
           "role": "normal-exit",
@@ -997,6 +1005,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3",
           "role": "entry",
@@ -1005,6 +1014,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/0/expand/browser/http_service/function/main/statement/0/call/3",
           "role": "normal-exit",
@@ -1013,6 +1023,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1:entry",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1:entry",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1",
           "role": "entry",
@@ -1021,6 +1032,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/main/statement/1:normal-exit",
           "id": "browser/http_service/function/main/browser/http_service/function/main/statement/1:normal-exit",
           "nodeId": "browser/http_service/function/main/browser/http_service/function/main/statement/1",
           "role": "normal-exit",
@@ -1029,6 +1041,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/function/main/root:entry",
           "nodeId": "browser/http_service/function/main/root",
           "role": "entry",
@@ -1037,6 +1050,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/function/main/root:normal-exit",
           "nodeId": "browser/http_service/function/main/root",
           "role": "normal-exit",
@@ -2761,7 +2775,7 @@
       "nodes": [
         {
           "id": "browser/http_service/function/value/browser/http_service/function/value/statement/0",
-          "occurrenceKey": "browser/http_service/function/value/browser/http_service/function/value/statement/0",
+          "occurrenceKey": "/browser/http_service/function/value/statement/0",
           "sourceId": "browser/http_service/function/value/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2779,7 +2793,7 @@
         },
         {
           "id": "browser/http_service/function/value/root",
-          "occurrenceKey": "browser/http_service/function/value/root",
+          "occurrenceKey": "/root",
           "sourceId": "browser/http_service/function/value",
           "presentation": {
             "kind": "plain",
@@ -2799,6 +2813,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/browser/http_service/function/value/statement/0:entry",
           "id": "browser/http_service/function/value/browser/http_service/function/value/statement/0:entry",
           "nodeId": "browser/http_service/function/value/browser/http_service/function/value/statement/0",
           "role": "entry",
@@ -2807,6 +2822,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/value/statement/0:normal-exit",
           "id": "browser/http_service/function/value/browser/http_service/function/value/statement/0:normal-exit",
           "nodeId": "browser/http_service/function/value/browser/http_service/function/value/statement/0",
           "role": "normal-exit",
@@ -2815,6 +2831,7 @@
           }
         },
         {
+          "occurrenceKey": "/browser/http_service/function/value/statement/0:return",
           "id": "browser/http_service/function/value/browser/http_service/function/value/statement/0:return",
           "nodeId": "browser/http_service/function/value/browser/http_service/function/value/statement/0",
           "role": "return",
@@ -2823,6 +2840,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "browser/http_service/function/value/root:entry",
           "nodeId": "browser/http_service/function/value/root",
           "role": "entry",
@@ -2831,6 +2849,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "browser/http_service/function/value/root:normal-exit",
           "nodeId": "browser/http_service/function/value/root",
           "role": "normal-exit",

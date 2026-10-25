@@ -447,10 +447,11 @@ func (v *HIRCallDisclosure) UnmarshalJSON(data []byte) error {
 }
 
 type HIRClientContextDisclosure struct {
-	Call          *HIRCallDisclosure `json:"call"`
-	OccurrenceKey string             `json:"occurrenceKey"`
-	Collapsed     HIRLabelContent    `json:"collapsed"`
-	Expanded      HIRLabelContent    `json:"expanded"`
+	Call              *HIRCallDisclosure        `json:"call"`
+	ExpandedRecursive *HIRRecursivePresentation `json:"expandedRecursive"`
+	OccurrenceKey     string                    `json:"occurrenceKey"`
+	Collapsed         HIRLabelContent           `json:"collapsed"`
+	Expanded          HIRLabelContent           `json:"expanded"`
 }
 
 func (HIRClientContextDisclosure) isHIRDisclosure() {}
@@ -601,10 +602,11 @@ type HIRAnchor struct {
 }
 
 type HIRPort struct {
-	ID     string      `json:"id"`
-	NodeID string      `json:"nodeId"`
-	Role   HIRPortRole `json:"role"`
-	Anchor HIRAnchor   `json:"anchor"`
+	OccurrenceKey string      `json:"occurrenceKey"`
+	ID            string      `json:"id"`
+	NodeID        string      `json:"nodeId"`
+	Role          HIRPortRole `json:"role"`
+	Anchor        HIRAnchor   `json:"anchor"`
 }
 
 type HIREdgeKind string

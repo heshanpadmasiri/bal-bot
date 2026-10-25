@@ -218,7 +218,10 @@ function validateReference(value: unknown): void {
 }
 function hirCallDisclosure(value: unknown): void {
   const d = hirObject(value, 'kind occurrenceKey availability recursive'); hirAssert(d.kind === 'call'); hirId(d.occurrenceKey); hirAvailability(d.availability);
-  const r = hirObject(d.recursive, 'label sections limitation title ariaLabel glyph');
+  hirRecursivePresentation(d.recursive);
+}
+function hirRecursivePresentation(value: unknown): void {
+  const r = hirObject(value, 'label sections limitation title ariaLabel glyph');
   hirString(r.label); hirSections(r.sections); hirNullable(r.limitation); hirString(r.title); hirString(r.ariaLabel); hirString(r.glyph);
 }
 function validateNode(value: unknown): void {
@@ -235,7 +238,9 @@ function validateNode(value: unknown): void {
       case 'none': hirObject(d, 'kind'); break;
       case 'call': hirCallDisclosure(d); break;
       case 'client-context':
-        hirObject(d, 'kind occurrenceKey collapsed expanded call'); hirId(d.occurrenceKey); hirLabel(d.collapsed); hirLabel(d.expanded);
+        hirObject(d, 'kind occurrenceKey collapsed expanded call expandedRecursive'); hirId(d.occurrenceKey); hirLabel(d.collapsed); hirLabel(d.expanded);
+        hirAssert((d.call === null) === (d.expandedRecursive === null));
+        if (d.expandedRecursive !== null) hirRecursivePresentation(d.expandedRecursive);
         if (d.call !== null) hirCallDisclosure(d.call); break;
       default: hirFail('unknown disclosure');
     }
@@ -271,7 +276,7 @@ function validateGraph(value: unknown): void {
   hirList(e.parameters, item => { const p = hirObject(item, 'label text'); hirEnum(p.label, 'Path Input'); hirString(p.text); });
   hirList(g.nodes, validateNode); hirList(g.groups, validateGroup); hirList(g.edges, hirEdge); hirList(g.interfaces, hirInterface);
   hirList(g.ports, item => {
-    const p = hirObject(item, 'id nodeId role anchor'); hirId(p.id); hirId(p.nodeId); hirEnum(p.role, 'entry normal-exit true false return break continue next-iteration panic');
+    const p = hirObject(item, 'id occurrenceKey nodeId role anchor'); hirId(p.occurrenceKey); hirId(p.id); hirId(p.nodeId); hirEnum(p.role, 'entry normal-exit true false return break continue next-iteration panic');
     const a = hirObject(p.anchor, 'kind'); hirEnum(a.kind, 'top-center header-left header-right header-bottom-center bottom-center group-bottom-center iteration-marker');
   });
   const emission = hirObject(g.emission, 'root inline'); hirPlan(emission.root); hirPlan(emission.inline);
@@ -372,7 +377,6 @@ function validateLinks(program: HIRProgram): void {
       if (node.presentation.kind === 'client' && node.body.kind === 'reference') hirAssert(call !== null, 'client reference missing call disclosure');
       if (node.body.kind === 'reference') {
         const ref = node.body.reference; references.set(node.id, ref);
-        hirAssert(ref.occurrenceKey === node.occurrenceKey, 'reference occurrence disagreement');
         hirAssert(Object.hasOwn(program.functions, ref.graphId), 'unknown referenced graph');
         for (const other of references.values()) if (other !== ref) hirAssert(other.occurrenceKey !== ref.occurrenceKey, 'duplicate reference occurrenceKey');
         if (call) {
@@ -394,7 +398,10 @@ function validateLinks(program: HIRProgram): void {
       }
     }
     for (const iface of interfaces.values()) if (iface.root.kind === 'connect') addBinding(iface.root.bindingId, { reference: null, binding: null, iface });
-    for (const port of ports.values()) hirGet(nodes, port.nodeId);
+    for (const port of ports.values()) {
+      hirGet(nodes, port.nodeId);
+      hirAssert(!occurrenceKeys.has(port.occurrenceKey), 'duplicate port occurrenceKey'); occurrenceKeys.add(port.occurrenceKey);
+    }
     for (const edge of edges.values()) { hirGet(ports, edge.fromPort); hirGet(ports, edge.toPort); }
     const groupOwner = new Map<string, string>();
     for (const node of nodes.values()) if (node.body.kind === 'group') {
@@ -539,7 +546,10 @@ function validateHIRInstantiations(indexes: Map<string, HIRGraphIndex>): void {
     const requireInterface = (i: HIRInstance, id: string, demand: number): void => {
       const iface = hirGet(i.index.interfaces, id);
       for (const member of iface.members) {
-        hirAssert(boolean.implies(boolean.and(demand, presence(i, member.when)), hirGet(i.emittedPorts!, member.portId)), 'active binding targets unemitted interface port');
+        // A structural member need not have a slot (e.g. a suppressed root).
+        // Absence is false emission, not a dangling port identity; the graph's
+        // port registry was checked already. Only active consumers demand it.
+        hirAssert(boolean.implies(boolean.and(demand, presence(i, member.when)), i.emittedPorts!.get(member.portId) ?? 0), 'active binding targets unemitted interface port');
       }
       for (const exp of iface.exports) {
         const record = hirGet(i.index.bindings, exp.bindingId), binding = record.binding!;

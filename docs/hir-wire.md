@@ -40,6 +40,12 @@ The types contain data only: no AST, compiler state, callbacks, or pixel geometr
 `sources` is the complete ID-to-`Located` index, including source-bearing values
 not currently displayed. A node's `sourceId` selects its original source identity;
 its local `id` and `occurrenceKey` are separate render-instantiation identities.
+Nodes and ports each carry a literal occurrence-key suffix. Instantiation only
+concatenates the current occurrence prefix with that suffix; it never discovers
+connections by rewriting IDs or inferring identities from port roles. References
+and disclosures have their own suffixes: an evaluation call's node and expansion
+control intentionally have different keys. Lowering computes these recipes;
+source IDs are never qualified with an occurrence prefix.
 Graph and scope locations must agree with the corresponding source entries.
 Graph references use function IDs, never nested graph copies. Function-reference
 cycles are valid; group-ownership cycles are not.
@@ -63,6 +69,8 @@ context controls initialization-text expansion, while call controls body expansi
 Client reference bodies require call metadata; its occurrence key and availability
 must agree with the reference, including unavailable and recursive calls. External
 clients retain `none` or `client-context` with `call: null`.
+The required nullable `expandedRecursive` field carries the complete recursive
+presentation for the expanded constructor context, or is null when `call` is null.
 Call disclosures carry availability and a fully
 prepared recursive label/sections, limitation, title, ARIA label, and glyph.
 Recursion is detected by graph ancestry, not syntax. It uses collapsed interfaces

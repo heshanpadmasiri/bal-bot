@@ -771,7 +771,7 @@
       "nodes": [
         {
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0",
-          "occurrenceKey": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0",
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/0",
           "sourceId": "examples/design_critique/function/calculate/statement/0/condition",
           "presentation": {
             "kind": "plain",
@@ -790,7 +790,7 @@
         },
         {
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0",
-          "occurrenceKey": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0",
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0",
           "sourceId": "examples/design_critique/function/calculate/statement/0/then/statement/0",
           "presentation": {
             "kind": "plain",
@@ -808,7 +808,7 @@
         },
         {
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/1/block/statement/0",
-          "occurrenceKey": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/1/block/statement/0",
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/1/block/statement/0",
           "sourceId": "examples/design_critique/function/calculate/statement/1/block/statement/0",
           "presentation": {
             "kind": "plain",
@@ -826,7 +826,7 @@
         },
         {
           "id": "examples/design_critique/function/calculate/root",
-          "occurrenceKey": "examples/design_critique/function/calculate/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/design_critique/function/calculate",
           "presentation": {
             "kind": "plain",
@@ -846,6 +846,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/0:entry",
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0:entry",
           "nodeId": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0",
           "role": "entry",
@@ -854,6 +855,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0:entry",
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0:entry",
           "nodeId": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0",
           "role": "entry",
@@ -862,6 +864,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0:normal-exit",
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0:normal-exit",
           "nodeId": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0",
           "role": "normal-exit",
@@ -870,6 +873,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0:return",
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0:return",
           "nodeId": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0/then/examples/design_critique/function/calculate/statement/0/then/statement/0",
           "role": "return",
@@ -878,6 +882,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/0:normal-exit",
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0:normal-exit",
           "nodeId": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0",
           "role": "normal-exit",
@@ -886,6 +891,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/0:true",
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0:true",
           "nodeId": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0",
           "role": "true",
@@ -894,6 +900,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/0:false",
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0:false",
           "nodeId": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/0",
           "role": "false",
@@ -902,6 +909,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/1/block/statement/0:entry",
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/1/block/statement/0:entry",
           "nodeId": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/1/block/statement/0",
           "role": "entry",
@@ -910,6 +918,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/1/block/statement/0:normal-exit",
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/1/block/statement/0:normal-exit",
           "nodeId": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/1/block/statement/0",
           "role": "normal-exit",
@@ -918,6 +927,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/function/calculate/statement/1/block/statement/0:return",
           "id": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/1/block/statement/0:return",
           "nodeId": "examples/design_critique/function/calculate/examples/design_critique/function/calculate/statement/1/block/statement/0",
           "role": "return",
@@ -926,6 +936,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/design_critique/function/calculate/root:entry",
           "nodeId": "examples/design_critique/function/calculate/root",
           "role": "entry",
@@ -934,6 +945,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/design_critique/function/calculate/root:normal-exit",
           "nodeId": "examples/design_critique/function/calculate/root",
           "role": "normal-exit",
@@ -1682,7 +1694,7 @@
       "nodes": [
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/get/status/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0",
           "presentation": {
             "kind": "plain",
@@ -1700,7 +1712,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status/root",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/get/status/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/get/status",
           "presentation": {
             "kind": "plain",
@@ -1720,6 +1732,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/get/status/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0",
           "role": "entry",
@@ -1728,6 +1741,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/get/status/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0",
           "role": "normal-exit",
@@ -1736,6 +1750,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0:return",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0:return",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/get/status/examples/design_critique/service/main.bal//orders/1/resource/get/status/statement/0",
           "role": "return",
@@ -1744,6 +1759,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status/root:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/get/status/root",
           "role": "entry",
@@ -1752,6 +1768,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/get/status/root:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/get/status/root",
           "role": "normal-exit",
@@ -2080,7 +2097,7 @@
       "nodes": [
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2098,7 +2115,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1",
           "presentation": {
             "kind": "plain",
@@ -2116,7 +2133,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/header",
           "presentation": {
             "kind": "plain",
@@ -2135,7 +2152,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/condition",
           "presentation": {
             "kind": "plain",
@@ -2154,7 +2171,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2172,7 +2189,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2191,7 +2208,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
           "presentation": {
             "kind": "plain",
@@ -2201,7 +2218,7 @@
             "limitation": null,
             "disclosure": {
               "kind": "call",
-              "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
+              "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -2210,7 +2227,7 @@
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
                 "title": "Recursive calls remain collapsed.",
-                "ariaLabel": "Recursive calls remain collapsed.",
+                "ariaLabel": "Recursive call calculate(item)",
                 "glyph": "↻"
               }
             }
@@ -2219,7 +2236,7 @@
             "kind": "reference",
             "reference": {
               "graphId": "examples/design_critique/function/calculate",
-              "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
+              "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
               "availability": {
                 "kind": "available"
               },
@@ -2341,7 +2358,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/condition",
           "presentation": {
             "kind": "plain",
@@ -2360,7 +2377,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2378,7 +2395,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0",
           "presentation": {
             "kind": "plain",
@@ -2396,7 +2413,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
           "presentation": {
             "kind": "plain",
@@ -2414,7 +2431,7 @@
         },
         {
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/root",
-          "occurrenceKey": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/root",
+          "occurrenceKey": "/root",
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders",
           "presentation": {
             "kind": "plain",
@@ -2434,6 +2451,7 @@
       ],
       "ports": [
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0",
           "role": "entry",
@@ -2442,6 +2460,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0",
           "role": "normal-exit",
@@ -2450,6 +2469,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1",
           "role": "entry",
@@ -2458,6 +2478,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1",
           "role": "normal-exit",
@@ -2466,6 +2487,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2",
           "role": "entry",
@@ -2474,6 +2496,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0",
           "role": "entry",
@@ -2482,6 +2505,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0",
           "role": "entry",
@@ -2490,6 +2514,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0:continue",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0:continue",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0",
           "role": "continue",
@@ -2498,6 +2523,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0",
           "role": "normal-exit",
@@ -2506,6 +2532,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0:true",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0:true",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0",
           "role": "true",
@@ -2514,6 +2541,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0:false",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0:false",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0",
           "role": "false",
@@ -2522,6 +2550,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0",
           "role": "entry",
@@ -2530,6 +2559,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0",
           "role": "normal-exit",
@@ -2538,6 +2568,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
           "role": "entry",
@@ -2546,6 +2577,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/expand/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
           "role": "normal-exit",
@@ -2554,6 +2586,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2",
           "role": "normal-exit",
@@ -2562,6 +2595,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2:next-iteration",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2:next-iteration",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2",
           "role": "next-iteration",
@@ -2570,6 +2604,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2:true",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2:true",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2",
           "role": "true",
@@ -2578,6 +2613,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3",
           "role": "entry",
@@ -2586,6 +2622,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0",
           "role": "entry",
@@ -2594,6 +2631,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0",
           "role": "normal-exit",
@@ -2602,6 +2640,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0",
           "role": "entry",
@@ -2610,6 +2649,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0",
           "role": "normal-exit",
@@ -2618,6 +2658,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3",
           "role": "normal-exit",
@@ -2626,6 +2667,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3:true",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3:true",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3",
           "role": "true",
@@ -2634,6 +2676,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3:false",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3:false",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3",
           "role": "false",
@@ -2642,6 +2685,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
           "role": "entry",
@@ -2650,6 +2694,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
           "role": "normal-exit",
@@ -2658,6 +2703,7 @@
           }
         },
         {
+          "occurrenceKey": "/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4:return",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4:return",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
           "role": "return",
@@ -2666,6 +2712,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:entry",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/root:entry",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/root",
           "role": "entry",
@@ -2674,6 +2721,7 @@
           }
         },
         {
+          "occurrenceKey": "/root:normal-exit",
           "id": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/root:normal-exit",
           "nodeId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/root",
           "role": "normal-exit",
@@ -2895,7 +2943,7 @@
         {
           "kind": "continue",
           "label": null,
-          "routing": "back",
+          "routing": "direct",
           "id": "edge/8",
           "fromPort": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/then/statement/0:continue",
           "toPort": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2:next-iteration",

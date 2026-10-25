@@ -97,7 +97,7 @@ func (b *graphBuilder) source(id string, n ast.Node) (LocatedModel, error) {
 	return b.l.located(id, n)
 }
 func (b *graphBuilder) addNode(id, occ, source string, p HIRPresentation) string {
-	b.graph.Nodes = append(b.graph.Nodes, HIRNode{ID: id, OccurrenceKey: occ, SourceID: source, Presentation: p, Body: HIRNodeBody{Value: HIRLeafBody{}}})
+	b.graph.Nodes = append(b.graph.Nodes, HIRNode{ID: id, OccurrenceKey: strings.TrimPrefix(occ, b.graph.ID), SourceID: source, Presentation: p, Body: HIRNodeBody{Value: HIRLeafBody{}}})
 	b.emit("nodes", local(id))
 	return id
 }
@@ -126,7 +126,7 @@ func (b *graphBuilder) addPort(node string, role HIRPortRole) string {
 	case HIRPortRoleNextIteration:
 		anchor = HIRAnchorKindIterationMarker
 	}
-	b.graph.Ports = append(b.graph.Ports, HIRPort{ID: id, NodeID: node, Role: role, Anchor: HIRAnchor{Kind: anchor}})
+	b.graph.Ports = append(b.graph.Ports, HIRPort{ID: id, OccurrenceKey: b.node(node).OccurrenceKey + ":" + string(role), NodeID: node, Role: role, Anchor: HIRAnchor{Kind: anchor}})
 	b.emit("ports", local(id))
 	return id
 }
@@ -209,17 +209,25 @@ func (b *graphBuilder) lowerBlock(path string, nodes []ast.StatementNode) (fragm
 }
 func (b *graphBuilder) lowerBlockAt(sourcePath, occPath string, nodes []ast.StatementNode) (fragment, error) {
 	f := fragment{}
+	err := b.appendBlock(&f, sourcePath, occPath, nodes)
+	return f, err
+}
+
+// Source blocks are flattened into their containing sequence. Construct and
+// connect each statement before visiting the next one, even across block
+// boundaries, so child edges and caller continuations remain interleaved.
+func (b *graphBuilder) appendBlock(f *fragment, sourcePath, occPath string, nodes []ast.StatementNode) error {
 	for i, n := range nodes {
 		id := fmt.Sprintf("%s/statement/%d", sourcePath, i)
-		var part fragment
-		var err error
 		if block, ok := n.(*ast.BLangBlockStmt); ok {
-			part, err = b.lowerBlockAt(id+"/block", occPath, block.Stmts)
-		} else {
-			part, err = b.lowerStatement(id, occPath+"/"+id, n)
+			if err := b.appendBlock(f, id+"/block", occPath, block.Stmts); err != nil {
+				return err
+			}
+			continue
 		}
+		part, err := b.lowerStatement(id, occPath+"/"+id, n)
 		if err != nil {
-			return f, err
+			return err
 		}
 		// A flattened empty block contributes no control-flow region. In
 		// particular it must not erase its predecessor's normal completion.
@@ -237,9 +245,9 @@ func (b *graphBuilder) lowerBlockAt(sourcePath, occPath string, nodes []ast.Stat
 		f.returns = append(f.returns, part.returns...)
 		f.breaks = append(f.breaks, part.breaks...)
 		f.continues = append(f.continues, part.continues...)
-		appendPanics(&f, part)
+		appendPanics(f, part)
 	}
-	return f, nil
+	return nil
 }
 func (l *lowerer) lowerFunction(fn sourceFunctionEntry) (HIRGraph, error) {
 	b := &graphBuilder{l: l, ports: map[string]bool{}}
