@@ -32,6 +32,7 @@
  * frozen manifest recorder. loadRenderCases is read-only and asynchronous.
  */
 import {readFile, readdir} from 'node:fs/promises';
+import {validateRenderCoverage, validateInfrastructure} from '../../../scripts/hir-suite-registry.mjs';
 import {loadMigrations, baselineSource} from '../../../scripts/hir-baseline-migrations.mjs';
 import {checkBrowserInventory} from '../../../scripts/update_hir_goldens.mjs';
 import {validatePostBaselineRenderingSuites} from '../../../scripts/hir-suite-inventory.mjs';
@@ -111,14 +112,15 @@ export async function assertSuiteInventory(tests, inventory) {
       !Array.isArray(registry.postBaselineRenderingSuites)) {
     throw Error('Invalid post-baseline HIR suite registry');
   }
+  validateRenderCoverage(registry, ROOT);
   const baseline = new Set(inventory.suites.map(suite => suite.file));
-  const registered = new Set();
+  const registered = validateInfrastructure(registry, ROOT, baseline);
   for (const suite of registry.suites) {
     if (typeof suite.file !== 'string' ||
         !/^(?:packages\/compiler\/(?:[a-z0-9_-]+_test\.go|tests\/[a-z0-9_-]+\.test\.mjs)|apps\/editor\/tests\/hir-[a-z0-9_-]+\.test\.mjs)$/.test(suite.file) ||
-        suite.rendering !== false || typeof suite.purpose !== 'string' || !suite.purpose.trim() ||
+        ![true, false].includes(suite.rendering) || typeof suite.purpose !== 'string' || !suite.purpose.trim() ||
         baseline.has(suite.file) || registered.has(suite.file)) {
-      throw Error(`Invalid post-baseline non-rendering suite: ${suite.file}`);
+      throw Error(`Invalid post-baseline suite: ${suite.file}`);
     }
     registered.add(suite.file);
   }

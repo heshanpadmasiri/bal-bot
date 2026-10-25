@@ -83,6 +83,9 @@ func (b *graphBuilder) expressionParts(expr ast.BLangActionOrExpression) (string
 	case *ast.BLangGroupExpr:
 		kind = "group"
 		add(n.Expression)
+	case *ast.BLangTypeConversionExpr:
+		kind = "cast"
+		add(n.Expression)
 	case *ast.BLangBinaryExpr:
 		add(n.LhsExpr)
 		add(n.RhsExpr)
@@ -201,7 +204,7 @@ func (b *graphBuilder) scanCalls(id string, expr ast.BLangActionOrExpression, sa
 			}
 		case *ast.BLangTernaryExpr, *ast.BLangNilConditionalExpr:
 			conditional++
-		case *ast.BLangGroupExpr:
+		case *ast.BLangGroupExpr, *ast.BLangTypeConversionExpr:
 			childExpand = expand
 		}
 		if kind == "check" || kind == "checkpanic" || kind == "trap" {
@@ -303,7 +306,9 @@ func (b *graphBuilder) lowerExpression(path string, expr ast.BLangActionOrExpres
 		return fragment{}, nil
 	}
 	kind, parts, _ := b.expressionParts(expr)
-	if kind == "group" {
+	if kind == "group" || kind == "cast" {
+		// Casts retain their enclosing source text but introduce no flow node
+		// or cast-specific panic path. Only the operand contributes effects.
 		return b.lowerExpression(path, parts[0], context)
 	}
 	if !force && !b.evaluationExists(expr) {

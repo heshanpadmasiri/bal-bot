@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Deliberately separate from frozen render capture tooling. Never imports the recorder.
 import { spawnSync } from 'node:child_process';
+import {validateRenderCoverage, validateInfrastructure} from './hir-suite-registry.mjs';
 import {loadMigrations, baselineSource} from './hir-baseline-migrations.mjs';
 import {validatePostBaselineRenderingSuites} from './hir-suite-inventory.mjs';
 import { readFileSync, readdirSync } from 'node:fs';
@@ -13,6 +14,7 @@ const require = createRequire(import.meta.url);
 const { babelParse } = require(path.join(path.dirname(require.resolve('playwright/package.json')), 'lib/transform/babelBundle.js'));
 
 const root = fileURLToPath(new URL('../', import.meta.url));
+const repositoryRoot = root;
 const base = path.join(root, 'tests/fixtures/hir-projects');
 const manifest = JSON.parse(readFileSync(path.join(base, 'manifest.json'), 'utf8'));
 const hash = value => createHash('sha256').update(value).digest('hex');
@@ -37,11 +39,14 @@ function sources(directory) {
 // This parser only recognizes a small, explicit set of source-building AST
 // forms. It never imports test modules or executes project/test source.
 export function collectBrowserInventory(historical = false, migrations = loadMigrations(), repository = root) {
+  // Keep registration authority in this checkout, but verify the supplied
+  // repository's browser bytes too (including isolated mutation fixtures).
+  const registry = JSON.parse(readFileSync(path.join(repositoryRoot, 'tests/hir-suite-inventory.json'), 'utf8'));
+  const infrastructure = validateInfrastructure(registry, repositoryRoot);
   const root = repository;
   const readSource = file => historical && migrations.has(file) ? migrations.get(file).original : readFileSync(path.join(root, file));
-  const registry = JSON.parse(readFileSync(path.join(root, 'tests/hir-suite-inventory.json'), 'utf8'));
-  const frozen = JSON.parse(readFileSync(path.join(root, 'tests/fixtures/flow-rendering/inventory.json'), 'utf8'));
-  const postBaselineRendering = validatePostBaselineRenderingSuites(registry, new Set(frozen.suites.map(suite => suite.file)), root);
+  const frozen = JSON.parse(readFileSync(path.join(repositoryRoot, 'tests/fixtures/flow-rendering/inventory.json'), 'utf8'));
+  const postBaselineRendering = validatePostBaselineRenderingSuites(registry, new Set(frozen.suites.map(suite => suite.file)), repositoryRoot);
   const directory = 'packages/compiler/tests/browser';
   const initialPath = 'packages/workspace/src/files.ts';
   const initialAST = babelParse(readFileSync(path.join(root, initialPath), 'utf8'), initialPath);
@@ -68,6 +73,11 @@ export function collectBrowserInventory(historical = false, migrations = loadMig
     // Only validated feature suites are outside the immutable original corpus.
     // Unknown suites remain collected and fail the original inventory checks.
     if (postBaselineRendering.has(file)) continue;
+    if (infrastructure.has(file)) {
+      const entry = registry.infrastructure.find(entry => entry.file === file);
+      if (hash(readFileSync(path.join(root, file))) !== entry.sha256) throw Error(`Post-baseline infrastructure needs hash audit: ${file}`);
+      continue;
+    }
     const text = readSource(file).toString();
     const ast = babelParse(text, file);
     const expressionText = node => text.slice(node.start, node.end);
@@ -173,7 +183,10 @@ export function checkBrowserInventory() {
   const inventory = JSON.parse(readFileSync(path.join(base, 'source-inventory.json'), 'utf8'));
   // New HIR-only suites are audited in the post-baseline registry, not silently
   // added to the immutable original source inventory.
-  const postBaseline = new Set(JSON.parse(readFileSync(path.join(root, 'tests/hir-suite-inventory.json'), 'utf8')).suites.filter(suite => suite.rendering === false).map(suite => suite.file));
+  const registry = JSON.parse(readFileSync(path.join(root, 'tests/hir-suite-inventory.json'), 'utf8'));
+  validateRenderCoverage(registry, root);
+  const infrastructure = validateInfrastructure(registry, root, [...inventory.browser, ...(inventory.infrastructure ?? [])].map(entry => entry.file));
+  const postBaseline = new Set([...registry.suites.map(suite => suite.file), ...infrastructure]);
   const infrastructureFiles = ['packages/compiler/tests/client.test.mjs', 'packages/compiler/tests/native/main.go'];
   for (const directory of ['apps/editor/tests', 'packages/browser-workspace/tests']) {
     infrastructureFiles.push(...readdirSync(path.join(root, directory)).filter(name => name.endsWith('.test.mjs') || name === 'fixtures.mjs').map(name => `${directory}/${name}`).filter(file => !postBaseline.has(file)));

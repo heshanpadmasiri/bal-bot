@@ -13,6 +13,11 @@ test('explicit feature suites validate without claiming frozen coverage', () => 
 for (const [name, mutate, expected] of [
   ['duplicate feature', input => input.postBaselineRenderingSuites.push(input.postBaselineRenderingSuites[0]), /Invalid post-baseline rendering/],
   ['cross-category duplicate', input => input.suites.push({...input.postBaselineRenderingSuites[0], rendering: false}), /Invalid post-baseline rendering/],
+  ['infrastructure overlap', input => input.infrastructure.push({...input.postBaselineRenderingSuites[0], rendering: false}), /Invalid post-baseline rendering/],
+  ['suite and infrastructure overlap', input => input.infrastructure.push({...input.suites[0]}), /Overlapping post-baseline registry entry/],
+  ['helper and infrastructure overlap', input => input.infrastructure.push({...input.helpers[0]}), /Overlapping post-baseline registry entry/],
+  ['unapproved playground browser path', input => { input.postBaselineRenderingSuites[0].file = 'apps/flow-playground/tests/browser/unknown.spec.mjs'; }, /Invalid post-baseline rendering/],
+  ['playground node suite as rendering', input => { input.postBaselineRenderingSuites[0].file = 'apps/flow-playground/tests/controller.test.mjs'; }, /Invalid post-baseline rendering/],
   ['missing feature file', input => { input.postBaselineRenderingSuites[0].file = 'packages/compiler/hir_missing_postbaseline_test.go'; }, /ENOENT/],
   ['missing coverage command', input => { delete input.postBaselineRenderingSuites[0].coverageCommand; }, /Invalid post-baseline rendering/],
   ['non-rendering feature', input => { input.postBaselineRenderingSuites[0].rendering = false; }, /Invalid post-baseline rendering/],

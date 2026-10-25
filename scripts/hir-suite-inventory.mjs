@@ -6,14 +6,14 @@ export function validatePostBaselineRenderingSuites(registry, baseline, reposito
   if (registry.version !== 1 || registry.stage !== 'post-baseline' || !Array.isArray(registry.suites) ||
       !Array.isArray(registry.postBaselineRenderingSuites)) throw Error('Invalid post-baseline HIR suite registry');
   const registered = new Set();
-  for (const entry of [...registry.suites, ...(registry.helpers ?? [])]) {
+  for (const entry of [...registry.suites, ...(registry.helpers ?? []), ...(registry.infrastructure ?? [])]) {
     if (baseline.has(entry.file) || registered.has(entry.file)) throw Error(`Overlapping post-baseline registry entry: ${entry.file}`);
     registered.add(entry.file);
   }
   const rendering = new Set();
   for (const suite of registry.postBaselineRenderingSuites) {
     if (typeof suite.file !== 'string' ||
-        !/^(?:packages\/compiler\/hir_[a-z0-9_]+_postbaseline_test\.go|packages\/compiler\/tests\/browser\/[a-z0-9_-]+\.spec\.mjs)$/.test(suite.file) ||
+        !/^(?:packages\/compiler\/hir_[a-z0-9_]+_postbaseline_test\.go|packages\/compiler\/tests\/browser\/[a-z0-9_-]+\.spec\.mjs|apps\/flow-playground\/tests\/browser\/playground\.spec\.mjs)$/.test(suite.file) ||
         suite.rendering !== true || typeof suite.purpose !== 'string' || !suite.purpose.trim() ||
         typeof suite.coverageCommand !== 'string' || !suite.coverageCommand.trim() ||
         baseline.has(suite.file) || registered.has(suite.file)) {

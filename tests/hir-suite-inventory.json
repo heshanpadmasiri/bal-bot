@@ -3,6 +3,12 @@
   "stage": "post-baseline",
   "postBaselineRenderingSuites": [
     {
+      "file": "apps/flow-playground/tests/browser/playground.spec.mjs",
+      "rendering": true,
+      "purpose": "Post-baseline production compiler and flow renderer coverage for playground editing, stale diagnostics, entry and endpoint selection, call expansion and demo links; no frozen coverage claims.",
+      "coverageCommand": "npm run test:playground:browser"
+    },
+    {
       "file": "packages/compiler/hir_error_constructor_postbaseline_test.go",
       "rendering": true,
       "purpose": "Post-baseline error-constructor flow presentation, contexts and argument-effect coverage; no frozen corpus or baseline claims.",
@@ -13,6 +19,38 @@
       "rendering": true,
       "purpose": "Post-baseline browser error-constructor rendering and interaction coverage; no frozen captures or original 663-case coverage claims.",
       "coverageCommand": "npm run test:browser -- packages/compiler/tests/browser/error-constructor.spec.mjs"
+    }
+  ],
+  "infrastructure": [
+    {
+      "file": "apps/flow-playground/tests/controller.test.mjs",
+      "rendering": false,
+      "sha256": "142b007f683014cd36bd55d4020528d2765537069df544699df11f5900f7ae85",
+      "purpose": "Mock-compiler controller state, debounce, stale results, cancellation and selection lifecycle; no real compilation, flow rendering or frozen coverage claims."
+    },
+    {
+      "file": "apps/flow-playground/tests/demo-link.test.mjs",
+      "rendering": false,
+      "sha256": "b527fa0999d7723a405d1a5d1a561e636dc8980a114afd596a8ba59a6e1bdc0e",
+      "purpose": "Demo URL encoding, decoding and input validation only; no compilation, flow rendering or frozen coverage claims."
+    },
+    {
+      "file": "apps/flow-playground/tests/entries.test.mjs",
+      "rendering": false,
+      "sha256": "2854b90f230e36e1678bb461733bb2c24364c52cf2cb90fb1fd94759e85b1352",
+      "purpose": "Synthetic graph entry enumeration, sorting, labels and selection only; no compilation, flow rendering or frozen coverage claims."
+    },
+    {
+      "file": "packages/browser-workspace/tests/compaction.test.mjs",
+      "rendering": false,
+      "sha256": "2b249945ca555c0e0909bc32da77e64d7602fdefbeee3c1ca6f63d3b2aa9bb2e",
+      "purpose": "Node workspace-agent compaction budgeting, summary reuse, cancellation, failure isolation and transcript preservation; no flow rendering or frozen coverage claims."
+    },
+    {
+      "file": "packages/compiler/tests/browser/compaction.spec.mjs",
+      "rendering": false,
+      "sha256": "0a18b1bfca044aa998bffda04c223563b4f9319f08795d6d91afe56e133af9df",
+      "purpose": "Browser chat compaction lifecycle: status, endpoint switching, transcript preservation, stop/retry and failed-conversation controls. Ballerina service source mounts endpoints incidentally; no new flow rendering coverage or frozen baseline claims."
     }
   ],
   "helpers": [
@@ -87,6 +125,31 @@
       "file": "packages/compiler/tests/hir.test.mjs",
       "rendering": false,
       "purpose": "TypeScript HIR contract validation and serialization parity; no rendered output or frozen baseline coverage."
+    },
+    {
+      "file": "packages/compiler/hir_type_cast_test.go",
+      "rendering": true,
+      "coverage": [
+        "type-cast-flow"
+      ],
+      "purpose": "New type-cast operand control flow and call expansion, covered by native compilation and production FlowView browser rendering; no frozen artifacts."
+    },
+    {
+      "file": "apps/editor/tests/hir-type-cast-render.test.mjs",
+      "rendering": true,
+      "coverage": [
+        "type-cast-flow"
+      ],
+      "purpose": "New type-cast operand control flow and call expansion, covered by native compilation and production FlowView browser rendering; no frozen artifacts."
+    }
+  ],
+  "renderCoverage": [
+    {
+      "id": "type-cast-flow",
+      "file": "apps/editor/tests/hir-type-cast-render.test.mjs",
+      "scenarios": [
+        "type casts render transparent operands and expandable calls"
+      ]
     }
   ]
 }
