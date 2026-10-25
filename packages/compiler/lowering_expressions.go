@@ -8,6 +8,26 @@ import (
 	"strings"
 )
 
+// evaluationContext is transient, tagged construction input. Source identities
+// and render occurrence recipes are explicit and never decoded from each other.
+type evaluationContextKind uint8
+
+const (
+	evaluationExpression evaluationContextKind = iota
+	evaluationStatement
+	evaluationCall
+)
+
+type evaluationContext struct {
+	kind                     evaluationContextKind
+	sourceID, occurrencePath string
+	calls                    []directCall
+	force                    bool
+	call                     directCall
+	nodeID                   string
+	evaluation               bool
+}
+
 // directCall retains resolved source identity, not an exported call DTO.
 type directCall struct {
 	node               ast.Invocable
@@ -253,10 +273,22 @@ func (b *graphBuilder) appendEvaluation(f *fragment, p fragment, first bool) {
 	f.returns = append(f.returns, p.returns...)
 	appendPanics(f, p)
 }
-func (b *graphBuilder) lowerExpression(sourceID, path string, expr ast.BLangActionOrExpression, calls []directCall) (fragment, error) {
-	return b.evaluate(sourceID, path, expr, calls, false)
-}
 func (b *graphBuilder) evaluate(sourceID, path string, expr ast.BLangActionOrExpression, calls []directCall, force bool) (fragment, error) {
+	return b.lowerExpression(path, expr, evaluationContext{kind: evaluationExpression, sourceID: sourceID, occurrencePath: path, calls: calls, force: force})
+}
+func (b *graphBuilder) lowerExpression(path string, expr ast.BLangActionOrExpression, context evaluationContext) (result fragment, err error) {
+	if b.constructionErr != nil {
+		return fragment{}, b.constructionErr
+	}
+	defer func() {
+		if err == nil {
+			err = b.constructionErr
+		}
+	}()
+	if context.kind != evaluationExpression {
+		return fragment{}, fmt.Errorf("invalid expression evaluation context")
+	}
+	sourceID, calls, force := context.sourceID, context.calls, context.force
 	if expr == nil {
 		return fragment{}, nil
 	}
@@ -310,12 +342,12 @@ func (b *graphBuilder) evaluate(sourceID, path string, expr ast.BLangActionOrExp
 			label = "Panic with error"
 			role = HIRPortRolePanic
 		}
-		terminal := b.addNode(path+"/error", path+"/error", sourceID, plain(terminalStyle, label))
-		node := b.addNode(path, path, sourceID, plain(HIRNodeStyleCondition, kind))
-		join := b.addPort(node, HIRPortRoleNormalExit)
-		b.addEdge(b.addPort(node, HIRPortRoleTrue), join, HIREdgeKindTrue, "value", present())
-		b.addEdge(b.addPort(node, HIRPortRoleFalse), b.addPort(terminal, HIRPortRoleEntry), HIREdgeKindError, "error", present())
-		entry := b.addPort(node, HIRPortRoleEntry)
+		terminal := b.allocNode(path+"/error", path+"/error", sourceID, plain(terminalStyle, label))
+		node := b.allocNode(path, path, sourceID, plain(HIRNodeStyleCondition, kind))
+		join := b.allocPort(node, HIRPortRoleNormalExit)
+		b.allocEdge(b.allocPort(node, HIRPortRoleTrue), join, HIREdgeKindTrue, "value", present())
+		b.allocEdge(b.allocPort(node, HIRPortRoleFalse), b.allocPort(terminal, HIRPortRoleEntry), HIREdgeKindError, "error", present())
+		entry := b.allocPort(node, HIRPortRoleEntry)
 		b.connect(nested.normal, member(entry), HIREdgeKindSequence)
 		b.group(node, HIRSpacingProfileIf, nil, []string{terminal}, true)
 		f := nested
@@ -325,19 +357,19 @@ func (b *graphBuilder) evaluate(sourceID, path string, expr ast.BLangActionOrExp
 		}
 		f.normal = member(join)
 		if role == HIRPortRoleReturn {
-			f.returns = append(f.returns, member(b.addPort(terminal, role))...)
+			f.returns = append(f.returns, member(b.allocPort(terminal, role))...)
 		} else {
-			f.panics = append(f.panics, member(b.addPort(terminal, role))...)
+			f.panics = append(f.panics, member(b.allocPort(terminal, role))...)
 		}
 		return f, nil
 	}
 	if kind == "trap" {
-		capture := b.addNode(path+"/capture", path+"/capture", sourceID, plain(HIRNodeStyleStep, "Capture panic as error value"))
-		node := b.addNode(path, path, sourceID, plain(HIRNodeStyleTrap, "trap"))
-		exit := b.addPort(node, HIRPortRoleNormalExit)
-		entry := b.addPort(node, HIRPortRoleEntry)
+		capture := b.allocNode(path+"/capture", path+"/capture", sourceID, plain(HIRNodeStyleStep, "Capture panic as error value"))
+		node := b.allocNode(path, path, sourceID, plain(HIRNodeStyleTrap, "trap"))
+		exit := b.allocPort(node, HIRPortRoleNormalExit)
+		entry := b.allocPort(node, HIRPortRoleEntry)
 		if len(nested.entry) == 0 {
-			b.addEdge(entry, exit, HIREdgeKindSequence, "", present())
+			b.allocEdge(entry, exit, HIREdgeKindSequence, "", present())
 		} else {
 			b.connect(member(entry), nested.entry, HIREdgeKindSequence)
 		}
@@ -345,15 +377,15 @@ func (b *graphBuilder) evaluate(sourceID, path string, expr ast.BLangActionOrExp
 		for i := 0; i <= len(nested.panics); i++ {
 			for _, exp := range nested.panicExports {
 				if exp.before == i {
-					b.catchPanic(exp.reference, b.addPort(capture, HIRPortRoleEntry))
+					b.catchPanic(exp.reference, b.allocPort(capture, HIRPortRoleEntry))
 				}
 			}
 			if i < len(nested.panics) {
 				p := nested.panics[i]
-				b.addEdge(p.PortID, b.addPort(capture, HIRPortRoleEntry), HIREdgeKindPanic, "panic", p.When)
+				b.allocEdge(p.PortID, b.allocPort(capture, HIRPortRoleEntry), HIREdgeKindPanic, "panic", p.When)
 			}
 		}
-		b.addEdge(b.addPort(capture, HIRPortRoleNormalExit), exit, HIREdgeKindSequence, "error value", present())
+		b.allocEdge(b.allocPort(capture, HIRPortRoleNormalExit), exit, HIREdgeKindSequence, "error value", present())
 		b.group(node, HIRSpacingProfileTrap, append(nested.nodes, capture), nil, false)
 		return fragment{nodes: []string{node}, entry: member(entry), normal: member(exit), returns: nested.returns}, nil
 	}
@@ -380,16 +412,16 @@ func (b *graphBuilder) evaluate(sourceID, path string, expr ast.BLangActionOrExp
 			return fragment{}, err
 		}
 	}
-	node := b.addNode(path, path, sourceID, presentation)
+	node := b.allocNode(path, path, sourceID, presentation)
 	if call != nil {
 		b.node(node).SourceID = call.id
 	}
-	entry := b.addPort(node, HIRPortRoleEntry)
+	entry := b.allocPort(node, HIRPortRoleEntry)
 	b.connect(nested.normal, member(entry), HIREdgeKindSequence)
-	normal := member(b.addPort(node, HIRPortRoleNormalExit))
-	panics := append(nested.panics, member(b.addPort(node, HIRPortRolePanic))...)
+	normal := member(b.allocPort(node, HIRPortRoleNormalExit))
+	panics := append(nested.panics, member(b.allocPort(node, HIRPortRolePanic))...)
 	if call != nil && call.target != "" {
-		normal = b.lowerCall(node, path+"/expand", *call, true)
+		normal = b.bindCall(node, path+"/expand", *call, true)
 		nested.panicExports = append(nested.panicExports, panicExport{reference: node, before: len(panics)})
 	}
 	f := nested
@@ -413,7 +445,34 @@ func (b *graphBuilder) clientPresentation(c *directCall, path string) (HIRPresen
 	}
 	return HIRPresentation{Value: p}, nil
 }
-func (b *graphBuilder) lowerCall(node, occ string, c directCall, evaluation bool) []HIRInterfaceMember {
+func (b *graphBuilder) bindCall(node, occ string, c directCall, evaluation bool) []HIRInterfaceMember {
+	f, err := b.lowerCall(occ, c.node, evaluationContext{kind: evaluationCall, sourceID: c.id, occurrencePath: occ, call: c, nodeID: node, evaluation: evaluation})
+	b.recordError(err)
+	return f.normal
+}
+func (b *graphBuilder) lowerCall(path string, call ast.Invocable, context evaluationContext) (result fragment, err error) {
+	if b.constructionErr != nil {
+		return fragment{}, b.constructionErr
+	}
+	defer func() {
+		if err == nil {
+			err = b.constructionErr
+		}
+	}()
+	if context.kind != evaluationCall || call == nil || context.call.node != call {
+		return fragment{}, fmt.Errorf("invalid resolved call evaluation context")
+	}
+	b.node(context.nodeID)
+	if b.constructionErr != nil {
+		return fragment{}, b.constructionErr
+	}
+	normal := b.bindCallReference(context.nodeID, path, context.call, context.evaluation)
+	return fragment{normal: normal}, nil
+}
+
+// bindCallReference accepts resolved construction facts, also used by the
+// test-only synthetic adapter without fabricating AST invocations.
+func (b *graphBuilder) bindCallReference(node, occ string, c directCall, evaluation bool) []HIRInterfaceMember {
 	availability := HIRAvailability{Value: HIRAvailable{}}
 	if !c.supported {
 		availability = HIRAvailability{Value: HIRUnavailable{Reason: c.reason}}
@@ -457,8 +516,8 @@ func (b *graphBuilder) lowerCall(node, occ string, c directCall, evaluation bool
 		}
 		return nil
 	}
-	entry := b.addPort(node, HIRPortRoleEntry)
-	completion := b.addPort(node, HIRPortRoleNormalExit)
+	entry := b.allocPort(node, HIRPortRoleEntry)
+	completion := b.allocPort(node, HIRPortRoleNormalExit)
 	iface := func(id string, ms []HIRInterfaceMember) HIRInterface {
 		return HIRInterface{ID: id, Members: append(HIRList[HIRInterfaceMember]{}, ms...), Exports: HIRList[HIRInterfaceExport]{}, Root: HIRRootTreatment{Value: HIRTerminalRoot{}}}
 	}
@@ -485,7 +544,7 @@ func (b *graphBuilder) lowerCall(node, occ string, c directCall, evaluation bool
 		}
 		b.emit("edges", HIREmission{Value: HIRBindingEmission{BindingID: id, When: present()}})
 	}
-	b.addEdge(entry, completion, HIREdgeKindSequence, "", not(nonempty(node, "entry")))
+	b.allocEdge(entry, completion, HIREdgeKindSequence, "", not(nonempty(node, "entry")))
 	return guarded(member(completion), anyPresence(not(nonempty(node, "entry")), nonempty(node, "normal"), nonempty(node, "returns")))
 }
 func (b *graphBuilder) addPanicExport(node string, before int) {

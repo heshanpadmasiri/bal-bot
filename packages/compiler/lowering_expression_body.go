@@ -16,8 +16,8 @@ func (b *graphBuilder) lowerExpressionReturn(id, path string, expr ast.BLangActi
 		v := p.Value.(HIRPlainPresentation)
 		v.Limitation = &reason
 		p.Value = v
-		n := b.addNode(path, path, id, p)
-		return fragment{nodes: []string{n}, entry: member(b.addPort(n, HIRPortRoleEntry))}, nil
+		n := b.allocNode(path, path, id, p)
+		return fragment{nodes: []string{n}, entry: member(b.allocPort(n, HIRPortRoleEntry))}, nil
 	}
 	label := loc.Text
 	evaluated := fragment{}
@@ -29,8 +29,8 @@ func (b *graphBuilder) lowerExpressionReturn(id, path string, expr ast.BLangActi
 		}
 		label = "Return value"
 	}
-	n := b.addNode(path, path, id, plain(HIRNodeStyleReturn, label))
-	entry := b.addPort(n, HIRPortRoleEntry)
+	n := b.allocNode(path, path, id, plain(HIRNodeStyleReturn, label))
+	entry := b.allocPort(n, HIRPortRoleEntry)
 	f := evaluated
 	f.nodes = append(f.nodes, n)
 	if len(f.entry) == 0 {
@@ -39,26 +39,26 @@ func (b *graphBuilder) lowerExpressionReturn(id, path string, expr ast.BLangActi
 	b.connect(evaluated.normal, member(entry), HIREdgeKindSequence)
 	if b.hasEvaluation(expr) {
 		f.normal = nil
-		ret := b.addPort(n, HIRPortRoleReturn)
+		ret := b.allocPort(n, HIRPortRoleReturn)
 		when := membersPresence(evaluated.normal)
 		b.setPortPresenceIfNeeded(ret, when)
 		f.returns = append(f.returns, guarded(member(ret), when)...)
 		return f, nil
 	}
-	normal := member(b.addPort(n, HIRPortRoleNormalExit))
+	normal := member(b.allocPort(n, HIRPortRoleNormalExit))
 	children := []string{}
 	for _, call := range calls {
 		if call.target == "" {
 			continue
 		}
 		cp := path + "/expand/" + call.id
-		cn := b.addNode(cp, cp, call.id, plain(HIRNodeStyleFunction, b.l.sources[call.id].Text))
+		cn := b.allocNode(cp, cp, call.id, plain(HIRNodeStyleFunction, b.l.sources[call.id].Text))
 		children = append(children, cn)
 		if call.supported {
-			b.connect(normal, member(b.addPort(cn, HIRPortRoleEntry)), HIREdgeKindSequence)
-			normal = b.lowerCall(cn, cp, call, false)
+			b.connect(normal, member(b.allocPort(cn, HIRPortRoleEntry)), HIREdgeKindSequence)
+			normal = b.bindCall(cn, cp, call, false)
 		} else {
-			b.lowerCall(cn, cp, call, false)
+			b.bindCall(cn, cp, call, false)
 		}
 	}
 	if len(children) > 0 {
@@ -69,7 +69,7 @@ func (b *graphBuilder) lowerExpressionReturn(id, path string, expr ast.BLangActi
 			}
 		}
 	}
-	ret := b.addPort(n, HIRPortRoleReturn)
+	ret := b.allocPort(n, HIRPortRoleReturn)
 	if len(children) > 0 {
 		b.connect(normal, member(ret), HIREdgeKindReturn)
 	}

@@ -1,8 +1,59 @@
 # HIR wire contract
 
-The additive schema lives in `packages/workspace/src/flow.ts` and
-`packages/compiler/hir.go`. It does not yet replace the legacy analysis bridge.
-The types contain data only: no AST, compiler state, callbacks, or pixel geometry.
+The production analysis schema lives in `packages/workspace/src/flow.ts` and
+`packages/compiler/hir.go`. Analyze returns direct HIR; no legacy UI-model
+conversion is compiled into the application. The types contain data only: no
+AST, compiler state, callbacks, or pixel geometry.
+
+## Retained API boundary
+
+- Native `Check(files Files) (Result, error)` and `Analyze(files Files)
+  (AnalysisResult, error)` keep their operation signatures. Analyze's valid
+  `program` payload is `HIRProgram`; invalid results retain diagnostics.
+- TypeScript `Compiler.check(files, signal?)` and `Compiler.analyze(files,
+  signal?)`, `createCompiler()`, and JSON bridge operations `check`/`analyze`
+  retain their names, arguments and asynchronous/cancellation behavior. Check
+  remains separate from structural analysis.
+- `AnalysisResult`, `AnalysisState` (including `previous`), and `FlowUI` retain
+  their public names; program-bearing fields contain HIR. Discovery types
+  `ScopeModel`, `Definition`, `EndpointModel`, and source/reference types
+  `Located`, `SourceReference`, `Id`, `Revision` retain their roles.
+- Workspace `Anchor.getFlowUI(signal?)`, `BrowserWorkspace.flowFor(id, signal?)`,
+  `analysisSnapshot()` and `subscribeAnalysis(listener)` retain their signatures.
+  Revision, stale-analysis, selection and reference behavior is unchanged.
+- The canonical components are `FlowView`/`FlowViewProps` and `FlowEntry`.
+  `instantiateGraph(program, functionId, expanded)` takes exactly three arguments;
+  `layoutDiagram(diagram, measure)` remains presentation-only. There is no
+  production `HIRFlowView`/`HIRFlowEntry` alias or `buildDiagram` legacy API.
+  `validateHIR`/`ValidateHIR` and deterministic HIR printing validate/inspect data,
+  not language syntax or pixel geometry.
+
+Original legacy DTO snapshots, baseline source archives and graph-comparison
+adapters live only in test fixtures/helpers. They preserve historical proof and
+are not a supported second wire contract or production renderer.
+
+## Reproduction and updates
+
+The immutable rendering authority is baseline commit **`280850fd`**, not a newly
+recorded HIR baseline. On the retained pinned machine, run `npm ci`,
+`npx playwright install chromium`, then `npm run test:flow-parity`; this verifies
+the default HIR renderer against original SVG/HTML/style artifacts in both modes.
+`--verify --hir` is only a compatibility spelling. Browser/system fonts, runtime
+versions and binaries must match the frozen environment; do not update the
+manifest to accommodate drift. See [the rendering gate](flow-rendering.md).
+
+AST/HIR/diagnostic goldens change **only by explicit request** via
+`npm run test:hir:update` (or native tests' explicit `-update`). Ordinary tests
+never refresh them. This is not authorization to rewrite frozen rendering inputs,
+inventory, source archives or artifacts. Review changed AST/HIR files separately.
+Run `node scripts/update_hir_goldens.mjs --check-inventory` for a read-only browser
+input proof; native provenance checks are documented in the rendering gate.
+
+Human SVG inspection is separate: run `npm run review:flow`, use **Capture +
+repeat**, inspect both modes, and save case-ID/mode-specific notes and feedback.
+The local review captures/notes under `.bal-bot/flow-review/` are exploratory, not
+acceptance artifacts; report review coverage and unresolved findings separately
+from automated parity results. See [review tool instructions](../scripts/flow-review/README.md).
 
 ## Encoding
 

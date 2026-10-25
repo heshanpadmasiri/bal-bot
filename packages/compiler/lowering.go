@@ -22,6 +22,13 @@ type lowerer struct {
 	serviceIDs       map[*ast.BLangService]string
 	receiverContexts map[model.SymbolRef]receiverContext
 }
+type sourceFunction interface {
+	ast.InvokableNode
+	Symbol() model.SymbolRef
+	IsAttached() bool
+	IsRemote() bool
+}
+
 type sourceFunctionEntry struct {
 	node                sourceFunction
 	moduleID, id, owner string
@@ -625,4 +632,18 @@ func clientContextSummary(text string) (string, bool) {
 		return text, false
 	}
 	return string(hirTextFromUTF16(units[:87])) + "…", true
+}
+
+func servicePath(service *ast.BLangService) string {
+	if service.AbsoluteResourcePath != nil {
+		parts := []string{}
+		for _, part := range service.AbsoluteResourcePath {
+			parts = append(parts, part.Value)
+		}
+		return "/" + strings.Join(parts, "/")
+	}
+	if service.AttachPointLiteral != nil {
+		return service.AttachPointLiteral.OriginalValue
+	}
+	return ""
 }

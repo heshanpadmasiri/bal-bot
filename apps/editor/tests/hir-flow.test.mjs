@@ -6,7 +6,9 @@ import { createServer } from 'vite';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { instantiateGraph } from '../src/hir-flow.ts';
-import { buildDiagram } from '../src/flow.ts';
+import { buildDiagram, layoutDiagram as layoutLegacyDiagram } from './legacy-flow.ts';
+import { layoutDiagram } from '../src/flow.ts';
+import { syntheticHIR } from './hir-synthetic-fixtures.mjs';
 import { validateHIR } from '../../../packages/compiler/src/protocol.ts';
 const fixtures = new URL('../../../tests/fixtures/', import.meta.url);
 const json = async path => JSON.parse(await readFile(new URL(path, fixtures), 'utf8'));
@@ -42,6 +44,88 @@ test('deserialized HIR uses literal node/port recipes, independent from source a
   assert.equal(d.ports[0].id, 'main:not-the-node-or-role');
   assert.equal(d.ports[0].nodeId, d.nodes[0].id);
   assert.equal(d.edges[0].fromPort, d.ports[0].id);
+});
+test('explicit columns, anchors and routing do not depend on presentation profiles or port roles', () => {
+  const program = syntheticHIR('a9456a30');
+  const original = instantiateGraph(program, 'main', new Set());
+  const measure = () => ({ width: 300, height: 20 });
+  const numeric = diagram => { const { diagram: ignored, ...layout } = layoutDiagram(diagram, measure); return layout; };
+  const expected = numeric(original);
+  const changed = structuredClone(original);
+  for (const node of flatten(changed.nodes)) node.layout.profile = node.layout.split === undefined ? 'if' : 'sequence';
+  for (const port of changed.ports) port.role = 'panic';
+  for (const edge of changed.edges) edge.kind = 'back';
+  assert.deepEqual(numeric(changed), expected);
+  const columns = flatten(changed.nodes).find(node => node.layout.split !== undefined);
+  delete columns.layout.split;
+  assert.notDeepEqual(numeric(changed).boxes, expected.boxes, 'arrangement, not profile, chooses columns geometry');
+});
+test('columns count effective visible members, including transparent and nested ownership', async () => {
+  const base = await json('hir-contract/nested-group.json');
+  const cases = [
+    { name: 'hidden left', hidden: ['b'], children: ['c'], split: 0 },
+    { name: 'hidden right', hidden: ['c'], children: ['b'], split: 1 },
+    { name: 'no visible children', hidden: ['b', 'c'], children: [], split: 0 },
+    { name: 'promoted left descendants', hidden: ['b'], leftGroup: true, children: ['d', 'e', 'c'], split: 2 },
+    { name: 'promoted right descendants', hidden: ['c'], rightGroup: true, children: ['b', 'f', 'h'], split: 1 },
+    { name: 'nested columns', hidden: ['d'], leftGroup: true, children: ['b', 'c'], split: 1, nestedSplit: 0 },
+    { name: 'nested columns promoted through right', hidden: ['c', 'f', 'i'], rightGroup: true, nestedRight: true, children: ['b', 'h'], split: 1, nestedSplit: 0 },
+  ];
+  for (const scenario of cases) {
+    const p = structuredClone(base), g = p.functions.main;
+    const leaf = structuredClone(g.nodes[1]);
+    const makeNode = id => ({ ...structuredClone(leaf), id, occurrenceKey: '/' + id });
+    g.nodes = ['a', 'b', ...(scenario.leftGroup ? ['d', 'e'] : []), 'c', ...(scenario.rightGroup ? ['f', 'h', ...(scenario.nestedRight ? ['i', 'j'] : [])] : [])].map(makeNode);
+    g.nodes[0].body = { kind: 'group', groupId: 'inner' };
+    g.groups[1].arrangement = { kind: 'columns', left: ['b'], right: ['c'] };
+    for (const [owner, members] of [['b', ['d', 'e']], ['c', ['f', 'h']], ['h', ['i', 'j']]]) {
+      if (!(owner === 'b' ? scenario.leftGroup : owner === 'c' ? scenario.rightGroup : scenario.nestedRight)) continue;
+      g.nodes.find(n => n.id === owner).body = { kind: 'group', groupId: owner + '-group' };
+      g.groups.push({ id: owner + '-group', arrangement: { kind: 'columns', left: [members[0]], right: [members[1]] }, style: structuredClone(g.groups[1].style) });
+    }
+    for (const id of scenario.hidden) g.nodes.find(n => n.id === id).presentation = { kind: 'hidden' };
+    g.ports = []; g.edges = []; g.interfaces = [];
+    for (const mode of ['root', 'inline']) g.emission[mode] = {
+      nodes: g.nodes.filter(n => n.presentation.kind !== 'hidden').map(n => ({ kind: 'local', itemId: n.id, when: { kind: 'constant', value: true } })),
+      ports: [], edges: [],
+    };
+    validateHIR(p);
+    const before = JSON.stringify(p);
+    freeze(p);
+    const diagram = instantiateGraph(p, 'main', new Set()), columns = diagram.nodes[0];
+    assert.deepEqual(columns.children.map(n => n.id), scenario.children.map(id => 'main/' + id), scenario.name);
+    assert.equal(columns.layout.split, scenario.split, scenario.name);
+    if (scenario.nestedSplit !== undefined) {
+      const nested = columns.children.find(n => n.children.length);
+      assert.equal(nested.layout.split, scenario.nestedSplit, scenario.name);
+    }
+    assert.equal(JSON.stringify(p), before, scenario.name);
+
+    // Re-emitting an expanded child must retain its own column metadata rather
+    // than restoring declared splits at the enclosing ownership pass.
+    const wrapped = structuredClone(p), target = wrapped.functions.main;
+    target.id = 'target';
+    wrapped.functions.target = target;
+    wrapped.sources.target = { ...structuredClone(wrapped.sources.main), id: 'target' };
+    const wrapper = makeNode('wrapper');
+    wrapper.body = { kind: 'reference', reference: {
+      graphId: 'target', occurrenceKey: '/child', availability: { kind: 'available' },
+      container: structuredClone(g.groups[1].style), collapsed: { interfaces: [], edges: [] }, inline: [],
+    } };
+    const emission = { nodes: [
+      { kind: 'local', itemId: 'wrapper', when: { kind: 'constant', value: true } },
+      { kind: 'child', referenceNodeId: 'wrapper', when: { kind: 'constant', value: true } },
+    ], ports: [{ kind: 'child', referenceNodeId: 'wrapper', when: { kind: 'constant', value: true } }],
+    edges: [{ kind: 'child', referenceNodeId: 'wrapper', when: { kind: 'constant', value: true } }] };
+    wrapped.functions.main = { ...structuredClone(target), id: 'main', nodes: [wrapper], groups: [
+      { ...structuredClone(g.groups[0]), arrangement: { kind: 'sequence', members: ['wrapper'] } },
+    ], emission: { root: emission, inline: structuredClone(emission) } };
+    validateHIR(wrapped);
+    freeze(wrapped);
+    const inlineColumns = instantiateGraph(wrapped, 'main', new Set(['main/child'])).nodes[0].children[0];
+    assert.equal(inlineColumns.layout.split, scenario.split, scenario.name + ' expanded child');
+    assert.deepEqual(inlineColumns.children.map(n => n.id), scenario.children.map(id => 'main/child/' + id), scenario.name + ' expanded child order');
+  }
 });
 test('call reference/disclosure keys agree without overwriting node identity', async () => {
   const p = await json('hir-contract/call-disclosure-reference-agreement.json');
@@ -122,12 +206,12 @@ test('missing selection is empty; missing referenced graph is a model failure, i
 test('own prototype-named graph IDs instantiate and render; inherited selections have no entry', async t => {
   const server = await createServer({ configFile: false, server: { middlewareMode: true }, appType: 'custom' });
   t.after(() => server.close());
-  const { HIRFlowView } = await server.ssrLoadModule(fileURLToPath(new URL('../src/hir-flow-view.tsx', import.meta.url)));
+  const { FlowView } = await server.ssrLoadModule(fileURLToPath(new URL('../src/flow-view.tsx', import.meta.url)));
   // SSR has no canvas; deterministic text metrics suffice for this lookup test.
   const previousDocument = Object.getOwnPropertyDescriptor(globalThis, 'document');
   globalThis.document = { createElement: () => ({ getContext: () => ({ measureText: text => ({ width: text.length * 8 }) }) }) };
   t.after(() => { if (previousDocument) Object.defineProperty(globalThis, 'document', previousDocument); else delete globalThis.document; });
-  const render = (program, functionId) => renderToStaticMarkup(React.createElement(HIRFlowView, {
+  const render = (program, functionId) => renderToStaticMarkup(React.createElement(FlowView, {
     flow: { state: { kind: 'ready', revision: 1, program, diagnostics: [] }, selection: { kind: 'function', functionId } },
     references: [], expanded: new Set(), onToggle() {}, onSelect() {}, onOpenFunction() {},
   }));
@@ -154,6 +238,25 @@ test('own prototype-named graph IDs instantiate and render; inherited selections
     assert.doesNotMatch(html, /No statements in this function/);
     assert.equal(JSON.stringify(p), before);
   }
+});
+test('canonical view honors explicit container visibility even for the if spacing profile', async t => {
+  const server = await createServer({ configFile: false, server: { middlewareMode: true }, appType: 'custom' });
+  t.after(() => server.close());
+  const { FlowView } = await server.ssrLoadModule(fileURLToPath(new URL('../src/flow-view.tsx', import.meta.url)));
+  const previousDocument = Object.getOwnPropertyDescriptor(globalThis, 'document');
+  globalThis.document = { createElement: () => ({ getContext: () => ({ measureText: text => ({ width: text.length * 8 }) }) }) };
+  t.after(() => { if (previousDocument) Object.defineProperty(globalThis, 'document', previousDocument); else delete globalThis.document; });
+  const program = structuredClone(syntheticHIR('a9456a30'));
+  const group = program.functions.main.groups.find(group => group.arrangement.kind === 'columns');
+  assert.equal(group.style.profile, 'if');
+  const render = () => renderToStaticMarkup(React.createElement(FlowView, {
+    flow: { state: { kind: 'ready', revision: 1, program, diagnostics: [] }, selection: { kind: 'function', functionId: 'main' } },
+    references: [], expanded: new Set(), onToggle() {}, onSelect() {}, onOpenFunction() {},
+  }));
+  assert.equal(group.style.root.container, false, 'compiler fixture carries the visibility explicitly');
+  assert.doesNotMatch(render(), /class="container condition"/);
+  group.style.root.container = true;
+  assert.match(render(), /class="container condition"/);
 });
 test('collapsed interfaces resolve later siblings lazily without interface-name semantics', async () => {
   const p = await json('hir-contract/minimal.json');
@@ -196,8 +299,12 @@ test('compiler HIR preserves legacy construction edge order across flattened blo
         const expected = buildDiagram(legacy, id, expanded);
         // Legacy edges carry no routing field; compare semantic edges in their
         // original order, without sorting either side.
-        assert.deepEqual(actual.edges.map(({ routing, ...edge }) => edge), expected.edges,
-          `${name}/${id}: ${expanded.size} expanded occurrences`);
+        const scenario = `${name}/${id}: ${expanded.size} expanded occurrences`;
+        assert.deepEqual(actual.edges.map(({ routing, ...edge }) => edge), expected.edges, scenario);
+        const measure = label => ({ width: Math.min(340, label.length * 8), height: 20 });
+        const { diagram: actualDiagram, ...actualLayout } = layoutDiagram(actual, measure);
+        const { diagram: expectedDiagram, ...expectedLayout } = layoutLegacyDiagram(expected, measure);
+        assert.deepEqual(actualLayout, expectedLayout, scenario);
       }
       graphs++;
     }

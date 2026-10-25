@@ -46,6 +46,33 @@ Provider requests require browser-compatible APIs and CORS policies; there is no
 
 Previous versions saved OAuth credentials in `.bal-bot/auth.json`. This version does not read, migrate, or use that file. Remove it manually and revoke the old credentials with the provider if they are no longer needed.
 
+## Flow renderer validation
+
+Production analysis returns direct HIR, rendered by canonical `FlowView`/`FlowEntry`
+and `instantiateGraph(program, functionId, expanded)`. Legacy DTO snapshots and
+adapters are test-only historical proof, not a second production pipeline.
+
+On the retained pinned rendering environment:
+
+```sh
+npm ci
+npx playwright install chromium
+npm run test:flow-parity
+```
+
+This verifies both development and production against immutable baseline
+**`280850fd`**; it never records or refreshes expected SVG/HTML. OS/runtime/browser
+binaries and system/web fonts must match the frozen environment. See
+[reproduction and provenance](docs/flow-rendering.md) and the
+[HIR wire/API contract](docs/hir-wire.md). `--verify --hir` is a compatibility
+alias for the same default pipeline.
+
+AST/HIR golden changes require an explicit `npm run test:hir:update` invocation
+and review; never regenerate frozen rendering artifacts to fix failures.
+For separate human SVG inspection, run `npm run review:flow`, capture/repeat both
+modes, and record case IDs, modes and notes. Local review captures/feedback are
+not baselines; see the [review guide](scripts/flow-review/README.md).
+
 ## License
 
 [MIT](LICENSE).

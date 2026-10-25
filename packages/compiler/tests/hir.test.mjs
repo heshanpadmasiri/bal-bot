@@ -9,6 +9,51 @@ const root = new URL('../../../tests/fixtures/hir-contract/', import.meta.url);
 const corpus = JSON.parse(await readFile(new URL('cases.json', root), 'utf8'));
 assert.ok(corpus.cases.length > 0, 'empty HIR corpus');
 
+test('HIR scalar Unicode contract', async () => {
+  const base = JSON.parse(await readFile(new URL('minimal.json', root), 'utf8'));
+  const mutations = {
+    file: (p, s) => { p.sources.main.source.file = s; },
+    text: (p, s) => { p.sources.main.text = s; },
+    moduleId: (p, s) => { p.functions.main.moduleId = s; },
+    id: (p, s) => { p.sources.main.id = s; },
+    sourceKey: (p, s) => { p.sources[s] = p.sources.main; },
+    functionKey: (p, s) => { p.functions[s] = p.functions.main; },
+  };
+  for (const [site, mutate] of Object.entries(mutations)) {
+    for (const bad of ['\ud800', '\udfff']) {
+      const p = structuredClone(base);
+      mutate(p, bad);
+      assert.throws(() => validateHIR(p), /Invalid compiler HIR/, site);
+      assert.throws(() => validateHIR(JSON.parse(JSON.stringify(p))), /Invalid compiler HIR/, site);
+    }
+  }
+  for (const good of ['😀', 'literal\\ud800', '�', 'e\u0301']) {
+    const p = structuredClone(base);
+    for (const item of [...Object.values(p.sources), ...Object.values(p.functions)]) item.source.file = good;
+    const before = JSON.stringify(p);
+    validateHIR(p);
+    assert.equal(JSON.stringify(p), before);
+  }
+  const p = structuredClone(base);
+  p.functions.main.nodes[0].presentation.label = '\ud800';
+  p.functions.main.nodes[0].presentation.sections[0].text = '\udfff';
+  const before = JSON.stringify(p);
+  validateHIR(p);
+  assert.equal(JSON.stringify(p), before);
+  const recursive = JSON.parse(await readFile(new URL('call-disclosure-reference-agreement.json', root), 'utf8'));
+  const presentation = Object.values(recursive.functions).flatMap(g => g.nodes).map(n => n.presentation.disclosure?.recursive).find(Boolean);
+  assert.ok(presentation);
+  presentation.title = '\ud800';
+  presentation.ariaLabel = '\udfff';
+  validateHIR(recursive);
+  for (const key of ['limitation', 'glyph']) {
+    const old = presentation[key];
+    presentation[key] = '\ud800';
+    assert.throws(() => validateHIR(recursive), /Invalid compiler HIR/, key);
+    presentation[key] = old;
+  }
+});
+
 // Exercise the actual Go-lowered wire output, not just hand-built schema cases.
 const projectRoot = new URL('../../../tests/fixtures/hir-projects/', import.meta.url);
 const projects = JSON.parse(await readFile(new URL('manifest.json', projectRoot), 'utf8'));
@@ -16,7 +61,7 @@ for (const fixture of projects.cases.filter(fixture => fixture.hir)) {
   test(`HIR lowered corpus: ${fixture.id}`, async () => {
     const value = JSON.parse(await readFile(new URL(`${fixture.directory}/${fixture.hir}`, projectRoot), 'utf8'));
     const before = JSON.stringify(value);
-    assert.deepEqual(validateHIR(freeze(value)), value);
+    assert.equal(validateHIR(freeze(value)), value, 'validator must return the original object');
     assert.deepEqual(validateHIR(JSON.parse(before)), value);
     assert.equal(JSON.stringify(value), before, 'validator mutated Go-lowered HIR');
   });

@@ -44,14 +44,11 @@ type resolvedModule struct {
 
 type resolvedProgram struct {
 	// Original argument snapshots are populated during resolution and read-only afterwards.
-	sourceCallArgs   map[ast.Invocable][]ast.BLangExpression
-	sourceNewArgs    map[*ast.BLangNewExpression][]ast.BLangExpression
-	receiverContexts map[model.SymbolRef]ReceiverContextModel
-	functionIDs      map[model.SymbolRef]string
-	availableBodies  map[string]bool
-	files            Files
-	env              *context.CompilerEnvironment
-	modules          []*resolvedModule
+	sourceCallArgs map[ast.Invocable][]ast.BLangExpression
+	sourceNewArgs  map[*ast.BLangNewExpression][]ast.BLangExpression
+	files          Files
+	env            *context.CompilerEnvironment
+	modules        []*resolvedModule
 }
 
 // resolveProgram resolves captured source through local types, retaining no state between calls.

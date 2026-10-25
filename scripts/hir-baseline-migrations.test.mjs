@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtempSync, mkdirSync, cpSync, readFileSync, writeFileSync, rmSync, symlinkSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
-import {repositoryRoot as root, digest, loadMigrations} from './hir-baseline-migrations.mjs';
+import {repositoryRoot as root, digest, loadMigrations, preserveBaselineArchive} from './hir-baseline-migrations.mjs';
 import {collectBrowserInventory, assertBrowserRequestsUnchanged} from './update_hir_goldens.mjs';
 import {assertSuiteInventory, loadRenderCases} from '../apps/editor/tests/render-cases.mjs';
 import {canonical, fixtureInputs} from './flow-parity/environment.mjs';
@@ -34,6 +34,17 @@ test('all 663 original case/provenance fingerprints and frozen input-tree hashes
   inputs.archives=Object.fromEntries(Object.entries(inputs.archives).map(([file,hash])=>[path.relative(root,file).split(path.sep).join('/'),hash]));
   assert.deepEqual(inputs,manifest.environment.fixtureInputs);
 });
+test('registration preserves original archives and refuses to repair tampered or missing authority', () => temporary(directory => {
+  const archive = path.join(directory, 'nested/original.txt');
+  const original = Buffer.from('original baseline bytes\r\n');
+  preserveBaselineArchive(archive, original, false);
+  preserveBaselineArchive(archive, original, true);
+  assert.deepEqual(readFileSync(archive), original);
+  assert.throws(() => preserveBaselineArchive(archive, Buffer.from('replacement'), true), /Immutable baseline archive changed/);
+  assert.deepEqual(readFileSync(archive), original);
+  rmSync(archive);
+  assert.throws(() => preserveBaselineArchive(archive, original, true), /Missing immutable baseline archive/);
+}));
 test('registered historical and current arms both validate', () => temporary(directory => {
   registryFixture(directory); assert.equal(loadMigrations(directory).size,registry.files.length);
 }));

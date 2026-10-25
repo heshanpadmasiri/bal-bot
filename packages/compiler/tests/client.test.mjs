@@ -96,8 +96,13 @@ test('analysis checks every flat source and metadata range without following gra
 test('analysis source matching preserves code-point columns and exact HIR text', () => {
  for(const text of ['😀','\ud83d','\ude00']) {
   const response=analysisResponse('minimal',text);
-  validateResponse(response);
-  assert.doesNotThrow(()=>validateAnalysisFiles(response.result,{'main.bal':text}));
+  if (text === '😀') {
+   validateResponse(response);
+   assert.doesNotThrow(()=>validateAnalysisFiles(response.result,{'main.bal':text}));
+  } else {
+   // Original source text is Unicode scalar data, unlike approved presentation fields.
+   assert.throws(()=>validateResponse(response),/invalid Unicode scalar string/);
+  }
   assert.deepEqual(JSON.parse(JSON.stringify(response)),response);
  }
  const response=analysisResponse('minimal','x');

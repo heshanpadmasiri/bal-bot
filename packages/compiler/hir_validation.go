@@ -7,12 +7,16 @@ import (
 	"reflect"
 	"sort"
 	"strings"
+	"unicode/utf8"
 )
 
 // ValidateHIR validates a complete graph collection without resolving or analyzing source.
 func ValidateHIR(program HIRProgram) error {
 	// Normalize sealed value/pointer variants on a private copy. This also rejects
 	// nil variants and exercises the same strict codec used by bridge consumers.
+	if err := hirUnicode(reflect.ValueOf(program)); err != nil {
+		return err
+	}
 	data, err := json.Marshal(program)
 	if err != nil {
 		return fmt.Errorf("HIR: %w", err)
@@ -157,6 +161,49 @@ var hirEnumValues = map[string]string{
 	"HIRAnchorKind": "top-center header-left header-right header-bottom-center bottom-center group-bottom-center iteration-marker",
 	"HIREdgeKind":   "sequence true false back break continue return error panic", "HIRRouting": "direct branch-left branch-right back",
 	"HIRSpacingProfile": "sequence if while foreach trap root call",
+}
+
+// Check typed strings before json.Marshal can silently replace invalid bytes.
+// HIRText has its own lossless UTF-16 codec and is deliberately exempt.
+func hirUnicode(value reflect.Value) error {
+	if !value.IsValid() {
+		return nil
+	}
+	if value.Type() == reflect.TypeOf(HIRText("")) {
+		return nil
+	}
+	switch value.Kind() {
+	case reflect.String:
+		if !utf8.ValidString(value.String()) {
+			return fmt.Errorf("invalid Unicode in HIR string")
+		}
+	case reflect.Interface, reflect.Pointer:
+		if !value.IsNil() {
+			return hirUnicode(value.Elem())
+		}
+	case reflect.Struct:
+		for i := 0; i < value.NumField(); i++ {
+			if err := hirUnicode(value.Field(i)); err != nil {
+				return err
+			}
+		}
+	case reflect.Slice:
+		for i := 0; i < value.Len(); i++ {
+			if err := hirUnicode(value.Index(i)); err != nil {
+				return err
+			}
+		}
+	case reflect.Map:
+		for _, key := range value.MapKeys() {
+			if err := hirUnicode(key); err != nil {
+				return err
+			}
+			if err := hirUnicode(value.MapIndex(key)); err != nil {
+				return err
+			}
+		}
+	}
+	return nil
 }
 
 func hirEnums(value reflect.Value) error {

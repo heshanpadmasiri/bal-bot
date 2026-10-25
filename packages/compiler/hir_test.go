@@ -16,6 +16,82 @@ import (
 	"github.com/ballerina-nutcracker/ballerina/semtypes"
 )
 
+func TestHIRUnicodeScalarContract(t *testing.T) {
+	data, err := os.ReadFile("../../tests/fixtures/hir-contract/minimal.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	// Same scalar sites as the TS suite. Malformed UTF-8 bytes are Go-only.
+	for _, site := range []string{`"file": "main.bal"`, `"text": "😀"`, `"moduleId": "m"`, `"id": "main"`, `"main": {`, `"source-a": {`} {
+		for _, malformed := range []string{`\ud800`, `\udfff`, string([]byte{0xff}), string([]byte{0xed, 0xa0, 0x80})} {
+			t.Run(site+"/"+malformed, func(t *testing.T) {
+				split := bytes.IndexByte([]byte(site[1:]), '"') + 1
+				replacement := `"` + malformed + `": {`
+				if site[len(site)-1] != '{' {
+					replacement = site[:split+1] + `: "` + malformed + `"`
+				}
+				raw := bytes.Replace(data, []byte(site), []byte(replacement), 1)
+				var p HIRProgram
+				if err := json.Unmarshal(raw, &p); err == nil {
+					t.Fatal("decoded malformed scalar Unicode")
+				}
+			})
+		}
+	}
+	for _, text := range []string{`\ud83d\ude00`, `literal\\ud800`, `�`, `e\u0301`} {
+		raw := bytes.ReplaceAll(data, []byte(`main.bal`), []byte(text))
+		var p HIRProgram
+		if err := json.Unmarshal(raw, &p); err != nil {
+			t.Fatal(err)
+		}
+		if _, err := PrintHIR(p); err != nil {
+			t.Fatal(err)
+		}
+	}
+	// Check typed values before encoding/json can replace invalid bytes.
+	for _, bad := range []string{string([]byte{0xff}), string([]byte{0xed, 0xa0, 0x80})} {
+		for _, site := range []string{"file", "text", "id", "source-key", "function-key"} {
+			var p HIRProgram
+			if err := json.Unmarshal(data, &p); err != nil {
+				t.Fatal(err)
+			}
+			source := p.Sources["main"]
+			switch site {
+			case "file":
+				source.Source.File = bad
+			case "text":
+				source.Text = bad
+			case "id":
+				source.ID = bad
+			case "source-key":
+				p.Sources[bad] = source
+			case "function-key":
+				p.Functions[bad] = p.Functions["main"]
+			}
+			p.Sources["main"] = source
+			if err := ValidateHIR(p); err == nil {
+				t.Fatalf("accepted typed invalid %s", site)
+			}
+			if _, err := PrintHIR(p); err == nil {
+				t.Fatalf("printed typed invalid %s", site)
+			}
+		}
+	}
+	raw := bytes.Replace(data, []byte(`"label": "a"`), []byte(`"label": "\ud800"`), 1)
+	raw = bytes.Replace(raw, []byte(`"text": "a"`), []byte(`"text": "\udfff"`), 1)
+	var p HIRProgram
+	if err := json.Unmarshal(raw, &p); err != nil {
+		t.Fatal(err)
+	}
+	printed, err := PrintHIR(p)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(printed, `\ud800`) || !strings.Contains(printed, `\udfff`) {
+		t.Fatal("lost presentation units")
+	}
+}
+
 // This suite intentionally uses the post-baseline HIR corpus, not rendering fixtures.
 func TestHIRSharedContract(t *testing.T) {
 	dir := filepath.Join("..", "..", "tests", "fixtures", "hir-contract")

@@ -15,6 +15,87 @@ import (
 // Do not range over it to recover UTF-16 units: Go replaces surrogate encodings.
 type HIRText string
 
+// hirJSONScalars inspects wire strings without encoding/json's replacement of
+// malformed Unicode. Presentation values retain UTF-16 units; object keys must
+// always be Unicode scalars. Comparing these values with the typed re-encoding
+// detects any lossy decoding of ordinary source/identity strings.
+func hirJSONScalars(data []byte, value *any) error {
+	if !json.Valid(data) || !utf8.Valid(data) {
+		return fmt.Errorf("invalid HIR JSON or UTF-8")
+	}
+	for i := 0; i < len(data); i++ {
+		if data[i] != '"' {
+			continue
+		}
+		start := i
+		for i++; i < len(data); i++ {
+			if data[i] == '\\' {
+				i++
+				continue
+			}
+			if data[i] == '"' {
+				break
+			}
+		}
+		end := i + 1
+		j := end
+		for j < len(data) && (data[j] == ' ' || data[j] == '\n' || data[j] == '\r' || data[j] == '\t') {
+			j++
+		}
+		if j < len(data) && data[j] == ':' {
+			var key HIRText
+			if err := json.Unmarshal(data[start:end], &key); err != nil {
+				return err
+			}
+			if !utf8.ValidString(string(key)) {
+				return fmt.Errorf("invalid Unicode in HIR object key")
+			}
+		}
+	}
+	return hirJSONScalarValue(data, value)
+}
+
+func hirJSONScalarValue(data []byte, value *any) error {
+	data = bytes.TrimSpace(data)
+	switch data[0] {
+	case '"':
+		var text HIRText
+		if err := json.Unmarshal(data, &text); err != nil {
+			return err
+		}
+		*value = text
+	case '{':
+		var raw map[string]json.RawMessage
+		if err := json.Unmarshal(data, &raw); err != nil {
+			return err
+		}
+		items := make(map[string]any, len(raw))
+		for key, child := range raw {
+			var item any
+			if err := hirJSONScalarValue(child, &item); err != nil {
+				return err
+			}
+			items[key] = item
+		}
+		*value = items
+	case '[':
+		var raw []json.RawMessage
+		if err := json.Unmarshal(data, &raw); err != nil {
+			return err
+		}
+		items := make([]any, len(raw))
+		for i, child := range raw {
+			if err := hirJSONScalarValue(child, &items[i]); err != nil {
+				return err
+			}
+		}
+		*value = items
+	default:
+		return json.Unmarshal(data, value)
+	}
+	return nil
+}
+
 // hirTextFromUTF16 combines valid pairs but retains isolated code units.
 func hirTextFromUTF16(units []uint16) HIRText {
 	out := make([]byte, 0, len(units))

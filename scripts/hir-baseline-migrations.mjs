@@ -1,5 +1,5 @@
 // Test-only provenance bridge. No frozen inventory or input is rewritten.
-import {readFileSync, readdirSync, existsSync} from 'node:fs';
+import {readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
@@ -8,6 +8,16 @@ const require = createRequire(import.meta.url);
 const {babelParse} = require(path.join(path.dirname(require.resolve('playwright/package.json')), 'lib/transform/babelBundle.js'));
 export const repositoryRoot = fileURLToPath(new URL('../', import.meta.url));
 export const digest = value => createHash('sha256').update(value).digest('hex');
+// Registration may refresh live assertion digests, never historical bytes.
+export function preserveBaselineArchive(archivePath, original, registered) {
+  if (existsSync(archivePath)) {
+    if (!readFileSync(archivePath).equals(original)) throw Error(`Immutable baseline archive changed: ${archivePath}`);
+    return;
+  }
+  if (registered) throw Error(`Missing immutable baseline archive: ${archivePath}`);
+  mkdirSync(path.dirname(archivePath), {recursive:true});
+  writeFileSync(archivePath, original, {flag:'wx'});
+}
 const read = (root, file) => readFileSync(path.join(root, file));
 const json = (root, file) => JSON.parse(read(root, file));
 const canonical = value => JSON.stringify(value);
@@ -60,6 +70,7 @@ export function infrastructureProjection(text, file) {
   });
   return scenarios;
 }
+export const dtoInfrastructure = new Set(['packages/compiler/tests/client.test.mjs','apps/editor/tests/flow.test.mjs','apps/editor/tests/references.test.mjs','packages/browser-workspace/tests/fixtures.mjs','packages/browser-workspace/tests/analysis.test.mjs','packages/browser-workspace/tests/workspace.test.mjs']);
 export function loadMigrations(root = repositoryRoot) {
   const registry = json(root, 'tests/hir-baseline-migrations.json');
   if (registry.version !== 1 || registry.baselineCommit !== '280850fd' || !Array.isArray(registry.files)) throw Error('Invalid baseline migration registry');
@@ -67,7 +78,6 @@ export function loadMigrations(root = repositoryRoot) {
   const inventory = json(root, 'tests/fixtures/hir-projects/source-inventory.json');
   // These are the legacy DTO consumers being migrated, not an escape hatch for
   // unrelated infrastructure (native bridge, connection/tool/storage tests).
-  const dtoInfrastructure = new Set(['packages/compiler/tests/client.test.mjs','apps/editor/tests/flow.test.mjs','apps/editor/tests/references.test.mjs','packages/browser-workspace/tests/fixtures.mjs','packages/browser-workspace/tests/analysis.test.mjs','packages/browser-workspace/tests/workspace.test.mjs']);
   const eligible = new Map([...inventory.native.map(e => [e.file, 'go']), ...inventory.browser.filter(e => e.file.endsWith('.spec.mjs')).map(e => [e.file, 'browser']), ...inventory.infrastructure.filter(e => dtoInfrastructure.has(e.file)).map(e => [e.file, 'infrastructure'])]);
   const entries = new Map();
   for (const entry of registry.files) {

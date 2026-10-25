@@ -9,9 +9,10 @@ interface Instance extends Diagram {
   localNodes: Map<Id, DiagramNode>; localPorts: Map<Id, DiagramPort>; localEdges: Map<Id, DiagramEdge>;
   parents: Map<Id, Id>; flatNodes: DiagramNode[];
   referenceInterfaces: Map<Id, EffectiveInterfaces>;
+  columnLeftMembers: Map<Id, ReadonlySet<Id>>;
 }
 function emptyDiagram(): Instance {
-  return { nodes: [], ports: [], edges: [], interfaces: new Map(), bindings: new Map(), exports: new Map(), localNodes: new Map(), localPorts: new Map(), localEdges: new Map(), parents: new Map(), flatNodes: [], referenceInterfaces: new Map() };
+  return { nodes: [], ports: [], edges: [], interfaces: new Map(), bindings: new Map(), exports: new Map(), localNodes: new Map(), localPorts: new Map(), localEdges: new Map(), parents: new Map(), flatNodes: [], referenceInterfaces: new Map(), columnLeftMembers: new Map() };
 }
 function required<T>(value: T | undefined, id: string): T { if (value === undefined) throw new Error(`Invalid compiler HIR: missing ${id}`); return value; }
 function evaluatePresence(expression: HIRPresence, references: ReadonlyMap<Id, EffectiveInterfaces>): boolean {
@@ -86,7 +87,21 @@ function emitInstances(plan: HIREmissionPlan, diagram: Diagram, references: Read
     if (!parent) roots.push(copy);
     else { const list = children.get(parent) ?? []; list.push(copy); children.set(parent, list); }
   }
-  for (const [id, node] of copies) (node as { children: readonly DiagramNode[] }).children = children.get(id) ?? [];
+  for (const [id, node] of copies) {
+    const owned = children.get(id) ?? [];
+    (node as { children: readonly DiagramNode[] }).children = owned;
+    const left = local.columnLeftMembers.get(id);
+    if (left) {
+      // A transparent member can promote zero, one, or many children. Trace
+      // each effective child back to the declared member of this column group.
+      const split = owned.filter(child => {
+        let member = child.id;
+        while (local.parents.has(member) && local.parents.get(member) !== id) member = required(local.parents.get(member), member);
+        return left.has(member);
+      }).length;
+      (node as { layout: DiagramNode['layout'] }).layout = { ...node.layout, split };
+    }
+  }
   local.nodes = roots;
   // flatNodes deliberately retains transparent nodes for enclosing ownership.
   return local;
@@ -94,7 +109,7 @@ function emitInstances(plan: HIREmissionPlan, diagram: Diagram, references: Read
 export function instantiateGraph(program: HIRProgram, functionId: Id, expanded: ReadonlySet<ExpansionPath>): Diagram {
   const graph = Object.hasOwn(program.functions, functionId) ? program.functions[functionId] : undefined;
   const instance = graph ? instantiate(program, graph, functionId, [functionId], expanded, false) : emptyDiagram();
-  return { nodes: instance.nodes, ports: instance.ports, edges: instance.edges, interfaces: instance.interfaces, bindings: instance.bindings };
+  return { nodes: instance.nodes, ports: instance.ports, edges: instance.edges, interfaces: instance.interfaces, bindings: instance.bindings, ...(instance.geometry ? { geometry: instance.geometry } : {}) };
 }
 function instantiateReference(program: HIRProgram, reference: HIRGraphReference, occurrence: ExpansionPath, ancestors: readonly Id[], expanded: ReadonlySet<ExpansionPath>): Diagram {
   const target = required(program.functions[reference.graphId], reference.graphId);
@@ -141,6 +156,7 @@ function instantiate(program: HIRProgram, graph: HIRGraph, occurrence: string, a
       ...(contextPath ? { contextPath, contextExpanded: contexts.has(contextPath) } : {}),
     });
     if (group) {
+      if (group.arrangement.kind === 'columns') local.columnLeftMembers.set(required(qualified.get(node.id), node.id), new Set(group.arrangement.left.map(member => required(qualified.get(member), member))));
       const members = group.arrangement.kind === 'columns' ? [...group.arrangement.left, ...group.arrangement.right] : group.arrangement.members;
       for (const member of members) local.parents.set(required(qualified.get(member), member), required(qualified.get(node.id), node.id));
     }
@@ -157,7 +173,8 @@ function instantiate(program: HIRProgram, graph: HIRGraph, occurrence: string, a
     local.referenceInterfaces.set(node.id, active ? child.interfaces : new LazyInterfaces(ref.collapsed.interfaces, resolveMembers));
     if (active) {
       for (const [id, parent] of child.parents) local.parents.set(id, parent);
-      for (const childNode of child.flatNodes) {
+      for (const [id, left] of child.columnLeftMembers) local.columnLeftMembers.set(id, left);
+      for (const childNode of child.geometry?.nodes ?? child.flatNodes) {
         let root = childNode.id;
         while (child.parents.has(root)) root = required(child.parents.get(root), root);
         local.parents.set(root, required(qualified.get(node.id), node.id));
@@ -191,5 +208,51 @@ function instantiate(program: HIRProgram, graph: HIRGraph, occurrence: string, a
     const active = ref.availability.kind === 'available' && !ancestors.includes(ref.graphId) && expanded.has(occurrence + ref.occurrenceKey);
     if (!active) for (const e of ref.collapsed.edges) if (evaluatePresence(e.when, local.referenceInterfaces)) local.localEdges.set(e.id, edge(port(e.fromPort), port(e.toPort), e));
   }
-  return emitInstances(inline ? graph.emission.inline : graph.emission.root, local, references) as Instance;
+  const result = emitInstances(inline ? graph.emission.inline : graph.emission.root, local, references) as Instance;
+  // Keep declared owners, including transparent leaves, available to layout.
+  // Structural order comes from groups, not from the omission of invisible
+  // owners in the node emission stream. This never reorders that stream.
+  const geometryNodes = new Map<Id, DiagramNode>();
+  const geometryParents = new Map(local.parents);
+  const geometryGroups = new Map<Id, { members: readonly Id[]; left?: ReadonlySet<Id> }>();
+  const recordGroup = (owner: Id, groupId: Id): void => {
+    const group = required(groups.get(groupId), groupId), arrangement = group.arrangement;
+    const members = arrangement.kind === 'columns' ? [...arrangement.left, ...arrangement.right] : arrangement.members;
+    geometryGroups.set(owner, { members: members.map(id => required(qualified.get(id), id)),
+      ...(arrangement.kind === 'columns' ? { left: new Set(arrangement.left.map(id => required(qualified.get(id), id))) } : {}) });
+  };
+  const visitGroup = (groupId: Id): void => {
+    const group = required(groups.get(groupId), groupId);
+    const members = group.arrangement.kind === 'columns' ? [...group.arrangement.left, ...group.arrangement.right] : group.arrangement.members;
+    for (const id of members) {
+      const node = required(local.localNodes.get(id), id);
+      geometryNodes.set(node.id, node);
+      const declaration = required(graph.nodes.find(node => node.id === id), id);
+      if (declaration.body.kind === 'group') {
+        recordGroup(node.id, declaration.body.groupId);
+        visitGroup(declaration.body.groupId);
+      }
+      if (declaration.body.kind === 'reference') {
+        const childGeometry = references.get(id)?.geometry;
+        for (const child of childGeometry?.nodes ?? []) {
+          geometryNodes.set(child.id, child);
+          geometryParents.set(child.id, childGeometry!.parents.get(child.id) ?? node.id);
+        }
+        for (const [owner, group] of childGeometry?.groups ?? []) geometryGroups.set(owner, group);
+      }
+    }
+  };
+  visitGroup(graph.rootGroup);
+  const rootGroup = required(groups.get(graph.rootGroup), graph.rootGroup);
+  if (rootGroup.arrangement.kind === 'columns') {
+    // This key identifies an existing HIR group only within render geometry;
+    // it is not a source, occurrence, emitted node or selectable primitive.
+    const key = JSON.stringify([occurrence, graph.rootGroup]);
+    recordGroup(key, graph.rootGroup);
+    geometryNodes.set(key, { id: key, kind: 'step', label: '', selection: graph, children: [], presentation: { kind: 'hidden' },
+      layout: { profile: rootGroup.style.profile, root: true, split: rootGroup.arrangement.left.length, visibility: { node: false, header: false, container: false } } });
+    for (const member of geometryGroups.get(key)!.members) geometryParents.set(member, key);
+  }
+  (result as { geometry: Diagram['geometry'] }).geometry = { nodes: [...geometryNodes.values()], parents: geometryParents, groups: geometryGroups };
+  return result;
 }

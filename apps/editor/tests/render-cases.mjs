@@ -122,12 +122,15 @@ export async function assertSuiteInventory(tests, inventory) {
   }
   for (const helper of registry.helpers ?? []) {
     if (typeof helper.file !== 'string' ||
-        !/^(?:apps\/editor\/tests\/hir-[a-z0-9-]+\.mjs|packages\/compiler\/tests\/[A-Za-z0-9_-]+\.mjs)$/.test(helper.file) ||
+        !/^(?:apps\/editor\/tests\/(?:hir-[a-z0-9-]+\.mjs|legacy-flow\.ts)|packages\/compiler\/(?:hir_[a-z0-9_]+_test\.go|tests\/[A-Za-z0-9_-]+\.mjs))$/.test(helper.file) ||
         /\.(?:test|spec)\.mjs$/.test(helper.file) || helper.rendering !== false ||
         typeof helper.purpose !== 'string' || !helper.purpose.trim() ||
         baseline.has(helper.file) || registered.has(helper.file)) throw Error(`Invalid post-baseline test helper: ${helper.file}`);
     registered.add(helper.file);
-    await readFile(resolve(ROOT,helper.file));
+    const source = await readFile(resolve(ROOT,helper.file), 'utf8');
+    if (helper.file.endsWith('_test.go') && /\bfunc\s+(?:Test|Benchmark|Fuzz|Example)\w*\s*\(/.test(source)) {
+      throw Error(`Post-baseline helper contains a runnable Go suite: ${helper.file}`);
+    }
   }
   const discovered = new Set(tests);
   const missing = [...baseline].filter(file => !discovered.has(file));

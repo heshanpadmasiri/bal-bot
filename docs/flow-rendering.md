@@ -1,24 +1,24 @@
 # Frozen flow rendering gate
 
-Stage 1 tools replay the **current production renderer**. The contract below follows `spec.md` and `plan.md`: isolated headless SVG is the primary image-parity gate; surrounding HTML, styles, wrappers and interactions have separate integration coverage. Screenshots are optional human-review aids, never acceptance artifacts.
+The frozen Stage 1 tools replay the **current production HIR renderer**. Isolated headless SVG is the primary image-parity gate; surrounding HTML, styles, wrappers and interactions have separate integration coverage. Screenshots are optional human-review aids, never acceptance artifacts.
 
 ## Current gate status
 
 The revised isolated-SVG/separate-HTML baseline is recorded, frozen, and verified for all 663 cases in both development and production. Recording passed two fresh-context runs per case/mode; verification replayed the frozen artifacts successfully. The required artifact set contains no PNGs. Earlier partial recordings remain non-authoritative. Earlier raster differences do not block this gate, and no GPU/raster stability is required.
 
-The baseline authority is `tests/fixtures/flow-rendering/frozen-manifest.json` (schema version 2, pipeline `isolated-svg+editor-integration`), with the original Git revision, working-tree hashes, pinned environment, and artifact hashes. The baseline/tooling commit is `280850fd`. This is the committed Stage 1 authority for subsequent migration; its recorded pre-commit revision and working-tree hashes remain unchanged in the manifest. No shared production SVG extraction has been performed.
+The baseline authority is `tests/fixtures/flow-rendering/frozen-manifest.json` (schema version 2, pipeline `isolated-svg+editor-integration`), with the original Git revision, working-tree hashes, pinned environment, and artifact hashes. The baseline/tooling commit is `280850fd`. This is the committed Stage 1 authority for subsequent migration; its recorded pre-commit revision and working-tree hashes remain unchanged in the manifest. The default harness now uses the canonical production `FlowView` and shared `FlowSvg`; `--hir` is only a verify/smoke compatibility no-op, not a second renderer or baseline.
 
 ## Frozen inventory and post-baseline suites
 
-`loadRenderCases()` retains strict discovery and original byte-hash checks for every Stage 1 suite. The frozen inventory, source archives, case metadata and artifacts must not be updated to accommodate new tests. Stage 6 assertion migrations use the separate, test-only provenance bridge below; they do not change a case or its `provenanceHashes`.
+`loadRenderCases()` retains strict discovery and original byte-hash checks for every Stage 1 suite. The frozen inventory, source archives, case metadata and artifacts must not be updated to accommodate new tests. Assertion-only HIR migrations use the separate, test-only provenance bridge below; they do not change a case or its `provenanceHashes`.
 
 `tests/hir-suite-inventory.json` separately allows the planned non-rendering HIR suites `packages/compiler/hir_test.go` and `packages/compiler/tests/hir.test.mjs`. Entries may be registered before their files exist. Each entry explicitly declares `rendering: false` and its purpose; duplicate entries, overlap with baseline suites, malformed entries and all unregistered discovered suites fail loading. Registered suites do not bypass the original baseline suite presence or source-hash checks.
 
-The registry also explicitly classifies the new `hir-synthetic-fixtures.mjs` and `testDataBuilder.mjs` test-data helpers under `helpers`; they must exist, cannot masquerade as suites, and claim no new frozen coverage.
+The registry also explicitly classifies `hir-synthetic-fixtures.mjs` and `testDataBuilder.mjs` test-data helpers, `legacy-flow.ts`, and the native `hir_legacy_model_test.go` comparison oracle under `helpers`; they must exist, cannot masquerade as suites, and claim no new frozen coverage. A native helper containing a runnable Test/Benchmark/Fuzz/Example entry point fails classification.
 
 This registry is an explicit, reviewable classification, not automatic detection of whether test code renders. Keep it limited to contract validation, printing and serialization (and later non-rendering AST/HIR corpus checks). A new flow-producing suite must receive separate post-baseline scenario/render coverage, not be labeled non-rendering or claimed as part of the original 663 cases. Adding such coverage must not regenerate or extend the frozen inventory or expected artifacts. Review any additional registry names and their classification explicitly.
 
-## Stage 6 legacy assertion provenance
+## Legacy assertion provenance
 
 `tests/hir-baseline-migrations.json` explicitly records each **actually changed** legacy DTO consumer, its original SHA-256, archive path, exact current SHA-256, and current extraction/scenario mapping. Archives under `tests/legacy-baseline-sources/**.txt` are the original **bytes from `280850fd`**, not snapshots of migrated tests. Their hashes must agree with the immutable render/source inventories. Unused registrations and orphan archives fail. Unregistered files remain direct-hash strict; examples, catalog/frozen input trees, the native bridge and unrelated infrastructure cannot use archive fallback.
 
@@ -29,7 +29,7 @@ Both arms are mandatory:
 - Browser Babel extraction still reads the active files statically, never imports/evaluates tests, and compares project bytes, request order, scenarios and exclusions with both historical extraction and the original corpus. The excluded cancellation stress input additionally pins its actual generator AST (including 15,000 size, template, index expression and separator), not just its exclusion label.
 - Stubbed infrastructure preserves original scenario presence/order and actual compiler/workspace request argument ASTs rather than obsolete DTO **response** literals. Additional scenarios are explicitly classified in the migration registry. Migrated synthetic flow assertions name HIR fixtures that must map to that original scenario's frozen catalog inputs.
 
-After reviewing an assertion-only migration, register only its explicit paths with `node scripts/register_hir_migrations.mjs <path> ...`. This command archives originals from the baseline commit and records current digests; it is **not** proof or authorization to change inputs. Run both semantic checks and review the registry/archive diff:
+After reviewing an assertion-only migration, register or refresh only its explicit paths with `node scripts/register_hir_migrations.mjs <path> ...`. This command archives originals from the baseline commit and records current digests; existing original digests and archives are immutable (a missing or altered registered archive fails rather than being repaired). It is **not** proof or authorization to change inputs. Never bulk-refresh digests to silence failures. Run both semantic checks and review the registry/archive diff:
 
 ```sh
 node --test scripts/hir-baseline-migrations.test.mjs
@@ -43,9 +43,9 @@ The negative tests cover archive tampering, active Ballerina input edits, remove
 
 Prepare selected function/graph input, occurrence-local expansion and reference state, presentation flags (including source-selection availability), and viewport/panel/rendering parameters explicitly. Image generation must not infer this state from the editor DOM. Wait for fonts, React updates where applicable, and settled layout before serializing exact SVG bytes or explicit SVG absence.
 
-Before Stage 5, a minimal **test-only legacy FlowView adapter** reuses production graph construction, font measurement, layout and SVG presentation. It does not mount the full editor or scrape the editor's diagram as its primary SVG source. It must not duplicate SVG markup/layout, invent missing graph metadata or change production rendering before the baseline gate. Synthetic graph-only fixtures explicitly inventory missing entry metadata and lack AST expectations.
+Both default editor integration and isolated mounts import canonical `src/flow-view.tsx` and `src/flow-entry.tsx`. Production receives direct deserialized HIR and explicit state; `instantiateGraph(program, functionId, expanded)` instantiates it without AST/compiler access or a legacy UI conversion path. `FlowView` composes entry/definition/diagnostic HTML, wrappers and callbacks around shared `FlowSvg` presentation.
 
-At Stage 5, extract shared production image/SVG rendering support for both FlowView and the isolated harness; remove or migrate the temporary legacy adapter with the old model. The migrated image path consumes only HIR plus explicit state/parameters, without AST, compiler or legacy-model access. FlowView separately composes existing entry/definition/diagnostic HTML, wrappers and callbacks around that shared image output.
+Archived synthetic inputs still use a **test-only exact fixture lookup** in `tests/browser/hir-model-registry.ts`: legacy JSON identifies a precomputed HIR fixture, never runs a converter. Graph-only fixtures explicitly omit the `FlowEntry` component for historically missing metadata and have no invented entry or AST expectations. Original DTO JSON, source archives, test-only legacy graph comparison helpers, and native `_test.go` models are historical fossils, not production exports. The isolated mount takes only captured HIR/state; it imports no registry, workspace or compiler.
 
 Preserve SVG markup exactly, including inner `foreignObject` label/control HTML, attributes, identities, ordering and stylesheet-dependent appearance. Isolation from surrounding editor HTML is not permission to replace SVG content, inline new styles/fonts, or normalize output. Keep the original styles and fonts available in the isolated harness.
 
@@ -65,8 +65,10 @@ node scripts/capture_flow_baselines.mjs --prepare-fonts
 node scripts/capture_flow_baselines.mjs --record --concurrency 1
 node scripts/capture_flow_baselines.mjs --freeze
 
-# After freezing; read-only for expected files:
+# After freezing; read-only for expected files, default production HIR path:
 npm run test:flow-parity
+# Optional compatibility spelling, identical pipeline:
+node scripts/capture_flow_baselines.mjs --verify --hir
 ```
 
 `--prepare-fonts` is unnecessary when the committed archive is present. It explicitly downloads the original Google Fonts stylesheet and every referenced font subset, retaining their original bytes and URLs under `tests/fixtures/flow-rendering/environment/fonts/`. Review the archive before recording. Every fresh context fulfills browser requests from it; unarchived external requests fail. This is test-only routing, not replacement CSS or a production font change. Font/stylesheet SHA-256 values are in `lock.json`; production retains its existing stylesheet import.
@@ -81,7 +83,18 @@ The manifest records OS version/release, runtime versions, Node executable SHA-2
 
 Existing software-rendering launch flags remain recorded browser parameters. They do not certify raster stability; GPU availability, PNG generation, PNG byte/pixel equality and antialiasing differences are not acceptance checks. Missing fonts/browser installations or pinned-environment drift remain failures independently of screenshots.
 
-## Recording and freezing
+## Human SVG review (separate from acceptance)
+
+Run `npm run review:flow` and open the loopback URL. Use **Capture + repeat**
+for fresh isolated SVGs in development and production; old cached previews alone
+do not establish parity. Save feedback with canonical case ID, mode, observed
+issue and disposition, and export feedback when handing review off. Captures and
+notes live under ignored `.bal-bot/flow-review/`, never in frozen artifacts.
+Report what was actually inspected, unresolved findings and any environment
+limitations separately from automated results. Screenshots are optional aids.
+See [the review tool guide](../scripts/flow-review/README.md) for smoke checks.
+
+## Recording and freezing (historical Stage 1 procedure)
 
 The read-only `loadRenderCases()` validates filesystem discovery, original input/provenance hashes and scenario inventory before replay. Recording traverses the complete catalog independently for development and production. Generate SVG twice in fresh isolated contexts and require byte equality. Independently repeat HTML/style/wrapper integration captures in fresh contexts and require exact assertions, including isolated/integration SVG agreement. There is no normalization, tolerance, attribute sorting or geometry rounding. Optional screenshot differences require no tolerance policy because they are excluded from acceptance entirely.
 

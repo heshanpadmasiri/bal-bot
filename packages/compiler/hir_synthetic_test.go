@@ -22,7 +22,7 @@ type syntheticHIRBuilder struct {
 
 func (s *syntheticHIRBuilder) located(v LocatedModel) string { s.sources[v.ID] = v; return v.ID }
 func (s *syntheticHIRBuilder) node(path string, source LocatedModel, style HIRNodeStyle, label string) string {
-	return s.b.addNode(path, strings.TrimPrefix(path, s.b.graph.ID), s.located(source), plain(style, label))
+	return s.b.allocNode(path, strings.TrimPrefix(path, s.b.graph.ID), s.located(source), plain(style, label))
 }
 func syntheticStatements(p *[]StatementModel) []StatementModel {
 	if p == nil {
@@ -60,7 +60,7 @@ func (s *syntheticHIRBuilder) call(node, path string, c CallSiteModel, evaluatio
 			reason = "Function body is unavailable."
 		}
 	}
-	normal := s.b.lowerCall(node, path, directCall{target: target, supported: supported, reason: reason}, evaluation)
+	normal := s.b.bindCallReference(node, path, directCall{target: target, supported: supported, reason: reason}, evaluation)
 	// Synthetic tests pin the original accessible label independently from the
 	// limitation/title text; the runtime must not reconstruct either from source.
 	if p, ok := s.b.node(node).Presentation.Value.(HIRPlainPresentation); ok {
@@ -99,7 +99,7 @@ func (s *syntheticHIRBuilder) statement(v StatementModel, path string) fragment 
 		style = HIRNodeStyleMapping
 	}
 	node := s.node(path, source, style, label)
-	entry := b.addPort(node, HIRPortRoleEntry)
+	entry := b.allocPort(node, HIRPortRoleEntry)
 	f := fragment{nodes: []string{node}, entry: member(entry)}
 	if v.Kind == "unsupported" {
 		p := b.node(node).Presentation.Value.(HIRPlainPresentation)
@@ -133,24 +133,24 @@ func (s *syntheticHIRBuilder) statement(v StatementModel, path string) fragment 
 			}
 			b.node(node).Presentation.Value = p
 			if v.Kind == "return" {
-				f.returns = append(f.returns, member(b.addPort(node, HIRPortRoleReturn))...)
+				f.returns = append(f.returns, member(b.allocPort(node, HIRPortRoleReturn))...)
 			} else {
-				f.normal = member(b.addPort(node, HIRPortRoleNormalExit))
+				f.normal = member(b.allocPort(node, HIRPortRoleNormalExit))
 			}
 			return f
 		}
 	}
 	switch v.Kind {
 	case "break":
-		f.breaks = member(b.addPort(node, HIRPortRoleBreak))
+		f.breaks = member(b.allocPort(node, HIRPortRoleBreak))
 		return f
 	case "continue":
-		f.continues = member(b.addPort(node, HIRPortRoleContinue))
+		f.continues = member(b.allocPort(node, HIRPortRoleContinue))
 		return f
 	case "if":
 		a := s.block(syntheticStatements(v.ThenBody), path+"/then")
 		c := s.block(syntheticStatements(v.ElseBody), path+"/else")
-		join := b.addPort(node, HIRPortRoleNormalExit)
+		join := b.allocPort(node, HIRPortRoleNormalExit)
 		ae := a.entry
 		if len(ae) == 0 {
 			ae = member(join)
@@ -159,8 +159,8 @@ func (s *syntheticHIRBuilder) statement(v StatementModel, path string) fragment 
 		if len(ce) == 0 {
 			ce = member(join)
 		}
-		b.connect(member(b.addPort(node, HIRPortRoleTrue)), ae, HIREdgeKindTrue)
-		b.connect(member(b.addPort(node, HIRPortRoleFalse)), ce, HIREdgeKindFalse)
+		b.connect(member(b.allocPort(node, HIRPortRoleTrue)), ae, HIREdgeKindTrue)
+		b.connect(member(b.allocPort(node, HIRPortRoleFalse)), ce, HIREdgeKindFalse)
 		b.connect(a.normal, member(join), HIREdgeKindSequence)
 		b.connect(c.normal, member(join), HIREdgeKindSequence)
 		if !(len(a.entry) > 0 && len(c.entry) > 0 && len(a.normal) == 0 && len(c.normal) == 0) {
@@ -175,13 +175,13 @@ func (s *syntheticHIRBuilder) statement(v StatementModel, path string) fragment 
 		return f
 	case "while", "foreach":
 		body := s.block(syntheticStatements(v.Body), path+"/loop")
-		exit := b.addPort(node, HIRPortRoleNormalExit)
+		exit := b.allocPort(node, HIRPortRoleNormalExit)
 		f.normal = member(exit)
 		iteration := f.entry
 		kind := HIREdgeKindTrue
 		back := HIREdgeKindBack
 		if v.Kind == "foreach" {
-			iteration = member(b.addPort(node, HIRPortRoleNextIteration))
+			iteration = member(b.allocPort(node, HIRPortRoleNextIteration))
 			kind = HIREdgeKindSequence
 			back = HIREdgeKindSequence
 		}
@@ -189,9 +189,9 @@ func (s *syntheticHIRBuilder) statement(v StatementModel, path string) fragment 
 		if len(target) == 0 {
 			target = iteration
 		}
-		b.connect(member(b.addPort(node, HIRPortRoleTrue)), target, kind)
+		b.connect(member(b.allocPort(node, HIRPortRoleTrue)), target, kind)
 		if v.Kind == "while" {
-			b.connect(member(b.addPort(node, HIRPortRoleFalse)), member(exit), HIREdgeKindFalse)
+			b.connect(member(b.allocPort(node, HIRPortRoleFalse)), member(exit), HIREdgeKindFalse)
 		}
 		b.connect(body.normal, iteration, back)
 		beforeContinue := len(b.graph.Edges)
@@ -211,7 +211,7 @@ func (s *syntheticHIRBuilder) statement(v StatementModel, path string) fragment 
 		b.group(node, profile, body.nodes, nil, false)
 		return f
 	}
-	normal := member(b.addPort(node, HIRPortRoleNormalExit))
+	normal := member(b.allocPort(node, HIRPortRoleNormalExit))
 	children := []string{}
 	if v.Calls != nil {
 		for _, c := range *v.Calls {
@@ -222,7 +222,7 @@ func (s *syntheticHIRBuilder) statement(v StatementModel, path string) fragment 
 			cn := s.node(cp, c.LocatedModel, HIRNodeStyleFunction, c.Text)
 			children = append(children, cn)
 			if c.Expansion == "supported" {
-				b.connect(normal, member(b.addPort(cn, HIRPortRoleEntry)), HIREdgeKindSequence)
+				b.connect(normal, member(b.allocPort(cn, HIRPortRoleEntry)), HIREdgeKindSequence)
 				normal = s.call(cn, cp, c, false)
 			} else {
 				s.call(cn, cp, c, false)
@@ -241,7 +241,7 @@ func (s *syntheticHIRBuilder) statement(v StatementModel, path string) fragment 
 	}
 	if v.Kind == "return" {
 		if len(normal) > 0 {
-			ret := b.addPort(node, HIRPortRoleReturn)
+			ret := b.allocPort(node, HIRPortRoleReturn)
 			if normal[0].PortID != node+":normal-exit" {
 				b.connect(normal, member(ret), HIREdgeKindReturn)
 			}
@@ -288,19 +288,19 @@ func (s *syntheticHIRBuilder) evaluate(v EvaluationModel, path string) fragment 
 		}
 		terminal := s.node(path+"/error", v.LocatedModel, style, label)
 		node := s.node(path, v.LocatedModel, HIRNodeStyleCondition, v.Kind)
-		join := b.addPort(node, HIRPortRoleNormalExit)
-		b.addEdge(b.addPort(node, HIRPortRoleTrue), join, HIREdgeKindTrue, "value", present())
-		b.addEdge(b.addPort(node, HIRPortRoleFalse), b.addPort(terminal, HIRPortRoleEntry), HIREdgeKindError, "error", present())
-		b.connect(nested.normal, member(b.addPort(node, HIRPortRoleEntry)), HIREdgeKindSequence)
+		join := b.allocPort(node, HIRPortRoleNormalExit)
+		b.allocEdge(b.allocPort(node, HIRPortRoleTrue), join, HIREdgeKindTrue, "value", present())
+		b.allocEdge(b.allocPort(node, HIRPortRoleFalse), b.allocPort(terminal, HIRPortRoleEntry), HIREdgeKindError, "error", present())
+		b.connect(nested.normal, member(b.allocPort(node, HIRPortRoleEntry)), HIREdgeKindSequence)
 		if len(nested.entry) == 0 {
-			nested.entry = member(b.addPort(node, HIRPortRoleEntry))
+			nested.entry = member(b.allocPort(node, HIRPortRoleEntry))
 		}
 		nested.nodes = append(nested.nodes, node)
 		nested.normal = member(join)
 		if role == HIRPortRoleReturn {
-			nested.returns = append(nested.returns, member(b.addPort(terminal, role))...)
+			nested.returns = append(nested.returns, member(b.allocPort(terminal, role))...)
 		} else {
-			nested.panics = append(nested.panics, member(b.addPort(terminal, role))...)
+			nested.panics = append(nested.panics, member(b.allocPort(terminal, role))...)
 		}
 		b.group(node, HIRSpacingProfileIf, nil, []string{terminal}, true)
 		return nested
@@ -308,22 +308,22 @@ func (s *syntheticHIRBuilder) evaluate(v EvaluationModel, path string) fragment 
 	if v.Kind == "trap" {
 		capture := s.node(path+"/capture", v.LocatedModel, HIRNodeStyleStep, "Capture panic as error value")
 		node := s.node(path, v.LocatedModel, HIRNodeStyleTrap, "trap")
-		exit := b.addPort(node, HIRPortRoleNormalExit)
+		exit := b.allocPort(node, HIRPortRoleNormalExit)
 		target := nested.entry
 		if len(target) == 0 {
 			target = member(exit)
 		}
-		b.connect(member(b.addPort(node, HIRPortRoleEntry)), target, HIREdgeKindSequence)
+		b.connect(member(b.allocPort(node, HIRPortRoleEntry)), target, HIREdgeKindSequence)
 		b.connect(nested.normal, member(exit), HIREdgeKindSequence)
 		for _, p := range nested.panics {
-			b.addEdge(p.PortID, b.addPort(capture, HIRPortRoleEntry), HIREdgeKindPanic, "panic", p.When)
+			b.allocEdge(p.PortID, b.allocPort(capture, HIRPortRoleEntry), HIREdgeKindPanic, "panic", p.When)
 		}
 		for _, p := range nested.panicExports {
-			b.catchPanic(p.reference, b.addPort(capture, HIRPortRoleEntry))
+			b.catchPanic(p.reference, b.allocPort(capture, HIRPortRoleEntry))
 		}
-		b.addEdge(b.addPort(capture, HIRPortRoleNormalExit), exit, HIREdgeKindSequence, "error value", present())
+		b.allocEdge(b.allocPort(capture, HIRPortRoleNormalExit), exit, HIREdgeKindSequence, "error value", present())
 		b.group(node, HIRSpacingProfileTrap, append(nested.nodes, capture), nil, false)
-		return fragment{nodes: []string{node}, entry: member(b.addPort(node, HIRPortRoleEntry)), normal: member(exit), returns: nested.returns}
+		return fragment{nodes: []string{node}, entry: member(b.allocPort(node, HIRPortRoleEntry)), normal: member(exit), returns: nested.returns}
 	}
 	source := v.LocatedModel
 	label := v.Text
@@ -373,14 +373,14 @@ func (s *syntheticHIRBuilder) evaluate(v EvaluationModel, path string) fragment 
 		}
 		b.node(node).Presentation.Value = HIRClientPresentation{Style: HIRClientStyleClient, Label: collapsed.Label, Sections: collapsed.Sections, Disclosure: d}
 	}
-	entry := b.addPort(node, HIRPortRoleEntry)
+	entry := b.allocPort(node, HIRPortRoleEntry)
 	b.connect(nested.normal, member(entry), HIREdgeKindSequence)
 	if len(nested.entry) == 0 {
 		nested.entry = member(entry)
 	}
 	nested.nodes = append(nested.nodes, node)
-	nested.normal = member(b.addPort(node, HIRPortRoleNormalExit))
-	nested.panics = append(nested.panics, member(b.addPort(node, HIRPortRolePanic))...)
+	nested.normal = member(b.allocPort(node, HIRPortRoleNormalExit))
+	nested.panics = append(nested.panics, member(b.allocPort(node, HIRPortRolePanic))...)
 	if v.Call != nil && v.Call.Target.Kind == "workspace" {
 		nested.normal = s.call(node, path+"/expand", *v.Call, true)
 		nested.panicExports = append(nested.panicExports, panicExport{reference: node, before: len(nested.panics)})
@@ -454,7 +454,12 @@ func TestHIRSyntheticFixtures(t *testing.T) {
 					b := &graphBuilder{ports: map[string]bool{}, graph: HIRGraph{LocatedModel: fn.LocatedModel, ModuleID: fn.ModuleID, Entry: HIREntry{Kind: HIREntryKindFunction, Name: fn.Entry.Name, Signature: fn.Entry.Signature, ReturnType: fn.Entry.ReturnType}}}
 					s := syntheticHIRBuilder{b: b, sources: hir.Sources, program: model}
 					s.located(fn.LocatedModel)
-					hir.Functions[name] = b.finish(name, s.block(fn.Body, name))
+					b.finalFragment = s.block(fn.Body, name)
+					graph, err := b.finish()
+					if err != nil {
+						t.Fatal(err)
+					}
+					hir.Functions[name] = graph
 				}
 			}
 			// Graph-only inputs honestly omit declaration metadata. The production

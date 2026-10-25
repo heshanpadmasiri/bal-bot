@@ -5,7 +5,26 @@ import (
 	"github.com/ballerina-nutcracker/ballerina/ast"
 )
 
-func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNode) (fragment, error) {
+func (b *graphBuilder) lowerStatementAt(id, path string, statement ast.StatementNode) (fragment, error) {
+	previous := b.statementContext
+	b.statementContext = evaluationContext{kind: evaluationStatement, sourceID: id, occurrencePath: path}
+	defer func() { b.statementContext = previous }()
+	return b.lowerStatement(path, statement)
+}
+
+func (b *graphBuilder) lowerStatement(path string, statement ast.StatementNode) (result fragment, err error) {
+	if b.constructionErr != nil {
+		return fragment{}, b.constructionErr
+	}
+	defer func() {
+		if err == nil {
+			err = b.constructionErr
+		}
+	}()
+	id := path
+	if b.statementContext.kind == evaluationStatement {
+		id = b.statementContext.sourceID
+	}
 	loc, err := b.source(id, statement)
 	if err != nil {
 		return fragment{}, err
@@ -19,6 +38,7 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 	label := loc.Text
 	binding := ""
 	operation := ""
+	var foreachHeader LocatedModel
 	switch n := statement.(type) {
 	case *ast.BLangVariableDef:
 		expr = n.Var.Expr
@@ -70,9 +90,25 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 		if n.OnFailClause != nil {
 			reason = "Loop on-fail behavior is not modeled."
 		}
+		if n.VariableDef == nil || n.Collection == nil {
+			return fragment{}, fmt.Errorf("%s: missing foreach header position", id)
+		}
 		variablePosition, collectionPosition := n.VariableDef.GetPosition(), n.Collection.GetPosition()
 		start, end := variablePosition.StartOffset(), collectionPosition.EndOffset()
-		label = "foreach " + b.l.p.files[loc.Source.File][start:end]
+		text := b.l.p.files[loc.Source.File]
+		if start > end {
+			return fragment{}, fmt.Errorf("%s: reversed foreach header range", id)
+		}
+		headerStart, err := position(text, start)
+		if err != nil {
+			return fragment{}, fmt.Errorf("%s: foreach header start: %w", id, err)
+		}
+		headerEnd, err := position(text, end)
+		if err != nil {
+			return fragment{}, fmt.Errorf("%s: foreach header end: %w", id, err)
+		}
+		foreachHeader = LocatedModel{ID: id + "/header", Source: SourceReferenceModel{File: loc.Source.File, Range: SourceRange{Start: headerStart, End: headerEnd}}, Text: text[start:end]}
+		label = "foreach " + foreachHeader.Text
 	default:
 		kind = "unsupported"
 		reason = fmt.Sprintf("Visualization of %T is not modeled; later source may still execute.", statement)
@@ -110,17 +146,11 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 	}
 	if kind == "foreach" {
 		sourceID = id + "/header"
-		h, err := b.source(sourceID, expr)
+		_, err := b.source(sourceID, expr)
 		if err != nil {
 			return fragment{}, err
 		}
-		n := statement.(*ast.BLangForeach)
-		variablePosition := n.VariableDef.GetPosition()
-		start := variablePosition.StartOffset()
-		h.Source.Range.Start, _ = position(b.l.p.files[h.Source.File], start)
-		expressionPosition := expr.GetPosition()
-		h.Text = b.l.p.files[h.Source.File][start:expressionPosition.EndOffset()]
-		b.l.sources[sourceID] = h
+		b.l.sources[sourceID] = foreachHeader
 	}
 	if reason != "" {
 		kind = "unsupported"
@@ -137,18 +167,18 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 		p.Limitation = &reason
 		presentation.Value = p
 	}
-	node := b.addNode(path, path, sourceID, presentation)
-	entry := b.addPort(node, HIRPortRoleEntry)
+	node := b.allocNode(path, path, sourceID, presentation)
+	entry := b.allocPort(node, HIRPortRoleEntry)
 	f := fragment{nodes: []string{node}, entry: member(entry)}
 	if kind == "unsupported" {
 		return f, nil
 	}
 	if kind == "break" {
-		f.breaks = member(b.addPort(node, HIRPortRoleBreak))
+		f.breaks = member(b.allocPort(node, HIRPortRoleBreak))
 		return f, nil
 	}
 	if kind == "continue" {
-		f.continues = member(b.addPort(node, HIRPortRoleContinue))
+		f.continues = member(b.allocPort(node, HIRPortRoleContinue))
 		return f, nil
 	}
 	evaluated := fragment{}
@@ -172,16 +202,16 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 			if err != nil {
 				return fragment{}, err
 			}
-			wrapper := b.addNode(path+"/evaluation", path+"/evaluation", wrapperSource.ID, plain(HIRNodeStyleStep, wrapperSource.Text))
-			wrapperEntry := b.addPort(wrapper, HIRPortRoleEntry)
+			wrapper := b.allocNode(path+"/evaluation", path+"/evaluation", wrapperSource.ID, plain(HIRNodeStyleStep, wrapperSource.Text))
+			wrapperEntry := b.allocPort(wrapper, HIRPortRoleEntry)
 			b.connect(nested.normal, member(wrapperEntry), HIREdgeKindSequence)
 			evaluated = nested
 			evaluated.nodes = append(evaluated.nodes, wrapper)
 			if len(evaluated.entry) == 0 {
 				evaluated.entry = member(wrapperEntry)
 			}
-			evaluated.normal = member(b.addPort(wrapper, HIRPortRoleNormalExit))
-			evaluated.panics = append(evaluated.panics, member(b.addPort(wrapper, HIRPortRolePanic))...)
+			evaluated.normal = member(b.allocPort(wrapper, HIRPortRoleNormalExit))
+			evaluated.panics = append(evaluated.panics, member(b.allocPort(wrapper, HIRPortRolePanic))...)
 		} else {
 			sid := id + "/value"
 			if kind == "if" || kind == "while" || kind == "foreach" {
@@ -218,12 +248,12 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 			}
 			b.node(node).Presentation = plain(style, completionLabel)
 			if kind == "return" {
-				ret := b.addPort(node, HIRPortRoleReturn)
+				ret := b.allocPort(node, HIRPortRoleReturn)
 				when := membersPresence(evaluated.normal)
 				b.setPortPresenceIfNeeded(ret, when)
 				f.returns = append(f.returns, guarded(member(ret), when)...)
 			} else {
-				f.normal = member(b.addPort(node, HIRPortRoleNormalExit))
+				f.normal = member(b.allocPort(node, HIRPortRoleNormalExit))
 			}
 			return f, nil
 		}
@@ -237,7 +267,7 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 		if err != nil {
 			return f, err
 		}
-		join := b.addPort(node, HIRPortRoleNormalExit)
+		join := b.allocPort(node, HIRPortRoleNormalExit)
 		ap := a.entry
 		if len(ap) == 0 {
 			ap = member(join)
@@ -246,8 +276,8 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 		if len(cp) == 0 {
 			cp = member(join)
 		}
-		b.connect(member(b.addPort(node, HIRPortRoleTrue)), ap, HIREdgeKindTrue)
-		b.connect(member(b.addPort(node, HIRPortRoleFalse)), cp, HIREdgeKindFalse)
+		b.connect(member(b.allocPort(node, HIRPortRoleTrue)), ap, HIREdgeKindTrue)
+		b.connect(member(b.allocPort(node, HIRPortRoleFalse)), cp, HIREdgeKindFalse)
 		b.connect(a.normal, member(join), HIREdgeKindSequence)
 		b.connect(c.normal, member(join), HIREdgeKindSequence)
 		pa := membersPresence(a.normal)
@@ -272,12 +302,12 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 		if err != nil {
 			return f, err
 		}
-		exit := b.addPort(node, HIRPortRoleNormalExit)
+		exit := b.allocPort(node, HIRPortRoleNormalExit)
 		f.normal = member(exit)
 		iteration := f.entry
 		profile := HIRSpacingProfileWhile
 		if kind == "foreach" {
-			iteration = member(b.addPort(node, HIRPortRoleNextIteration))
+			iteration = member(b.allocPort(node, HIRPortRoleNextIteration))
 			profile = HIRSpacingProfileForeach
 		}
 		bodyEntry := body.entry
@@ -290,9 +320,9 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 			edgeKind = HIREdgeKindSequence
 			backKind = HIREdgeKindSequence
 		}
-		b.connect(member(b.addPort(node, HIRPortRoleTrue)), bodyEntry, edgeKind)
+		b.connect(member(b.allocPort(node, HIRPortRoleTrue)), bodyEntry, edgeKind)
 		if kind == "while" {
-			b.connect(member(b.addPort(node, HIRPortRoleFalse)), member(exit), HIREdgeKindFalse)
+			b.connect(member(b.allocPort(node, HIRPortRoleFalse)), member(exit), HIREdgeKindFalse)
 		}
 		b.connect(body.normal, iteration, backKind)
 		continueStart := len(b.graph.Edges)
@@ -310,20 +340,20 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 		b.group(node, profile, body.nodes, nil, false)
 		return f, nil
 	}
-	normal := member(b.addPort(node, HIRPortRoleNormalExit))
+	normal := member(b.allocPort(node, HIRPortRoleNormalExit))
 	children := []string{}
 	for _, call := range calls {
 		if call.target == "" {
 			continue
 		}
 		callPath := path + "/expand/" + call.id
-		callNode := b.addNode(callPath, callPath, call.id, plain(HIRNodeStyleFunction, b.l.sources[call.id].Text))
+		callNode := b.allocNode(callPath, callPath, call.id, plain(HIRNodeStyleFunction, b.l.sources[call.id].Text))
 		children = append(children, callNode)
 		if call.supported {
-			b.connect(normal, member(b.addPort(callNode, HIRPortRoleEntry)), HIREdgeKindSequence)
-			normal = b.lowerCall(callNode, callPath, call, false)
+			b.connect(normal, member(b.allocPort(callNode, HIRPortRoleEntry)), HIREdgeKindSequence)
+			normal = b.bindCall(callNode, callPath, call, false)
 		} else {
-			b.lowerCall(callNode, callPath, call, false)
+			b.bindCall(callNode, callPath, call, false)
 		}
 	}
 	if len(children) > 0 {
@@ -335,7 +365,7 @@ func (b *graphBuilder) lowerStatement(id, path string, statement ast.StatementNo
 		}
 	}
 	if kind == "return" {
-		ret := b.addPort(node, HIRPortRoleReturn)
+		ret := b.allocPort(node, HIRPortRoleReturn)
 		if len(children) > 0 {
 			b.connect(normal, member(ret), HIREdgeKindReturn)
 		}

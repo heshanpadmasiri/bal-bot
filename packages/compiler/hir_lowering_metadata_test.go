@@ -97,8 +97,10 @@ public function main() {}
 	if !reflect.DeepEqual(l.sources, second.sources) {
 		t.Fatal("nondeterministic metadata sources")
 	}
-	if p.functionIDs != nil || p.receiverContexts != nil || p.availableBodies != nil {
-		t.Fatal("lowering mutated frontend flow caches")
+	for _, name := range []string{"functionIDs", "receiverContexts", "availableBodies"} {
+		if _, exists := reflect.TypeOf(*p).FieldByName(name); exists {
+			t.Fatalf("frontend retains legacy flow cache %s", name)
+		}
 	}
 	// Invalid source identities fail instead of silently replacing earlier values.
 	fn := functions[0]
@@ -120,8 +122,8 @@ func TestLowerCallRecursivePresentationPrecedence(t *testing.T) {
 	for _, evaluation := range []bool{false, true} {
 		for _, supported := range []bool{false, true} {
 			b := graphBuilder{graph: HIRGraph{ID: "main"}, ports: map[string]bool{}}
-			node := b.addNode("call", "/call", "source", plain(HIRNodeStyleFunction, "literal chosen label"))
-			b.lowerCall(node, "/expand", directCall{target: "main", supported: supported, reason: "Source body unavailable."}, evaluation)
+			node := b.allocNode("call", "/call", "source", plain(HIRNodeStyleFunction, "literal chosen label"))
+			b.bindCallReference(node, "/expand", directCall{target: "main", supported: supported, reason: "Source body unavailable."}, evaluation)
 			p := b.node(node).Presentation.Value.(HIRPlainPresentation)
 			r := p.Disclosure.Value.(HIRCallDisclosure).Recursive
 			reason := "Recursive calls remain collapsed."

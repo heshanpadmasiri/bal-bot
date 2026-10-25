@@ -35,10 +35,13 @@ func appendPanics(dst *fragment, src fragment) {
 }
 
 type graphBuilder struct {
-	l        *lowerer
-	graph    HIRGraph
-	ports    map[string]bool
-	rootOnly bool
+	l                *lowerer
+	graph            HIRGraph
+	ports            map[string]bool
+	rootOnly         bool
+	constructionErr  error
+	finalFragment    fragment
+	statementContext evaluationContext
 }
 
 func present() HIRPresence              { return HIRPresence{Value: HIRConstantPresence{Value: true}} }
@@ -71,7 +74,7 @@ func plain(style HIRNodeStyle, label string) HIRPresentation {
 	return HIRPresentation{Value: HIRPlainPresentation{Style: style, Label: HIRText(label), Sections: HIRList[HIRLabelSection]{}, Disclosure: HIRDisclosure{Value: HIRNoDisclosure{}}}}
 }
 func groupStyle(profile HIRSpacingProfile) HIRGroupStyle {
-	v := HIRGroupVisibility{Node: true, Header: true, Container: true}
+	v := HIRGroupVisibility{Node: true, Header: true, Container: profile != HIRSpacingProfileIf}
 	return HIRGroupStyle{Profile: profile, Root: v, Inline: v}
 }
 func local(id string) HIREmission {
@@ -96,9 +99,81 @@ func (b *graphBuilder) emit(kind string, e HIREmission) {
 func (b *graphBuilder) source(id string, n ast.Node) (LocatedModel, error) {
 	return b.l.located(id, n)
 }
-func (b *graphBuilder) addNode(id, occ, source string, p HIRPresentation) string {
-	b.graph.Nodes = append(b.graph.Nodes, HIRNode{ID: id, OccurrenceKey: strings.TrimPrefix(occ, b.graph.ID), SourceID: source, Presentation: p, Body: HIRNodeBody{Value: HIRLeafBody{}}})
-	b.emit("nodes", local(id))
+func (b *graphBuilder) recordError(err error) {
+	if b.constructionErr == nil {
+		b.constructionErr = err
+	}
+}
+
+// Primitives validate before mutation; allocation helpers preserve first-use order
+// and retain failures for the enclosing lowering boundary.
+func (b *graphBuilder) addNode(node HIRNode) error {
+	if node.ID == "" {
+		return fmt.Errorf("empty node identity")
+	}
+	for _, existing := range b.graph.Nodes {
+		if existing.ID == node.ID {
+			return fmt.Errorf("duplicate node identity %q", node.ID)
+		}
+	}
+	b.graph.Nodes = append(b.graph.Nodes, node)
+	b.emit("nodes", local(node.ID))
+	return nil
+}
+func (b *graphBuilder) addPort(port HIRPort) error {
+	if port.ID == "" {
+		return fmt.Errorf("empty port identity")
+	}
+	for _, existing := range b.graph.Ports {
+		if existing.ID == port.ID {
+			return fmt.Errorf("duplicate port identity %q", port.ID)
+		}
+	}
+	found := false
+	for _, node := range b.graph.Nodes {
+		if node.ID == port.NodeID {
+			found = true
+			break
+		}
+	}
+	if !found {
+		return fmt.Errorf("port %q targets missing node %q", port.ID, port.NodeID)
+	}
+	if b.ports == nil {
+		b.ports = map[string]bool{}
+	}
+	b.ports[port.ID] = true
+	b.graph.Ports = append(b.graph.Ports, port)
+	b.emit("ports", local(port.ID))
+	return nil
+}
+func (b *graphBuilder) addEdge(edge HIREdge) error {
+	if edge.ID == "" {
+		return fmt.Errorf("empty edge identity")
+	}
+	for _, existing := range b.graph.Edges {
+		if existing.ID == edge.ID {
+			return fmt.Errorf("duplicate edge identity %q", edge.ID)
+		}
+	}
+	for _, target := range []string{edge.FromPort, edge.ToPort} {
+		found := false
+		for _, port := range b.graph.Ports {
+			if port.ID == target {
+				found = true
+				break
+			}
+		}
+		if !found {
+			return fmt.Errorf("edge %q targets missing port %q", edge.ID, target)
+		}
+	}
+	b.graph.Edges = append(b.graph.Edges, edge)
+	b.emit("edges", HIREmission{Value: HIRLocalEmission{ItemID: edge.ID, When: edge.When}})
+	return nil
+}
+func (b *graphBuilder) allocNode(id, occ, source string, p HIRPresentation) string {
+	b.recordError(b.addNode(HIRNode{ID: id, OccurrenceKey: strings.TrimPrefix(occ, b.graph.ID), SourceID: source, Presentation: p, Body: HIRNodeBody{Value: HIRLeafBody{}}}))
 	return id
 }
 func (b *graphBuilder) node(id string) *HIRNode {
@@ -107,14 +182,15 @@ func (b *graphBuilder) node(id string) *HIRNode {
 			return &b.graph.Nodes[i]
 		}
 	}
-	panic("missing node " + id)
+	b.recordError(fmt.Errorf("missing node %q", id))
+	// Keep ergonomic construction safe until its enclosing error boundary returns.
+	return &HIRNode{}
 }
-func (b *graphBuilder) addPort(node string, role HIRPortRole) string {
+func (b *graphBuilder) allocPort(node string, role HIRPortRole) string {
 	id := node + ":" + string(role)
 	if b.ports[id] {
 		return id
 	}
-	b.ports[id] = true
 	anchor := HIRAnchorKindBottomCenter
 	switch role {
 	case HIRPortRoleEntry:
@@ -126,8 +202,7 @@ func (b *graphBuilder) addPort(node string, role HIRPortRole) string {
 	case HIRPortRoleNextIteration:
 		anchor = HIRAnchorKindIterationMarker
 	}
-	b.graph.Ports = append(b.graph.Ports, HIRPort{ID: id, OccurrenceKey: b.node(node).OccurrenceKey + ":" + string(role), NodeID: node, Role: role, Anchor: HIRAnchor{Kind: anchor}})
-	b.emit("ports", local(id))
+	b.recordError(b.addPort(HIRPort{ID: id, OccurrenceKey: b.node(node).OccurrenceKey + ":" + string(role), NodeID: node, Role: role, Anchor: HIRAnchor{Kind: anchor}}))
 	return id
 }
 
@@ -166,18 +241,14 @@ func edgeStyle(kind HIREdgeKind, label string) HIREdgeStyle {
 	}
 	return s
 }
-func (b *graphBuilder) addEdge(from, to string, kind HIREdgeKind, label string, when HIRPresence) {
-	if from == "" || to == "" {
-		return
-	}
+func (b *graphBuilder) allocEdge(from, to string, kind HIREdgeKind, label string, when HIRPresence) {
 	id := fmt.Sprintf("edge/%d", len(b.graph.Edges))
-	b.graph.Edges = append(b.graph.Edges, HIREdge{ID: id, FromPort: from, ToPort: to, HIREdgeStyle: edgeStyle(kind, label), When: when})
-	b.emit("edges", HIREmission{Value: HIRLocalEmission{ItemID: id, When: when}})
+	b.recordError(b.addEdge(HIREdge{ID: id, FromPort: from, ToPort: to, HIREdgeStyle: edgeStyle(kind, label), When: when}))
 }
 func (b *graphBuilder) connect(from, to []HIRInterfaceMember, kind HIREdgeKind) {
 	for _, f := range from {
 		for _, t := range to {
-			b.addEdge(f.PortID, t.PortID, kind, "", all(f.When, t.When))
+			b.allocEdge(f.PortID, t.PortID, kind, "", all(f.When, t.When))
 		}
 	}
 }
@@ -225,7 +296,7 @@ func (b *graphBuilder) appendBlock(f *fragment, sourcePath, occPath string, node
 			}
 			continue
 		}
-		part, err := b.lowerStatement(id, occPath+"/"+id, n)
+		part, err := b.lowerStatementAt(id, occPath+"/"+id, n)
 		if err != nil {
 			return err
 		}
@@ -273,18 +344,23 @@ func (l *lowerer) lowerFunction(fn sourceFunctionEntry) (HIRGraph, error) {
 		if _, err := b.source(sid, fn.node); err != nil {
 			return HIRGraph{}, err
 		}
-		node := b.addNode(fn.id+"/"+sid, fn.id+"/"+sid, sid, plain(HIRNodeStyleUnsupported, "Function body is unavailable for visualization."))
-		f = fragment{nodes: []string{node}, entry: member(b.addPort(node, HIRPortRoleEntry))}
+		node := b.allocNode(fn.id+"/"+sid, fn.id+"/"+sid, sid, plain(HIRNodeStyleUnsupported, "Function body is unavailable for visualization."))
+		f = fragment{nodes: []string{node}, entry: member(b.allocPort(node, HIRPortRoleEntry))}
 	}
 	if err != nil {
 		return HIRGraph{}, err
 	}
-	return b.finish(fn.id, f), nil
+	b.finalFragment = f
+	return b.finish()
 }
-func (b *graphBuilder) finish(id string, f fragment) HIRGraph {
+func (b *graphBuilder) finish() (HIRGraph, error) {
+	if b.constructionErr != nil {
+		return HIRGraph{}, b.constructionErr
+	}
+	id, f := b.graph.ID, b.finalFragment
 	b.rootOnly = true
 	root := id + "/root"
-	b.addNode(root, root, id, plain(HIRNodeStyleFunction, ""))
+	b.allocNode(root, root, id, plain(HIRNodeStyleFunction, ""))
 	b.group(root, HIRSpacingProfileRoot, f.nodes, nil, false)
 	gid := root + "/group"
 	for i := range b.graph.Groups {
@@ -295,8 +371,8 @@ func (b *graphBuilder) finish(id string, f fragment) HIRGraph {
 	}
 	b.graph.RootGroup = id + "/graph"
 	b.graph.Groups = append(b.graph.Groups, HIRGroup{ID: b.graph.RootGroup, Arrangement: HIRArrangement{Value: HIRSequenceArrangement{Members: HIRList[string]{root}}}, Style: groupStyle(HIRSpacingProfileSequence)})
-	entry := b.addPort(root, HIRPortRoleEntry)
-	exit := b.addPort(root, HIRPortRoleNormalExit)
+	entry := b.allocPort(root, HIRPortRoleEntry)
+	exit := b.allocPort(root, HIRPortRoleNormalExit)
 	rootConnect := func(name string, from []HIRInterfaceMember, to string) {
 		binding := root + "/binding/" + name
 		b.graph.Interfaces = append(b.graph.Interfaces, HIRInterface{ID: "root/" + name, Members: append(HIRList[HIRInterfaceMember]{}, from...), Exports: HIRList[HIRInterfaceExport]{}, Root: HIRRootTreatment{Value: HIRConnectRoot{BindingID: binding, ToPort: to, Edge: edgeStyle(HIREdgeKindSequence, "")}}})
@@ -329,7 +405,10 @@ func (b *graphBuilder) finish(id string, f fragment) HIRGraph {
 		b.addPanicExport(exp.reference, exp.before)
 	}
 	b.orderNodes(root)
-	return b.graph
+	if b.constructionErr != nil {
+		return HIRGraph{}, b.constructionErr
+	}
+	return b.graph, nil
 }
 
 // Node streams follow explicit ownership, while port and edge streams retain

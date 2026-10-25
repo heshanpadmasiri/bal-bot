@@ -1,5 +1,4 @@
 // HIR wire schema. Keep in sync with packages/workspace/src/flow.ts and docs/hir-wire.md.
-// This schema intentionally coexists with ProgramModel during migration.
 package compiler
 
 import (
@@ -112,10 +111,10 @@ func (p *HIRProgram) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	var actual, expected any
-	if err := json.Unmarshal(data, &actual); err != nil {
+	if err := hirJSONScalars(data, &actual); err != nil {
 		return err
 	}
-	if err := json.Unmarshal(encoded, &expected); err != nil {
+	if err := hirJSONScalars(encoded, &expected); err != nil {
 		return err
 	}
 	if err := hirRequiredShape(actual, expected, "$"); err != nil {
@@ -151,6 +150,10 @@ func hirRequiredShape(actual, expected any, path string) error {
 			if err := hirRequiredShape(got[i], want[i], fmt.Sprintf("%s[%d]", path, i)); err != nil {
 				return err
 			}
+		}
+	case HIRText:
+		if got, ok := actual.(HIRText); !ok || got != want {
+			return fmt.Errorf("%s: string is not losslessly representable", path)
 		}
 	case nil:
 		if actual != nil {

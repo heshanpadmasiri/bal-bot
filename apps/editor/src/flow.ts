@@ -1,256 +1,143 @@
-import type { Id, Located, ProgramModel, Statement, Evaluation, ClientInvocation } from '@bal-bot/workspace';
-import type { DiagramNode as HIRDiagramNode, DiagramPort as HIRDiagramPort, DiagramEdge as HIRDiagramEdge } from './hir-diagram';
+import type { Id } from '@bal-bot/workspace';
+import type { Diagram, DiagramNode } from './hir-diagram';
+export type { Diagram, DiagramNode, DiagramPort, DiagramEdge, ExpansionPath } from './hir-diagram';
 export { instantiateGraph } from './hir-flow.ts';
-export type ExpansionPath = string;
-export interface DiagramNode { readonly id: Id; readonly kind: 'step' | 'condition' | 'function' | 'loop' | 'mapping' | 'unsupported' | 'return' | 'client' | 'trap' | 'panic' | 'template'; readonly client?: ClientInvocation; readonly contextExpanded?: boolean; readonly contextPath?: string; readonly selection: Located; readonly label: string; readonly children: readonly DiagramNode[]; }
-export interface DiagramPort { readonly id: Id; readonly nodeId: Id; readonly role: 'entry' | 'normal-exit' | 'true' | 'false' | 'return' | 'break' | 'continue' | 'next-iteration' | 'panic'; }
-export interface DiagramEdge { readonly fromPort: Id; readonly toPort: Id; readonly kind: 'sequence' | 'true' | 'false' | 'back' | 'break' | 'continue' | 'return' | 'error' | 'panic'; readonly label?: string; }
-export interface Diagram { readonly nodes: readonly DiagramNode[]; readonly ports: readonly DiagramPort[]; readonly edges: readonly DiagramEdge[]; }
 export interface Box { readonly x: number; readonly y: number; readonly width: number; readonly height: number; }
 export interface DiagramLayout { readonly diagram: Diagram; readonly boxes: Readonly<Record<Id, Box>>; readonly routes: readonly (readonly { readonly x: number; readonly y: number }[])[]; readonly width: number; readonly height: number; }
-interface Fragment { nodes: DiagramNode[]; entry?: Id; normal: Id[]; returns: Id[]; breaks: Id[]; continues: Id[]; panics: Id[]; }
-interface Hint { mode: 'sequence' | 'if' | 'while' | 'foreach' | 'trap'; split?: number; path?: string; unavailable?: string; recursive?: boolean; root?: boolean; }
-// Layout-only hierarchy metadata accompanies an owned diagram without changing its public shape.
-const hints = new WeakMap<DiagramNode, Hint>();
-export function nodeHint(node: DiagramNode): Readonly<Hint> | undefined { return hints.get(node); }
-export function buildDiagram(program: ProgramModel, functionId: Id, expanded: ReadonlySet<ExpansionPath>): Diagram {
-  const ports: DiagramPort[] = [], edges: DiagramEdge[] = [];
-  const port = (node: DiagramNode, role: DiagramPort['role']) => { const id = `${node.id}:${role}`; if (!ports.some(p => p.id === id)) ports.push({id, nodeId: node.id, role}); return id; };
-  const edge = (fromPort: Id, toPort: Id | undefined, kind: DiagramEdge['kind'] = 'sequence', label?: string) => { if (toPort) edges.push({fromPort, toPort, kind, ...(label ? {label} : {})}); };
-  const connect = (from: Id[], to: Id | undefined, kind: DiagramEdge['kind'] = 'sequence') => from.forEach(p => edge(p, to, kind));
-  const empty = (): Fragment => ({nodes: [], normal: [], returns: [], breaks: [], continues: [], panics: []});
-  const block = (statements: readonly Statement[], path: string, ancestors: readonly Id[]): Fragment => {
-    const result = empty(); let previous: Id[] = [], first = true;
-    for (const statement of statements) {
-      const fragment = convert(statement, `${path}/${statement.id}`, ancestors);
-      if (first) { result.entry = fragment.entry; first = false; }
-      connect(previous, fragment.entry); previous = fragment.normal;
-      result.nodes.push(...fragment.nodes); result.returns.push(...fragment.returns); result.breaks.push(...fragment.breaks); result.continues.push(...fragment.continues); result.panics.push(...fragment.panics);
-    }
-    result.normal = previous; return result;
-  };
-  const evaluate = (e: Evaluation, path: string, ancestors: readonly Id[]): Fragment => {
-    const f = empty();
-    const sequence = (items: readonly Evaluation[]): Fragment => {
-      const result = empty(); let previous: Id[] = [];
-      items.forEach((child, i) => {
-        const part = evaluate(child, `${path}/part/${i}`, ancestors);
-        if (i === 0) result.entry = part.entry;
-        connect(previous, part.entry); previous = part.normal;
-        result.nodes.push(...part.nodes); result.returns.push(...part.returns); result.panics.push(...part.panics);
-      });
-      result.normal = previous; return result;
-    };
-    if (e.kind === 'check' || e.kind === 'checkpanic') {
-      const operand = sequence(e.children);
-      const terminal: DiagramNode = {id: path + '/error', kind: e.kind === 'check' ? 'return' : 'panic', selection: e, label: e.kind === 'check' ? 'Return error' : 'Panic with error', children: []};
-      const gate: DiagramNode = {id: path, kind: 'condition', selection: e, label: e.kind, children: [terminal]};
-      hints.set(gate, {mode: 'if', split: 0}); hints.set(terminal, {mode: 'sequence'});
-      const join = port(gate, 'normal-exit');
-      edge(port(gate, 'true'), join, 'true', 'value');
-      edge(port(gate, 'false'), port(terminal, 'entry'), 'error', 'error');
-      connect(operand.normal, port(gate, 'entry'));
-      f.nodes = [...operand.nodes, gate]; f.entry = operand.entry ?? port(gate, 'entry'); f.normal = [join];
-      f.returns = [...operand.returns]; f.panics = [...operand.panics];
-      if (e.kind === 'check') f.returns.push(port(terminal, 'return'));
-      else f.panics.push(port(terminal, 'panic'));
-      return f;
-    }
-    if (e.kind === 'trap') {
-      const operand = sequence(e.children);
-      const capture: DiagramNode = {id: path + '/capture', kind: 'step', selection: e, label: 'Capture panic as error value', children: []};
-      const node: DiagramNode = {id: path, kind: 'trap', selection: e, label: 'trap', children: [...operand.nodes, capture]};
-      hints.set(node, {mode: 'trap'}); hints.set(capture, {mode: 'sequence'});
-      const exit = port(node, 'normal-exit');
-      edge(port(node, 'entry'), operand.entry ?? exit);
-      connect(operand.normal, exit);
-      operand.panics.forEach(p => edge(p, port(capture, 'entry'), 'panic', 'panic'));
-      edge(port(capture, 'normal-exit'), exit, 'sequence', 'error value');
-      f.nodes = [node]; f.entry = port(node, 'entry'); f.normal = [exit]; f.returns = operand.returns;
-      return f;
-    }
-    const nested = sequence(e.kind === 'template' ? e.children.filter(child => child.kind !== 'source' || child.children.length > 0) : e.children);
-    const client = e.call?.client;
-    const contextExpanded = expanded.has(path + '/context');
-    const context = client ? client.context.initializer?.text ?? (client.context.origin === 'parameter' ? 'Parameter' : 'Initialization not statically known') : '';
-    const summary = contextExpanded || context.length <= 90 ? context : context.slice(0, 87) + '…';
-    const method = client ? (client.method.startsWith('->') ? client.method : `→ ${client.method}(${client.arguments.map(a => a.text).join(', ')})`) : '';
-    const label = client ? `${client.context.receiver.text}${client.context.type ? ` · ${client.context.type}` : ''}\n${summary}\n${method}` : e.text;
-    const node: DiagramNode = {id: path, kind: client ? 'client' : e.kind === 'template' ? 'template' : e.call?.target.kind === 'workspace' ? 'function' : 'step', selection: e.call ?? e, label, children: [], ...(client ? {client, contextExpanded, ...(context.length > 90 ? {contextPath: path + '/context'} : {})} : {})};
-    hints.set(node, {mode: 'sequence'});
-    f.nodes = [...nested.nodes, node]; f.entry = nested.entry ?? port(node, 'entry');
-    connect(nested.normal, port(node, 'entry'));
-    f.normal = [port(node, 'normal-exit')]; f.returns = nested.returns; f.panics = [...nested.panics, port(node, 'panic')];
-    // Keep workspace expansion available inside operators and interpolations.
-    if (e.call?.target.kind === 'workspace') {
-      const call = e.call, target = program.functions[e.call.target.functionId];
-      const recursive = !!target && ancestors.includes(target.id), callPath = path + '/expand';
-      const unavailable = !target ? 'Function body is unavailable.' : recursive ? 'Recursive calls remain collapsed.' : call.expansion === 'unavailable' ? call.reason : undefined;
-      hints.set(node, {mode: 'sequence', path: callPath, unavailable, recursive});
-      if (expanded.has(callPath) && !unavailable && target) {
-        const body = block(target.body, callPath, [...ancestors, target.id]);
-        (node.children as DiagramNode[]).push(...body.nodes);
-        edge(port(node, 'entry'), body.entry ?? port(node, 'normal-exit'));
-        connect([...body.normal, ...body.returns], port(node, 'normal-exit'), 'return');
-        f.panics = [...nested.panics, port(node, 'panic'), ...body.panics];
-        if (body.entry && !body.normal.length && !body.returns.length) f.normal = [];
-      }
-    }
-    return f;
-  };
-  const convert = (s: Statement, path: string, ancestors: readonly Id[]): Fragment => {
-    const f = empty();
-    const children: DiagramNode[] = [];
-    const node: DiagramNode = {id: path, kind: s.kind === 'return' ? 'return' : s.kind === 'if' ? 'condition' : s.kind === 'while' || s.kind === 'foreach' ? 'loop' : s.kind === 'unsupported' ? 'unsupported' : s.kind === 'simple' && s.presentation === 'mapping' ? 'mapping' : 'step', selection: s.kind === 'if' || s.kind === 'while' ? s.condition : s.kind === 'foreach' ? s.header : s, label: s.kind === 'if' || s.kind === 'while' ? s.condition.text : s.kind === 'foreach' ? `foreach ${s.header.text}` : s.text, children};
-    hints.set(node, {mode: 'sequence', ...(s.kind === 'unsupported' ? {unavailable: s.reason} : {})});
-    f.nodes.push(node); f.entry = port(node, 'entry');
-    if (s.kind === 'unsupported') return f;
-    const evaluation = s.evaluation ?? (s.kind === 'if' || s.kind === 'while' ? s.condition.evaluation : s.kind === 'foreach' ? s.header.evaluation : undefined);
-    if (evaluation && (s.kind === 'simple' || s.kind === 'return')) {
-      const evaluated = evaluate(evaluation, path + '/evaluation', ancestors);
-      const completion: DiagramNode = {...node, label: s.kind === 'return' ? 'Return value' : s.binding ? `Result → ${s.binding}` : s.text};
-      hints.set(completion, {mode: 'sequence'});
-      connect(evaluated.normal, port(completion, 'entry'));
-      return {...evaluated, nodes: [...evaluated.nodes, completion], entry: evaluated.entry ?? port(completion, 'entry'),
-        normal: s.kind === 'return' ? [] : [port(completion, 'normal-exit')],
-        returns: [...evaluated.returns, ...(s.kind === 'return' ? [port(completion, 'return')] : [])]};
-    }
-    if (s.kind === 'break') { f.breaks.push(port(node, 'break')); return f; }
-    if (s.kind === 'continue') { f.continues.push(port(node, 'continue')); return f; }
-    if (evaluation && (s.kind === 'if' || s.kind === 'while' || s.kind === 'foreach')) {
-      const evaluated = evaluate(evaluation, path + '/evaluation', ancestors);
-      f.nodes.unshift(...evaluated.nodes); f.entry = evaluated.entry ?? f.entry;
-      connect(evaluated.normal, port(node, 'entry'));
-      f.returns.push(...evaluated.returns); f.panics.push(...evaluated.panics);
-    }
-    if (s.kind === 'if') {
-      const a = block(s.thenBody, path + '/then', ancestors), b = block(s.elseBody, path + '/else', ancestors);
-      children.push(...a.nodes, ...b.nodes); hints.set(node, {mode: 'if', split: a.nodes.length});
-      const join = port(node, 'normal-exit');
-      edge(port(node, 'true'), a.entry ?? join, 'true'); edge(port(node, 'false'), b.entry ?? join, 'false');
-      connect(a.normal, join); connect(b.normal, join);
-      f.normal = a.entry && b.entry && !a.normal.length && !b.normal.length ? [] : [join];
-      f.panics.push(...a.panics, ...b.panics); f.returns.push(...a.returns, ...b.returns); f.breaks.push(...a.breaks, ...b.breaks); f.continues.push(...a.continues, ...b.continues); return f;
-    }
-    if (s.kind === 'while' || s.kind === 'foreach') {
-      const body = block(s.body, path + '/loop', ancestors); children.push(...body.nodes); hints.set(node, {mode: s.kind});
-      const exit = port(node, 'normal-exit'); f.normal = [exit];
-      const iteration = s.kind === 'while' ? f.entry : port(node, 'next-iteration');
-      edge(port(node, 'true'), body.entry ?? iteration, s.kind === 'while' ? 'true' : 'sequence'); if (s.kind === 'while') edge(port(node, 'false'), exit, 'false');
-      connect(body.normal, iteration, s.kind === 'while' ? 'back' : 'sequence'); connect(body.continues, iteration, 'continue'); connect(body.breaks, exit, 'break'); f.returns.push(...body.returns); f.panics.push(...body.panics); return f;
-    }
-    let normal = port(node, 'normal-exit');
-    const calls = 'calls' in s ? s.calls : [];
-    for (const call of calls) {
-      // Library calls are already represented by the statement's source label.
-      // Only workspace functions have bodies that can be disclosed in the flow.
-      if (call.target.kind === 'external') continue;
-      const callPath = `${path}/expand/${call.id}`;
-      const target = call.target.kind === 'workspace' ? program.functions[call.target.functionId] : undefined;
-      const recursive = !!target && ancestors.includes(target.id);
-      const unavailable = call.expansion === 'unavailable' ? call.reason : !target ? 'Function body is unavailable.' : recursive ? 'Recursive calls remain collapsed.' : undefined;
-      const callNode: DiagramNode = {id: callPath, kind: 'function', selection: call, label: call.text, children: []};
-      hints.set(callNode, {mode: 'sequence', path: callPath, unavailable, recursive});
-      children.push(callNode);
-      if (call.expansion === 'supported') {
-        if (normal) edge(normal, port(callNode, 'entry'));
-        const completion = port(callNode, 'normal-exit');
-        if (expanded.has(callPath) && !unavailable && target) {
-          const body = block(target.body, callPath, [...ancestors, target.id]); (callNode.children as DiagramNode[]).push(...body.nodes);
-          // Returns from this definition body stop at this call's continuation.
-          edge(port(callNode, 'entry'), body.entry ?? completion);
-          connect([...body.normal, ...body.returns], completion, 'return');
-          normal = body.entry && !body.normal.length && !body.returns.length ? '' : completion;
-        } else normal = completion;
-      }
-    }
-    if (s.kind === 'return') { if (normal) { if (normal !== `${node.id}:normal-exit`) edge(normal, port(node, 'return'), 'return'); f.returns = [port(node, 'return')]; } }
-    else f.normal = normal ? [normal] : [];
-    return f;
-  };
-  const fn = program.functions[functionId]; if (!fn) return {nodes: [], ports: [], edges: []};
-  const fragment = block(fn.body, functionId, [functionId]);
-  const root: DiagramNode = {id: `${functionId}/root`, kind: 'function', selection: fn, label: '', children: fragment.nodes};
-  hints.set(root, {mode: 'sequence', root: true});
-  edge(port(root, 'entry'), fragment.entry ?? port(root, 'normal-exit'));
-  connect(fragment.normal, port(root, 'normal-exit'));
-  // Top-level returns terminate here; expanded callees keep their own continuation edges.
-  return {nodes: [root], ports, edges};
-}
 
 export function layoutDiagram<D extends Diagram>(diagram: D, measure: (label: string) => {width: number; height: number}): Omit<DiagramLayout, 'diagram'> & {readonly diagram: D} {
-  // Explicit HIR geometry metadata takes precedence; WeakMap hints are legacy-only.
-  const layoutHint = (node: DiagramNode): Readonly<Hint> | undefined => {
-    if ('layout' in node) {
-      const layout = (node as HIRDiagramNode).layout;
-      return {mode: layout.profile === 'root' || layout.profile === 'call' ? 'sequence' : layout.profile, split: layout.split, root: layout.root, path: layout.reference?.path};
-    }
-    return hints.get(node);
-  };
   const boxes: Record<Id, Box> = {}, exits = new Map<Id, number>(), sizes = new Map<Id, {width: number; height: number}>();
   const gap = 52, padding = 30, lane = 48;
+  const renderNodes = new Map<Id, DiagramNode>();
+  const collectNodes = (nodes: readonly DiagramNode[]) => { for (const node of nodes) { renderNodes.set(node.id, node); collectNodes(node.children); } };
+  collectNodes(diagram.nodes);
+  const geometryNodes = new Map(diagram.geometry?.nodes.map(node => [node.id, node]) ?? []);
+  const ownership = diagram.geometry?.parents ?? new Map<Id, Id>();
+  const owned = new Map<Id | undefined, Id[]>();
+  for (const id of geometryNodes.keys()) { const parent = ownership.get(id), children = owned.get(parent) ?? []; children.push(id); owned.set(parent, children); }
+  for (const [owner, group] of diagram.geometry?.groups ?? []) owned.set(owner, [...group.members]);
+  // Visibility suppresses emission, not an explicit column arrangement. Retain
+  // those owners only in the layout tree; sequence/root wrappers remain
+  // transparent and the emitted hierarchy is never changed.
+  const carriers = [...geometryNodes.values()].filter(node => !renderNodes.has(node.id) && node.layout.split !== undefined);
+  let layoutNodes = diagram.nodes;
+  if (carriers.length) {
+    const retained = new Map([...renderNodes, ...carriers.map(node => [node.id, node] as const)]);
+    const children = new Map<Id | undefined, DiagramNode[]>(), copies = new Map<Id, DiagramNode>();
+    const retain = (id: Id): void => {
+      if (copies.has(id)) return;
+      let parent = ownership.get(id);
+      while (parent && !retained.has(parent)) parent = ownership.get(parent);
+      if (parent) retain(parent);
+      const copy = { ...retained.get(id)!, children: [] };
+      copies.set(id, copy);
+      const siblings = children.get(parent) ?? []; siblings.push(copy); children.set(parent, siblings);
+    };
+    // Preserve emission order, inserting a non-rendering owner at its first
+    // descendant. Empty column owners still use the existing numeric layout.
+    for (const id of retained.keys()) retain(id);
+    for (const [id, copy] of copies) {
+      let members = children.get(id) ?? [];
+      const left = diagram.geometry?.groups.get(id)?.left;
+      if (left) {
+        const isLeft = (child: DiagramNode) => {
+          let member = child.id;
+          while (ownership.has(member) && ownership.get(member) !== id) member = ownership.get(member)!;
+          return left.has(member);
+        };
+        const leftChildren = members.filter(isLeft);
+        members = [...leftChildren, ...members.filter(child => !isLeft(child))];
+        (copy as { layout: DiagramNode['layout'] }).layout = { ...copy.layout, split: leftChildren.length };
+      }
+      (copy as { children: readonly DiagramNode[] }).children = members;
+    }
+    layoutNodes = children.get(undefined) ?? [];
+  }
+  for (const [id, node] of renderNodes) geometryNodes.set(id, node);
   const sequenceSize = (nodes: readonly DiagramNode[]) => { const dimensions = nodes.map(size); return {width: Math.max(240, ...dimensions.map(d => d.width)), height: dimensions.reduce((h, d) => h + d.height + gap, 0)}; };
   const size = (node: DiagramNode): {width: number; height: number} => {
-    const label = measure(node.label), hint = layoutHint(node), header = Math.max(52, label.height + 28), own = Math.max(240, Math.min(440, label.width + 72));
+    const label = measure(node.label), layout = node.layout, header = Math.max(52, label.height + 28), own = Math.max(240, Math.min(440, label.width + 72));
     let result: {width: number; height: number};
-    if (hint?.mode === 'if') {
-      const left = sequenceSize(node.children.slice(0, hint.split)), right = sequenceSize(node.children.slice(hint.split));
+    if (layout.split !== undefined) {
+      const left = sequenceSize(node.children.slice(0, layout.split)), right = sequenceSize(node.children.slice(layout.split));
       result = {width: Math.max(left.width + right.width + lane * 2, left.width + own + lane, right.width + own + lane), height: header + Math.max(left.height, right.height) + gap * 2};
-    } else if (node.children.length) { const child = sequenceSize(node.children); result = {width: Math.max(own, child.width + padding * 2 + lane * 2), height: (hint?.root ? 0 : header + gap) + child.height + padding + gap}; }
+    } else if (node.children.length) { const child = sequenceSize(node.children); result = {width: Math.max(own, child.width + padding * 2 + lane * 2), height: (layout.root ? 0 : header + gap) + child.height + padding + gap}; }
     else result = {width: own, height: header};
     sizes.set(node.id, result); return result;
   };
-  diagram.nodes.forEach(size);
+  layoutNodes.forEach(size);
   const placeSequence = (nodes: readonly DiagramNode[], x: number, y: number, width: number) => { for (const node of nodes) { const s = sizes.get(node.id)!; place(node, x + (width - s.width) / 2, y); y += s.height + gap; } };
   const place = (node: DiagramNode, x: number, y: number) => {
-    const s = sizes.get(node.id)!, hint = layoutHint(node), header = Math.max(52, measure(node.label).height + 28);
+    const s = sizes.get(node.id)!, layout = node.layout, header = Math.max(52, measure(node.label).height + 28);
     const conditionWidth = Math.max(240, Math.min(440, measure(node.label).width + 72));
-    boxes[node.id] = hint?.mode === 'if' ? {x: x + (s.width - conditionWidth) / 2, y, width: conditionWidth, height: header} : {x, y, ...s};
+    boxes[node.id] = layout.split !== undefined ? {x: x + (s.width - conditionWidth) / 2, y, width: conditionWidth, height: header} : {x, y, ...s};
     exits.set(node.id, y + s.height);
-    if (hint?.mode === 'if') {
-      const leftNodes = node.children.slice(0, hint.split), rightNodes = node.children.slice(hint.split), left = sequenceSize(leftNodes), right = sequenceSize(rightNodes);
+    if (layout.split !== undefined) {
+      const leftNodes = node.children.slice(0, layout.split), rightNodes = node.children.slice(layout.split), left = sequenceSize(leftNodes), right = sequenceSize(rightNodes);
       placeSequence(leftNodes, x, y + header + gap, left.width);
       placeSequence(rightNodes, x + s.width - right.width, y + header + gap, right.width);
-    } else placeSequence(node.children, x + padding + lane, y + (hint?.root ? 0 : header + gap), s.width - 2 * (padding + lane));
+    } else placeSequence(node.children, x + padding + lane, y + (layout.root ? 0 : header + gap), s.width - 2 * (padding + lane));
   };
-  const total = sequenceSize(diagram.nodes); placeSequence(diagram.nodes, 40, 40, total.width);
+  const total = sequenceSize(layoutNodes); placeSequence(layoutNodes, 40, 40, total.width);
   const portMap = new Map(diagram.ports.map(p => [p.id, p]));
-  const point = (id: Id) => {
-    const p = portMap.get(id)!; const b = boxes[p.nodeId], node = findNode(diagram.nodes, p.nodeId)!, hint = layoutHint(node);
-    if ('anchor' in p) {
-      const anchor = (p as HIRDiagramPort).anchor.kind, header = Math.max(52, measure(node.label).height + 28);
-      switch (anchor) {
-        case 'top-center': return {x: b.x + b.width / 2, y: b.y - (hint?.root ? 24 : 0)};
-        case 'iteration-marker': return {x: b.x + b.width / 2 - 70, y: b.y + b.height - 28};
-        case 'header-left': return {x: b.x, y: b.y + header / 2};
-        case 'header-right': return {x: b.x + b.width, y: b.y + header / 2};
-        case 'header-bottom-center': return {x: b.x + b.width / 2, y: b.y + header};
-        case 'group-bottom-center': return {x: b.x + b.width / 2, y: exits.get(p.nodeId)!};
-        case 'bottom-center': return {x: b.x + b.width / 2, y: b.y + b.height};
-      }
+  // Transparent sequences do not participate in sizing, placement or obstacles.
+  // Their anchors span already placed descendants. A transparent leaf anchors
+  // at its structural insertion point (next sibling's top, previous sibling's
+  // bottom, or the owning sequence's start), without reserving display space.
+  const placedBounds = (id: Id): Box | undefined => {
+    if (boxes[id]) return boxes[id];
+    const descendants = (owned.get(id) ?? []).map(placedBounds).filter((box): box is Box => box !== undefined);
+    if (!descendants.length) return undefined;
+    const x = Math.min(...descendants.map(box => box.x)), y = Math.min(...descendants.map(box => box.y));
+    return { x, y, width: Math.max(...descendants.map(box => box.x + box.width)) - x, height: Math.max(...descendants.map(box => box.y + box.height)) - y };
+  };
+  const anchorBox = (id: Id): Box => {
+    const bounds = placedBounds(id);
+    if (bounds) return bounds;
+    let current = id;
+    for (;;) {
+      const parent = ownership.get(current), siblings = owned.get(parent) ?? [], index = siblings.indexOf(current);
+      for (const sibling of siblings.slice(index + 1)) { const next = placedBounds(sibling); if (next) return { x: next.x + next.width / 2, y: next.y, width: 0, height: 0 }; }
+      for (const sibling of siblings.slice(0, index).reverse()) { const previous = placedBounds(sibling); if (previous) return { x: previous.x + previous.width / 2, y: previous.y + previous.height, width: 0, height: 0 }; }
+      if (!parent) return { x: 40 + total.width / 2, y: 40, width: 0, height: 0 };
+      const owner = renderNodes.get(parent), box = boxes[parent];
+      if (owner && box) return { x: box.x + box.width / 2, y: box.y + (owner.layout.root ? 0 : Math.max(52, measure(owner.label).height + 28) + gap), width: 0, height: 0 };
+      current = parent;
     }
-    if (p.role === 'entry') return {x: b.x + b.width / 2, y: b.y - (hint?.root ? 24 : 0)};
-    if (p.role === 'next-iteration') return {x: b.x + b.width / 2 - 70, y: b.y + b.height - 28};
-    if (p.role === 'true') return hint?.mode === 'foreach'
-      ? {x: b.x + b.width / 2, y: b.y + Math.max(52, measure(node.label).height + 28)}
-      : {x: b.x, y: b.y + Math.max(52, measure(node.label).height + 28) / 2};
-    if (p.role === 'panic') return {x: b.x + b.width, y: b.y + Math.max(52, measure(node.label).height + 28) / 2};
-    if (p.role === 'false') return {x: b.x + b.width, y: b.y + Math.max(52, measure(node.label).height + 28) / 2};
-    if (p.role === 'normal-exit' && hint?.mode === 'if') return {x: b.x + b.width / 2, y: exits.get(p.nodeId)!};
-    if (p.role === 'normal-exit' && node.children.length && !hint?.path && !hint?.root && node.kind !== 'loop' && node.kind !== 'trap') return {x: b.x + b.width / 2, y: b.y + Math.max(52, measure(node.label).height + 28)};
-    return {x: b.x + b.width / 2, y: b.y + b.height};
+  };
+  // Resolve together against placed display nodes, never against other newly
+  // synthesized anchors, so the result is independent of port first-use order.
+  const hiddenBounds = new Map<Id, Box>();
+  for (const port of diagram.ports) if (!boxes[port.nodeId]) {
+    if (!geometryNodes.has(port.nodeId)) throw new Error(`Missing flow geometry owner ${port.nodeId}`);
+    hiddenBounds.set(port.nodeId, anchorBox(port.nodeId));
+  }
+  for (const [id, box] of hiddenBounds) { boxes[id] = box; exits.set(id, box.y + box.height); }
+  const point = (id: Id) => {
+    const p = portMap.get(id)!; const b = boxes[p.nodeId], node = geometryNodes.get(p.nodeId)!;
+    const header = renderNodes.has(node.id) ? Math.max(52, measure(node.label).height + 28) : 0;
+    switch (p.anchor.kind) {
+      case 'top-center': return {x: b.x + b.width / 2, y: b.y - (node.layout.root ? 24 : 0)};
+      case 'iteration-marker': return {x: b.x + b.width / 2 - 70, y: b.y + b.height - 28};
+      case 'header-left': return {x: b.x, y: b.y + header / 2};
+      case 'header-right': return {x: b.x + b.width, y: b.y + header / 2};
+      case 'header-bottom-center': return {x: b.x + b.width / 2, y: b.y + header};
+      case 'group-bottom-center': return {x: b.x + b.width / 2, y: exits.get(p.nodeId)!};
+      case 'bottom-center': return {x: b.x + b.width / 2, y: b.y + b.height};
+    }
   };
   const parents = new Map<Id, Id>();
   const collectParents = (nodes: readonly DiagramNode[]) => { for (const node of nodes) { for (const child of node.children) parents.set(child.id, node.id); collectParents(node.children); } }; collectParents(diagram.nodes);
+  for (const [id, parent] of ownership) if (!renderNodes.has(id)) parents.set(id, parent);
   const ancestor = (a: Id, id: Id) => { for (let p = parents.get(id); p; p = parents.get(p)) if (p === a) return true; return false; };
-  const obstacles = [...sizes.keys()].map(id => {
+  const obstacles = [...sizes.keys()].filter(id => renderNodes.has(id)).map(id => {
     const node = findNode(diagram.nodes, id)!, box = boxes[id];
-    return {id, box: {...box, height: Math.max(52, measure(node.label).height + 28)}, root: layoutHint(node)?.root};
+    return {id, box: {...box, height: Math.max(52, measure(node.label).height + 28)}, root: node.layout.root};
   }).filter(o => !o.root);
   const routes = diagram.edges.map(e => {
     const a = point(e.fromPort), b = point(e.toPort), from = portMap.get(e.fromPort)!, to = portMap.get(e.toPort)!, box = boxes[to.nodeId];
     let preferred: {x: number; y: number}[];
-    const routing = 'routing' in e ? (e as HIRDiagramEdge).routing : e.kind === 'back' || e.kind === 'continue' && b.y < a.y ? 'back' : e.kind === 'true' ? 'branch-left' : e.kind === 'false' || e.kind === 'error' ? 'branch-right' : 'direct';
+    const routing = e.routing;
     if (routing === 'back') { const x = box.x - lane / 2; preferred = [a, {x: a.x, y: a.y + 18}, {x, y: a.y + 18}, {x, y: b.y - 18}, {x: b.x, y: b.y - 18}, b]; }
     else if (routing === 'branch-left' || routing === 'branch-right') {
       const outward = routing === 'branch-left' ? b.x < a.x : b.x > a.x;
@@ -275,7 +162,7 @@ export function layoutDiagram<D extends Diagram>(diagram: D, measure: (label: st
 }
 function findNode(nodes: readonly DiagramNode[], id: Id): DiagramNode | undefined { for (const n of nodes) { if (n.id === id) return n; const child = findNode(n.children, id); if (child) return child; } return undefined; }
 
-// Sparse orthogonal search is used when a branch/loop needs more than two bends.
+// Sparse orthogonal search is used when a route needs more than two bends.
 function routeAround(start: {x: number; y: number}, end: {x: number; y: number}, obstacles: Box[], width: number, height: number): {x: number; y: number}[] {
   const axis = (points: number[]) => [...new Set(points)].sort((a,b) => a-b);
   const xs = axis([start.x,end.x,8,width,...obstacles.flatMap(b => [Math.max(8,b.x-18),b.x+b.width+18])]);

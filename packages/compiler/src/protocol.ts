@@ -1,4 +1,4 @@
-import type { Files, CompilationResult, Diagnostic, Position, ProgramModel, AnalysisResult, Located } from '@bal-bot/workspace';
+import type { Files, CompilationResult, Diagnostic, Position, AnalysisResult, Located } from '@bal-bot/workspace';
 import { sourceText } from '@bal-bot/workspace';
 import type { HIRProgram, HIRGraph, HIRNode, HIRGroup, HIRGraphReference, HIRPresence, HIRInterface, HIRBinding, HIREmissionPlan } from '@bal-bot/workspace';
 
@@ -22,82 +22,11 @@ function located(value: unknown): Record<string, unknown> {
   return v;
 }
 function unique(values: unknown[]): void { const ids = values.map(v => string(object(v).id)); if (new Set(ids).size !== ids.length) fail(); }
-function validateProgram(value: unknown): ProgramModel {
-  const p = object(value), functions = object(p.functions), scopes = array(p.scopes);
+// Discovery retains its optional-field behavior and resolves functions directly
+// against the HIR graph table; no statement-tree compatibility model is built.
+function validateDiscovery(value: unknown, functions: Record<string, unknown>): void {
+  const scopes = array(value);
   const functionId = (id: unknown) => { if (!Object.hasOwn(functions, string(id))) fail(); };
-  const reserve = (value: unknown, seen: Set<string>) => { const id = string(object(value).id); if (seen.has(id)) fail(); seen.add(id); };
-  const calls = (value: unknown, seen: Set<string>) => {
-    const items = array(value); unique(items);
-    for (const item of items) {
-      const call = located(item), target = object(call.target); reserve(call, seen);
-      if (target.kind === 'workspace') functionId(target.functionId);
-      else if (target.kind === 'external') { string(target.label); if (target.functionId !== undefined) fail(); } else fail();
-      if (call.client !== undefined) {
-        const client = object(call.client), context = object(client.context);
-        located(context.receiver); string(client.method);
-        if (context.type !== undefined) string(context.type);
-        if (!['constructor', 'initializer', 'parameter', 'unavailable'].includes(String(context.origin))) fail();
-        if (context.origin === 'constructor' || context.origin === 'initializer') located(context.initializer);
-        else if (context.initializer !== undefined) fail();
-        for (const arg of array(client.arguments)) located(arg);
-      }
-      if (call.expansion === 'supported') { if (target.kind !== 'workspace' || call.reason !== undefined) fail(); }
-      else if (call.expansion === 'unavailable') string(call.reason); else fail();
-    }
-  };
-  const evaluation = (value: unknown, knownCalls: unknown, seen: Set<string>) => {
-    if (value === undefined) return;
-    const known = new Map(array(knownCalls).map(call => [string(object(call).id), call]));
-    const visit = (value: unknown) => {
-      const e = located(value); reserve(e, seen);
-      if (!['source', 'call', 'check', 'checkpanic', 'trap', 'template'].includes(String(e.kind))) fail();
-      const children = array(e.children);
-      if (['check', 'checkpanic', 'trap'].includes(String(e.kind)) && children.length !== 1) fail();
-      if (e.kind === 'call') {
-        const call = located(e.call);
-        if (!known.has(string(call.id)) || JSON.stringify(call) !== JSON.stringify(known.get(string(call.id)))) fail();
-      } else if (e.call !== undefined) fail();
-      if (e.kind === 'template') {
-        const strings = array(e.strings);
-        if (strings.length !== children.length + 1 || !strings.every(s => typeof s === 'string')) fail();
-      } else if (e.strings !== undefined) fail();
-      children.forEach(visit);
-    };
-    visit(value);
-  };
-  const expression = (value: unknown, seen: Set<string>) => { const expr = located(value); reserve(expr, seen); calls(expr.calls, seen); evaluation(expr.evaluation, expr.calls, seen); };
-  const statements = (value: unknown, seen: Set<string>) => {
-    for (const item of array(value)) {
-      const s = located(item), id = string(s.id); if (seen.has(id)) fail(); seen.add(id);
-      if (s.binding !== undefined && typeof s.binding !== 'string') fail();
-      if (s.evaluation !== undefined) {
-        if (s.kind !== 'simple' && s.kind !== 'return') fail();
-        evaluation(s.evaluation, s.calls, seen);
-      }
-      switch (s.kind) {
-        case 'simple': if (!['declare', 'assign', 'expression'].includes(String(s.operation)) || !['step', 'mapping'].includes(String(s.presentation))) fail(); calls(s.calls, seen); break;
-        case 'return': calls(s.calls, seen); break;
-        case 'if': expression(s.condition, seen); statements(s.thenBody, seen); statements(s.elseBody, seen); break;
-        case 'while': expression(s.condition, seen); statements(s.body, seen); break;
-        case 'foreach': expression(s.header, seen); statements(s.body, seen); break;
-        case 'break': case 'continue': break;
-        case 'unsupported': string(s.reason); break;
-        default: fail();
-      }
-    }
-  };
-  for (const [id, value] of Object.entries(functions)) {
-    const fn = located(value); if (fn.id !== id) fail(); string(fn.moduleId);
-    const entry = object(fn.entry);
-    if (!['resource', 'remote', 'function', 'method'].includes(String(entry.kind))) fail();
-    string(entry.name); string(entry.signature); string(entry.returnType);
-    for (const value of array(entry.parameters)) {
-      const parameter = object(value);
-      if (!['input', 'path'].includes(String(parameter.kind))) fail();
-      string(parameter.text);
-    }
-    statements(fn.body, new Set([id]));
-  }
   unique(scopes);
   const endpoints = new Set<string>();
   for (const value of scopes) {
@@ -111,18 +40,6 @@ function validateProgram(value: unknown): ProgramModel {
       for (const value of defs) { const def = located(value); string(def.label); if (def.kind === 'function') functionId(def.functionId); else if (!['type', 'connector', 'configurable'].includes(String(def.kind)) || def.functionId !== undefined) fail(); }
     } else fail();
   }
-  return value as ProgramModel;
-}
-// Private compatibility walker for the retained discovery-model validator.
-function legacyProgramLocations(program: ProgramModel): Located[] {
-  const result: Located[] = [];
-  const visit = (v: unknown) => {
-    if (Array.isArray(v)) { v.forEach(visit); return; }
-    if (!record(v)) return;
-    if ('id' in v && 'source' in v && 'text' in v) result.push(v as unknown as Located);
-    Object.values(v).forEach(visit);
-  };
-  visit(program); return result;
 }
 // Visit flat source records and discovery metadata once; never follow graph references.
 export function programLocations(program: HIRProgram): Located[] {
@@ -159,15 +76,28 @@ function hirFail(message: string): never { throw new Error(`Invalid compiler HIR
 function hirAssert(condition: unknown, message = 'invalid shape'): asserts condition { if (!condition) hirFail(message); }
 function hirObject(value: unknown, keys?: string): Record<string, unknown> {
   hirAssert(record(value));
+  Object.keys(value).forEach(hirString);
   if (keys !== undefined) {
     const expected = keys.split(' ');
     hirAssert(Object.keys(value).length === expected.length && expected.every(k => Object.hasOwn(value, k)), 'unexpected or missing field');
   }
   return value;
 }
-function hirString(value: unknown): void { hirAssert(typeof value === 'string'); }
-function hirId(value: unknown): void { hirAssert(typeof value === 'string' && value.length > 0, 'empty identity'); }
-function hirNullable(value: unknown): void { hirAssert(value === null || typeof value === 'string', 'required nullable string'); }
+// Only approved presentation fields may contain isolated UTF-16 code units.
+function hirPresentationText(value: unknown): void { hirAssert(typeof value === 'string'); }
+function hirString(value: unknown): void {
+  hirPresentationText(value);
+  const text = value as string;
+  for (let i = 0; i < text.length; i++) {
+    const unit = text.charCodeAt(i);
+    if (unit >= 0xd800 && unit <= 0xdbff) {
+      const low = text.charCodeAt(++i);
+      hirAssert(low >= 0xdc00 && low <= 0xdfff, 'invalid Unicode scalar string');
+    } else hirAssert(unit < 0xdc00 || unit > 0xdfff, 'invalid Unicode scalar string');
+  }
+}
+function hirId(value: unknown): void { hirString(value); hirAssert((value as string).length > 0, 'empty identity'); }
+function hirNullable(value: unknown): void { if (value !== null) hirString(value); }
 function hirEnum(value: unknown, choices: string): void { hirAssert(typeof value === 'string' && choices.split(' ').includes(value), 'invalid enum'); }
 function hirList(value: unknown, visit: (value: unknown) => void): void { hirAssert(Array.isArray(value), 'expected collection'); value.forEach(visit); }
 function hirLocated(value: unknown): void {
@@ -178,9 +108,9 @@ function hirLocated(value: unknown): void {
   hirAssert(range(r), 'invalid source range');
 }
 function hirSections(value: unknown): void {
-  hirList(value, item => { const v = hirObject(item, 'kind text'); hirEnum(v.kind, 'text receiver context method'); hirString(v.text); });
+  hirList(value, item => { const v = hirObject(item, 'kind text'); hirEnum(v.kind, 'text receiver context method'); hirPresentationText(v.text); });
 }
-function hirLabel(value: unknown): void { const v = hirObject(value, 'label sections'); hirString(v.label); hirSections(v.sections); }
+function hirLabel(value: unknown): void { const v = hirObject(value, 'label sections'); hirPresentationText(v.label); hirSections(v.sections); }
 function hirAvailability(value: unknown): void {
   const v = hirObject(value);
   if (v.kind === 'available') hirObject(v, 'kind');
@@ -220,10 +150,11 @@ function hirBinding(value: unknown): void {
   else { hirObject(v, 'kind id when callerPortId targetInterfaceId edge'); hirEnum(v.kind, 'entry exit'); hirId(v.callerPortId); hirObject(v.edge, 'kind label routing'); hirEdgeStyle(v.edge); }
   hirId(v.id); hirId(v.targetInterfaceId); hirPresence(v.when);
 }
-function validateReference(value: unknown): void {
+function validateReference(value: unknown): HIRGraphReference {
   const v = hirObject(value, 'graphId occurrenceKey availability container collapsed inline');
   hirId(v.graphId); hirId(v.occurrenceKey); hirAvailability(v.availability); hirGroupStyle(v.container);
   const c = hirObject(v.collapsed, 'interfaces edges'); hirList(c.interfaces, hirInterface); hirList(c.edges, hirEdge); hirList(v.inline, hirBinding);
+  return value as HIRGraphReference;
 }
 function hirCallDisclosure(value: unknown): void {
   const d = hirObject(value, 'kind occurrenceKey availability recursive'); hirAssert(d.kind === 'call'); hirId(d.occurrenceKey); hirAvailability(d.availability);
@@ -231,9 +162,9 @@ function hirCallDisclosure(value: unknown): void {
 }
 function hirRecursivePresentation(value: unknown): void {
   const r = hirObject(value, 'label sections limitation title ariaLabel glyph');
-  hirString(r.label); hirSections(r.sections); hirNullable(r.limitation); hirString(r.title); hirString(r.ariaLabel); hirString(r.glyph);
+  hirPresentationText(r.label); hirSections(r.sections); hirNullable(r.limitation); hirPresentationText(r.title); hirPresentationText(r.ariaLabel); hirString(r.glyph);
 }
-function validateNode(value: unknown): void {
+function validateNode(value: unknown): HIRNode {
   const v = hirObject(value, 'id occurrenceKey sourceId presentation body'); hirId(v.id); hirId(v.occurrenceKey); hirId(v.sourceId);
   const p = hirObject(v.presentation);
   if (p.kind === 'hidden') hirObject(p, 'kind');
@@ -241,7 +172,7 @@ function validateNode(value: unknown): void {
     hirObject(p, 'kind style label sections limitation disclosure'); hirEnum(p.kind, 'plain client');
     hirEnum(p.style, 'step condition function loop mapping unsupported return client trap panic template');
     if (p.kind === 'client') hirAssert(p.style === 'client');
-    hirString(p.label); hirSections(p.sections); hirNullable(p.limitation);
+    hirPresentationText(p.label); hirSections(p.sections); hirNullable(p.limitation);
     const d = hirObject(p.disclosure);
     switch (d.kind) {
       case 'none': hirObject(d, 'kind'); break;
@@ -261,12 +192,14 @@ function validateNode(value: unknown): void {
     case 'reference': hirObject(b, 'kind reference'); validateReference(b.reference); break;
     default: hirFail('unknown node body');
   }
+  return value as HIRNode;
 }
-function validateGroup(value: unknown): void {
+function validateGroup(value: unknown): HIRGroup {
   const v = hirObject(value, 'id arrangement style'); hirId(v.id); hirGroupStyle(v.style);
   const a = hirObject(v.arrangement);
   if (a.kind === 'columns') { hirObject(a, 'kind left right'); hirList(a.left, hirId); hirList(a.right, hirId); }
   else { hirObject(a, 'kind members'); hirEnum(a.kind, 'sequence container'); hirList(a.members, hirId); }
+  return value as HIRGroup;
 }
 function hirPlan(value: unknown): void {
   const v = hirObject(value, 'nodes ports edges');
@@ -278,17 +211,18 @@ function hirPlan(value: unknown): void {
     hirPresence(e.when);
   });
 }
-function validateGraph(value: unknown): void {
+function validateGraph(value: unknown): HIRGraph {
   const g = hirObject(value, 'id source text moduleId entry nodes ports edges groups rootGroup interfaces emission'); hirLocated(g); hirId(g.moduleId); hirId(g.rootGroup);
   const e = hirObject(g.entry, 'kind owner operation name signature parameters returnType');
-  hirEnum(e.kind, 'resource remote function method'); hirNullable(e.owner); hirNullable(e.operation); hirString(e.name); hirString(e.signature); hirString(e.returnType);
-  hirList(e.parameters, item => { const p = hirObject(item, 'label text'); hirEnum(p.label, 'Path Input'); hirString(p.text); });
+  hirEnum(e.kind, 'resource remote function method'); hirNullable(e.owner); hirNullable(e.operation); hirId(e.name); hirId(e.signature); hirId(e.returnType);
+  hirList(e.parameters, item => { const p = hirObject(item, 'label text'); hirEnum(p.label, 'Path Input'); hirId(p.text); });
   hirList(g.nodes, validateNode); hirList(g.groups, validateGroup); hirList(g.edges, hirEdge); hirList(g.interfaces, hirInterface);
   hirList(g.ports, item => {
     const p = hirObject(item, 'id occurrenceKey nodeId role anchor'); hirId(p.occurrenceKey); hirId(p.id); hirId(p.nodeId); hirEnum(p.role, 'entry normal-exit true false return break continue next-iteration panic');
     const a = hirObject(p.anchor, 'kind'); hirEnum(a.kind, 'top-center header-left header-right header-bottom-center bottom-center group-bottom-center iteration-marker');
   });
   const emission = hirObject(g.emission, 'root inline'); hirPlan(emission.root); hirPlan(emission.inline);
+  return value as HIRGraph;
 }
 function hirIndex<T extends { readonly id: string }>(items: readonly T[]): Map<string, T> {
   const result = new Map<string, T>();
@@ -301,19 +235,18 @@ function hirMembers(g: HIRGroup): readonly string[] { return g.arrangement.kind 
 export function validateHIR(value: unknown): HIRProgram {
   const p = hirObject(value, 'scopes sources functions'), sources = hirObject(p.sources), functions = hirObject(p.functions);
   for (const [id, source] of Object.entries(sources)) { hirObject(source, 'id source text'); hirLocated(source); hirAssert(object(source).id === id, 'source key mismatch'); }
-  for (const [id, graph] of Object.entries(functions)) { validateGraph(graph); hirAssert(object(graph).id === id, 'graph key mismatch'); }
-  // Retained discovery models deliberately retain their existing optional fields.
-  // Reuse their validator with empty legacy function bodies, without changing it.
-  const dummy = Object.fromEntries(Object.entries(functions).map(([id, item]) => {
-    const g = item as unknown as HIRGraph;
-    return [id, { id, source: g.source, text: g.text, moduleId: g.moduleId, entry: {
-      kind: g.entry.kind, name: g.entry.name, signature: g.entry.signature, returnType: g.entry.returnType,
-      parameters: g.entry.parameters.map(p => ({ kind: p.label === 'Path' ? 'path' : 'input', text: p.text })),
-    }, body: [] }];
-  }));
-  validateProgram({ scopes: p.scopes, functions: dummy });
+  for (const [id, graph] of Object.entries(functions)) { hirAssert(validateGraph(graph).id === id, 'graph key mismatch'); }
+  // Discovery is also used by the legacy protocol; enforce the HIR scalar
+  // contract here without changing legacy validation or metadata encoding.
+  const discoveryUnicode = (item: unknown): void => {
+    if (typeof item === 'string') hirString(item);
+    else if (Array.isArray(item)) item.forEach(discoveryUnicode);
+    else if (record(item)) { hirObject(item); Object.values(item).forEach(discoveryUnicode); }
+  };
+  discoveryUnicode(p.scopes);
+  validateDiscovery(p.scopes, functions);
   const program = value as HIRProgram;
-  for (const item of legacyProgramLocations({ scopes: program.scopes, functions: dummy } as ProgramModel)) {
+  for (const item of programLocations(program)) {
     hirAssert(Object.hasOwn(sources, item.id), 'missing source identity');
     const s = sources[item.id] as unknown as Located, a = item.source.range, b = s.source.range;
     hirAssert(item.text === s.text && item.source.file === s.source.file && a.start.line === b.start.line && a.start.column === b.start.column && a.end.line === b.end.line && a.end.column === b.end.column, 'source identity disagreement');

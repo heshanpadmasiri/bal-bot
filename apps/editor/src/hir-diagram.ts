@@ -17,7 +17,16 @@ export interface DiagramNode {
 }
 export interface DiagramPort { readonly id: Id; readonly nodeId: Id; readonly role: HIRPortRole; readonly anchor: HIRAnchor; }
 export interface DiagramEdge { readonly fromPort: Id; readonly toPort: Id; readonly kind: HIREdgeStyle['kind']; readonly label?: string; readonly routing: HIREdgeStyle['routing']; }
+// Rebuilt from HIR for each render. These ownership records are not a second
+// node emission stream: transparent owners stay absent from Diagram.nodes.
+export interface DiagramGeometry {
+  readonly nodes: readonly DiagramNode[];
+  readonly parents: ReadonlyMap<Id, Id>;
+  // Original HIR membership, never effective splits or node collection order.
+  readonly groups: ReadonlyMap<Id, { readonly members: readonly Id[]; readonly left?: ReadonlySet<Id> }>;
+}
 export interface Diagram {
+  readonly geometry?: DiagramGeometry;
   readonly nodes: readonly DiagramNode[];
   readonly ports: readonly DiagramPort[];
   readonly edges: readonly DiagramEdge[];

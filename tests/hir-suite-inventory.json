@@ -3,6 +3,16 @@
   "stage": "post-baseline",
   "helpers": [
     {
+      "file": "apps/editor/tests/legacy-flow.ts",
+      "rendering": false,
+      "purpose": "Historical test-only graph construction oracle for HIR structural comparisons; never imported by production or a frozen render mount."
+    },
+    {
+      "file": "packages/compiler/hir_legacy_model_test.go",
+      "rendering": false,
+      "purpose": "Independent test-only legacy DTO, extractor and evaluation oracle for original source parity assertions; no production frontend state or baseline writes."
+    },
+    {
       "file": "apps/editor/tests/hir-synthetic-fixtures.mjs",
       "rendering": false,
       "purpose": "Test-only lookup of precomputed synthetic HIR fixtures for migrated original flow assertions; no new frozen cases or baseline writes."
@@ -14,6 +24,11 @@
     }
   ],
   "suites": [
+    {
+      "file": "apps/editor/tests/hir-hidden-layout.test.mjs",
+      "rendering": false,
+      "purpose": "Post-baseline generic hidden-owner anchor and transparent layout contracts; no SVG/HTML baseline generation or new frozen coverage claims."
+    },
     {
       "file": "apps/editor/tests/hir-flow.test.mjs",
       "rendering": false,

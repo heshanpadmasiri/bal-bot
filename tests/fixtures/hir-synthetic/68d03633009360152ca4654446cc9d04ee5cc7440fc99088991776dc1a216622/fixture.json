@@ -1166,12 +1166,12 @@
               "root": {
                 "node": true,
                 "header": true,
-                "container": true
+                "container": false
               },
               "inline": {
                 "node": true,
                 "header": true,
-                "container": true
+                "container": false
               }
             }
           },
@@ -1189,12 +1189,12 @@
               "root": {
                 "node": true,
                 "header": true,
-                "container": true
+                "container": false
               },
               "inline": {
                 "node": true,
                 "header": true,
-                "container": true
+                "container": false
               }
             }
           },
