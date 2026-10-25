@@ -216,6 +216,11 @@ function validateReference(value: unknown): void {
   hirId(v.graphId); hirId(v.occurrenceKey); hirAvailability(v.availability); hirGroupStyle(v.container);
   const c = hirObject(v.collapsed, 'interfaces edges'); hirList(c.interfaces, hirInterface); hirList(c.edges, hirEdge); hirList(v.inline, hirBinding);
 }
+function hirCallDisclosure(value: unknown): void {
+  const d = hirObject(value, 'kind occurrenceKey availability recursive'); hirAssert(d.kind === 'call'); hirId(d.occurrenceKey); hirAvailability(d.availability);
+  const r = hirObject(d.recursive, 'label sections limitation title ariaLabel glyph');
+  hirString(r.label); hirSections(r.sections); hirNullable(r.limitation); hirString(r.title); hirString(r.ariaLabel); hirString(r.glyph);
+}
 function validateNode(value: unknown): void {
   const v = hirObject(value, 'id occurrenceKey sourceId presentation body'); hirId(v.id); hirId(v.occurrenceKey); hirId(v.sourceId);
   const p = hirObject(v.presentation);
@@ -228,12 +233,10 @@ function validateNode(value: unknown): void {
     const d = hirObject(p.disclosure);
     switch (d.kind) {
       case 'none': hirObject(d, 'kind'); break;
-      case 'call': {
-        hirObject(d, 'kind occurrenceKey availability recursive'); hirId(d.occurrenceKey); hirAvailability(d.availability);
-        const r = hirObject(d.recursive, 'label sections limitation title ariaLabel glyph');
-        hirString(r.label); hirSections(r.sections); hirNullable(r.limitation); hirString(r.title); hirString(r.ariaLabel); hirString(r.glyph); break;
-      }
-      case 'client-context': hirObject(d, 'kind occurrenceKey collapsed expanded'); hirId(d.occurrenceKey); hirLabel(d.collapsed); hirLabel(d.expanded); break;
+      case 'call': hirCallDisclosure(d); break;
+      case 'client-context':
+        hirObject(d, 'kind occurrenceKey collapsed expanded call'); hirId(d.occurrenceKey); hirLabel(d.collapsed); hirLabel(d.expanded);
+        if (d.call !== null) hirCallDisclosure(d.call); break;
       default: hirFail('unknown disclosure');
     }
   }
@@ -360,17 +363,21 @@ function validateLinks(program: HIRProgram): void {
     for (const node of nodes.values()) {
       hirAssert(Object.hasOwn(program.sources, node.sourceId), 'unknown sourceId');
       hirAssert(!occurrenceKeys.has(node.occurrenceKey), 'duplicate node occurrenceKey'); occurrenceKeys.add(node.occurrenceKey);
-      if (node.presentation.kind !== 'hidden' && node.presentation.disclosure.kind !== 'none') {
-        const key = node.presentation.disclosure.occurrenceKey; hirAssert(!disclosureKeys.has(key), 'duplicate disclosure occurrenceKey'); disclosureKeys.add(key);
-      }
+      const disclosure = node.presentation.kind === 'hidden' ? null : node.presentation.disclosure;
+      const call = disclosure?.kind === 'call' ? disclosure : disclosure?.kind === 'client-context' ? disclosure.call : null;
+      const keys = disclosure?.kind === 'client-context' ? [disclosure.occurrenceKey] : [];
+      if (call) keys.push(call.occurrenceKey);
+      for (const key of keys) { hirAssert(!disclosureKeys.has(key), 'duplicate disclosure occurrenceKey'); disclosureKeys.add(key); }
+      if (call) hirAssert(node.body.kind === 'reference', 'call disclosure without reference');
+      if (node.presentation.kind === 'client' && node.body.kind === 'reference') hirAssert(call !== null, 'client reference missing call disclosure');
       if (node.body.kind === 'reference') {
         const ref = node.body.reference; references.set(node.id, ref);
         hirAssert(ref.occurrenceKey === node.occurrenceKey, 'reference occurrence disagreement');
         hirAssert(Object.hasOwn(program.functions, ref.graphId), 'unknown referenced graph');
         for (const other of references.values()) if (other !== ref) hirAssert(other.occurrenceKey !== ref.occurrenceKey, 'duplicate reference occurrenceKey');
-        if (node.presentation.kind !== 'hidden' && node.presentation.disclosure.kind === 'call') {
-          hirAssert(node.presentation.disclosure.occurrenceKey === ref.occurrenceKey, 'call occurrence disagreement');
-          const availability = node.presentation.disclosure.availability;
+        if (call) {
+          hirAssert(call.occurrenceKey === ref.occurrenceKey, 'call occurrence disagreement');
+          const availability = call.availability;
           hirAssert(availability.kind === ref.availability.kind &&
             (availability.kind !== 'unavailable' ||
               (ref.availability.kind === 'unavailable' && availability.reason === ref.availability.reason)), 'call availability disagreement');
@@ -560,7 +567,8 @@ function validateHIRInstantiations(indexes: Map<string, HIRGraphIndex>): void {
         nodeActive.set(node.id, active);
       }
       const portActive = new Map<string, number>();
-      for (const port of index.ports.values()) portActive.set(port.id, hirGet(nodeActive, port.nodeId));
+      // Port slot guards describe creation; consumers independently demand endpoints.
+      for (const port of index.ports.values()) portActive.set(port.id, 0);
       const edgeActive = new Map<string, number>();
       for (const edge of index.edges.values()) {
         const ref = index.collapsedEdges.get(edge.id);
@@ -583,12 +591,10 @@ function validateHIRInstantiations(indexes: Map<string, HIRGraphIndex>): void {
         }
         bindingActive.set(id, active);
       }
-      // Omitted structural roots do not require their otherwise-unused ports.
-      // Active edges and bindings above can still make those ports necessary.
-      for (const iface of index.interfaces.values()) for (const member of iface.members) {
-        const active = boolean.and(presence(i, member.when), hirGet(nodeActive, hirGet(index.ports, member.portId).nodeId));
-        portActive.set(member.portId, boolean.or(hirGet(portActive, member.portId), active));
-      }
+      const portDemand = new Map(portActive);
+      // Mode-hidden roots remain suppressed unless consumed. Interface queries
+      // alone do not force creation of their members.
+      for (const port of index.ports.values()) portActive.set(port.id, boolean.or(hirGet(nodeActive, port.nodeId), hirGet(portDemand, port.id)));
       const checkStream = (stream: keyof HIREmissionPlan, expected: Map<string, number>) => {
         const slots = new Map<string, number>(), childSlots = new Map<string, number>(), bindingSlots = new Map<string, number>();
         const ordered: { rank: number; active: number }[] = [];
@@ -610,7 +616,15 @@ function validateHIRInstantiations(indexes: Map<string, HIRGraphIndex>): void {
           const active = boolean.and(intrinsic, when), prior = seen.get(key) ?? 0;
           hirAssert(boolean.and(prior, active) === 0, 'duplicate active emission'); seen.set(key, boolean.or(prior, active));
         }
-        for (const [key, active] of expected) hirAssert((slots.get(key) ?? 0) === active, `missing active ${stream} emission ${key}`);
+        for (const [key, active] of expected) {
+          const emitted = slots.get(key) ?? 0;
+          if (stream === 'ports') {
+            // Require a satisfiable local slot, not unconditional creation.
+            hirAssert(active === 0 || emitted !== 0, `missing port emission ${key}`);
+            hirAssert(boolean.implies(hirGet(portDemand, key), emitted), `active endpoint targets unemitted port ${key}`);
+          } else hirAssert(emitted === active, `missing active ${stream} emission ${key}`);
+        }
+        if (stream === 'ports') i.emittedPorts = slots;
         for (const [key, active] of i.expanded) hirAssert((childSlots.get(key) ?? 0) === active, `missing child ${stream} slice`);
         if (stream === 'edges') for (const [key, active] of bindingActive) hirAssert((bindingSlots.get(key) ?? 0) === active, 'missing binding edge emission');
         for (let a = 0; a < ordered.length; a++) for (let b = a + 1; b < ordered.length; b++) {
@@ -618,9 +632,8 @@ function validateHIRInstantiations(indexes: Map<string, HIRGraphIndex>): void {
         }
       };
       checkStream('nodes', nodeActive); checkStream('ports', portActive); checkStream('edges', edgeActive);
-      // Exact stream coverage is established before checking cross-instance
-      // endpoints: a consumer must not invent ports in its child's stream.
-      i.emittedPorts = portActive;
+      // Check consumers against actual slot predicates, not owner visibility:
+      // a consumer must not invent ports in its child's stream.
       for (const [id, record] of index.bindings) {
         const demand = hirGet(bindingActive, id);
         if (record.binding) {

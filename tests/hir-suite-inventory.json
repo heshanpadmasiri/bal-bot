@@ -3,6 +3,26 @@
   "stage": "post-baseline",
   "suites": [
     {
+      "file": "packages/compiler/hir_text_test.go",
+      "rendering": false,
+      "purpose": "UTF-16-preserving presentation string JSON codec, truncation and print/validation round trips; no rendered baseline coverage."
+    },
+    {
+      "file": "packages/compiler/hir_lowering_errors_test.go",
+      "rendering": false,
+      "purpose": "Direct lowering empty nested block sequencing and source/client error propagation; no rendering or frozen baseline claims."
+    },
+    {
+      "file": "packages/compiler/hir_lowering_determinism_test.go",
+      "rendering": false,
+      "purpose": "Repeated direct lowering source-index determinism without rendering or frozen baseline claims."
+    },
+    {
+      "file": "packages/compiler/hir_lowering_metadata_test.go",
+      "rendering": false,
+      "purpose": "Direct lowering metadata, source identity, receiver independence and disclosure contract tests; no rendered baseline coverage."
+    },
+    {
       "file": "packages/compiler/hir_corpus_test.go",
       "rendering": false,
       "purpose": "Resolved frontend AST/provenance and later HIR corpus goldens; no rendered output or frozen baseline coverage."

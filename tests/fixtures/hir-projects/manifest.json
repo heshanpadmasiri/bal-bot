@@ -61,6 +61,7 @@
         "main.bal": "bce56c69c251c73ecfbf7bdd0f6653d074e9aee0dfbf13a6ae7c1847848e3abb"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -102,6 +103,7 @@
         "main.bal": "99470e598458900cc0cbffb66b58f65d5b6c32fc75b933cd77f883bf744478fc"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -173,6 +175,7 @@
         "main.bal": "be1f5d133d902baf347d70e9cb25e4b79517944a5d850b19599ec0d95b1d8bf5"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -236,6 +239,7 @@
         "main.bal": "2432ed2e8cde21e54e8119556e550d91880206f906d9ff4d118fb77644303f4c"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -277,6 +281,7 @@
         "main.bal": "61830ab9bbcda70636b557321321600318ca6ef4fa66ceb5fc72094ff546ed2d"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -342,6 +347,7 @@
         "modules/math/calculate.bal": "b3d966c793828e3c7a5cde15be817d192abcd5e32e9393e1d425e5e757119e32"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -416,6 +422,7 @@
         "main.bal": "cf56a9985c722fbed01f4fa4f23876effb7139adb75e08a45c90f695269bcf3b"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -483,6 +490,7 @@
         "main.bal": "630a951fae6e09bae625ca99c128f705f0f3be2d78d9aebe6c14f4078382752f"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -553,6 +561,7 @@
         "main.bal": "887934875e1020ef16c51b30665a31dc0e57bd019de2ae08f560f661f81ece30"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -638,6 +647,7 @@
         "orders.bal": "6cf85d9cb3fcc66bfa032ebf0958c376403c302d0472646d3d48f31b0756e5cf"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -687,6 +697,7 @@
         "windows.bal": "0d196f493936bf1527e54208612a158a9da5e1baefce96f41a925a9851bd6e25"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -724,6 +735,7 @@
         "main.bal": "02aa180ec4c1c1b8d95d1574b1181913726587bd17218ac886c92037f5dd744f"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -744,6 +756,7 @@
         "main.bal": "31c80633c9c4cf193865c9f1bab6cedcc2622a37409bf835a5ba247285e0f88f"
       },
       "ast": null,
+      "hir": null,
       "diagnostics": "diagnostics.json",
       "reason": "Syntax errors prevent resolution; diagnostic expectations only."
     },
@@ -769,6 +782,7 @@
         "main.bal": "5cf1dd883156f6715530f8c6ee366dae43b77423ef1e023140b50f98b9bddbd7"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -796,6 +810,7 @@
         "main.bal": "6c5de89bdd5fc8a9ed443643f299f3da0b9977faba9dff1a574144bdd49b468a"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -828,6 +843,7 @@
         "main.bal": "48478fa30fa8d78eb17c63e7843bb75b8175b01301309a1b6446acaca05f6a39"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -855,6 +871,7 @@
         "main.bal": "6371743f0c536edd9e136cfd740d07cd32296282c031fcf50c6e222a871b3aee"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -892,6 +909,7 @@
         "main.bal": "70f65c97c001ff70f12c5ed92349592e054feda00265c8fc44ad8214feff55a7"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -924,6 +942,7 @@
         "main.bal": "ee156a5a4db294c7ebd7615e0fa26dc85111b3ffde6fe518522a908827bbb5c4"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -951,6 +970,7 @@
         "main.bal": "6564ca4fd8c6e5ac8e574e3481d86c9ea51e251171bf3c295d403d1b1deb0ad0"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -976,6 +996,7 @@
         "main.bal": "5ce2346ee471132adf50f9cbe7c2d211843ad987911c2ed06fe246a57fa6d3b9"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1051,6 +1072,7 @@
         "orders.bal": "0ad21016739f1e595498ec262701ce1a91833d10e438905a930634635f8b5f37"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1086,6 +1108,7 @@
         "main.bal": "c43dccdbfc5bdb213f052124fc4320860576262df7549ba65c88c77d55f6910a"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1137,6 +1160,7 @@
         "unrelated.bal": "d5f74a17621c21bfc9f3b76eac18237c52679d53527d9c4090b016d05b39a576"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1189,6 +1213,7 @@
         "main.bal": "d2d0345b061bfdeb599c53ea07e22684c24f98c05d368274f43ca09e7c3080d7"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1221,6 +1246,7 @@
         "main.bal": "14f3a2a389c043a4b12ea8f85c8a626435ffc339e5dc997b7134ca3592a03a6d"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1249,6 +1275,7 @@
         "main.bal": "d297e33b267facaf8f2a6f305fb2cd547bbd0b80a46e1901ce42e410e068a6e9"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1277,6 +1304,7 @@
         "main.bal": "80bc61ba614077ea11276de341e9ebbf0a075cc5cbbf6bf83be66c8c39e4a7bb"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1304,6 +1332,7 @@
         "main.bal": "614ab4f318c6935394ce286d12f647f72d8e266f14ebec026893b99767a7b911"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1348,6 +1377,7 @@
         "main.bal": "d2d0345b061bfdeb599c53ea07e22684c24f98c05d368274f43ca09e7c3080d7"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1395,6 +1425,7 @@
         "main.bal": "cb825a460fb489df492180774cdbfea41b3fd3b0555d614230294b099d0867a1"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1420,6 +1451,7 @@
         "main.bal": "5ce2346ee471132adf50f9cbe7c2d211843ad987911c2ed06fe246a57fa6d3b9"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1448,6 +1480,7 @@
         "main.bal": "986e010116a08a2b47a738e54dda45544e334043b5cdca69d13e68253e1682b6"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1493,6 +1526,7 @@
         "main.bal": "6102b175547e72136d045501472c1bafde975c2550ff494eab5dddbe5f446729"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1517,6 +1551,7 @@
         "main.bal": "a7c64084ec6ead937e3e1a3bf3714d8666f882d506b39ca7577176691c74ee8d"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1548,6 +1583,7 @@
         "main.bal": "8734e354a208d5e2a9f3e65ff9eef7086a948234a3d8a8e6312de1dc6d06ca19"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1575,6 +1611,7 @@
         "main.bal": "0fd7bc951f1baec47045e6a8e9eb482129235327d3c8a8c70bc58f273aed3bff"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1607,6 +1644,7 @@
         "modules/math/calculate.bal": "82f025ea3af517bf11514af7845b19852bd783e6ce14218c855f468c91e02f6b"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1638,6 +1676,7 @@
         "main.bal": "ee3538b0540ce8c956207e72938fed17ab80fbe8183c9995ec8a2477287f2fe2"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1673,6 +1712,7 @@
         "main.bal": "8f04c53ddd0e9411bbec963eedb77639522d75e65edc5dcb52dd77f56a57abca"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -1694,6 +1734,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1716,6 +1757,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1747,6 +1789,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1767,6 +1810,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1807,6 +1851,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1826,6 +1871,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1846,6 +1892,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1868,6 +1915,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1899,6 +1947,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1921,6 +1970,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1941,6 +1991,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1960,6 +2011,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -1982,6 +2034,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2002,6 +2055,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2024,6 +2078,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2046,6 +2101,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2068,6 +2124,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2090,6 +2147,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2112,6 +2170,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2132,6 +2191,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2152,6 +2212,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2174,6 +2235,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2195,6 +2257,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2214,6 +2277,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2233,6 +2297,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2255,6 +2320,7 @@
         }
       ],
       "ast": null,
+      "hir": null,
       "diagnostics": null,
       "reason": "Synthetic graph/state input has no original project AST; catalogRef and renderCases retain exact provenance."
     },
@@ -2276,6 +2342,7 @@
         "main.bal": "125247bfa8501879ffe8633b44c96a5a17e9803dd68b4c7117cd232669553c42"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2295,6 +2362,7 @@
         "main.bal": "82bd2758c0936b262872782a072cc05edb00eaf215df732f96793f2b655ae1c1"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2314,6 +2382,7 @@
         "main.bal": "38faa0257f6773ab041ba682b585b80934fbb1e357a56903854af3cbcaa7e832"
       },
       "ast": null,
+      "hir": null,
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2333,6 +2402,7 @@
         "main.bal": "9fa36eb2269cbe3503407cd5fdd4f9a55ad50481a41490eb5b633eda71793963"
       },
       "ast": null,
+      "hir": null,
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2352,6 +2422,7 @@
         "main.bal": "db120af883118c2c0cee69e9a0c731fd6bc7de57c62c0aedbc6471a05556f278"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2371,6 +2442,7 @@
         "main.bal": "3dab31729bb6d9da6d4b7252898e04d35ab7691efef1b4a757d0f5e1dcd23f9d"
       },
       "ast": null,
+      "hir": null,
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2393,6 +2465,7 @@
         "modules/two/main.bal": "3d6880ce28815a7f343356c04b71d5760b77043a981db72c91392ed038e51f48"
       },
       "ast": null,
+      "hir": null,
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2413,6 +2486,7 @@
         "second.bal": "f14ac2a91b570cb48aac3efbce617479f74f6b98edb6ef8a4d2cac7a1a6bfb52"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2433,6 +2507,7 @@
         "second.bal": "f14ac2a91b570cb48aac3efbce617479f74f6b98edb6ef8a4d2cac7a1a6bfb52"
       },
       "ast": null,
+      "hir": null,
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2452,6 +2527,7 @@
         "main.bal": "a13b39302b40bc25c89beb6782cbce5ddd2976df16a851e67d34dd82c2ade1a8"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2471,6 +2547,7 @@
         "main.bal": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "ast": null,
+      "hir": null,
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2490,6 +2567,7 @@
         "main.bal": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "ast": null,
+      "hir": null,
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2511,6 +2589,7 @@
         "modules/sample/resources/data.bal": "abc20098e6872dcfe85c2b438b594f3ce2f7c2cd467b1eeeabb264803fe945fc"
       },
       "ast": null,
+      "hir": null,
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2533,6 +2612,7 @@
         "modules/sample/resources/data.bal": "abc20098e6872dcfe85c2b438b594f3ce2f7c2cd467b1eeeabb264803fe945fc"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2552,6 +2632,7 @@
         "main.bal": "8f612fa021cfb03685e5444fd71b75cef968408474855ad419a258b117b58265"
       },
       "ast": null,
+      "hir": null,
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2570,6 +2651,7 @@
         "main.bal": "89cdf88b4d2d95ea8de0981261e82126ccca2b47f3661991a7db2e7cd962c8f2"
       },
       "ast": null,
+      "hir": null,
       "diagnostics": "diagnostics.json"
     },
     {
@@ -2588,6 +2670,7 @@
         "main.bal": "b7a21f77f03f94a021d717960102fda254ad69fca1c26c5f2a569f3b311d758c"
       },
       "ast": "ast.golden",
+      "hir": "hir.golden.json",
       "diagnostics": "diagnostics.json"
     }
   ]

@@ -19,9 +19,10 @@ import (
 	"strconv"
 	"strings"
 	"testing"
+	"unicode/utf8"
 )
 
-var updateHIRGoldens = flag.Bool("update", false, "explicitly update only hir-projects AST/diagnostic (and later HIR) goldens")
+var updateHIRGoldens = flag.Bool("update", false, "explicitly update only hir-projects AST/diagnostic/HIR goldens")
 
 const hirProjectsRoot = "../../tests/fixtures/hir-projects"
 
@@ -33,6 +34,7 @@ type hirCorpusCase struct {
 	CatalogRef   string            `json:"catalogRef"`
 	SourceHashes map[string]string `json:"sourceHashes"`
 	AST          *string           `json:"ast"`
+	HIR          *string           `json:"hir"`
 	Diagnostics  *string           `json:"diagnostics"`
 	Reason       string            `json:"reason"`
 	Provenance   []struct {
@@ -89,6 +91,7 @@ func readHIRSources(t *testing.T, root string) Files {
 }
 
 func TestHIRCorpusCoverage(t *testing.T) {
+	// Shares the fixture tree with TestHIRProjects' explicit update mode.
 	var catalog map[string]struct {
 		Kind  string `json:"kind"`
 		Files Files  `json:"files"`
@@ -127,8 +130,8 @@ func TestHIRCorpusCoverage(t *testing.T) {
 			seen[c.CatalogRef] = true
 		}
 		if c.Kind == "synthetic" {
-			if c.AST != nil || c.Diagnostics != nil || c.Reason == "" {
-				t.Fatalf("%s must explicitly omit AST/diagnostics", c.ID)
+			if c.AST != nil || c.HIR != nil || c.Diagnostics != nil || c.Reason == "" {
+				t.Fatalf("%s must explicitly omit AST/HIR/diagnostics", c.ID)
 			}
 			continue
 		}
@@ -148,6 +151,9 @@ func TestHIRCorpusCoverage(t *testing.T) {
 		}
 		if c.CatalogRef != "" && !reflect.DeepEqual(files, catalog[c.CatalogRef].Files) {
 			t.Fatalf("%s no longer matches captured input bytes", c.ID)
+		}
+		if (c.AST == nil) != (c.HIR == nil) || (c.HIR != nil && *c.HIR != "hir.golden.json") {
+			t.Fatalf("%s must declare HIR exactly when a resolved AST exists", c.ID)
 		}
 		if c.Diagnostics == nil || *c.Diagnostics != "diagnostics.json" || (c.AST != nil && *c.AST != "ast.golden") {
 			t.Fatalf("invalid golden paths: %s", c.ID)
@@ -308,6 +314,7 @@ func TestHIRSourceInventory(t *testing.T) {
 }
 
 func TestHIRProjects(t *testing.T) {
+	// Explicit updates write shared fixture files, so this suite is not parallel.
 	for _, c := range readHIRCorpus(t) {
 		if c.Kind == "project" {
 			t.Run(c.ID, func(t *testing.T) { runHIRCase(t, c.Directory, *updateHIRGoldens) })
@@ -316,7 +323,7 @@ func TestHIRProjects(t *testing.T) {
 }
 
 // runHIRCase resolves once and compares the actual frontend before any lowering.
-// Stage 4 adds direct HIR lowering/validation here; no AST-shaped HIR is fabricated.
+// Invalid and synthetic inputs never acquire fabricated HIR.
 func runHIRCase(t *testing.T, directory string, update bool) {
 	t.Helper()
 	if filepath.Base(directory) != directory || directory == "." || directory == ".." {
@@ -349,10 +356,13 @@ func runHIRCase(t *testing.T, directory string, update bool) {
 		if _, err := os.Stat(filepath.Join(root, "ast.golden")); !os.IsNotExist(err) {
 			t.Fatal("invalid input must not have an AST golden (remove stale golden explicitly)")
 		}
+		if _, err := os.Stat(filepath.Join(root, "hir.golden.json")); !os.IsNotExist(err) {
+			t.Fatal("invalid input must not have a HIR golden (remove stale golden explicitly)")
+		}
 		if !update {
 			for _, c := range readHIRCorpus(t) {
-				if c.Directory == directory && c.AST != nil {
-					t.Fatal("invalid fixture must explicitly declare ast: null")
+				if c.Directory == directory && (c.AST != nil || c.HIR != nil) {
+					t.Fatal("invalid fixture must explicitly declare ast: null and hir: null")
 				}
 			}
 		}
@@ -373,14 +383,36 @@ func runHIRCase(t *testing.T, directory string, update bool) {
 		t.Fatal(err)
 	}
 	compareHIRGolden(t, root, "ast.golden", []byte(frontend), update)
-	// Printing must not mutate either resolved input or the provenance snapshots.
+	calls := hirCloneArgumentMap(program.sourceCallArgs)
+	news := hirCloneArgumentMap(program.sourceNewArgs)
+	sourceSnapshot := Files{}
+	for name, source := range program.files {
+		sourceSnapshot[name] = source
+	}
+	hir, err := lowerProgram(program)
+	if err != nil {
+		t.Fatalf("lower resolved frontend: %v", err)
+	}
+	printed := checkLoweredHIR(t, files, hir)
+	compareHIRGolden(t, root, "hir.golden.json", []byte(printed), update)
+	second, err := lowerProgram(program)
+	if err != nil {
+		t.Fatalf("repeat lowering: %v", err)
+	}
+	if again := checkLoweredHIR(t, files, second); again != printed {
+		t.Fatal("repeated lowering changed HIR")
+	}
 	again, err := printFrontend(program)
 	if err != nil || again != frontend {
-		t.Fatalf("frontend printing is nondeterministic: %v", err)
+		t.Fatalf("lowering mutated frontend dump: %v", err)
+	}
+	if !reflect.DeepEqual(calls, program.sourceCallArgs) || !reflect.DeepEqual(news, program.sourceNewArgs) || !reflect.DeepEqual(sourceSnapshot, program.files) {
+		t.Fatal("lowering mutated source/provenance snapshots")
 	}
 }
 
 func TestHIRFrontendInputOrder(t *testing.T) {
+	t.Parallel()
 	for _, directory := range []string{"example-definitions-and-calls", "example-source-ranges", "targeted-provenance"} {
 		t.Run(directory, func(t *testing.T) {
 			files := readHIRSources(t, filepath.Join(hirProjectsRoot, directory, "source"))
@@ -412,15 +444,208 @@ func TestHIRFrontendInputOrder(t *testing.T) {
 			if a != b {
 				t.Fatal("reordered project input changed frontend dump")
 			}
+			left, err := lowerProgram(first)
+			if err != nil {
+				t.Fatal(err)
+			}
+			right, err := lowerProgram(second)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if checkLoweredHIR(t, files, left) != checkLoweredHIR(t, reordered, right) {
+				t.Fatal("reordered project input changed complete HIR")
+			}
 		})
 	}
+}
+
+func hirCloneArgumentMap[K comparable, V any](original map[K][]V) map[K][]V {
+	if original == nil {
+		return nil
+	}
+	clone := make(map[K][]V, len(original))
+	for key, arguments := range original {
+		if arguments == nil {
+			clone[key] = nil
+		} else {
+			clone[key] = append(make([]V, 0, len(arguments)), arguments...)
+		}
+	}
+	return clone
+}
+
+// checkLoweredHIR checks source attribution against captured bytes, independently
+// of the lowering source-index builder and the JSON validator.
+func checkLoweredHIR(t *testing.T, files Files, program HIRProgram) string {
+	t.Helper()
+	if err := ValidateHIR(program); err != nil {
+		t.Fatalf("invalid lowered HIR: %v", err)
+	}
+	for key, located := range program.Sources {
+		if key != located.ID {
+			t.Fatalf("source index key %q differs from located ID %q", key, located.ID)
+		}
+		source, ok := files[located.Source.File]
+		if !ok {
+			t.Fatalf("source %s refers to uncaptured file %q", key, located.Source.File)
+		}
+		start := hirSourceOffset(t, source, located.Source.Range.Start)
+		end := hirSourceOffset(t, source, located.Source.Range.End)
+		if start > end || source[start:end] != located.Text {
+			t.Fatalf("source %s text is not the exact Unicode/CRLF captured range: %+v", key, located.Source)
+		}
+	}
+	printed, err := PrintHIR(program)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var decoded HIRProgram
+	if err := json.Unmarshal([]byte(printed), &decoded); err != nil {
+		t.Fatal(err)
+	}
+	if err := ValidateHIR(decoded); err != nil {
+		t.Fatalf("round-tripped HIR: %v", err)
+	}
+	again, err := PrintHIR(decoded)
+	if err != nil || printed != again {
+		t.Fatalf("HIR round-trip changed complete JSON: %v", err)
+	}
+	return printed
+}
+
+func hirSourceOffset(t *testing.T, source string, position Position) int {
+	t.Helper()
+	if position.Line < 1 || position.Column < 1 || !utf8.ValidString(source) {
+		t.Fatalf("invalid captured source position %+v", position)
+	}
+	offset := 0
+	for line := 1; line < position.Line; line++ {
+		next := strings.IndexAny(source[offset:], "\r\n")
+		if next < 0 {
+			t.Fatalf("line outside captured source: %+v", position)
+		}
+		offset += next
+		if source[offset] == '\r' && offset+1 < len(source) && source[offset+1] == '\n' {
+			offset++
+		}
+		offset++
+	}
+	for column := 1; column < position.Column; column++ {
+		if offset >= len(source) || source[offset] == '\r' || source[offset] == '\n' {
+			t.Fatalf("column outside captured source: %+v", position)
+		}
+		_, size := utf8.DecodeRuneInString(source[offset:])
+		offset += size
+	}
+	return offset
+}
+
+// TestHIRLegacySourceIndexParity compares only the legacy location contract, not
+// statement semantics. Reflection includes embedded locations and locations in
+// non-display fields (client receivers, initializers, arguments and evaluations).
+func TestHIRLegacySourceIndexParity(t *testing.T) {
+	for _, c := range readHIRCorpus(t) {
+		if c.Kind != "project" || c.AST == nil {
+			continue
+		}
+		t.Run(c.ID, func(t *testing.T) {
+			files := readHIRSources(t, filepath.Join(hirProjectsRoot, c.Directory, "source"))
+			checkHIRLegacySourceIndexParity(t, files)
+		})
+	}
+	// Keep multibyte code points and CRLF together: byte columns or normalized
+	// newlines must not accidentally satisfy the source identity contract.
+	t.Run("targeted-provenance-CRLF", func(t *testing.T) {
+		files := readHIRSources(t, filepath.Join(hirProjectsRoot, "targeted-provenance", "source"))
+		for name, source := range files {
+			if strings.HasSuffix(name, ".bal") {
+				files[name] = strings.ReplaceAll(strings.ReplaceAll(source, "\r\n", "\n"), "\n", "\r\n")
+			}
+		}
+		checkHIRLegacySourceIndexParity(t, files)
+	})
+}
+
+func checkHIRLegacySourceIndexParity(t *testing.T, files Files) {
+	t.Helper()
+	program, items, err := resolveProgram(files)
+	if err != nil || program == nil {
+		t.Fatalf("resolve direct input: %v; diagnostics: %+v", err, items)
+	}
+	direct, err := lowerProgram(program)
+	if err != nil {
+		t.Fatal(err)
+	}
+	checkLoweredHIR(t, files, direct)
+	// Legacy extraction mutates resolved-program metadata. Do not let it seed
+	// metadata for direct lowering (or vice versa).
+	legacyProgram, items, err := resolveProgram(files)
+	if err != nil || legacyProgram == nil {
+		t.Fatalf("resolve legacy input: %v; diagnostics: %+v", err, items)
+	}
+	legacy, err := extractProgram(legacyProgram)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var visit func(reflect.Value, string)
+	visit = func(value reflect.Value, path string) {
+		if value.Kind() == reflect.Pointer || value.Kind() == reflect.Interface {
+			if !value.IsNil() {
+				visit(value.Elem(), path)
+			}
+			return
+		}
+		if value.Type() == reflect.TypeOf(LocatedModel{}) {
+			old := value.Interface().(LocatedModel)
+			actual, ok := direct.Sources[old.ID]
+			if !ok {
+				var alternateIDs []string
+				for id, candidate := range direct.Sources {
+					if candidate.Source == old.Source && candidate.Text == old.Text {
+						alternateIDs = append(alternateIDs, id)
+					}
+				}
+				sort.Strings(alternateIDs)
+				t.Errorf("%s: legacy source ID %q missing from direct HIR (legacy: %+v); same source/text under IDs: %v", path, old.ID, old, alternateIDs)
+				return
+			}
+			if actual != old {
+				t.Errorf("%s: legacy source ID %q identity mismatch\nlegacy: %+v\ndirect: %+v", path, old.ID, old, actual)
+			}
+			source, ok := files[old.Source.File]
+			if !ok {
+				t.Fatalf("%s: unknown legacy source file %q", path, old.Source.File)
+			}
+			start := hirSourceOffset(t, source, old.Source.Range.Start)
+			end := hirSourceOffset(t, source, old.Source.Range.End)
+			if start > end || source[start:end] != old.Text {
+				t.Errorf("%s: legacy source ID %q is not the exact Unicode/CRLF range", path, old.ID)
+			}
+			return
+		}
+		switch value.Kind() {
+		case reflect.Struct:
+			for i := 0; i < value.NumField(); i++ {
+				visit(value.Field(i), path+"."+value.Type().Field(i).Name)
+			}
+		case reflect.Map:
+			for _, key := range value.MapKeys() {
+				visit(value.MapIndex(key), fmt.Sprintf("%s[%v]", path, key.Interface()))
+			}
+		case reflect.Slice, reflect.Array:
+			for i := 0; i < value.Len(); i++ {
+				visit(value.Index(i), fmt.Sprintf("%s[%d]", path, i))
+			}
+		}
+	}
+	visit(reflect.ValueOf(legacy), "legacy")
 }
 
 func compareHIRGolden(t *testing.T, root, name string, actual []byte, update bool) {
 	t.Helper()
 	// Hard allow-list: even explicit update can never write render SVG/HTML files.
-	if name != "ast.golden" && name != "diagnostics.json" {
-		t.Fatalf("not an AST/diagnostics golden: %s", name)
+	if name != "ast.golden" && name != "diagnostics.json" && name != "hir.golden.json" {
+		t.Fatalf("not an AST/diagnostics/HIR golden: %s", name)
 	}
 	path := filepath.Join(root, name)
 	if update {

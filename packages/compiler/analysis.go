@@ -225,7 +225,7 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 				addFunction(class.Methods[name], moduleID, moduleID+"/class/"+class.Name.GetValue()+"/method/"+name, class.Name.GetValue())
 			}
 			for _, fn := range class.ResourceMethods {
-				addFunction(fn, moduleID, moduleID+"/class/"+class.Name.GetValue()+"/resource/"+resourceSignature(p, fn), class.Name.GetValue())
+				addFunction(fn, moduleID, moduleID+"/class/"+class.Name.GetValue()+"/resource/"+legacyResourceSignature(p, fn), class.Name.GetValue())
 			}
 		}
 		counts := map[string]int{}
@@ -245,7 +245,7 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 				addFunction(service.Methods[name], moduleID, id+"/method/"+name, "")
 			}
 			for _, fn := range service.ResourceMethods {
-				addFunction(fn, moduleID, id+"/resource/"+resourceSignature(p, fn), "")
+				addFunction(fn, moduleID, id+"/resource/"+legacyResourceSignature(p, fn), "")
 			}
 		}
 	}
@@ -284,7 +284,7 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 		}
 		if resource, ok := fn.node.(*ast.BLangResourceMethod); ok {
 			entry.Kind = "resource"
-			entry.Name = resource.Name.GetValue() + " /" + resourcePath(p, resource)
+			entry.Name = resource.Name.GetValue() + " /" + legacyResourcePath(p, resource)
 			for i := range resource.ResourcePath {
 				segment := &resource.ResourcePath[i]
 				if segment.Kind != ast.ResourcePathSegmentName {
@@ -356,7 +356,7 @@ func extractProgram(p *resolvedProgram) (ProgramModel, error) {
 			}
 			for _, fn := range service.ResourceMethods {
 				fid := p.functionIDs[fn.Symbol()]
-				title := fn.Name.GetValue() + " " + strings.TrimRight(path, "/") + "/" + resourcePath(p, fn)
+				title := fn.Name.GetValue() + " " + strings.TrimRight(path, "/") + "/" + legacyResourcePath(p, fn)
 				endpoints = append(endpoints, EndpointModel{LocatedModel: p.located(fid, fn), Kind: "resource", Title: title, FunctionID: fid})
 			}
 			for _, v := range service.Fields {
@@ -419,15 +419,15 @@ func servicePath(service *ast.BLangService) string {
 	}
 	return ""
 }
-func resourcePath(p *resolvedProgram, fn *ast.BLangResourceMethod) string {
+func legacyResourcePath(p *resolvedProgram, fn *ast.BLangResourceMethod) string {
 	parts := []string{}
 	for i := range fn.ResourcePath {
 		parts = append(parts, p.located("path", &fn.ResourcePath[i]).Text)
 	}
 	return strings.Join(parts, "/")
 }
-func resourceSignature(p *resolvedProgram, fn *ast.BLangResourceMethod) string {
-	return fn.Name.GetValue() + "/" + resourcePath(p, fn)
+func legacyResourceSignature(p *resolvedProgram, fn *ast.BLangResourceMethod) string {
+	return fn.Name.GetValue() + "/" + legacyResourcePath(p, fn)
 }
 
 func extractStatements(p *resolvedProgram, functionID string, nodes []ast.StatementNode) ([]StatementModel, error) {

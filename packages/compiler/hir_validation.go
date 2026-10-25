@@ -296,29 +296,35 @@ func (v *hirValidator) index(g HIRGraph) (*hirGraphIndex, error) {
 		case *HIRClientPresentation:
 			disclosure = presentation.Disclosure
 		}
-		disclosureKey := ""
+		var call *HIRCallDisclosure
+		keys := []string{}
 		switch item := disclosure.Value.(type) {
 		case *HIRCallDisclosure:
-			disclosureKey = item.OccurrenceKey
-			body, ok := n.Body.Value.(*HIRReferenceBody)
-			if !ok {
+			call = item
+		case *HIRClientContextDisclosure:
+			keys = append(keys, item.OccurrenceKey)
+			call = item.Call
+		}
+		body, reference := n.Body.Value.(*HIRReferenceBody)
+		if _, client := n.Presentation.Value.(*HIRClientPresentation); client && reference && call == nil {
+			return nil, fmt.Errorf("node %q: client reference missing call disclosure", n.ID)
+		}
+		if call != nil {
+			keys = append(keys, call.OccurrenceKey)
+			if !reference {
 				return nil, fmt.Errorf("node %q: call disclosure without reference", n.ID)
 			}
-			left, _ := json.Marshal(item.Availability)
+			left, _ := json.Marshal(call.Availability)
 			right, _ := json.Marshal(body.Reference.Availability)
-			if item.OccurrenceKey != body.Reference.OccurrenceKey || !bytes.Equal(left, right) {
+			if call.OccurrenceKey != body.Reference.OccurrenceKey || !bytes.Equal(left, right) {
 				return nil, fmt.Errorf("node %q: call disclosure disagreement", n.ID)
 			}
-		case *HIRClientContextDisclosure:
-			disclosureKey = item.OccurrenceKey
 		}
-		if disclosure.Value != nil {
-			if _, none := disclosure.Value.(*HIRNoDisclosure); !none {
-				if disclosureKey == "" || disclosures[disclosureKey] {
-					return nil, fmt.Errorf("duplicate/empty disclosure occurrenceKey %q", disclosureKey)
-				}
-				disclosures[disclosureKey] = true
+		for _, key := range keys {
+			if key == "" || disclosures[key] {
+				return nil, fmt.Errorf("duplicate/empty disclosure occurrenceKey %q", key)
 			}
+			disclosures[key] = true
 		}
 		if b, ok := n.Body.Value.(*HIRReferenceBody); ok {
 			x.references[n.ID] = b.Reference

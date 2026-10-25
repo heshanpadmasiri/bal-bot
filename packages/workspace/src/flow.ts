@@ -116,7 +116,7 @@ export type HIRPresentation = { readonly kind: 'hidden' }
   | { readonly kind: 'client'; readonly style: 'client'; readonly label: string; readonly sections: readonly HIRLabelSection[]; readonly limitation: string | null; readonly disclosure: HIRDisclosure };
 export type HIRDisclosure = { readonly kind: 'none' }
   | { readonly kind: 'call'; readonly occurrenceKey: string; readonly availability: HIRAvailability; readonly recursive: HIRRecursivePresentation }
-  | { readonly kind: 'client-context'; readonly occurrenceKey: string; readonly collapsed: HIRLabelContent; readonly expanded: HIRLabelContent };
+  | { readonly kind: 'client-context'; readonly occurrenceKey: string; readonly collapsed: HIRLabelContent; readonly expanded: HIRLabelContent; readonly call: Extract<HIRDisclosure, { readonly kind: 'call' }> | null };
 export interface HIRLabelContent { readonly label: string; readonly sections: readonly HIRLabelSection[]; }
 export interface HIRRecursivePresentation {
   readonly label: string;

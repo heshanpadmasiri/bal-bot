@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"reflect"
 	"sort"
@@ -120,6 +121,168 @@ func TestHIRSharedContract(t *testing.T) {
 				t.Fatalf("PrintHIR mutated input: %v", err)
 			}
 		})
+	}
+}
+
+// Compare in JavaScript rather than encoding/json's interface{} decoder: the
+// latter replaces lone UTF-16 surrogates and would hide a lossy round trip.
+func assertHIRJavaScriptRoundTrip(t *testing.T, stages ...json.RawMessage) {
+	t.Helper()
+	input, err := json.Marshal(stages)
+	if err != nil {
+		t.Fatal(err)
+	}
+	cmd := exec.Command("node", "-e", `
+const assert = require('node:assert/strict');
+const stages = JSON.parse(require('node:fs').readFileSync(0, 'utf8'));
+for (const stage of stages.slice(1)) assert.deepEqual(stage, stages[0]);
+`)
+	cmd.Stdin = bytes.NewReader(input)
+	if output, err := cmd.CombinedOutput(); err != nil {
+		t.Fatalf("JavaScript UTF-16 round trip: %v\n%s", err, output)
+	}
+}
+
+func TestHIRPresentationUTF16RoundTrip(t *testing.T) {
+	fixture, err := os.ReadFile(filepath.Join("..", "..", "tests", "fixtures", "hir-contract", "minimal.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	cases := []struct{ name, token string }{
+		{"lone-high", `"\ud83d"`},
+		{"lone-low", `"\ude00"`},
+		{"escaped-pair", `"\ud83d\ude00"`},
+		{"literal-astral", `"😀"`},
+		{"adjacent-unpaired", `"\ud83d\ud83d\ude00\ude00"`},
+		{"split-pair", `"\ud83dx\ude00"`},
+		{"literal-backslash-u", `"\\ud83d"`},
+		{"mixed-literal-and-escaped", `"\\ud83d\ud83d"`},
+		{"controls-and-escapes", `"\"\\\n\t\u0000\ud83d"`},
+	}
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			// Replace only presentation strings, never original source strings.
+			data := bytes.Replace(fixture, []byte(`"label": "a"`), []byte(`"label": `+tc.token), 1)
+			data = bytes.Replace(data, []byte(`"kind": "text",
+                "text": "a"`), []byte(`"kind": "text",
+                "text": `+tc.token), 1)
+			var program HIRProgram
+			if err := json.Unmarshal(data, &program); err != nil {
+				t.Fatal(err)
+			}
+			if err := ValidateHIR(program); err != nil {
+				t.Fatal(err)
+			}
+			marshaled, err := json.Marshal(program)
+			if err != nil {
+				t.Fatal(err)
+			}
+			printed, err := PrintHIR(program)
+			if err != nil {
+				t.Fatal(err)
+			}
+			var decoded HIRProgram
+			if err := json.Unmarshal([]byte(printed), &decoded); err != nil {
+				t.Fatal(err)
+			}
+			if err := ValidateHIR(decoded); err != nil {
+				t.Fatal(err)
+			}
+			again, err := json.Marshal(decoded)
+			if err != nil {
+				t.Fatal(err)
+			}
+			assertHIRJavaScriptRoundTrip(t, data, marshaled, json.RawMessage(printed), again)
+		})
+	}
+	for _, field := range []string{`"label": "a"`, `"kind": "text",
+                "text": "a"`} {
+		for _, token := range []string{"null", "false", "42", "[]", "{}"} {
+			t.Run(field+"/"+token, func(t *testing.T) {
+				replacement := strings.TrimSuffix(field, `"a"`) + token
+				data := bytes.Replace(fixture, []byte(field), []byte(replacement), 1)
+				var program HIRProgram
+				if err := json.Unmarshal(data, &program); err == nil {
+					if err := ValidateHIR(program); err == nil {
+						t.Fatal("accepted non-string presentation value")
+					}
+				}
+			})
+		}
+	}
+}
+
+func TestHIRClientPresentationUTF16Cutoff(t *testing.T) {
+	// The astral character begins at UTF-16 offset 86, so JS slice(0, 87)
+	// retains just its high surrogate. This must survive the actual lowering,
+	// not merely an independently reimplemented truncation helper.
+	prefix := `check new ("`
+	initializer := prefix + strings.Repeat("a", 86-len(prefix)) + "😀" + strings.Repeat("z", 20) + `")`
+	resolved, items, err := resolveProgram(project(`import ballerina/http;
+final http:Client testClient = ` + initializer + `;
+public function main() returns error? {
+ string response = check testClient->get("/orders");
+ _ = response;
+}
+`))
+	if err != nil || resolved == nil {
+		t.Fatalf("resolve: %v: %+v", err, items)
+	}
+	program, err := lowerProgram(resolved)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := ValidateHIR(program); err != nil {
+		t.Fatal(err)
+	}
+	marshaled, err := json.Marshal(program)
+	if err != nil {
+		t.Fatal(err)
+	}
+	printed, err := PrintHIR(program)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var decoded HIRProgram
+	if err := json.Unmarshal([]byte(printed), &decoded); err != nil {
+		t.Fatal(err)
+	}
+	if err := ValidateHIR(decoded); err != nil {
+		t.Fatal(err)
+	}
+	again, err := json.Marshal(decoded)
+	if err != nil {
+		t.Fatal(err)
+	}
+	assertHIRJavaScriptRoundTrip(t, marshaled, json.RawMessage(printed), again)
+	input, err := json.Marshal([]json.RawMessage{marshaled, json.RawMessage(printed), again})
+	if err != nil {
+		t.Fatal(err)
+	}
+	cmd := exec.Command("node", "-e", `
+const assert = require('node:assert/strict');
+const stages = JSON.parse(require('node:fs').readFileSync(0, 'utf8'));
+for (const program of stages) {
+  const clients = Object.values(program.functions).flatMap(graph => graph.nodes)
+    .map(node => node.presentation).filter(p => p.kind === 'client');
+  assert.equal(clients.length, 1, 'expected actual lowered client presentation');
+  const p = clients[0];
+  assert.equal(p.disclosure.kind, 'client-context');
+  const { collapsed, expanded } = p.disclosure;
+  const context = expanded.sections.find(section => section.kind === 'context').text;
+  assert.equal(context.codePointAt(86), 0x1f600, 'astral must begin at offset 86');
+  assert.ok(context.length > 90, 'must take the truncation branch');
+  const expectedContext = context.slice(0, 87) + '…';
+  assert.equal(expectedContext.charCodeAt(86), 0xd83d);
+  assert.equal(collapsed.sections.find(section => section.kind === 'context').text, expectedContext);
+  assert.equal(collapsed.label, expanded.label.replace(context, expectedContext));
+  assert.equal(p.label, collapsed.label);
+  assert.deepEqual(p.sections, collapsed.sections);
+}
+`)
+	cmd.Stdin = bytes.NewReader(input)
+	if output, err := cmd.CombinedOutput(); err != nil {
+		t.Fatalf("clientPresentationCollapsed differs from JavaScript UTF-16 slice: %v\n%s", err, output)
 	}
 }
 
@@ -462,6 +625,131 @@ public function main() { Queue queue = new (port = 99, host = "host"); _ = queue
 	for _, want := range []string{"receiver:", "resource-path[0]:", "### new", "argument[1]:"} {
 		if !strings.Contains(printed, want) {
 			t.Fatalf("missing provenance %q", want)
+		}
+	}
+}
+
+// Graph sharing and recursive identity are not visible in rendered output;
+// inspect the directly lowered corpus graph rather than an expanded renderer.
+func TestHIRLoweringSharedRecursiveReferences(t *testing.T) {
+	t.Parallel()
+	files := readHIRSources(t, filepath.Join(hirProjectsRoot, "example-function-expansion", "source"))
+	resolved, diagnostics, err := resolveProgram(files)
+	if err != nil || resolved == nil {
+		t.Fatalf("resolve: %v: %+v", err, diagnostics)
+	}
+	program, err := lowerProgram(resolved)
+	if err != nil {
+		t.Fatal(err)
+	}
+	checkLoweredHIR(t, files, program)
+	names := map[string]string{}
+	for id, graph := range program.Functions {
+		if graph.ID != id || !strings.HasSuffix(id, "/function/"+graph.Entry.Name) {
+			t.Fatalf("graph %q has occurrence/ancestor identity instead of definition identity", id)
+		}
+		if _, exists := names[graph.Entry.Name]; exists {
+			t.Fatalf("definition %s stored more than once", graph.Entry.Name)
+		}
+		names[graph.Entry.Name] = id
+	}
+	if len(names) != 6 {
+		t.Fatalf("expected exactly six stored definitions, got %v", names)
+	}
+	want := map[string]map[string]int{
+		"main":   {"shared": 2, "countdown": 1, "evenStep": 1},
+		"shared": {"adjust": 1}, "adjust": {},
+		"countdown": {"countdown": 1}, "evenStep": {"oddStep": 1}, "oddStep": {"evenStep": 1},
+	}
+	for name, references := range want {
+		id, exists := names[name]
+		if !exists {
+			t.Fatalf("missing definition %s", name)
+		}
+		got := map[string]int{}
+		for _, node := range program.Functions[id].Nodes {
+			var ref HIRGraphReference
+			switch body := node.Body.Value.(type) {
+			case HIRReferenceBody:
+				ref = body.Reference
+			case *HIRReferenceBody:
+				ref = body.Reference
+			default:
+				continue
+			}
+			target, exists := program.Functions[ref.GraphID]
+			if !exists || names[target.Entry.Name] != ref.GraphID {
+				t.Fatalf("%s reference does not target one stored definition: %s", name, ref.GraphID)
+			}
+			got[target.Entry.Name]++
+		}
+		if !reflect.DeepEqual(got, references) {
+			t.Fatalf("%s definition references: got %v; want %v", name, got, references)
+		}
+	}
+}
+
+func TestHIRLoweringControlFlowAnchors(t *testing.T) {
+	files := project(`public function main() {
+ int total = 0;
+ foreach int value in [1, 2] { total += value; }
+ while total < 5 { total += 1; }
+ if total > 0 { total += 1; } else { total -= 1; }
+ _ = total;
+}`)
+	resolved, diagnostics, err := resolveProgram(files)
+	if err != nil || resolved == nil || len(diagnostics) != 0 {
+		t.Fatalf("resolve: %v: %+v", err, diagnostics)
+	}
+	program, err := lowerProgram(resolved)
+	if err != nil {
+		t.Fatal(err)
+	}
+	checkLoweredHIR(t, files, program)
+	want := map[HIRSpacingProfile]map[HIRPortRole]HIRAnchorKind{
+		HIRSpacingProfileForeach: {
+			HIRPortRoleTrue:          HIRAnchorKindHeaderBottomCenter,
+			HIRPortRoleNextIteration: HIRAnchorKindIterationMarker,
+			HIRPortRoleNormalExit:    HIRAnchorKindBottomCenter,
+		},
+		HIRSpacingProfileWhile: {
+			HIRPortRoleTrue:       HIRAnchorKindHeaderLeft,
+			HIRPortRoleFalse:      HIRAnchorKindHeaderRight,
+			HIRPortRoleNormalExit: HIRAnchorKindBottomCenter,
+		},
+		HIRSpacingProfileIf: {
+			HIRPortRoleTrue:       HIRAnchorKindHeaderLeft,
+			HIRPortRoleFalse:      HIRAnchorKindHeaderRight,
+			HIRPortRoleNormalExit: HIRAnchorKindGroupBottomCenter,
+		},
+	}
+	seen := map[HIRSpacingProfile]int{}
+	for _, graph := range program.Functions {
+		for _, node := range graph.Nodes {
+			body, ok := node.Body.Value.(HIRGroupBody)
+			if !ok {
+				continue
+			}
+			for _, group := range graph.Groups {
+				if group.ID != body.GroupID {
+					continue
+				}
+				for _, port := range graph.Ports {
+					anchor, check := want[group.Style.Profile][port.Role]
+					if port.NodeID != node.ID || !check {
+						continue
+					}
+					seen[group.Style.Profile]++
+					if port.Anchor.Kind != anchor {
+						t.Errorf("%s %s anchor = %s, want %s", group.Style.Profile, port.Role, port.Anchor.Kind, anchor)
+					}
+				}
+			}
+		}
+	}
+	for profile, ports := range want {
+		if seen[profile] != len(ports) {
+			t.Errorf("%s checked %d ports, want %d", profile, seen[profile], len(ports))
 		}
 	}
 }

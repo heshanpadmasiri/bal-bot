@@ -5,6 +5,41 @@
   },
   "cases": [
     {
+      "name": "conditional-return-port",
+      "file": "conditional-return-port.json",
+      "accept": true
+    },
+    {
+      "name": "conditional-port-active-edge",
+      "file": "conditional-port-active-edge.json",
+      "accept": false
+    },
+    {
+      "name": "conditional-port-active-binding-caller",
+      "file": "conditional-port-active-binding-caller.json",
+      "accept": false
+    },
+    {
+      "name": "conditional-port-active-binding-target",
+      "file": "conditional-port-active-binding-target.json",
+      "accept": false
+    },
+    {
+      "name": "conditional-port-missing-emission",
+      "file": "conditional-port-missing-emission.json",
+      "accept": false
+    },
+    {
+      "name": "conditional-port-active-duplicate",
+      "file": "conditional-port-active-duplicate.json",
+      "accept": false
+    },
+    {
+      "name": "conditional-port-false-only-emission",
+      "file": "conditional-port-false-only-emission.json",
+      "accept": false
+    },
+    {
       "name": "reordered-unavailable-availability",
       "file": "reordered-unavailable-availability.json",
       "accept": true
@@ -1278,6 +1313,131 @@
       "name": "source-safe-integer-boundary",
       "file": "source-safe-integer-boundary.json",
       "accept": true
+    },
+    {
+      "name": "client-short-call",
+      "file": "client-short-call.json",
+      "accept": true
+    },
+    {
+      "name": "client-short-unavailable",
+      "file": "client-short-unavailable.json",
+      "accept": true
+    },
+    {
+      "name": "client-short-missing-call",
+      "file": "client-short-missing-call.json",
+      "accept": false
+    },
+    {
+      "name": "client-short-occurrence",
+      "file": "client-short-occurrence.json",
+      "accept": false
+    },
+    {
+      "name": "client-short-availability",
+      "file": "client-short-availability.json",
+      "accept": false
+    },
+    {
+      "name": "client-short-without-reference",
+      "file": "client-short-without-reference.json",
+      "accept": false
+    },
+    {
+      "name": "client-short-recursive-missing",
+      "file": "client-short-recursive-missing.json",
+      "accept": false
+    },
+    {
+      "name": "client-short-recursive-extra",
+      "file": "client-short-recursive-extra.json",
+      "accept": false
+    },
+    {
+      "name": "client-short-recursive-null",
+      "file": "client-short-recursive-null.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-call",
+      "file": "client-long-call.json",
+      "accept": true
+    },
+    {
+      "name": "client-long-unavailable",
+      "file": "client-long-unavailable.json",
+      "accept": true
+    },
+    {
+      "name": "client-long-missing-call",
+      "file": "client-long-missing-call.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-occurrence",
+      "file": "client-long-occurrence.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-availability",
+      "file": "client-long-availability.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-without-reference",
+      "file": "client-long-without-reference.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-recursive-missing",
+      "file": "client-long-recursive-missing.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-recursive-extra",
+      "file": "client-long-recursive-extra.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-recursive-null",
+      "file": "client-long-recursive-null.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-missing-key",
+      "file": "client-long-missing-key.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-wrong-kind",
+      "file": "client-long-wrong-kind.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-extra-field",
+      "file": "client-long-extra-field.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-duplicate-key",
+      "file": "client-long-duplicate-key.json",
+      "accept": false
+    },
+    {
+      "name": "client-long-same-kind-availability",
+      "file": "client-long-same-kind-availability.json",
+      "accept": false
+    },
+    {
+      "name": "client-external-context-null",
+      "file": "client-external-context-null.json",
+      "accept": true
+    },
+    {
+      "name": "client-external-context-missing-key",
+      "file": "client-external-context-missing-key.json",
+      "accept": false
     }
   ]
 }

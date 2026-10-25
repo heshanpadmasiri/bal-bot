@@ -15,14 +15,25 @@ The types contain data only: no AST, compiler state, callbacks, or pixel geometr
   unions are errors. This is codec handling, not graph validation: required
   fields, enum values, ownership, and link invariants still need validators.
 - Nullable HIR fields are required JSON keys with either a value or `null`:
-  entry `owner`/`operation`, visible/recursive presentation `limitation`, and
-  edge-style `label`. There are no `omitempty` fields in the new HIR schema.
+  entry `owner`/`operation`, visible/recursive presentation `limitation`,
+  edge-style `label`, and client-context disclosure `call`. There are no
+  `omitempty` fields in the new HIR schema.
   Retained discovery/source models keep their existing encoding unchanged.
 - Empty collections are `[]` or `{}`, never `null`. Go `HIRList[T]` and
   `HIRRecord[T]` enforce this on encoding even for nil values, and reject null
   on decoding. The two records contain typed sources and graphs, respectively.
-- Array order is meaningful. Future pretty printing sorts record keys only;
+- Array order is meaningful. Pretty printing sorts record keys only;
   it must not reorder nodes, ports, edges, groups, members, bindings, or emissions.
+- Derived presentation labels, label sections, and recursive title/ARIA text use
+  Go `HIRText` while retaining ordinary JSON string fields and TypeScript
+  `string`. The codec preserves JavaScript UTF-16 code units, including lone
+  surrogates from the existing 87-code-unit client-summary cutoff. Unicode
+  scalars use UTF-8 internally; isolated surrogates use WTF-8 internally and
+  `\uXXXX` escapes on the wire. Do not iterate `HIRText` as Go runes or pass it
+  through a plain Go JSON-string decode: either would replace lone surrogates.
+  Validate/print round trips and cross-language tests compare UTF-16 units, not
+  only UTF-8 file bytes. Original source text, filenames, IDs and source ranges
+  retain their existing source-validation contract.
 
 ## Identity and ownership
 
@@ -44,7 +55,15 @@ reference interface IDs refer to the target graph's interface namespace.
 Visible presentations carry a complete selection/measurement label plus ordered
 sections. Plain text uses `text` sections; client sections explicitly use
 `receiver`, `context`, and `method`. Client-context disclosures carry both complete
-label/section alternatives. Call disclosures carry availability and a fully
+label/section alternatives and a required nullable `call` field containing the
+strict `call` variant. A short-context workspace client call uses `call` directly;
+a long-context workspace client call composes it inside `client-context`. The
+context occurrence key and call occurrence key remain independent (and distinct):
+context controls initialization-text expansion, while call controls body expansion.
+Client reference bodies require call metadata; its occurrence key and availability
+must agree with the reference, including unavailable and recursive calls. External
+clients retain `none` or `client-context` with `call: null`.
+Call disclosures carry availability and a fully
 prepared recursive label/sections, limitation, title, ARIA label, and glyph.
 Recursion is detected by graph ancestry, not syntax. It uses collapsed interfaces
 and the declared recursive presentation, without mutating the stored graph.

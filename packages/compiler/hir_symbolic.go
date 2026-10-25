@@ -322,8 +322,10 @@ func (i *hirSymbolicInstance) validate() error {
 		}
 		nodes[id] = active
 	}
-	for id, p := range x.ports {
-		ports[id] = nodes[p.NodeID]
+	// Ports have no intrinsic presence predicate: local slot guards describe
+	// conditional creation. Consumers independently demand their endpoints.
+	for id := range x.ports {
+		ports[id] = 0
 	}
 	for id, edge := range x.edges {
 		active, err := i.presence(edge.When)
@@ -362,14 +364,10 @@ func (i *hirSymbolicInstance) validate() error {
 		root := x.interfaces[face].Root.Value.(*HIRConnectRoot)
 		ports[root.ToPort] = b.or(ports[root.ToPort], active)
 	}
-	for _, face := range x.interfaces {
-		for _, m := range face.Members {
-			when, err := i.presence(m.When)
-			if err != nil {
-				return err
-			}
-			ports[m.PortID] = b.or(ports[m.PortID], b.and(when, nodes[x.ports[m.PortID].NodeID]))
-		}
+	portDemand := ports
+	ports = map[string]int{}
+	for id, p := range x.ports {
+		ports[id] = b.or(nodes[p.NodeID], portDemand[id])
 	}
 	plan := x.graph.Emission.Root
 	if i.inline {
@@ -434,9 +432,23 @@ func (i *hirSymbolicInstance) validate() error {
 			target[key] = b.or(target[key], active)
 		}
 		for id, active := range wanted {
+			if stream == 1 {
+				// A mode-applicable port needs at least one satisfiable local
+				// slot, but need not exist whenever its owner is visible.
+				if active != 0 && seen[id] == 0 {
+					return fmt.Errorf("stream 1: missing port %q emission", id)
+				}
+				if b.and(portDemand[id], b.not(seen[id])) != 0 {
+					return fmt.Errorf("active endpoint targets unemitted port %q", id)
+				}
+				continue
+			}
 			if seen[id] != active {
 				return fmt.Errorf("stream %d: missing active item %q emission", stream, id)
 			}
+		}
+		if stream == 1 {
+			i.emittedPorts = seen
 		}
 		for id, active := range i.expanded {
 			if childSeen[id] != active {
@@ -458,9 +470,8 @@ func (i *hirSymbolicInstance) validate() error {
 			}
 		}
 	}
-	// Stream coverage above makes these exact emitted-port predicates. Do not
-	// manufacture target ports merely because a parent consumes an interface.
-	i.emittedPorts = ports
+	// Check consumers against actual slot predicates, not owner visibility.
+	// A parent consuming an interface must not manufacture its target ports.
 	for id, binding := range x.bindings {
 		if binding.kind != "export" {
 			if child := i.children[binding.reference]; child != nil {

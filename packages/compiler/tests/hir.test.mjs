@@ -39,6 +39,47 @@ test('HIR symbolic coverage: 24 independent references', { timeout: 10_000 }, as
   assert.throws(() => validateHIR(freeze(structuredClone(value))), /Invalid compiler/);
 });
 
+// Native JSON strings retain UTF-16 code units, including lone surrogates.
+// Keep these tokens escaped until JSON.parse so a UTF-8 file cannot silently
+// replace the very values this regression covers.
+for (const [name, token, units] of [
+  ['lone-high', String.raw`"\ud83d"`, [0xd83d]],
+  ['lone-low', String.raw`"\ude00"`, [0xde00]],
+  ['escaped-pair', String.raw`"\ud83d\ude00"`, [0xd83d, 0xde00]],
+  ['literal-astral', '"😀"', [0xd83d, 0xde00]],
+  ['adjacent-unpaired', String.raw`"\ud83d\ud83d\ude00\ude00"`, [0xd83d, 0xd83d, 0xde00, 0xde00]],
+  ['split-pair', String.raw`"\ud83dx\ude00"`, [0xd83d, 0x78, 0xde00]],
+  ['literal-backslash-u', String.raw`"\\ud83d"`, [0x5c, 0x75, 0x64, 0x38, 0x33, 0x64]],
+  ['mixed-literal-and-escaped', String.raw`"\\ud83d\ud83d"`, [0x5c, 0x75, 0x64, 0x38, 0x33, 0x64, 0xd83d]],
+]) {
+  test(`HIR presentation UTF-16 code units: ${name}`, async () => {
+    const value = JSON.parse(await readFile(new URL('minimal.json', root), 'utf8'));
+    const presentation = value.functions.main.nodes[0].presentation;
+    presentation.label = JSON.parse(token);
+    presentation.sections[0].text = JSON.parse(token);
+    const codeUnits = text => Array.from({ length: text.length }, (_, i) => text.charCodeAt(i));
+    assert.deepEqual(codeUnits(presentation.label), units);
+    const validated = validateHIR(freeze(value));
+    const roundtrip = validateHIR(JSON.parse(JSON.stringify(validated)));
+    const result = roundtrip.functions.main.nodes[0].presentation;
+    assert.deepEqual(codeUnits(result.label), units);
+    assert.deepEqual(codeUnits(result.sections[0].text), units);
+    assert.deepEqual(roundtrip, value);
+  });
+}
+
+for (const field of ['label', 'section']) {
+  for (const invalid of [null, false, 42, [], {}]) {
+    test(`HIR presentation UTF-16 rejects ${field} ${JSON.stringify(invalid)}`, async () => {
+      const value = JSON.parse(await readFile(new URL('minimal.json', root), 'utf8'));
+      const presentation = value.functions.main.nodes[0].presentation;
+      if (field === 'label') presentation.label = invalid;
+      else presentation.sections[0].text = invalid;
+      assert.throws(() => validateHIR(freeze(value)), /Invalid compiler/);
+    });
+  }
+}
+
 for (const fixture of corpus.cases) {
   test(`HIR shared contract: ${fixture.name} (${fixture.accept ? 'accept' : 'reject'})`, async () => {
     const value = JSON.parse(await readFile(new URL(fixture.file, root), 'utf8'));

@@ -1,0 +1,370 @@
+package compiler
+
+import (
+	"fmt"
+	"github.com/ballerina-nutcracker/ballerina/ast"
+	"strings"
+)
+
+// fragment is temporary construction state, never part of the wire model.
+type fragment struct {
+	nodes                                      []string
+	entry                                      []HIRInterfaceMember
+	normal, returns, breaks, continues, panics []HIRInterfaceMember
+	panicExports                               []panicExport
+}
+
+func (f fragment) empty() bool {
+	return len(f.nodes) == 0 && len(f.entry) == 0 && len(f.normal) == 0 &&
+		len(f.returns) == 0 && len(f.breaks) == 0 && len(f.continues) == 0 &&
+		len(f.panics) == 0 && len(f.panicExports) == 0
+}
+
+type panicExport struct {
+	reference string
+	before    int
+}
+
+func appendPanics(dst *fragment, src fragment) {
+	offset := len(dst.panics)
+	for _, e := range src.panicExports {
+		e.before += offset
+		dst.panicExports = append(dst.panicExports, e)
+	}
+	dst.panics = append(dst.panics, src.panics...)
+}
+
+type graphBuilder struct {
+	l        *lowerer
+	graph    HIRGraph
+	ports    map[string]bool
+	rootOnly bool
+}
+
+func present() HIRPresence              { return HIRPresence{Value: HIRConstantPresence{Value: true}} }
+func absent() HIRPresence               { return HIRPresence{Value: HIRConstantPresence{Value: false}} }
+func all(ps ...HIRPresence) HIRPresence { return HIRPresence{Value: HIRAllPresence{Operands: ps}} }
+func anyPresence(ps ...HIRPresence) HIRPresence {
+	return HIRPresence{Value: HIRAnyPresence{Operands: ps}}
+}
+func not(p HIRPresence) HIRPresence { return HIRPresence{Value: HIRNotPresence{Operand: p}} }
+func nonempty(node, iface string) HIRPresence {
+	return HIRPresence{Value: HIRNonemptyPresence{ReferenceNodeID: node, InterfaceID: iface}}
+}
+func membersPresence(ms []HIRInterfaceMember) HIRPresence {
+	ps := []HIRPresence{}
+	for _, m := range ms {
+		ps = append(ps, m.When)
+	}
+	return anyPresence(ps...)
+}
+func member(p string) []HIRInterfaceMember { return []HIRInterfaceMember{{PortID: p, When: present()}} }
+func guarded(ms []HIRInterfaceMember, p HIRPresence) []HIRInterfaceMember {
+	out := make([]HIRInterfaceMember, 0, len(ms))
+	for _, m := range ms {
+		m.When = all(m.When, p)
+		out = append(out, m)
+	}
+	return out
+}
+func plain(style HIRNodeStyle, label string) HIRPresentation {
+	return HIRPresentation{Value: HIRPlainPresentation{Style: style, Label: HIRText(label), Sections: HIRList[HIRLabelSection]{}, Disclosure: HIRDisclosure{Value: HIRNoDisclosure{}}}}
+}
+func groupStyle(profile HIRSpacingProfile) HIRGroupStyle {
+	v := HIRGroupVisibility{Node: true, Header: true, Container: true}
+	return HIRGroupStyle{Profile: profile, Root: v, Inline: v}
+}
+func local(id string) HIREmission {
+	return HIREmission{Value: HIRLocalEmission{ItemID: id, When: present()}}
+}
+func (b *graphBuilder) emit(kind string, e HIREmission) {
+	apply := func(p *HIREmissionPlan) {
+		switch kind {
+		case "nodes":
+			p.Nodes = append(p.Nodes, e)
+		case "ports":
+			p.Ports = append(p.Ports, e)
+		case "edges":
+			p.Edges = append(p.Edges, e)
+		}
+	}
+	apply(&b.graph.Emission.Root)
+	if !b.rootOnly {
+		apply(&b.graph.Emission.Inline)
+	}
+}
+func (b *graphBuilder) source(id string, n ast.Node) (LocatedModel, error) {
+	return b.l.located(id, n)
+}
+func (b *graphBuilder) addNode(id, occ, source string, p HIRPresentation) string {
+	b.graph.Nodes = append(b.graph.Nodes, HIRNode{ID: id, OccurrenceKey: occ, SourceID: source, Presentation: p, Body: HIRNodeBody{Value: HIRLeafBody{}}})
+	b.emit("nodes", local(id))
+	return id
+}
+func (b *graphBuilder) node(id string) *HIRNode {
+	for i := range b.graph.Nodes {
+		if b.graph.Nodes[i].ID == id {
+			return &b.graph.Nodes[i]
+		}
+	}
+	panic("missing node " + id)
+}
+func (b *graphBuilder) addPort(node string, role HIRPortRole) string {
+	id := node + ":" + string(role)
+	if b.ports[id] {
+		return id
+	}
+	b.ports[id] = true
+	anchor := HIRAnchorKindBottomCenter
+	switch role {
+	case HIRPortRoleEntry:
+		anchor = HIRAnchorKindTopCenter
+	case HIRPortRoleTrue:
+		anchor = HIRAnchorKindHeaderLeft
+	case HIRPortRoleFalse, HIRPortRolePanic:
+		anchor = HIRAnchorKindHeaderRight
+	case HIRPortRoleNextIteration:
+		anchor = HIRAnchorKindIterationMarker
+	}
+	b.graph.Ports = append(b.graph.Ports, HIRPort{ID: id, NodeID: node, Role: role, Anchor: HIRAnchor{Kind: anchor}})
+	b.emit("ports", local(id))
+	return id
+}
+
+// setPortPresenceIfNeeded keeps first-use port ordering while suppressing ports
+// whose continuation is unavailable in a particular disclosure state.
+func (b *graphBuilder) setPortPresenceIfNeeded(port string, when HIRPresence) {
+	for _, plan := range []*HIREmissionPlan{&b.graph.Emission.Root, &b.graph.Emission.Inline} {
+		for i := range plan.Ports {
+			switch slot := plan.Ports[i].Value.(type) {
+			case HIRLocalEmission:
+				if slot.ItemID == port {
+					slot.When = when
+					plan.Ports[i].Value = slot
+				}
+			case *HIRLocalEmission:
+				if slot.ItemID == port {
+					slot.When = when
+				}
+			}
+		}
+	}
+}
+
+func edgeStyle(kind HIREdgeKind, label string) HIREdgeStyle {
+	s := HIREdgeStyle{Kind: kind, Routing: HIRRoutingDirect}
+	if label != "" {
+		s.Label = &label
+	}
+	switch kind {
+	case HIREdgeKindTrue:
+		s.Routing = HIRRoutingBranchLeft
+	case HIREdgeKindFalse, HIREdgeKindError:
+		s.Routing = HIRRoutingBranchRight
+	case HIREdgeKindBack, HIREdgeKindContinue:
+		s.Routing = HIRRoutingBack
+	}
+	return s
+}
+func (b *graphBuilder) addEdge(from, to string, kind HIREdgeKind, label string, when HIRPresence) {
+	if from == "" || to == "" {
+		return
+	}
+	id := fmt.Sprintf("edge/%d", len(b.graph.Edges))
+	b.graph.Edges = append(b.graph.Edges, HIREdge{ID: id, FromPort: from, ToPort: to, HIREdgeStyle: edgeStyle(kind, label), When: when})
+	b.emit("edges", HIREmission{Value: HIRLocalEmission{ItemID: id, When: when}})
+}
+func (b *graphBuilder) connect(from, to []HIRInterfaceMember, kind HIREdgeKind) {
+	for _, f := range from {
+		for _, t := range to {
+			b.addEdge(f.PortID, t.PortID, kind, "", all(f.When, t.When))
+		}
+	}
+}
+func (b *graphBuilder) group(node string, profile HIRSpacingProfile, left, right []string, columns bool) {
+	id := node + "/group"
+	var a HIRArrangementValue = HIRSequenceArrangement{Members: append(HIRList[string]{}, left...)}
+	if columns {
+		a = HIRColumnsArrangement{Left: append(HIRList[string]{}, left...), Right: append(HIRList[string]{}, right...)}
+	}
+	b.graph.Groups = append(b.graph.Groups, HIRGroup{ID: id, Arrangement: HIRArrangement{Value: a}, Style: groupStyle(profile)})
+	b.node(node).Body = HIRNodeBody{Value: HIRGroupBody{GroupID: id}}
+	// Group layout is explicit lowering input: foreach enters its body from
+	// the header's bottom center, unlike the left branch of if/while.
+	for i := range b.graph.Ports {
+		port := &b.graph.Ports[i]
+		if port.NodeID != node {
+			continue
+		}
+		if profile == HIRSpacingProfileIf && port.Role == HIRPortRoleNormalExit {
+			port.Anchor.Kind = HIRAnchorKindGroupBottomCenter
+		}
+		if profile == HIRSpacingProfileForeach && port.Role == HIRPortRoleTrue {
+			port.Anchor.Kind = HIRAnchorKindHeaderBottomCenter
+		}
+	}
+}
+func (b *graphBuilder) lowerBlock(path string, nodes []ast.StatementNode) (fragment, error) {
+	return b.lowerBlockAt(path, path, nodes)
+}
+func (b *graphBuilder) lowerBlockAt(sourcePath, occPath string, nodes []ast.StatementNode) (fragment, error) {
+	f := fragment{}
+	for i, n := range nodes {
+		id := fmt.Sprintf("%s/statement/%d", sourcePath, i)
+		var part fragment
+		var err error
+		if block, ok := n.(*ast.BLangBlockStmt); ok {
+			part, err = b.lowerBlockAt(id+"/block", occPath, block.Stmts)
+		} else {
+			part, err = b.lowerStatement(id, occPath+"/"+id, n)
+		}
+		if err != nil {
+			return f, err
+		}
+		// A flattened empty block contributes no control-flow region. In
+		// particular it must not erase its predecessor's normal completion.
+		// Do not use entry alone: unsupported regions can have no incoming
+		// members while still contributing nodes or terminal effects.
+		if part.empty() {
+			continue
+		}
+		if f.empty() {
+			f.entry = part.entry
+		}
+		b.connect(f.normal, part.entry, HIREdgeKindSequence)
+		f.normal = part.normal
+		f.nodes = append(f.nodes, part.nodes...)
+		f.returns = append(f.returns, part.returns...)
+		f.breaks = append(f.breaks, part.breaks...)
+		f.continues = append(f.continues, part.continues...)
+		appendPanics(&f, part)
+	}
+	return f, nil
+}
+func (l *lowerer) lowerFunction(fn sourceFunctionEntry) (HIRGraph, error) {
+	b := &graphBuilder{l: l, ports: map[string]bool{}}
+	location, locationError := l.located(fn.id, fn.node)
+	if locationError != nil {
+		return HIRGraph{}, locationError
+	}
+	b.graph = HIRGraph{LocatedModel: location, ModuleID: fn.moduleID}
+	entryMetadata, entryError := l.lowerEntry(fn)
+	if entryError != nil {
+		return HIRGraph{}, entryError
+	}
+	b.graph.Entry = entryMetadata
+	var f fragment
+	var err error
+	switch body := fn.node.GetBody().(type) {
+	case *ast.BLangBlockFunctionBody:
+		f, err = b.lowerBlock(fn.id, body.Stmts)
+	case *ast.BLangExprFunctionBody:
+		f, err = b.lowerExpressionReturn(fn.id+"/expression", fn.id+"/"+fn.id+"/expression", body.Expr)
+	default:
+		sid := fn.id + "/body"
+		if _, err := b.source(sid, fn.node); err != nil {
+			return HIRGraph{}, err
+		}
+		node := b.addNode(fn.id+"/"+sid, fn.id+"/"+sid, sid, plain(HIRNodeStyleUnsupported, "Function body is unavailable for visualization."))
+		f = fragment{nodes: []string{node}, entry: member(b.addPort(node, HIRPortRoleEntry))}
+	}
+	if err != nil {
+		return HIRGraph{}, err
+	}
+	return b.finish(fn.id, f), nil
+}
+func (b *graphBuilder) finish(id string, f fragment) HIRGraph {
+	b.rootOnly = true
+	root := id + "/root"
+	b.addNode(root, root, id, plain(HIRNodeStyleFunction, ""))
+	b.group(root, HIRSpacingProfileRoot, f.nodes, nil, false)
+	gid := root + "/group"
+	for i := range b.graph.Groups {
+		if b.graph.Groups[i].ID == gid {
+			b.graph.Groups[i].Style.Root = HIRGroupVisibility{Node: true, Container: true}
+			b.graph.Groups[i].Style.Inline = HIRGroupVisibility{}
+		}
+	}
+	b.graph.RootGroup = id + "/graph"
+	b.graph.Groups = append(b.graph.Groups, HIRGroup{ID: b.graph.RootGroup, Arrangement: HIRArrangement{Value: HIRSequenceArrangement{Members: HIRList[string]{root}}}, Style: groupStyle(HIRSpacingProfileSequence)})
+	entry := b.addPort(root, HIRPortRoleEntry)
+	exit := b.addPort(root, HIRPortRoleNormalExit)
+	rootConnect := func(name string, from []HIRInterfaceMember, to string) {
+		binding := root + "/binding/" + name
+		b.graph.Interfaces = append(b.graph.Interfaces, HIRInterface{ID: "root/" + name, Members: append(HIRList[HIRInterfaceMember]{}, from...), Exports: HIRList[HIRInterfaceExport]{}, Root: HIRRootTreatment{Value: HIRConnectRoot{BindingID: binding, ToPort: to, Edge: edgeStyle(HIREdgeKindSequence, "")}}})
+		b.emit("edges", HIREmission{Value: HIRBindingEmission{BindingID: binding, When: present()}})
+	}
+	if len(f.entry) == 0 {
+		rootConnect("entry", member(entry), exit)
+	} else {
+		for i, m := range f.entry {
+			rootConnect(fmt.Sprintf("entry/%d", i), guarded(member(entry), m.When), m.PortID)
+		}
+	}
+	rootConnect("normal", f.normal, exit)
+	for _, v := range []struct {
+		id string
+		ms []HIRInterfaceMember
+	}{{"entry", f.entry}, {"normal", f.normal}, {"returns", f.returns}, {"panics", f.panics}} {
+		found := false
+		for i := range b.graph.Interfaces {
+			if b.graph.Interfaces[i].ID == v.id {
+				b.graph.Interfaces[i].Members = append(HIRList[HIRInterfaceMember]{}, v.ms...)
+				found = true
+			}
+		}
+		if !found {
+			b.graph.Interfaces = append(b.graph.Interfaces, HIRInterface{ID: v.id, Members: append(HIRList[HIRInterfaceMember]{}, v.ms...), Exports: HIRList[HIRInterfaceExport]{}, Root: HIRRootTreatment{Value: HIRTerminalRoot{}}})
+		}
+	}
+	for _, exp := range f.panicExports {
+		b.addPanicExport(exp.reference, exp.before)
+	}
+	b.orderNodes(root)
+	return b.graph
+}
+
+// Node streams follow explicit ownership, while port and edge streams retain
+// their construction/first-use ordering.
+func (b *graphBuilder) orderNodes(root string) {
+	b.graph.Emission.Root.Nodes = HIRList[HIREmission]{}
+	b.graph.Emission.Inline.Nodes = HIRList[HIREmission]{}
+	var walk func(string, bool)
+	walk = func(id string, include bool) {
+		n := b.node(id)
+		if include {
+			b.graph.Emission.Root.Nodes = append(b.graph.Emission.Root.Nodes, local(id))
+			if id != root {
+				b.graph.Emission.Inline.Nodes = append(b.graph.Emission.Inline.Nodes, local(id))
+			}
+		}
+		switch body := n.Body.Value.(type) {
+		case HIRGroupBody:
+			for _, g := range b.graph.Groups {
+				if g.ID == body.GroupID {
+					var children []string
+					switch a := g.Arrangement.Value.(type) {
+					case HIRSequenceArrangement:
+						children = a.Members
+					case HIRColumnsArrangement:
+						children = append(append([]string{}, a.Left...), a.Right...)
+					case HIRContainerArrangement:
+						children = a.Members
+					}
+					for _, child := range children {
+						walk(child, true)
+					}
+					break
+				}
+			}
+		case HIRReferenceBody:
+			e := HIREmission{Value: HIRChildEmission{ReferenceNodeID: id, When: present()}}
+			b.graph.Emission.Root.Nodes = append(b.graph.Emission.Root.Nodes, e)
+			b.graph.Emission.Inline.Nodes = append(b.graph.Emission.Inline.Nodes, e)
+		}
+	}
+	walk(root, true)
+}
+func trimBinding(text string) string {
+	return strings.TrimSpace(strings.TrimSuffix(strings.TrimSpace(text), "="))
+}

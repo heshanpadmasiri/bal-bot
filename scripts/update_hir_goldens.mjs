@@ -155,7 +155,11 @@ if (process.argv.length !== 2) throw Error('Usage: npm run test:hir:update (no a
 checkBrowserInventory();
 const catalog = JSON.parse(readFileSync(path.join(root, 'tests/fixtures/flow-rendering/inputs/catalog.json'), 'utf8'));
 for (const case_ of manifest.cases) {
-  if (case_.kind !== 'project') continue;
+  if (case_.kind !== 'project') {
+    if (case_.ast !== null || case_.hir !== null) throw Error(`Synthetic input must explicitly omit AST/HIR: ${case_.id}`);
+    continue;
+  }
+  if (case_.hir !== (case_.ast === null ? null : 'hir.golden.json')) throw Error(`HIR expectation must match resolved AST availability: ${case_.id}`);
   if (path.basename(case_.directory) !== case_.directory || ['.', '..'].includes(case_.directory)) throw Error(`Unsafe corpus directory: ${case_.directory}`);
   const files = sources(path.join(base, case_.directory, 'source'));
   for (const [name, source] of Object.entries(files)) {
@@ -172,7 +176,7 @@ if (result.error) throw result.error;
 process.exitCode = result.status ?? 1;
 if (result.status === 0) {
   const projects = manifest.cases.filter(case_ => case_.kind === 'project');
-  console.log(`Updated ${projects.filter(case_ => case_.ast !== null).length} AST and ${projects.length} diagnostic goldens; ${manifest.cases.length - projects.length} synthetic inputs explicitly have no AST. No HIR or frozen render artifacts written.`);
+  console.log(`Updated ${projects.filter(case_ => case_.ast !== null).length} AST/HIR and ${projects.length} diagnostic goldens; ${manifest.cases.length - projects.length} synthetic inputs explicitly have no AST or lowered HIR. No frozen render artifacts written.`);
 }
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

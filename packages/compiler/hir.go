@@ -318,7 +318,7 @@ const (
 
 type HIRLabelSection struct {
 	Kind HIRLabelSectionKind `json:"kind"`
-	Text string              `json:"text"`
+	Text HIRText             `json:"text"`
 }
 
 type HIRClientStyle string
@@ -345,7 +345,7 @@ func (v HIRHiddenPresentation) MarshalJSON() ([]byte, error) {
 
 type HIRPlainPresentation struct {
 	Style      HIRNodeStyle             `json:"style"`
-	Label      string                   `json:"label"`
+	Label      HIRText                  `json:"label"`
 	Sections   HIRList[HIRLabelSection] `json:"sections"`
 	Limitation *string                  `json:"limitation"`
 	Disclosure HIRDisclosure            `json:"disclosure"`
@@ -359,7 +359,7 @@ func (v HIRPlainPresentation) MarshalJSON() ([]byte, error) {
 
 type HIRClientPresentation struct {
 	Style      HIRClientStyle           `json:"style"`
-	Label      string                   `json:"label"`
+	Label      HIRText                  `json:"label"`
 	Sections   HIRList[HIRLabelSection] `json:"sections"`
 	Limitation *string                  `json:"limitation"`
 	Disclosure HIRDisclosure            `json:"disclosure"`
@@ -433,10 +433,24 @@ func (v HIRCallDisclosure) MarshalJSON() ([]byte, error) {
 	return hirTagged("call", payload(v))
 }
 
+// UnmarshalJSON keeps the nested client-context call field a strict call variant.
+func (v *HIRCallDisclosure) UnmarshalJSON(data []byte) error {
+	kind, payload, err := hirVariant(data)
+	if err != nil {
+		return err
+	}
+	if kind != "call" {
+		return fmt.Errorf("expected call disclosure, got %q", kind)
+	}
+	type wire HIRCallDisclosure
+	return hirDecode(payload, (*wire)(v))
+}
+
 type HIRClientContextDisclosure struct {
-	OccurrenceKey string          `json:"occurrenceKey"`
-	Collapsed     HIRLabelContent `json:"collapsed"`
-	Expanded      HIRLabelContent `json:"expanded"`
+	Call          *HIRCallDisclosure `json:"call"`
+	OccurrenceKey string             `json:"occurrenceKey"`
+	Collapsed     HIRLabelContent    `json:"collapsed"`
+	Expanded      HIRLabelContent    `json:"expanded"`
 }
 
 func (HIRClientContextDisclosure) isHIRDisclosure() {}
@@ -466,7 +480,12 @@ func (v *HIRDisclosure) UnmarshalJSON(data []byte) error {
 	case "none":
 		value = new(HIRNoDisclosure)
 	case "call":
-		value = new(HIRCallDisclosure)
+		var call HIRCallDisclosure
+		if err := json.Unmarshal(data, &call); err != nil {
+			return err
+		}
+		v.Value = &call
+		return nil
 	case "client-context":
 		value = new(HIRClientContextDisclosure)
 	default:
@@ -480,16 +499,16 @@ func (v *HIRDisclosure) UnmarshalJSON(data []byte) error {
 }
 
 type HIRLabelContent struct {
-	Label    string                   `json:"label"`
+	Label    HIRText                  `json:"label"`
 	Sections HIRList[HIRLabelSection] `json:"sections"`
 }
 
 type HIRRecursivePresentation struct {
-	Label      string                   `json:"label"`
+	Label      HIRText                  `json:"label"`
 	Sections   HIRList[HIRLabelSection] `json:"sections"`
 	Limitation *string                  `json:"limitation"`
-	Title      string                   `json:"title"`
-	AriaLabel  string                   `json:"ariaLabel"`
+	Title      HIRText                  `json:"title"`
+	AriaLabel  HIRText                  `json:"ariaLabel"`
 	Glyph      string                   `json:"glyph"`
 }
 
