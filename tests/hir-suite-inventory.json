@@ -9,6 +9,12 @@
       "coverageCommand": "npm run test:playground:browser"
     },
     {
+      "file": "packages/compiler/tests/browser/xml-navigation.spec.mjs",
+      "rendering": true,
+      "purpose": "Pending post-baseline XML navigation and filter selection-card acceptance cases; explicitly skipped until implementation, with no passing feature or frozen coverage claims.",
+      "coverageCommand": "npm run test:browser -- packages/compiler/tests/browser/xml-navigation.spec.mjs"
+    },
+    {
       "file": "packages/compiler/hir_error_constructor_postbaseline_test.go",
       "rendering": true,
       "purpose": "Post-baseline error-constructor flow presentation, contexts and argument-effect coverage; no frozen corpus or baseline claims.",
