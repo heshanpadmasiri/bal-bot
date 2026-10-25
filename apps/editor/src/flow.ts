@@ -5,9 +5,10 @@ export { instantiateGraph } from './hir-flow.ts';
 export interface Box { readonly x: number; readonly y: number; readonly width: number; readonly height: number; }
 export interface DiagramLayout { readonly diagram: Diagram; readonly boxes: Readonly<Record<Id, Box>>; readonly routes: readonly (readonly { readonly x: number; readonly y: number }[])[]; readonly width: number; readonly height: number; }
 
-export function layoutDiagram<D extends Diagram>(diagram: D, measure: (label: string) => {width: number; height: number}): Omit<DiagramLayout, 'diagram'> & {readonly diagram: D} {
+export function layoutDiagram<D extends Diagram>(diagram: D, measure: (label: string, node: DiagramNode) => {width: number; height: number}): Omit<DiagramLayout, 'diagram'> & {readonly diagram: D} {
   const boxes: Record<Id, Box> = {}, exits = new Map<Id, number>(), sizes = new Map<Id, {width: number; height: number}>();
   const gap = 52, padding = 30, lane = 48;
+  const measureNode = (node: DiagramNode) => measure(node.label, node);
   const renderNodes = new Map<Id, DiagramNode>();
   const collectNodes = (nodes: readonly DiagramNode[]) => { for (const node of nodes) { renderNodes.set(node.id, node); collectNodes(node.children); } };
   collectNodes(diagram.nodes);
@@ -56,7 +57,7 @@ export function layoutDiagram<D extends Diagram>(diagram: D, measure: (label: st
   for (const [id, node] of renderNodes) geometryNodes.set(id, node);
   const sequenceSize = (nodes: readonly DiagramNode[]) => { const dimensions = nodes.map(size); return {width: Math.max(240, ...dimensions.map(d => d.width)), height: dimensions.reduce((h, d) => h + d.height + gap, 0)}; };
   const size = (node: DiagramNode): {width: number; height: number} => {
-    const label = measure(node.label), layout = node.layout, header = Math.max(52, label.height + 28), own = Math.max(240, Math.min(440, label.width + 72));
+    const label = measureNode(node), layout = node.layout, header = Math.max(52, label.height + 28), own = Math.max(240, Math.min(440, label.width + 72));
     let result: {width: number; height: number};
     if (layout.split !== undefined) {
       const left = sequenceSize(node.children.slice(0, layout.split)), right = sequenceSize(node.children.slice(layout.split));
@@ -68,8 +69,8 @@ export function layoutDiagram<D extends Diagram>(diagram: D, measure: (label: st
   layoutNodes.forEach(size);
   const placeSequence = (nodes: readonly DiagramNode[], x: number, y: number, width: number) => { for (const node of nodes) { const s = sizes.get(node.id)!; place(node, x + (width - s.width) / 2, y); y += s.height + gap; } };
   const place = (node: DiagramNode, x: number, y: number) => {
-    const s = sizes.get(node.id)!, layout = node.layout, header = Math.max(52, measure(node.label).height + 28);
-    const conditionWidth = Math.max(240, Math.min(440, measure(node.label).width + 72));
+    const s = sizes.get(node.id)!, layout = node.layout, header = Math.max(52, measureNode(node).height + 28);
+    const conditionWidth = Math.max(240, Math.min(440, measureNode(node).width + 72));
     boxes[node.id] = layout.split !== undefined ? {x: x + (s.width - conditionWidth) / 2, y, width: conditionWidth, height: header} : {x, y, ...s};
     exits.set(node.id, y + s.height);
     if (layout.split !== undefined) {
@@ -101,7 +102,7 @@ export function layoutDiagram<D extends Diagram>(diagram: D, measure: (label: st
       for (const sibling of siblings.slice(0, index).reverse()) { const previous = placedBounds(sibling); if (previous) return { x: previous.x + previous.width / 2, y: previous.y + previous.height, width: 0, height: 0 }; }
       if (!parent) return { x: 40 + total.width / 2, y: 40, width: 0, height: 0 };
       const owner = renderNodes.get(parent), box = boxes[parent];
-      if (owner && box) return { x: box.x + box.width / 2, y: box.y + (owner.layout.root ? 0 : Math.max(52, measure(owner.label).height + 28) + gap), width: 0, height: 0 };
+      if (owner && box) return { x: box.x + box.width / 2, y: box.y + (owner.layout.root ? 0 : Math.max(52, measureNode(owner).height + 28) + gap), width: 0, height: 0 };
       current = parent;
     }
   };
@@ -115,7 +116,7 @@ export function layoutDiagram<D extends Diagram>(diagram: D, measure: (label: st
   for (const [id, box] of hiddenBounds) { boxes[id] = box; exits.set(id, box.y + box.height); }
   const point = (id: Id) => {
     const p = portMap.get(id)!; const b = boxes[p.nodeId], node = geometryNodes.get(p.nodeId)!;
-    const header = renderNodes.has(node.id) ? Math.max(52, measure(node.label).height + 28) : 0;
+    const header = renderNodes.has(node.id) ? Math.max(52, measureNode(node).height + 28) : 0;
     switch (p.anchor.kind) {
       case 'top-center': return {x: b.x + b.width / 2, y: b.y - (node.layout.root ? 24 : 0)};
       case 'iteration-marker': return {x: b.x + b.width / 2 - 70, y: b.y + b.height - 28};
@@ -132,7 +133,7 @@ export function layoutDiagram<D extends Diagram>(diagram: D, measure: (label: st
   const ancestor = (a: Id, id: Id) => { for (let p = parents.get(id); p; p = parents.get(p)) if (p === a) return true; return false; };
   const obstacles = [...sizes.keys()].filter(id => renderNodes.has(id)).map(id => {
     const node = findNode(diagram.nodes, id)!, box = boxes[id];
-    return {id, box: {...box, height: Math.max(52, measure(node.label).height + 28)}, root: node.layout.root};
+    return {id, box: {...box, height: Math.max(52, measureNode(node).height + 28)}, root: node.layout.root};
   }).filter(o => !o.root);
   const routes = diagram.edges.map(e => {
     const a = point(e.fromPort), b = point(e.toPort), from = portMap.get(e.fromPort)!, to = portMap.get(e.toPort)!, box = boxes[to.nodeId];

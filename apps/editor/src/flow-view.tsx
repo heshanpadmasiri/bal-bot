@@ -3,7 +3,7 @@ import type { FlowUI, Id, Located } from '@bal-bot/workspace';
 import { instantiateGraph } from './hir-flow';
 import type { DiagramNode, ExpansionPath } from './hir-diagram';
 import { layoutDiagram } from './flow';
-import { FlowSvg, flowBounds, labelSize, wrapLabel, type FlowSvgData, type FunctionInteraction } from './flow-svg';
+import { FlowSvg, flowBounds, nodeLabelSize, templateSections, wrapLabel, type FlowSvgData, type FunctionInteraction } from './flow-svg';
 import { FlowEntry } from './flow-entry';
 import { wrappedVariables } from './variable-text';
 import { FunctionCards } from './function-cards';
@@ -31,7 +31,7 @@ function FlowDiagram({flow, references, expanded, onToggle, onSelect, onOpenFunc
   const onVariableHover = (id: string | undefined) => setHover(ready && id ? {id, state, selection} : undefined);
   useEffect(() => { setHover(undefined); }, [state, selection, expanded]);
   const entryFunction = program && selection.kind === 'function' && Object.hasOwn(program.functions, selection.functionId) ? program.functions[selection.functionId] : undefined;
-  const layout = useMemo(() => program && selection.kind === 'function' ? layoutDiagram(instantiateGraph(program, selection.functionId, expanded), labelSize) : undefined, [program, selection.kind, selection.kind === 'function' ? selection.functionId : selection.scopeId, expanded]);
+  const layout = useMemo(() => program && selection.kind === 'function' ? layoutDiagram(instantiateGraph(program, selection.functionId, expanded), nodeLabelSize) : undefined, [program, selection.kind, selection.kind === 'function' ? selection.functionId : selection.scopeId, expanded]);
   const nodes: DiagramNode[] = [];
   const collect = (items: readonly DiagramNode[]) => { for (const n of items) {nodes.push(n); collect(n.children);} }; if (layout) collect(layout.diagram.nodes);
   const visible = nodes.filter(n => n.layout.visibility.node && n.layout.visibility.header && n.presentation.kind !== 'hidden');
@@ -54,8 +54,9 @@ function FlowDiagram({flow, references, expanded, onToggle, onSelect, onOpenFunc
         ariaLabel: recursivePresentation?.ariaLabel ?? `${reference.expanded ? 'Collapse' : 'Expand'} ${n.label}`,
         glyph: recursivePresentation?.glyph ?? (reference.expanded ? '−' : '+'),
       } : undefined;
-      return {calls: n.calls, id: n.id, kind: n.kind, selection: n.selection, label: n.label, box: layout.boxes[n.id], height: Math.max(52, labelSize(n.label).height + 28), selected: isReferenced(n.selection), container: n.layout.visibility.container && n.children.length > 0, recursive, client: presentation.kind === 'client',
-        text: lines.join('\n'), rawVariables: content.variables, variables: wrappedVariables(n.label, lines, content.variables), sections: sections.map(section => { const wrapped = wrapLabel(section.text); return {className: section.kind.startsWith('error-') ? section.kind : `client-${section.kind}`, text: wrapped.join('\n'), rawText: section.text, variables: wrappedVariables(section.text, wrapped, section.variables)}; }), context, call, unavailable};
+      const template = templateSections(n);
+      return {calls: n.calls, id: n.id, kind: n.kind, selection: n.selection, label: n.label, box: layout.boxes[n.id], height: Math.max(52, nodeLabelSize(n.label, n).height + 28), selected: isReferenced(n.selection), container: n.layout.visibility.container && n.children.length > 0, recursive, client: presentation.kind === 'client', template: !!template,
+        text: lines.join('\n'), rawVariables: content.variables, variables: wrappedVariables(n.label, lines, content.variables), sections: template ?? sections.map(section => { const wrapped = wrapLabel(section.text); return {className: section.kind.startsWith('error-') ? section.kind : `client-${section.kind}`, text: wrapped.join('\n'), rawText: section.text, variables: wrappedVariables(section.text, wrapped, section.variables)}; }), context, call, unavailable};
     }),
     edges: layout.diagram.edges.map((edge, i) => ({kind: edge.kind, label: edge.label, route: layout.routes[i]})),
     iterations: layout.diagram.ports.filter(p => p.anchor.kind === 'iteration-marker').map(p => ({id: p.id, box: layout.boxes[p.nodeId]})),

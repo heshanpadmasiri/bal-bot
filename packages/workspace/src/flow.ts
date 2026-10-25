@@ -78,7 +78,7 @@ export type HIRNodeBody = { readonly kind: 'leaf' }
 export type HIRNodeStyle = 'step' | 'condition' | 'function' | 'loop' | 'mapping' | 'unsupported' | 'return' | 'client' | 'trap' | 'panic' | 'template' | 'error-constructor';
 export interface HIRLabelSection {
   readonly variables?: readonly HIRVariableOccurrence[];
-  readonly kind: 'text' | 'receiver' | 'context' | 'method' | 'error-message' | 'error-cause' | 'error-detail';
+  readonly kind: 'text' | 'receiver' | 'context' | 'method' | 'error-message' | 'error-cause' | 'error-detail' | 'template-type' | 'template-expression';
   readonly text: string;
 }
 export type HIRPresentation = { readonly kind: 'hidden' }

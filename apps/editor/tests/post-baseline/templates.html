@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>String and XML template sample</title></head>
+<body><div id="editor-root"></div><script type="module">
+import '../browser/mount.tsx';
+window.mountEditor({
+  'Ballerina.toml': '[package]\norg = "demo"\nname = "templates"\nversion = "0.1.0"\n',
+  'main.bal': 'public function main() {\n' +
+    '    string name = "World";\n' +
+    '    string greeting = string `Hello ${name}!`;\n' +
+    '    xml element = xml `<greeting>${name}</greeting>`;\n' +
+    '    xml document = xml `<message audience="${name}">\n' +
+    '        <body>This longer template wraps naturally in the expression column.</body>\n' +
+    '    </message>`;\n' +
+    '    xml plain = xml `<message>Hello World</message>`;\n' +
+    '    _ = greeting;\n    _ = element;\n    _ = document;\n    _ = plain;\n}\n',
+});
+</script></body>
+</html>

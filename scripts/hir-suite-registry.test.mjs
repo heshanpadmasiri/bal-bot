@@ -25,6 +25,9 @@ test('post-baseline flow suites require separately registered executable render 
       r => {r.suites[0].rendering = false;},
       r => {r.suites.pop();},
       r => {r.renderCoverage[0].scenarios = ['not an executable test'];},
+      r => {r.renderCoverage[0].scenarios = [];},
+      r => {r.renderCoverage[0].scenarios = ['renders operand', 'renders operand'];},
+      r => {r.renderCoverage[0].file = 'apps/editor/tests/post-baseline/unknown.test.mjs';},
       r => {r.renderCoverage[0].file = '../outside.test.mjs';},
       r => {r.renderCoverage.push({...r.renderCoverage[0]});},
     ]) {
@@ -34,6 +37,27 @@ test('post-baseline flow suites require separately registered executable render 
     }
     writeFileSync(join(root, file), "// test('renders operand', async () => {});\n");
     assert.throws(() => validateRenderCoverage(registry, root), /Missing executable render scenario/);
+  } finally {rmSync(root, {recursive:true, force:true});}
+});
+
+test('explicit nested template renderer coverage requires executable scenarios and an existing file', () => {
+  const root = mkdtempSync(join(tmpdir(), 'hir-template-registry-'));
+  try {
+    const file = 'apps/editor/tests/post-baseline/template-rendering.test.mjs';
+    mkdirSync(dirname(join(root, file)), {recursive:true});
+    const registry = {
+      suites:[{file, rendering:true, coverage:['template-flow']}],
+      renderCoverage:[{id:'template-flow', file, scenarios:['renders template']}],
+    };
+    const write = source => writeFileSync(join(root, file), source);
+    write("test('renders template', () => {});\n");
+    assert.equal(validateRenderCoverage(registry, root).size, 1);
+    write("// test('renders template', () => {});\n");
+    assert.throws(() => validateRenderCoverage(registry, root), /Missing executable render scenario/);
+    write("test('renders template', () => {}); test('renders template', () => {});\n");
+    assert.throws(() => validateRenderCoverage(registry, root), /Missing executable render scenario/);
+    rmSync(join(root, file));
+    assert.throws(() => validateRenderCoverage(registry, root), /ENOENT/);
   } finally {rmSync(root, {recursive:true, force:true});}
 });
 
@@ -72,6 +96,25 @@ test('infrastructure requires explicit paths, purpose, exact hashes and unique n
 });
 
 const root = fileURLToPath(new URL('../', import.meta.url));
+test('template suites retain independently registered executable render coverage', () => {
+  const templates = [
+    'packages/compiler/hir_template_test.go',
+    'packages/compiler/hir_template_source_test.go',
+    'apps/editor/tests/post-baseline/template-rendering.test.mjs',
+  ];
+  const registry = JSON.parse(readFileSync(join(root, 'tests/hir-suite-inventory.json')));
+  for (const file of templates) {
+    const suite = registry.suites.find(entry => entry.file === file);
+    assert.equal(suite?.rendering, true);
+    assert.deepEqual(suite.coverage, ['template-flow']);
+  }
+  const coverage = validateRenderCoverage(registry, root);
+  assert.equal(coverage.get('template-flow')?.file, templates[2]);
+  const invalid = structuredClone(registry);
+  invalid.renderCoverage.find(entry => entry.id === 'template-flow').file = 'apps/editor/tests/post-baseline/unknown.test.mjs';
+  assert.throws(() => validateRenderCoverage(invalid, root), /Invalid post-baseline render coverage/);
+});
+
 test('browser collector excludes only audited infrastructure and checks mutation-repository bytes', () => {
   const repository = mkdtempSync(join(tmpdir(), 'hir-browser-infrastructure-'));
   try {

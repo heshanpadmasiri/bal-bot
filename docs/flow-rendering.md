@@ -16,6 +16,10 @@ The full suite retains normal unit and script tests, native Go compiler tests,
 compiler/editor browser tests in development and production, and standalone
 playground browser tests. These exercise the production HIR compiler and
 `FlowView`/`FlowEntry` renderer, including flow interactions and call expansion.
+String/XML template rendering has separate executable coverage in
+`apps/editor/tests/post-baseline/template-rendering.test.mjs`, registered alongside
+the native template suites in `tests/hir-suite-inventory.json`. These checks do
+not restore or extend the deleted frozen parity gate.
 No ordinary test regenerates AST/HIR/diagnostic goldens; updates require an
 explicit `npm run test:hir:update` invocation and review.
 

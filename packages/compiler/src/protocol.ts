@@ -123,7 +123,7 @@ function hirVariables(v: Record<string, unknown>, text: unknown, key = 'variable
   });
 }
 function hirSections(value: unknown): void {
-  hirList(value, item => { const v = hirObject(item, 'kind text', 'variables'); hirEnum(v.kind, 'text receiver context method error-message error-cause error-detail'); hirPresentationText(v.text); hirVariables(v, v.text); });
+  hirList(value, item => { const v = hirObject(item, 'kind text', 'variables'); hirEnum(v.kind, 'text receiver context method error-message error-cause error-detail template-type template-expression'); hirPresentationText(v.text); hirVariables(v, v.text); });
 }
 function hirLabel(value: unknown): void { const v = hirObject(value, 'label sections', 'variables'); hirPresentationText(v.label); hirVariables(v, v.label); hirSections(v.sections); }
 function hirAvailability(value: unknown): void {
@@ -189,6 +189,12 @@ function validateNode(value: unknown): HIRNode {
     hirEnum(p.style, 'step condition function loop mapping unsupported return client trap panic template error-constructor');
     if (p.kind === 'client') hirAssert(p.style === 'client');
     hirPresentationText(p.label); hirVariables(p, p.label); hirSections(p.sections); hirNullable(p.limitation);
+    const sections = p.sections as {kind: string; text: string}[];
+    if (sections.some(s => s.kind === 'template-type' || s.kind === 'template-expression')) {
+      hirAssert(p.kind === 'plain' && p.style === 'template' && sections.length === 2 &&
+        sections[0].kind === 'template-type' && ['string', 'xml'].includes(sections[0].text) &&
+        sections[1].kind === 'template-expression', 'invalid template sections');
+    }
     const d = hirObject(p.disclosure);
     switch (d.kind) {
       case 'none': hirObject(d, 'kind'); break;

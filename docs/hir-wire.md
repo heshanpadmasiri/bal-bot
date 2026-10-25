@@ -166,7 +166,15 @@ constructing the error itself adds no panic or return effect. A constructor-valu
 argument is rendered inside its enclosing error, not as a preceding flow node;
 only argument evaluations with their own modeled effects contribute preceding nodes.
 Plain text uses `text` sections; client sections explicitly use
-`receiver`, `context`, and `method`. Client-context disclosures carry both complete
+`receiver`, `context`, and `method`. String and XML templates share the `template`
+style and carry ordered `template-type` (`string` or `xml`) and
+`template-expression` sections. The latter preserves the backtick-delimited
+source without repeating its type. The renderer displays these as two columns;
+the complete label and source identity remain unchanged for accessibility and
+selection. Empty historical template sections remain accepted and render as a
+single label. XML without interpolations is also a template node, even when the
+frontend represents it as an optimized XML literal. Client-context disclosures
+carry both complete
 label/section alternatives and a required nullable `call` field containing the
 strict `call` variant. A short-context workspace client call uses `call` directly;
 a long-context workspace client call composes it inside `client-context`. The

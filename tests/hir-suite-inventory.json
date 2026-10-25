@@ -110,6 +110,24 @@
       "purpose": "Optional function-view and UTF-16 invocation-span wire validation against synthetic protocol data; no compilation, rendering or frozen coverage claims."
     },
     {
+      "file": "packages/compiler/hir_template_source_test.go",
+      "rendering": true,
+      "coverage": ["template-flow"],
+      "purpose": "Post-baseline XML attribute source-range regression checks for subsequent statements and documented declarations, including Unicode and CRLF."
+    },
+    {
+      "file": "packages/compiler/hir_template_test.go",
+      "rendering": true,
+      "coverage": ["template-flow"],
+      "purpose": "Post-baseline string/XML template lowering, source identity, interpolation ordering and section validation; rendering coverage lives separately in apps/editor/tests/post-baseline/template-rendering.test.mjs."
+    },
+    {
+      "file": "apps/editor/tests/post-baseline/template-rendering.test.mjs",
+      "rendering": true,
+      "coverage": ["template-flow"],
+      "purpose": "Independent two-column string/XML template measurement, literal markup and whole-source selection assertions; no frozen artifacts."
+    },
+    {
       "file": "apps/editor/tests/hir-hidden-layout.test.mjs",
       "rendering": false,
       "purpose": "Post-baseline generic hidden-owner anchor and transparent layout contracts; no SVG/HTML baseline generation or new frozen coverage claims."
@@ -177,6 +195,11 @@
     }
   ],
   "renderCoverage": [
+    {
+      "id": "template-flow",
+      "file": "apps/editor/tests/post-baseline/template-rendering.test.mjs",
+      "scenarios": ["template columns measure expression wrapping, render literal text, and select the whole source"]
+    },
     {
       "id": "type-cast-flow",
       "file": "apps/editor/tests/hir-type-cast-render.test.mjs",

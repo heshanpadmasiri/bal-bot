@@ -31,7 +31,7 @@ export function validateRenderCoverage(registry, root) {
   const coverage = new Map();
   for (const entry of registry.renderCoverage ?? []) {
     if (!entry || typeof entry.id !== 'string' || !entry.id.trim() || coverage.has(entry.id) ||
-        !/^apps\/editor\/tests\/hir-[a-z0-9-]+\.test\.mjs$/.test(entry.file) ||
+        !/^(?:apps\/editor\/tests\/hir-[a-z0-9-]+\.test\.mjs|apps\/editor\/tests\/post-baseline\/template-rendering\.test\.mjs)$/.test(entry.file) ||
         !Array.isArray(entry.scenarios) || !entry.scenarios.length ||
         entry.scenarios.some(name => typeof name !== 'string' || !name.trim()) ||
         new Set(entry.scenarios).size !== entry.scenarios.length) throw Error('Invalid post-baseline render coverage');

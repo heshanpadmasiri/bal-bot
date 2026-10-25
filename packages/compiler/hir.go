@@ -343,13 +343,15 @@ const (
 type HIRLabelSectionKind string
 
 const (
-	HIRLabelSectionKindText         HIRLabelSectionKind = "text"
-	HIRLabelSectionKindReceiver     HIRLabelSectionKind = "receiver"
-	HIRLabelSectionKindContext      HIRLabelSectionKind = "context"
-	HIRLabelSectionKindMethod       HIRLabelSectionKind = "method"
-	HIRLabelSectionKindErrorMessage HIRLabelSectionKind = "error-message"
-	HIRLabelSectionKindErrorCause   HIRLabelSectionKind = "error-cause"
-	HIRLabelSectionKindErrorDetail  HIRLabelSectionKind = "error-detail"
+	HIRLabelSectionKindText               HIRLabelSectionKind = "text"
+	HIRLabelSectionKindReceiver           HIRLabelSectionKind = "receiver"
+	HIRLabelSectionKindContext            HIRLabelSectionKind = "context"
+	HIRLabelSectionKindMethod             HIRLabelSectionKind = "method"
+	HIRLabelSectionKindErrorMessage       HIRLabelSectionKind = "error-message"
+	HIRLabelSectionKindErrorCause         HIRLabelSectionKind = "error-cause"
+	HIRLabelSectionKindErrorDetail        HIRLabelSectionKind = "error-detail"
+	HIRLabelSectionKindTemplateType       HIRLabelSectionKind = "template-type"
+	HIRLabelSectionKindTemplateExpression HIRLabelSectionKind = "template-expression"
 )
 
 type HIRLabelSection struct {

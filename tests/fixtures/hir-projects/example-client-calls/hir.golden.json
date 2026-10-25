@@ -5175,7 +5175,16 @@
             ],
             "style": "template",
             "label": "string `hello ${person.first_name} ${person.last_name}`",
-            "sections": [],
+            "sections": [
+              {
+                "kind": "template-type",
+                "text": "string"
+              },
+              {
+                "kind": "template-expression",
+                "text": "`hello ${person.first_name} ${person.last_name}`"
+              }
+            ],
             "limitation": null,
             "disclosure": {
               "kind": "none"
