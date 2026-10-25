@@ -17,7 +17,7 @@ const temporary = await mkdtemp(join(tmpdir(), 'hir-browser-checks-'));
 let child, browser;
 try {
   const origin = await new Promise((accept, reject) => {
-    child = fork(resolve('scripts/flow-parity/server.mjs'), ['development', temporary, '--hir'], {stdio: ['ignore', 'inherit', 'inherit', 'ipc']});
+    child = fork(resolve('scripts/flow-parity/server.mjs'), ['development', temporary], {stdio: ['ignore', 'inherit', 'inherit', 'ipc']});
     const timer = setTimeout(() => reject(Error('HIR server startup timed out')), 180000);
     child.once('message', ({port}) => {clearTimeout(timer); accept(`http://127.0.0.1:${port}`);});
     child.once('error', error => {clearTimeout(timer); reject(error);});
@@ -74,7 +74,7 @@ try {
       hirOnly: window.hirChecks.programs.every(item => item.program.sources && Object.values(item.program.functions).every(fn => Array.isArray(fn.ports))),
       control: window.controlAnalysis, controlledRequests: window.analysisRequests.length,
     }));
-    assert.equal(state.component, 'HIRFlowView');
+    assert.equal(state.component, 'FlowView');
     assert.ok(state.hirOnly && state.immutable, 'Actual stored HIR programs must remain unchanged');
     assert.ok(state.initial.analyze > 0, 'Compiler spy must observe initial real analysis');
     assert.equal(state.analyze, state.initial.analyze, 'UI expansion/selection must not analyze again');

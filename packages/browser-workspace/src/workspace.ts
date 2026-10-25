@@ -1,6 +1,6 @@
 import type { Compiler } from '@bal-bot/compiler';
 import type { DiagnosticsResult, StorageState } from '@bal-bot/workspace';
-import { type Workspace, type Service, type Endpoint, type Diff, type FlowUI, type Files, type Id, type Revision, type AnalysisState, type ProgramModel, type ScopeModel, type EndpointModel, type WorkspaceScope, type Automation } from '@bal-bot/workspace';
+import { type Workspace, type Service, type Endpoint, type Diff, type FlowUI, type Files, type Id, type Revision, type AnalysisState, type HIRProgram, type ScopeModel, type EndpointModel, type WorkspaceScope, type Automation } from '@bal-bot/workspace';
 import type { Agent, StreamFn } from '@earendil-works/pi-agent-core';
 import { createWorkspaceAgent } from './agent.ts';
 export type { Files } from '@bal-bot/workspace';
@@ -20,7 +20,7 @@ export class BrowserWorkspace implements Workspace {
   private readonly anchors = new Map<Id, BrowserAnchor>();
   private readonly retainedAnchors = new Set<BrowserAnchor>();
   private readonly metadata = new Map<Id, ScopeModel | (EndpointModel & {serviceId: Id})>();
-  private program?: ProgramModel;
+  private program?: HIRProgram;
   private analysis: AnalysisState = {kind: 'pending', revision: 0};
   private revision = 0;
   private analysisController?: AbortController;
@@ -87,7 +87,7 @@ export class BrowserWorkspace implements Workspace {
       this.publishAnalysis({kind: 'failed', revision, previous: this.program, message: error instanceof Error ? error.message : String(error)});
     }
   }
-  private reconcileAnchors(program: ProgramModel): void {
+  private reconcileAnchors(program: HIRProgram): void {
     const active = new Set((this.program?.scopes ?? []).flatMap(scope => scope.kind === 'service' ? [scope.id, ...scope.endpoints.map(e => e.id)] : [scope.id]));
     // Source order disambiguates identical service signatures. An ambiguous edit
     // retires those sessions instead of assigning one declaration another's chat.

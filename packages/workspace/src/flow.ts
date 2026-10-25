@@ -56,20 +56,20 @@ export type ScopeModel = Located & (
 export interface ProgramModel {
   readonly scopes: readonly ScopeModel[]; readonly functions: Readonly<Record<Id, FunctionModel>>;
 }
-export type AnalysisResult = { readonly kind: 'valid'; readonly program: ProgramModel; readonly diagnostics: readonly Diagnostic[] }
+export type AnalysisResult = { readonly kind: 'valid'; readonly program: HIRProgram; readonly diagnostics: readonly Diagnostic[] }
   | { readonly kind: 'invalid'; readonly diagnostics: readonly Diagnostic[] };
 export type AnalysisState =
-  | { readonly kind: 'pending'; readonly revision: Revision; readonly previous?: ProgramModel }
-  | { readonly kind: 'ready'; readonly revision: Revision; readonly program: ProgramModel; readonly diagnostics: readonly Diagnostic[] }
-  | { readonly kind: 'invalid'; readonly revision: Revision; readonly previous?: ProgramModel; readonly diagnostics: readonly Diagnostic[] }
-  | { readonly kind: 'failed'; readonly revision: Revision; readonly previous?: ProgramModel; readonly message: string };
+  | { readonly kind: 'pending'; readonly revision: Revision; readonly previous?: HIRProgram }
+  | { readonly kind: 'ready'; readonly revision: Revision; readonly program: HIRProgram; readonly diagnostics: readonly Diagnostic[] }
+  | { readonly kind: 'invalid'; readonly revision: Revision; readonly previous?: HIRProgram; readonly diagnostics: readonly Diagnostic[] }
+  | { readonly kind: 'failed'; readonly revision: Revision; readonly previous?: HIRProgram; readonly message: string };
 export interface FlowUI {
   readonly state: AnalysisState;
   readonly selection: { readonly kind: 'definitions'; readonly scopeId: Id }
     | { readonly kind: 'function'; readonly functionId: Id };
 }
 
-// HIR is deliberately alongside the legacy model until the bridge migration.
+// HIR is the analyze wire model; legacy model exports remain during migration.
 // See docs/hir-wire.md for identity, ordering, and nullability rules.
 export interface HIRProgram {
   readonly scopes: readonly ScopeModel[];

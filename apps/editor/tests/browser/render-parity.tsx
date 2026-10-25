@@ -4,6 +4,7 @@ import {createRoot, type Root} from 'react-dom/client';
 import {flushSync} from 'react-dom';
 import {FlowView, type FlowViewProps} from '../../src/flow-view';
 import {FlowEntry} from '../../src/flow-entry';
+import {hirFlow} from './hir-model-registry';
 
 // Synthetic graph fixtures deliberately lack entry metadata. Omit only the entry
 // component before React evaluates it; all SVG and graph HTML still come from
@@ -24,18 +25,6 @@ const renderInput = (props: FlowViewProps, graphOnly = false) => JSON.parse(JSON
   flow: props.flow, references: props.references, expanded: [...props.expanded], graphOnly,
 }));
 let root: Root | undefined;
-(window as any).mountIsolatedFlow = (input: any) => {
-  root?.unmount();
-  root = createRoot(document.getElementById('editor-root')!);
-  // DOM attribute insertion order depends on committed React prop transitions
-  // (e.g. ready -> failed adds disabled at the end). Replay explicit data only,
-  // not editor actions, and never normalize the resulting SVG.
-  for (const commit of input.commits ?? [input]) {
-    const props: FlowViewProps = {...commit, expanded: new Set(commit.expanded),
-      onToggle: () => {}, onSelect: () => {}, onOpenFunction: () => {}};
-    flushSync(() => root!.render(commit.graphOnly ? <GraphOnly {...props}/> : <FlowView {...props}/>));
-  }
-};
 (window as any).mountRenderParity = (input: any) => {
   (window as any).editorRoot?.unmount();
   (window as any).editorRoot = undefined;
@@ -46,8 +35,7 @@ let root: Root | undefined;
     const [expanded, setExpanded] = useState<ReadonlySet<string>>(new Set(input.expanded ?? []));
     const [references, setReferences] = useState<any[]>(input.references ?? []);
     const [selection, setSelection] = useState(input.selection);
-    const program = input.program;
-    const state = input.state ?? {kind: 'ready', revision: 1, program, diagnostics: []};
+    const state = hirFlow({state: input.state ?? {kind: 'ready', revision: 1, program: input.program, diagnostics: []}, selection}).flow.state;
     const props: FlowViewProps = {
       flow: {state, selection}, expanded, references,
       onToggle: path => setExpanded(old => {const next = new Set(old); if (next.has(path)) next.delete(path); else next.add(path); return next;}),

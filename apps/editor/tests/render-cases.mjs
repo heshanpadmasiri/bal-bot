@@ -32,6 +32,8 @@
  * frozen manifest recorder. loadRenderCases is read-only and asynchronous.
  */
 import {readFile, readdir} from 'node:fs/promises';
+import {loadMigrations, baselineSource} from '../../../scripts/hir-baseline-migrations.mjs';
+import {checkBrowserInventory} from '../../../scripts/update_hir_goldens.mjs';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {resolve} from 'node:path';
@@ -70,8 +72,10 @@ async function assertInventory(inventory, inputs) {
   if (canonical(exampleSources.sort()) !== canonical(recordedSources)) throw Error('Example source inventory drift: new/deleted project input');
   const tests = await discoverTests();
   await assertSuiteInventory(tests, inventory);
+  const migrations = loadMigrations(ROOT);
+  checkBrowserInventory();
   for (const [file, expected] of Object.entries(inventory.sourceHashes)) {
-    const actual = hash(await readFile(resolve(ROOT,file)));
+    const actual = hash(baselineSource(file, expected, ROOT, migrations));
     if (actual !== expected) throw Error(`Flow inventory input drift: ${file}`);
   }
   const ids = new Set();
@@ -100,7 +104,7 @@ async function assertInventory(inventory, inputs) {
 
 // This registry is deliberately outside the frozen input catalog. Its entries
 // are new contract/serialization tests, not additional baseline render coverage.
-async function assertSuiteInventory(tests, inventory) {
+export async function assertSuiteInventory(tests, inventory) {
   const registry = await readJSON('tests/hir-suite-inventory.json');
   if (registry.version !== 1 || registry.stage !== 'post-baseline' || !Array.isArray(registry.suites)) {
     throw Error('Invalid post-baseline HIR suite registry');
@@ -115,6 +119,15 @@ async function assertSuiteInventory(tests, inventory) {
       throw Error(`Invalid post-baseline non-rendering suite: ${suite.file}`);
     }
     registered.add(suite.file);
+  }
+  for (const helper of registry.helpers ?? []) {
+    if (typeof helper.file !== 'string' ||
+        !/^(?:apps\/editor\/tests\/hir-[a-z0-9-]+\.mjs|packages\/compiler\/tests\/[A-Za-z0-9_-]+\.mjs)$/.test(helper.file) ||
+        /\.(?:test|spec)\.mjs$/.test(helper.file) || helper.rendering !== false ||
+        typeof helper.purpose !== 'string' || !helper.purpose.trim() ||
+        baseline.has(helper.file) || registered.has(helper.file)) throw Error(`Invalid post-baseline test helper: ${helper.file}`);
+    registered.add(helper.file);
+    await readFile(resolve(ROOT,helper.file));
   }
   const discovered = new Set(tests);
   const missing = [...baseline].filter(file => !discovered.has(file));

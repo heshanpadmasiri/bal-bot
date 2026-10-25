@@ -1,4 +1,4 @@
-import { sourceText, type Located, type Revision, type Id, type AnalysisState, type Files, type SourceReference, type ProgramModel } from '@bal-bot/workspace';
+import { sourceText, type Located, type Revision, type Id, type AnalysisState, type Files, type SourceReference, type HIRProgram } from '@bal-bot/workspace';
 import type { AgentScope } from '@bal-bot/browser-workspace';
 export interface ReferenceChip extends Located { readonly revision: Revision; readonly stale: boolean; }
 export interface ChatDraft { readonly text: string; readonly references: readonly ReferenceChip[]; }
@@ -6,11 +6,8 @@ export function addReference(draft: ChatDraft, node: Located, revision: Revision
   return {...draft, references: [...draft.references.filter(r => r.id !== node.id), {...node, revision, stale: false}]};
 }
 export function removeReference(draft: ChatDraft, id: Id): ChatDraft { return {...draft, references: draft.references.filter(r => r.id !== id)}; }
-export function locatedNodes(program: ProgramModel): Map<Id, Located> {
-  const result = new Map<Id, Located>();
-  const visit = (value: unknown) => { if (Array.isArray(value)) {value.forEach(visit); return;} if (!value || typeof value !== 'object') return;
-    if ('id' in value && 'source' in value && 'text' in value) { const node = value as Located; result.set(node.id, node); } Object.values(value).forEach(visit);
-  }; visit(program); return result;
+export function locatedNodes(program: HIRProgram): Map<Id, Located> {
+  return new Map(Object.values(program.sources).map(node => [node.id, node]));
 }
 export function refreshReferences(draft: ChatDraft, state: AnalysisState, files: Files): ChatDraft {
   const nodes = state.kind === 'ready' ? locatedNodes(state.program) : undefined;

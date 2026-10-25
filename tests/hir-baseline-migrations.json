@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "baselineCommit": "280850fd",
+  "files": [
+    {
+      "file": "apps/editor/tests/flow.test.mjs",
+      "kind": "infrastructure",
+      "originalSHA256": "c5ebf603351eae6bcb30a687cbd4570d8a1a93288fd522dd7fcfc1a835155409",
+      "archive": "tests/legacy-baseline-sources/apps/editor/tests/flow.test.mjs.txt",
+      "currentSHA256": "58d40d1b830579093564653011f7eee7ebc15425b81f4b01fb88761357e938c3",
+      "extraction": {
+        "mode": "babel-infrastructure-inputs",
+        "scenarios": [
+          {
+            "original": "library calls render once as source steps and retain sequence connections",
+            "current": "library calls render once as source steps and retain sequence connections"
+          },
+          {
+            "original": "abrupt exits, empty branches and unsupported regions have no invented continuation",
+            "current": "abrupt exits, empty branches and unsupported regions have no invented continuation"
+          },
+          {
+            "original": "loops preserve nested break/continue ownership and foreach has no routine back edge",
+            "current": "loops preserve nested break/continue ownership and foreach has no routine back edge"
+          },
+          {
+            "original": "call occurrences expand independently; callee returns stay inside their call and recursion stays finite",
+            "current": "call occurrences expand independently; callee returns stay inside their call and recursion stays finite"
+          },
+          {
+            "original": "routing avoids unrelated source boxes through nested branch and loop lanes",
+            "current": "routing avoids unrelated source boxes through nested branch and loop lanes"
+          },
+          {
+            "original": "branch arrows leave opposite sides with orthogonal routes and top-level returns terminate",
+            "current": "branch arrows leave opposite sides with orthogonal routes and top-level returns terminate"
+          },
+          {
+            "original": "direct and mutual recursion retain call sites and continuations even with stale expansion paths",
+            "current": "direct and mutual recursion retain call sites and continuations even with stale expansion paths"
+          },
+          {
+            "original": "generic client cards preserve constructor and named arguments with explicit check returns",
+            "current": "generic client cards preserve constructor and named arguments with explicit check returns"
+          },
+          {
+            "original": "trap captures panic paths while check returns escape the operand scope",
+            "current": "trap captures panic paths while check returns escape the operand scope"
+          },
+          {
+            "original": "long initialization expands without truncating call arguments or losing source selection",
+            "current": "long initialization expands without truncating call arguments or losing source selection"
+          }
+        ],
+        "additionalScenarios": [],
+        "syntheticFixtures": {
+          "library calls render once as source steps and retain sequence connections": [
+            "0e585848"
+          ],
+          "abrupt exits, empty branches and unsupported regions have no invented continuation": [
+            "87a51d4b"
+          ],
+          "loops preserve nested break/continue ownership and foreach has no routine back edge": [
+            "8e68a39e"
+          ],
+          "call occurrences expand independently; callee returns stay inside their call and recursion stays finite": [
+            "27e9ce81"
+          ],
+          "routing avoids unrelated source boxes through nested branch and loop lanes": [
+            "4da8284a"
+          ],
+          "branch arrows leave opposite sides with orthogonal routes and top-level returns terminate": [
+            "a9456a30"
+          ],
+          "direct and mutual recursion retain call sites and continuations even with stale expansion paths": [
+            "1ca693d7"
+          ],
+          "generic client cards preserve constructor and named arguments with explicit check returns": [
+            "1932f6b5"
+          ],
+          "trap captures panic paths while check returns escape the operand scope": [
+            "68d03633"
+          ],
+          "long initialization expands without truncating call arguments or losing source selection": [
+            "86935bf5"
+          ]
+        }
+      }
+    },
+    {
+      "file": "apps/editor/tests/references.test.mjs",
+      "kind": "infrastructure",
+      "originalSHA256": "97d8797c65785020279836b0e42bd5152ffde44b519c2885ecaaacb62de957c3",
+      "archive": "tests/legacy-baseline-sources/apps/editor/tests/references.test.mjs.txt",
+      "currentSHA256": "cccb850f4e0fca552c39e36ed90286e62f76abd1736308c7f2d7ddaebd8e5d2c",
+      "extraction": {
+        "mode": "babel-infrastructure-inputs",
+        "scenarios": [
+          {
+            "original": "references preserve prose, deduplicate source identity, format occupied rows and serialize exact Unicode text",
+            "current": "references preserve prose, deduplicate source identity, format occupied rows and serialize exact Unicode text"
+          },
+          {
+            "original": "saved revisions invalidate chips; only identical identity/range/text refresh, and serialization rejects stale revisions",
+            "current": "saved revisions invalidate chips; only identical identity/range/text refresh, and serialization rejects stale revisions"
+          },
+          {
+            "original": "plain prose remains sendable for repairs while old source is stale",
+            "current": "plain prose remains sendable for repairs while old source is stale"
+          }
+        ],
+        "additionalScenarios": [],
+        "syntheticFixtures": {}
+      }
+    },
+    {
+      "file": "packages/browser-workspace/tests/analysis.test.mjs",
+      "kind": "infrastructure",
+      "originalSHA256": "ed7ec03cf4af535017d9e47550410619f5eefaa019a8940183f55f7d559c2ddf",
+      "archive": "tests/legacy-baseline-sources/packages/browser-workspace/tests/analysis.test.mjs.txt",
+      "currentSHA256": "8d20adf7621398c38c8626dbeffe37ad0b41065d35ba4b82429c5759eb0135a2",
+      "extraction": {
+        "mode": "babel-infrastructure-inputs",
+        "scenarios": [
+          {
+            "original": "revision publication ignores obsolete completions, retains agents and aborts removed anchors on storage failure",
+            "current": "revision publication ignores obsolete completions, retains agents and aborts removed anchors on storage failure"
+          },
+          {
+            "original": "initial invalid and failed analysis settle discovery without invented anchors; aborted flow rejects",
+            "current": "initial invalid and failed analysis settle discovery without invented anchors; aborted flow rejects"
+          },
+          {
+            "original": "a declaration removed by a valid model gets a new agent if recreated with the same signature",
+            "current": "a declaration removed by a valid model gets a new agent if recreated with the same signature"
+          },
+          {
+            "original": "storage failure aborts retained service, endpoint and Automation agents",
+            "current": "storage failure aborts retained service, endpoint and Automation agents"
+          }
+        ],
+        "additionalScenarios": [],
+        "syntheticFixtures": {}
+      }
+    },
+    {
+      "file": "packages/browser-workspace/tests/fixtures.mjs",
+      "kind": "infrastructure",
+      "originalSHA256": "a3fcf11d0de1b1ad444e7737ef637d1b91e72168774aa5ea4f39821df2806b32",
+      "archive": "tests/legacy-baseline-sources/packages/browser-workspace/tests/fixtures.mjs.txt",
+      "currentSHA256": "4f5aaa3494dd29e6f626ba0fa0194eb5766c898cc331f885865fd288ab8f3815",
+      "extraction": {
+        "mode": "babel-infrastructure-inputs",
+        "scenarios": [],
+        "additionalScenarios": [],
+        "syntheticFixtures": {}
+      }
+    },
+    {
+      "file": "packages/compiler/analysis_test.go",
+      "kind": "go",
+      "originalSHA256": "3a41422badc01ebb2d72816f84bd0fd1d07c69ddc74a4dfef7e09d90cb95afa6",
+      "archive": "tests/legacy-baseline-sources/packages/compiler/analysis_test.go.txt",
+      "currentSHA256": "1de3ce28934b0d7f30adf8091579cd4f87022bbadf89871493d1e9fcb9996dc9",
+      "extraction": {
+        "mode": "go-ast-semantic-literal-anchors",
+        "scenarios": [
+          {
+            "original": "TestAnalysisIsNotFullChecking",
+            "current": "TestAnalysisIsNotFullChecking"
+          },
+          {
+            "original": "TestAnalyzeExamples",
+            "current": "TestAnalyzeExamples"
+          },
+          {
+            "original": "TestAnalyzeInvalidInput",
+            "current": "TestAnalyzeInvalidInput"
+          },
+          {
+            "original": "TestArithmeticCallExpansion",
+            "current": "TestArithmeticCallExpansion"
+          },
+          {
+            "original": "TestArithmeticExpansionRespectsEvaluationContext",
+            "current": "TestArithmeticExpansionRespectsEvaluationContext"
+          },
+          {
+            "original": "TestRangesAndSupportedBlocks",
+            "current": "TestRangesAndSupportedBlocks"
+          },
+          {
+            "original": "TestResolvedDiscoveryAndTargets",
+            "current": "TestResolvedDiscoveryAndTargets"
+          }
+        ],
+        "additionalScenarios": [
+          "TestHIRCapturedSourceValidation"
+        ]
+      }
+    },
+    {
+      "file": "packages/compiler/entry_test.go",
+      "kind": "go",
+      "originalSHA256": "592b65bbd602e13ec930a9c81eb19dfc7caa7fb3051c95b2d8fe69b7bfe929a4",
+      "archive": "tests/legacy-baseline-sources/packages/compiler/entry_test.go.txt",
+      "currentSHA256": "4d0529aa6aa0a44fb6db8f0a1c9b3f79cc7f6761bceb4fc09c642d7a63135e1b",
+      "extraction": {
+        "mode": "go-ast-semantic-literal-anchors",
+        "scenarios": [
+          {
+            "original": "TestFunctionEntrySourceMetadata",
+            "current": "TestFunctionEntrySourceMetadata"
+          }
+        ]
+      }
+    },
+    {
+      "file": "packages/compiler/evaluation_test.go",
+      "kind": "go",
+      "originalSHA256": "9cd0b32f8e6496650843b48b0a4e31fcf6b6af7eb4dd0af91a48a28605f0dd28",
+      "archive": "tests/legacy-baseline-sources/packages/compiler/evaluation_test.go.txt",
+      "currentSHA256": "966e61d791663e301673bfbfaa3b73899799a7d956b088cd2f414472373773dc",
+      "extraction": {
+        "mode": "go-ast-semantic-literal-anchors",
+        "scenarios": [
+          {
+            "original": "TestClientAssignmentRetainsComputedTarget",
+            "current": "TestClientAssignmentRetainsComputedTarget"
+          },
+          {
+            "original": "TestClientCallAndTemplate",
+            "current": "TestClientCallAndTemplate"
+          },
+          {
+            "original": "TestGenericClientContexts",
+            "current": "TestGenericClientContexts"
+          },
+          {
+            "original": "TestNestedErrorOperators",
+            "current": "TestNestedErrorOperators"
+          }
+        ],
+        "additionalScenarios": []
+      }
+    },
+    {
+      "file": "packages/compiler/tests/client.test.mjs",
+      "kind": "infrastructure",
+      "originalSHA256": "d1b363a043e252f1ecd7b63141b7e51fe3ae7ee8369afe882cdb9d54f6281eff",
+      "archive": "tests/legacy-baseline-sources/packages/compiler/tests/client.test.mjs.txt",
+      "currentSHA256": "5b1565e389d720388963e3fe0ed7a98bd85a4c1555d76f477f2fafd0b6bfca5d",
+      "extraction": {
+        "mode": "babel-infrastructure-inputs",
+        "scenarios": [
+          {
+            "original": "per-request workers clean up on success, failure, cancellation and posting failure",
+            "current": "per-request workers clean up on success, failure, cancellation and posting failure"
+          },
+          {
+            "original": "transport validates severities, ranges, coordinates and diagnostic fields",
+            "current": "transport validates severities, ranges, coordinates and diagnostic fields"
+          },
+          {
+            "original": "analysis validates source bounds, identities, targets and operation; cancellation leaves checking independent",
+            "current": "analysis validates source bounds, identities, targets and operation; cancellation leaves checking independent"
+          },
+          {
+            "original": "evaluation transport rejects malformed nesting and inconsistent client context",
+            "current": "evaluation transport rejects malformed nesting and inconsistent client context"
+          }
+        ],
+        "additionalScenarios": [
+          "analysis checks every flat source and metadata range without following graph references",
+          "analysis source matching preserves code-point columns and exact HIR text"
+        ],
+        "syntheticFixtures": {}
+      }
+    }
+  ]
+}

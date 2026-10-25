@@ -2,8 +2,10 @@ package compiler
 
 import (
 	"fmt"
+	"maps"
 	"slices"
 	"strings"
+	"unicode/utf8"
 
 	"github.com/ballerina-nutcracker/ballerina/ast"
 	"github.com/ballerina-nutcracker/ballerina/model"
@@ -114,9 +116,9 @@ type ProgramModel struct {
 	Functions map[string]FunctionModel `json:"functions"`
 }
 type AnalysisResult struct {
-	Kind        string        `json:"kind"`
-	Program     *ProgramModel `json:"program,omitempty"`
-	Diagnostics []Diagnostic  `json:"diagnostics"`
+	Kind        string       `json:"kind"`
+	Program     *HIRProgram  `json:"program,omitempty"`
+	Diagnostics []Diagnostic `json:"diagnostics"`
 }
 
 // Analyze resolves saved workspace source without semantic analysis or desugaring.
@@ -127,7 +129,8 @@ func Analyze(files Files) (result AnalysisResult, err error) {
 			err = fmt.Errorf("analysis extraction panic: %v", p)
 		}
 	}()
-	program, items, err := resolveProgram(files)
+	capturedFiles := maps.Clone(files)
+	program, items, err := resolveProgram(capturedFiles)
 	if err != nil {
 		return AnalysisResult{}, err
 	}
@@ -142,11 +145,98 @@ func Analyze(files Files) (result AnalysisResult, err error) {
 	if program == nil {
 		return AnalysisResult{}, fmt.Errorf("resolution returned no program without an error diagnostic")
 	}
-	exported, err := extractProgram(program)
+	exported, err := lowerProgram(program)
 	if err != nil {
 		return AnalysisResult{}, err
 	}
+	if err := ValidateHIR(exported); err != nil {
+		return AnalysisResult{}, fmt.Errorf("invalid lowered HIR: %w", err)
+	}
+	if err := validateHIRSources(exported, capturedFiles); err != nil {
+		return AnalysisResult{}, err
+	}
 	return AnalysisResult{Kind: "valid", Program: &exported, Diagnostics: items}, nil
+}
+
+// validateHIRSources checks source associations before publishing a lowered program.
+func validateHIRSources(program HIRProgram, files Files) error {
+	check := func(located LocatedModel) error {
+		text, ok := files[located.Source.File]
+		if !ok {
+			return fmt.Errorf("HIR source %q references missing file %q", located.ID, located.Source.File)
+		}
+		start, err := sourcePositionOffset(text, located.Source.Range.Start)
+		if err != nil {
+			return fmt.Errorf("HIR source %q start: %w", located.ID, err)
+		}
+		end, err := sourcePositionOffset(text, located.Source.Range.End)
+		if err != nil {
+			return fmt.Errorf("HIR source %q end: %w", located.ID, err)
+		}
+		if end < start || text[start:end] != located.Text {
+			return fmt.Errorf("HIR source %q does not match captured source", located.ID)
+		}
+		return nil
+	}
+	for _, source := range program.Sources {
+		if err := check(source); err != nil {
+			return err
+		}
+	}
+	for _, graph := range program.Functions {
+		if err := check(graph.LocatedModel); err != nil {
+			return err
+		}
+	}
+	for _, scope := range program.Scopes {
+		if err := check(scope.LocatedModel); err != nil {
+			return err
+		}
+		if scope.Endpoints != nil {
+			for _, endpoint := range *scope.Endpoints {
+				if err := check(endpoint.LocatedModel); err != nil {
+					return err
+				}
+			}
+		}
+		if scope.Definitions != nil {
+			for _, definition := range *scope.Definitions {
+				if err := check(definition.LocatedModel); err != nil {
+					return err
+				}
+			}
+		}
+	}
+	return nil
+}
+
+// sourcePositionOffset maps one-based Unicode code-point coordinates to an
+// exclusive byte boundary. CRLF is a single newline, never a source column.
+func sourcePositionOffset(text string, want Position) (int, error) {
+	if want.Line < 1 || want.Column < 1 || !utf8.ValidString(text) {
+		return 0, fmt.Errorf("invalid source position %+v", want)
+	}
+	current := Position{Line: 1, Column: 1}
+	for offset := 0; ; {
+		if current == want {
+			return offset, nil
+		}
+		if offset == len(text) {
+			break
+		}
+		r, size := utf8.DecodeRuneInString(text[offset:])
+		offset += size
+		if r == '\r' || r == '\n' {
+			if r == '\r' && offset < len(text) && text[offset] == '\n' {
+				offset++
+			}
+			current.Line++
+			current.Column = 1
+		} else {
+			current.Column++
+		}
+	}
+	return 0, fmt.Errorf("source position outside captured text: %+v", want)
 }
 
 func sourceReference(files Files, env *diagnostics.DiagnosticEnv, location diagnostics.Location) (SourceReferenceModel, error) {

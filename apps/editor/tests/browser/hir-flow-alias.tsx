@@ -1,10 +1,3 @@
-// Vite-only alias retaining the real Editor/panel/actions until Stage 6.
-import React from 'react';
-import {HIRFlowView} from '../../src/hir-flow-view';
-import {hirFlow} from './hir-model-registry';
+// Compatibility test import only; the default renderer is canonical HIR.
+export {FlowView} from '../../src/flow-view';
 export type {FlowViewProps} from '../../src/flow-view';
-(window as any).flowParityComponent = HIRFlowView;
-export function FlowView(props: any) {
-  const {flow, graphOnly} = hirFlow(props.flow);
-  return <HIRFlowView {...props} flow={flow} graphOnly={graphOnly}/>;
-}

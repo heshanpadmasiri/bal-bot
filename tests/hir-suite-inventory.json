@@ -1,6 +1,18 @@
 {
   "version": 1,
   "stage": "post-baseline",
+  "helpers": [
+    {
+      "file": "apps/editor/tests/hir-synthetic-fixtures.mjs",
+      "rendering": false,
+      "purpose": "Test-only lookup of precomputed synthetic HIR fixtures for migrated original flow assertions; no new frozen cases or baseline writes."
+    },
+    {
+      "file": "packages/compiler/tests/testDataBuilder.mjs",
+      "rendering": false,
+      "purpose": "Test-only flat HIR transport response builders for validation assertions; not compiler inputs or frozen render coverage."
+    }
+  ],
   "suites": [
     {
       "file": "apps/editor/tests/hir-flow.test.mjs",

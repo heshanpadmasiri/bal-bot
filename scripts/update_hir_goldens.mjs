@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Deliberately separate from frozen render capture tooling. Never imports the recorder.
 import { spawnSync } from 'node:child_process';
+import {loadMigrations, baselineSource} from './hir-baseline-migrations.mjs';
 import { readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
@@ -34,7 +35,9 @@ function sources(directory) {
 }
 // This parser only recognizes a small, explicit set of source-building AST
 // forms. It never imports test modules or executes project/test source.
-export function collectBrowserInventory() {
+export function collectBrowserInventory(historical = false, migrations = loadMigrations(), repository = root) {
+  const root = repository;
+  const readSource = file => historical && migrations.has(file) ? migrations.get(file).original : readFileSync(path.join(root, file));
   const directory = 'packages/compiler/tests/browser';
   const initialPath = 'packages/workspace/src/files.ts';
   const initialAST = babelParse(readFileSync(path.join(root, initialPath), 'utf8'), initialPath);
@@ -58,7 +61,7 @@ export function collectBrowserInventory() {
   const result = [{ file: initialPath, sha256: hash(readFileSync(path.join(root, initialPath))), scenarios: [{ name: 'initialFiles', requests: [initial], exclusions: [] }] }];
   for (const name of readdirSync(path.join(root, directory)).filter(n => n.endsWith('.spec.mjs')).sort()) {
     const file = `${directory}/${name}`;
-    const text = readFileSync(path.join(root, file), 'utf8');
+    const text = readSource(file).toString();
     const ast = babelParse(text, file);
     const expressionText = node => text.slice(node.start, node.end);
     const scenarios = [];
@@ -67,7 +70,7 @@ export function collectBrowserInventory() {
     visit(ast, node => {
       if (node.type !== 'CallExpression' || expressionText(node.callee) !== 'test') return;
       const title = node.arguments[0];
-      const scenario = { name: isString(title) ? string(title) : expressionText(title), requests: [], exclusions: [] };
+      const scenario = { name: isString(title) ? string(title) : expressionText(title), requests: [], exclusions: [], generators: [], inputEvents: [] };
       scenarios.push(scenario);
       let files = { ...initial };
       const add = value => { if (!scenario.requests.some(r => canonical(r) === canonical(value))) scenario.requests.push({ ...value }); };
@@ -86,11 +89,13 @@ export function collectBrowserInventory() {
       // Every UI/compiler scenario begins with the real initial workspace unless
       // open(page, fixture) replaces it. Capturing both states is intentional.
       add(files);
+      scenario.inputEvents.push({kind:'initial-workspace', files:{...files}});
       visit(node.arguments[node.arguments.length - 1], call => {
         if (call.type !== 'CallExpression') return;
         const target = expressionText(call.callee);
         if (target === 'open' && call.arguments.length > 1 && isString(call.arguments[1]) && examples[string(call.arguments[1])]) {
           files = { ...examples[string(call.arguments[1])] }; add(files);
+          scenario.inputEvents.push({kind:'open', files:{...files}});
         }
         if (target === 'workspace.write') {
           const name = evaluate(call.arguments[0]);
@@ -100,14 +105,42 @@ export function collectBrowserInventory() {
             files[name] = examples['analysis-recovery'][name];
           } else files[name] = evaluate(call.arguments[1]);
           add(files);
+          scenario.inputEvents.push({kind:'workspace.write', files:{...files}});
         }
-        if (target === 'compiler.check' && call.arguments[0]?.type === 'ObjectExpression') {
+        if (['compiler.check','compiler.analyze'].includes(target) && !['Identifier','ObjectExpression'].includes(call.arguments[0]?.type)) throw Error(`Non-static active compiler input: ${file}/${scenario.name}`);
+        if (['compiler.check','compiler.analyze'].includes(target) && call.arguments[0]?.type === 'Identifier') {
+          if (call.arguments[0].name === 'initialFiles') scenario.inputEvents.push({kind:target,files:{...initial}});
+          else if (call.arguments[0].name === 'files' && scenario.name === 'native and real browser WASM models match for all supported fixtures') {
+            for (const files of Object.values(examples)) scenario.inputEvents.push({kind:target,files:{...files}});
+          } else throw Error(`Unclassified active compiler request: ${file}/${scenario.name}`);
+        }
+        if (['compiler.check','compiler.analyze'].includes(target) && call.arguments[0]?.type === 'ObjectExpression') {
+          const properties = call.arguments[0].properties;
+          if (properties.length !== 2 || properties[0].type !== 'SpreadElement' || properties[0].argument.type !== 'Identifier' || properties[0].argument.name !== 'initialFiles' || properties[1].type !== 'ObjectProperty' || !isString(properties[1].key) || string(properties[1].key) !== 'main.bal') throw Error(`Unclassified compiler input object/spread: ${file}/${scenario.name}`);
           const source = call.arguments[0].properties.find(p => p.key && isString(p.key) && string(p.key) === 'main.bal')?.value;
-          if (source && isString(source)) add({ ...initial, 'main.bal': string(source) });
-          else if (scenario.name === 'cancellation during bridge compilation terminates its worker') scenario.exclusions.push('Generated 15,000-declaration source is a worker-cancellation stress input: deliberately aborted, no completed frontend result or AST expectation. Generation expression and size are pinned by original file hash.');
+          if (source && isString(source)) {
+            const files = { ...initial, 'main.bal': string(source) };
+            add(files); scenario.inputEvents.push({kind:target,files});
+          }
+          else if (scenario.name === 'cancellation during bridge compilation terminates its worker') {
+            if (source?.type !== 'Identifier') throw Error('Missing cancellation generator reference');
+            const definitions = [];
+            visit(node.arguments[node.arguments.length - 1], declaration => {
+              if (declaration.type === 'VariableDeclaration' && declaration.declarations.some(d => d.id.name === source.name)) {
+                if (declaration.kind !== 'const') throw Error('Cancellation generator binding must remain immutable');
+                for (const binding of declaration.declarations.filter(d => d.id.name === source.name)) definitions.push(binding.init);
+              }
+            });
+            if (definitions.length !== 1) throw Error('Ambiguous cancellation stress generator');
+            // Pin the actual AST, not merely the exclusion label: size, template,
+            // index expression and join separator all remain baseline authority.
+            scenario.inputEvents.push({kind:target,excludedGenerator:source.name});
+            scenario.generators.push(JSON.parse(JSON.stringify(definitions[0], (key, value) => ['start', 'end', 'loc', 'extra', 'comments'].includes(key) ? undefined : value)));
+            scenario.exclusions.push('Generated 15,000-declaration source is a worker-cancellation stress input: deliberately aborted, no completed frontend result or AST expectation. Generation expression and size are pinned by original file hash.');
+          }
           else throw Error(`Unclassified compiler input: ${scenario.name}`);
         }
-        if (target === 'editSource') { files['main.bal'] = globals.get('draft'); if (typeof files['main.bal'] !== 'string') throw Error('Missing static saved draft'); add(files); }
+        if (target === 'editSource') { files['main.bal'] = globals.get('draft'); if (typeof files['main.bal'] !== 'string') throw Error('Missing static saved draft'); add(files); scenario.inputEvents.push({kind:'editSource',files:{...files}}); }
       });
       if (scenario.name === 'native and real browser WASM models match for all supported fixtures') Object.values(examples).forEach(add);
       if (name === 'storage.spec.mjs') scenario.exclusions.push('old.bal localStorage text is intentionally never restored/compiled; browser-storage infrastructure only.');
@@ -120,7 +153,16 @@ export function collectBrowserInventory() {
   return result;
 }
 
-function checkBrowserInventory() {
+export function assertBrowserRequestsUnchanged(current, historical) {
+  if (current.length !== historical.length) throw Error('Current browser file inventory changed');
+  for (const [index, live] of current.entries()) {
+    const original = historical[index];
+    if (live.file !== original.file || canonical(live.scenarios) !== canonical(original.scenarios)) throw Error(`Current browser requests/scenarios/exclusions/generators changed: ${live.file}`);
+  }
+}
+
+export function checkBrowserInventory() {
+  const migrations = loadMigrations();
   const inventory = JSON.parse(readFileSync(path.join(base, 'source-inventory.json'), 'utf8'));
   // New HIR-only suites are audited in the post-baseline registry, not silently
   // added to the immutable original source inventory.
@@ -131,15 +173,17 @@ function checkBrowserInventory() {
   }
   const excludedFiles = new Set();
   for (const entry of inventory.infrastructure ?? []) {
-    if (excludedFiles.has(entry.file) || !entry.exclusion || hash(readFileSync(path.join(root, entry.file))) !== entry.sha256) throw Error(`Infrastructure exclusion needs audit: ${entry.file}`);
+    if (excludedFiles.has(entry.file) || !entry.exclusion || hash(baselineSource(entry.file, entry.sha256, root, migrations)) !== entry.sha256) throw Error(`Infrastructure exclusion needs audit: ${entry.file}`);
     excludedFiles.add(entry.file);
   }
   if (canonical([...excludedFiles].sort()) !== canonical(infrastructureFiles.sort())) throw Error('Missing compiler/UI/workspace infrastructure exclusions');
-  const current = collectBrowserInventory();
+  const current = collectBrowserInventory(false, migrations);
+  const historical = collectBrowserInventory(true, migrations);
+  assertBrowserRequestsUnchanged(current, historical);
   if (current.length !== inventory.browser.length) throw Error('Browser source file inventory mismatch');
   for (const [index, original] of current.entries()) {
     const archived = inventory.browser[index];
-    if (original.file !== archived.file || original.sha256 !== archived.sha256) throw Error(`Original browser definition changed: ${original.file}; explicitly audit source inventory, never silently refresh its hash`);
+    if (original.file !== archived.file || historical[index].sha256 !== archived.sha256) throw Error(`Original browser definition changed: ${original.file}; explicitly audit source inventory, never silently refresh its hash`);
     if (original.scenarios.length !== archived.scenarios.length) throw Error(`Browser scenario coverage mismatch: ${original.file}`);
     for (const [i, scenario] of original.scenarios.entries()) {
       const expected = archived.scenarios[i];

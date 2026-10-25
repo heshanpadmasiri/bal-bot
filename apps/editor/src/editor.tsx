@@ -10,7 +10,7 @@ import { FileTree } from './file-tree';
 import { FlowView } from './flow-view';
 import { ReferenceChips } from './reference-chips';
 import { addReference, removeReference, refreshReferences, serializePrompt, type ChatDraft } from './references';
-import type { ExpansionPath } from './flow';
+import type { ExpansionPath } from './hir-diagram';
 import { conversationItems } from './tool-summaries';
 
 function messageText(message: AgentMessage): string {

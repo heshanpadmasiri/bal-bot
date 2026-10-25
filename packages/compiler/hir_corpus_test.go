@@ -8,6 +8,7 @@ import (
 	"flag"
 	"fmt"
 	"go/ast"
+	"go/format"
 	"go/parser"
 	"go/token"
 	"io/fs"
@@ -192,9 +193,195 @@ func TestHIRCorpusCoverage(t *testing.T) {
 	}
 }
 
+type hirInventoryLiteral struct{ Value, Anchor string }
+
+// Literal ordinals are historical recipes, not live AST positions. Remapping is
+// semantic: the decoded value AND its containing input expression must survive.
+// Ordered compiler/source-builder calls must also retain their argument ASTs.
+func hirInventoryASTProof(t *testing.T, path string, source []byte) (map[string][]hirInventoryLiteral, map[string][]string) {
+	t.Helper()
+	fset := token.NewFileSet()
+	file, err := parser.ParseFile(fset, path, source, 0)
+	if err != nil {
+		t.Fatal(err)
+	}
+	literals := map[string][]hirInventoryLiteral{}
+	calls := map[string][]string{}
+	text := func(node ast.Node) string {
+		var out bytes.Buffer
+		if err := format.Node(&out, fset, node); err != nil {
+			t.Fatal(err)
+		}
+		return out.String()
+	}
+	for _, declaration := range file.Decls {
+		fn, ok := declaration.(*ast.FuncDecl)
+		if !ok {
+			continue
+		}
+		if fn.Name.Name == "project" || fn.Name.Name == "exampleFiles" {
+			calls["input helper: "+fn.Name.Name] = []string{text(fn)}
+		}
+		if !strings.HasPrefix(fn.Name.Name, "Test") {
+			continue
+		}
+		calls[fn.Name.Name] = nil
+		inputNames := map[string]bool{}
+		addNames := func(node ast.Node) {
+			ast.Inspect(node, func(child ast.Node) bool {
+				if id, ok := child.(*ast.Ident); ok {
+					inputNames[id.Name] = true
+				}
+				return true
+			})
+		}
+		var stack []ast.Node
+		ast.Inspect(fn.Body, func(node ast.Node) bool {
+			if node == nil {
+				stack = stack[:len(stack)-1]
+				return true
+			}
+			if call, ok := node.(*ast.CallExpr); ok {
+				if name, ok := call.Fun.(*ast.Ident); ok {
+					switch name.Name {
+					case "Analyze", "Check", "resolveProgram", "project", "exampleFiles":
+						calls[fn.Name.Name] = append(calls[fn.Name.Name], text(call))
+						for _, arg := range call.Args {
+							addNames(arg)
+						}
+					}
+				}
+			}
+			if literal, ok := node.(*ast.BasicLit); ok && literal.Kind == token.STRING {
+				value, err := strconv.Unquote(literal.Value)
+				if err != nil {
+					t.Fatal(err)
+				}
+				anchor := ""
+				for i := len(stack) - 1; i >= 0; i-- {
+					if expression, ok := stack[i].(ast.Expr); ok {
+						anchor = text(expression)
+						break
+					}
+				}
+				literals[fn.Name.Name] = append(literals[fn.Name.Name], hirInventoryLiteral{value, anchor})
+			}
+			stack = append(stack, node)
+			return true
+		})
+		// Conservatively close over definitions/mutations of every compiler-input
+		// variable. This rejects shadowing or retaining an old literal only as dead
+		// code while changing the value actually passed to Analyze/Check.
+		var bindings []ast.Node
+		ast.Inspect(fn.Body, func(node ast.Node) bool {
+			switch node.(type) {
+			case *ast.AssignStmt, *ast.ValueSpec, *ast.RangeStmt, *ast.IncDecStmt:
+				bindings = append(bindings, node)
+			}
+			return true
+		})
+		affects := func(node ast.Node) bool {
+			found := false
+			if node != nil {
+				ast.Inspect(node, func(child ast.Node) bool {
+					if id, ok := child.(*ast.Ident); ok && inputNames[id.Name] {
+						found = true
+					}
+					return true
+				})
+			}
+			return found
+		}
+		selected := map[ast.Node]bool{}
+		for changed := true; changed; {
+			changed = false
+			for _, node := range bindings {
+				if selected[node] {
+					continue
+				}
+				var target ast.Node
+				switch binding := node.(type) {
+				case *ast.AssignStmt:
+					for _, left := range binding.Lhs {
+						if affects(left) {
+							target = left
+						}
+					}
+					if target != nil {
+						for _, right := range binding.Rhs {
+							addNames(right)
+						}
+					}
+				case *ast.ValueSpec:
+					for _, name := range binding.Names {
+						if affects(name) {
+							target = name
+						}
+					}
+					if target != nil {
+						for _, right := range binding.Values {
+							addNames(right)
+						}
+					}
+				case *ast.RangeStmt:
+					if affects(binding.Key) || affects(binding.Value) {
+						target = binding.X
+						addNames(binding.X)
+					}
+				case *ast.IncDecStmt:
+					if affects(binding.X) {
+						target = binding.X
+					}
+				}
+				if target != nil {
+					selected[node] = true
+					changed = true
+				}
+			}
+		}
+		for _, node := range bindings {
+			if !selected[node] {
+				continue
+			}
+			if loop, ok := node.(*ast.RangeStmt); ok {
+				calls[fn.Name.Name] = append(calls[fn.Name.Name], "input range: "+text(loop.X))
+			} else {
+				calls[fn.Name.Name] = append(calls[fn.Name.Name], "input binding: "+text(node))
+			}
+		}
+	}
+	return literals, calls
+}
+
+func TestHIRMigrationASTProof(t *testing.T) {
+	original := `package compiler
+func TestScenario() { source := "public function main() {}"; Analyze(project(source)); Check(project(source)) }
+`
+	oldLiterals, oldCalls := hirInventoryASTProof(t, "original.go", []byte(original))
+	reorderedAssertions := strings.Replace(original, `source :=`, `assert("new assertion"); source :=`, 1)
+	liveLiterals, liveCalls := hirInventoryASTProof(t, "current.go", []byte(reorderedAssertions))
+	if !reflect.DeepEqual(oldCalls, liveCalls) || oldLiterals["TestScenario"][0] != liveLiterals["TestScenario"][1] {
+		t.Fatal("assertion-only migration failed semantic literal remapping")
+	}
+	for name, source := range map[string]string{
+		"Ballerina literal": strings.Replace(original, "function main() {}", "function changed() {}", 1),
+		"removed scenario":  strings.Replace(original, "TestScenario", "RemovedScenario", 1),
+		"retained dead literal but changed actual input": strings.Replace(original, `Analyze(project(source))`, `source = "public function changed() {}"; Analyze(project(source))`, 1),
+		"request order": strings.Replace(original, "Analyze(project(source)); Check(project(source))", "Check(project(source)); Analyze(project(source))", 1),
+	} {
+		t.Run(name, func(t *testing.T) {
+			_, changed := hirInventoryASTProof(t, "changed.go", []byte(source))
+			if reflect.DeepEqual(oldCalls, changed) {
+				t.Fatal("current input mutation escaped AST proof")
+			}
+		})
+	}
+}
+
 // TestHIRSourceInventory is deliberately independent of the frozen render catalog.
-// Recipes reconstruct requests from current Go AST literals, including table cases
-// and successive edits, rather than trusting copies of captured render inputs.
+// Original AST recipes reconstruct requests independently of captured render
+// inputs; semantic anchors remap their literals into the live test AST, while
+// compiler-call and input-binding projections prove their continued use.
 func TestHIRSourceInventory(t *testing.T) {
 	data, err := os.ReadFile(filepath.Join(hirProjectsRoot, "source-inventory.json"))
 	if err != nil {
@@ -219,6 +406,31 @@ func TestHIRSourceInventory(t *testing.T) {
 	if err := json.Unmarshal(data, &inventory); err != nil {
 		t.Fatal(err)
 	}
+	// The shared verifier validates both original archive and exact current hashes;
+	// Go then independently proves the live AST still supplies every recipe.
+	proof, err := exec.Command("node", "../../scripts/check_hir_migrations.mjs").CombinedOutput()
+	if err != nil {
+		t.Fatalf("migration registry: %v\n%s", err, proof)
+	}
+	migrationData, err := os.ReadFile("../../tests/hir-baseline-migrations.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var migrations struct {
+		Files []struct {
+			File, Archive string
+			Extraction    struct{ AdditionalScenarios []string }
+		}
+	}
+	if err := json.Unmarshal(migrationData, &migrations); err != nil {
+		t.Fatal(err)
+	}
+	archives := map[string]string{}
+	additions := map[string][]string{}
+	for _, migration := range migrations.Files {
+		archives[migration.File] = migration.Archive
+		additions[migration.File] = migration.Extraction.AdditionalScenarios
+	}
 	registered := map[string]bool{}
 	for _, entry := range inventory.Native {
 		path := filepath.Join("../..", entry.File)
@@ -230,6 +442,13 @@ func TestHIRSourceInventory(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
+		currentSource := source
+		if archive := archives[entry.File]; archive != "" {
+			source, err = os.ReadFile(filepath.Join("../..", archive))
+			if err != nil {
+				t.Fatal(err)
+			}
+		}
 		sum := sha256.Sum256(source)
 		if hex.EncodeToString(sum[:]) != entry.SHA256 {
 			t.Fatalf("original test changed: %s; explicitly audit source inventory, never silently refresh its hash", path)
@@ -237,6 +456,25 @@ func TestHIRSourceInventory(t *testing.T) {
 		parsed, err := parser.ParseFile(token.NewFileSet(), path, source, 0)
 		if err != nil {
 			t.Fatal(err)
+		}
+		liveLiterals, liveCalls := hirInventoryASTProof(t, path, currentSource)
+		originalLiterals, originalCalls := hirInventoryASTProof(t, path, source)
+		for name, calls := range originalCalls {
+			live, exists := liveCalls[name]
+			if !exists || !reflect.DeepEqual(live, calls) {
+				t.Fatalf("current compiler input expressions/order or scenario changed: %s/%s", path, name)
+			}
+			delete(liveCalls, name)
+		}
+		for _, name := range additions[entry.File] {
+			calls, exists := liveCalls[name]
+			if !exists || len(calls) != 0 {
+				t.Fatalf("new scenario must be explicit non-compiling HIR-only coverage: %s/%s", path, name)
+			}
+			delete(liveCalls, name)
+		}
+		if len(liveCalls) != 0 {
+			t.Fatalf("uninventoried current native scenarios: %s: %v", path, liveCalls)
 		}
 		functions := map[string][]string{}
 		for _, declaration := range parsed.Decls {
@@ -277,7 +515,19 @@ func TestHIRSourceInventory(t *testing.T) {
 						if index < 0 || index >= len(literals) {
 							t.Fatalf("bad literal index %s/%d", scenario.Name, index)
 						}
-						source.WriteString(literals[index])
+						original := originalLiterals[scenario.Name][index]
+						matches := 0
+						for _, live := range liveLiterals[scenario.Name] {
+							if live == original {
+								matches++
+							}
+						}
+						if matches == 0 {
+							t.Fatalf("current input literal/expression missing: %s/%s/%d", path, scenario.Name, index)
+						}
+						// Anchor equality proves this is an input expression, not a
+						// matching string moved into an assertion or dead standalone literal.
+						source.WriteString(original.Value)
 					}
 					files[name] = source.String()
 				}

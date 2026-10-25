@@ -12,7 +12,7 @@ the archived fonts under `tests/fixtures/flow-rendering/environment/fonts`.
 Missing prerequisites fail rather than downloading fonts or rewriting baselines.
 
 The script starts its own ephemeral development server with
-`server.mjs development <temporary-directory> --hir`, and always closes its server,
+`server.mjs development <temporary-directory>` (the optional `--hir` flag is a compatibility no-op), and always closes its server,
 browser contexts and temporary directory. It does not reuse a shared server or
 write fixtures, baselines, dependencies, compiler outputs, screenshots or commits.
 
@@ -21,7 +21,7 @@ Checks:
 - Replays eight original project render cases through `captureIntegrationFlow`
   (which uses `replayRenderCase`): repeated/nested function expansion, normal and
   expanded panels, definitions and client context/call disclosures.
-- Observes the actual `HIRFlowView` marker and actual program identities before
+- Observes the actual canonical `FlowView` marker and actual program identities before
   the capture observer serializes them. Their original JSON must remain unchanged.
 - Instruments real `Worker.postMessage` analysis requests before mount, verifies
   the spy saw initial analysis, then requires unchanged counts and workspace

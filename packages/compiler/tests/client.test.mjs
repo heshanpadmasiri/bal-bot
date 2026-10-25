@@ -1,7 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createCompiler } from '../src/index.ts';
-import { validateResponse } from '../src/protocol.ts';
+import { validateResponse, programLocations, validateAnalysisFiles } from '../src/protocol.ts';
+import { analysisResponse } from './testDataBuilder.mjs';
 
 class WorkerStub extends EventTarget {
   static instances = [];
@@ -54,25 +55,74 @@ test('transport validates severities, ranges, coordinates and diagnostic fields'
 test('analysis validates source bounds, identities, targets and operation; cancellation leaves checking independent', async () => {
   const original=globalThis.Worker; globalThis.Worker=WorkerStub; const post=WorkerStub.prototype.postMessage;
   WorkerStub.prototype.postMessage=function(request){this.request=request;};
-  const located={id:'main',text:'x',source:{file:'main.bal',range:{start:{line:1,column:1},end:{line:1,column:2}}}};
-  const result={kind:'valid',diagnostics:[],program:{scopes:[{...located,kind:'automation',title:'Automation',moduleId:'m',functionId:'main'}],functions:{main:{...located,moduleId:'m',entry:{kind:'function',name:'main',signature:'function main()',parameters:[],returnType:'()'},body:[]}}}};
-  const response={kind:'result',operation:'analyze',result};
+  const response=analysisResponse();
+  const {result}=response;
+  result.program.scopes.push({...result.program.sources.main,kind:'automation',title:'Automation',moduleId:'m',functionId:'main'});
   try {
     const compiler=createCompiler();const promise=compiler.analyze({'main.bal':'x'});WorkerStub.instances.at(-1).respond(response);assert.deepEqual(await promise,result);
-    for(const mutate of [r=>r.result.program.scopes.push(r.result.program.scopes[0]),r=>r.result.program.scopes[0].functionId='missing',r=>r.result.program.functions.main.source.range.end.column=3,r=>r.result.program.functions.main.text='bad',r=>r.result.program.functions.main.entry.kind='unknown',r=>r.result.program.functions.main.entry.parameters=[{kind:'query',text:'invented'}],r=>r.result.program.functions.main.entry.returnType=null,r=>r.operation='check']){
+    for(const mutate of [r=>r.result.program.scopes.push(r.result.program.scopes[0]),r=>r.result.program.scopes[0].functionId='missing',r=>r.result.program.functions.main.source.range.end.column=3,r=>r.result.program.functions.main.text='bad',r=>r.result.program.functions.main.entry.kind='unknown',r=>r.result.program.functions.main.entry.parameters=[{label:'Query',text:'invented'}],r=>r.result.program.functions.main.entry.returnType=null,r=>r.operation='check']){
       const bad=structuredClone(response);mutate(bad);const pending=compiler.analyze({'main.bal':'x'});WorkerStub.instances.at(-1).respond(bad);await assert.rejects(pending);assert.ok(WorkerStub.instances.at(-1).terminated);
     }
     const cancel=new AbortController();const pending=compiler.analyze({'main.bal':'x'},cancel.signal).catch(e=>e.name);const check=compiler.check({});cancel.abort();WorkerStub.instances.at(-1).respond(valid);assert.equal(await pending,'AbortError');assert.deepEqual(await check,{diagnostics:[]});
   }finally{globalThis.Worker=original;WorkerStub.prototype.postMessage=post;}
 });
 
-test('evaluation transport rejects malformed nesting and inconsistent client context',()=>{
- const at=id=>({id,text:'x',source:{file:'main.bal',range:{start:{line:1,column:1},end:{line:1,column:2}}}});
- const call={...at('call'),target:{kind:'external',label:'send'},expansion:'unavailable',reason:'External',client:{context:{receiver:at('receiver'),origin:'constructor',initializer:at('initializer')},method:'send',arguments:[at('argument')]}};
- const statement={...at('statement'),kind:'simple',operation:'declare',presentation:'step',calls:[call],evaluation:{...at('check'),kind:'check',children:[{...at('invoke'),kind:'call',children:[],call}]}};
- const response={kind:'result',operation:'analyze',result:{kind:'valid',diagnostics:[],program:{scopes:[],functions:{main:{...at('main'),moduleId:'m',entry:{kind:'function',name:'main',signature:'function main()',parameters:[],returnType:'()'},body:[statement]}}}}};
+test('analysis checks every flat source and metadata range without following graph references', () => {
+ const response=analysisResponse('mutual-function-reference');
+ const program=response.result.program;
  assert.doesNotThrow(()=>validateResponse(response));
- for(const mutate of [s=>s.evaluation.children=[],s=>s.evaluation.kind='unknown',s=>s.evaluation.children[0].call={...s.evaluation.children[0].call,id:'missing'},s=>s.calls[0].client.context.origin='guessed',s=>delete s.calls[0].client.context.initializer,s=>s.calls[0].client.arguments=[{}]]){
-  const bad=structuredClone(response);mutate(bad.result.program.functions.main.body[0]);assert.throws(()=>validateResponse(bad),/Invalid compiler response/);
+ const locations=programLocations(program);
+ assert.equal(locations.length,Object.keys(program.sources).length+Object.keys(program.functions).length);
+ assert.doesNotThrow(()=>validateAnalysisFiles(response.result,{'main.bal':'x'}));
+ // A source not attached to graph/scope metadata must still be bounds-checked.
+ for(const [mutate,pattern] of [
+  [s=>s.source.range.end.column=3,/Source range is out of bounds/],
+  [s=>s.source.range.end.line=2,/Source range is out of bounds/],
+  [s=>s.source.file='missing.bal',/Source file is unavailable/],
+  [s=>s.text='bad',/Compiler source text does not match its captured range/],
+ ]) {
+  const bad=structuredClone(response);
+  bad.result.program.sources.extra={id:'extra',text:'x',source:{file:'main.bal',range:{start:{line:1,column:1},end:{line:1,column:2}}}};
+  mutate(bad.result.program.sources.extra);
+  validateResponse(bad);
+  assert.throws(()=>validateAnalysisFiles(bad.result,{'main.bal':'x'}),pattern);
+ }
+ // Retain graph/scope/source association checks before captured-file validation.
+ const bad=structuredClone(response);bad.result.program.functions.main.text='bad';
+ assert.throws(()=>validateResponse(bad),/source identity disagreement/);
+ assert.doesNotThrow(()=>validateAnalysisFiles({kind:'invalid',diagnostics:[]},{}));
+});
+
+test('analysis source matching preserves code-point columns and exact HIR text', () => {
+ for(const text of ['😀','\ud83d','\ude00']) {
+  const response=analysisResponse('minimal',text);
+  validateResponse(response);
+  assert.doesNotThrow(()=>validateAnalysisFiles(response.result,{'main.bal':text}));
+  assert.deepEqual(JSON.parse(JSON.stringify(response)),response);
+ }
+ const response=analysisResponse('minimal','x');
+ for(const item of programLocations(response.result.program)) {
+  item.source.range={start:{line:2,column:2},end:{line:2,column:3}};
+ }
+ validateResponse(response);
+ assert.doesNotThrow(()=>validateAnalysisFiles(response.result,{'main.bal':'first\r\n😀x\r\n'}));
+});
+
+test('evaluation transport rejects malformed nesting and inconsistent client context',()=>{
+ const response=analysisResponse('client-long-call');
+ assert.doesNotThrow(()=>validateResponse(response));
+ // Evaluation structure is now represented by graph ownership and references;
+ // client context is the typed disclosure, not a nested statement/call DTO.
+ for(const mutate of [
+  g=>g.groups[0].arrangement.members=[],
+  g=>g.nodes[0].body.kind='unknown',
+  g=>g.nodes[0].body.reference.graphId='missing',
+  g=>g.nodes[0].presentation.disclosure.kind='guessed',
+  g=>delete g.nodes[0].presentation.disclosure.expanded,
+  g=>g.nodes[0].presentation.disclosure.expanded.sections=[{}],
+  g=>g.nodes[0].presentation.disclosure.call.occurrenceKey='missing',
+  g=>g.nodes[0].presentation.disclosure.call.availability={kind:'unavailable',reason:'External'},
+ ]){
+  const bad=structuredClone(response);mutate(bad.result.program.functions.main);assert.throws(()=>validateResponse(bad),/Invalid compiler/);
  }
 });

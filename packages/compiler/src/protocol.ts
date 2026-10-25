@@ -22,7 +22,7 @@ function located(value: unknown): Record<string, unknown> {
   return v;
 }
 function unique(values: unknown[]): void { const ids = values.map(v => string(object(v).id)); if (new Set(ids).size !== ids.length) fail(); }
-export function validateProgram(value: unknown): ProgramModel {
+function validateProgram(value: unknown): ProgramModel {
   const p = object(value), functions = object(p.functions), scopes = array(p.scopes);
   const functionId = (id: unknown) => { if (!Object.hasOwn(functions, string(id))) fail(); };
   const reserve = (value: unknown, seen: Set<string>) => { const id = string(object(value).id); if (seen.has(id)) fail(); seen.add(id); };
@@ -113,8 +113,8 @@ export function validateProgram(value: unknown): ProgramModel {
   }
   return value as ProgramModel;
 }
-// Walk serialized model data, not ASTs, to validate every source-backed element.
-export function programLocations(program: ProgramModel): Located[] {
+// Private compatibility walker for the retained discovery-model validator.
+function legacyProgramLocations(program: ProgramModel): Located[] {
   const result: Located[] = [];
   const visit = (v: unknown) => {
     if (Array.isArray(v)) { v.forEach(visit); return; }
@@ -123,6 +123,15 @@ export function programLocations(program: ProgramModel): Located[] {
     Object.values(v).forEach(visit);
   };
   visit(program); return result;
+}
+// Visit flat source records and discovery metadata once; never follow graph references.
+export function programLocations(program: HIRProgram): Located[] {
+  const result: Located[] = [...Object.values(program.sources), ...Object.values(program.functions)];
+  for (const scope of program.scopes) {
+    result.push(scope);
+    if (scope.kind === 'service') result.push(...scope.endpoints, ...scope.definitions);
+  }
+  return result;
 }
 export function validateAnalysisFiles(result: AnalysisResult, files: Files): void {
   if (result.kind !== 'valid') return;
@@ -134,7 +143,7 @@ export function validateResponse(value: unknown): CompilerResponse {
   if (v.kind !== 'result' || !['check', 'analyze'].includes(String(v.operation))) fail();
   const r = object(v.result); if (!array(r.diagnostics).every(diagnostic)) fail();
   if (v.operation === 'analyze') {
-    if (r.kind === 'valid') { validateProgram(r.program); if ((r.diagnostics as Diagnostic[]).some(d => ['error', 'fatal', 'internal'].includes(d.severity))) fail(); }
+    if (r.kind === 'valid') { validateHIR(r.program); if ((r.diagnostics as Diagnostic[]).some(d => ['error', 'fatal', 'internal'].includes(d.severity))) fail(); }
     else if (r.kind !== 'invalid' || r.program !== undefined) fail();
   }
   return value as CompilerResponse;
@@ -144,7 +153,7 @@ export function validateRequest(value: unknown): CompilerRequest {
   return value as CompilerRequest;
 }
 
-// HIR validation is additive: the legacy analyze protocol above stays unchanged.
+// Analyze responses use HIR. Discovery metadata retains its existing shape.
 // Every failure is a bridge/infrastructure error; never normalize wire data.
 function hirFail(message: string): never { throw new Error(`Invalid compiler HIR: ${message}`); }
 function hirAssert(condition: unknown, message = 'invalid shape'): asserts condition { if (!condition) hirFail(message); }
@@ -304,7 +313,7 @@ export function validateHIR(value: unknown): HIRProgram {
   }));
   validateProgram({ scopes: p.scopes, functions: dummy });
   const program = value as HIRProgram;
-  for (const item of programLocations({ scopes: program.scopes, functions: dummy } as ProgramModel)) {
+  for (const item of legacyProgramLocations({ scopes: program.scopes, functions: dummy } as ProgramModel)) {
     hirAssert(Object.hasOwn(sources, item.id), 'missing source identity');
     const s = sources[item.id] as unknown as Located, a = item.source.range, b = s.source.range;
     hirAssert(item.text === s.text && item.source.file === s.source.file && a.start.line === b.start.line && a.start.column === b.start.column && a.end.line === b.end.line && a.end.column === b.end.column, 'source identity disagreement');

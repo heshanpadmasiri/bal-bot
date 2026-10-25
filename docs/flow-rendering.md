@@ -10,11 +10,34 @@ The baseline authority is `tests/fixtures/flow-rendering/frozen-manifest.json` (
 
 ## Frozen inventory and post-baseline suites
 
-`loadRenderCases()` retains strict discovery and original byte-hash checks for every Stage 1 suite. The frozen inventory, source archives, case metadata and artifacts must not be updated to accommodate new tests.
+`loadRenderCases()` retains strict discovery and original byte-hash checks for every Stage 1 suite. The frozen inventory, source archives, case metadata and artifacts must not be updated to accommodate new tests. Stage 6 assertion migrations use the separate, test-only provenance bridge below; they do not change a case or its `provenanceHashes`.
 
 `tests/hir-suite-inventory.json` separately allows the planned non-rendering HIR suites `packages/compiler/hir_test.go` and `packages/compiler/tests/hir.test.mjs`. Entries may be registered before their files exist. Each entry explicitly declares `rendering: false` and its purpose; duplicate entries, overlap with baseline suites, malformed entries and all unregistered discovered suites fail loading. Registered suites do not bypass the original baseline suite presence or source-hash checks.
 
+The registry also explicitly classifies the new `hir-synthetic-fixtures.mjs` and `testDataBuilder.mjs` test-data helpers under `helpers`; they must exist, cannot masquerade as suites, and claim no new frozen coverage.
+
 This registry is an explicit, reviewable classification, not automatic detection of whether test code renders. Keep it limited to contract validation, printing and serialization (and later non-rendering AST/HIR corpus checks). A new flow-producing suite must receive separate post-baseline scenario/render coverage, not be labeled non-rendering or claimed as part of the original 663 cases. Adding such coverage must not regenerate or extend the frozen inventory or expected artifacts. Review any additional registry names and their classification explicitly.
+
+## Stage 6 legacy assertion provenance
+
+`tests/hir-baseline-migrations.json` explicitly records each **actually changed** legacy DTO consumer, its original SHA-256, archive path, exact current SHA-256, and current extraction/scenario mapping. Archives under `tests/legacy-baseline-sources/**.txt` are the original **bytes from `280850fd`**, not snapshots of migrated tests. Their hashes must agree with the immutable render/source inventories. Unused registrations and orphan archives fail. Unregistered files remain direct-hash strict; examples, catalog/frozen input trees, the native bridge and unrelated infrastructure cannot use archive fallback.
+
+Both arms are mandatory:
+
+- Historical Go AST literal recipes and Babel request extraction reconstruct the same corpus/project inputs from verified original definitions. The original inventory hashes and all 663 case fingerprints stay authoritative.
+- Current files are independently pinned byte-for-byte. Native recipes resolve historical literal ordinals to live literals by decoded value **and containing AST input expression**, not by shifted assertion indices. Ordered compiler/source-builder calls and a conservative closure over their variable definitions/mutations/range inputs must match, preventing an original literal left as dead code from standing in for changed compiler inputs. Every original scenario must remain. Explicit additional HIR-only native scenarios cannot introduce compilation requests or claim frozen coverage.
+- Browser Babel extraction still reads the active files statically, never imports/evaluates tests, and compares project bytes, request order, scenarios and exclusions with both historical extraction and the original corpus. The excluded cancellation stress input additionally pins its actual generator AST (including 15,000 size, template, index expression and separator), not just its exclusion label.
+- Stubbed infrastructure preserves original scenario presence/order and actual compiler/workspace request argument ASTs rather than obsolete DTO **response** literals. Additional scenarios are explicitly classified in the migration registry. Migrated synthetic flow assertions name HIR fixtures that must map to that original scenario's frozen catalog inputs.
+
+After reviewing an assertion-only migration, register only its explicit paths with `node scripts/register_hir_migrations.mjs <path> ...`. This command archives originals from the baseline commit and records current digests; it is **not** proof or authorization to change inputs. Run both semantic checks and review the registry/archive diff:
+
+```sh
+node --test scripts/hir-baseline-migrations.test.mjs
+node scripts/update_hir_goldens.mjs --check-inventory
+(cd packages/compiler && GOWORK=off go test . -run '^TestHIR(MigrationASTProof|SourceInventory|CorpusCoverage)$' -count=1)
+```
+
+The negative tests cover archive tampering, active Ballerina input edits, removed scenarios, changed stress generator size/expression, and unknown suite/migration paths. These commands do not record or rewrite any frozen artifact.
 
 ## Rendering boundary
 
