@@ -1,6 +1,20 @@
 {
   "version": 1,
   "stage": "post-baseline",
+  "postBaselineRenderingSuites": [
+    {
+      "file": "packages/compiler/hir_error_constructor_postbaseline_test.go",
+      "rendering": true,
+      "purpose": "Post-baseline error-constructor flow presentation, contexts and argument-effect coverage; no frozen corpus or baseline claims.",
+      "coverageCommand": "cd packages/compiler && GOWORK=off go test . -run '^TestErrorConstructorPostbaseline' -count=1"
+    },
+    {
+      "file": "packages/compiler/tests/browser/error-constructor.spec.mjs",
+      "rendering": true,
+      "purpose": "Post-baseline browser error-constructor rendering and interaction coverage; no frozen captures or original 663-case coverage claims.",
+      "coverageCommand": "npm run test:browser -- packages/compiler/tests/browser/error-constructor.spec.mjs"
+    }
+  ],
   "helpers": [
     {
       "file": "apps/editor/tests/legacy-flow.ts",

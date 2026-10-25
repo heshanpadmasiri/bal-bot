@@ -77,6 +77,9 @@ for (const [name, mutate] of [
   ['changed current compiler source', text=>text.replace('public function main() { int x = "bad"; }','public function main() { int x = "changed"; }')],
 ]) test(name+' fails the static input arm independently of file digests', () => temporary(directory => {
   copy(directory,'packages/compiler/tests/browser'); copy(directory,'packages/workspace/src/files.ts');
+  copy(directory,'tests/hir-suite-inventory.json');
+  copy(directory,'tests/fixtures/flow-rendering/inventory.json');
+  copy(directory,'packages/compiler/hir_error_constructor_postbaseline_test.go');
   symlinkSync(path.join(root,'examples'),path.join(directory,'examples'),'dir');
   const original=collectBrowserInventory(false,new Map(),directory);
   const file='packages/compiler/tests/browser/compiler.spec.mjs';

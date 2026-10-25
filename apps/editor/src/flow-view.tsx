@@ -35,7 +35,7 @@ export function FlowView({flow, references, expanded, onToggle, onSelect, onOpen
         glyph: recursivePresentation?.glyph ?? (reference.expanded ? '−' : '+'),
       } : undefined;
       return {id: n.id, kind: n.kind, selection: n.selection, label: n.label, box: layout.boxes[n.id], height: Math.max(52, labelSize(n.label).height + 28), selected: isReferenced(n.selection), container: n.layout.visibility.container && n.children.length > 0, recursive, client: presentation.kind === 'client',
-        text: wrapLabel(n.label).join('\n'), sections: sections.map(section => ({className: `client-${section.kind}`, text: wrapLabel(section.text).join('\n')})), context, call, unavailable};
+        text: wrapLabel(n.label).join('\n'), sections: sections.map(section => ({className: section.kind.startsWith('error-') ? section.kind : `client-${section.kind}`, text: wrapLabel(section.text).join('\n')})), context, call, unavailable};
     }),
     edges: layout.diagram.edges.map((edge, i) => ({kind: edge.kind, label: edge.label, route: layout.routes[i]})),
     iterations: layout.diagram.ports.filter(p => p.anchor.kind === 'iteration-marker').map(p => ({id: p.id, box: layout.boxes[p.nodeId]})),

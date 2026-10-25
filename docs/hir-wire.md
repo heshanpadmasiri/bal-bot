@@ -110,7 +110,17 @@ reference interface IDs refer to the target graph's interface namespace.
 ## Presentation and layout
 
 Visible presentations carry a complete selection/measurement label plus ordered
-sections. Plain text uses `text` sections; client sections explicitly use
+sections. Error constructors reuse the `plain` presentation with style
+`error-constructor` and ordered `error-message`, `error-cause`, and
+`error-detail` sections. Sections include their readable prefixes and newlines
+(`Error: …`, `\nCause: …`, `\nDetails:\n  key: value`); their concatenation is
+exactly the full label used for measurement. Constructor-valued causes are
+recursively indented; other arguments retain source spelling, without runtime
+value inference. Message, cause, and detail arguments evaluate in that order;
+constructing the error itself adds no panic or return effect. A constructor-valued
+argument is rendered inside its enclosing error, not as a preceding flow node;
+only argument evaluations with their own modeled effects contribute preceding nodes.
+Plain text uses `text` sections; client sections explicitly use
 `receiver`, `context`, and `method`. Client-context disclosures carry both complete
 label/section alternatives and a required nullable `call` field containing the
 strict `call` variant. A short-context workspace client call uses `call` directly;

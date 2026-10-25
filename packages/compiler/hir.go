@@ -297,26 +297,30 @@ func (v *HIRNodeBody) UnmarshalJSON(data []byte) error {
 type HIRNodeStyle string
 
 const (
-	HIRNodeStyleStep        HIRNodeStyle = "step"
-	HIRNodeStyleCondition   HIRNodeStyle = "condition"
-	HIRNodeStyleFunction    HIRNodeStyle = "function"
-	HIRNodeStyleLoop        HIRNodeStyle = "loop"
-	HIRNodeStyleMapping     HIRNodeStyle = "mapping"
-	HIRNodeStyleUnsupported HIRNodeStyle = "unsupported"
-	HIRNodeStyleReturn      HIRNodeStyle = "return"
-	HIRNodeStyleClient      HIRNodeStyle = "client"
-	HIRNodeStyleTrap        HIRNodeStyle = "trap"
-	HIRNodeStylePanic       HIRNodeStyle = "panic"
-	HIRNodeStyleTemplate    HIRNodeStyle = "template"
+	HIRNodeStyleStep             HIRNodeStyle = "step"
+	HIRNodeStyleCondition        HIRNodeStyle = "condition"
+	HIRNodeStyleFunction         HIRNodeStyle = "function"
+	HIRNodeStyleLoop             HIRNodeStyle = "loop"
+	HIRNodeStyleMapping          HIRNodeStyle = "mapping"
+	HIRNodeStyleUnsupported      HIRNodeStyle = "unsupported"
+	HIRNodeStyleReturn           HIRNodeStyle = "return"
+	HIRNodeStyleClient           HIRNodeStyle = "client"
+	HIRNodeStyleTrap             HIRNodeStyle = "trap"
+	HIRNodeStylePanic            HIRNodeStyle = "panic"
+	HIRNodeStyleTemplate         HIRNodeStyle = "template"
+	HIRNodeStyleErrorConstructor HIRNodeStyle = "error-constructor"
 )
 
 type HIRLabelSectionKind string
 
 const (
-	HIRLabelSectionKindText     HIRLabelSectionKind = "text"
-	HIRLabelSectionKindReceiver HIRLabelSectionKind = "receiver"
-	HIRLabelSectionKindContext  HIRLabelSectionKind = "context"
-	HIRLabelSectionKindMethod   HIRLabelSectionKind = "method"
+	HIRLabelSectionKindText         HIRLabelSectionKind = "text"
+	HIRLabelSectionKindReceiver     HIRLabelSectionKind = "receiver"
+	HIRLabelSectionKindContext      HIRLabelSectionKind = "context"
+	HIRLabelSectionKindMethod       HIRLabelSectionKind = "method"
+	HIRLabelSectionKindErrorMessage HIRLabelSectionKind = "error-message"
+	HIRLabelSectionKindErrorCause   HIRLabelSectionKind = "error-cause"
+	HIRLabelSectionKindErrorDetail  HIRLabelSectionKind = "error-detail"
 )
 
 type HIRLabelSection struct {

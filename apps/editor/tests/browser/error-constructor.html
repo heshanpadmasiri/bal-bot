@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Error constructor rendering · bal-bot</title></head>
+  <body>
+    <div id="editor-root"></div>
+    <script type="module">
+      import './mount.tsx';
+      window.mountEditor({
+        'Ballerina.toml': '[package]\norg = "demo"\nname = "errors"\nversion = "0.1.0"\n',
+        'main.bal': `public function main() returns error {
+    return error("Order submission failed",
+        error("Payment provider unavailable", code = "TIMEOUT"),
+        orderId = "ORD-1042", retryable = true);
+}
+`,
+      });
+    </script>
+  </body>
+</html>

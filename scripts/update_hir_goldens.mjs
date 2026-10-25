@@ -2,6 +2,7 @@
 // Deliberately separate from frozen render capture tooling. Never imports the recorder.
 import { spawnSync } from 'node:child_process';
 import {loadMigrations, baselineSource} from './hir-baseline-migrations.mjs';
+import {validatePostBaselineRenderingSuites} from './hir-suite-inventory.mjs';
 import { readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
@@ -38,6 +39,9 @@ function sources(directory) {
 export function collectBrowserInventory(historical = false, migrations = loadMigrations(), repository = root) {
   const root = repository;
   const readSource = file => historical && migrations.has(file) ? migrations.get(file).original : readFileSync(path.join(root, file));
+  const registry = JSON.parse(readFileSync(path.join(root, 'tests/hir-suite-inventory.json'), 'utf8'));
+  const frozen = JSON.parse(readFileSync(path.join(root, 'tests/fixtures/flow-rendering/inventory.json'), 'utf8'));
+  const postBaselineRendering = validatePostBaselineRenderingSuites(registry, new Set(frozen.suites.map(suite => suite.file)), root);
   const directory = 'packages/compiler/tests/browser';
   const initialPath = 'packages/workspace/src/files.ts';
   const initialAST = babelParse(readFileSync(path.join(root, initialPath), 'utf8'), initialPath);
@@ -61,6 +65,9 @@ export function collectBrowserInventory(historical = false, migrations = loadMig
   const result = [{ file: initialPath, sha256: hash(readFileSync(path.join(root, initialPath))), scenarios: [{ name: 'initialFiles', requests: [initial], exclusions: [] }] }];
   for (const name of readdirSync(path.join(root, directory)).filter(n => n.endsWith('.spec.mjs')).sort()) {
     const file = `${directory}/${name}`;
+    // Only validated feature suites are outside the immutable original corpus.
+    // Unknown suites remain collected and fail the original inventory checks.
+    if (postBaselineRendering.has(file)) continue;
     const text = readSource(file).toString();
     const ast = babelParse(text, file);
     const expressionText = node => text.slice(node.start, node.end);

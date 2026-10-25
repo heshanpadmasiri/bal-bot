@@ -108,7 +108,7 @@ function hirLocated(value: unknown): void {
   hirAssert(range(r), 'invalid source range');
 }
 function hirSections(value: unknown): void {
-  hirList(value, item => { const v = hirObject(item, 'kind text'); hirEnum(v.kind, 'text receiver context method'); hirPresentationText(v.text); });
+  hirList(value, item => { const v = hirObject(item, 'kind text'); hirEnum(v.kind, 'text receiver context method error-message error-cause error-detail'); hirPresentationText(v.text); });
 }
 function hirLabel(value: unknown): void { const v = hirObject(value, 'label sections'); hirPresentationText(v.label); hirSections(v.sections); }
 function hirAvailability(value: unknown): void {
@@ -170,7 +170,7 @@ function validateNode(value: unknown): HIRNode {
   if (p.kind === 'hidden') hirObject(p, 'kind');
   else {
     hirObject(p, 'kind style label sections limitation disclosure'); hirEnum(p.kind, 'plain client');
-    hirEnum(p.style, 'step condition function loop mapping unsupported return client trap panic template');
+    hirEnum(p.style, 'step condition function loop mapping unsupported return client trap panic template error-constructor');
     if (p.kind === 'client') hirAssert(p.style === 'client');
     hirPresentationText(p.label); hirSections(p.sections); hirNullable(p.limitation);
     const d = hirObject(p.disclosure);

@@ -34,6 +34,7 @@
 import {readFile, readdir} from 'node:fs/promises';
 import {loadMigrations, baselineSource} from '../../../scripts/hir-baseline-migrations.mjs';
 import {checkBrowserInventory} from '../../../scripts/update_hir_goldens.mjs';
+import {validatePostBaselineRenderingSuites} from '../../../scripts/hir-suite-inventory.mjs';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {resolve} from 'node:path';
@@ -102,11 +103,12 @@ async function assertInventory(inventory, inputs) {
   for (const example of inventory.examples) if (!example.caseIds.length || example.caseIds.some(id=>!ids.has(id))) throw Error(`Uncovered example: ${example.name}`);
 }
 
-// This registry is deliberately outside the frozen input catalog. Its entries
-// are new contract/serialization tests, not additional baseline render coverage.
+// This registry is deliberately outside the frozen input catalog. Feature
+// rendering suites have their own coverage, never additional baseline claims.
 export async function assertSuiteInventory(tests, inventory) {
   const registry = await readJSON('tests/hir-suite-inventory.json');
-  if (registry.version !== 1 || registry.stage !== 'post-baseline' || !Array.isArray(registry.suites)) {
+  if (registry.version !== 1 || registry.stage !== 'post-baseline' || !Array.isArray(registry.suites) ||
+      !Array.isArray(registry.postBaselineRenderingSuites)) {
     throw Error('Invalid post-baseline HIR suite registry');
   }
   const baseline = new Set(inventory.suites.map(suite => suite.file));
@@ -120,6 +122,7 @@ export async function assertSuiteInventory(tests, inventory) {
     }
     registered.add(suite.file);
   }
+  for (const file of validatePostBaselineRenderingSuites(registry, baseline, ROOT)) registered.add(file);
   for (const helper of registry.helpers ?? []) {
     if (typeof helper.file !== 'string' ||
         !/^(?:apps\/editor\/tests\/(?:hir-[a-z0-9-]+\.mjs|legacy-flow\.ts)|packages\/compiler\/(?:hir_[a-z0-9_]+_test\.go|tests\/[A-Za-z0-9_-]+\.mjs))$/.test(helper.file) ||
@@ -138,8 +141,8 @@ export async function assertSuiteInventory(tests, inventory) {
   if (missing.length || unknown.length) {
     throw Error(`Test suite inventory drift: missing baseline suites [${missing.join(', ')}]; unregistered suites [${unknown.join(', ')}]. Register new non-rendering HIR suites separately; flow-producing tests need explicit post-baseline coverage, not frozen baseline claims.`);
   }
-  // Planned registry entries need not exist yet. Baseline entries must exist,
-  // and their original byte hashes are still checked by assertInventory below.
+  // Planned non-rendering entries need not exist yet. Baseline entries must
+  // exist, and assertInventory still checks their original byte hashes.
 }
 
 async function discoverTests() {

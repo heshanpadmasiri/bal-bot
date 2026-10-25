@@ -26,6 +26,8 @@ type evaluationContext struct {
 	call                     directCall
 	nodeID                   string
 	evaluation               bool
+	// Constructor-valued arguments are nested presentation, not flow steps.
+	inlineConstructor bool
 }
 
 // directCall retains resolved source identity, not an exported call DTO.
@@ -115,6 +117,14 @@ func (b *graphBuilder) expressionParts(expr ast.BLangActionOrExpression) (string
 				known = false
 			}
 		}
+	case *ast.BLangErrorConstructorExpr:
+		kind = "error-constructor"
+		for _, e := range n.PositionalArgs {
+			add(e)
+		}
+		for i := range n.NamedArgs {
+			add(n.NamedArgs[i].Expr)
+		}
 	case *ast.BLangNewExpression:
 		for _, e := range b.l.newArgs(n) {
 			add(e)
@@ -200,7 +210,7 @@ func (b *graphBuilder) scanCalls(id string, expr ast.BLangActionOrExpression, sa
 				reason = "Error operators in conditionally evaluated operands are not modeled."
 			}
 		}
-		if kind == "template" {
+		if kind == "template" || kind == "error-constructor" {
 			childExpand = expand
 		}
 		for _, p := range parts {
@@ -215,7 +225,7 @@ func (b *graphBuilder) hasEvaluation(expr ast.BLangActionOrExpression) bool {
 		return false
 	}
 	kind, parts, _ := b.expressionParts(expr)
-	if kind == "check" || kind == "checkpanic" || kind == "trap" || kind == "template" {
+	if kind == "check" || kind == "checkpanic" || kind == "trap" || kind == "template" || kind == "error-constructor" {
 		return true
 	}
 	if c, ok := expr.(ast.Invocable); ok && b.isClient(c) {
@@ -241,7 +251,7 @@ func (b *graphBuilder) evaluationExists(expr ast.BLangActionOrExpression) bool {
 		return false
 	}
 	kind, parts, _ := b.expressionParts(expr)
-	if kind == "call" || kind == "check" || kind == "checkpanic" || kind == "trap" || kind == "template" {
+	if kind == "call" || kind == "check" || kind == "checkpanic" || kind == "trap" || kind == "template" || kind == "error-constructor" {
 		return true
 	}
 	switch n := expr.(type) {
@@ -294,7 +304,7 @@ func (b *graphBuilder) lowerExpression(path string, expr ast.BLangActionOrExpres
 	}
 	kind, parts, _ := b.expressionParts(expr)
 	if kind == "group" {
-		return b.evaluate(sourceID, path, parts[0], calls, force)
+		return b.lowerExpression(path, parts[0], context)
 	}
 	if !force && !b.evaluationExists(expr) {
 		return fragment{}, nil
@@ -319,12 +329,25 @@ func (b *graphBuilder) lowerExpression(path string, expr ast.BLangActionOrExpres
 		if !exists {
 			continue
 		}
-		child, err := b.evaluate(sid, fmt.Sprintf("%s/part/%d", path, childIndex), p, calls, false)
+		childPath := fmt.Sprintf("%s/part/%d", path, childIndex)
+		child, err := b.lowerExpression(childPath, p, evaluationContext{
+			kind: evaluationExpression, sourceID: sid, occurrencePath: childPath, calls: calls,
+			inlineConstructor: kind == "error-constructor",
+		})
 		if err != nil {
 			return fragment{}, err
 		}
-		b.appendEvaluation(&nested, child, childIndex == 0)
+		// A pure nested constructor contributes presentation only. Do not
+		// replace preceding argument effects with an empty continuation.
+		if len(child.nodes) == 0 {
+			childIndex++ // Retain a unique source path even without a flow node.
+			continue
+		}
+		b.appendEvaluation(&nested, child, len(nested.nodes) == 0)
 		childIndex++
+	}
+	if kind == "error-constructor" && context.inlineConstructor {
+		return nested, nil
 	}
 	if (kind == "check" || kind == "checkpanic" || kind == "trap") && childIndex == 0 && len(parts) > 0 {
 		child, err := b.evaluate(sourceID+"/operand", path+"/part/0", parts[0], calls, true)
@@ -406,6 +429,12 @@ func (b *graphBuilder) lowerExpression(path string, expr ast.BLangActionOrExpres
 		style = HIRNodeStyleFunction
 	}
 	presentation := plain(style, loc.Text)
+	if constructor, ok := expr.(*ast.BLangErrorConstructorExpr); ok {
+		presentation, err = b.errorConstructorPresentation(sourceID, constructor)
+		if err != nil {
+			return fragment{}, err
+		}
+	}
 	if call != nil && call.client {
 		presentation, err = b.clientPresentation(call, path)
 		if err != nil {
@@ -419,7 +448,12 @@ func (b *graphBuilder) lowerExpression(path string, expr ast.BLangActionOrExpres
 	entry := b.allocPort(node, HIRPortRoleEntry)
 	b.connect(nested.normal, member(entry), HIREdgeKindSequence)
 	normal := member(b.allocPort(node, HIRPortRoleNormalExit))
-	panics := append(nested.panics, member(b.allocPort(node, HIRPortRolePanic))...)
+	panics := nested.panics
+	// Constructing an error is a normal value operation; only its arguments
+	// contribute control effects.
+	if kind != "error-constructor" {
+		panics = append(panics, member(b.allocPort(node, HIRPortRolePanic))...)
+	}
 	if call != nil && call.target != "" {
 		normal = b.bindCall(node, path+"/expand", *call, true)
 		nested.panicExports = append(nested.panicExports, panicExport{reference: node, before: len(panics)})

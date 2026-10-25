@@ -155,8 +155,8 @@ func PrintHIR(program HIRProgram) (string, error) {
 
 var hirEnumValues = map[string]string{
 	"HIREntryKind": "resource remote function method", "HIRParameterLabel": "Path Input",
-	"HIRNodeStyle":        "step condition function loop mapping unsupported return client trap panic template",
-	"HIRLabelSectionKind": "text receiver context method", "HIRClientStyle": "client",
+	"HIRNodeStyle":        "step condition function loop mapping unsupported return client trap panic template error-constructor",
+	"HIRLabelSectionKind": "text receiver context method error-message error-cause error-detail", "HIRClientStyle": "client",
 	"HIRPortRole":   "entry normal-exit true false return break continue next-iteration panic",
 	"HIRAnchorKind": "top-center header-left header-right header-bottom-center bottom-center group-bottom-center iteration-marker",
 	"HIREdgeKind":   "sequence true false back break continue return error panic", "HIRRouting": "direct branch-left branch-right back",

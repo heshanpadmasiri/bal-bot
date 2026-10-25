@@ -149,3 +149,10 @@ aside[hidden]{display:none}.main-location{display:flex;align-items:center;gap:14
 .client-method { color: #164e49; font-weight: 600; }
 
 .node-header.client-header .node-select { width: 100%; }
+
+/* Error values are not failures of the flow: emphasize their message, then context. */
+.flow-node.error-constructor { fill: #fff8f1; stroke: #d6ad85; }
+.error-header .node-select { text-align: left; }
+.error-message { color: #60391f; font-weight: 600; }
+.error-message:not(:first-child), .error-cause { color: #745b48; font-weight: 400; }
+.error-detail { color: #78716b; }

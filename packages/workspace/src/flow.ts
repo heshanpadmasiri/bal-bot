@@ -64,9 +64,9 @@ export interface HIRNode {
 export type HIRNodeBody = { readonly kind: 'leaf' }
   | { readonly kind: 'group'; readonly groupId: Id }
   | { readonly kind: 'reference'; readonly reference: HIRGraphReference };
-export type HIRNodeStyle = 'step' | 'condition' | 'function' | 'loop' | 'mapping' | 'unsupported' | 'return' | 'client' | 'trap' | 'panic' | 'template';
+export type HIRNodeStyle = 'step' | 'condition' | 'function' | 'loop' | 'mapping' | 'unsupported' | 'return' | 'client' | 'trap' | 'panic' | 'template' | 'error-constructor';
 export interface HIRLabelSection {
-  readonly kind: 'text' | 'receiver' | 'context' | 'method';
+  readonly kind: 'text' | 'receiver' | 'context' | 'method' | 'error-message' | 'error-cause' | 'error-detail';
   readonly text: string;
 }
 export type HIRPresentation = { readonly kind: 'hidden' }
