@@ -21,6 +21,58 @@ A fresh browser workspace starts with a Hello World Ballerina HTTP service and i
 
 There is no local-directory argument, file synchronization, or filesystem access. Files are not imported from or written back to a source repository. The [example packages](examples/README.md) are reference fixtures, not directories that the server can open. This is an experimental, single-user browser tool; it does not run your services.
 
+## Standalone flow playground
+
+```sh
+npm run dev:playground
+```
+
+Open <http://127.0.0.1:5174>. Edit a complete `.bal` file on the left and inspect
+its interactive flow on the right. Statements must be wrapped in a function;
+include required imports and declarations. The app supplies a fixed package
+manifest internally. Choose a function or endpoint with the **Entry** selector.
+Analysis runs after a 300 ms typing pause. Invalid edits show diagnostics and
+retain the last valid flow, explicitly marked stale. This uses the existing flow
+analyzer, not service execution or a guarantee of full semantic compilation.
+
+**Copy demo link** shares the current source and selected entry. Source is stored
+in the URL fragment (not sent to the hosting server); anyone with the link can
+read it, so do not include secrets. Edits are otherwise in memory only. No chat,
+API keys, backend, or source persistence is required. Links are intended for small
+examples; browser and messaging-app URL-length limits still apply.
+
+An agent can generate a prefilled link directly, without opening the app:
+
+```js
+const source = 'function demo() returns int { return 42; }';
+const link = 'http://127.0.0.1:5174/#' +
+  encodeURIComponent(JSON.stringify({version: 1, source}));
+```
+
+The optional `functionId` field selects a compiler function identity; omit it to
+select the first entry in source order. Expansion state is not included.
+Malformed or unsupported links show an error and load the default example.
+
+Build and host this app independently of the editor:
+
+```sh
+npm run build:playground
+npm run preview:playground  # http://127.0.0.1:4174
+# For a subpath, use the same BASE_PATH for build and preview:
+BASE_PATH=/flow-playground/ npm run build:playground
+BASE_PATH=/flow-playground/ npm run preview:playground
+```
+
+Deploy `apps/flow-playground/dist` to a static HTTP(S) host. The existing editor
+and its GitHub Pages deployment are unchanged. Both apps use the same production
+renderer and generated compiler assets; the playground build generates its own
+static bundle without the chat application.
+
+```sh
+npm run test:playground
+npm run test:playground:browser  # requires Playwright Chromium
+```
+
 ## Static hosting and GitHub Pages
 
 ```sh

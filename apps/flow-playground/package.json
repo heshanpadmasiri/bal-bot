@@ -1,0 +1,26 @@
+{
+  "name": "@bal-bot/flow-playground",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "python3 ../../scripts/build_compiler.py",
+    "dev": "vite --host 127.0.0.1 --port 5174",
+    "prebuild": "python3 ../../scripts/build_compiler.py",
+    "build": "tsc -p tsconfig.json && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4174",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@bal-bot/compiler": "*",
+    "@bal-bot/workspace": "*",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}
