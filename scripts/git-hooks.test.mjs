@@ -6,13 +6,20 @@ import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import test from 'node:test';
 
+// Commit hooks inherit repository-local Git variables. Never pass those to
+// fixture commands: even `git -C <fixture>` would otherwise use the real repo.
+const gitLocalVariables = spawnSync('git', ['rev-parse', '--local-env-vars'], {encoding: 'utf8'});
+assert.equal(gitLocalVariables.status, 0, gitLocalVariables.stderr);
+const fixtureEnv = {...process.env};
+for (const name of gitLocalVariables.stdout.trim().split('\n')) delete fixtureEnv[name];
+
 const root = fileURLToPath(new URL('../', import.meta.url));
 const {scripts} = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
 
 function fixture(t) {
   const dir = realpathSync(mkdtempSync(join(tmpdir(), 'bal-bot-hooks-')));
   t.after(() => rmSync(dir, {recursive: true, force: true}));
-  assert.equal(spawnSync('git', ['init', dir]).status, 0);
+  assert.equal(spawnSync('git', ['init', dir], {env: fixtureEnv}).status, 0);
   mkdirSync(join(dir, 'bin'));
   mkdirSync(join(dir, 'nested'));
   writeFileSync(join(dir, 'bin', 'npm'), `#!/bin/sh
@@ -21,7 +28,7 @@ if [ "$*" = "$FAIL_COMMAND" ]; then exit 17; fi
 `, {mode: 0o755});
   return {
     dir,
-    env: {...process.env, PATH: `${join(dir, 'bin')}:${process.env.PATH}`, TEST_LOG: join(dir, 'log'), FAIL_COMMAND: ''},
+    env: {...fixtureEnv, PATH: `${join(dir, 'bin')}:${fixtureEnv.PATH}`, TEST_LOG: join(dir, 'log'), FAIL_COMMAND: ''},
     log: () => readFileSync(join(dir, 'log'), 'utf8').trim().split('\n'),
   };
 }
@@ -56,8 +63,8 @@ test('installer configures local hooks, is repeatable, and protects custom hooks
   mkdirSync(join(dir, 'scripts'));
   const installer = join(dir, 'scripts/install_git_hooks.mjs');
   copyFileSync(join(root, 'scripts/install_git_hooks.mjs'), installer);
-  const git = (...args) => spawnSync('git', ['-C', dir, ...args], {encoding: 'utf8'});
-  const env = {...process.env, GIT_CONFIG_GLOBAL: '/dev/null', GIT_CONFIG_NOSYSTEM: '1'};
+  const git = (...args) => spawnSync('git', ['-C', dir, ...args], {env: fixtureEnv, encoding: 'utf8'});
+  const env = {...fixtureEnv, GIT_CONFIG_GLOBAL: '/dev/null', GIT_CONFIG_NOSYSTEM: '1'};
   for (let i = 0; i < 2; i++) {
     assert.equal(spawnSync(process.execPath, [installer], {env}).status, 0);
     assert.equal(git('config', '--local', '--get', 'core.hooksPath').stdout.trim(), '.githooks');
