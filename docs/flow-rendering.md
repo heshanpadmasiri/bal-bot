@@ -45,6 +45,15 @@ Other compiler inputs, source archives, and golden expectations are unchanged.
 Run `node scripts/update_hir_goldens.mjs --check-inventory` for browser input
 validation; native corpus and provenance checks run in `npm run test:compiler`.
 
+## Query expressions
+
+Query expressions render as ordinary source-backed expressions, preserving their
+text and the existing function-name links and resolved-variable highlighting.
+Query clauses do not introduce flow nodes, filtering branches, or per-row
+execution paths. Calls inside clauses use the normal function-card interaction;
+opening a card does not simulate query execution. Supported query syntax is
+limited to what the compiler accepts.
+
 ## Interactive inspection
 
 Use `npm run dev:playground` and the actual server URL (normally

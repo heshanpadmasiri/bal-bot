@@ -79,6 +79,10 @@ func (b *graphBuilder) expressionParts(expr ast.BLangActionOrExpression) (string
 	}
 	switch n := expr.(type) {
 	case nil, *ast.BLangLiteral, *ast.BLangNumericLiteral, *ast.BLangVarRef, *ast.BLangConstRef, *ast.BLangTypedescExpr, *ast.BLangWildCardBindingPattern:
+	case *ast.BLangQueryExpr:
+		// Queries retain their source presentation and source-indexed call and
+		// variable interactions. Their clauses are not sequential evaluations:
+		// traversing them here would misrepresent filtering and per-row effects.
 	case *ast.BLangCheckedExpr:
 		kind = "check"
 		add(n.Expr)

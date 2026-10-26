@@ -75,6 +75,62 @@ test('single statements, shared cards, nested calls, recursion, hover, drag and 
   expect(errors).toEqual([]);
 });
 
+test('queries retain source, variable highlighting and callable names for bound and outer references', async ({page, baseURL}) => {
+  const querySource = `function demo() returns int[] {
+    int[] values = [1, 2, 3];
+    int offset = 1;
+    int[] result = from int item in values
+        where keep(item, offset)
+        select adjust(item, offset);
+    return result;
+}
+function keep(int candidate, int threshold) returns boolean { return candidate > threshold; }
+function adjust(int candidate, int increment) returns int { return candidate + increment; }
+`;
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto(encodeDemo(baseURL, {version: 1, source: querySource}));
+  const main = page.locator('.function-main');
+  await expect(main.locator('.flow-view')).toHaveAttribute('data-analysis', 'ready');
+  await expect(page.getByLabel('Ballerina source')).toHaveValue(querySource);
+  const query = main.locator('.node-select').filter({hasText: /^int\[\] result = from/});
+  await expect(query).toBeVisible();
+  await expect(query).toContainText('from int item in values');
+  await expect(query).toContainText('where keep(item, offset)');
+  await expect(query).toContainText('select adjust(item, offset);');
+  await expect(main.locator('[data-node-kind="unsupported"], .node-limitation')).toHaveCount(0);
+
+  const occurrences = (scope, name) => scope.locator('.variable-occurrence').filter({hasText: new RegExp(`^${name}$`)});
+  const items = occurrences(query, 'item');
+  await expect(items).toHaveCount(3);
+  const itemId = await items.first().getAttribute('data-variable-id');
+  expect(itemId).toBeTruthy();
+  await items.last().hover();
+  await expect(query.locator('.variable-active')).toHaveCount(3);
+  expect(await items.evaluateAll(elements => elements.map(element => element.dataset.variableId))).toEqual([itemId, itemId, itemId]);
+
+  const offsetDeclaration = main.locator('.node-select').filter({hasText: /^int offset = 1;$/});
+  const offsetId = await occurrences(offsetDeclaration, 'offset').getAttribute('data-variable-id');
+  expect(offsetId).toBeTruthy();
+  expect(offsetId).not.toBe(itemId);
+  await occurrences(query, 'offset').first().hover();
+  await expect(occurrences(offsetDeclaration, 'offset')).toHaveClass(/variable-active/);
+  await expect(query.locator('.variable-active')).toHaveCount(2);
+  expect(await occurrences(query, 'offset').evaluateAll(elements => elements.map(element => element.dataset.variableId))).toEqual([offsetId, offsetId]);
+  await expect(items.first()).not.toHaveClass(/variable-active/);
+
+  await open(main, 'keep').click();
+  const keep = page.getByRole('region', {name: 'Function keep', exact: true});
+  await expect(keep).toContainText('return candidate > threshold;');
+  await open(main, 'adjust').click();
+  const adjust = page.getByRole('region', {name: 'Function adjust', exact: true});
+  await expect(adjust).toContainText('return candidate + increment;');
+  await expect(page.locator('.function-card')).toHaveCount(2);
+  await expect(query).toContainText('select adjust(item, offset);');
+  await expect(page.locator('.reference-chip')).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
+
 test('same-named methods have distinct cards keyed by resolved function identity', async ({page, baseURL}) => {
   const methods = `function demo() returns int {
     A a = new;
