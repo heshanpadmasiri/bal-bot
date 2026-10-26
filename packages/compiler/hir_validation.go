@@ -206,7 +206,7 @@ func PrintHIR(program HIRProgram) (string, error) {
 var hirEnumValues = map[string]string{
 	"HIREntryKind": "resource remote function method", "HIRParameterLabel": "Path Input",
 	"HIRNodeStyle":        "step condition function loop mapping unsupported return client trap panic template error-constructor",
-	"HIRLabelSectionKind": "text receiver context method error-message error-cause error-detail", "HIRClientStyle": "client",
+	"HIRLabelSectionKind": "text receiver context method error-message error-cause error-detail template-type template-expression", "HIRClientStyle": "client",
 	"HIRPortRole":   "entry normal-exit true false return break continue next-iteration panic",
 	"HIRAnchorKind": "top-center header-left header-right header-bottom-center bottom-center group-bottom-center iteration-marker",
 	"HIREdgeKind":   "sequence true false back break continue return error panic", "HIRRouting": "direct branch-left branch-right back",
@@ -356,6 +356,22 @@ func hirVariableSpans(value reflect.Value) error {
 	return nil
 }
 
+// Empty legacy template sections remain valid for historical HIR consumers.
+func validateTemplateSections(style HIRNodeStyle, sections HIRList[HIRLabelSection]) error {
+	for _, section := range sections {
+		if section.Kind != HIRLabelSectionKindTemplateType && section.Kind != HIRLabelSectionKindTemplateExpression {
+			continue
+		}
+		if style != HIRNodeStyleTemplate || len(sections) != 2 ||
+			sections[0].Kind != HIRLabelSectionKindTemplateType ||
+			sections[1].Kind != HIRLabelSectionKindTemplateExpression ||
+			(sections[0].Text != "string" && sections[0].Text != "xml") {
+			return fmt.Errorf("invalid template sections")
+		}
+	}
+	return nil
+}
+
 func hirCheckVariableSpans(text string, spans HIRList[HIRVariableOccurrence]) error {
 	length := utf16Length(text)
 	// Consumers require source order as well as non-overlapping spans.
@@ -463,8 +479,14 @@ func (v *hirValidator) index(g HIRGraph) (*hirGraphIndex, error) {
 		var disclosure HIRDisclosure
 		switch presentation := n.Presentation.Value.(type) {
 		case *HIRPlainPresentation:
+			if err := validateTemplateSections(presentation.Style, presentation.Sections); err != nil {
+				return nil, fmt.Errorf("node %q: %w", n.ID, err)
+			}
 			disclosure = presentation.Disclosure
 		case *HIRClientPresentation:
+			if err := validateTemplateSections(HIRNodeStyleClient, presentation.Sections); err != nil {
+				return nil, fmt.Errorf("node %q: %w", n.ID, err)
+			}
 			disclosure = presentation.Disclosure
 		}
 		var call *HIRCallDisclosure

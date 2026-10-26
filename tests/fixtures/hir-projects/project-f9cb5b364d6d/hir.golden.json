@@ -1304,7 +1304,16 @@
             "kind": "plain",
             "style": "template",
             "label": "string `value ${check risky()}`",
-            "sections": [],
+            "sections": [
+              {
+                "kind": "template-type",
+                "text": "string"
+              },
+              {
+                "kind": "template-expression",
+                "text": "`value ${check risky()}`"
+              }
+            ],
             "limitation": null,
             "disclosure": {
               "kind": "none"

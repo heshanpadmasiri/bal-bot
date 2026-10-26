@@ -32,8 +32,6 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - run: npm ci
-      - name: Install Chromium
-        run: npx playwright install --with-deps chromium
       - run: npm test
       - run: npm run build
         env:

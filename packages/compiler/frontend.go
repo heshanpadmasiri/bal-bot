@@ -46,6 +46,7 @@ type resolvedProgram struct {
 	// Original argument snapshots are populated during resolution and read-only afterwards.
 	sourceCallArgs map[ast.Invocable][]ast.BLangExpression
 	sourceNewArgs  map[*ast.BLangNewExpression][]ast.BLangExpression
+	xmlTemplates   map[ast.Node]bool
 	files          Files
 	env            *context.CompilerEnvironment
 	modules        []*resolvedModule
@@ -98,7 +99,7 @@ func resolveProgram(files Files) (program *resolvedProgram, items []Diagnostic, 
 	if projects.NewDiagnosticResult(all).HasErrors() {
 		return finish(nil)
 	}
-	program = &resolvedProgram{files: files, env: env, sourceCallArgs: map[ast.Invocable][]ast.BLangExpression{}, sourceNewArgs: map[*ast.BLangNewExpression][]ast.BLangExpression{}}
+	program = &resolvedProgram{files: files, env: env, sourceCallArgs: map[ast.Invocable][]ast.BLangExpression{}, sourceNewArgs: map[*ast.BLangNewExpression][]ast.BLangExpression{}, xmlTemplates: map[ast.Node]bool{}}
 	public := map[semantics.PackageIdentifier]model.ExportedSymbolSpace{}
 	visibility := map[semantics.PackageIdentifier]semantics.ModuleVisibility{}
 	var packages []*projects.Package
@@ -147,6 +148,9 @@ func resolveProgram(files Files) (program *resolvedProgram, items []Diagnostic, 
 					return nil, nil, parseErr
 				}
 				unit := nodebuilder.GetCompilationUnit(cx, tree)
+				if pkg == root && !cx.HasErrors() {
+					retainXMLTemplateSources(cx, tree, unit, program.xmlTemplates)
+				}
 				units = append(units, unit)
 				documentNames = append(documentNames, key)
 			}

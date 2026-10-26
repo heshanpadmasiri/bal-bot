@@ -20,7 +20,7 @@
     "preview:playground": "npm run preview --workspace @bal-bot/flow-playground --",
     "test:playground": "npm run test --workspace @bal-bot/flow-playground",
     "test:playground:browser": "playwright test --config apps/flow-playground/playwright.config.mjs",
-    "test": "node --test packages/browser-workspace/tests/*.test.mjs packages/compiler/tests/*.test.mjs apps/editor/tests/*.test.mjs apps/flow-playground/tests/*.test.mjs",
+    "test": "node --test packages/browser-workspace/tests/*.test.mjs packages/compiler/tests/*.test.mjs apps/editor/tests/*.test.mjs apps/editor/tests/post-baseline/*.test.mjs apps/flow-playground/tests/*.test.mjs",
     "start": "npm run start --workspace @bal-bot/editor --",
     "test:compiler": "cd packages/compiler && GOWORK=off go test ./...",
     "test:variables": "node --test tests/variable-*.test.mjs",

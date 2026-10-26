@@ -58,6 +58,14 @@ func (b *graphBuilder) expressionParts(expr ast.BLangActionOrExpression) (string
 	}
 	kind := "source"
 	known := true
+	if b.l.p.xmlTemplates[expr] {
+		if n, ok := expr.(*ast.BLangXMLTemplateExpr); ok {
+			for _, e := range n.Insertions {
+				add(e)
+			}
+		}
+		return "template", parts, true
+	}
 	if c, ok := expr.(ast.Invocable); ok {
 		kind = "call"
 		add(c.Receiver())
@@ -134,8 +142,13 @@ func (b *graphBuilder) expressionParts(expr ast.BLangActionOrExpression) (string
 		}
 	case *ast.BLangTypeTestExpr:
 		add(n.Expr)
+	case *ast.BLangXMLTemplateExpr:
+		kind = "template"
+		for _, e := range n.Insertions {
+			add(e)
+		}
 	case *ast.BLangTemplateExpr:
-		if n.Kind != ast.TemplateExprKindString {
+		if n.Kind != ast.TemplateExprKindString && n.Kind != ast.TemplateExprKindXML {
 			known = false
 		} else {
 			kind = "template"
@@ -164,7 +177,7 @@ func (b *graphBuilder) scanCalls(id string, expr ast.BLangActionOrExpression, sa
 			case *ast.BLangMappingConstructorExpr:
 				reason = "Mapping field evaluation is not modeled."
 			case *ast.BLangTemplateExpr:
-				reason = "Non-string template evaluation is not modeled."
+				reason = "This template kind's evaluation is not modeled."
 			}
 		}
 		if call, ok := e.(ast.Invocable); ok {
@@ -439,6 +452,29 @@ func (b *graphBuilder) lowerExpression(path string, expr ast.BLangActionOrExpres
 		if err != nil {
 			return fragment{}, err
 		}
+	}
+	if kind == "template" {
+		templateType := "string"
+		if b.l.p.xmlTemplates[expr] {
+			templateType = "xml"
+		}
+		switch n := expr.(type) {
+		case *ast.BLangXMLTemplateExpr:
+			templateType = "xml"
+		case *ast.BLangTemplateExpr:
+			if n.Kind == ast.TemplateExprKindXML {
+				templateType = "xml"
+			}
+		}
+		// The AST determines the type; preserve the expression's original bytes
+		// rather than reconstructing XML or interpolations from the AST.
+		expression := strings.TrimSpace(strings.TrimPrefix(loc.Text, templateType))
+		p := presentation.Value.(HIRPlainPresentation)
+		p.Sections = HIRList[HIRLabelSection]{
+			{Kind: HIRLabelSectionKindTemplateType, Text: HIRText(templateType)},
+			{Kind: HIRLabelSectionKindTemplateExpression, Text: HIRText(expression)},
+		}
+		presentation.Value = p
 	}
 	if call != nil && call.client {
 		presentation, err = b.clientPresentation(call, path)

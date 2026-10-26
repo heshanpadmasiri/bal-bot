@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Id, Located, HIRVariableOccurrence, HIRCallSpan } from '@bal-bot/workspace';
-import { VariableText, type VariableHover } from './variable-text';
+import { VariableText, wrappedVariables, type VariableHover } from './variable-text';
+import type { DiagramNode } from './hir-diagram';
 
 export interface FunctionInteraction {
   readonly open: (id: Id) => void;
@@ -13,6 +14,7 @@ export interface FlowSvgNode {
   readonly height: number; readonly selected: boolean; readonly container: boolean; readonly recursive?: boolean;
   readonly variables?: readonly HIRVariableOccurrence[];
   readonly rawVariables?: readonly HIRVariableOccurrence[];
+  readonly template?: boolean;
   readonly client: boolean; readonly sections: readonly {readonly className: string; readonly text: string; readonly rawText?: string; readonly variables?: readonly HIRVariableOccurrence[]}[];
   readonly text: string; readonly context?: {readonly path: string; readonly expanded: boolean};
   readonly call?: {readonly path: string; readonly expanded: boolean; readonly unavailable?: string; readonly title: string; readonly ariaLabel: string; readonly glyph: string}; readonly unavailable?: string;
@@ -24,16 +26,30 @@ export interface FlowSvgData {
   readonly iterations: readonly {readonly id: Id; readonly box: FlowBox}[];
 }
 let canvas: HTMLCanvasElement | undefined;
-export function wrapLabel(label: string): string[] {
+export function wrapLabel(label: string, width = 340): string[] {
   canvas ??= document.createElement('canvas'); const ctx = canvas.getContext('2d')!; ctx.font = '13px monospace';
   const lines = label.split('\n').flatMap(line => {
-    const result = ['']; for (const char of line) { if (ctx.measureText(result[result.length - 1] + char).width > 340) result.push(''); result[result.length - 1] += char; } return result;
+    const result = ['']; for (const char of line) { if (ctx.measureText(result[result.length - 1] + char).width > width) result.push(''); result[result.length - 1] += char; } return result;
   });
   return lines;
 }
 export function labelSize(label: string): {width: number; height: number} {
   const lines = wrapLabel(label), ctx = canvas!.getContext('2d')!;
   return {width: Math.max(200, ...lines.map(l => ctx.measureText(l).width)), height: lines.length * 19};
+}
+/** Matches the fixed columns in .template-header; label remains the full source. */
+export const templateColumns = { type: 56, gap: 12, expression: 272 } as const;
+export function templateSections(node: DiagramNode): {className: string; text: string; rawText: string; variables?: readonly HIRVariableOccurrence[]}[] | undefined {
+  const p = node.presentation;
+  if (p.kind !== 'plain' || p.style !== 'template' || p.sections.map(s => s.kind).join(',') !== 'template-type,template-expression') return undefined;
+  return p.sections.map((section, index) => {
+    const lines = wrapLabel(section.text, index === 0 ? templateColumns.type : templateColumns.expression);
+    return {className: section.kind, text: lines.join('\n'), rawText: section.text, variables: wrappedVariables(section.text, lines, section.variables)};
+  });
+}
+export function nodeLabelSize(label: string, node: DiagramNode): {width: number; height: number} {
+  const sections = templateSections(node);
+  return sections ? {width: templateColumns.type + templateColumns.gap + templateColumns.expression, height: Math.max(1, ...sections.map(s => s.text.split('\n').length)) * 19} : labelSize(label);
 }
 export function flowBounds(boxes: readonly FlowBox[], routes: FlowSvgData['edges'][number]['route'][]): FlowBox {
   const points = routes.flat();
@@ -62,8 +78,12 @@ function CallLabel({node, functions, ready, onSelect, activeVariable, onVariable
   return spans;
   };
   let offset = 0;
-  const structured = node.client || node.kind === 'error-constructor';
+  const structured = node.client || node.kind === 'error-constructor' || node.template;
   return <div className="node-select call-label">{structured ? node.sections.map((section, i) => {
+    // The type column is presentation metadata, not a prefix of the source label.
+    // Source spans use UTF-16 offsets, so use raw source lengths (never wrapped text).
+    if (node.template && section.className === 'template-type') return <span key={i} className={section.className}>{section.text}</span>;
+    if (node.template && section.className === 'template-expression') offset = /^(?:string|xml)\s+/.exec(node.label)?.[0].length ?? 0;
     const start = offset;
     offset += (section.rawText ?? section.text).length;
     const result = <span key={i} className={section.className}>{content(start, offset)}</span>;
@@ -83,8 +103,8 @@ export function FlowSvg({data: {bounds, nodes, edges, iterations}, ready, onSele
       {nodes.map(n => {
         const b = n.box, height = n.height, selected = n.selected;
         return <g key={n.id} data-node-kind={n.kind} data-node-id={n.selection.id} data-recursive={n.recursive || undefined}>
-          <rect x={b.x} y={b.y} width={b.width} height={height} className={`flow-node ${n.kind}${selected ? ' referenced' : ''}${activeVariable && (n.client || n.kind === 'error-constructor' ? n.sections.some(s => s.variables?.some(v => v.variableId === activeVariable)) : n.variables?.some(v => v.variableId === activeVariable)) ? ' variable-related' : ''}${n.recursive ? ' recursive' : ''}`} rx={n.kind === 'condition' ? 20 : 8}/>
-          <foreignObject x={b.x+(b.width-Math.min(400,b.width))/2+10} y={b.y+8} width={Math.min(400,b.width)-20} height={height-12}><div className={`node-header${n.client ? ' client-header' : n.kind === 'error-constructor' ? ' error-header' : ''}${n.call || n.context ? ' has-disclosure' : ''}`}>{functions && n.calls?.length ? <CallLabel node={n} functions={functions} ready={ready} onSelect={onSelect} activeVariable={activeVariable} onVariableHover={onVariableHover}/> : <button className="node-select" aria-pressed={selected} disabled={!ready} onClick={() => onSelect(n.selection)} aria-label={`Reference ${n.label}`}>{n.client || n.kind === 'error-constructor' ? n.sections.map((section, i) => <span key={i} className={section.className}><VariableText text={section.text} variables={section.variables} activeVariable={activeVariable} onVariableHover={onVariableHover}/></span>) : <VariableText text={n.text} variables={n.variables} activeVariable={activeVariable} onVariableHover={onVariableHover}/>}</button>}</div></foreignObject>
+          <rect x={b.x} y={b.y} width={b.width} height={height} className={`flow-node ${n.kind}${selected ? ' referenced' : ''}${activeVariable && (n.client || n.kind === 'error-constructor' || n.template ? n.sections.some(s => s.variables?.some(v => v.variableId === activeVariable)) : n.variables?.some(v => v.variableId === activeVariable)) ? ' variable-related' : ''}${n.recursive ? ' recursive' : ''}`} rx={n.kind === 'condition' ? 20 : 8}/>
+          <foreignObject x={b.x+(b.width-Math.min(400,b.width))/2+10} y={b.y+8} width={Math.min(400,b.width)-20} height={height-(n.template ? 16 : 12)}><div className={`node-header${n.client ? ' client-header' : n.kind === 'error-constructor' ? ' error-header' : ''}${n.template ? ' template-header' : ''}${n.call || n.context ? ' has-disclosure' : ''}`}>{functions && n.calls?.length ? <CallLabel node={n} functions={functions} ready={ready} onSelect={onSelect} activeVariable={activeVariable} onVariableHover={onVariableHover}/> : <button className="node-select" aria-pressed={selected} disabled={!ready} onClick={() => onSelect(n.selection)} aria-label={`Reference ${n.label}`}>{n.client || n.kind === 'error-constructor' || n.template ? n.sections.map((section, i) => <span key={i} className={section.className}><VariableText text={section.text} variables={section.variables} activeVariable={activeVariable} onVariableHover={onVariableHover}/></span>) : <VariableText text={n.text} variables={n.variables} activeVariable={activeVariable} onVariableHover={onVariableHover}/>}</button>}</div></foreignObject>
           {n.context && <foreignObject x={b.x+b.width-38} y={b.y+8} width="30" height="30"><button className="node-disclosure" title="Show client initialization" aria-label={`${n.context.expanded ? 'Collapse' : 'Expand'} client initialization`} aria-expanded={n.context.expanded} onClick={() => onToggle(n.context!.path)}>{n.context.expanded ? '−' : '+'}</button></foreignObject>}
           {n.call && <foreignObject className="node-disclosure-slot" x={b.x+8} y={b.y+8} width="30" height="30"><button className="node-disclosure" disabled={!!n.call.unavailable} title={n.call.title} aria-label={n.call.ariaLabel} aria-expanded={!n.call.unavailable && n.call.expanded} onClick={() => onToggle(n.call!.path)}>{n.call.glyph}</button></foreignObject>}
           {n.unavailable && <foreignObject x={b.x} y={b.y+height+3} width={b.width} height="48"><div className="node-limitation">{n.unavailable}</div></foreignObject>}

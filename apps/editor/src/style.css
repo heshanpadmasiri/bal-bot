@@ -161,3 +161,8 @@ aside[hidden]{display:none}.main-location{display:flex;align-items:center;gap:14
 .error-message { color: #60391f; font-weight: 600; }
 .error-message:not(:first-child), .error-cause { color: #745b48; font-weight: 400; }
 .error-detail { color: #78716b; }
+
+/* Keep these columns aligned with templateColumns in flow-svg.tsx. */
+.template-header .node-select { display: grid; grid-template-columns: 56px 272px; gap: 12px; width: 340px; max-width: 340px; text-align: left; align-items: center; }
+.template-type { display: flex; align-self: stretch; align-items: center; justify-content: center; color: #47638d; border-right: 1px solid #adc7e3; }
+.template-expression { min-width: 0; text-align: center; }
