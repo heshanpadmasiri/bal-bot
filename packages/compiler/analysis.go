@@ -69,7 +69,7 @@ func Analyze(files Files) (result AnalysisResult, err error) {
 	if program == nil {
 		return AnalysisResult{}, fmt.Errorf("resolution returned no program without an error diagnostic")
 	}
-	exported, err := lowerProgram(program)
+	exported, err := lowerProgramMode(program, true)
 	if err != nil {
 		return AnalysisResult{}, err
 	}

@@ -31,8 +31,8 @@ async function prepare(page, context) {
   await page.mouse.move(0, 0);
 }
 
-async function exportSvg(page) {
-  return page.locator('svg.diagram').evaluate((svg, fontCss) => {
+async function exportSvg(page, selector) {
+  return page.locator(selector).evaluate((svg, fontCss) => {
     const copy = svg.cloneNode(true);
     const originals = [svg, ...svg.querySelectorAll('*')];
     const copies = [copy, ...copy.querySelectorAll('*')];
@@ -80,14 +80,17 @@ for (const expanded of [false, true]) {
     page.on('pageerror', error => errors.push(error.message));
     await prepare(page, context);
     if (expanded) {
-      await page.getByRole('button', { name: /^Expand .*nextValue/ }).click();
-      await expect(page.getByRole('button', { name: /^Collapse .*nextValue/ })).toBeVisible();
+      await page.getByRole('button', { name: 'Open nextValue', exact: true }).click();
+      await expect(page.getByRole('button', { name: 'Close nextValue', exact: true })).toBeVisible();
       await page.mouse.move(0, 0);
     }
     expect(errors).toEqual([]);
-    const actual = await exportSvg(page);
+    // Collapsed covers the statement-centric main flow; expanded covers the
+    // shared function card's body. These are independent production SVGs.
+    const selector = expanded ? '.function-card svg.diagram' : '.function-main svg.diagram';
+    const actual = await exportSvg(page, selector);
     // A second capture must be byte-identical; no volatile-ID normalization is needed today.
-    expect(await exportSvg(page)).toBe(actual);
+    expect(await exportSvg(page, selector)).toBe(actual);
     await verifySvg({ name, actual, source,
       expectedPath: fileURLToPath(new URL(`fixtures/${name}.svg`, root)),
       resultsDir: fileURLToPath(new URL('../../test-results/svg/', root)),

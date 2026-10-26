@@ -5,6 +5,25 @@ The production analysis schema lives in `packages/workspace/src/flow.ts` and
 conversion is compiled into the application. The types contain data only: no
 AST, compiler state, callbacks, or pixel geometry.
 
+## Optional floating-card views
+
+Analyze additionally emits `functionViews?: Record<Id, HIRGraph>`. These secondary
+statement-centric graphs use the same function identities, entry metadata and
+source index as `functions`. Ordinary invocations and expression evaluations do
+not introduce child nodes; condition/loop branches retain their control flow.
+The canonical `functions` graphs and frozen lowering path remain unchanged.
+Consumers may fall back to `functions` when the optional field is absent.
+
+Nodes may contain `calls?: { start: number; end: number; targetId: Id | null;
+unavailable: string | null }[]`. Each sorted, non-overlapping half-open range is
+in JavaScript UTF-16 code units relative to `presentation.label` and covers only
+the parser's function-name token, excluding qualifiers, receiver and arguments.
+Targets use resolved compiler symbols, including nested calls and recursion.
+Exactly one of `targetId` and `unavailable` is non-null: available workspace bodies
+have targets; external/unresolved/unavailable bodies have explanatory text.
+Resource access paths are not function-name tokens. Optional fields may be absent
+but must not be null. Legacy nodes need not carry call spans.
+
 ## Retained API boundary
 
 - Native `Check(files Files) (Result, error)` and `Analyze(files Files)

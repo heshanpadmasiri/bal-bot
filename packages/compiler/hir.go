@@ -93,9 +93,10 @@ func hirDecode(data []byte, value any) error {
 }
 
 type HIRProgram struct {
-	Scopes    HIRList[ScopeModel]     `json:"scopes"`
-	Sources   HIRRecord[LocatedModel] `json:"sources"`
-	Functions HIRRecord[HIRGraph]     `json:"functions"`
+	FunctionViews HIRRecord[HIRGraph]     `json:"functionViews,omitempty"`
+	Scopes        HIRList[ScopeModel]     `json:"scopes"`
+	Sources       HIRRecord[LocatedModel] `json:"sources"`
+	Functions     HIRRecord[HIRGraph]     `json:"functions"`
 }
 
 // UnmarshalJSON rejects missing required fields (including nullable keys), unknown
@@ -131,6 +132,11 @@ func hirRequiredShape(actual, expected any, path string) error {
 		got, ok := actual.(map[string]any)
 		if !ok {
 			return fmt.Errorf("%s: expected object", path)
+		}
+		for _, key := range []string{"functionViews", "calls"} {
+			if value, exists := got[key]; exists && value == nil {
+				return fmt.Errorf("%s.%s: optional field cannot be null", path, key)
+			}
 		}
 		for key, child := range want {
 			value, ok := got[key]
@@ -231,12 +237,20 @@ type HIREntryParameter struct {
 	Text      string                         `json:"text"`
 }
 
+type HIRCallSpan struct {
+	Start       int     `json:"start"`
+	End         int     `json:"end"`
+	TargetID    *string `json:"targetId"`
+	Unavailable *string `json:"unavailable"`
+}
+
 type HIRNode struct {
-	ID            string          `json:"id"`
-	OccurrenceKey string          `json:"occurrenceKey"`
-	SourceID      string          `json:"sourceId"`
-	Presentation  HIRPresentation `json:"presentation"`
-	Body          HIRNodeBody     `json:"body"`
+	Calls         HIRList[HIRCallSpan] `json:"calls,omitempty"`
+	ID            string               `json:"id"`
+	OccurrenceKey string               `json:"occurrenceKey"`
+	SourceID      string               `json:"sourceId"`
+	Presentation  HIRPresentation      `json:"presentation"`
+	Body          HIRNodeBody          `json:"body"`
 }
 
 // HIRNodeBody holds exactly one sealed, discriminated variant. Its zero value is invalid.

@@ -30,6 +30,7 @@ export interface FlowUI {
 // HIR is the analyze wire model.
 // See docs/hir-wire.md for identity, ordering, and nullability rules.
 export interface HIRProgram {
+  readonly functionViews?: Readonly<Record<Id, HIRGraph>>;
   readonly scopes: readonly ScopeModel[];
   readonly sources: Readonly<Record<Id, Located>>;
   readonly functions: Readonly<Record<Id, HIRGraph>>;
@@ -57,7 +58,14 @@ export interface HIREntry {
   readonly parameters: readonly { readonly label: 'Path' | 'Input'; readonly text: string; readonly variables?: readonly HIRVariableOccurrence[] }[];
   readonly returnType: string;
 }
+export interface HIRCallSpan {
+  readonly start: number;
+  readonly end: number;
+  readonly targetId: Id | null;
+  readonly unavailable: string | null;
+}
 export interface HIRNode {
+  readonly calls?: readonly HIRCallSpan[];
   readonly id: Id;
   readonly occurrenceKey: string;
   readonly sourceId: Id;

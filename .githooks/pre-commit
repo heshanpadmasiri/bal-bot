@@ -1,6 +1,11 @@
 #!/bin/sh
 set -eu
 
-cd "$(git rev-parse --show-toplevel)"
+repository=$(git rev-parse --show-toplevel)
+# Git exports repository-local variables to hooks. Tests create other Git
+# repositories; do not let those commands target the committing repository.
+git_local_env=$(git rev-parse --local-env-vars)
+unset $git_local_env
+cd "$repository"
 printf '%s\n' 'Running all tests before commit (npm run test:all)...'
 exec npm run test:all

@@ -7,6 +7,7 @@ import (
 	"reflect"
 	"sort"
 	"strings"
+	"unicode/utf16"
 	"unicode/utf8"
 )
 
@@ -30,6 +31,52 @@ func ValidateHIR(program HIRProgram) error {
 	}
 	if err = hirVariableSpans(reflect.ValueOf(p)); err != nil {
 		return err
+	}
+	if p.FunctionViews != nil {
+		for id, graph := range p.FunctionViews {
+			original, ok := p.Functions[id]
+			if !ok || original.LocatedModel != graph.LocatedModel {
+				return fmt.Errorf("function view %q: unknown or mismatched function", id)
+			}
+		}
+		views := p
+		views.Functions, views.FunctionViews = p.FunctionViews, nil
+		if err := ValidateHIR(views); err != nil {
+			return fmt.Errorf("function views: %w", err)
+		}
+	}
+	for _, graph := range p.Functions {
+		for _, node := range graph.Nodes {
+			var label string
+			switch presentation := node.Presentation.Value.(type) {
+			case HIRPlainPresentation:
+				label = string(presentation.Label)
+			case HIRClientPresentation:
+				label = string(presentation.Label)
+			case *HIRPlainPresentation:
+				label = string(presentation.Label)
+			case *HIRClientPresentation:
+				label = string(presentation.Label)
+			}
+			previous := 0
+			for _, call := range node.Calls {
+				if call.Start < previous || call.End <= call.Start || call.End > len(utf16.Encode([]rune(label))) || (call.TargetID == nil) == (call.Unavailable == nil) {
+					return fmt.Errorf("node %q: invalid call span", node.ID)
+				}
+				if call.TargetID != nil {
+					if *call.TargetID == "" {
+						return fmt.Errorf("empty call target")
+					}
+					if _, ok := p.Functions[*call.TargetID]; !ok {
+						return fmt.Errorf("unknown call target %q", *call.TargetID)
+					}
+				}
+				if call.Unavailable != nil && *call.Unavailable == "" {
+					return fmt.Errorf("empty call unavailability reason")
+				}
+				previous = call.End
+			}
+		}
 	}
 	v := hirValidator{program: p, graphs: map[string]*hirGraphIndex{}}
 	for id, source := range p.Sources {

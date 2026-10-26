@@ -17,6 +17,10 @@ func (b *graphBuilder) lowerExpressionReturn(id, path string, expr ast.BLangActi
 		v.Limitation = &reason
 		p.Value = v
 		n := b.allocNode(path, path, id, p)
+		if b.statementView {
+			position := expr.GetPosition()
+			b.node(n).Calls = b.functionCalls(loc.Source.File, position.StartOffset(), "", loc.Text)
+		}
 		return fragment{nodes: []string{n}, entry: member(b.allocPort(n, HIRPortRoleEntry))}, nil
 	}
 	label := loc.Text
@@ -30,6 +34,10 @@ func (b *graphBuilder) lowerExpressionReturn(id, path string, expr ast.BLangActi
 		label = "Return value"
 	}
 	n := b.allocNode(path, path, id, plain(HIRNodeStyleReturn, label))
+	if b.statementView && label == loc.Text {
+		position := expr.GetPosition()
+		b.node(n).Calls = b.functionCalls(loc.Source.File, position.StartOffset(), "", label)
+	}
 	entry := b.allocPort(n, HIRPortRoleEntry)
 	f := evaluated
 	f.nodes = append(f.nodes, n)
@@ -48,7 +56,7 @@ func (b *graphBuilder) lowerExpressionReturn(id, path string, expr ast.BLangActi
 	normal := member(b.allocPort(n, HIRPortRoleNormalExit))
 	children := []string{}
 	for _, call := range calls {
-		if call.target == "" {
+		if b.statementView || call.target == "" {
 			continue
 		}
 		cp := path + "/expand/" + call.id

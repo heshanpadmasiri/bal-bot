@@ -148,6 +148,7 @@ function instantiate(program: HIRProgram, graph: HIRGraph, occurrence: string, a
       }
     }
     local.localNodes.set(node.id, {
+      ...(node.calls ? { calls: node.calls } : {}),
       id: required(qualified.get(node.id), node.id), kind: presentation.kind === 'hidden' ? 'step' : presentation.style,
       label: presentation.kind === 'hidden' ? '' : presentation.label, selection: required(program.sources[node.sourceId], node.sourceId), children: [], presentation,
       layout: { profile: style?.profile ?? 'sequence', root: group?.style.profile === 'root', visibility: presentation.kind === 'hidden' ? { node: false, header: false, container: false } : visibility,

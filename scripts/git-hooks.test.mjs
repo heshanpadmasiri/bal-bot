@@ -24,6 +24,15 @@ function fixture(t) {
   mkdirSync(join(dir, 'nested'));
   writeFileSync(join(dir, 'bin', 'npm'), `#!/bin/sh
 printf '%s:%s\\n' "$PWD" "$*" >> "$TEST_LOG"
+if [ "\${CHECK_GIT_ENV:-}" = 1 ]; then
+  for name in $(git rev-parse --local-env-vars); do
+    if printenv "$name" >/dev/null; then
+      printf 'Leaked Git variable: %s\\n' "$name" >&2
+      exit 18
+    fi
+  done
+  [ "\${GOFLAGS:-}" = '-buildvcs=false' ] || exit 19
+fi
 if [ "$*" = "$FAIL_COMMAND" ]; then exit 17; fi
 `, {mode: 0o755});
   return {
@@ -42,6 +51,27 @@ test('pre-commit runs the full gate from the repository root and propagates fail
     assert.equal(result.status, fail ? 17 : 0);
   }
   assert.deepEqual(log(), [`${dir}:run test:all`, `${dir}:run test:all`]);
+});
+
+test('real commit hooks clear Git-local environment in ordinary and linked worktrees', t => {
+  const {dir, env, log} = fixture(t);
+  const git = (cwd, ...args) => {
+    const result = spawnSync('git', ['-C', cwd, ...args], {
+      env: {...env, CHECK_GIT_ENV: '1', GOFLAGS: '-buildvcs=false'}, encoding: 'utf8',
+    });
+    assert.equal(result.status, 0, result.stderr + result.stdout);
+    return result;
+  };
+  const commit = cwd => git(cwd, '-c', `core.hooksPath=${join(root, '.githooks')}`,
+    '-c', 'user.name=Hook Test', '-c', 'user.email=hooks@example.invalid',
+    'commit', '--allow-empty', '-m', 'test: exercise pre-commit environment');
+  commit(dir);
+  const linked = join(dir, 'linked-worktree');
+  git(dir, 'worktree', 'add', '--detach', linked);
+  commit(linked);
+  assert.deepEqual(log(), [`${dir}:run test:all`, `${linked}:run test:all`]);
+  assert.equal(git(dir, 'rev-list', '--count', 'HEAD').stdout.trim(), '1');
+  assert.equal(git(linked, 'rev-list', '--count', 'HEAD').stdout.trim(), '2');
 });
 
 test('test:all runs every suite and stops on each failure', t => {

@@ -3,13 +3,26 @@ import type { FlowUI, Id, Located } from '@bal-bot/workspace';
 import { instantiateGraph } from './hir-flow';
 import type { DiagramNode, ExpansionPath } from './hir-diagram';
 import { layoutDiagram } from './flow';
-import { FlowSvg, flowBounds, labelSize, wrapLabel, type FlowSvgData } from './flow-svg';
+import { FlowSvg, flowBounds, labelSize, wrapLabel, type FlowSvgData, type FunctionInteraction } from './flow-svg';
 import { FlowEntry } from './flow-entry';
 import { wrappedVariables } from './variable-text';
+import { FunctionCards } from './function-cards';
 
 export interface FlowViewProps {readonly flow: FlowUI; readonly references: readonly Located[]; readonly expanded: ReadonlySet<ExpansionPath>; readonly onToggle: (path: ExpansionPath) => void; readonly onSelect: (node: Located) => void; readonly onOpenFunction: (id: Id) => void;}
 
-export function FlowView({flow, references, expanded, onToggle, onSelect, onOpenFunction}: FlowViewProps): React.JSX.Element {
+export function FlowView(props: FlowViewProps): React.JSX.Element {
+  const state = props.flow.state;
+  const program = state.kind === 'ready' ? state.program : state.previous;
+  const selection = props.flow.selection;
+  if (program?.functionViews && selection.kind === 'function') {
+    const views = {...program, functions: program.functionViews};
+    const viewState = state.kind === 'ready' ? {...state, program: views} : {...state, previous: views};
+    return <FunctionCards key={selection.functionId} entryId={selection.functionId} graphs={program.functionViews} render={(id, functions) => <FlowDiagram {...props} flow={{state: viewState, selection: {kind: 'function', functionId: id}}} expanded={EMPTY_EXPANSION} functions={functions}/>}/>;
+  }
+  return <FlowDiagram {...props}/>;
+}
+const EMPTY_EXPANSION: ReadonlySet<ExpansionPath> = new Set();
+function FlowDiagram({flow, references, expanded, onToggle, onSelect, onOpenFunction, functions}: FlowViewProps & {functions?: FunctionInteraction}): React.JSX.Element {
   const isReferenced = (node: Located) => references.some(reference => reference.id === node.id && reference.text === node.text && JSON.stringify(reference.source) === JSON.stringify(node.source));
   const state = flow.state, program = state.kind === 'ready' ? state.program : state.previous, ready = state.kind === 'ready';
   const selection = flow.selection;
@@ -41,8 +54,8 @@ export function FlowView({flow, references, expanded, onToggle, onSelect, onOpen
         ariaLabel: recursivePresentation?.ariaLabel ?? `${reference.expanded ? 'Collapse' : 'Expand'} ${n.label}`,
         glyph: recursivePresentation?.glyph ?? (reference.expanded ? '−' : '+'),
       } : undefined;
-      return {id: n.id, kind: n.kind, selection: n.selection, label: n.label, box: layout.boxes[n.id], height: Math.max(52, labelSize(n.label).height + 28), selected: isReferenced(n.selection), container: n.layout.visibility.container && n.children.length > 0, recursive, client: presentation.kind === 'client',
-        text: lines.join('\n'), variables: wrappedVariables(n.label, lines, content.variables), sections: sections.map(section => { const wrapped = wrapLabel(section.text); return {className: section.kind.startsWith('error-') ? section.kind : `client-${section.kind}`, text: wrapped.join('\n'), variables: wrappedVariables(section.text, wrapped, section.variables)}; }), context, call, unavailable};
+      return {calls: n.calls, id: n.id, kind: n.kind, selection: n.selection, label: n.label, box: layout.boxes[n.id], height: Math.max(52, labelSize(n.label).height + 28), selected: isReferenced(n.selection), container: n.layout.visibility.container && n.children.length > 0, recursive, client: presentation.kind === 'client',
+        text: lines.join('\n'), rawVariables: content.variables, variables: wrappedVariables(n.label, lines, content.variables), sections: sections.map(section => { const wrapped = wrapLabel(section.text); return {className: section.kind.startsWith('error-') ? section.kind : `client-${section.kind}`, text: wrapped.join('\n'), rawText: section.text, variables: wrappedVariables(section.text, wrapped, section.variables)}; }), context, call, unavailable};
     }),
     edges: layout.diagram.edges.map((edge, i) => ({kind: edge.kind, label: edge.label, route: layout.routes[i]})),
     iterations: layout.diagram.ports.filter(p => p.anchor.kind === 'iteration-marker').map(p => ({id: p.id, box: layout.boxes[p.nodeId]})),
@@ -60,7 +73,7 @@ export function FlowView({flow, references, expanded, onToggle, onSelect, onOpen
     })()}
     {layout && data && <div className="diagram-scroll">
       {entryFunction && <FlowEntry key={entryFunction.id} entry={entryFunction.entry} activeVariable={activeVariable} onVariableHover={onVariableHover}/>}
-      {data.nodes.length > 0 ? <FlowSvg data={data} ready={ready} onSelect={onSelect} onToggle={onToggle} activeVariable={activeVariable} onVariableHover={onVariableHover}/> : <p className="flow-empty">No statements in this function.</p>}
+      {data.nodes.length > 0 ? <FlowSvg data={data} ready={ready} onSelect={onSelect} onToggle={onToggle} functions={functions} activeVariable={activeVariable} onVariableHover={onVariableHover}/> : <p className="flow-empty">No statements in this function.</p>}
     </div>}
   </div>;
 }

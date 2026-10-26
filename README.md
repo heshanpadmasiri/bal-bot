@@ -47,6 +47,12 @@ Open <http://127.0.0.1:5174>. Edit a complete `.bal` file on the left and inspec
 its interactive flow on the right. Statements must be wrapped in a function;
 include required imports and declarations. The app supplies a fixed package
 manifest internally. Choose a function or endpoint with the **Entry** selector.
+Function names in statements are clickable. Clicking opens a draggable body card;
+repeated and recursive calls reuse the same card (or highlight the anchored entry).
+Hover a name to highlight its open view. Close cards with **×**; reopening retains
+their positions until the entry changes, which clears all cards. Valid edits refresh
+open cards; unavailable bodies have explanatory tooltips instead of links.
+
 Analysis runs after a 300 ms typing pause. Invalid edits show diagnostics and
 retain the last valid flow, explicitly marked stale. This uses the existing flow
 analyzer, not service execution or a guarantee of full semantic compilation.

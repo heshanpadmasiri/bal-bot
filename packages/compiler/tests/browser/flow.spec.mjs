@@ -14,7 +14,8 @@ test('Hello World library call renders as one source step', async ({page}) => {
  await page.waitForFunction(() => workspace.analysisSnapshot().kind === 'ready');
  await expect(page.locator('.node-select')).toHaveCount(1);
  const print=page.getByRole('button',{name:'Reference io:println("Hello, World!");',exact:true});
- await expect(print).toHaveText('io:println("Hello, World!");');
+ await expect(page.locator('.call-label')).toContainText('io:println("Hello, World!");');
+ await expect(page.getByRole('button',{name:'Open println',exact:true})).toBeDisabled();
  await expect(page.locator('.node-disclosure')).toHaveCount(0);
  await expect(page.locator('.node-limitation')).toHaveCount(0);
  await print.click();
@@ -164,7 +165,7 @@ test('discovery, definitions, endpoint source selection and explicit chips-only 
  await expect(page.locator('.definitions').getByRole('button',{name:'UnusedRecord',exact:true})).toBeVisible();
  await expect(page.locator('.definitions').getByRole('button',{name:'upstreamClient',exact:true})).toBeVisible();
  await page.locator('.endpoint').click();
- const source=page.locator('.node-select').first();await source.click();await source.click();
+ const source=page.getByRole('button',{name:/^Reference /}).first();await source.click();await source.click();
  await expect(page.locator('.reference-chip')).toHaveCount(1);expect(await page.evaluate(()=>window.prompts.length)).toBe(0);
  await page.getByRole('button',{name:'Send message',exact:true}).click();await expect(page.locator('.message.user')).toContainText('main.bal:');
  await expect.poll(()=>page.evaluate(()=>window.prompts.length)).toBe(1);
@@ -176,15 +177,18 @@ test('20/60/20, scope drafts, expansion and floating chat survive panel changes'
  await page.getByRole('textbox',{name:'Message'}).fill('keep this draft');
  const normal=await page.evaluate(()=>[...document.querySelector('.flow-workspace').children].map(e=>e.getBoundingClientRect().width));
  expect(normal.map(n=>Math.round(n))).toEqual([300,900,300]);
- await page.getByRole('button',{name:/Expand buildReport/}).click();
- await expect(page.getByRole('button',{name:/Collapse buildReport/})).toBeVisible();
+ await page.getByRole('button',{name:'Open buildReport',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Close buildReport',exact:true})).toBeVisible();
  await page.getByRole('button',{name:'Expand inspection',exact:true}).click();
  await expect(page.locator('.inspection')).toHaveCSS('width','1500px');
  const box=await page.locator('.floating-chat .main-bar').boundingBox();await page.mouse.move(box.x+180,box.y+18);await page.mouse.down();await page.mouse.move(850,450);await page.mouse.up();
  const moved=await page.locator('.floating-chat').boundingBox();expect(moved.x).toBeGreaterThan(24);
  await page.setViewportSize({width:900,height:650});await expect.poll(async()=>{const resized=await page.locator('.floating-chat').boundingBox();return resized.x+resized.width;}).toBeLessThanOrEqual(901);
  await page.getByRole('button',{name:'Collapse inspection',exact:true}).click();await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('keep this draft');
- await page.locator('.endpoint').last().click();await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('');await page.locator('.endpoint').first().click();await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('keep this draft');await expect(page.getByRole('button',{name:/Collapse buildReport/})).toBeVisible();
+ await page.locator('.endpoint').last().click();await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('');await page.locator('.endpoint').first().click();await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('keep this draft');
+ await expect(page.locator('.function-card')).toHaveCount(0);
+ await page.getByRole('button',{name:'Open buildReport',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Close buildReport',exact:true})).toBeVisible();
 });
 test('invalid edits retain stale flow, disable references and repair',async({page})=>{
  await open(page,'analysis-recovery');await page.locator('.node-select').first().click();await page.getByRole('textbox',{name:'Message'}).fill('prose survives');
@@ -198,16 +202,19 @@ test('Automation and limited regions show exact source without async dependency 
 
 test('expanded call bodies reference definitions, call headers reference sites, and recursion stays finite',async({page})=>{
  await open(page,'function-expansion');await page.getByRole('textbox',{name:'Message'}).fill('keep prose');
- await page.getByRole('button',{name:'Expand shared(2)',exact:true}).click();await page.getByRole('button',{name:'Expand shared(3)',exact:true}).click();
- const bodies=page.getByRole('button',{name:'Reference return adjust(value);',exact:true});await expect(bodies).toHaveCount(2);await bodies.first().click();await bodies.last().click();await expect(page.locator('.reference-chip')).toHaveCount(1);await expect(page.locator('.reference-chip')).toContainText('helpers.bal:');
- await page.getByRole('button',{name:'Reference shared(2)',exact:true}).click();await expect(page.locator('.reference-chip')).toHaveCount(2);await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('keep prose');
- await page.getByRole('button',{name:'Expand countdown(first)',exact:true}).click();await expect(page.getByRole('button',{name:'Recursive call countdown(value - 1)',exact:true})).toBeDisabled();await expect(page.locator('.node-limitation').filter({hasText:'Recursive calls remain collapsed.'})).toHaveCount(1);
- await page.getByRole('button',{name:'Expand evenStep(second)',exact:true}).click();
- await page.getByRole('button',{name:'Expand oddStep(value - 1)',exact:true}).click();
- const mutual=page.getByRole('button',{name:'Recursive call evenStep(value - 1)',exact:true});
- await expect(mutual).toBeDisabled();await expect(mutual).toHaveText('↻');
- await expect(mutual).toHaveAttribute('aria-expanded','false');
- await expect(page.locator('[data-recursive="true"]')).toHaveCount(2);
+ const main=page.locator('.function-main');
+ await main.getByRole('button',{name:'Open shared',exact:true}).first().click();await main.getByRole('button',{name:'Open shared',exact:true}).last().click();
+ const bodies=page.getByRole('button',{name:'Reference return adjust(value);',exact:true});await expect(bodies).toHaveCount(1);await bodies.click();await bodies.click();await expect(page.locator('.reference-chip')).toHaveCount(1);await expect(page.locator('.reference-chip')).toContainText('helpers.bal:');
+ await main.getByRole('button',{name:'Reference int first = shared(2);',exact:true}).click();await expect(page.locator('.reference-chip')).toHaveCount(2);await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('keep prose');
+ await main.getByRole('button',{name:'Open countdown',exact:true}).click();
+ const countdown=page.getByRole('region',{name:'Function countdown',exact:true});
+ await countdown.getByRole('button',{name:'Open countdown',exact:true}).click();await expect(countdown).toHaveClass(/function-highlighted/);await expect(page.locator('.function-card')).toHaveCount(2);
+ await main.getByRole('button',{name:'Open evenStep',exact:true}).click();
+ await page.getByRole('region',{name:'Function evenStep',exact:true}).getByRole('button',{name:'Open oddStep',exact:true}).click();
+ await page.getByRole('region',{name:'Function oddStep',exact:true}).getByRole('button',{name:'Open evenStep',exact:true}).click();
+ await expect(page.getByRole('region',{name:'Function evenStep',exact:true})).toHaveClass(/function-highlighted/);
+ await expect(page.locator('.function-card')).toHaveCount(4);
+ await expect(page.locator('.node-limitation').filter({hasText:'Recursive calls remain collapsed.'})).toHaveCount(0);
 });
 test('obsolete browser completions and infrastructure failures retain current flow',async({page})=>{
  await open(page,'analysis-recovery');
@@ -217,7 +224,7 @@ test('obsolete browser completions and infrastructure failures retain current fl
  await page.getByRole('textbox',{name:'Message'}).fill('Repair the saved source');await page.getByRole('button',{name:'Send message',exact:true}).click();await expect.poll(()=>page.evaluate(()=>window.prompts.length)).toBe(1);
 });
 test('a saved source update immediately before prompting blocks stale references',async({page})=>{
- await open(page,'chat-references');await page.locator('.endpoint').first().click();await page.locator('.node-select').first().click();await page.getByRole('textbox',{name:'Message'}).fill('do not lose this');
+ await open(page,'chat-references');await page.locator('.endpoint').first().click();await page.getByRole('button',{name:/^Reference /}).first().click();await page.getByRole('textbox',{name:'Message'}).fill('do not lose this');
  await page.evaluate(async()=>{const [service]=await workspace.getServices();const endpoint=service.getEndpoints()[0];const original=endpoint.getAgent.bind(endpoint);endpoint.getAgent=async()=>{const agent=await original();workspace.write('main.bal',workspace.read('main.bal')+'\n// racing disk update');return agent;};});
  await page.getByRole('button',{name:'Send message',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Saved source changed');expect(await page.evaluate(()=>window.prompts.length)).toBe(0);await expect(page.getByRole('textbox',{name:'Message'})).toHaveValue('do not lose this');
 });
@@ -233,25 +240,34 @@ test('measured source labels fit their headers after nested expansion',async({pa
  expect((await page.locator('[data-edge-kind="true"] polyline').first().getAttribute('points')).trim().split(/\s+/)).toHaveLength(3);
  await expect(page.locator('.flow-node.return').last()).toHaveCSS('fill','rgb(228, 244, 233)');
  const viewport=await page.locator('.diagram-scroll').boundingBox();for(const name of ['Reference foreach int item in items','Reference item < minimum']){const header=await page.getByRole('button',{name,exact:true}).boundingBox();expect(header.x).toBeGreaterThanOrEqual(viewport.x);expect(header.x).toBeLessThan(viewport.x+viewport.width);}
- await page.getByRole('button',{name:'Expand calculate(item)',exact:true}).click();
+ await page.getByRole('button',{name:'Open calculate',exact:true}).click();
  const overflowing=await page.locator('.node-select').evaluateAll(buttons=>buttons.filter(button=>{const header=button.closest('foreignObject').getBoundingClientRect(),box=button.getBoundingClientRect();return box.height>header.height+1||button.scrollWidth>button.clientWidth+1;}).map(b=>b.getAttribute('aria-label')));expect(overflowing).toEqual([]);
 });
 
 test('flow fits panel width with margins through resize, panel mode and call expansion',async({page})=>{
  await page.setViewportSize({width:1864,height:984});await open(page,'design-critique');await page.getByRole('button',{name:'calculate',exact:true}).click();
+ const main=page.locator('.function-main');
  const assertFits=async()=>{
-  await expect.poll(()=>page.locator('.diagram-scroll').evaluate(panel=>panel.scrollWidth-panel.clientWidth)).toBeLessThanOrEqual(1);
-  const viewport=await page.locator('.diagram-scroll').boundingBox(),svg=await page.locator('.diagram').boundingBox();expect(svg.x-viewport.x).toBeGreaterThanOrEqual(19);expect(viewport.x+viewport.width-svg.x-svg.width).toBeGreaterThanOrEqual(19);
-  for(const box of await page.locator('.flow-node').evaluateAll(nodes=>nodes.map(n=>{const r=n.getBoundingClientRect();return {x:r.x,right:r.right};}))){expect(box.x).toBeGreaterThan(viewport.x+19);expect(box.right).toBeLessThan(viewport.x+viewport.width-19);}
+  await expect(async()=>{
+   // Card focus can scroll the canvas between awaited locator calls. Read all
+   // geometry in one frame so comparisons share the same scroll position.
+   const geometry=await main.evaluate(root=>{
+    const panel=root.querySelector('.diagram-scroll'),svg=root.querySelector('.diagram').getBoundingClientRect(),viewport=panel.getBoundingClientRect();
+    return {overflow:panel.scrollWidth-panel.clientWidth,left:svg.left-viewport.left,right:viewport.right-svg.right,nodes:[...root.querySelectorAll('.flow-node')].map(node=>{const box=node.getBoundingClientRect();return {left:box.left-viewport.left,right:viewport.right-box.right};})};
+   });
+   expect(geometry.overflow).toBeLessThanOrEqual(1);
+   expect(geometry.left).toBeGreaterThanOrEqual(19);expect(geometry.right).toBeGreaterThanOrEqual(19);
+   for(const box of geometry.nodes){expect(box.left).toBeGreaterThan(19);expect(box.right).toBeGreaterThan(19);}
+  }).toPass({timeout:10000});
  };
- await assertFits();const narrow=await page.locator('.diagram').boundingBox();await page.getByRole('button',{name:'Expand inspection',exact:true}).click();await assertFits();expect((await page.locator('.diagram').boundingBox()).width).toBeGreaterThan(narrow.width);
+ await assertFits();const narrow=await main.locator('.diagram').boundingBox();await page.getByRole('button',{name:'Expand inspection',exact:true}).click();await assertFits();expect((await main.locator('.diagram').boundingBox()).width).toBe(narrow.width);
  await page.setViewportSize({width:900,height:700});await assertFits();await page.getByRole('button',{name:'Collapse inspection',exact:true}).click();await assertFits();
- await page.locator('.endpoint').first().click();await page.getByRole('button',{name:'Expand calculate(item)',exact:true}).click();await assertFits();await page.getByRole('button',{name:'Reference return total;',exact:true}).click();await expect(page.locator('.reference-chip')).toHaveCount(1);
+ await page.locator('.endpoint').first().click();await page.getByRole('button',{name:'Open calculate',exact:true}).click();await assertFits();await page.getByRole('button',{name:'Reference return total;',exact:true}).click();await expect(page.locator('.reference-chip')).toHaveCount(1);
 });
 
 test('prompt references highlight matching nodes and clear on removal, scope change and send',async({page})=>{
  await open(page,'chat-references');await page.locator('.endpoint').first().click();
- const node=page.locator('.node-select').first(),box=page.locator('.flow-node').first();
+ const node=page.getByRole('button',{name:/^Reference /}).first(),box=page.locator('.flow-node').first();
  await expect(node).toHaveAttribute('aria-pressed','false');await node.click();await expect(node).toHaveAttribute('aria-pressed','true');await expect(box).toHaveCSS('stroke','rgb(53, 120, 212)');await expect(page.locator('.flow-node.referenced')).toHaveCount(1);
  await node.click();await expect(page.locator('.reference-chip')).toHaveCount(1);
  await page.locator('.endpoint').last().click();await expect(page.locator('.flow-node.referenced')).toHaveCount(0);await page.locator('.endpoint').first().click();await expect(page.locator('.flow-node.referenced')).toHaveCount(1);
@@ -264,12 +280,11 @@ test('foreach is explicit and call disclosure stays in its top-left corner',asyn
  await open(page,'design-critique');await page.locator('.endpoint').first().click();
  await expect(page.getByRole('button',{name:'Reference foreach int item in items',exact:true})).toHaveText('foreach int item in items');
  await page.getByRole('button',{name:'Expand inspection',exact:true}).click();
- for(const action of ['Expand','Collapse']){
-  const disclosure=page.getByRole('button',{name:`${action} calculate(item)`,exact:true}),group=disclosure.locator('xpath=ancestor::*[local-name()="g"][1]');
-  const box=await group.locator('.flow-node').boundingBox(),control=await disclosure.boundingBox();
-  expect(control.x).toBeGreaterThan(box.x);expect(control.x-box.x).toBeLessThan(10);expect(control.y).toBeGreaterThan(box.y);expect(control.y-box.y).toBeLessThan(10);
-  await disclosure.click();await expect(page.locator('.reference-chip')).toHaveCount(0);
- }
+ const invocation=page.getByRole('button',{name:'Open calculate',exact:true}),group=invocation.locator('xpath=ancestor::*[local-name()="g"][1]');
+ const box=await group.locator('.flow-node').boundingBox(),control=await invocation.boundingBox();
+ expect(control.x).toBeGreaterThan(box.x);expect(control.x+control.width).toBeLessThan(box.x+box.width);expect(control.y).toBeGreaterThan(box.y);
+ await invocation.click();await expect(page.locator('.function-card')).toHaveCount(1);await expect(page.locator('.reference-chip')).toHaveCount(0);
+ await page.getByRole('button',{name:'Close calculate',exact:true}).click();await expect(page.locator('.function-card')).toHaveCount(0);
 });
 
 test('provider controls forget only the chosen API key',async({page})=>{
@@ -385,28 +400,24 @@ function fib(int n) returns int {
 }`));
  await page.waitForFunction(()=>workspace.analysisSnapshot().kind==='ready');
  await page.locator('.endpoint').filter({hasText:'sum'}).click();
- await expect(page.getByRole('button',{name:'Expand fib(x)',exact:true})).toBeEnabled();
- await expect(page.getByRole('button',{name:'Expand fib(y)',exact:true})).toBeEnabled();
- await page.getByRole('button',{name:'Expand fib(x)',exact:true}).click();
- await expect(page.getByRole('button',{name:'Reference return fib(n - 1) + fib(n - 2);',exact:true})).toHaveCount(1);
- await page.getByRole('button',{name:'Expand fib(y)',exact:true}).click();
- await expect(page.getByRole('button',{name:'Reference return fib(n - 1) + fib(n - 2);',exact:true})).toHaveCount(2);
- for(const arg of ['n - 1','n - 2']){
-  const recursive=page.getByRole('button',{name:`Recursive call fib(${arg})`,exact:true});
-  await expect(recursive).toHaveCount(2);
-  for(const button of await recursive.all()){
-   await expect(button).toBeDisabled();await expect(button).toHaveText('↻');
-   await expect(button).toHaveAttribute('aria-expanded','false');
-  }
+ const main=page.locator('.function-main');
+ const calls=main.getByRole('button',{name:'Open fib',exact:true});
+ await expect(calls).toHaveCount(2);await expect(calls.first()).toBeEnabled();await expect(calls.last()).toBeEnabled();
+ await calls.first().click();
+ const card=page.getByRole('region',{name:'Function fib',exact:true});
+ await expect(card.getByRole('button',{name:'Reference return fib(n - 1) + fib(n - 2);',exact:true})).toHaveCount(1);
+ await calls.last().click();await expect(page.locator('.function-card')).toHaveCount(1);
+ const recursive=card.getByRole('button',{name:'Open fib',exact:true});await expect(recursive).toHaveCount(2);
+ for(const button of await recursive.all()){
+  await button.click();await expect(card).toHaveClass(/function-highlighted/);await expect(page.locator('.function-card')).toHaveCount(1);
  }
- await expect(page.locator('.node-limitation')).toHaveText(Array(4).fill('Recursive calls remain collapsed.'));
- await page.getByRole('button',{name:'Collapse fib(x)',exact:true}).click();
- await expect(page.getByRole('button',{name:'Reference return fib(n - 1) + fib(n - 2);',exact:true})).toHaveCount(1);
+ await expect(page.locator('.node-limitation')).toHaveCount(0);
+ await page.getByRole('button',{name:'Close fib',exact:true}).click();await expect(page.locator('.function-card')).toHaveCount(0);
  await page.locator('.service').click();
  await page.getByRole('button',{name:'fib',exact:true}).click();
- await expect(page.locator('[data-recursive="true"]')).toHaveCount(2);
- await expect(page.getByRole('button',{name:'Recursive call fib(n - 1)',exact:true})).toBeDisabled();
- const reference=page.getByRole('button',{name:'Reference fib(n - 1)',exact:true});
+ await main.getByRole('button',{name:'Open fib',exact:true}).first().click();
+ await expect(page.locator('.function-card')).toHaveCount(0);await expect(main).toHaveClass(/function-highlighted/);
+ const reference=main.getByRole('button',{name:'Reference return fib(n - 1) + fib(n - 2);',exact:true});
  await reference.click();
  await expect(page.locator('.reference-chip')).toHaveCount(1);
  expect(errors).toEqual([]);
@@ -424,7 +435,7 @@ test('client call cards render generic source context, explicit errors and strin
  await expect(page.locator('[data-node-kind="template"] .node-select')).toHaveAttribute('aria-label','Reference string `hello ${person.first_name} ${person.last_name}`');
  await expect(page.locator('.node-limitation')).toHaveCount(0);
  await page.locator('.diagram-scroll').screenshot({path:test.info().outputPath('client-flow.png')});
- await card.getByRole('button').click();
+ await card.getByRole('button',{name:/^Reference /}).click();
  await expect(page.locator('.reference-chip')).toHaveAttribute('title','testClient->get("/foo/bar")');
  await page.locator('.service').first().click();
  await page.getByRole('button',{name:'sendMessage',exact:true}).click();

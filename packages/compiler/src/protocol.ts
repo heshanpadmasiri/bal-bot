@@ -43,7 +43,7 @@ function validateDiscovery(value: unknown, functions: Record<string, unknown>): 
 }
 // Visit flat source records and discovery metadata once; never follow graph references.
 export function programLocations(program: HIRProgram): Located[] {
-  const result: Located[] = [...Object.values(program.sources), ...Object.values(program.functions)];
+  const result: Located[] = [...Object.values(program.sources), ...Object.values(program.functions), ...Object.values(program.functionViews ?? {})];
   for (const scope of program.scopes) {
     result.push(scope);
     if (scope.kind === 'service') result.push(...scope.endpoints, ...scope.definitions);
@@ -180,7 +180,8 @@ function hirRecursivePresentation(value: unknown): void {
   hirPresentationText(r.label); hirVariables(r, r.label); hirSections(r.sections); hirNullable(r.limitation); hirPresentationText(r.title); hirPresentationText(r.ariaLabel); hirString(r.glyph);
 }
 function validateNode(value: unknown): HIRNode {
-  const v = hirObject(value, 'id occurrenceKey sourceId presentation body'); hirId(v.id); hirId(v.occurrenceKey); hirId(v.sourceId);
+  const fields = record(value) && Object.hasOwn(value, 'calls') ? 'id occurrenceKey sourceId presentation body calls' : 'id occurrenceKey sourceId presentation body';
+  const v = hirObject(value, fields); hirId(v.id); hirId(v.occurrenceKey); hirId(v.sourceId);
   const p = hirObject(v.presentation);
   if (p.kind === 'hidden') hirObject(p, 'kind');
   else {
@@ -199,6 +200,19 @@ function validateNode(value: unknown): HIRNode {
         if (d.call !== null) hirCallDisclosure(d.call); break;
       default: hirFail('unknown disclosure');
     }
+  }
+  if (Object.hasOwn(v, 'calls')) {
+    let previousEnd = 0;
+    hirList(v.calls, item => {
+      const c = hirObject(item, 'start end targetId unavailable');
+      hirAssert(Number.isInteger(c.start) && Number.isInteger(c.end) && (c.start as number) >= previousEnd && (c.end as number) > (c.start as number), 'invalid call span');
+      hirAssert(p.kind !== 'hidden' && typeof p.label === 'string' && (c.end as number) <= p.label.length, 'call outside label');
+      hirNullable(c.targetId); hirNullable(c.unavailable);
+      hirAssert((c.targetId === null) !== (c.unavailable === null), 'call needs a target or unavailability reason');
+      if (c.targetId !== null) hirId(c.targetId);
+      if (c.unavailable !== null) hirId(c.unavailable);
+      previousEnd = c.end as number;
+    });
   }
   const b = hirObject(v.body);
   switch (b.kind) {
@@ -249,7 +263,14 @@ function hirGet<T>(index: ReadonlyMap<string, T>, id: string): T { hirAssert(ind
 function hirMembers(g: HIRGroup): readonly string[] { return g.arrangement.kind === 'columns' ? [...g.arrangement.left, ...g.arrangement.right] : g.arrangement.members; }
 
 export function validateHIR(value: unknown): HIRProgram {
-  const p = hirObject(value, 'scopes sources functions'), sources = hirObject(p.sources), functions = hirObject(p.functions);
+  const fields = record(value) && Object.hasOwn(value, 'functionViews') ? 'scopes sources functions functionViews' : 'scopes sources functions';
+  const p = hirObject(value, fields), sources = hirObject(p.sources), functions = hirObject(p.functions);
+  if (Object.hasOwn(p, 'functionViews')) {
+    const views = hirObject(p.functionViews);
+    for (const [id, graph] of Object.entries(views)) {
+      hirAssert(Object.hasOwn(functions, id) && validateGraph(graph).id === id, 'function view key mismatch');
+    }
+  }
   for (const [id, source] of Object.entries(sources)) { hirObject(source, 'id source text'); hirLocated(source); hirAssert(object(source).id === id, 'source key mismatch'); }
   for (const [id, graph] of Object.entries(functions)) { hirAssert(validateGraph(graph).id === id, 'graph key mismatch'); }
   // Discovery is also used by the legacy protocol; enforce the HIR scalar
@@ -268,6 +289,7 @@ export function validateHIR(value: unknown): HIRProgram {
     hirAssert(item.text === s.text && item.source.file === s.source.file && a.start.line === b.start.line && a.start.column === b.start.column && a.end.line === b.end.line && a.end.column === b.end.column, 'source identity disagreement');
   }
   validateLinks(program);
+  if (program.functionViews) validateLinks({ ...program, functions: program.functionViews, functionViews: undefined });
   return program;
 }
 
@@ -325,6 +347,7 @@ function validateLinks(program: HIRProgram): void {
     const addBinding = (id: string, value: HIRGraphIndex['bindings'] extends Map<string, infer T> ? T : never) => { hirAssert(!bindings.has(id), 'duplicate binding'); bindings.set(id, value); };
     for (const node of nodes.values()) {
       hirAssert(Object.hasOwn(program.sources, node.sourceId), 'unknown sourceId');
+      for (const call of node.calls ?? []) if (call.targetId !== null) hirAssert(Object.hasOwn(program.functions, call.targetId), 'unknown call target');
       hirAssert(!occurrenceKeys.has(node.occurrenceKey), 'duplicate node occurrenceKey'); occurrenceKeys.add(node.occurrenceKey);
       const disclosure = node.presentation.kind === 'hidden' ? null : node.presentation.disclosure;
       const call = disclosure?.kind === 'call' ? disclosure : disclosure?.kind === 'client-context' ? disclosure.call : null;

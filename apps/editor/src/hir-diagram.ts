@@ -1,7 +1,8 @@
-import type { Id, Located, HIRNodeStyle, HIRPresentation, HIRGroupStyle, HIRPortRole, HIRAnchor, HIREdgeStyle, HIRRecursivePresentation } from '@bal-bot/workspace';
+import type { Id, Located, HIRCallSpan, HIRNodeStyle, HIRPresentation, HIRGroupStyle, HIRPortRole, HIRAnchor, HIREdgeStyle, HIRRecursivePresentation } from '@bal-bot/workspace';
 export type ExpansionPath = string;
 export interface DiagramNode {
   readonly id: Id;
+  readonly calls?: readonly HIRCallSpan[];
   readonly kind: HIRNodeStyle;
   readonly label: string;
   readonly selection: Located;
