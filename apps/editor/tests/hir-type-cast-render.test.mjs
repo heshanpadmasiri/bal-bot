@@ -56,13 +56,13 @@ function main(any input, boolean flag) returns int|error { _ = input; _ = flag; 
       assert.match(await flow.innerText(), /main/, body);
       assert.doesNotMatch(await flow.innerText(), /Unsupported expression/, body);
       assert.ok(await page.locator('svg.diagram path').count(), body);
-      // All unconditional call scenarios must preserve occurrence-local disclosure.
+      // All unconditional call scenarios expose shared function cards.
       if (/value\(\)|fallible\(\)/.test(body) && !body.includes('flag')) {
-        const expand = page.getByRole('button', {name:/Expand .*?(value|fallible)/});
+        const expand = page.getByRole('button', {name:/^Open (value|fallible)$/});
         assert.ok(await expand.count(), `Missing call disclosure: ${body}`);
         await expand.first().click();
-        await page.getByRole('button', {name:/Collapse .*?(value|fallible)/}).first().waitFor();
-        assert.match(await flow.innerText(), /return 1/, body);
+        await page.getByRole('button', {name:/^Close (value|fallible)$/}).first().waitFor();
+        assert.match(await page.locator('.function-card').innerText(), /return 1/, body);
       }
     }
     assert.deepEqual(errors, []);

@@ -3,6 +3,18 @@
   "stage": "post-baseline",
   "postBaselineRenderingSuites": [
     {
+      "file": "packages/compiler/hir_function_views_postbaseline_test.go",
+      "rendering": true,
+      "purpose": "Post-baseline statement-centric function views, resolved call-name links and effect-control-flow preservation; no frozen coverage claims.",
+      "coverageCommand": "cd packages/compiler && GOWORK=off go test . -run '^TestHIRFunctionViews' -count=1"
+    },
+    {
+      "file": "apps/flow-playground/tests/browser/function-cards.spec.mjs",
+      "rendering": true,
+      "purpose": "Post-baseline shared draggable function cards, invocation links, recursion, highlighting, entry reset and edit refresh through the production compiler and renderer; no frozen coverage claims.",
+      "coverageCommand": "npm run test:playground:browser"
+    },
+    {
       "file": "apps/flow-playground/tests/browser/playground.spec.mjs",
       "rendering": true,
       "purpose": "Post-baseline production compiler and flow renderer coverage for playground editing, stale diagnostics, entry and endpoint selection, call expansion and demo links; no frozen coverage claims.",
@@ -91,6 +103,11 @@
       "file": "packages/compiler/hir_variables_validation_test.go",
       "rendering": false,
       "purpose": "Variable occurrence bounds, overlap and backward-compatible wire validation; no rendering or frozen baseline claims."
+    },
+    {
+      "file": "packages/compiler/tests/function-views.test.mjs",
+      "rendering": false,
+      "purpose": "Optional function-view and UTF-16 invocation-span wire validation against synthetic protocol data; no compilation, rendering or frozen coverage claims."
     },
     {
       "file": "apps/editor/tests/hir-hidden-layout.test.mjs",

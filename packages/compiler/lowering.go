@@ -43,6 +43,10 @@ type callTarget struct{ kind, functionID, label string }
 type clientPresentation struct{ presentation HIRPresentation }
 
 func lowerProgram(p *resolvedProgram) (HIRProgram, error) {
+	return lowerProgramMode(p, false)
+}
+
+func lowerProgramMode(p *resolvedProgram, functionViews bool) (HIRProgram, error) {
 	l := &lowerer{p: p, sources: HIRRecord[LocatedModel]{}}
 	l.collectVariables()
 	functions, err := l.collectFunctions()
@@ -63,6 +67,17 @@ func lowerProgram(p *resolvedProgram) (HIRProgram, error) {
 			return HIRProgram{}, fmt.Errorf("lower %s: %w", fn.id, err)
 		}
 		result.Functions[fn.id] = graph
+	}
+	if !functionViews {
+		return result, nil
+	}
+	result.FunctionViews = HIRRecord[HIRGraph]{}
+	for _, fn := range functions {
+		graph, err := l.lowerFunctionMode(fn, true)
+		if err != nil {
+			return HIRProgram{}, fmt.Errorf("lower function view %s: %w", fn.id, err)
+		}
+		result.FunctionViews[fn.id] = graph
 	}
 	return result, nil
 }

@@ -146,11 +146,13 @@ func (b *graphBuilder) lowerStatement(path string, statement ast.StatementNode) 
 	}
 	if kind == "foreach" {
 		sourceID = id + "/header"
-		_, err := b.source(sourceID, expr)
-		if err != nil {
-			return fragment{}, err
+		if !b.statementView {
+			_, err := b.source(sourceID, expr)
+			if err != nil {
+				return fragment{}, err
+			}
+			b.l.sources[sourceID] = foreachHeader
 		}
-		b.l.sources[sourceID] = foreachHeader
 	}
 	if reason != "" {
 		kind = "unsupported"
@@ -173,6 +175,21 @@ func (b *graphBuilder) lowerStatement(path string, statement ast.StatementNode) 
 		presentation.Value = p
 	}
 	node := b.allocNode(path, path, sourceID, presentation)
+	if b.statementView {
+		position := statement.GetPosition()
+		start := position.StartOffset()
+		prefix := ""
+		if kind == "if" || kind == "while" {
+			position := expr.GetPosition()
+			start = position.StartOffset()
+		}
+		if kind == "foreach" {
+			position := statement.(*ast.BLangForeach).VariableDef.GetPosition()
+			start = position.StartOffset()
+			prefix = "foreach "
+		}
+		b.node(node).Calls = b.functionCalls(loc.Source.File, start, prefix, label)
+	}
 	entry := b.allocPort(node, HIRPortRoleEntry)
 	f := fragment{nodes: []string{node}, entry: member(entry)}
 	if kind == "unsupported" {
@@ -208,6 +225,10 @@ func (b *graphBuilder) lowerStatement(path string, statement ast.StatementNode) 
 				return fragment{}, err
 			}
 			wrapper := b.allocNode(path+"/evaluation", path+"/evaluation", wrapperSource.ID, plain(HIRNodeStyleStep, wrapperSource.Text))
+			if b.statementView {
+				position := statement.GetPosition()
+				b.node(wrapper).Calls = b.functionCalls(loc.Source.File, position.StartOffset(), "", wrapperSource.Text)
+			}
 			wrapperEntry := b.allocPort(wrapper, HIRPortRoleEntry)
 			b.connect(nested.normal, member(wrapperEntry), HIREdgeKindSequence)
 			evaluated = nested
@@ -266,6 +287,10 @@ func (b *graphBuilder) lowerStatement(path string, statement ast.StatementNode) 
 			}
 			completion.Value = p
 			b.node(node).Presentation = completion
+			if b.statementView {
+				// Completion labels are synthetic, not the original source text.
+				b.node(node).Calls = nil
+			}
 			if kind == "return" {
 				ret := b.allocPort(node, HIRPortRoleReturn)
 				when := membersPresence(evaluated.normal)
@@ -362,7 +387,7 @@ func (b *graphBuilder) lowerStatement(path string, statement ast.StatementNode) 
 	normal := member(b.allocPort(node, HIRPortRoleNormalExit))
 	children := []string{}
 	for _, call := range calls {
-		if call.target == "" {
+		if b.statementView || call.target == "" {
 			continue
 		}
 		callPath := path + "/expand/" + call.id

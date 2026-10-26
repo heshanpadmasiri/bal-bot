@@ -49,10 +49,10 @@ test('prefilled demo, all functions, call expansion and copy-link selection roun
   const id = await page.getByLabel('Flow entry').locator('option').nth(1).getAttribute('value');
   await page.getByLabel('Flow entry').selectOption(id);
   await expect(page.locator('.flow-entry h2')).toHaveText('demo');
-  const expand = page.getByRole('button', {name: /^Expand .*helper/});
+  const expand = page.getByRole('button', {name: 'Open helper', exact: true});
   await expect(expand).toBeVisible();
   await expand.click();
-  await expect(page.getByRole('button', {name: /^Collapse .*helper/})).toBeVisible();
+  await expect(page.getByRole('button', {name: 'Close helper', exact: true})).toBeVisible();
   await page.getByRole('button', {name: 'Copy demo link'}).click();
   await expect(page.getByRole('status')).toContainText('Demo link copied');
   const copied = await page.evaluate(() => navigator.clipboard.readText());
@@ -61,7 +61,7 @@ test('prefilled demo, all functions, call expansion and copy-link selection roun
   await ready(page);
   await expect(page.getByLabel('Flow entry')).toHaveValue(id);
   await expect(page.locator('.flow-entry h2')).toHaveText('demo');
-  await expect(page.getByRole('button', {name: /^Expand .*helper/})).toBeVisible();
+  await expect(page.getByRole('button', {name: 'Open helper', exact: true})).toBeVisible();
 });
 
 test('malformed link, no entries, initial invalid input and safe source text', async ({page, baseURL}) => {

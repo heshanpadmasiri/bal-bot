@@ -447,6 +447,19 @@ func (b *graphBuilder) lowerExpression(path string, expr ast.BLangActionOrExpres
 		}
 	}
 	node := b.allocNode(path, path, sourceID, presentation)
+	if b.statementView {
+		position := expr.GetPosition()
+		switch p := presentation.Value.(type) {
+		case HIRPlainPresentation:
+			if string(p.Label) == loc.Text {
+				b.node(node).Calls = b.functionCalls(loc.Source.File, position.StartOffset(), "", loc.Text)
+			} else {
+				b.node(node).Calls = b.structuredFunctionCalls(loc.Source.File, position.StartOffset(), position.EndOffset(), string(p.Label))
+			}
+		case HIRClientPresentation:
+			b.node(node).Calls = b.structuredFunctionCalls(loc.Source.File, position.StartOffset(), position.EndOffset(), string(p.Label))
+		}
+	}
 	if call != nil {
 		b.node(node).SourceID = call.id
 	}
@@ -459,7 +472,7 @@ func (b *graphBuilder) lowerExpression(path string, expr ast.BLangActionOrExpres
 	if kind != "error-constructor" {
 		panics = append(panics, member(b.allocPort(node, HIRPortRolePanic))...)
 	}
-	if call != nil && call.target != "" {
+	if call != nil && call.target != "" && !b.statementView {
 		normal = b.bindCall(node, path+"/expand", *call, true)
 		nested.panicExports = append(nested.panicExports, panicExport{reference: node, before: len(panics)})
 	}

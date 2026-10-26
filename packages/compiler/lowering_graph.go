@@ -35,6 +35,7 @@ func appendPanics(dst *fragment, src fragment) {
 }
 
 type graphBuilder struct {
+	statementView    bool
 	l                *lowerer
 	graph            HIRGraph
 	ports            map[string]bool
@@ -327,7 +328,11 @@ func (b *graphBuilder) appendBlock(f *fragment, sourcePath, occPath string, node
 	return nil
 }
 func (l *lowerer) lowerFunction(fn sourceFunctionEntry) (HIRGraph, error) {
-	b := &graphBuilder{l: l, ports: map[string]bool{}}
+	return l.lowerFunctionMode(fn, false)
+}
+
+func (l *lowerer) lowerFunctionMode(fn sourceFunctionEntry, statementView bool) (HIRGraph, error) {
+	b := &graphBuilder{l: l, ports: map[string]bool{}, statementView: statementView}
 	location, locationError := l.located(fn.id, fn.node)
 	if locationError != nil {
 		return HIRGraph{}, locationError

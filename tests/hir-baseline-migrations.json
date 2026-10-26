@@ -245,6 +245,118 @@
       }
     },
     {
+      "file": "packages/compiler/tests/browser/flow.spec.mjs",
+      "kind": "browser",
+      "originalSHA256": "2eea5ee04dd4fbb7094cdbd68a6ea28b2b0b921185f356bc965a5e5026c8325a",
+      "archive": "tests/legacy-baseline-sources/packages/compiler/tests/browser/flow.spec.mjs.txt",
+      "currentSHA256": "b39fc3b13161f2aa96362e0fad07962e9a7fd9edb6a2e1f7e8dca624843e78f2",
+      "extraction": {
+        "mode": "babel-static-requests",
+        "scenarios": [
+          {
+            "original": "Hello World library call renders as one source step",
+            "current": "Hello World library call renders as one source step"
+          },
+          {
+            "original": "agent replies render Markdown while user text and unsafe markup stay inert",
+            "current": "agent replies render Markdown while user text and unsafe markup stay inert"
+          },
+          {
+            "original": "chat renders action-only tool summaries through streaming, outcomes and scope restoration",
+            "current": "chat renders action-only tool summaries through streaming, outcomes and scope restoration"
+          },
+          {
+            "original": "compact entry follows resource, remote and method selection with source-backed signatures",
+            "current": "compact entry follows resource, remote and method selection with source-backed signatures"
+          },
+          {
+            "original": "ordinary function entry handles defaults and empty bodies without an invented execution step",
+            "current": "ordinary function entry handles defaults and empty bodies without an invented execution step"
+          },
+          {
+            "original": "sidebar endpoint names, marker alignment and resource operations",
+            "current": "sidebar endpoint names, marker alignment and resource operations"
+          },
+          {
+            "original": "native and real browser WASM models match for all supported fixtures",
+            "current": "native and real browser WASM models match for all supported fixtures"
+          },
+          {
+            "original": "discovery, definitions, endpoint source selection and explicit chips-only send",
+            "current": "discovery, definitions, endpoint source selection and explicit chips-only send"
+          },
+          {
+            "original": "20/60/20, scope drafts, expansion and floating chat survive panel changes",
+            "current": "20/60/20, scope drafts, expansion and floating chat survive panel changes"
+          },
+          {
+            "original": "invalid edits retain stale flow, disable references and repair",
+            "current": "invalid edits retain stale flow, disable references and repair"
+          },
+          {
+            "original": "Automation and limited regions show exact source without async dependency edges",
+            "current": "Automation and limited regions show exact source without async dependency edges"
+          },
+          {
+            "original": "expanded call bodies reference definitions, call headers reference sites, and recursion stays finite",
+            "current": "expanded call bodies reference definitions, call headers reference sites, and recursion stays finite"
+          },
+          {
+            "original": "obsolete browser completions and infrastructure failures retain current flow",
+            "current": "obsolete browser completions and infrastructure failures retain current flow"
+          },
+          {
+            "original": "a saved source update immediately before prompting blocks stale references",
+            "current": "a saved source update immediately before prompting blocks stale references"
+          },
+          {
+            "original": "unsaved editor text does not invalidate analysis; removing selected scopes falls back to Automation",
+            "current": "unsaved editor text does not invalidate analysis; removing selected scopes falls back to Automation"
+          },
+          {
+            "original": "measured source labels fit their headers after nested expansion",
+            "current": "measured source labels fit their headers after nested expansion"
+          },
+          {
+            "original": "flow fits panel width with margins through resize, panel mode and call expansion",
+            "current": "flow fits panel width with margins through resize, panel mode and call expansion"
+          },
+          {
+            "original": "prompt references highlight matching nodes and clear on removal, scope change and send",
+            "current": "prompt references highlight matching nodes and clear on removal, scope change and send"
+          },
+          {
+            "original": "foreach is explicit and call disclosure stays in its top-left corner",
+            "current": "foreach is explicit and call disclosure stays in its top-left corner"
+          },
+          {
+            "original": "provider controls forget only the chosen API key",
+            "current": "provider controls forget only the chosen API key"
+          },
+          {
+            "original": "inspection expansion is available only for flow diagrams",
+            "current": "inspection expansion is available only for flow diagrams"
+          },
+          {
+            "original": "anchor activity follows concurrent chats and completion clears only on click",
+            "current": "anchor activity follows concurrent chats and completion clears only on click"
+          },
+          {
+            "original": "automation anchor shows running and completed activity",
+            "current": "automation anchor shows running and completed activity"
+          },
+          {
+            "original": "Fibonacci arithmetic calls expand independently and recursive calls stay collapsed",
+            "current": "Fibonacci arithmetic calls expand independently and recursive calls stay collapsed"
+          },
+          {
+            "original": "client call cards render generic source context, explicit errors and string templates",
+            "current": "client call cards render generic source context, explicit errors and string templates"
+          }
+        ]
+      }
+    },
+    {
       "file": "packages/compiler/tests/client.test.mjs",
       "kind": "infrastructure",
       "originalSHA256": "d1b363a043e252f1ecd7b63141b7e51fe3ae7ee8369afe882cdb9d54f6281eff",
