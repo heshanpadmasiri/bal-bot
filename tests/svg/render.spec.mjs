@@ -88,7 +88,7 @@ for (const expanded of [false, true]) {
     const actual = await exportSvg(page);
     // A second capture must be byte-identical; no volatile-ID normalization is needed today.
     expect(await exportSvg(page)).toBe(actual);
-    await verifySvg({ name, actual,
+    await verifySvg({ name, actual, source,
       expectedPath: fileURLToPath(new URL(`fixtures/${name}.svg`, root)),
       resultsDir: fileURLToPath(new URL('../../test-results/svg/', root)),
       update: process.env.SVG_SNAPSHOT_UPDATE === '1',

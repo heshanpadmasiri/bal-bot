@@ -48,14 +48,23 @@ are not a reason to update it.
 A failure names its fixture and writes ignored files to:
 
 ```
+test-results/svg/<fixture>/source.bal
 test-results/svg/<fixture>/expected.svg
 test-results/svg/<fixture>/actual.svg
 test-results/svg/<fixture>/diff.patch
 test-results/svg/<fixture>/diff.html
 ```
 
-Open `diff.html` for side-by-side browser-rendered previews and the exact text
-diff; the SVG links open at native vector size. A missing baseline is a failure,
+Open `diff.html` for three columns: **Ballerina source | Expected SVG | Actual
+SVG**, followed by the exact text diff. Each pane scrolls independently; the SVG
+links open at native vector size. The source is also available as `source.bal`.
+To view reports over HTTP, run:
+
+```sh
+python3 -m http.server 8766 --bind 127.0.0.1 --directory test-results/svg
+```
+
+Then open `http://127.0.0.1:8766/<fixture>/diff.html`. A missing baseline is a failure,
 with an explicitly labelled placeholder expected SVG, never silent approval.
 Matching verification or an explicit update clears that fixture's stale report.
 `test:scripts` exercises matching, a changed fill, missing baselines, artifact

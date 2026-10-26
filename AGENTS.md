@@ -12,6 +12,27 @@
 - Hooks test the working tree; ensure the staged changes match what was tested.
   Never regenerate frozen baselines merely to make tests pass.
 
+## Review SVG snapshot differences
+
+- Run `npm run test:svg` to verify focused SVG snapshots without changing baselines.
+  Failures generate `test-results/svg/<fixture>/diff.html` with three columns:
+  **Ballerina source | Expected SVG | Actual SVG**, plus an exact text diff.
+  Keep this comparison tool and pass the complete fixture source to `verifySvg`.
+- Serve the reports locally, reusing an existing server when available:
+  `python3 -m http.server 8766 --bind 127.0.0.1 --directory test-results/svg`.
+  Give the user a clickable link to
+  `http://127.0.0.1:8766/<fixture>/diff.html` (use the actual server port), and keep
+  the server running while they review. Reports also include `source.bal`,
+  `expected.svg`, `actual.svg`, and `diff.patch` for direct inspection.
+- SVG comparison is exact markup comparison, not a pixel comparison. Inspect the
+  text diff as well as both previews: metadata or wrapper elements can change
+  without a visible difference. Explain whether the mismatch affects appearance
+  or only markup; do not assume every mismatch is a visual regression.
+- Get explicit approval before accepting changed focused snapshots. After review,
+  run `npm run update:svg` locally, then `npm run test:all`. Updates and matching
+  verification clear the fixture's stale reports. Never regenerate legacy frozen
+  parity baselines merely to make tests pass. See `tests/svg/README.md` for details.
+
 ## Get feedback on flow rendering
 
 Use the standalone flow playground to show users how Ballerina constructs render
