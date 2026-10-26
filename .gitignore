@@ -1,4 +1,5 @@
 node_modules/
+packages/browser-workspace/src/generated/
 dist/
 *.tsbuildinfo
 .bal-bot/

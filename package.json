@@ -26,7 +26,9 @@
     "test:variables": "node --test tests/variable-*.test.mjs",
     "test:hover": "python3 scripts/build_compiler.py && playwright test --config playwright.hover.config.mjs",
     "test:hir:update": "node scripts/update_hir_goldens.mjs",
-    "test:browser": "python3 scripts/build_compiler.py && playwright test"
+    "test:browser": "python3 scripts/build_compiler.py && playwright test",
+    "build:skills": "node scripts/build_skills.mjs",
+    "pretest": "npm run build:skills"
   },
   "keywords": [],
   "author": "",
@@ -39,6 +41,7 @@
   ],
   "devDependencies": {
     "@playwright/test": "^1.64.1",
-    "sirv": "^3.0.2"
+    "sirv": "^3.0.2",
+    "yaml": "^2.9.1"
   }
 }

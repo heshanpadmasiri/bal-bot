@@ -70,14 +70,15 @@ export function infrastructureProjection(text, file) {
   });
   return scenarios;
 }
-export const dtoInfrastructure = new Set(['packages/compiler/tests/client.test.mjs','apps/editor/tests/flow.test.mjs','apps/editor/tests/references.test.mjs','packages/browser-workspace/tests/fixtures.mjs','packages/browser-workspace/tests/analysis.test.mjs','packages/browser-workspace/tests/workspace.test.mjs']);
+export const dtoInfrastructure = new Set(['packages/compiler/tests/client.test.mjs','apps/editor/tests/flow.test.mjs','apps/editor/tests/references.test.mjs','packages/browser-workspace/tests/fixtures.mjs','packages/browser-workspace/tests/analysis.test.mjs','packages/browser-workspace/tests/workspace.test.mjs','packages/browser-workspace/tests/agent.test.mjs']);
 export function loadMigrations(root = repositoryRoot) {
   const registry = json(root, 'tests/hir-baseline-migrations.json');
   if (registry.version !== 1 || registry.baselineCommit !== '280850fd' || !Array.isArray(registry.files)) throw Error('Invalid baseline migration registry');
   const frozen = json(root, 'tests/fixtures/flow-rendering/inventory.json');
   const inventory = json(root, 'tests/fixtures/hir-projects/source-inventory.json');
-  // These are the legacy DTO consumers being migrated, not an escape hatch for
-  // unrelated infrastructure (native bridge, connection/tool/storage tests).
+  // Only explicitly audited infrastructure can migrate: legacy DTO consumers and
+  // the agent tool allowlist extended for built-in skills. Native bridge,
+  // connection and storage tests remain ineligible.
   const eligible = new Map([...inventory.native.map(e => [e.file, 'go']), ...inventory.browser.filter(e => e.file.endsWith('.spec.mjs')).map(e => [e.file, 'browser']), ...inventory.infrastructure.filter(e => dtoInfrastructure.has(e.file)).map(e => [e.file, 'infrastructure'])]);
   const entries = new Map();
   for (const entry of registry.files) {

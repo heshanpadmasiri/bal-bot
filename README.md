@@ -21,6 +21,43 @@ A fresh browser workspace starts with a Hello World Ballerina HTTP service and i
 
 There is no local-directory argument, file synchronization, or filesystem access. Files are not imported from or written back to a source repository. The [example packages](examples/README.md) are reference fixtures, not directories that the server can open. This is an experimental, single-user browser tool; it does not run your services.
 
+## Built-in agent skills
+
+Repository-owned skills live in `skills/<name>.md`. They are bundled with the
+application, not loaded from the user's workspace. No skills ship initially.
+To add one, create a file such as `skills/http-service.md`:
+
+```markdown
+---
+name: http-service
+description: Use when creating or modifying a Ballerina HTTP service.
+---
+
+Your complete Markdown instructions go here.
+```
+
+Names must match their filename stem and use lowercase letters/digits separated
+by single hyphens. Descriptions and instruction bodies must be nonempty. Only
+standalone `.md` files directly inside `skills/` are included; bundled reference
+files, user-defined skills, manual selection, and slash commands are not supported.
+Do not put a README in that directory unless it is itself a valid skill.
+
+`npm run dev`, `npm run build`, and `npm test` generate and validate the catalog
+before starting. Invalid skills fail preparation with a filename and reason.
+Restart development after changing skills, or run `npm run build:skills` to
+regenerate the catalog. Generated TypeScript is ignored by Git; commit the
+Markdown sources instead. Before running TypeScript or Node tests directly in a
+fresh checkout, run `npm run build:skills`.
+
+The agent automatically selects relevant skills from their names/descriptions
+and reads their full instructions using `read_skill` (registered only when the
+catalog is nonempty). Conversation activity shows
+**Using skill <name>**, with separate failed/stopped states. Skills cannot override
+harness instructions or grant runtime execution capabilities. Skill bodies enter
+model context only when read; existing compaction may summarize them, and the
+agent can reread them. Like all bundled assets, skills are public to anyone who
+can access the application: never include secrets.
+
 ## Commits and Git hooks
 
 Keep commits atomic: one logical change per commit, with its tests and docs.

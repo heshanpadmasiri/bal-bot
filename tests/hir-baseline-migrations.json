@@ -388,6 +388,26 @@
         ],
         "syntheticFixtures": {}
       }
+    },
+    {
+      "file": "packages/browser-workspace/tests/agent.test.mjs",
+      "kind": "infrastructure",
+      "originalSHA256": "7416793e98a25ad7f2072b20c12952e97e7360af141a809a059668cd10f9fe5e",
+      "archive": "tests/legacy-baseline-sources/packages/browser-workspace/tests/agent.test.mjs.txt",
+      "currentSHA256": "5be27f37d84ef51ea0d8feccef5b72473862db41d9be1c19414923a8dad5d039",
+      "extraction": {
+        "mode": "babel-infrastructure-inputs",
+        "scenarios": [
+          {
+            "original": "PI tools edit the same persisted workspace that the UI observes",
+            "current": "PI tools edit the same persisted workspace that the UI observes"
+          },
+          {
+            "original": "PI uses only workspace tools without browser credentials",
+            "current": "PI uses only workspace tools without browser credentials"
+          }
+        ]
+      }
     }
   ]
 }

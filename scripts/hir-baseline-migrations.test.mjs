@@ -38,6 +38,21 @@ test('registration preserves original archives and refuses to repair tampered or
 test('registered historical and current arms both validate', () => temporary(directory => {
   registryFixture(directory); assert.equal(loadMigrations(directory).size,registry.files.length);
 }));
+test('agent skill migration preserves the original tool allowlist and all scenario inputs', () => {
+  const file = 'packages/browser-workspace/tests/agent.test.mjs';
+  const entry = loadMigrations().get(file);
+  assert.ok(entry, 'agent tool assertion change must have explicit provenance');
+  assert.match(entry.original.toString(), /\['get_diagnostics', 'list_files', 'read_file', 'write_file', 'edit_file', 'delete_file'\]/);
+  assert.doesNotMatch(entry.original.toString(), /read_skill/);
+  assert.match(entry.current.toString(), /skillCatalogPrompt\(\) \? \['read_skill'\]/);
+});
+test('agent migration rejects renamed scenarios even with a refreshed live digest', () => temporary(directory => {
+  registryFixture(directory);
+  const file = 'packages/browser-workspace/tests/agent.test.mjs';
+  update(directory, file, text => text.replace('PI uses only workspace tools', 'REMOVED tool allowlist'));
+  refreshCurrentDigest(directory, file);
+  assert.throws(() => loadMigrations(directory), /Unregistered new infrastructure scenario|Removed\/reordered/);
+}));
 test('archive tamper cannot be hidden by a valid live digest', () => temporary(directory => {
   registryFixture(directory); update(directory,registry.files[0].archive,text=>text+'\n'); assert.throws(()=>loadMigrations(directory),/archive tamper/);
 }));

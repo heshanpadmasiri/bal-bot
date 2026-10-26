@@ -35,11 +35,26 @@ function failureReason(result: ToolResult): string {
   if (text === 'Use a relative workspace file path without empty, . or .. segments.') return 'Invalid workspace path.';
   if (text === 'A compiler is required to request workspace diagnostics.') return 'Compiler unavailable.';
   if (text.startsWith('Invalid arguments for tool ')) return 'Invalid tool arguments.';
+  if (text === 'Unknown built-in skill. Choose a name from the available skills catalog.') return 'Unknown built-in skill.';
   return 'Operation could not be completed.';
 }
 
-export function summarizeTool(name: string, state: ToolSummaryState, result?: ToolResult): string {
-  const [running, completed, action] = Object.hasOwn(actions, name) ? actions[name] : ['Working', 'Finished action', 'complete action'];
+function skillName(value: unknown): string | undefined {
+  return typeof value === 'string' && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value) ? value : undefined;
+}
+
+function namedField(value: unknown, key: string): unknown {
+  return value !== null && typeof value === 'object' && Object.hasOwn(value, key)
+    ? (value as Record<string, unknown>)[key] : undefined;
+}
+
+export function summarizeTool(name: string, state: ToolSummaryState, result?: ToolResult, nameContext?: unknown): string {
+  const selectedSkill = name === 'read_skill'
+    ? skillName(state === 'completed' ? namedField(result?.details, 'skillName') : nameContext) : undefined;
+  const skill = selectedSkill ? `skill ${selectedSkill}` : 'skill';
+  const [running, completed, action] = name === 'read_skill'
+    ? [`Using ${skill}`, `Using ${skill}`, `use ${skill}`]
+    : Object.hasOwn(actions, name) ? actions[name] : ['Working', 'Finished action', 'complete action'];
   switch (state) {
     case 'running': return `${running}…`;
     case 'completed': return completed;
@@ -59,13 +74,13 @@ export function conversationItems(messages: readonly AgentMessage[], running: bo
   });
   const items: ConversationItem[] = [];
   const seen = new Set<string>();
-  const addTool = (id: string, name: string, pending: ToolSummaryState) => {
+  const addTool = (id: string, name: string, pending: ToolSummaryState, nameContext?: unknown) => {
     if (seen.has(id)) return;
     seen.add(id);
     const result = results.get(id);
     const state = !result ? pending : !result.isError ? 'completed'
       : /^(?:Error:\s*)?(?:Operation aborted|Request aborted by user|This operation was aborted)\.?$/.test(resultText(result)) ? 'stopped' : 'failed';
-    items.push({ kind: 'tool', id, state, text: summarizeTool(name, state, result) });
+    items.push({ kind: 'tool', id, state, text: summarizeTool(name, state, result, nameContext) });
   };
   messages.forEach((message, index) => {
     if (message.role === 'system') return;
@@ -81,7 +96,7 @@ export function conversationItems(messages: readonly AgentMessage[], running: bo
         if (part.type === 'text') text += (text ? '\n' : '') + part.text;
         if (part.type === 'toolCall') {
           flush();
-          addTool(part.id, part.name, message.stopReason === 'error' ? 'failed' : message.stopReason === 'aborted' || index < lastUser || !running ? 'stopped' : 'running');
+          addTool(part.id, part.name, message.stopReason === 'error' ? 'failed' : message.stopReason === 'aborted' || index < lastUser || !running ? 'stopped' : 'running', namedField(part.arguments, 'name'));
         }
       }
       flush(true);

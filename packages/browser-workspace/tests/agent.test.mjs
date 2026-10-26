@@ -5,6 +5,7 @@ import { workspaceTools, createWorkspaceAgent } from '../src/index.ts';
 import { openaiProvider } from '@earendil-works/pi-ai/providers/openai';
 import { createModels } from '@earendil-works/pi-ai';
 import { BrowserWorkspace } from '../src/workspace.ts';
+import { skillCatalogPrompt } from '../src/skills.ts';
 
 test('PI tools edit the same persisted workspace that the UI observes', async () => {
   const stored = new Map();
@@ -30,6 +31,6 @@ test('PI uses only workspace tools without browser credentials', () => {
   models.setProvider(openaiProvider());
   const agent = createWorkspaceAgent(workspace, models.getModels('openai')[0], () => { throw new Error('No request expected'); }, testAgentScope);
   assert.equal(agent.getApiKey, undefined);
-  assert.deepEqual(agent.state.tools.map(t => t.name), ['get_diagnostics', 'list_files', 'read_file', 'write_file', 'edit_file', 'delete_file']);
+  assert.deepEqual(agent.state.tools.map(t => t.name), [...(skillCatalogPrompt() ? ['read_skill'] : []), 'get_diagnostics', 'list_files', 'read_file', 'write_file', 'edit_file', 'delete_file']);
   assert.match(agent.state.systemPrompt, /No shell or execution runtime/);
 });
