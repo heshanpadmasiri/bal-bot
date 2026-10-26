@@ -162,6 +162,11 @@ func (b *graphBuilder) lowerStatement(path string, statement ast.StatementNode) 
 		style = HIRNodeStyleMapping
 	}
 	presentation := plain(style, label)
+	if kind == "foreach" {
+		p := presentation.Value.(HIRPlainPresentation)
+		p.Variables = shiftedVariables(b.l.locatedVariables(foreachHeader), utf16Length("foreach "))
+		presentation.Value = p
+	}
 	if kind == "unsupported" {
 		p := presentation.Value.(HIRPlainPresentation)
 		p.Limitation = &reason
@@ -246,7 +251,21 @@ func (b *graphBuilder) lowerStatement(path string, statement ast.StatementNode) 
 				}
 				completionLabel = "Result → " + binding
 			}
-			b.node(node).Presentation = plain(style, completionLabel)
+			completion := plain(style, completionLabel)
+			p := completion.Value.(HIRPlainPresentation)
+			if operation != "expression" && kind != "return" && expr != nil {
+				position := statement.GetPosition()
+				start := position.StartOffset()
+				if lhs != nil {
+					position := lhs.GetPosition()
+					start = position.StartOffset()
+				}
+				p.Variables = shiftedVariables(b.l.variablesIn(loc.Source.File, start, start+len(binding)), utf16Length("Result → "))
+			} else if completionLabel == loc.Text {
+				p.Variables = b.l.locatedVariables(loc)
+			}
+			completion.Value = p
+			b.node(node).Presentation = completion
 			if kind == "return" {
 				ret := b.allocPort(node, HIRPortRoleReturn)
 				when := membersPresence(evaluated.normal)

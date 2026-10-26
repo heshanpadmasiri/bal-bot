@@ -282,6 +282,13 @@
       "text": "function double(int amount) returns int { return amount * 2; }",
       "moduleId": "examples/analysis_recovery",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/117",
+            "start": 20,
+            "end": 26
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -289,6 +296,13 @@
         "signature": "function double(int amount) returns int",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/117",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "label": "Input",
             "text": "int amount"
           }
@@ -302,6 +316,13 @@
           "sourceId": "examples/analysis_recovery/function/double/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/117",
+                "start": 7,
+                "end": 13
+              }
+            ],
             "style": "return",
             "label": "return amount * 2;",
             "sections": [],
@@ -705,6 +726,13 @@
           "sourceId": "examples/analysis_recovery/function/main/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/33",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "int amount = 2;",
             "sections": [],
@@ -723,6 +751,18 @@
           "sourceId": "examples/analysis_recovery/function/main/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/53",
+                "start": 4,
+                "end": 10
+              },
+              {
+                "variableId": "variable/main.bal/33",
+                "start": 20,
+                "end": 26
+              }
+            ],
             "style": "step",
             "label": "int result = double(amount);",
             "sections": [],
@@ -742,6 +782,13 @@
           "sourceId": "examples/analysis_recovery/function/main/statement/1/call/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/33",
+                "start": 7,
+                "end": 13
+              }
+            ],
             "style": "function",
             "label": "double(amount)",
             "sections": [],
@@ -753,6 +800,13 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/33",
+                    "start": 7,
+                    "end": 13
+                  }
+                ],
                 "label": "double(amount)",
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
@@ -892,6 +946,13 @@
           "sourceId": "examples/analysis_recovery/function/main/statement/2",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/53",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "_ = result;",
             "sections": [],

@@ -1285,6 +1285,18 @@
       "text": "remote function send(string message, string topic = \"jobs\") returns string|error { return topic + message; }",
       "moduleId": "browser/http_service",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/128",
+            "start": 28,
+            "end": 35
+          },
+          {
+            "variableId": "variable/main.bal/144",
+            "start": 44,
+            "end": 49
+          }
+        ],
         "kind": "remote",
         "owner": null,
         "operation": null,
@@ -1292,10 +1304,24 @@
         "signature": "remote function send(string message, string topic = \"jobs\") returns string|error",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/128",
+                "start": 7,
+                "end": 14
+              }
+            ],
             "label": "Input",
             "text": "string message"
           },
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/144",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "label": "Input",
             "text": "string topic = \"jobs\""
           }
@@ -1309,6 +1335,18 @@
           "sourceId": "browser/http_service/class/Queue/method/$remote$send/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/144",
+                "start": 7,
+                "end": 12
+              },
+              {
+                "variableId": "variable/main.bal/128",
+                "start": 15,
+                "end": 22
+              }
+            ],
             "style": "return",
             "label": "return topic + message;",
             "sections": [],
@@ -2341,6 +2379,13 @@
       "text": "function run(Queue inputQueue) returns error? {\n   string first = check globalQueue-\u003esend(\"one\", topic = \"orders\");\n   Queue local = makeQueue();\n   string second = check local-\u003esend(\"two\");\n   local = new (\"replacement\");\n   string third = check local-\u003esend(\"three\");\n   string fourth = check inputQueue-\u003esend(\"four\");\n _ = first; _ = second; _ = third; _ = fourth;\n   { Queue globalQueue = new (\"shadow\"); string fifth = check globalQueue-\u003esend(\"five\"); _ = fifth; }\n }",
       "moduleId": "browser/http_service",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/348",
+            "start": 19,
+            "end": 29
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -2348,6 +2393,13 @@
         "signature": "function run(Queue inputQueue) returns error?",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/348",
+                "start": 6,
+                "end": 16
+              }
+            ],
             "label": "Input",
             "text": "Queue inputQueue"
           }
@@ -2361,6 +2413,13 @@
           "sourceId": "browser/http_service/function/run/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/387",
+                "start": 16,
+                "end": 21
+              }
+            ],
             "style": "step",
             "label": "Result → string first",
             "sections": [],
@@ -2379,10 +2438,24 @@
           "sourceId": "browser/http_service/function/run/statement/0/call/0",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/225",
+                "start": 0,
+                "end": 11
+              }
+            ],
             "style": "client",
             "label": "globalQueue · Queue\nnew (\"host\", port = 99)\n→ send(\"one\", topic = \"orders\")",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/225",
+                    "start": 0,
+                    "end": 11
+                  }
+                ],
                 "kind": "receiver",
                 "text": "globalQueue · Queue"
               },
@@ -2403,9 +2476,23 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/225",
+                    "start": 0,
+                    "end": 11
+                  }
+                ],
                 "label": "globalQueue · Queue\nnew (\"host\", port = 99)\n→ send(\"one\", topic = \"orders\")",
                 "sections": [
                   {
+                    "variables": [
+                      {
+                        "variableId": "variable/main.bal/225",
+                        "start": 0,
+                        "end": 11
+                      }
+                    ],
                     "kind": "receiver",
                     "text": "globalQueue · Queue"
                   },
@@ -2602,6 +2689,13 @@
           "sourceId": "browser/http_service/function/run/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/454",
+                "start": 6,
+                "end": 11
+              }
+            ],
             "style": "step",
             "label": "Queue local = makeQueue();",
             "sections": [],
@@ -2771,6 +2865,13 @@
           "sourceId": "browser/http_service/function/run/statement/2",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/485",
+                "start": 16,
+                "end": 22
+              }
+            ],
             "style": "step",
             "label": "Result → string second",
             "sections": [],
@@ -2789,10 +2890,24 @@
           "sourceId": "browser/http_service/function/run/statement/2/call/0",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/454",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "client",
             "label": "local · Queue\nInitialization not statically known\n→ send(\"two\")",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/454",
+                    "start": 0,
+                    "end": 5
+                  }
+                ],
                 "kind": "receiver",
                 "text": "local · Queue"
               },
@@ -2813,9 +2928,23 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/454",
+                    "start": 0,
+                    "end": 5
+                  }
+                ],
                 "label": "local · Queue\nInitialization not statically known\n→ send(\"two\")",
                 "sections": [
                   {
+                    "variables": [
+                      {
+                        "variableId": "variable/main.bal/454",
+                        "start": 0,
+                        "end": 5
+                      }
+                    ],
                     "kind": "receiver",
                     "text": "local · Queue"
                   },
@@ -3012,6 +3141,13 @@
           "sourceId": "browser/http_service/function/run/statement/3",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/454",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "step",
             "label": "local = new (\"replacement\");",
             "sections": [],
@@ -3030,6 +3166,13 @@
           "sourceId": "browser/http_service/function/run/statement/4",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/562",
+                "start": 16,
+                "end": 21
+              }
+            ],
             "style": "step",
             "label": "Result → string third",
             "sections": [],
@@ -3048,10 +3191,24 @@
           "sourceId": "browser/http_service/function/run/statement/4/call/0",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/454",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "client",
             "label": "local · Queue\nInitialization not statically known\n→ send(\"three\")",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/454",
+                    "start": 0,
+                    "end": 5
+                  }
+                ],
                 "kind": "receiver",
                 "text": "local · Queue"
               },
@@ -3072,9 +3229,23 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/454",
+                    "start": 0,
+                    "end": 5
+                  }
+                ],
                 "label": "local · Queue\nInitialization not statically known\n→ send(\"three\")",
                 "sections": [
                   {
+                    "variables": [
+                      {
+                        "variableId": "variable/main.bal/454",
+                        "start": 0,
+                        "end": 5
+                      }
+                    ],
                     "kind": "receiver",
                     "text": "local · Queue"
                   },
@@ -3271,6 +3442,13 @@
           "sourceId": "browser/http_service/function/run/statement/5",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/608",
+                "start": 16,
+                "end": 22
+              }
+            ],
             "style": "step",
             "label": "Result → string fourth",
             "sections": [],
@@ -3289,10 +3467,24 @@
           "sourceId": "browser/http_service/function/run/statement/5/call/0",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/348",
+                "start": 0,
+                "end": 10
+              }
+            ],
             "style": "client",
             "label": "inputQueue · Queue\nParameter\n→ send(\"four\")",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/348",
+                    "start": 0,
+                    "end": 10
+                  }
+                ],
                 "kind": "receiver",
                 "text": "inputQueue · Queue"
               },
@@ -3313,9 +3505,23 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/348",
+                    "start": 0,
+                    "end": 10
+                  }
+                ],
                 "label": "inputQueue · Queue\nParameter\n→ send(\"four\")",
                 "sections": [
                   {
+                    "variables": [
+                      {
+                        "variableId": "variable/main.bal/348",
+                        "start": 0,
+                        "end": 10
+                      }
+                    ],
                     "kind": "receiver",
                     "text": "inputQueue · Queue"
                   },
@@ -3512,6 +3718,13 @@
           "sourceId": "browser/http_service/function/run/statement/6",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/387",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "style": "step",
             "label": "_ = first;",
             "sections": [],
@@ -3530,6 +3743,13 @@
           "sourceId": "browser/http_service/function/run/statement/7",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/485",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "_ = second;",
             "sections": [],
@@ -3548,6 +3768,13 @@
           "sourceId": "browser/http_service/function/run/statement/8",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/562",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "style": "step",
             "label": "_ = third;",
             "sections": [],
@@ -3566,6 +3793,13 @@
           "sourceId": "browser/http_service/function/run/statement/9",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/608",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "_ = fourth;",
             "sections": [],
@@ -3584,6 +3818,13 @@
           "sourceId": "browser/http_service/function/run/statement/10/block/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/707",
+                "start": 6,
+                "end": 17
+              }
+            ],
             "style": "step",
             "label": "Queue globalQueue = new (\"shadow\");",
             "sections": [],
@@ -3602,6 +3843,13 @@
           "sourceId": "browser/http_service/function/run/statement/10/block/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/744",
+                "start": 16,
+                "end": 21
+              }
+            ],
             "style": "step",
             "label": "Result → string fifth",
             "sections": [],
@@ -3620,10 +3868,24 @@
           "sourceId": "browser/http_service/function/run/statement/10/block/statement/1/call/0",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/707",
+                "start": 0,
+                "end": 11
+              }
+            ],
             "style": "client",
             "label": "globalQueue · Queue\nnew (\"shadow\")\n→ send(\"five\")",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/707",
+                    "start": 0,
+                    "end": 11
+                  }
+                ],
                 "kind": "receiver",
                 "text": "globalQueue · Queue"
               },
@@ -3644,9 +3906,23 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/707",
+                    "start": 0,
+                    "end": 11
+                  }
+                ],
                 "label": "globalQueue · Queue\nnew (\"shadow\")\n→ send(\"five\")",
                 "sections": [
                   {
+                    "variables": [
+                      {
+                        "variableId": "variable/main.bal/707",
+                        "start": 0,
+                        "end": 11
+                      }
+                    ],
                     "kind": "receiver",
                     "text": "globalQueue · Queue"
                   },
@@ -3843,6 +4119,13 @@
           "sourceId": "browser/http_service/function/run/statement/10/block/statement/2",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/744",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "style": "step",
             "label": "_ = fifth;",
             "sections": [],

@@ -112,6 +112,13 @@
       "text": "public function main(string greeting = \"Hello\") { _ = greeting; }",
       "moduleId": "examples/automation_flow",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/28",
+            "start": 28,
+            "end": 36
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -119,6 +126,13 @@
         "signature": "public function main(string greeting = \"Hello\")",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/28",
+                "start": 7,
+                "end": 15
+              }
+            ],
             "label": "Input",
             "text": "string greeting = \"Hello\""
           }
@@ -132,6 +146,13 @@
           "sourceId": "examples/automation_flow/function/main/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/28",
+                "start": 4,
+                "end": 12
+              }
+            ],
             "style": "step",
             "label": "_ = greeting;",
             "sections": [],

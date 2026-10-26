@@ -666,6 +666,13 @@
           "sourceId": "browser/http_service/function/main/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/63",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "style": "step",
             "label": "int value = math:calculate();",
             "sections": [],
@@ -835,6 +842,18 @@
           "sourceId": "browser/http_service/function/main/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/93",
+                "start": 4,
+                "end": 10
+              },
+              {
+                "variableId": "variable/main.bal/63",
+                "start": 13,
+                "end": 18
+              }
+            ],
             "style": "step",
             "label": "int result = value + 1;",
             "sections": [],
@@ -853,6 +872,13 @@
           "sourceId": "browser/http_service/function/main/statement/2",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/93",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "_ = result;",
             "sections": [],

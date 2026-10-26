@@ -844,6 +844,13 @@
       "text": "public function calculate(int value) returns int { return value * 2; }",
       "moduleId": "examples/definitions_and_calls.math",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/modules/math/calculate.bal/30",
+            "start": 30,
+            "end": 35
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -851,6 +858,13 @@
         "signature": "public function calculate(int value) returns int",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/modules/math/calculate.bal/30",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "label": "Input",
             "text": "int value"
           }
@@ -864,6 +878,13 @@
           "sourceId": "examples/definitions_and_calls.math/function/calculate/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/modules/math/calculate.bal/30",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "return",
             "label": "return value * 2;",
             "sections": [],
@@ -1655,6 +1676,13 @@
       "text": "function calculate(int value) returns int { return value + 1; }",
       "moduleId": "examples/definitions_and_calls",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/helpers.bal/23",
+            "start": 23,
+            "end": 28
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -1662,6 +1690,13 @@
         "signature": "function calculate(int value) returns int",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/helpers.bal/23",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "label": "Input",
             "text": "int value"
           }
@@ -1675,6 +1710,13 @@
           "sourceId": "examples/definitions_and_calls/function/calculate/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/helpers.bal/23",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "return",
             "label": "return value + 1;",
             "sections": [],
@@ -2078,6 +2120,13 @@
           "sourceId": "examples/definitions_and_calls/function/unusedHelper/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/602",
+                "start": 16,
+                "end": 22
+              }
+            ],
             "style": "step",
             "label": "Result → string status",
             "sections": [],
@@ -2096,10 +2145,24 @@
           "sourceId": "examples/definitions_and_calls/function/unusedHelper/statement/0/call/0",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/158",
+                "start": 0,
+                "end": 14
+              }
+            ],
             "style": "client",
             "label": "upstreamClient · LocalClient\nInitialization not statically known\n→ send()",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/158",
+                    "start": 0,
+                    "end": 14
+                  }
+                ],
                 "kind": "receiver",
                 "text": "upstreamClient · LocalClient"
               },
@@ -2120,9 +2183,23 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/158",
+                    "start": 0,
+                    "end": 14
+                  }
+                ],
                 "label": "upstreamClient · LocalClient\nInitialization not statically known\n→ send()",
                 "sections": [
                   {
+                    "variables": [
+                      {
+                        "variableId": "variable/main.bal/158",
+                        "start": 0,
+                        "end": 14
+                      }
+                    ],
                     "kind": "receiver",
                     "text": "upstreamClient · LocalClient"
                   },
@@ -2282,6 +2359,18 @@
           "sourceId": "examples/definitions_and_calls/function/unusedHelper/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/110",
+                "start": 7,
+                "end": 15
+              },
+              {
+                "variableId": "variable/main.bal/602",
+                "start": 25,
+                "end": 31
+              }
+            ],
             "style": "return",
             "label": "return upstream + \": \" + status;",
             "sections": [],
@@ -3189,6 +3278,18 @@
           "sourceId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/469",
+                "start": 4,
+                "end": 9
+              },
+              {
+                "variableId": "variable/main.bal/78",
+                "start": 22,
+                "end": 35
+              }
+            ],
             "style": "step",
             "label": "int local = calculate(minimumAmount);",
             "sections": [],
@@ -3208,6 +3309,13 @@
           "sourceId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/0/call/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/78",
+                "start": 10,
+                "end": 23
+              }
+            ],
             "style": "function",
             "label": "calculate(minimumAmount)",
             "sections": [],
@@ -3219,6 +3327,13 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/78",
+                    "start": 10,
+                    "end": 23
+                  }
+                ],
                 "label": "calculate(minimumAmount)",
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
@@ -3358,6 +3473,13 @@
           "sourceId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/469",
+                "start": 22,
+                "end": 27
+              }
+            ],
             "style": "return",
             "label": "return math:calculate(local);",
             "sections": [],
@@ -3377,6 +3499,13 @@
           "sourceId": "examples/definitions_and_calls/service/main.bal//orders/1/resource/get/total/statement/1/call/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/469",
+                "start": 15,
+                "end": 20
+              }
+            ],
             "style": "function",
             "label": "math:calculate(local)",
             "sections": [],
@@ -3388,6 +3517,13 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/469",
+                    "start": 15,
+                    "end": 20
+                  }
+                ],
                 "label": "math:calculate(local)",
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",

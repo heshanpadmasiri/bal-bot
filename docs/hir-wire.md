@@ -101,6 +101,38 @@ come from an instantiated target graph, not another local owning group.
 All node, port, interface, binding, and edge IDs are local to their function graph;
 reference interface IDs refer to the target graph's interface namespace.
 
+## Variable occurrences
+
+`HIRVariableOccurrence` is `{ variableId: string, start: number, end: number }`.
+Offsets are zero-based UTF-16 code units with an exclusive `end`, relative to
+that exact display string, not source coordinates or UTF-8 byte offsets.
+`variables` is an optional array on plain/client presentations (relative to
+`label`), label content (relative to `label`), recursive presentations (relative
+to `label`), label sections (relative to `text`), and entry parameters (relative
+to `text`). Entries have optional `signatureVariables` relative to `signature`.
+Missing metadata means `[]` for backward compatibility; the Go encoder omits
+empty arrays, including synthetic labels that display no variable. Explicit
+`null` is invalid.
+
+Identity comes from resolved compiler variable symbols. Declaration IDs are
+opaque and stable within an analysis, shared across functions and display
+variants, and do not acquire graph-instance prefixes. Distinct shadowing
+symbols have distinct IDs. Current compiler IDs use declaration filename and
+identifier byte offset; consumers must not decode this implementation detail
+or assume identity survives source edits.
+
+Metadata covers local, module, ordinary/rest/resource-path parameter, and
+foreach declarations plus resolved read/write references. Record/object field
+names, literal mapping keys, named-argument names, function names, and string
+contents are not variables. Synthesized result/foreach labels project their
+source spans explicitly. Client labels compose receiver, initializer, and
+argument/path spans; every collapsed/expanded and recursive alternative carries
+its own offsets. Truncation drops occurrences not fully retained before the
+ellipsis. Sections use independent section-local offsets. Consumers must use
+this metadata, never infer identity by matching displayed names. Only complete
+identifier spans are emitted; a variable split across section lines has no
+section-local occurrence.
+
 ## Presentation and layout
 
 Visible presentations carry a complete selection/measurement label plus ordered

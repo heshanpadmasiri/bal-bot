@@ -45,13 +45,16 @@ export interface HIRGraph extends Located {
   readonly interfaces: readonly HIRInterface[];
   readonly emission: { readonly root: HIREmissionPlan; readonly inline: HIREmissionPlan };
 }
+/** Half-open UTF-16 offsets into the accompanying display text. */
+export interface HIRVariableOccurrence { readonly variableId: Id; readonly start: number; readonly end: number; }
 export interface HIREntry {
+  readonly signatureVariables?: readonly HIRVariableOccurrence[];
   readonly kind: 'resource' | 'remote' | 'function' | 'method';
   readonly owner: string | null;
   readonly operation: string | null;
   readonly name: string;
   readonly signature: string;
-  readonly parameters: readonly { readonly label: 'Path' | 'Input'; readonly text: string }[];
+  readonly parameters: readonly { readonly label: 'Path' | 'Input'; readonly text: string; readonly variables?: readonly HIRVariableOccurrence[] }[];
   readonly returnType: string;
 }
 export interface HIRNode {
@@ -66,17 +69,19 @@ export type HIRNodeBody = { readonly kind: 'leaf' }
   | { readonly kind: 'reference'; readonly reference: HIRGraphReference };
 export type HIRNodeStyle = 'step' | 'condition' | 'function' | 'loop' | 'mapping' | 'unsupported' | 'return' | 'client' | 'trap' | 'panic' | 'template' | 'error-constructor';
 export interface HIRLabelSection {
+  readonly variables?: readonly HIRVariableOccurrence[];
   readonly kind: 'text' | 'receiver' | 'context' | 'method' | 'error-message' | 'error-cause' | 'error-detail';
   readonly text: string;
 }
 export type HIRPresentation = { readonly kind: 'hidden' }
-  | { readonly kind: 'plain'; readonly style: HIRNodeStyle; readonly label: string; readonly sections: readonly HIRLabelSection[]; readonly limitation: string | null; readonly disclosure: HIRDisclosure }
-  | { readonly kind: 'client'; readonly style: 'client'; readonly label: string; readonly sections: readonly HIRLabelSection[]; readonly limitation: string | null; readonly disclosure: HIRDisclosure };
+  | { readonly kind: 'plain'; readonly variables?: readonly HIRVariableOccurrence[]; readonly style: HIRNodeStyle; readonly label: string; readonly sections: readonly HIRLabelSection[]; readonly limitation: string | null; readonly disclosure: HIRDisclosure }
+  | { readonly kind: 'client'; readonly variables?: readonly HIRVariableOccurrence[]; readonly style: 'client'; readonly label: string; readonly sections: readonly HIRLabelSection[]; readonly limitation: string | null; readonly disclosure: HIRDisclosure };
 export type HIRDisclosure = { readonly kind: 'none' }
   | { readonly kind: 'call'; readonly occurrenceKey: string; readonly availability: HIRAvailability; readonly recursive: HIRRecursivePresentation }
   | { readonly kind: 'client-context'; readonly occurrenceKey: string; readonly collapsed: HIRLabelContent; readonly expanded: HIRLabelContent; readonly expandedRecursive: HIRRecursivePresentation | null; readonly call: Extract<HIRDisclosure, { readonly kind: 'call' }> | null };
-export interface HIRLabelContent { readonly label: string; readonly sections: readonly HIRLabelSection[]; }
+export interface HIRLabelContent { readonly variables?: readonly HIRVariableOccurrence[]; readonly label: string; readonly sections: readonly HIRLabelSection[]; }
 export interface HIRRecursivePresentation {
+  readonly variables?: readonly HIRVariableOccurrence[];
   readonly label: string;
   readonly sections: readonly HIRLabelSection[];
   readonly limitation: string | null;

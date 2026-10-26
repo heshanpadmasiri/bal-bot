@@ -755,6 +755,13 @@
       "text": "function calculate(int value) returns int {\n    if value \u003c 0 { return 0; }\n    return value * 2;\n}",
       "moduleId": "examples/design_critique",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/547",
+            "start": 23,
+            "end": 28
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -762,6 +769,13 @@
         "signature": "function calculate(int value) returns int",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/547",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "label": "Input",
             "text": "int value"
           }
@@ -775,6 +789,13 @@
           "sourceId": "examples/design_critique/function/calculate/statement/0/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/547",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "condition",
             "label": "value \u003c 0",
             "sections": [],
@@ -812,6 +833,13 @@
           "sourceId": "examples/design_critique/function/calculate/statement/1/block/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/547",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "return",
             "label": "return value * 2;",
             "sections": [],
@@ -2101,6 +2129,13 @@
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/194",
+                "start": 6,
+                "end": 11
+              }
+            ],
             "style": "step",
             "label": "int[] items = [1, 2, 3];",
             "sections": [],
@@ -2119,6 +2154,13 @@
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/225",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "style": "step",
             "label": "int total = 0;",
             "sections": [],
@@ -2137,6 +2179,18 @@
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/header",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/256",
+                "start": 12,
+                "end": 16
+              },
+              {
+                "variableId": "variable/main.bal/194",
+                "start": 20,
+                "end": 25
+              }
+            ],
             "style": "loop",
             "label": "foreach int item in items",
             "sections": [],
@@ -2156,6 +2210,18 @@
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/0/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/256",
+                "start": 0,
+                "end": 4
+              },
+              {
+                "variableId": "variable/main.bal/34",
+                "start": 7,
+                "end": 14
+              }
+            ],
             "style": "condition",
             "label": "item \u003c minimum",
             "sections": [],
@@ -2193,6 +2259,18 @@
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/225",
+                "start": 0,
+                "end": 5
+              },
+              {
+                "variableId": "variable/main.bal/256",
+                "start": 19,
+                "end": 23
+              }
+            ],
             "style": "step",
             "label": "total += calculate(item);",
             "sections": [],
@@ -2212,6 +2290,13 @@
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/2/loop/statement/1/block/statement/0/call/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/256",
+                "start": 10,
+                "end": 14
+              }
+            ],
             "style": "function",
             "label": "calculate(item)",
             "sections": [],
@@ -2223,6 +2308,13 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/256",
+                    "start": 10,
+                    "end": 14
+                  }
+                ],
                 "label": "calculate(item)",
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
@@ -2362,6 +2454,13 @@
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/225",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "condition",
             "label": "total \u003e 10",
             "sections": [],
@@ -2381,6 +2480,13 @@
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/then/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/225",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "step",
             "label": "total += 2;",
             "sections": [],
@@ -2399,6 +2505,13 @@
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/3/else/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/225",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "step",
             "label": "total += 1;",
             "sections": [],
@@ -2417,6 +2530,13 @@
           "sourceId": "examples/design_critique/service/main.bal//orders/1/resource/post/orders/statement/4",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/225",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "return",
             "label": "return total;",
             "sections": [],

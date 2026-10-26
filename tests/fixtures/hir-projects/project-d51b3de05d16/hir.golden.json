@@ -725,6 +725,13 @@
       "text": "function quote(decimal subtotal) returns decimal { return subtotal; }",
       "moduleId": "browser/http_service",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/334",
+            "start": 23,
+            "end": 31
+          }
+        ],
         "kind": "method",
         "owner": null,
         "operation": null,
@@ -732,6 +739,13 @@
         "signature": "function quote(decimal subtotal) returns decimal",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/334",
+                "start": 8,
+                "end": 16
+              }
+            ],
             "label": "Input",
             "text": "decimal subtotal"
           }
@@ -745,6 +759,13 @@
           "sourceId": "browser/http_service/class/PricingEngine/method/quote/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/334",
+                "start": 7,
+                "end": 15
+              }
+            ],
             "style": "return",
             "label": "return subtotal;",
             "sections": [],
@@ -1133,6 +1154,18 @@
       "text": "function calculateTax(decimal amount, decimal rate = 0.15) returns decimal { return amount * rate; }",
       "moduleId": "browser/http_service",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/413",
+            "start": 30,
+            "end": 36
+          },
+          {
+            "variableId": "variable/main.bal/429",
+            "start": 46,
+            "end": 50
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -1140,10 +1173,24 @@
         "signature": "function calculateTax(decimal amount, decimal rate = 0.15) returns decimal",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/413",
+                "start": 8,
+                "end": 14
+              }
+            ],
             "label": "Input",
             "text": "decimal amount"
           },
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/429",
+                "start": 8,
+                "end": 12
+              }
+            ],
             "label": "Input",
             "text": "decimal rate = 0.15"
           }
@@ -1157,6 +1204,18 @@
           "sourceId": "browser/http_service/function/calculateTax/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/413",
+                "start": 7,
+                "end": 13
+              },
+              {
+                "variableId": "variable/main.bal/429",
+                "start": 16,
+                "end": 20
+              }
+            ],
             "style": "return",
             "label": "return amount * rate;",
             "sections": [],
@@ -1545,6 +1604,13 @@
       "text": "function identity(int value) returns int =\u003e value;",
       "moduleId": "browser/http_service",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/506",
+            "start": 22,
+            "end": 27
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -1552,6 +1618,13 @@
         "signature": "function identity(int value) returns int",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/506",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "label": "Input",
             "text": "int value"
           }
@@ -1565,6 +1638,13 @@
           "sourceId": "browser/http_service/function/identity/expression",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/506",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "return",
             "label": "value",
             "sections": [],
@@ -2194,6 +2274,13 @@
       "text": "remote function refresh(string note = \"\") returns boolean { _ = note; return true; }",
       "moduleId": "browser/http_service",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/229",
+            "start": 31,
+            "end": 35
+          }
+        ],
         "kind": "remote",
         "owner": "Service /orders · ballerina/http:Listener",
         "operation": null,
@@ -2201,6 +2288,13 @@
         "signature": "remote function refresh(string note = \"\") returns boolean",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/229",
+                "start": 7,
+                "end": 11
+              }
+            ],
             "label": "Input",
             "text": "string note = \"\""
           }
@@ -2214,6 +2308,13 @@
           "sourceId": "browser/http_service/service/main.bal//orders/1/method/$remote$refresh/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/229",
+                "start": 4,
+                "end": 8
+              }
+            ],
             "style": "step",
             "label": "_ = note;",
             "sections": [],
@@ -2744,6 +2845,18 @@
       "text": "resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }",
       "moduleId": "browser/http_service",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/99",
+            "start": 27,
+            "end": 29
+          },
+          {
+            "variableId": "variable/main.bal/111",
+            "start": 39,
+            "end": 51
+          }
+        ],
         "kind": "resource",
         "owner": "Service /orders · ballerina/http:Listener",
         "operation": "get",
@@ -2751,10 +2864,24 @@
         "signature": "resource function get [int id](boolean includeItems = false) returns string",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/99",
+                "start": 5,
+                "end": 7
+              }
+            ],
             "label": "Path",
             "text": "[int id]"
           },
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/111",
+                "start": 8,
+                "end": 20
+              }
+            ],
             "label": "Input",
             "text": "boolean includeItems = false"
           }
@@ -2768,6 +2895,13 @@
           "sourceId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/99",
+                "start": 4,
+                "end": 6
+              }
+            ],
             "style": "step",
             "label": "_ = id;",
             "sections": [],
@@ -2786,6 +2920,13 @@
           "sourceId": "browser/http_service/service/main.bal//orders/1/resource/get/[int id]/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/111",
+                "start": 4,
+                "end": 16
+              }
+            ],
             "style": "step",
             "label": "_ = includeItems;",
             "sections": [],

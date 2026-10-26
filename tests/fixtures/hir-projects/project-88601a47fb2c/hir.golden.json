@@ -460,6 +460,13 @@
           "sourceId": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/248",
+                "start": 16,
+                "end": 22
+              }
+            ],
             "style": "step",
             "label": "Result → Person person",
             "sections": [],
@@ -478,10 +485,24 @@
           "sourceId": "browser/http_service/service/main.bal///1/resource/get/hello/statement/0/call/0",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/104",
+                "start": 0,
+                "end": 10
+              }
+            ],
             "style": "client",
             "label": "testClient · http:Client\ncheck new (\"https://test.com\")\n→ get(\"/foo/bar\")",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/104",
+                    "start": 0,
+                    "end": 10
+                  }
+                ],
                 "kind": "receiver",
                 "text": "testClient · http:Client"
               },
@@ -564,6 +585,18 @@
           "sourceId": "browser/http_service/service/main.bal///1/resource/get/hello/statement/1/value",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/248",
+                "start": 16,
+                "end": 22
+              },
+              {
+                "variableId": "variable/main.bal/248",
+                "start": 37,
+                "end": 43
+              }
+            ],
             "style": "template",
             "label": "string `hello ${person.first_name} ${person.last_name}`",
             "sections": [],

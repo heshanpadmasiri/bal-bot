@@ -1,11 +1,13 @@
 import React from 'react';
-import type { Id, Located } from '@bal-bot/workspace';
+import type { Id, Located, HIRVariableOccurrence } from '@bal-bot/workspace';
+import { VariableText, type VariableHover } from './variable-text';
 
 export interface FlowBox { readonly x: number; readonly y: number; readonly width: number; readonly height: number; }
 export interface FlowSvgNode {
   readonly id: Id; readonly kind: string; readonly selection: Located; readonly label: string; readonly box: FlowBox;
   readonly height: number; readonly selected: boolean; readonly container: boolean; readonly recursive?: boolean;
-  readonly client: boolean; readonly sections: readonly {readonly className: string; readonly text: string}[];
+  readonly variables?: readonly HIRVariableOccurrence[];
+  readonly client: boolean; readonly sections: readonly {readonly className: string; readonly text: string; readonly variables?: readonly HIRVariableOccurrence[]}[];
   readonly text: string; readonly context?: {readonly path: string; readonly expanded: boolean};
   readonly call?: {readonly path: string; readonly expanded: boolean; readonly unavailable?: string; readonly title: string; readonly ariaLabel: string; readonly glyph: string}; readonly unavailable?: string;
 }
@@ -36,7 +38,7 @@ export function flowBounds(boxes: readonly FlowBox[], routes: FlowSvgData['edges
   return {x: left - 32, y: top, width: right - left + 64, height: bottom - top + 16};
 }
 /** Presentation only: adapters supply all labels, disclosure state and geometry. */
-export function FlowSvg({data: {bounds, nodes, edges, iterations}, ready, onSelect, onToggle}: {data: FlowSvgData; ready: boolean; onSelect: (node: Located) => void; onToggle: (path: string) => void}): React.JSX.Element {
+export function FlowSvg({data: {bounds, nodes, edges, iterations}, ready, onSelect, onToggle, activeVariable, onVariableHover}: VariableHover & {data: FlowSvgData; ready: boolean; onSelect: (node: Located) => void; onToggle: (path: string) => void}): React.JSX.Element {
   return <><div className="flow-entry-connector" aria-hidden="true"/><svg className="diagram" width={bounds.width} height={bounds.height} viewBox={`${bounds.x} ${bounds.y} ${bounds.width} ${bounds.height}`} style={{maxWidth: bounds.width}} role="group" aria-label="Source flow diagram">
       <defs><marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#7c8899" /></marker></defs>
       {nodes.filter(n => n.container).map(n => { const b = n.box; return <rect key={n.id} className={`container ${n.kind}`} x={b.x} y={b.y} width={b.width} height={b.height} rx="12" />; })}
@@ -45,8 +47,8 @@ export function FlowSvg({data: {bounds, nodes, edges, iterations}, ready, onSele
       {nodes.map(n => {
         const b = n.box, height = n.height, selected = n.selected;
         return <g key={n.id} data-node-kind={n.kind} data-node-id={n.selection.id} data-recursive={n.recursive || undefined}>
-          <rect x={b.x} y={b.y} width={b.width} height={height} className={`flow-node ${n.kind}${selected ? ' referenced' : ''}${n.recursive ? ' recursive' : ''}`} rx={n.kind === 'condition' ? 20 : 8}/>
-          <foreignObject x={b.x+(b.width-Math.min(400,b.width))/2+10} y={b.y+8} width={Math.min(400,b.width)-20} height={height-12}><div className={`node-header${n.client ? ' client-header' : n.kind === 'error-constructor' ? ' error-header' : ''}${n.call || n.context ? ' has-disclosure' : ''}`}><button className="node-select" aria-pressed={selected} disabled={!ready} onClick={() => onSelect(n.selection)} aria-label={`Reference ${n.label}`}>{n.client || n.kind === 'error-constructor' ? n.sections.map((section, i) => <span key={i} className={section.className}>{section.text}</span>) : n.text}</button></div></foreignObject>
+          <rect x={b.x} y={b.y} width={b.width} height={height} className={`flow-node ${n.kind}${selected ? ' referenced' : ''}${activeVariable && (n.client || n.kind === 'error-constructor' ? n.sections.some(s => s.variables?.some(v => v.variableId === activeVariable)) : n.variables?.some(v => v.variableId === activeVariable)) ? ' variable-related' : ''}${n.recursive ? ' recursive' : ''}`} rx={n.kind === 'condition' ? 20 : 8}/>
+          <foreignObject x={b.x+(b.width-Math.min(400,b.width))/2+10} y={b.y+8} width={Math.min(400,b.width)-20} height={height-12}><div className={`node-header${n.client ? ' client-header' : n.kind === 'error-constructor' ? ' error-header' : ''}${n.call || n.context ? ' has-disclosure' : ''}`}><button className="node-select" aria-pressed={selected} disabled={!ready} onClick={() => onSelect(n.selection)} aria-label={`Reference ${n.label}`}>{n.client || n.kind === 'error-constructor' ? n.sections.map((section, i) => <span key={i} className={section.className}><VariableText text={section.text} variables={section.variables} activeVariable={activeVariable} onVariableHover={onVariableHover}/></span>) : <VariableText text={n.text} variables={n.variables} activeVariable={activeVariable} onVariableHover={onVariableHover}/>}</button></div></foreignObject>
           {n.context && <foreignObject x={b.x+b.width-38} y={b.y+8} width="30" height="30"><button className="node-disclosure" title="Show client initialization" aria-label={`${n.context.expanded ? 'Collapse' : 'Expand'} client initialization`} aria-expanded={n.context.expanded} onClick={() => onToggle(n.context!.path)}>{n.context.expanded ? '−' : '+'}</button></foreignObject>}
           {n.call && <foreignObject className="node-disclosure-slot" x={b.x+8} y={b.y+8} width="30" height="30"><button className="node-disclosure" disabled={!!n.call.unavailable} title={n.call.title} aria-label={n.call.ariaLabel} aria-expanded={!n.call.unavailable && n.call.expanded} onClick={() => onToggle(n.call!.path)}>{n.call.glyph}</button></foreignObject>}
           {n.unavailable && <foreignObject x={b.x} y={b.y+height+3} width={b.width} height="48"><div className="node-limitation">{n.unavailable}</div></foreignObject>}

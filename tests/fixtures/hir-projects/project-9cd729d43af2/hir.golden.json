@@ -379,6 +379,13 @@
       "text": "function shared(string value) returns string { return value; }",
       "moduleId": "examples/chat_references",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/250",
+            "start": 23,
+            "end": 28
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -386,6 +393,13 @@
         "signature": "function shared(string value) returns string",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/250",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "label": "Input",
             "text": "string value"
           }
@@ -399,6 +413,13 @@
           "sourceId": "examples/chat_references/function/shared/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/250",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "return",
             "label": "return value;",
             "sections": [],

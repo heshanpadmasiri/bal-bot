@@ -331,6 +331,13 @@
           "sourceId": "browser/http_service/function/main/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/76",
+                "start": 4,
+                "end": 5
+              }
+            ],
             "style": "step",
             "label": "int i = 0;",
             "sections": [],
@@ -349,6 +356,13 @@
           "sourceId": "browser/http_service/function/main/statement/1/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/76",
+                "start": 0,
+                "end": 1
+              }
+            ],
             "style": "loop",
             "label": "i \u003c 3",
             "sections": [],
@@ -368,6 +382,18 @@
           "sourceId": "browser/http_service/function/main/statement/1/loop/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/76",
+                "start": 0,
+                "end": 1
+              },
+              {
+                "variableId": "variable/main.bal/76",
+                "start": 9,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "i = step(i + 1);",
             "sections": [],
@@ -387,6 +413,13 @@
           "sourceId": "browser/http_service/function/main/statement/1/loop/statement/0/call/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/76",
+                "start": 5,
+                "end": 6
+              }
+            ],
             "style": "function",
             "label": "step(i + 1)",
             "sections": [],
@@ -398,6 +431,13 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/76",
+                    "start": 5,
+                    "end": 6
+                  }
+                ],
                 "label": "step(i + 1)",
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
@@ -537,6 +577,13 @@
           "sourceId": "browser/http_service/function/main/statement/2/header",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/128",
+                "start": 12,
+                "end": 13
+              }
+            ],
             "style": "loop",
             "label": "foreach int n in [1, 2]",
             "sections": [],
@@ -556,6 +603,18 @@
           "sourceId": "browser/http_service/function/main/statement/2/loop/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/76",
+                "start": 0,
+                "end": 1
+              },
+              {
+                "variableId": "variable/main.bal/128",
+                "start": 5,
+                "end": 6
+              }
+            ],
             "style": "step",
             "label": "i += n;",
             "sections": [],
@@ -2063,6 +2122,13 @@
       "text": "function step(int i) returns int { return i; }",
       "moduleId": "browser/http_service",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/18",
+            "start": 18,
+            "end": 19
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -2070,6 +2136,13 @@
         "signature": "function step(int i) returns int",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/18",
+                "start": 4,
+                "end": 5
+              }
+            ],
             "label": "Input",
             "text": "int i"
           }
@@ -2083,6 +2156,13 @@
           "sourceId": "browser/http_service/function/step/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/18",
+                "start": 7,
+                "end": 8
+              }
+            ],
             "style": "return",
             "label": "return i;",
             "sections": [],

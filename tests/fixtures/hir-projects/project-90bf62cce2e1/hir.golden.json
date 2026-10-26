@@ -280,6 +280,13 @@
           "sourceId": "browser/http_service/function/main/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/29",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "var result = (value(1) + value(2) \u003e 0) \u0026\u0026 (value(3) + value(4) \u003e 0);",
             "sections": [],
@@ -659,6 +666,13 @@
           "sourceId": "browser/http_service/function/main/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/29",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "_ = result;",
             "sections": [],
@@ -1411,6 +1425,13 @@
       "text": "function value(int n) returns int { return n; }",
       "moduleId": "browser/http_service",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/127",
+            "start": 19,
+            "end": 20
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -1418,6 +1439,13 @@
         "signature": "function value(int n) returns int",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/127",
+                "start": 4,
+                "end": 5
+              }
+            ],
             "label": "Input",
             "text": "int n"
           }
@@ -1431,6 +1459,13 @@
           "sourceId": "browser/http_service/function/value/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/127",
+                "start": 7,
+                "end": 8
+              }
+            ],
             "style": "return",
             "label": "return n;",
             "sections": [],

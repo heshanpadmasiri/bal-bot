@@ -15,6 +15,7 @@ import (
 // frontend and its original argument snapshots remain read-only.
 type lowerer struct {
 	p                *resolvedProgram
+	variables        map[string][]sourceVariableOccurrence
 	sources          HIRRecord[LocatedModel]
 	functionIDs      map[model.SymbolRef]string
 	availableBodies  map[string]bool
@@ -43,6 +44,7 @@ type clientPresentation struct{ presentation HIRPresentation }
 
 func lowerProgram(p *resolvedProgram) (HIRProgram, error) {
 	l := &lowerer{p: p, sources: HIRRecord[LocatedModel]{}}
+	l.collectVariables()
 	functions, err := l.collectFunctions()
 	if err != nil {
 		return HIRProgram{}, err
@@ -221,7 +223,7 @@ func (l *lowerer) lowerEntry(fn sourceFunctionEntry) (HIREntry, error) {
 				if err != nil {
 					return HIREntry{}, err
 				}
-				entry.Parameters = append(entry.Parameters, HIREntryParameter{Label: HIRParameterLabelPath, Text: value.Text})
+				entry.Parameters = append(entry.Parameters, HIREntryParameter{Label: HIRParameterLabelPath, Text: value.Text, Variables: l.locatedVariables(value)})
 			}
 		}
 	}
@@ -230,14 +232,14 @@ func (l *lowerer) lowerEntry(fn sourceFunctionEntry) (HIREntry, error) {
 		if err != nil {
 			return HIREntry{}, err
 		}
-		entry.Parameters = append(entry.Parameters, HIREntryParameter{Label: HIRParameterLabelInput, Text: value.Text})
+		entry.Parameters = append(entry.Parameters, HIREntryParameter{Label: HIRParameterLabelInput, Text: value.Text, Variables: l.locatedVariables(value)})
 	}
 	if param := fn.node.GetRestParam(); param != nil {
 		value, err := l.located(fn.id+"/rest", param)
 		if err != nil {
 			return HIREntry{}, err
 		}
-		entry.Parameters = append(entry.Parameters, HIREntryParameter{Label: HIRParameterLabelInput, Text: value.Text})
+		entry.Parameters = append(entry.Parameters, HIREntryParameter{Label: HIRParameterLabelInput, Text: value.Text, Variables: l.locatedVariables(value)})
 	}
 	if descriptor := fn.node.GetReturnTypeDescriptor(); fn.node.HasExplicitReturnTypeDescriptor() && descriptor != nil {
 		value, err := l.located(fn.id+"/returnType", descriptor)
@@ -260,7 +262,10 @@ func (l *lowerer) lowerEntry(fn sourceFunctionEntry) (HIREntry, error) {
 	if end < start || end > position.EndOffset() {
 		return HIREntry{}, fmt.Errorf("%s: invalid signature source range", fn.id)
 	}
-	entry.Signature = strings.TrimSpace(l.p.files[value.Source.File][start:end])
+	rawSignature := l.p.files[value.Source.File][start:end]
+	entry.Signature = strings.TrimSpace(rawSignature)
+	signatureStart := start + strings.Index(rawSignature, entry.Signature)
+	entry.SignatureVariables = l.variablesIn(value.Source.File, signatureStart, signatureStart+len(entry.Signature))
 	// Entry cards use the discovery title (including the service base path),
 	// not the function's local resource name. Store the already split heading.
 	scopes, err := l.lowerScopes()
@@ -563,6 +568,7 @@ func (l *lowerer) clientPresentation(id string, call ast.Invocable) (*clientPres
 	}
 	context.receiver = value
 	method := ""
+	methodVariables := HIRList[HIRVariableOccurrence]{}
 	switch n := call.(type) {
 	case *ast.BLangInvocation:
 		method = n.Name.GetValue()
@@ -576,18 +582,26 @@ func (l *lowerer) clientPresentation(id string, call ast.Invocable) (*clientPres
 		receiverPosition, callPosition := receiver.GetPosition(), call.GetPosition()
 		start := receiverPosition.EndOffset() - callPosition.StartOffset()
 		if start >= 0 && start <= len(value.Text) {
-			method = strings.TrimSpace(value.Text[start:])
+			raw := value.Text[start:]
+			method = strings.TrimSpace(raw)
+			methodStart := receiverPosition.EndOffset() + strings.Index(raw, method)
+			methodVariables = l.variablesIn(value.Source.File, methodStart, methodStart+len(method))
 		}
 	}
 	args := []string{}
+	argumentVariables := HIRList[HIRVariableOccurrence]{}
+	argumentOffset := 0
 	for i, arg := range l.callArgs(call) {
 		value, err := l.located(fmt.Sprintf("%s/argument/%d", id, i), arg)
 		if err != nil {
 			return nil, err
 		}
+		argumentVariables = append(argumentVariables, shiftedVariables(l.locatedVariables(value), argumentOffset)...)
+		argumentOffset += utf16Length(value.Text) + 2
 		args = append(args, value.Text)
 	}
 	if !strings.HasPrefix(method, "->") {
+		methodVariables = shiftedVariables(argumentVariables, utf16Length("→ "+method+"("))
 		method = "→ " + method + "(" + strings.Join(args, ", ") + ")"
 	}
 	heading := context.receiver.Text
@@ -604,8 +618,22 @@ func (l *lowerer) clientPresentation(id string, call ast.Invocable) (*clientPres
 	summary, truncated := clientContextSummary(text)
 	content := func(summary string) HIRLabelContent {
 		label := heading + "\n" + summary + "\n" + method
+		variables := l.locatedVariables(context.receiver)
+		if context.initializer != nil {
+			for _, occurrence := range l.locatedVariables(*context.initializer) {
+				limit := utf16Length(summary)
+				if summary != text {
+					limit--
+				} // Ellipsis is not source text.
+				if occurrence.End <= limit {
+					variables = append(variables, shiftedVariables(HIRList[HIRVariableOccurrence]{occurrence}, utf16Length(heading)+1)...)
+				}
+			}
+		}
+		variables = append(variables, shiftedVariables(methodVariables, utf16Length(heading)+1+utf16Length(summary)+1)...)
 		// The legacy header splits every line, including multiline source values.
 		sections := HIRList[HIRLabelSection]{}
+		lineOffset := 0
 		for i, line := range strings.Split(label, "\n") {
 			kind := HIRLabelSectionKindMethod
 			if i == 0 {
@@ -613,16 +641,23 @@ func (l *lowerer) clientPresentation(id string, call ast.Invocable) (*clientPres
 			} else if i == 1 {
 				kind = HIRLabelSectionKindContext
 			}
-			sections = append(sections, HIRLabelSection{Kind: kind, Text: HIRText(line)})
+			lineVariables := HIRList[HIRVariableOccurrence]{}
+			for _, occurrence := range variables {
+				if occurrence.Start >= lineOffset && occurrence.End <= lineOffset+utf16Length(line) {
+					lineVariables = append(lineVariables, shiftedVariables(HIRList[HIRVariableOccurrence]{occurrence}, -lineOffset)...)
+				}
+			}
+			sections = append(sections, HIRLabelSection{Kind: kind, Text: HIRText(line), Variables: lineVariables})
+			lineOffset += utf16Length(line) + 1
 		}
-		return HIRLabelContent{Label: HIRText(label), Sections: sections}
+		return HIRLabelContent{Label: HIRText(label), Sections: sections, Variables: variables}
 	}
 	collapsed, expanded := content(summary), content(text)
 	disclosure := HIRDisclosure{Value: HIRNoDisclosure{}}
 	if truncated {
 		disclosure.Value = HIRClientContextDisclosure{OccurrenceKey: id + "/context", Collapsed: collapsed, Expanded: expanded}
 	}
-	return &clientPresentation{presentation: HIRPresentation{Value: HIRClientPresentation{Style: HIRClientStyleClient, Label: collapsed.Label, Sections: collapsed.Sections, Disclosure: disclosure}}}, nil
+	return &clientPresentation{presentation: HIRPresentation{Value: HIRClientPresentation{Style: HIRClientStyleClient, Label: collapsed.Label, Sections: collapsed.Sections, Variables: collapsed.Variables, Disclosure: disclosure}}}, nil
 }
 
 // Match JavaScript length > 90 and slice(0, 87), including a split astral pair.

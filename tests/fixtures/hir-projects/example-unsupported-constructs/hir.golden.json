@@ -571,6 +571,13 @@
       "text": "function compute(int value) returns int { return value * 2; }",
       "moduleId": "examples/unsupported_constructs",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/465",
+            "start": 21,
+            "end": 26
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -578,6 +585,13 @@
         "signature": "function compute(int value) returns int",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/465",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "label": "Input",
             "text": "int value"
           }
@@ -591,6 +605,13 @@
           "sourceId": "examples/unsupported_constructs/function/compute/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/465",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "return",
             "label": "return value * 2;",
             "sections": [],
@@ -994,6 +1015,13 @@
           "sourceId": "examples/unsupported_constructs/function/main/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/48",
+                "start": 4,
+                "end": 8
+              }
+            ],
             "style": "step",
             "label": "int mode = 1;",
             "sections": [],
@@ -1012,6 +1040,18 @@
           "sourceId": "examples/unsupported_constructs/function/main/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/86",
+                "start": 24,
+                "end": 31
+              },
+              {
+                "variableId": "variable/main.bal/48",
+                "start": 42,
+                "end": 46
+              }
+            ],
             "style": "mapping",
             "label": "record {| int value; |} request = {value: mode};",
             "sections": [],
@@ -1030,6 +1070,23 @@
           "sourceId": "examples/unsupported_constructs/function/main/statement/2",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/48",
+                "start": 6,
+                "end": 10
+              },
+              {
+                "variableId": "variable/main.bal/48",
+                "start": 28,
+                "end": 32
+              },
+              {
+                "variableId": "variable/main.bal/48",
+                "start": 55,
+                "end": 59
+              }
+            ],
             "style": "unsupported",
             "label": "match mode {\n        1 =\u003e { mode = 2; }\n        _ =\u003e { mode = 3; }\n    }",
             "sections": [],
@@ -1048,6 +1105,23 @@
           "sourceId": "examples/unsupported_constructs/function/main/statement/3",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/200",
+                "start": 8,
+                "end": 16
+              },
+              {
+                "variableId": "variable/main.bal/48",
+                "start": 19,
+                "end": 23
+              },
+              {
+                "variableId": "variable/main.bal/48",
+                "start": 40,
+                "end": 44
+              }
+            ],
             "style": "step",
             "label": "boolean selected = mode \u003e 0 \u0026\u0026 positive(mode);",
             "sections": [],
@@ -1067,6 +1141,13 @@
           "sourceId": "examples/unsupported_constructs/function/main/statement/3/call/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/48",
+                "start": 9,
+                "end": 13
+              }
+            ],
             "style": "function",
             "label": "positive(mode)",
             "sections": [],
@@ -1079,6 +1160,13 @@
                 "reason": "Expansion in this expression evaluation is not modeled."
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/48",
+                    "start": 9,
+                    "end": 13
+                  }
+                ],
                 "label": "positive(mode)",
                 "sections": [],
                 "limitation": "Expansion in this expression evaluation is not modeled.",
@@ -1157,6 +1245,18 @@
           "sourceId": "examples/unsupported_constructs/function/main/statement/4",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/255",
+                "start": 12,
+                "end": 19
+              },
+              {
+                "variableId": "variable/main.bal/48",
+                "start": 36,
+                "end": 40
+              }
+            ],
             "style": "unsupported",
             "label": "future\u003cint\u003e pending = start compute(mode);",
             "sections": [],
@@ -1175,6 +1275,18 @@
           "sourceId": "examples/unsupported_constructs/function/main/statement/5",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/294",
+                "start": 4,
+                "end": 10
+              },
+              {
+                "variableId": "variable/main.bal/255",
+                "start": 24,
+                "end": 31
+              }
+            ],
             "style": "unsupported",
             "label": "int result = check wait pending;",
             "sections": [],
@@ -1193,6 +1305,13 @@
           "sourceId": "examples/unsupported_constructs/function/main/statement/6",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/86",
+                "start": 4,
+                "end": 11
+              }
+            ],
             "style": "step",
             "label": "_ = request;",
             "sections": [],
@@ -1211,6 +1330,13 @@
           "sourceId": "examples/unsupported_constructs/function/main/statement/7",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/200",
+                "start": 4,
+                "end": 12
+              }
+            ],
             "style": "step",
             "label": "_ = selected;",
             "sections": [],
@@ -1229,6 +1355,13 @@
           "sourceId": "examples/unsupported_constructs/function/main/statement/8",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/294",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "_ = result;",
             "sections": [],
@@ -2400,6 +2533,13 @@
       "text": "function positive(int value) returns boolean { return value \u003e 0; }",
       "moduleId": "examples/unsupported_constructs",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/399",
+            "start": 22,
+            "end": 27
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -2407,6 +2547,13 @@
         "signature": "function positive(int value) returns boolean",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/399",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "label": "Input",
             "text": "int value"
           }
@@ -2420,6 +2567,13 @@
           "sourceId": "examples/unsupported_constructs/function/positive/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/399",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "return",
             "label": "return value \u003e 0;",
             "sections": [],

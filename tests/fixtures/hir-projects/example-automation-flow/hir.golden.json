@@ -265,6 +265,13 @@
       "text": "function finish(int count) returns int { return count; }",
       "moduleId": "examples/automation_flow",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/138",
+            "start": 20,
+            "end": 25
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -272,6 +279,13 @@
         "signature": "function finish(int count) returns int",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/138",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "label": "Input",
             "text": "int count"
           }
@@ -285,6 +299,13 @@
           "sourceId": "examples/automation_flow/function/finish/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/138",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "return",
             "label": "return count;",
             "sections": [],
@@ -688,6 +709,13 @@
           "sourceId": "examples/automation_flow/function/main/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/33",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "style": "step",
             "label": "int count = 3;",
             "sections": [],
@@ -706,6 +734,13 @@
           "sourceId": "examples/automation_flow/function/main/statement/1/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/33",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "loop",
             "label": "count \u003e 0",
             "sections": [],
@@ -725,6 +760,13 @@
           "sourceId": "examples/automation_flow/function/main/statement/1/loop/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/33",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "step",
             "label": "count -= 1;",
             "sections": [],
@@ -743,6 +785,13 @@
           "sourceId": "examples/automation_flow/function/main/statement/2",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/33",
+                "start": 11,
+                "end": 16
+              }
+            ],
             "style": "step",
             "label": "_ = finish(count);",
             "sections": [],
@@ -762,6 +811,13 @@
           "sourceId": "examples/automation_flow/function/main/statement/2/call/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/33",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "function",
             "label": "finish(count)",
             "sections": [],
@@ -773,6 +829,13 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/33",
+                    "start": 7,
+                    "end": 12
+                  }
+                ],
                 "label": "finish(count)",
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",

@@ -135,6 +135,11 @@ func hirRequiredShape(actual, expected any, path string) error {
 		for key, child := range want {
 			value, ok := got[key]
 			if !ok {
+				// Variable metadata is additive: archived HIR predating it
+				// decodes as empty arrays. All older fields remain required.
+				if key == "variables" || key == "signatureVariables" {
+					continue
+				}
 				return fmt.Errorf("%s.%s: missing required field", path, key)
 			}
 			if err := hirRequiredShape(value, child, path+"."+key); err != nil {
@@ -194,14 +199,23 @@ const (
 	HIREntryKindMethod   HIREntryKind = "method"
 )
 
+// HIRVariableOccurrence identifies a resolved variable in its corresponding display text.
+// Start and End are UTF-16 code-unit offsets, with an exclusive End.
+type HIRVariableOccurrence struct {
+	VariableID string `json:"variableId"`
+	Start      int    `json:"start"`
+	End        int    `json:"end"`
+}
+
 type HIREntry struct {
-	Kind       HIREntryKind               `json:"kind"`
-	Owner      *string                    `json:"owner"`
-	Operation  *string                    `json:"operation"`
-	Name       string                     `json:"name"`
-	Signature  string                     `json:"signature"`
-	Parameters HIRList[HIREntryParameter] `json:"parameters"`
-	ReturnType string                     `json:"returnType"`
+	SignatureVariables HIRList[HIRVariableOccurrence] `json:"signatureVariables,omitempty"`
+	Kind               HIREntryKind                   `json:"kind"`
+	Owner              *string                        `json:"owner"`
+	Operation          *string                        `json:"operation"`
+	Name               string                         `json:"name"`
+	Signature          string                         `json:"signature"`
+	Parameters         HIRList[HIREntryParameter]     `json:"parameters"`
+	ReturnType         string                         `json:"returnType"`
 }
 
 type HIRParameterLabel string
@@ -212,8 +226,9 @@ const (
 )
 
 type HIREntryParameter struct {
-	Label HIRParameterLabel `json:"label"`
-	Text  string            `json:"text"`
+	Variables HIRList[HIRVariableOccurrence] `json:"variables,omitempty"`
+	Label     HIRParameterLabel              `json:"label"`
+	Text      string                         `json:"text"`
 }
 
 type HIRNode struct {
@@ -324,8 +339,9 @@ const (
 )
 
 type HIRLabelSection struct {
-	Kind HIRLabelSectionKind `json:"kind"`
-	Text HIRText             `json:"text"`
+	Variables HIRList[HIRVariableOccurrence] `json:"variables,omitempty"`
+	Kind      HIRLabelSectionKind            `json:"kind"`
+	Text      HIRText                        `json:"text"`
 }
 
 type HIRClientStyle string
@@ -351,11 +367,12 @@ func (v HIRHiddenPresentation) MarshalJSON() ([]byte, error) {
 }
 
 type HIRPlainPresentation struct {
-	Style      HIRNodeStyle             `json:"style"`
-	Label      HIRText                  `json:"label"`
-	Sections   HIRList[HIRLabelSection] `json:"sections"`
-	Limitation *string                  `json:"limitation"`
-	Disclosure HIRDisclosure            `json:"disclosure"`
+	Variables  HIRList[HIRVariableOccurrence] `json:"variables,omitempty"`
+	Style      HIRNodeStyle                   `json:"style"`
+	Label      HIRText                        `json:"label"`
+	Sections   HIRList[HIRLabelSection]       `json:"sections"`
+	Limitation *string                        `json:"limitation"`
+	Disclosure HIRDisclosure                  `json:"disclosure"`
 }
 
 func (HIRPlainPresentation) isHIRPresentation() {}
@@ -365,11 +382,12 @@ func (v HIRPlainPresentation) MarshalJSON() ([]byte, error) {
 }
 
 type HIRClientPresentation struct {
-	Style      HIRClientStyle           `json:"style"`
-	Label      HIRText                  `json:"label"`
-	Sections   HIRList[HIRLabelSection] `json:"sections"`
-	Limitation *string                  `json:"limitation"`
-	Disclosure HIRDisclosure            `json:"disclosure"`
+	Variables  HIRList[HIRVariableOccurrence] `json:"variables,omitempty"`
+	Style      HIRClientStyle                 `json:"style"`
+	Label      HIRText                        `json:"label"`
+	Sections   HIRList[HIRLabelSection]       `json:"sections"`
+	Limitation *string                        `json:"limitation"`
+	Disclosure HIRDisclosure                  `json:"disclosure"`
 }
 
 func (HIRClientPresentation) isHIRPresentation() {}
@@ -507,17 +525,19 @@ func (v *HIRDisclosure) UnmarshalJSON(data []byte) error {
 }
 
 type HIRLabelContent struct {
-	Label    HIRText                  `json:"label"`
-	Sections HIRList[HIRLabelSection] `json:"sections"`
+	Variables HIRList[HIRVariableOccurrence] `json:"variables,omitempty"`
+	Label     HIRText                        `json:"label"`
+	Sections  HIRList[HIRLabelSection]       `json:"sections"`
 }
 
 type HIRRecursivePresentation struct {
-	Label      HIRText                  `json:"label"`
-	Sections   HIRList[HIRLabelSection] `json:"sections"`
-	Limitation *string                  `json:"limitation"`
-	Title      HIRText                  `json:"title"`
-	AriaLabel  HIRText                  `json:"ariaLabel"`
-	Glyph      string                   `json:"glyph"`
+	Variables  HIRList[HIRVariableOccurrence] `json:"variables,omitempty"`
+	Label      HIRText                        `json:"label"`
+	Sections   HIRList[HIRLabelSection]       `json:"sections"`
+	Limitation *string                        `json:"limitation"`
+	Title      HIRText                        `json:"title"`
+	AriaLabel  HIRText                        `json:"ariaLabel"`
+	Glyph      string                         `json:"glyph"`
 }
 
 // HIRAvailability holds exactly one sealed, discriminated variant. Its zero value is invalid.

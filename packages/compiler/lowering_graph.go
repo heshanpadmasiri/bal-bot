@@ -173,6 +173,12 @@ func (b *graphBuilder) addEdge(edge HIREdge) error {
 	return nil
 }
 func (b *graphBuilder) allocNode(id, occ, source string, p HIRPresentation) string {
+	if plain, ok := p.Value.(HIRPlainPresentation); ok && b.l != nil && b.l.p != nil {
+		if located, exists := b.l.sources[source]; exists && string(plain.Label) == located.Text {
+			plain.Variables = b.l.locatedVariables(located)
+			p.Value = plain
+		}
+	}
 	b.recordError(b.addNode(HIRNode{ID: id, OccurrenceKey: strings.TrimPrefix(occ, b.graph.ID), SourceID: source, Presentation: p, Body: HIRNodeBody{Value: HIRLeafBody{}}}))
 	return id
 }

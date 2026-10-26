@@ -83,6 +83,16 @@
   ],
   "suites": [
     {
+      "file": "packages/compiler/hir_variables_test.go",
+      "rendering": false,
+      "purpose": "Direct variable occurrence lowering, binding identity and UTF-16 offset assertions; no rendered output or frozen baseline writes."
+    },
+    {
+      "file": "packages/compiler/hir_variables_validation_test.go",
+      "rendering": false,
+      "purpose": "Variable occurrence bounds, overlap and backward-compatible wire validation; no rendering or frozen baseline claims."
+    },
+    {
       "file": "apps/editor/tests/hir-hidden-layout.test.mjs",
       "rendering": false,
       "purpose": "Post-baseline generic hidden-owner anchor and transparent layout contracts; no SVG/HTML baseline generation or new frozen coverage claims."

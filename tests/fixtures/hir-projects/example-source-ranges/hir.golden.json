@@ -503,6 +503,18 @@
       "text": "function decorate(string left, string right) returns string {\n    return left + \" / \" + right;\n}",
       "moduleId": "examples/source_ranges",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/304",
+            "start": 25,
+            "end": 29
+          },
+          {
+            "variableId": "variable/main.bal/317",
+            "start": 38,
+            "end": 43
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -510,10 +522,24 @@
         "signature": "function decorate(string left, string right) returns string",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/304",
+                "start": 7,
+                "end": 11
+              }
+            ],
             "label": "Input",
             "text": "string left"
           },
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/317",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "label": "Input",
             "text": "string right"
           }
@@ -527,6 +553,18 @@
           "sourceId": "examples/source_ranges/function/decorate/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/304",
+                "start": 7,
+                "end": 11
+              },
+              {
+                "variableId": "variable/main.bal/317",
+                "start": 22,
+                "end": 27
+              }
+            ],
             "style": "return",
             "label": "return left + \" / \" + right;",
             "sections": [],
@@ -930,6 +968,13 @@
           "sourceId": "examples/source_ranges/function/main/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/97",
+                "start": 7,
+                "end": 15
+              }
+            ],
             "style": "step",
             "label": "string greeting = \"Hello 🚀 café\";",
             "sections": [],
@@ -948,6 +993,18 @@
           "sourceId": "examples/source_ranges/function/main/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/139",
+                "start": 7,
+                "end": 13
+              },
+              {
+                "variableId": "variable/main.bal/97",
+                "start": 34,
+                "end": 42
+              }
+            ],
             "style": "step",
             "label": "string result = decorate(\n        greeting,\n        \"සිංහල\"\n    );",
             "sections": [],
@@ -967,6 +1024,13 @@
           "sourceId": "examples/source_ranges/function/main/statement/1/call/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/97",
+                "start": 18,
+                "end": 26
+              }
+            ],
             "style": "function",
             "label": "decorate(\n        greeting,\n        \"සිංහල\"\n    )",
             "sections": [],
@@ -978,6 +1042,13 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/97",
+                    "start": 18,
+                    "end": 26
+                  }
+                ],
                 "label": "decorate(\n        greeting,\n        \"සිංහල\"\n    )",
                 "sections": [],
                 "limitation": "Recursive calls remain collapsed.",
@@ -1117,6 +1188,13 @@
           "sourceId": "examples/source_ranges/function/main/statement/2",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/217",
+                "start": 4,
+                "end": 11
+              }
+            ],
             "style": "step",
             "label": "int windows = windowsValue();",
             "sections": [],
@@ -1286,6 +1364,13 @@
           "sourceId": "examples/source_ranges/function/main/statement/3",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/139",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "_ = result;",
             "sections": [],
@@ -1304,6 +1389,13 @@
           "sourceId": "examples/source_ranges/function/main/statement/4",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/217",
+                "start": 4,
+                "end": 11
+              }
+            ],
             "style": "step",
             "label": "_ = windows;",
             "sections": [],
@@ -2882,6 +2974,13 @@
           "sourceId": "examples/source_ranges/function/windowsValue/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/windows.bal/47",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "style": "step",
             "label": "int value = 2;",
             "sections": [],
@@ -2900,6 +2999,13 @@
           "sourceId": "examples/source_ranges/function/windowsValue/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/windows.bal/47",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "return",
             "label": "return value;",
             "sections": [],

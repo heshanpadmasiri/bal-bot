@@ -1591,6 +1591,13 @@
       "text": "function process(int[] values) returns int {\n    int total = 0;\n    int index = 0;\n    while index \u003c 3 {\n        index += 1;\n        if index == 2 { continue; }\n        foreach int value in values {\n            if value == 1 { continue; }\n            if value \u003e 3 { break; }\n            total += value;\n        }\n        if total \u003e 20 { break; }\n    }\n    if total \u003c 0 {\n        return 0;\n    } else if total == 0 {\n        total = 1;\n    } else {\n        total += 2;\n    }\n    if total \u003e 10 {} else { total += 1; }\n    return total;\n}",
       "moduleId": "examples/control_flow",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/78",
+            "start": 23,
+            "end": 29
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -1598,6 +1605,13 @@
         "signature": "function process(int[] values) returns int",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/78",
+                "start": 6,
+                "end": 12
+              }
+            ],
             "label": "Input",
             "text": "int[] values"
           }
@@ -1611,6 +1625,13 @@
           "sourceId": "examples/control_flow/function/process/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/108",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "style": "step",
             "label": "int total = 0;",
             "sections": [],
@@ -1629,6 +1650,13 @@
           "sourceId": "examples/control_flow/function/process/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/127",
+                "start": 4,
+                "end": 9
+              }
+            ],
             "style": "step",
             "label": "int index = 0;",
             "sections": [],
@@ -1647,6 +1675,13 @@
           "sourceId": "examples/control_flow/function/process/statement/2/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/127",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "loop",
             "label": "index \u003c 3",
             "sections": [],
@@ -1666,6 +1701,13 @@
           "sourceId": "examples/control_flow/function/process/statement/2/loop/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/127",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "step",
             "label": "index += 1;",
             "sections": [],
@@ -1684,6 +1726,13 @@
           "sourceId": "examples/control_flow/function/process/statement/2/loop/statement/1/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/127",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "condition",
             "label": "index == 2",
             "sections": [],
@@ -1721,6 +1770,18 @@
           "sourceId": "examples/control_flow/function/process/statement/2/loop/statement/2/block/statement/0/header",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/236",
+                "start": 12,
+                "end": 17
+              },
+              {
+                "variableId": "variable/main.bal/78",
+                "start": 21,
+                "end": 27
+              }
+            ],
             "style": "loop",
             "label": "foreach int value in values",
             "sections": [],
@@ -1740,6 +1801,13 @@
           "sourceId": "examples/control_flow/function/process/statement/2/loop/statement/2/block/statement/0/loop/statement/0/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/236",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "condition",
             "label": "value == 1",
             "sections": [],
@@ -1814,6 +1882,13 @@
           "sourceId": "examples/control_flow/function/process/statement/2/loop/statement/2/block/statement/0/loop/statement/1/block/statement/1/block/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/108",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "step",
             "label": "total += value;",
             "sections": [],
@@ -1832,6 +1907,13 @@
           "sourceId": "examples/control_flow/function/process/statement/2/loop/statement/2/block/statement/1/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/108",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "condition",
             "label": "total \u003e 20",
             "sections": [],
@@ -1869,6 +1951,13 @@
           "sourceId": "examples/control_flow/function/process/statement/3/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/108",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "condition",
             "label": "total \u003c 0",
             "sections": [],
@@ -1906,6 +1995,13 @@
           "sourceId": "examples/control_flow/function/process/statement/3/else/statement/0/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/108",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "condition",
             "label": "total == 0",
             "sections": [],
@@ -1925,6 +2021,13 @@
           "sourceId": "examples/control_flow/function/process/statement/3/else/statement/0/then/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/108",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "step",
             "label": "total = 1;",
             "sections": [],
@@ -1943,6 +2046,13 @@
           "sourceId": "examples/control_flow/function/process/statement/3/else/statement/0/else/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/108",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "step",
             "label": "total += 2;",
             "sections": [],
@@ -1961,6 +2071,13 @@
           "sourceId": "examples/control_flow/function/process/statement/4/condition",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/108",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "condition",
             "label": "total \u003e 10",
             "sections": [],
@@ -1980,6 +2097,13 @@
           "sourceId": "examples/control_flow/function/process/statement/4/else/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/108",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "step",
             "label": "total += 1;",
             "sections": [],
@@ -1998,6 +2122,13 @@
           "sourceId": "examples/control_flow/function/process/statement/5",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/108",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "return",
             "label": "return total;",
             "sections": [],

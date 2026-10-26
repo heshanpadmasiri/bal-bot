@@ -1701,6 +1701,18 @@
       "text": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }",
       "moduleId": "examples/service_discovery",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/datagrams.bal/94",
+            "start": 31,
+            "end": 35
+          },
+          {
+            "variableId": "variable/datagrams.bal/111",
+            "start": 48,
+            "end": 54
+          }
+        ],
         "kind": "remote",
         "owner": "Service Service · ballerina/udp:Listener",
         "operation": null,
@@ -1708,10 +1720,24 @@
         "signature": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[]",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/datagrams.bal/94",
+                "start": 7,
+                "end": 11
+              }
+            ],
             "label": "Input",
             "text": "byte[] data"
           },
           {
+            "variables": [
+              {
+                "variableId": "variable/datagrams.bal/111",
+                "start": 11,
+                "end": 17
+              }
+            ],
             "label": "Input",
             "text": "udp:Caller caller"
           }
@@ -1725,6 +1751,13 @@
           "sourceId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/datagrams.bal/111",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "_ = caller;",
             "sections": [],
@@ -1743,6 +1776,13 @@
           "sourceId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/datagrams.bal/94",
+                "start": 7,
+                "end": 11
+              }
+            ],
             "style": "return",
             "label": "return data;",
             "sections": [],

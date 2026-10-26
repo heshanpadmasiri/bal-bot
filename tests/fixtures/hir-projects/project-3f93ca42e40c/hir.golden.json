@@ -1803,6 +1803,18 @@
       "text": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[] {\n        _ = caller;\n        return data;\n    }",
       "moduleId": "examples/service_discovery",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/datagrams.bal/94",
+            "start": 31,
+            "end": 35
+          },
+          {
+            "variableId": "variable/datagrams.bal/111",
+            "start": 48,
+            "end": 54
+          }
+        ],
         "kind": "remote",
         "owner": "Service Service · ballerina/udp:Listener",
         "operation": null,
@@ -1810,10 +1822,24 @@
         "signature": "remote function onBytes(byte[] data, udp:Caller caller) returns byte[]",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/datagrams.bal/94",
+                "start": 7,
+                "end": 11
+              }
+            ],
             "label": "Input",
             "text": "byte[] data"
           },
           {
+            "variables": [
+              {
+                "variableId": "variable/datagrams.bal/111",
+                "start": 11,
+                "end": 17
+              }
+            ],
             "label": "Input",
             "text": "udp:Caller caller"
           }
@@ -1827,6 +1853,13 @@
           "sourceId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/datagrams.bal/111",
+                "start": 4,
+                "end": 10
+              }
+            ],
             "style": "step",
             "label": "_ = caller;",
             "sections": [],
@@ -1845,6 +1878,13 @@
           "sourceId": "examples/service_discovery/service/datagrams.bal//1/method/$remote$onBytes/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/datagrams.bal/94",
+                "start": 7,
+                "end": 11
+              }
+            ],
             "style": "return",
             "label": "return data;",
             "sections": [],
@@ -3415,6 +3455,13 @@
       "text": "remote function refresh(string note = \"\") returns boolean { _ = note; return true; }",
       "moduleId": "examples/service_discovery",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/orders.bal/223",
+            "start": 31,
+            "end": 35
+          }
+        ],
         "kind": "remote",
         "owner": "Service /orders · ballerina/http:Listener",
         "operation": null,
@@ -3422,6 +3469,13 @@
         "signature": "remote function refresh(string note = \"\") returns boolean",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/orders.bal/223",
+                "start": 7,
+                "end": 11
+              }
+            ],
             "label": "Input",
             "text": "string note = \"\""
           }
@@ -3435,6 +3489,13 @@
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/method/$remote$refresh/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/orders.bal/223",
+                "start": 4,
+                "end": 8
+              }
+            ],
             "style": "step",
             "label": "_ = note;",
             "sections": [],
@@ -4368,6 +4429,18 @@
       "text": "resource function get [int id](boolean includeItems = false) returns string { _ = id; _ = includeItems; return \"order\"; }",
       "moduleId": "examples/service_discovery",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/orders.bal/96",
+            "start": 27,
+            "end": 29
+          },
+          {
+            "variableId": "variable/orders.bal/108",
+            "start": 39,
+            "end": 51
+          }
+        ],
         "kind": "resource",
         "owner": "Service /orders · ballerina/http:Listener",
         "operation": "get",
@@ -4375,10 +4448,24 @@
         "signature": "resource function get [int id](boolean includeItems = false) returns string",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/orders.bal/96",
+                "start": 5,
+                "end": 7
+              }
+            ],
             "label": "Path",
             "text": "[int id]"
           },
           {
+            "variables": [
+              {
+                "variableId": "variable/orders.bal/108",
+                "start": 8,
+                "end": 20
+              }
+            ],
             "label": "Input",
             "text": "boolean includeItems = false"
           }
@@ -4392,6 +4479,13 @@
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/orders.bal/96",
+                "start": 4,
+                "end": 6
+              }
+            ],
             "style": "step",
             "label": "_ = id;",
             "sections": [],
@@ -4410,6 +4504,13 @@
           "sourceId": "examples/service_discovery/service/orders.bal//orders/1/resource/get/[int id]/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/orders.bal/108",
+                "start": 4,
+                "end": 16
+              }
+            ],
             "style": "step",
             "label": "_ = includeItems;",
             "sections": [],

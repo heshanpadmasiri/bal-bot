@@ -524,19 +524,19 @@ func (b *graphBuilder) bindCallReference(node, occ string, c directCall, evaluat
 	if !evaluation && !c.supported {
 		reason = c.reason
 	}
-	callDisclosure := func(label HIRText, sections HIRList[HIRLabelSection]) HIRCallDisclosure {
-		return HIRCallDisclosure{OccurrenceKey: occ, Availability: availability, Recursive: HIRRecursivePresentation{Label: label, Sections: sections, Limitation: &reason, Title: HIRText(reason), AriaLabel: HIRText("Recursive call " + string(label)), Glyph: "↻"}}
+	callDisclosure := func(label HIRText, sections HIRList[HIRLabelSection], variables HIRList[HIRVariableOccurrence]) HIRCallDisclosure {
+		return HIRCallDisclosure{OccurrenceKey: occ, Availability: availability, Recursive: HIRRecursivePresentation{Label: label, Sections: sections, Variables: variables, Limitation: &reason, Title: HIRText(reason), AriaLabel: HIRText("Recursive call " + string(label)), Glyph: "↻"}}
 	}
 	switch p := n.Presentation.Value.(type) {
 	case HIRPlainPresentation:
-		p.Disclosure = HIRDisclosure{Value: callDisclosure(p.Label, HIRList[HIRLabelSection]{})}
+		p.Disclosure = HIRDisclosure{Value: callDisclosure(p.Label, HIRList[HIRLabelSection]{}, p.Variables)}
 		n.Presentation = HIRPresentation{Value: p}
 	case HIRClientPresentation:
-		call := callDisclosure(p.Label, p.Sections)
+		call := callDisclosure(p.Label, p.Sections, p.Variables)
 		if context, ok := p.Disclosure.Value.(HIRClientContextDisclosure); ok {
-			call = callDisclosure(context.Collapsed.Label, context.Collapsed.Sections)
+			call = callDisclosure(context.Collapsed.Label, context.Collapsed.Sections, context.Collapsed.Variables)
 			context.Call = &call
-			expanded := callDisclosure(context.Expanded.Label, context.Expanded.Sections).Recursive
+			expanded := callDisclosure(context.Expanded.Label, context.Expanded.Sections, context.Expanded.Variables).Recursive
 			context.ExpandedRecursive = &expanded
 			p.Disclosure = HIRDisclosure{Value: context}
 		} else {

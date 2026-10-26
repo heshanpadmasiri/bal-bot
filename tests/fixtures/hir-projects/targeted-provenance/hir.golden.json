@@ -1493,6 +1493,13 @@
       "text": "remote function read(string topic = \"jobs\") returns string|error { return topic; }",
       "moduleId": "corpus/provenance",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/156",
+            "start": 28,
+            "end": 33
+          }
+        ],
         "kind": "remote",
         "owner": null,
         "operation": null,
@@ -1500,6 +1507,13 @@
         "signature": "remote function read(string topic = \"jobs\") returns string|error",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/156",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "label": "Input",
             "text": "string topic = \"jobs\""
           }
@@ -1513,6 +1527,13 @@
           "sourceId": "corpus/provenance/class/Queue/method/$remote$read/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/156",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "style": "return",
             "label": "return topic;",
             "sections": [],
@@ -1901,6 +1922,13 @@
       "text": "function label(string value) returns string =\u003e value;",
       "moduleId": "corpus/provenance",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/237",
+            "start": 22,
+            "end": 27
+          }
+        ],
         "kind": "method",
         "owner": null,
         "operation": null,
@@ -1908,6 +1936,13 @@
         "signature": "function label(string value) returns string",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/237",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "label": "Input",
             "text": "string value"
           }
@@ -1921,6 +1956,13 @@
           "sourceId": "corpus/provenance/class/Queue/method/label/expression",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/237",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "return",
             "label": "value",
             "sections": [],
@@ -2309,6 +2351,13 @@
       "text": "resource function get items/[string id]() returns string =\u003e id;",
       "moduleId": "corpus/provenance",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/309",
+            "start": 36,
+            "end": 38
+          }
+        ],
         "kind": "resource",
         "owner": null,
         "operation": "get",
@@ -2316,6 +2365,13 @@
         "signature": "resource function get items/[string id]() returns string",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/309",
+                "start": 8,
+                "end": 10
+              }
+            ],
             "label": "Path",
             "text": "[string id]"
           }
@@ -2329,6 +2385,13 @@
           "sourceId": "corpus/provenance/class/Queue/resource/get/items/[string id]/expression",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/309",
+                "start": 0,
+                "end": 2
+              }
+            ],
             "style": "return",
             "label": "id",
             "sections": [],
@@ -2717,6 +2780,13 @@
       "text": "function fetch(Queue caller) returns string|error {\n    return check caller-\u003e/items/[identity(\"café🚀\")].get();\n}",
       "moduleId": "corpus/provenance",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/584",
+            "start": 21,
+            "end": 27
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -2724,6 +2794,13 @@
         "signature": "function fetch(Queue caller) returns string|error",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/584",
+                "start": 6,
+                "end": 12
+              }
+            ],
             "label": "Input",
             "text": "Queue caller"
           }
@@ -2917,10 +2994,24 @@
           "sourceId": "corpus/provenance/function/fetch/statement/0/call/1",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/584",
+                "start": 0,
+                "end": 6
+              }
+            ],
             "style": "client",
             "label": "caller · Queue\nParameter\n-\u003e/items/[identity(\"café🚀\")].get()",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/584",
+                    "start": 0,
+                    "end": 6
+                  }
+                ],
                 "kind": "receiver",
                 "text": "caller · Queue"
               },
@@ -2942,9 +3033,23 @@
                 "reason": "Expansion in this expression evaluation is not modeled."
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/584",
+                    "start": 0,
+                    "end": 6
+                  }
+                ],
                 "label": "caller · Queue\nParameter\n-\u003e/items/[identity(\"café🚀\")].get()",
                 "sections": [
                   {
+                    "variables": [
+                      {
+                        "variableId": "variable/main.bal/584",
+                        "start": 0,
+                        "end": 6
+                      }
+                    ],
                     "kind": "receiver",
                     "text": "caller · Queue"
                   },
@@ -4571,6 +4676,18 @@
       "text": "function fill(Queue queue, string[] values) returns error? {\n    values[index()] = check queue-\u003eread(topic = identity(\"orders\"));\n}",
       "moduleId": "corpus/provenance",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/451",
+            "start": 20,
+            "end": 25
+          },
+          {
+            "variableId": "variable/main.bal/467",
+            "start": 36,
+            "end": 42
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -4578,10 +4695,24 @@
         "signature": "function fill(Queue queue, string[] values) returns error?",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/451",
+                "start": 6,
+                "end": 11
+              }
+            ],
             "label": "Input",
             "text": "Queue queue"
           },
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/467",
+                "start": 9,
+                "end": 15
+              }
+            ],
             "label": "Input",
             "text": "string[] values"
           }
@@ -4595,6 +4726,13 @@
           "sourceId": "corpus/provenance/function/fill/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/467",
+                "start": 9,
+                "end": 15
+              }
+            ],
             "style": "step",
             "label": "Result → values[index()]",
             "sections": [],
@@ -4775,6 +4913,13 @@
           "sourceId": "corpus/provenance/function/fill/statement/0/target",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/467",
+                "start": 0,
+                "end": 6
+              }
+            ],
             "style": "step",
             "label": "values[index()]",
             "sections": [],
@@ -4973,10 +5118,24 @@
           "sourceId": "corpus/provenance/function/fill/statement/0/call/1",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/451",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "client",
             "label": "queue · Queue\nParameter\n→ read(topic = identity(\"orders\"))",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/451",
+                    "start": 0,
+                    "end": 5
+                  }
+                ],
                 "kind": "receiver",
                 "text": "queue · Queue"
               },
@@ -4998,9 +5157,23 @@
                 "reason": "Expansion in this expression evaluation is not modeled."
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/451",
+                    "start": 0,
+                    "end": 5
+                  }
+                ],
                 "label": "queue · Queue\nParameter\n→ read(topic = identity(\"orders\"))",
                 "sections": [
                   {
+                    "variables": [
+                      {
+                        "variableId": "variable/main.bal/451",
+                        "start": 0,
+                        "end": 5
+                      }
+                    ],
                     "kind": "receiver",
                     "text": "queue · Queue"
                   },
@@ -5198,6 +5371,18 @@
           "sourceId": "corpus/provenance/function/fill/statement/0/evaluation",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/467",
+                "start": 0,
+                "end": 6
+              },
+              {
+                "variableId": "variable/main.bal/451",
+                "start": 24,
+                "end": 29
+              }
+            ],
             "style": "step",
             "label": "values[index()] = check queue-\u003eread(topic = identity(\"orders\"));",
             "sections": [],
@@ -7470,6 +7655,13 @@
       "text": "function identity(string value) returns string =\u003e value;",
       "moduleId": "corpus/provenance",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/399",
+            "start": 25,
+            "end": 30
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -7477,6 +7669,13 @@
         "signature": "function identity(string value) returns string",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/399",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "label": "Input",
             "text": "string value"
           }
@@ -7490,6 +7689,13 @@
           "sourceId": "corpus/provenance/function/identity/expression",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/399",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "return",
             "label": "value",
             "sections": [],
@@ -8296,6 +8502,13 @@
           "sourceId": "corpus/provenance/function/main/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/715",
+                "start": 6,
+                "end": 11
+              }
+            ],
             "style": "step",
             "label": "Queue queue = new (identity(\"broker\"), port = index());",
             "sections": [],
@@ -8495,6 +8708,13 @@
           "sourceId": "corpus/provenance/function/main/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/776",
+                "start": 16,
+                "end": 20
+              }
+            ],
             "style": "step",
             "label": "Result → string text",
             "sections": [],
@@ -8513,10 +8733,24 @@
           "sourceId": "corpus/provenance/function/main/statement/1/call/0",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/715",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "client",
             "label": "queue · Queue\nnew (identity(\"broker\"), port = index())\n→ label(value = \"සිංහල\")",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/715",
+                    "start": 0,
+                    "end": 5
+                  }
+                ],
                 "kind": "receiver",
                 "text": "queue · Queue"
               },
@@ -8537,9 +8771,23 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/715",
+                    "start": 0,
+                    "end": 5
+                  }
+                ],
                 "label": "queue · Queue\nnew (identity(\"broker\"), port = index())\n→ label(value = \"සිංහල\")",
                 "sections": [
                   {
+                    "variables": [
+                      {
+                        "variableId": "variable/main.bal/715",
+                        "start": 0,
+                        "end": 5
+                      }
+                    ],
                     "kind": "receiver",
                     "text": "queue · Queue"
                   },
@@ -8699,6 +8947,13 @@
           "sourceId": "corpus/provenance/function/main/statement/2",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/776",
+                "start": 4,
+                "end": 8
+              }
+            ],
             "style": "step",
             "label": "_ = text;",
             "sections": [],
@@ -9823,6 +10078,13 @@
       "text": "resource function get items/[string id]() returns string =\u003e id;",
       "moduleId": "corpus/provenance",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/921",
+            "start": 36,
+            "end": 38
+          }
+        ],
         "kind": "resource",
         "owner": "Service /api · ballerina/http:Listener",
         "operation": "get",
@@ -9830,6 +10092,13 @@
         "signature": "resource function get items/[string id]() returns string",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/921",
+                "start": 8,
+                "end": 10
+              }
+            ],
             "label": "Path",
             "text": "[string id]"
           }
@@ -9843,6 +10112,13 @@
           "sourceId": "corpus/provenance/service/main.bal//api/1/resource/get/items/[string id]/expression",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/921",
+                "start": 0,
+                "end": 2
+              }
+            ],
             "style": "return",
             "label": "id",
             "sections": [],

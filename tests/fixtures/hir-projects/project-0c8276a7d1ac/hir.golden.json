@@ -838,6 +838,18 @@
       "text": "function fill(Queue queue, string[] values) returns error? {\n values[index()] = check queue-\u003eread();\n }",
       "moduleId": "browser/http_service",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/154",
+            "start": 20,
+            "end": 25
+          },
+          {
+            "variableId": "variable/main.bal/170",
+            "start": 36,
+            "end": 42
+          }
+        ],
         "kind": "function",
         "owner": null,
         "operation": null,
@@ -845,10 +857,24 @@
         "signature": "function fill(Queue queue, string[] values) returns error?",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/154",
+                "start": 6,
+                "end": 11
+              }
+            ],
             "label": "Input",
             "text": "Queue queue"
           },
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/170",
+                "start": 9,
+                "end": 15
+              }
+            ],
             "label": "Input",
             "text": "string[] values"
           }
@@ -862,6 +888,13 @@
           "sourceId": "browser/http_service/function/fill/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/170",
+                "start": 9,
+                "end": 15
+              }
+            ],
             "style": "step",
             "label": "Result → values[index()]",
             "sections": [],
@@ -1042,6 +1075,13 @@
           "sourceId": "browser/http_service/function/fill/statement/0/target",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/170",
+                "start": 0,
+                "end": 6
+              }
+            ],
             "style": "step",
             "label": "values[index()]",
             "sections": [],
@@ -1060,10 +1100,24 @@
           "sourceId": "browser/http_service/function/fill/statement/0/call/0",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/154",
+                "start": 0,
+                "end": 5
+              }
+            ],
             "style": "client",
             "label": "queue · Queue\nParameter\n→ read()",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/154",
+                    "start": 0,
+                    "end": 5
+                  }
+                ],
                 "kind": "receiver",
                 "text": "queue · Queue"
               },
@@ -1085,9 +1139,23 @@
                 "reason": "Expansion in this expression evaluation is not modeled."
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/154",
+                    "start": 0,
+                    "end": 5
+                  }
+                ],
                 "label": "queue · Queue\nParameter\n→ read()",
                 "sections": [
                   {
+                    "variables": [
+                      {
+                        "variableId": "variable/main.bal/154",
+                        "start": 0,
+                        "end": 5
+                      }
+                    ],
                     "kind": "receiver",
                     "text": "queue · Queue"
                   },
@@ -1285,6 +1353,18 @@
           "sourceId": "browser/http_service/function/fill/statement/0/evaluation",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/170",
+                "start": 0,
+                "end": 6
+              },
+              {
+                "variableId": "variable/main.bal/154",
+                "start": 24,
+                "end": 29
+              }
+            ],
             "style": "step",
             "label": "values[index()] = check queue-\u003eread();",
             "sections": [],

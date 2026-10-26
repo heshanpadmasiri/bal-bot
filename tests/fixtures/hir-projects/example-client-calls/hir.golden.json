@@ -1063,6 +1063,18 @@
       "text": "remote function send(string message, string topic = \"jobs\") returns string|error {\n        return topic + \": \" + message;\n    }",
       "moduleId": "examples/client_calls",
       "entry": {
+        "signatureVariables": [
+          {
+            "variableId": "variable/main.bal/548",
+            "start": 28,
+            "end": 35
+          },
+          {
+            "variableId": "variable/main.bal/564",
+            "start": 44,
+            "end": 49
+          }
+        ],
         "kind": "remote",
         "owner": null,
         "operation": null,
@@ -1070,10 +1082,24 @@
         "signature": "remote function send(string message, string topic = \"jobs\") returns string|error",
         "parameters": [
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/548",
+                "start": 7,
+                "end": 14
+              }
+            ],
             "label": "Input",
             "text": "string message"
           },
           {
+            "variables": [
+              {
+                "variableId": "variable/main.bal/564",
+                "start": 7,
+                "end": 12
+              }
+            ],
             "label": "Input",
             "text": "string topic = \"jobs\""
           }
@@ -1087,6 +1113,18 @@
           "sourceId": "examples/client_calls/class/Queue/method/$remote$send/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/564",
+                "start": 7,
+                "end": 12
+              },
+              {
+                "variableId": "variable/main.bal/548",
+                "start": 22,
+                "end": 29
+              }
+            ],
             "style": "return",
             "label": "return topic + \": \" + message;",
             "sections": [],
@@ -1490,6 +1528,13 @@
           "sourceId": "examples/client_calls/function/capturePanic/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/902",
+                "start": 22,
+                "end": 28
+              }
+            ],
             "style": "step",
             "label": "Result → string|error result",
             "sections": [],
@@ -1747,6 +1792,13 @@
           "sourceId": "examples/client_calls/function/capturePanic/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/902",
+                "start": 7,
+                "end": 13
+              }
+            ],
             "style": "return",
             "label": "return result;",
             "sections": [],
@@ -3323,6 +3375,13 @@
           "sourceId": "examples/client_calls/function/sendMessage/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/707",
+                "start": 6,
+                "end": 14
+              }
+            ],
             "style": "step",
             "label": "Queue producer = new (\"broker\", port = 9093);",
             "sections": [],
@@ -3341,6 +3400,13 @@
           "sourceId": "examples/client_calls/function/sendMessage/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/758",
+                "start": 16,
+                "end": 22
+              }
+            ],
             "style": "step",
             "label": "Result → string result",
             "sections": [],
@@ -3359,10 +3425,24 @@
           "sourceId": "examples/client_calls/function/sendMessage/statement/1/call/0",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/707",
+                "start": 0,
+                "end": 8
+              }
+            ],
             "style": "client",
             "label": "producer · Queue\nnew (\"broker\", port = 9093)\n→ send(\"hello\", topic = \"orders\")",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/707",
+                    "start": 0,
+                    "end": 8
+                  }
+                ],
                 "kind": "receiver",
                 "text": "producer · Queue"
               },
@@ -3383,9 +3463,23 @@
                 "kind": "available"
               },
               "recursive": {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/707",
+                    "start": 0,
+                    "end": 8
+                  }
+                ],
                 "label": "producer · Queue\nnew (\"broker\", port = 9093)\n→ send(\"hello\", topic = \"orders\")",
                 "sections": [
                   {
+                    "variables": [
+                      {
+                        "variableId": "variable/main.bal/707",
+                        "start": 0,
+                        "end": 8
+                      }
+                    ],
                     "kind": "receiver",
                     "text": "producer · Queue"
                   },
@@ -3582,6 +3676,13 @@
           "sourceId": "examples/client_calls/function/sendMessage/statement/2",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/758",
+                "start": 7,
+                "end": 13
+              }
+            ],
             "style": "return",
             "label": "return result;",
             "sections": [],
@@ -4935,6 +5036,13 @@
           "sourceId": "examples/client_calls/service/main.bal///1/resource/get/hello/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/271",
+                "start": 16,
+                "end": 22
+              }
+            ],
             "style": "step",
             "label": "Result → Person person",
             "sections": [],
@@ -4953,10 +5061,24 @@
           "sourceId": "examples/client_calls/service/main.bal///1/resource/get/hello/statement/0/call/0",
           "presentation": {
             "kind": "client",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/114",
+                "start": 0,
+                "end": 10
+              }
+            ],
             "style": "client",
             "label": "testClient · http:Client\ncheck new (\"https://test.com\")\n→ get(\"/foo/bar\")",
             "sections": [
               {
+                "variables": [
+                  {
+                    "variableId": "variable/main.bal/114",
+                    "start": 0,
+                    "end": 10
+                  }
+                ],
                 "kind": "receiver",
                 "text": "testClient · http:Client"
               },
@@ -5039,6 +5161,18 @@
           "sourceId": "examples/client_calls/service/main.bal///1/resource/get/hello/statement/1/value",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/271",
+                "start": 16,
+                "end": 22
+              },
+              {
+                "variableId": "variable/main.bal/271",
+                "start": 37,
+                "end": 43
+              }
+            ],
             "style": "template",
             "label": "string `hello ${person.first_name} ${person.last_name}`",
             "sections": [],

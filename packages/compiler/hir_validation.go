@@ -28,6 +28,9 @@ func ValidateHIR(program HIRProgram) error {
 	if err = hirEnums(reflect.ValueOf(p)); err != nil {
 		return err
 	}
+	if err = hirVariableSpans(reflect.ValueOf(p)); err != nil {
+		return err
+	}
 	v := hirValidator{program: p, graphs: map[string]*hirGraphIndex{}}
 	for id, source := range p.Sources {
 		if id == "" || source.ID != id {
@@ -247,6 +250,80 @@ func hirEnums(value reflect.Value) error {
 				return err
 			}
 		}
+	}
+	return nil
+}
+
+// Walk the normalized wire tree so every independent display alternative is
+// checked, including nested client-context and recursive disclosures.
+func hirVariableSpans(value reflect.Value) error {
+	if !value.IsValid() {
+		return nil
+	}
+	if value.Kind() == reflect.Interface || value.Kind() == reflect.Pointer {
+		if value.IsNil() {
+			return nil
+		}
+		return hirVariableSpans(value.Elem())
+	}
+	if value.Kind() == reflect.Struct {
+		var text string
+		var spans HIRList[HIRVariableOccurrence]
+		switch v := value.Interface().(type) {
+		case HIREntry:
+			text, spans = v.Signature, v.SignatureVariables
+		case HIREntryParameter:
+			text, spans = v.Text, v.Variables
+		case HIRLabelSection:
+			text, spans = string(v.Text), v.Variables
+		case HIRPlainPresentation:
+			text, spans = string(v.Label), v.Variables
+		case HIRClientPresentation:
+			text, spans = string(v.Label), v.Variables
+		case HIRLabelContent:
+			text, spans = string(v.Label), v.Variables
+		case HIRRecursivePresentation:
+			text, spans = string(v.Label), v.Variables
+		}
+		if err := hirCheckVariableSpans(text, spans); err != nil {
+			return fmt.Errorf("%s: %w", value.Type().Name(), err)
+		}
+		for i := 0; i < value.NumField(); i++ {
+			if err := hirVariableSpans(value.Field(i)); err != nil {
+				return err
+			}
+		}
+	} else if value.Kind() == reflect.Slice {
+		for i := 0; i < value.Len(); i++ {
+			if err := hirVariableSpans(value.Index(i)); err != nil {
+				return err
+			}
+		}
+	} else if value.Kind() == reflect.Map {
+		for _, key := range value.MapKeys() {
+			if err := hirVariableSpans(value.MapIndex(key)); err != nil {
+				return err
+			}
+		}
+	}
+	return nil
+}
+
+func hirCheckVariableSpans(text string, spans HIRList[HIRVariableOccurrence]) error {
+	length := utf16Length(text)
+	// Consumers require source order as well as non-overlapping spans.
+	end := 0
+	for _, span := range spans {
+		if strings.TrimSpace(span.VariableID) == "" {
+			return fmt.Errorf("variable occurrence: empty variableId")
+		}
+		if span.Start < 0 || span.End <= span.Start || span.End > length {
+			return fmt.Errorf("variable occurrence %q: invalid UTF-16 bounds [%d,%d) for length %d", span.VariableID, span.Start, span.End, length)
+		}
+		if span.Start < end {
+			return fmt.Errorf("variable occurrence %q: unsorted or overlapping spans", span.VariableID)
+		}
+		end = span.End
 	}
 	return nil
 }

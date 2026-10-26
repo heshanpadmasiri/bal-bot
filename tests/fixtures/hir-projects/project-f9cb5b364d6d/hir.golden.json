@@ -552,6 +552,13 @@
           "sourceId": "browser/http_service/function/main/statement/0",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/103",
+                "start": 19,
+                "end": 27
+              }
+            ],
             "style": "step",
             "label": "Result → int|error captured",
             "sections": [],
@@ -809,6 +816,13 @@
           "sourceId": "browser/http_service/function/main/statement/1",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/146",
+                "start": 13,
+                "end": 20
+              }
+            ],
             "style": "step",
             "label": "Result → int checked",
             "sections": [],
@@ -1066,6 +1080,13 @@
           "sourceId": "browser/http_service/function/main/statement/2",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/188",
+                "start": 16,
+                "end": 23
+              }
+            ],
             "style": "step",
             "label": "Result → string message",
             "sections": [],
@@ -1299,6 +1320,13 @@
           "sourceId": "browser/http_service/function/main/statement/3",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/103",
+                "start": 4,
+                "end": 12
+              }
+            ],
             "style": "step",
             "label": "_ = captured;",
             "sections": [],
@@ -1317,6 +1345,13 @@
           "sourceId": "browser/http_service/function/main/statement/4",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/146",
+                "start": 4,
+                "end": 11
+              }
+            ],
             "style": "step",
             "label": "_ = checked;",
             "sections": [],
@@ -1335,6 +1370,13 @@
           "sourceId": "browser/http_service/function/main/statement/5",
           "presentation": {
             "kind": "plain",
+            "variables": [
+              {
+                "variableId": "variable/main.bal/188",
+                "start": 4,
+                "end": 11
+              }
+            ],
             "style": "step",
             "label": "_ = message;",
             "sections": [],

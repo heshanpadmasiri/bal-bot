@@ -74,12 +74,13 @@ export function validateRequest(value: unknown): CompilerRequest {
 // Every failure is a bridge/infrastructure error; never normalize wire data.
 function hirFail(message: string): never { throw new Error(`Invalid compiler HIR: ${message}`); }
 function hirAssert(condition: unknown, message = 'invalid shape'): asserts condition { if (!condition) hirFail(message); }
-function hirObject(value: unknown, keys?: string): Record<string, unknown> {
+function hirObject(value: unknown, keys?: string, optional = ''): Record<string, unknown> {
   hirAssert(record(value));
   Object.keys(value).forEach(hirString);
   if (keys !== undefined) {
     const expected = keys.split(' ');
-    hirAssert(Object.keys(value).length === expected.length && expected.every(k => Object.hasOwn(value, k)), 'unexpected or missing field');
+    const allowed = [...expected, ...optional.split(' ').filter(Boolean)];
+    hirAssert(expected.every(k => Object.hasOwn(value, k)) && Object.keys(value).every(k => allowed.includes(k)), 'unexpected or missing field');
   }
   return value;
 }
@@ -107,10 +108,24 @@ function hirLocated(value: unknown): void {
   for (const p of [r.start, r.end]) { const q = hirObject(p, 'line column'); hirAssert(position(q)); }
   hirAssert(range(r), 'invalid source range');
 }
-function hirSections(value: unknown): void {
-  hirList(value, item => { const v = hirObject(item, 'kind text'); hirEnum(v.kind, 'text receiver context method error-message error-cause error-detail'); hirPresentationText(v.text); });
+// Go omits empty occurrence arrays. Omission and [] are valid, but null
+// (or an explicitly present undefined) is not a collection on the wire.
+function hirVariables(v: Record<string, unknown>, text: unknown, key = 'variables'): void {
+  if (!Object.hasOwn(v, key)) return;
+  hirPresentationText(text);
+  let end = 0;
+  hirList(v[key], item => {
+    const occurrence = hirObject(item, 'variableId start end'); hirId(occurrence.variableId);
+    hirAssert(Number.isSafeInteger(occurrence.start) && Number.isSafeInteger(occurrence.end) &&
+      Number(occurrence.start) >= end && Number(occurrence.end) > Number(occurrence.start) &&
+      Number(occurrence.end) <= (text as string).length, 'invalid variable span');
+    end = Number(occurrence.end);
+  });
 }
-function hirLabel(value: unknown): void { const v = hirObject(value, 'label sections'); hirPresentationText(v.label); hirSections(v.sections); }
+function hirSections(value: unknown): void {
+  hirList(value, item => { const v = hirObject(item, 'kind text', 'variables'); hirEnum(v.kind, 'text receiver context method error-message error-cause error-detail'); hirPresentationText(v.text); hirVariables(v, v.text); });
+}
+function hirLabel(value: unknown): void { const v = hirObject(value, 'label sections', 'variables'); hirPresentationText(v.label); hirVariables(v, v.label); hirSections(v.sections); }
 function hirAvailability(value: unknown): void {
   const v = hirObject(value);
   if (v.kind === 'available') hirObject(v, 'kind');
@@ -161,18 +176,18 @@ function hirCallDisclosure(value: unknown): void {
   hirRecursivePresentation(d.recursive);
 }
 function hirRecursivePresentation(value: unknown): void {
-  const r = hirObject(value, 'label sections limitation title ariaLabel glyph');
-  hirPresentationText(r.label); hirSections(r.sections); hirNullable(r.limitation); hirPresentationText(r.title); hirPresentationText(r.ariaLabel); hirString(r.glyph);
+  const r = hirObject(value, 'label sections limitation title ariaLabel glyph', 'variables');
+  hirPresentationText(r.label); hirVariables(r, r.label); hirSections(r.sections); hirNullable(r.limitation); hirPresentationText(r.title); hirPresentationText(r.ariaLabel); hirString(r.glyph);
 }
 function validateNode(value: unknown): HIRNode {
   const v = hirObject(value, 'id occurrenceKey sourceId presentation body'); hirId(v.id); hirId(v.occurrenceKey); hirId(v.sourceId);
   const p = hirObject(v.presentation);
   if (p.kind === 'hidden') hirObject(p, 'kind');
   else {
-    hirObject(p, 'kind style label sections limitation disclosure'); hirEnum(p.kind, 'plain client');
+    hirObject(p, 'kind style label sections limitation disclosure', 'variables'); hirEnum(p.kind, 'plain client');
     hirEnum(p.style, 'step condition function loop mapping unsupported return client trap panic template error-constructor');
     if (p.kind === 'client') hirAssert(p.style === 'client');
-    hirPresentationText(p.label); hirSections(p.sections); hirNullable(p.limitation);
+    hirPresentationText(p.label); hirVariables(p, p.label); hirSections(p.sections); hirNullable(p.limitation);
     const d = hirObject(p.disclosure);
     switch (d.kind) {
       case 'none': hirObject(d, 'kind'); break;
@@ -213,9 +228,10 @@ function hirPlan(value: unknown): void {
 }
 function validateGraph(value: unknown): HIRGraph {
   const g = hirObject(value, 'id source text moduleId entry nodes ports edges groups rootGroup interfaces emission'); hirLocated(g); hirId(g.moduleId); hirId(g.rootGroup);
-  const e = hirObject(g.entry, 'kind owner operation name signature parameters returnType');
+  const e = hirObject(g.entry, 'kind owner operation name signature parameters returnType', 'signatureVariables');
   hirEnum(e.kind, 'resource remote function method'); hirNullable(e.owner); hirNullable(e.operation); hirId(e.name); hirId(e.signature); hirId(e.returnType);
-  hirList(e.parameters, item => { const p = hirObject(item, 'label text'); hirEnum(p.label, 'Path Input'); hirId(p.text); });
+  hirVariables(e, e.signature, 'signatureVariables');
+  hirList(e.parameters, item => { const p = hirObject(item, 'label text', 'variables'); hirEnum(p.label, 'Path Input'); hirId(p.text); hirVariables(p, p.text); });
   hirList(g.nodes, validateNode); hirList(g.groups, validateGroup); hirList(g.edges, hirEdge); hirList(g.interfaces, hirInterface);
   hirList(g.ports, item => {
     const p = hirObject(item, 'id occurrenceKey nodeId role anchor'); hirId(p.occurrenceKey); hirId(p.id); hirId(p.nodeId); hirEnum(p.role, 'entry normal-exit true false return break continue next-iteration panic');
