@@ -1,5 +1,4 @@
 import React from 'react';
-import './render-parity';
 import {createRoot} from 'react-dom/client';
 import {createAssistantMessageEventStream, normalizeContext} from '@earendil-works/pi-ai';
 import {Editor} from '../../src/editor';

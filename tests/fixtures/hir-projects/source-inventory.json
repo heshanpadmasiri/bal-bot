@@ -973,11 +973,6 @@
       ]
     },
     {
-      "file": "packages/compiler/tests/browser/render-parity.spec.mjs",
-      "sha256": "548a584c0a3352dedef164df68c8887f383bb62c62a2103ab7765f0af2dd703f",
-      "scenarios": []
-    },
-    {
       "file": "packages/compiler/tests/browser/static-host.spec.mjs",
       "sha256": "47481d47b0d875f97510415af240d8eccd36022ee5f1e196a5f353e86fb93c03",
       "scenarios": [

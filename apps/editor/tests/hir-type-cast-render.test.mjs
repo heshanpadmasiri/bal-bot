@@ -5,7 +5,7 @@ import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {createServer} from 'vite';
 import {chromium} from 'playwright';
-import {browserLaunchOptions} from '../../../scripts/flow-parity/environment.mjs';
+const browserLaunchOptions = {headless: true};
 const root = fileURLToPath(new URL('../../../', import.meta.url));
 
 test('type casts render transparent operands and expandable calls', async () => {

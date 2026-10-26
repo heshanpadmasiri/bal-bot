@@ -21,6 +21,22 @@ A fresh browser workspace starts with a Hello World Ballerina HTTP service and i
 
 There is no local-directory argument, file synchronization, or filesystem access. Files are not imported from or written back to a source repository. The [example packages](examples/README.md) are reference fixtures, not directories that the server can open. This is an experimental, single-user browser tool; it does not run your services.
 
+## Commits and Git hooks
+
+Keep commits atomic: one logical change per commit, with its tests and docs.
+`npm install` configures Git to use the tracked `.githooks` directory. For an
+existing checkout, run `npm run hooks:install`. Installation refuses to overwrite
+an existing custom `core.hooksPath`; reconcile those hooks first.
+
+The pre-commit hook runs `npm run test:all`: Node tests, script tests, Go compiler
+tests, compiler/editor browser tests, and playground browser tests.
+Any failure blocks the commit. You can run the same command
+manually. It tests the working tree, so stage the changes you actually tested.
+
+In addition to the development tools above, install Playwright Chromium with
+`npx playwright install chromium` (`--with-deps` on Linux if needed). Do not
+bypass the hook or skip failing tests.
+
 ## Standalone flow playground
 
 ```sh
@@ -104,26 +120,17 @@ Production analysis returns direct HIR, rendered by canonical `FlowView`/`FlowEn
 and `instantiateGraph(program, functionId, expanded)`. Legacy DTO snapshots and
 adapters are test-only historical proof, not a second production pipeline.
 
-On the retained pinned rendering environment:
-
-```sh
-npm ci
-npx playwright install chromium
-npm run test:flow-parity
-```
-
-This verifies both development and production against immutable baseline
-**`280850fd`**; it never records or refreshes expected SVG/HTML. OS/runtime/browser
-binaries and system/web fonts must match the frozen environment. See
-[reproduction and provenance](docs/flow-rendering.md) and the
-[HIR wire/API contract](docs/hir-wire.md). `--verify --hir` is a compatibility
-alias for the same default pipeline.
+Run `npm run test:all` for unit, script, compiler, editor/browser, playground,
+and focused SVG snapshot coverage. `npm run test:svg` compiles a committed `.bal`
+fixture through the production playground and compares standalone SVGs (collapsed
+and expanded calls). See [SVG snapshot recipes](tests/svg/README.md) for generating,
+explicitly updating, and inspecting differences. The legacy frozen SVG/HTML parity
+gate remains removed.
+See [flow rendering](docs/flow-rendering.md) and the
+[HIR wire/API contract](docs/hir-wire.md).
 
 AST/HIR golden changes require an explicit `npm run test:hir:update` invocation
-and review; never regenerate frozen rendering artifacts to fix failures.
-For separate human SVG inspection, run `npm run review:flow`, capture/repeat both
-modes, and record case IDs, modes and notes. Local review captures/feedback are
-not baselines; see the [review guide](scripts/flow-review/README.md).
+and review. For interactive rendering inspection, use the standalone flow playground.
 
 ## License
 

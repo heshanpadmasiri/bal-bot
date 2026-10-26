@@ -34,26 +34,20 @@ are not a supported second wire contract or production renderer.
 
 ## Reproduction and updates
 
-The immutable rendering authority is baseline commit **`280850fd`**, not a newly
-recorded HIR baseline. On the retained pinned machine, run `npm ci`,
-`npx playwright install chromium`, then `npm run test:flow-parity`; this verifies
-the default HIR renderer against original SVG/HTML/style artifacts in both modes.
-`--verify --hir` is only a compatibility spelling. Browser/system fonts, runtime
-versions and binaries must match the frozen environment; do not update the
-manifest to accommodate drift. See [the rendering gate](flow-rendering.md).
+Run `npm ci`, `npx playwright install chromium`, and `npm run test:all` for
+unit, compiler, editor/browser, and playground browser validation. The legacy
+frozen rendering gate, capture tools and SVG/HTML artifacts have been removed.
+See [flow rendering](flow-rendering.md) for retained coverage and fixture dependencies.
 
 AST/HIR/diagnostic goldens change **only by explicit request** via
 `npm run test:hir:update` (or native tests' explicit `-update`). Ordinary tests
-never refresh them. This is not authorization to rewrite frozen rendering inputs,
-inventory, source archives or artifacts. Review changed AST/HIR files separately.
+never refresh them. This is not authorization to rewrite retained compiler inputs,
+inventory or source archives. Review changed AST/HIR files separately.
 Run `node scripts/update_hir_goldens.mjs --check-inventory` for a read-only browser
-input proof; native provenance checks are documented in the rendering gate.
+input proof; native provenance checks run in `npm run test:compiler`.
 
-Human SVG inspection is separate: run `npm run review:flow`, use **Capture +
-repeat**, inspect both modes, and save case-ID/mode-specific notes and feedback.
-The local review captures/notes under `.bal-bot/flow-review/` are exploratory, not
-acceptance artifacts; report review coverage and unresolved findings separately
-from automated parity results. See [review tool instructions](../scripts/flow-review/README.md).
+For human rendering inspection, use `npm run dev:playground` and share prefilled
+demo links. The playground uses the production compiler and renderer.
 
 ## Encoding
 

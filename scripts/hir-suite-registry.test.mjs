@@ -7,7 +7,6 @@ import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {validateRenderCoverage, validateInfrastructure} from './hir-suite-registry.mjs';
 import {collectBrowserInventory} from './update_hir_goldens.mjs';
-import {assertSuiteInventory} from '../apps/editor/tests/render-cases.mjs';
 
 test('post-baseline flow suites require separately registered executable render scenarios', () => {
   const root = mkdtempSync(join(tmpdir(), 'hir-registry-'));
@@ -73,14 +72,6 @@ test('infrastructure requires explicit paths, purpose, exact hashes and unique n
 });
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-test('only audited infrastructure suites bypass unknown-suite rejection', async () => {
-  const inventory = JSON.parse(readFileSync(join(root, 'tests/fixtures/flow-rendering/inventory.json')));
-  const registry = JSON.parse(readFileSync(join(root, 'tests/hir-suite-inventory.json')));
-  const baseline = inventory.suites.map(entry => entry.file);
-  await assertSuiteInventory([...baseline, ...registry.infrastructure.map(entry => entry.file)], inventory);
-  await assert.rejects(assertSuiteInventory([...baseline, 'packages/browser-workspace/tests/unknown.test.mjs'], inventory), /unregistered suites/);
-});
-
 test('browser collector excludes only audited infrastructure and checks mutation-repository bytes', () => {
   const repository = mkdtempSync(join(tmpdir(), 'hir-browser-infrastructure-'));
   try {

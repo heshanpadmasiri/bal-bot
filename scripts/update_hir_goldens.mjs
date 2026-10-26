@@ -163,7 +163,6 @@ export function collectBrowserInventory(historical = false, migrations = loadMig
       if (name === 'storage.spec.mjs') scenario.exclusions.push('old.bal localStorage text is intentionally never restored/compiled; browser-storage infrastructure only.');
       if (scenario.name === 'unsaved editor text does not invalidate analysis; removing selected scopes falls back to Automation') scenario.exclusions.push('Textbox draft "not saved" is not written to the workspace or compiled.');
       if (scenario.name === 'chat renders action-only tool summaries through streaming, outcomes and scope restoration') scenario.exclusions.push('private.bal/secret source strings are simulated tool-message content, not workspace source edits.');
-      if (name === 'render-parity.spec.mjs') scenario.exclusions.push('Harness renders frozen graph inputs; no compiler source mutation. Original project inputs are covered separately by manifest catalog coverage.');
     });
     result.push({ file, sha256: hash(text), scenarios });
   }

@@ -1,5 +1,17 @@
 # Agent instructions
 
+## Commits and validation
+
+- Commits must be atomic: each commit contains one logical change, including its
+  tests and necessary documentation. Split unrelated changes into separate commits;
+  do not include unrelated working-tree changes.
+- Before committing, run `npm run test:all`. The tracked `.githooks/pre-commit`
+  hook runs the same full suite and rejects the commit if any check fails.
+- Install the hooks with `npm install` (or `npm run hooks:install` for an existing
+  checkout). Do not bypass hooks or skip failing tests to make a commit succeed.
+- Hooks test the working tree; ensure the staged changes match what was tested.
+  Never regenerate frozen baselines merely to make tests pass.
+
 ## Get feedback on flow rendering
 
 Use the standalone flow playground to show users how Ballerina constructs render
